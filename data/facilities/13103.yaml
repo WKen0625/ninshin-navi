@@ -1,0 +1,192 @@
+# 港区の分娩施設  確認日: 2026-09-19
+# 出所: 出産なび（厚生労働省） https://birth-navi.mhlw.go.jp/ 「東京都港区」の出産施設 6件。施設名・住所は出産なびの表記のまま。
+# 費用（costs）は、直接支払制度の請求書データ（保険診療を行った分娩を除く）から出産なびが算出した値。一時金を引く前。
+# tokyo_epidural_subsidy_target の出所: 東京都「対象医療機関一覧」（令和8年7月31日時点） https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/mutsubunben/subsidy
+# 予約ルール（booking_policy）が null の施設は未確認（画面では「電話で確認」と出る）。わかったら埋める。
+
+facilities:
+  - id: sanno-birth-center
+    region_code: "13103"
+    name: 医療法人財団順和会　山王バースセンター
+    address: 東京都港区赤坂８－１０－１６　２階及び３階
+    lat: 35.6697353
+    lng: 139.727363
+    facility_type: 有床診療所
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: true
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11189
+    website_url: https://www.sannoclc.or.jp/birth/
+    source_url: https://birth-navi.mhlw.go.jp/facilities/11189
+    verified_at: 2026-09-19
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 1453000
+        total_median_yen: 1428000
+        basic_avg_yen: 1187000
+        basic_median_yen: 1167000
+        room_diff_avg_yen: 214800
+        room_diff_median_yen: 192000
+        stay_days_avg: 6
+        stay_days_median: 6
+        source_url: https://birth-navi.mhlw.go.jp/facilities/11189
+        verified_at: 2026-09-19
+
+  - id: sanno-hospital
+    region_code: "13103"
+    name: 医療法人財団順和会　山王病院
+    address: 東京都港区赤坂８－１０－１６
+    lat: 35.6697353
+    lng: 139.727363
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: true
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10436
+    website_url: https://www.sannoclc.or.jp/hospital/
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10436
+    verified_at: 2026-09-19
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 1528000
+        total_median_yen: 1487000
+        basic_avg_yen: 1212000
+        basic_median_yen: 1184000
+        room_diff_avg_yen: 259000
+        room_diff_median_yen: 216000
+        stay_days_avg: 6
+        stay_days_median: 6
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10436
+        verified_at: 2026-09-19
+
+  - id: toranomon-hospital
+    region_code: "13103"
+    name: 国家公務員共済組合連合会　虎の門病院
+    address: 東京都港区虎ノ門２－２－２
+    lat: 35.6683308
+    lng: 139.7458418
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10542
+    website_url: https://toranomon.kkr.or.jp/
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10542
+    verified_at: 2026-09-19
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 898000
+        total_median_yen: 924000
+        basic_avg_yen: 758000
+        basic_median_yen: 743000
+        room_diff_avg_yen: 98500
+        room_diff_median_yen: 48300
+        stay_days_avg: 7
+        stay_days_median: 7
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10542
+        verified_at: 2026-09-19
+
+  - id: jikei-hospital
+    region_code: "13103"
+    name: 東京慈恵会医科大学附属病院
+    address: 東京都港区西新橋3-19-18
+    lat: 35.6638064
+    lng: 139.7504283
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10822
+    website_url: https://www.hosp.jikei.ac.jp/
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10822
+    verified_at: 2026-09-19
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 797000
+        total_median_yen: 775000
+        basic_avg_yen: 663000
+        basic_median_yen: 676000
+        room_diff_avg_yen: 75400
+        room_diff_median_yen: 30000
+        stay_days_avg: 6
+        stay_days_median: 6
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10822
+        verified_at: 2026-09-19
+
+  - id: saiseikai-chuo
+    region_code: "13103"
+    name: 東京都済生会中央病院
+    address: 東京都港区三田１－４－１７
+    lat: 35.6540288
+    lng: 139.7441649
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10076
+    website_url: https://www.saichu.jp
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10076
+    verified_at: 2026-09-19
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 743000
+        total_median_yen: 750000
+        basic_avg_yen: 665000
+        basic_median_yen: 675000
+        room_diff_avg_yen: 47300
+        room_diff_median_yen: 0
+        stay_days_avg: 7
+        stay_days_median: 7
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10076
+        verified_at: 2026-09-19
+
+  - id: aiiku-hospital
+    region_code: "13103"
+    name: 総合母子保健センター愛育病院
+    address: 東京都港区芝浦1-16-10
+    lat: 35.6459651
+    lng: 139.7524253
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: true
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10117
+    website_url: https://www.aiiku.net/
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10117
+    verified_at: 2026-09-19
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 1107000
+        total_median_yen: 1121000
+        basic_avg_yen: 806000
+        basic_median_yen: 833000
+        room_diff_avg_yen: 123300
+        room_diff_median_yen: 120000
+        stay_days_avg: 6
+        stay_days_median: 6
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10117
+        verified_at: 2026-09-19

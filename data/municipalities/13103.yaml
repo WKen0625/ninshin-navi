@@ -1,0 +1,183 @@
+# 港区（全国地方公共団体コード 13103）  確認日: 2026-09-19
+# 「地域を1つ追加する手順」（CLAUDE.md §9）の試行。コードは変えず、このファイルと data/facilities/13103.yaml だけを足した。
+# 2026-09-19 に全行を承認済み。
+
+region:
+  code: "13103"
+  level: municipality
+  name: 港区
+  parent_code: "13"
+  status: in_progress
+  verified_at: 2026-09-19
+
+documents:
+  - id: minato.hoken_bag
+    name: 母と子の保健バッグ（港区。母子健康手帳と一緒に受け取る袋）
+    aliases: [保健バッグ, 母子手帳のセット]
+    # この袋を持っていれば、中の紙も持っている扱いにする
+    includes:
+      - jp.boshi_techo
+      - jp.kenshin_ticket
+      - minato.kenshin_ticket
+      - minato.shinseiji_choukaku_ticket
+      - minato.sanpu_kenshin_ticket      # 令和8年4月1日以降に妊娠届を出した人。それより前の人は申請書が郵送される
+    phase: notification
+    description: 妊娠届を出すと、母子健康手帳・港区妊娠・子育て情報のクリップファイルと一緒に受け取る。中身は港区子育てハンドブック、妊婦健康診査受診票、新生児聴覚検査受診票など。
+    source_url: https://www.city.minato.tokyo.jp/chiikihoken/kenko/ninshin/ninshin/ninshin.html
+    verified_at: 2026-09-19
+  - id: minato.kenshin_ticket
+    name: 妊婦健康診査受診票（港区）
+    aliases: [受診票, 補助券]
+    phase: notification
+    description: 妊婦健康診査14回分（1回目は11,670円、2〜14回目は各5,460円を助成）、超音波検査4回分（各5,300円）、子宮頸がん検診1回分（3,400円）。
+    source_url: https://www.city.minato.tokyo.jp/chiikihoken/kenko/ninshin/ninshin/ninpukennshin.html
+    verified_at: 2026-09-19
+  - id: minato.shinseiji_choukaku_ticket
+    name: 新生児聴覚検査受診票（港区）
+    phase: birth
+    description: 「母と子の保健バッグ」に入っている。
+    source_url: https://www.city.minato.tokyo.jp/chiikihoken/kenko/ninshin/ninshin/ninshin.html
+    verified_at: 2026-09-19
+  - id: minato.sanpu_kenshin_ticket
+    name: 産婦健康診査受診票（港区）
+    phase: postpartum
+    description: 2回まで、1回5,000円を助成（令和8年4月1日開始）。令和8年4月1日以降に妊娠届を出した人は「母と子の保健バッグ」に同封。それより前の人には、産後2か月ごろに区から申請書が郵送される。
+    source_url: https://www.city.minato.tokyo.jp/chiikihoken/sanpu.html
+    verified_at: 2026-09-19
+  - id: minato.shien_kyufu_shinsei_1
+    name: 妊婦支援給付金（1回目）の申請書（港区）
+    phase: pregnancy
+    description: みなとプレママ応援事業（妊婦全員面接）のときに受け取る。
+    source_url: https://www.city.minato.tokyo.jp/chiikihoken/puremama.html
+    verified_at: 2026-09-19
+  - id: minato.akachan_homon_annai
+    name: こんにちは赤ちゃん訪問の案内（港区）
+    phase: postpartum
+    description: 妊婦支援給付金2回目の申請は、この訪問のときに案内される。
+    source_url: https://www.city.minato.tokyo.jp/chiikihoken/kodomo/syusankosodate07.html
+    verified_at: 2026-09-19
+
+steps:
+  - id: minato.s03
+    overrides_step_id: jp.s03
+    phase: notification
+    sort_order: 30
+    title: 妊娠届を出し、母子健康手帳と「母と子の保健バッグ」を受け取る
+    detail: 窓口は各総合支所（芝・麻布・赤坂・高輪・芝浦港南）の区民課保健福祉係。持ち物は本人確認書類、個人番号（マイナンバー）確認書類、医師または助産師の診察券など。マイナポータルで電子申請もできるが、その場合も母子健康手帳などを受け取りに窓口へ行く必要がある。
+    trigger_document_id: jp.heartbeat_confirmed
+    produces_document_id: minato.hoken_bag
+    channel: 各総合支所 区民課保健福祉係（電子申請のあと来庁）
+    deadline_note: 医療機関で妊娠の診断を受けたら、なるべく早めに
+    source_url: https://www.city.minato.tokyo.jp/chiikihoken/kenko/ninshin/ninshin/ninshin.html
+    verified_at: 2026-09-19
+
+  - id: minato.s03b
+    phase: pregnancy
+    sort_order: 35
+    title: みなとプレママ応援事業（妊婦全員面接）を受ける
+    detail: 助産師などとの面接。場所はみなと保健所（三田1-4-10）。来所が難しければオンライン面談もできる。予約は「みなと母子（親子）手帳アプリ」から。面接のあと、妊婦支援給付金（1回目）の申請書と、子ども商品券（1万円分）を受け取る。
+    trigger_document_id: minato.hoken_bag
+    produces_document_id: minato.shien_kyufu_shinsei_1
+    channel: みなと保健所（オンライン面談も可）
+    action_url: https://www.city.minato.tokyo.jp/chiikihoken/puremama.html
+    deadline_base: due_date
+    deadline_offset_days: 0
+    deadline_note: 妊娠5か月（安定期）以降がおすすめ。出産後は受けられない
+    source_url: https://www.city.minato.tokyo.jp/chiikihoken/puremama.html
+    verified_at: 2026-09-19
+
+  - id: minato.s05
+    overrides_step_id: jp.s05
+    phase: pregnancy
+    sort_order: 50
+    title: 妊婦支援給付金（1回目・5万円）を申請する
+    detail: 令和7年4月1日以降に妊娠届を出し、プレママ面談を受けた人が対象。現金（妊産婦名義の口座に振込）か電子クーポンを選ぶ。申請のしかたは面談のときに案内される。流産・死産の場合も対象。問い合わせ 03-6722-0310（平日9〜17時）。
+    trigger_document_id: minato.shien_kyufu_shinsei_1
+    channel: 面談のときの案内に沿って申請
+    deadline_note: 申請期限は区のページに記載なし（面談のときに確認する）
+    source_url: https://www.city.minato.tokyo.jp/chiikihoken/kodomo/syusankosodate07.html
+    verified_at: 2026-09-19
+
+  - id: minato.s05c
+    phase: pregnancy
+    sort_order: 57
+    title: 妊産婦歯科健診を受ける（妊娠中に1回）
+    detail: 区内在住の妊娠中または産後1年未満の人が対象で、妊娠中と産後にそれぞれ1回。場所はみなと保健所3階。月1回・水曜の午後で、オンライン予約（港区mila-e予約、先着順）。
+    trigger_document_id: minato.hoken_bag
+    channel: みなと保健所
+    action_url: https://www.city.minato.tokyo.jp/chiikihoken/kenko/kenko/shinsa/ninsanpushika.html
+    source_url: https://www.city.minato.tokyo.jp/chiikihoken/kenko/kenko/shinsa/ninsanpushika.html
+    verified_at: 2026-09-19
+
+  - id: minato.s07b
+    phase: postpartum
+    sort_order: 72
+    title: 港区の出産費用の助成を申請する
+    detail: 分娩費・入院費などの実費（上限は1人なら81万円）から、出産育児一時金などを引いた額が助成される（1人なら最大31万円）。窓口は各総合支所区民課保健福祉係。郵送（子ども若者支援課子ども給付係）とマイナポータルの電子申請もできる。申請書、領収書・明細書、母の保険情報、出産育児一時金の受給がわかる書類が必要。
+    trigger_document_id: jp.hospital_receipt
+    channel: 窓口 / 郵送 / オンライン（マイナポータル）
+    action_url: https://www.city.minato.tokyo.jp/kodomokyufu/kenko/ninshin/shussan/jose.html
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    deadline_note: 出生日から1年以内
+    survey_question_id: cost_paid
+    source_url: https://www.city.minato.tokyo.jp/kodomokyufu/kenko/ninshin/shussan/jose.html
+    verified_at: 2026-09-19
+
+  - id: minato.s08
+    overrides_step_id: jp.s08
+    phase: postpartum
+    sort_order: 80
+    title: 妊婦支援給付金（2回目・子ども1人につき5万円）を申請する
+    detail: 令和7年4月1日以降に出産し、こんにちは赤ちゃん訪問を受けた人が対象。申請のしかたは訪問のときに案内される。現金か電子クーポンを選ぶ。
+    trigger_document_id: minato.akachan_homon_annai
+    channel: 訪問のときの案内に沿って申請
+    deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
+    source_url: https://www.city.minato.tokyo.jp/chiikihoken/kodomo/syusankosodate07.html
+    verified_at: 2026-09-19
+
+  - id: minato.s08b
+    phase: postpartum
+    sort_order: 82
+    title: 産婦健康診査を受ける（2回まで）
+    detail: 区民で生後2か月以内の産婦が対象。1回5,000円を2回まで助成。令和8年10月1日以降は、都内の契約医療機関で受診票を出して受ける（9月30日までの受診は、あとから払い戻し）。
+    trigger_document_id: minato.sanpu_kenshin_ticket
+    channel: 医療機関
+    deadline_note: 原則として産後2か月以内
+    source_url: https://www.city.minato.tokyo.jp/chiikihoken/sanpu.html
+    verified_at: 2026-09-19
+
+subsidies:
+  - id: minato.shien_kyufu_1
+    name: 妊婦支援給付金（1回目）
+    kind: cash_later
+    amount_yen: 50000
+    amount_note: 現金または電子クーポンを選ぶ。
+    conditions: 令和7年4月1日以降に妊娠届を出し、みなとプレママ応援事業（プレママ面談）を受けた人。流産・死産の場合も対象。
+    apply_via: プレママ面談のときに案内される。問い合わせ 03-6722-0310（平日9〜17時）
+    source_url: https://www.city.minato.tokyo.jp/chiikihoken/kodomo/syusankosodate07.html
+    verified_at: 2026-09-19
+
+  - id: minato.shien_kyufu_2
+    name: 妊婦支援給付金（2回目）
+    kind: cash_later
+    amount_formula: "50000 * children"
+    amount_note: 子ども1人につき5万円。現金または電子クーポンを選ぶ。
+    conditions: 令和7年4月1日以降に出産し、こんにちは赤ちゃん訪問を受けた人。
+    apply_via: こんにちは赤ちゃん訪問のときに案内される
+    source_url: https://www.city.minato.tokyo.jp/chiikihoken/kodomo/syusankosodate07.html
+    verified_at: 2026-09-19
+
+  - id: minato.shussanhi
+    name: 港区 出産費用の助成
+    kind: cash_later
+    # 実費（上限: 1人81万円、2人129万円、3人177万円）から、出産育児一時金などを引いた額
+    amount_formula: "min(cost, 810000 + 480000 * (children - 1)) - lumpsum"
+    amount_note: 分娩費・入院費などの実費（上限は1人81万円、双子129万円、三つ子177万円）から、出産育児一時金・付加金などを引いた全額（1人なら最大31万円）。ここでは出産なびの費用を実費の目安にして計算している。高額療養費にあたる分は除かれる。
+    conditions: 保護者が出産日以前から港区に住所があり、申請日に引き続き1年以上港区に住んでいること。子どもが出生日から港区に住所があり、保護者と同居していること。母が日本の公的な健康保険に入っていること。
+    apply_via: 各総合支所区民課保健福祉係（窓口）／子ども若者支援課子ども給付係（郵送）／マイナポータル（電子申請）
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    scheme_applicable: [lumpsum]
+    source_url: https://www.city.minato.tokyo.jp/kodomokyufu/kenko/ninshin/shussan/jose.html
+    verified_at: 2026-09-19

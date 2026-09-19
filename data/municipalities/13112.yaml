@@ -1,0 +1,274 @@
+# 世田谷区（全国地方公共団体コード 13112）  確認日: 2026-09-18
+# 区のページ「妊娠」カテゴリ: https://www.city.setagaya.lg.jp/kodomokyouiku/ninshinshussan/category/11721.html
+# needs_review: true の行は、ページの存在は確認済みだが中身が未確認。
+
+region:
+  code: "13112"
+  level: municipality
+  name: 世田谷区
+  parent_code: "13"
+  status: in_progress
+  verified_at: 2026-09-18
+
+documents:
+  - id: setagaya.ninshin_todoke
+    name: 妊娠届出書（世田谷区）
+    phase: pre_notification
+    description: 母子健康手帳の交付窓口で記入して提出。マイナンバー確認と本人確認あり。
+    source_url: https://www.city.setagaya.lg.jp/documents/7718/2026_12_kodomowakamono_kyouiku_.pdf
+    verified_at: 2026-09-18
+  - id: setagaya.hoken_bag
+    name: 母と子の保健バッグ（母子健康手帳＋受診票が入った袋）
+    aliases: [保健バッグ, 母子手帳のセット, 妊娠セット]
+    # この袋を持っていれば、中の紙も持っている扱いにする
+    includes:
+      - jp.boshi_techo
+      - jp.kenshin_ticket
+      - setagaya.kenshin_ticket
+      - setagaya.shika_kenshin_ticket
+      - setagaya.shinseiji_choukaku_ticket
+      - setagaya.sanpu_kenshin_ticket          # 令和8年4月1日以降に妊娠届を出した人。それより前の人には郵送
+      - setagaya.ikkagetsuji_kenshin_ticket    # 同上
+    phase: notification
+    description: 妊娠届を出すと受け取る。母子健康手帳（親子健康手帳）と妊婦健康診査等の受診票が入っている。
+    source_url: https://www.city.setagaya.lg.jp/02244/1189.html
+    verified_at: 2026-09-18
+  - id: setagaya.kenshin_ticket
+    name: 妊婦健康診査受診票（世田谷区）
+    aliases: [受診票, 補助券]
+    phase: notification
+    description: 妊婦健康診査14回分・超音波検査4回分・子宮頸がん検診1回分の受診票。「母と子の保健バッグ」に同封。都外の医療機関や助産所で自費受診した分は、出産した日から1年以内に償還払いを申請できる。
+    source_url: https://www.city.setagaya.lg.jp/02244/1193.html
+    verified_at: 2026-09-19
+  - id: setagaya.kosodate_riyoken
+    name: せたがや子育て利用券
+    phase: pregnancy
+    description: 地域の産前・産後サービスに使える券。1セット10,000円分（500円券14枚・100円券30枚）。健康づくり課でのネウボラ面接（妊娠期面接・産後面接）のときに受け取る。有効期限は子どもが2歳になる誕生日まで。
+    source_url: https://www.city.setagaya.lg.jp/02244/1188.html
+    verified_at: 2026-09-19
+  - id: setagaya.shien_kyufu_annai_1
+    name: 妊婦支援給付の申請案内（1回目）
+    phase: pregnancy
+    description: ネウボラ面接（妊娠期面接）時に受け取る。
+    source_url: https://www.city.setagaya.lg.jp/02244/20413.html
+    verified_at: 2026-09-18
+  - id: setagaya.shussanhi_shinsei
+    name: 世田谷区出産費助成金支給申請書兼請求書（第1号様式）
+    phase: postpartum
+    source_url: https://www.city.setagaya.lg.jp/documents/1206/shussanhisinseisho.pdf
+    verified_at: 2026-09-18
+  - id: setagaya.akachan_homon_annai
+    name: 赤ちゃん訪問（乳児期家庭訪問）の案内
+    phase: postpartum
+    description: 妊婦支援給付2回目の申請案内はこのときに受け取る。
+    source_url: https://www.city.setagaya.lg.jp/02244/20413.html
+    verified_at: 2026-09-18
+  - id: setagaya.sanpu_kenshin_ticket
+    name: 産婦健康診査受診票
+    phase: postpartum
+    description: 令和8年10月1日以降の受診が対象。2回分（1回あたり上限5,000円）。令和8年4月1日以降に妊娠届を出した人は「母と子の保健バッグ」に同封、それより前の人には郵送。
+    source_url: https://www.city.setagaya.lg.jp/02244/29565.html
+    verified_at: 2026-09-19
+  - id: setagaya.ikkagetsuji_kenshin_ticket
+    name: 1か月児健康診査受診票（2026年10月1日以降の受診）
+    phase: postpartum
+    description: 1回分（上限6,000円）。令和8年4月1日以降に妊娠届を出した人は「母と子の保健バッグ」に同封、それより前の人には郵送。
+    source_url: https://www.city.setagaya.lg.jp/02244/10722.html
+    verified_at: 2026-09-19
+  - id: setagaya.shinseiji_choukaku_ticket
+    name: 新生児聴覚検査受診票
+    phase: birth
+    description: 初回検査の費用を上限3,000円まで助成。「母と子の保健バッグ」に同封。
+    source_url: https://www.city.setagaya.lg.jp/02244/1199.html
+    verified_at: 2026-09-19
+  - id: setagaya.shika_kenshin_ticket
+    name: 産前・産後歯科健康診査受診券
+    phase: pregnancy
+    description: 産前・産後に各1回、無料。「母と子の保健バッグ」に同封。
+    source_url: https://www.city.setagaya.lg.jp/02244/1195.html
+    verified_at: 2026-09-19
+
+steps:
+  - id: setagaya.s03
+    overrides_step_id: jp.s03
+    phase: notification
+    sort_order: 30
+    title: 妊娠届を出し、「母と子の保健バッグ」を受け取る
+    detail: 窓口は総合支所健康づくり課・総合支所くみん窓口・出張所・まちづくりセンター（太子堂、経堂、北沢、等々力、用賀、二子玉川、成城、烏山を除く）。マイナポータルの「ぴったりサービス」でも届出できる。持ち物はマイナンバー確認書類と本人確認書類。
+    trigger_document_id: jp.heartbeat_confirmed
+    produces_document_id: setagaya.hoken_bag
+    channel: 窓口 または オンライン（ぴったりサービス）
+    action_url: https://www.city.setagaya.lg.jp/02244/online_tetsuzuki/1179.html
+    deadline_note: なるべく早く
+    source_url: https://www.city.setagaya.lg.jp/documents/7718/2026_12_kodomowakamono_kyouiku_.pdf
+    verified_at: 2026-09-18
+
+  - id: setagaya.s03b
+    phase: pregnancy
+    sort_order: 35
+    title: ネウボラ面接（妊娠期面接）を受ける
+    detail: 総合支所健康づくり課で実施。ここで「せたがや子育て利用券」と妊婦支援給付1回目の申請案内を受け取る。
+    trigger_document_id: setagaya.hoken_bag
+    produces_document_id: setagaya.shien_kyufu_annai_1
+    channel: 総合支所健康づくり課
+    action_url: https://www.city.setagaya.lg.jp/02244/online_tetsuzuki/1182.html
+    source_url: https://www.city.setagaya.lg.jp/02244/20413.html
+    verified_at: 2026-09-18
+
+  - id: setagaya.s05
+    overrides_step_id: jp.s05
+    phase: pregnancy
+    sort_order: 50
+    title: 妊婦支援給付（1回目・5万円）をオンラインで申請する
+    detail: ネウボラ面接で受け取った申請案内に沿って電子申請。本人名義の口座のみ。申請から給付まで2か月程度。問い合わせ 03-6705-0258（平日9〜18時）。
+    trigger_document_id: setagaya.shien_kyufu_annai_1
+    channel: オンライン（電子申請）
+    deadline_base: confirmation_date
+    deadline_offset_days: 730
+    deadline_note: 医療機関で妊娠が確認された日から2年間
+    source_url: https://www.city.setagaya.lg.jp/02244/20413.html
+    verified_at: 2026-09-18
+
+  - id: setagaya.s05b
+    phase: pregnancy
+    sort_order: 55
+    title: 「妊娠8か月時アンケート」に回答する（希望者・必要な人は面談）
+    detail: 妊娠7か月を過ぎると区からアンケートが届く。必ず回答する。回答後、必要に応じてネウボラ・チームから面談の案内がある。急ぐ場合は区公式LINEで面談を予約できる。
+    trigger_document_id: setagaya.hoken_bag
+    channel: 総合支所健康づくり課
+    deadline_base: gestational_week
+    deadline_week: 28
+    deadline_note: 妊娠8か月（28〜31週）
+    source_url: https://www.city.setagaya.lg.jp/02244/online_tetsuzuki/1182.html
+    verified_at: 2026-09-19
+
+  - id: setagaya.s05c
+    phase: pregnancy
+    sort_order: 57
+    title: 産前の歯科健康診査を受ける（無料）
+    detail: 区内に住所のある妊婦が対象。安定期に入ったら早めに。受診できるのは区の「歯科健診等実施医療機関名簿」にある医療機関だけ。健診以外の治療は有料。産後の分は出産日から1年以内に1回。
+    trigger_document_id: setagaya.shika_kenshin_ticket
+    channel: 医療機関（歯科）
+    deadline_note: 産前は妊娠中に1回
+    source_url: https://www.city.setagaya.lg.jp/02244/1195.html
+    verified_at: 2026-09-19
+
+  - id: setagaya.s06d
+    phase: pregnancy
+    sort_order: 66
+    title: （世田谷区の国民健康保険の人）産前産後期間の国民健康保険料の免除を届け出る
+    detail: 出産（予定）日の月の前月から翌々月までの4か月間（多胎は3か月前から6か月間）の保険料が免除される。窓口は世田谷区役所第2庁舎 国保・年金課資格賦課（2階26番窓口）。「産前産後期間に係る保険料軽減届出書」と必要書類のコピーを郵送してもよい。出産前は母子健康手帳など、出産後は出産日と親子関係がわかる書類が必要。
+    trigger_document_id: setagaya.hoken_bag
+    channel: 窓口 / 郵送
+    deadline_note: 出産予定日の6か月前から届け出できる
+    source_url: https://www.city.setagaya.lg.jp/02060/296.html
+    verified_at: 2026-09-19
+
+  - id: setagaya.s07b
+    phase: postpartum
+    sort_order: 72
+    title: 世田谷区の出産費助成（出産児1人につき5万円）を申請する
+    detail: 郵送・窓口（子ども家庭課 子ども医療・手当担当、各総合支所 子ども家庭支援課）・電子申請（マイナポータル）。申請者名義の口座に振込。申請から振込まで1〜2か月。助成金は一時所得として課税対象。
+    trigger_document_id: jp.hospital_receipt
+    channel: 郵送 / 窓口 / オンライン（マイナポータル）
+    action_url: https://www.city.setagaya.lg.jp/02413/1206.html
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    deadline_note: 出産の日から1年以内
+    survey_question_id: cost_paid
+    source_url: https://www.city.setagaya.lg.jp/02413/1206.html
+    verified_at: 2026-09-18
+
+  - id: setagaya.s08
+    overrides_step_id: jp.s08
+    phase: postpartum
+    sort_order: 80
+    title: 妊婦支援給付（2回目・子どもの数×5万円）をオンラインで申請する
+    detail: 赤ちゃん訪問（乳児期家庭訪問）で受け取る申請案内に沿って電子申請。
+    trigger_document_id: setagaya.akachan_homon_annai
+    channel: オンライン（電子申請）
+    deadline_base: due_date
+    deadline_offset_days: 674
+    deadline_note: 出産予定日の8週間前から2年間（= 予定日−56日 から 730日間）
+    source_url: https://www.city.setagaya.lg.jp/02244/20413.html
+    verified_at: 2026-09-18
+
+  - id: setagaya.s08b
+    phase: postpartum
+    sort_order: 82
+    title: 産婦健康診査を受ける（産後2週間頃と1か月頃）
+    detail: 令和8年10月1日以降の受診が対象。産婦1人につき2回、1回あたり上限5,000円を助成。受診日に世田谷区に住民登録があること。
+    trigger_document_id: setagaya.sanpu_kenshin_ticket
+    channel: 医療機関
+    deadline_note: 産後2週間頃（1回目）と産後1か月頃（2回目）
+    source_url: https://www.city.setagaya.lg.jp/02244/29565.html
+    verified_at: 2026-09-19
+
+  - id: setagaya.s08c
+    phase: birth
+    sort_order: 71
+    title: 新生児聴覚検査を受ける
+    detail: 初回検査の費用を上限3,000円まで助成。超えた分は自己負担。
+    trigger_document_id: setagaya.shinseiji_choukaku_ticket
+    channel: 医療機関
+    deadline_note: 生後50日に達する日までに受けた初回検査が対象
+    source_url: https://www.city.setagaya.lg.jp/02244/1199.html
+    verified_at: 2026-09-19
+
+  - id: setagaya.s08d
+    phase: postpartum
+    sort_order: 83
+    title: 1か月児健康診査を受ける
+    detail: 令和8年10月1日以降の受診が対象。乳児1人につき1回、上限6,000円を助成。受診日に世田谷区に住民登録があること。
+    trigger_document_id: setagaya.ikkagetsuji_kenshin_ticket
+    channel: 医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 41
+    deadline_note: 生後28日から41日の間（出生日を0日目として数える）
+    source_url: https://www.city.setagaya.lg.jp/02244/10722.html
+    verified_at: 2026-09-19
+
+subsidies:
+  - id: setagaya.shien_kyufu_1
+    name: 妊婦支援給付（1回目）
+    kind: cash_later
+    amount_yen: 50000
+    conditions: 申請日時点で世田谷区に住民登録のある妊産婦。医療機関で胎児心拍が確認できたことをもって「妊娠」と定義。
+    apply_via: ネウボラ面接時の案内に沿って電子申請
+    deadline_base: confirmation_date
+    deadline_offset_days: 730
+    source_url: https://www.city.setagaya.lg.jp/02244/20413.html
+    verified_at: 2026-09-18
+
+  - id: setagaya.shien_kyufu_2
+    name: 妊婦支援給付（2回目）
+    kind: cash_later
+    amount_formula: "50000 * children"
+    conditions: 申請日時点で世田谷区に住民登録のある妊産婦。
+    apply_via: 赤ちゃん訪問時の案内に沿って電子申請
+    deadline_base: due_date
+    deadline_offset_days: 674
+    source_url: https://www.city.setagaya.lg.jp/02244/20413.html
+    verified_at: 2026-09-18
+
+  - id: setagaya.shussanhi
+    name: 世田谷区出産費助成
+    kind: cash_later
+    amount_yen: 50000
+    amount_note: 出産児1人につき5万円。妊娠85日以上の流産・死産を含む。
+    conditions: 出産日時点で世田谷区内に住所がある。
+    apply_via: 郵送 / 窓口 / マイナポータル電子申請。問い合わせ 03-5432-2309
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    taxable: true
+    source_url: https://www.city.setagaya.lg.jp/02413/1206.html
+    verified_at: 2026-09-18
+
+  - id: setagaya.kouketsuatsu
+    name: 妊娠高血圧症候群等医療費助成
+    kind: conditional
+    amount_note: 入院医療費の自己負担分を助成（高額療養費制度に該当する場合はその限度額まで）。入院時の食事代は対象外。
+    conditions: 妊娠高血圧症候群とその関連疾患・糖尿病・貧血・産科出血・心疾患で入院が必要な妊産婦。前年分の世帯の総所得税額が30,000円以下、または入院見込み期間が26日以上。
+    apply_via: お住まいの地域の総合支所健康づくり課。原則、入院前（入院見込み期間が決まってから）か入院中に申請。退院後は、退院日から3か月以内に限り遅延理由書を添えて申請できる。
+    source_url: https://www.city.setagaya.lg.jp/02244/1194.html
+    verified_at: 2026-09-19

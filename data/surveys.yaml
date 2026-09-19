@@ -1,0 +1,86 @@
+# 完了チェック直後に出す「任意の1問」  2026-09-18
+# 原則: すべて選択式。自由記述なし。回答は profiles.consent_survey=true の場合のみ保存。
+#       回答後に同じ地域の集計（v_booking_stats / v_cost_stats）を表示する。謝礼は出さない。
+
+surveys:
+  - id: booking_result
+    trigger_step: jp.s02
+    title: 分娩予約、どうでしたか？（30秒・任意）
+    reward_text: 答えると、同じ区の人が「何週で予約できたか」の集計が見られます。
+    target_table: booking_reports
+    fields:
+      - key: facility_id
+        label: 電話した施設
+        type: select_facility            # facilities から地域内を候補表示。「一覧にない」→ document_suggestions と同じ扱いで free_text
+      - key: due_month
+        label: 出産予定月
+        type: month
+        default_from: profiles.due_date
+      - key: contacted_week
+        label: 電話したときの妊娠週数
+        type: select
+        options: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, { value: 21, label: 21週以上 }]
+        option_suffix: 週
+      - key: result
+        label: 結果
+        type: select
+        options:
+          - { value: booked, label: 予約できた }
+          - { value: full, label: 満枠で断られた }
+          - { value: waitlist, label: キャンセル待ちになった }
+          - { value: declined_highrisk, label: 条件（ハイリスク等）で断られた }
+      - key: wants_epidural
+        label: 無痛分娩を希望していましたか
+        type: select
+        options: [{ value: true, label: はい }, { value: false, label: いいえ }, { value: null, label: 答えない }]
+
+  - id: cost_paid
+    trigger_step: [setagaya.s07b, tokyo.s02]     # 明細を手元に見ているタイミング
+    title: 病院に払った金額を教えてください（1分・任意）
+    reward_text: 答えると、同じ施設の実負担の中央値が見られます。
+    target_table: cost_reports
+    fields:
+      - key: facility_id
+        label: 出産した施設
+        type: select_facility
+      - key: birth_month
+        label: 出産月
+        type: month
+        default_from: profiles.birth_date
+      - key: scheme
+        label: 費用の制度
+        type: select
+        options:
+          - { value: lumpsum, label: 出産育児一時金（50万円）を使った }
+          - { value: new_scheme, label: 新しい制度（窓口で分娩費を払わない仕組み）だった }
+      - key: paid_yen
+        label: 退院時に病院の窓口で払った額（一時金を引いた後）
+        type: select_band                # value は帯の中点（円）。集計の中央値はこの値で計算する。「30万円以上」は35万円として扱う
+        options:
+          - { value: 0, label: 0円（払わなかった） }
+          - { value: 25000, label: 5万円未満 }
+          - { value: 75000, label: 5万〜10万円 }
+          - { value: 125000, label: 10万〜15万円 }
+          - { value: 175000, label: 15万〜20万円 }
+          - { value: 250000, label: 20万〜30万円 }
+          - { value: 350000, label: 30万円以上 }
+      - key: epidural
+        label: 無痛分娩でしたか
+        type: select
+        options: [{ value: true, label: はい }, { value: false, label: いいえ }, { value: null, label: 答えない }]
+      - key: delivery_type
+        label: 分娩方法（任意・同意した方のみ）
+        type: select
+        requires: profiles.consent_sensitive
+        options: [{ value: vaginal, label: 経腟分娩 }, { value: cesarean, label: 帝王切開 }, { value: null, label: 答えない }]
+
+  - id: products_used
+    trigger_step: setagaya.s08b              # 出産後の最後のステップ
+    title: 使ってよかった物を3つまで（任意）
+    reward_text: 答えると、同じ区の人の集計が見られます。
+    target_table: product_reports
+    fields:
+      - key: product_id
+        label: 製品
+        type: multi_select_product          # products マスタから最大3つ。「一覧にない」は document_suggestions と同じ扱い
+        max: 3

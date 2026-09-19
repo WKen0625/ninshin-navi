@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+/* UI規約（CLAUDE.md §6）: 赤を使わない。期限の注意=琥珀、完了=緑、情報=青。本文16px以上。 */
+@theme {
+  --color-notice: var(--color-amber-600);
+  --color-done: var(--color-green-700);
+  --color-info: var(--color-blue-700);
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background: #fff;
+  color: #1f2937;
+  font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif;
+}

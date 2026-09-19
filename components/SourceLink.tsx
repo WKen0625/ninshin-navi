@@ -1,0 +1,17 @@
+/** 出典・確認日（設計原則3: すべてのルール・金額に表示する） */
+export function SourceLink({ url, verifiedAt, needsReview }: { url: string | null | undefined; verifiedAt: string | null | undefined; needsReview?: boolean }) {
+  const isUrl = url != null && /^https?:\/\//.test(url);
+  return (
+    <p className="text-base text-gray-600">
+      {isUrl ? (
+        <a href={url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-info underline">
+          出典
+        </a>
+      ) : (
+        <span>出典: 確認中</span>
+      )}
+      {verifiedAt ? <span>・確認日 {verifiedAt.replaceAll("-", "/")}</span> : null}
+      {needsReview ? <span className="ml-2 rounded bg-blue-50 px-2 py-1 text-info">内容を確認中</span> : null}
+    </p>
+  );
+}

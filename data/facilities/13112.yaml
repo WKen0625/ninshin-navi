@@ -1,0 +1,391 @@
+# 世田谷区の分娩施設  確認日: 2026-09-18
+#
+# 収集手順（Claude Code はこの順で埋める。推測で埋めない）:
+#  1. 出産なび（https://birth-navi.mhlw.go.jp/）で「世田谷区」を検索し、施設名・種別・住所・無痛分娩の有無・費用を転載する。
+#     転載時は source_url に出産なびのURLを入れる（厚労省の利用条件: 出所の明記）。
+#  2. 東京都の無痛分娩費用助成「対象医療機関一覧」（2026年4月1日時点のExcel）で tokyo_epidural_subsidy_target を埋める。
+#     https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/mutsubunben/subsidy
+#  3. 各施設HPで分娩予約のルール（何週までに受診・予約金・制限）を確認し booking_policy と booking_deadline_week_official を埋める。
+#  4. 上記で確認できない項目は null のまま、needs_review: true にする。
+#
+# 世田谷区の周辺（30分〜1時間圏）の施設も対象にする場合は region_code を実際の市区町村コードにして別ファイルに置く。
+
+facilities:
+  - id: ncchd
+    region_code: "13112"
+    name: 国立成育医療研究センター
+    address: 東京都世田谷区大蔵2-10-1
+    lat: 35.6323499
+    lng: 139.6112366
+    facility_type: 病院
+    has_epidural: true    # 出産なび「希望による無痛分娩可能」
+    epidural_24h: true    # 出産なび「24時間対応可能」
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: 分娩希望者は妊娠16週頃までに一度受診し、胎児診察券作成と分娩予約を行う。経過に問題がなければ予約センターに電話し、妊娠34週6日までに当センターで妊婦健診を受ける。帝王切開・子宮手術の既往は2回目受診が32週6日まで、前置胎盤・低置胎盤は30週6日まで。他院受診中の人はまず現在の医療機関に相談。
+    booking_deadline_week_official: 16
+    booking_source_url: https://www.ncchd.go.jp/hospital/pregnancy/yoyaku/
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10168
+    website_url: https://www.ncchd.go.jp/hospital/pregnancy/yoyaku/
+    source_url: https://www.ncchd.go.jp/hospital/pregnancy/yoyaku/
+    verified_at: 2026-09-19
+
+  # ---- 以下11件は出産なび（厚生労働省）から転載。2026-09-19 取得（出産なび側の更新日は 2026-09-14〜17）。----
+  # 出所: 出産なび https://birth-navi.mhlw.go.jp/ 「東京都世田谷区」の出産施設 12件（成育を含む）。
+  # 費用（costs）は、直接支払制度の請求書データ（保険診療を行った分娩を除く）から出産なびが算出した値。一時金を引く前。1,000円未満四捨五入。
+  # tokyo_epidural_subsidy_target の出所: 東京都「対象医療機関一覧」 https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/mutsubunben/subsidy
+  # 施設名・住所は出産なびの表記のまま。無痛分娩の欄は施設の自己申告で、実際に受けられるかは施設の判断による。
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 969000
+        total_median_yen: 976000
+        basic_avg_yen: 864000
+        basic_median_yen: 886000
+        room_diff_avg_yen: 62500
+        room_diff_median_yen: 0
+        stay_days_avg: 7
+        stay_days_median: 7
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10168
+        verified_at: 2026-09-19
+  - id: aoki-sanfujinka
+    region_code: "13112"
+    name: 青木産婦人科医院
+    address: 東京都世田谷区赤堤5−30−15
+    lat: 35.6652237
+    lng: 139.6386398
+    facility_type: 有床診療所
+    has_epidural: null   # 出産なびでは未回答（ー）
+    epidural_24h: null
+    tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載なし
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10987
+    website_url: https://aoki-sanfujinka.jp
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10987
+    verified_at: 2026-09-19
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 796000
+        total_median_yen: 796000
+        basic_avg_yen: 729000
+        basic_median_yen: 737000
+        room_diff_avg_yen: 7000
+        room_diff_median_yen: 0
+        stay_days_avg: 6
+        stay_days_median: 6
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10987
+        verified_at: 2026-09-19
+  - id: sugiyama-sanfujinka
+    region_code: "13112"
+    name: 医療法人社団　杉四会　杉山産婦人科
+    address: 東京都世田谷区大原１－５３－１
+    lat: 35.6693235
+    lng: 139.6618301
+    facility_type: 有床診療所
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: 胎児心拍が確認できた人から順に、電話または2F受付で予約を受け付ける。予約可能数を超えると断られる場合がある。
+    booking_deadline_week_official: null
+    booking_source_url: https://www.sugiyama.or.jp/childbirth/empty
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11187
+    website_url: https://www.sugiyama.or.jp/
+    source_url: https://birth-navi.mhlw.go.jp/facilities/11187
+    verified_at: 2026-09-19
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 1001000
+        total_median_yen: 1027000
+        basic_avg_yen: 690000
+        basic_median_yen: 697000
+        room_diff_avg_yen: 143400
+        room_diff_median_yen: 175000
+        stay_days_avg: 6
+        stay_days_median: 6
+        source_url: https://birth-navi.mhlw.go.jp/facilities/11187
+        verified_at: 2026-09-19
+  - id: seijo-kinoshita
+    region_code: "13112"
+    name: 医療法人社団九折会　成城木下病院
+    address: 東京都世田谷区成城６−１３−２０
+    lat: 35.6414959
+    lng: 139.5999328
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: true
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: 受診して予約するか、電話で予約する。妊娠13週0日までに分娩予約金50,000円を支払う（窓口で現金・クレジット、または銀行振込）。
+    booking_deadline_week_official: 13
+    booking_source_url: https://kinohosp.com/shussan/costs.html
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10135
+    website_url: https://kinohosp.com/
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10135
+    verified_at: 2026-09-19
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 920000
+        total_median_yen: 932000
+        basic_avg_yen: 737000
+        basic_median_yen: 735000
+        room_diff_avg_yen: 60100
+        room_diff_median_yen: 82500
+        stay_days_avg: 6
+        stay_days_median: 6
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10135
+        verified_at: 2026-09-19
+  - id: tokyo-mothers
+    region_code: "13112"
+    name: 医療法人準和会　東京マザーズクリニック
+    address: 東京都世田谷区上用賀4-5-1
+    lat: 35.633645
+    lng: 139.628599
+    facility_type: 有床診療所
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: true
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: 完全予約制。受付時間内に電話で相談する。分娩予約金100,000円（無痛分娩・自然分娩共通）。
+    booking_deadline_week_official: null
+    booking_source_url: https://mothers-clinic.jp/birth/
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11129
+    website_url: https://mothers-clinic.jp/
+    source_url: https://birth-navi.mhlw.go.jp/facilities/11129
+    verified_at: 2026-09-19
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 1368000
+        total_median_yen: 1372000
+        basic_avg_yen: 1325000
+        basic_median_yen: 1332000
+        room_diff_avg_yen: 0
+        room_diff_median_yen: 0
+        stay_days_avg: 6
+        stay_days_median: 6
+        source_url: https://birth-navi.mhlw.go.jp/facilities/11129
+        verified_at: 2026-09-19
+  - id: tamagawa-hospital
+    region_code: "13112"
+    name: 公益財団法人　日産厚生会　玉川病院
+    address: 東京都世田谷区瀬田４－８－１
+    lat: 35.6205988
+    lng: 139.6247699
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10851
+    website_url: https://www.tamagawa-hosp-oag.jp
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10851
+    verified_at: 2026-09-19
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 740000
+        total_median_yen: 748000
+        basic_avg_yen: 497000
+        basic_median_yen: 521000
+        room_diff_avg_yen: 147800
+        room_diff_median_yen: 150000
+        stay_days_avg: 7
+        stay_days_median: 6
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10851
+        verified_at: 2026-09-19
+  - id: shiseikai-daini
+    region_code: "13112"
+    name: 至誠会第二病院
+    address: 東京都世田谷区上祖師谷５－１９－１
+    lat: 35.6566563
+    lng: 139.5909023
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: 分娩予約は16週までに。分娩予約金50,000円。初診を含めて予約制で、平日14〜16時に電話（03-3300-0366）で予約する。里帰りは30〜34週までに受診と分娩予約（紹介状が必要）。
+    booking_deadline_week_official: 16
+    booking_source_url: https://www.shiseikai-daini-hosp.jp/obstetrics/
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10426
+    website_url: http://www.shiseikai-daini-hosp.jp
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10426
+    verified_at: 2026-09-19
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 715000
+        total_median_yen: 707000
+        basic_avg_yen: 673000
+        basic_median_yen: 667000
+        room_diff_avg_yen: 18300
+        room_diff_median_yen: 18000
+        stay_days_avg: 6
+        stay_days_median: 6
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10426
+        verified_at: 2026-09-19
+  - id: kugayama-hospital
+    region_code: "13112"
+    name: 社会福祉法人康和会　久我山病院
+    address: 東京都世田谷区北烏山２－１４－２０
+    lat: 35.681539
+    lng: 139.5989098
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: 外来受診時に予約票を受け取り、1階入退院窓口で手続きする。分娩予約金1万円（退院時の精算で差し引き）。21週6日までの予約は早期特典あり。予約数によっては断られる場合がある。里帰りは34週まで（帝王切開・無痛分娩希望は32週まで）に受診。
+    booking_deadline_week_official: null
+    booking_source_url: https://www.kugayama-hp.org/osan/ninshin/gairai.html
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10173
+    website_url: https://www.kugayama-hp.org/osan/index.html
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10173
+    verified_at: 2026-09-19
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 651000
+        total_median_yen: 654000
+        basic_avg_yen: 602000
+        basic_median_yen: 609000
+        room_diff_avg_yen: 18300
+        room_diff_median_yen: 0
+        stay_days_avg: 7
+        stay_days_median: 7
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10173
+        verified_at: 2026-09-19
+  - id: mukaiyachi-josanjo
+    region_code: "13112"
+    name: 出張専門　向谷地幸子
+    address: 東京都世田谷区
+    lat: null
+    lng: null
+    facility_type: 無床助産所
+    has_epidural: null   # 出産なびでは未回答（ー）
+    epidural_24h: null
+    tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載なし
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11839
+    website_url: https://sachi-josanjo-2.jimdosite.com/
+    source_url: https://birth-navi.mhlw.go.jp/facilities/11839
+    verified_at: 2026-09-19
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 515000
+        total_median_yen: null
+        basic_avg_yen: 474000
+        basic_median_yen: null
+        room_diff_avg_yen: 0
+        room_diff_median_yen: null
+        stay_days_avg: 6
+        stay_days_median: null
+        source_url: https://birth-navi.mhlw.go.jp/facilities/11839
+        verified_at: 2026-09-19
+  - id: jsdf-chuo-hospital
+    region_code: "13112"
+    name: 自衛隊中央病院
+    address: 東京都世田谷区池尻1－2－24
+    lat: 35.6428329
+    lng: 139.6835936
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: true
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10379
+    website_url: https://www.mod.go.jp/gsdf/chosp/210-osan.html
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10379
+    verified_at: 2026-09-19
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 569000
+        total_median_yen: 536000
+        basic_avg_yen: 501000
+        basic_median_yen: 482000
+        room_diff_avg_yen: 23100
+        room_diff_median_yen: 0
+        stay_days_avg: 7
+        stay_days_median: 7
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10379
+        verified_at: 2026-09-19
+  - id: seijo-maternity
+    region_code: "13112"
+    name: 成城マタニティクリニック
+    address: 東京都世田谷区成城1-1-2
+    lat: 35.6326719
+    lng: 139.6056731
+    facility_type: 有床診療所
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: true
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10981
+    website_url: https://www.seijo-mc.com/
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10981
+    verified_at: 2026-09-19
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 884000
+        total_median_yen: 887000
+        basic_avg_yen: 792000
+        basic_median_yen: 822000
+        room_diff_avg_yen: 49700
+        room_diff_median_yen: 45000
+        stay_days_avg: 6
+        stay_days_median: 6
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10981
+        verified_at: 2026-09-19
+  - id: todoroki-sanfujinka
+    region_code: "13112"
+    name: 等々力産婦人科
+    address: 東京都世田谷区等々力７－３－２０
+    lat: 35.6138186
+    lng: 139.6552679
+    facility_type: 有床診療所
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: true
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10931
+    website_url: https://todoroki-7.jp/   # 出産なびにHPの記載なし。都の対象医療機関一覧のURLから
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10931
+    verified_at: 2026-09-19
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 1225000
+        total_median_yen: 1218000
+        basic_avg_yen: 1134000
+        basic_median_yen: 1132000
+        room_diff_avg_yen: 0
+        room_diff_median_yen: 0
+        stay_days_avg: 6
+        stay_days_median: 6
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10931
+        verified_at: 2026-09-19
+
+# 参考（世田谷区外だが、予約ルールの型として）
+#  - 荏原病院（大田区、都立）: セミオープンは妊娠16週までに受診・分娩予約登録。36週頃に分娩入院予約登録と直接支払制度の説明。
+#    https://www.tmhp.jp/ebara/section/department/obstetrics_gynecology/bunben_annai.html
+#  - 飯野病院（調布市）: 無痛分娩は週15件程度に制限、妊娠10週前後で埋まることがある。分娩予約金10万円。
+#    https://iino-hospital.or.jp/department/obstetrics/painless-childbirth/

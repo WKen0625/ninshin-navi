@@ -1,0 +1,86 @@
+# 東京都  確認日: 2026-09-18
+
+region:
+  code: "13"
+  level: prefecture
+  name: 東京都
+  parent_code: JP
+  status: in_progress
+  verified_at: 2026-09-18
+
+documents: []
+
+steps:
+  - id: tokyo.s01
+    phase: pre_notification
+    sort_order: 15
+    title: 無痛分娩を希望するなら、東京都の「対象医療機関」から施設を選ぶ
+    detail: 都の無痛分娩費用助成（最大10万円）は対象医療機関での出産が条件。対象医療機関の一覧（Excel）は都のページで随時更新される（2026-09-19 に確認したのは令和8年7月31日時点版）。予約前に確認する。
+    trigger_document_id: null
+    channel: 都のページで確認
+    action_url: https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/mutsubunben/subsidy
+    source_url: https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/mutsubunben/subsidy
+    verified_at: 2026-09-18
+
+  - id: tokyo.s02
+    phase: postpartum
+    sort_order: 75
+    title: 東京都の無痛分娩費用助成を申請する（無痛分娩で出産した場合）
+    detail: 電子申請。申請者は費用の請求を受けた本人（出産した方）。領収書・明細書が必要。
+    trigger_document_id: jp.hospital_receipt
+    channel: オンライン（電子申請）
+    action_url: https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/mutsubunben/subsidy
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    deadline_note: 出産日の翌日から起算して1年以内（厳守）
+    survey_question_id: cost_paid
+    source_url: https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/mutsubunben/subsidy
+    verified_at: 2026-09-18
+
+  - id: tokyo.s03
+    phase: postpartum
+    sort_order: 85
+    title: 東京都の「赤ちゃんファースト」と「018サポート」を申請する（同時に申請できる）
+    detail: 赤ちゃんファーストは、育児用品や子育て支援サービスを選べるギフト。018サポートと同時に申請し、専用サイトで初回登録をしてから商品を選ぶ。対象は、子どもの出生時点の住所が都内にあること。コールセンター 0120-001-047（9〜18時、年末年始を除く）。
+    trigger_document_id: null
+    channel: オンライン
+    action_url: https://tokyobabyfirst.metro.tokyo.lg.jp/
+    deadline_note: 令和8年度（令和8年4月1日〜令和9年3月31日）生まれは、申請が令和9年9月15日まで、初回登録が令和10年1月31日まで、商品の申込が令和10年2月28日まで
+    source_url: https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/tokyo_shussankosodateouen
+    verified_at: 2026-09-19
+
+subsidies:
+  - id: tokyo.epidural
+    name: 東京都 無痛分娩費用助成
+    kind: cash_later
+    requires: epidural
+    amount_yen: 100000
+    amount_is_upper_limit: true
+    amount_note: 最大10万円。硬膜外麻酔等の手技・管理費・薬剤費が対象。室料差額・個室料・食事料・文書料・保険適用となった費用は対象外。1回の分娩につき1度のみ（多胎も同様）。
+    conditions: 令和7年10月1日以降に都の対象医療機関で硬膜外麻酔または脊髄くも膜下硬膜外併用麻酔による無痛分娩で出産。都内で妊娠届を出し母子健康手帳の交付を受け、申請日まで継続して都内に住民登録。
+    apply_via: 電子申請（本人）。コールセンター 0120-620-620（平日9〜17時）
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    taxable: null
+    scheme_applicable: [lumpsum, new_scheme]
+    source_url: https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/mutsubunben/subsidy
+    verified_at: 2026-09-18
+
+  - id: tokyo.018support
+    name: 018サポート（東京都）
+    kind: recurring
+    amount_yen: 5000
+    amount_note: 子ども1人あたり月額5,000円（年間最大60,000円）。令和8年度の支給は8月・12月・令和9年4月の予定。申請期限は支給分ごと（12月支給分は令和8年11月1日、令和9年4月支給分は令和9年3月1日）。
+    conditions: 0歳から18歳に達する日以後の最初の3月31日までの子で、令和8年度中に都内に住所がある（または、あった）こと。
+    apply_via: マイナンバーカード申請（親子のマイナンバーカードをスマホで読み取る）または書類郵送等。コールセンター 0120-056-018
+    source_url: https://018support.metro.tokyo.lg.jp/
+    verified_at: 2026-09-19
+
+  - id: tokyo.babyfirst
+    name: 東京都出産・子育て応援事業（赤ちゃんファースト）
+    kind: conditional
+    amount_note: 育児用品や子育て支援サービスを選べるギフト（現金ではない）。金額は都のページに明記されていないため、ここでは計算に入れていない。
+    conditions: 子どもが令和8年4月1日以降に生まれ、出生時点の住所が都内にあること。
+    apply_via: 018サポートと同時に申請。専用サイト https://tokyobabyfirst.metro.tokyo.lg.jp/ で初回登録。コールセンター 0120-001-047
+    source_url: https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/tokyo_shussankosodateouen
+    verified_at: 2026-09-19

@@ -1,0 +1,209 @@
+# 国（全国共通の骨格）  確認日: 2026-09-18
+# 原則: 都府県・市区町村ファイルが overrides_step_id で上書きする。
+# source_url が "TODO" の行は needs_review: true。seed は投入するが画面に「確認中」を表示する。
+
+region:
+  code: JP
+  level: national
+  name: 国（全国共通）
+  status: in_progress
+  verified_at: 2026-09-18
+
+notes:
+  - text: 分娩費用の新制度（改正健康保険法、2026-05-29成立）は2028年6月頃までに開始。準備できた医療機関から移行し、出産育児一時金50万円の仕組みも当面併存。
+    source_url: https://kumanichi.com/articles/1985718
+  - text: 法律の概要（分娩1件当たり基本単価の現物給付化＋全妊婦への定額現金給付）。
+    source_url: https://www.mhlw.go.jp/content/12400000/001713111.pdf
+
+documents:
+  - id: jp.none_yet
+    name: まだ紙がない（陽性判定のみ）
+    phase: pre_notification
+  - id: jp.heartbeat_confirmed
+    name: 医療機関で胎児心拍を確認した（母子手帳はまだ）
+    phase: pre_notification
+    description: 多くの自治体で「妊娠」の定義。妊娠届と支援給付の前提。
+    source_url: https://www.city.setagaya.lg.jp/02244/20413.html
+    verified_at: 2026-09-18
+  - id: jp.boshi_techo
+    name: 母子健康手帳
+    aliases: [親子健康手帳, 母子手帳]
+    phase: notification
+  - id: jp.kenshin_ticket
+    name: 妊婦健康診査の受診票（補助券）
+    aliases: [受診票, 補助券, 健診券, 健診券綴り]
+    phase: notification
+  - id: jp.hospital_receipt
+    name: 分娩施設の領収書・明細書
+    phase: birth
+  - id: jp.other
+    name: その他（一覧にない紙）
+    phase: pre_notification
+    description: 選択時は自由記述を document_suggestions に保存し、人がレビューしてマスタに追加する。
+
+steps:
+  - id: jp.s01
+    phase: pre_notification
+    sort_order: 10
+    title: 産婦人科を受診し、胎児心拍を確認してもらう
+    trigger_document_id: jp.none_yet
+    produces_document_id: jp.heartbeat_confirmed
+    channel: 医療機関
+    source_url: https://www.city.setagaya.lg.jp/02244/20413.html
+    verified_at: 2026-09-18
+
+  - id: jp.s02
+    phase: pre_notification
+    sort_order: 20
+    title: 分娩施設を選び、電話で分娩予約する
+    detail: 施設によって妊娠7〜10週前後で予約枠が埋まる例がある。締切は施設ごとに違うので「病院と締切」画面で確認する。無痛分娩を希望する場合は、都府県の助成対象施設かも確認する。
+    trigger_document_id: null
+    channel: 医療機関
+    deadline_base: facility
+    deadline_note: 締切は施設ごとに違う（「病院と締切」画面で確認する）
+    survey_question_id: booking_result
+    source_url: https://kawaguchiladys-clinic.net/faq/834/
+    verified_at: 2026-09-18
+
+  - id: jp.s03
+    phase: notification
+    sort_order: 30
+    title: 市区町村に妊娠届を出し、母子健康手帳と受診票を受け取る
+    trigger_document_id: jp.heartbeat_confirmed
+    produces_document_id: jp.boshi_techo
+    channel: 窓口 または オンライン（自治体による）
+    deadline_note: なるべく早く（受診票は届出後から使える）
+    source_url: https://www.city.setagaya.lg.jp/02244/1189.html
+    verified_at: 2026-09-18
+
+  - id: jp.s04
+    phase: pregnancy
+    sort_order: 40
+    title: 妊婦健診を受ける（受診票を毎回提出）
+    detail: 国の目安は14回程度。妊娠23週までは4週に1回、24〜35週は2週に1回、36週以降は毎週。
+    trigger_document_id: jp.kenshin_ticket
+    channel: 医療機関
+    deadline_base: gestational_week
+    deadline_note: 週数に応じた頻度
+    source_url: https://www.mhlw.go.jp/file/05-Shingikai-12601000-Seisakutoukatsukan-Sanjikanshitsu_Shakaihoshoutantou/0000035240.pdf
+    verified_at: 2026-09-18
+
+  - id: jp.s05
+    phase: pregnancy
+    sort_order: 50
+    title: 妊婦のための支援給付（1回目）を申請する
+    detail: 国の制度で、5万円。医療機関で胎児心拍が確認された後から、住民票のある市区町村に申請できる。流産・死産等の場合も対象。申請窓口と方法は市区町村ごと（市区町村ファイルで上書きする）。
+    trigger_document_id: jp.boshi_techo
+    channel: 市区町村
+    source_url: https://www.cfa.go.jp/assets/contents/node/basic_page/field_ref_resources/be80930d-51d1-4084-aa3e-b80930646538/42e36027/20250325_policies_shussan-kosodate_52.pdf
+    verified_at: 2026-09-19
+
+  - id: jp.s06
+    phase: pregnancy
+    sort_order: 60
+    title: 出産育児一時金の「直接支払制度」の書類を分娩施設で書く
+    detail: 原則50万円が施設に直接支払われ、窓口で払うのは差額のみ。手続きの時期は施設ごと（例：36週頃の分娩入院予約時）。
+    trigger_document_id: jp.boshi_techo
+    channel: 医療機関
+    deadline_base: facility
+    source_url: https://birth-navi.mhlw.go.jp/assets/leaflet-CWn72mWw.pdf
+    verified_at: 2026-09-18
+
+  - id: jp.s06b
+    phase: pregnancy
+    sort_order: 62
+    title: （会社員など）産休中の健康保険・厚生年金の保険料免除を勤務先に確認する
+    detail: 手続きをするのは勤務先（事業主）。事業主が「産前産後休業取得者申出書」を日本年金機構に出すと、本人負担分と事業主負担分の両方が免除される。対象は、出産予定日の42日前（多胎は98日前）から出産後56日までのうち仕事を休んだ期間。産休を開始した月から、終了日の翌日が属する月の前月まで。給与が出ていても対象。免除された期間も、年金額の計算では保険料を納めた期間として扱われる。
+    trigger_document_id: null
+    channel: 勤務先
+    deadline_note: 事業主が、産休中または産休終了後1か月以内に提出する
+    source_url: https://www.nenkin.go.jp/service/kounen/hokenryo/menjo/sankyu-menjo/20140509-02.html
+    verified_at: 2026-09-19
+
+  - id: jp.s06c
+    phase: pregnancy
+    sort_order: 64
+    title: （自営業・フリーランスなど国民年金の人）産前産後期間の国民年金保険料の免除を届け出る
+    detail: 対象は国民年金第1号被保険者。出産予定日（または出産日）の月の前月から4か月間（多胎は3か月前から6か月間）の保険料が免除される。免除された期間も、保険料を納めたものとして老齢基礎年金の額に反映される。出産前の届出には母子健康手帳などが必要。郵送もできる。
+    trigger_document_id: jp.boshi_techo
+    channel: 市区町村の国民年金担当窓口（郵送可）
+    deadline_note: 出産予定日の6か月前から届け出できる。出産後も届け出できる
+    source_url: https://www.nenkin.go.jp/service/kokunen/menjo/20180810.html
+    verified_at: 2026-09-19
+
+  - id: jp.s07
+    phase: birth
+    sort_order: 70
+    title: 出生届を出す
+    trigger_document_id: null
+    channel: 市区町村（窓口）
+    deadline_base: birth_date
+    detail: 届出先は、子の出生地・本籍地または届出人の所在地の市区町村。出生証明書と一体の届書を提出する（法務省「出生届」 https://www.moj.go.jp/ONLINE/FAMILYREGISTER/5-1.html）。
+    deadline_offset_days: 13
+    deadline_note: 出生の日から14日以内（戸籍法第49条）。第43条により出生日を1日目として数えるため、期限は出生日＋13日。
+    source_url: https://laws.e-gov.go.jp/law/322AC0000000224
+    verified_at: 2026-09-19
+
+  - id: jp.s08
+    phase: postpartum
+    sort_order: 80
+    title: 妊婦のための支援給付（2回目）を申請する
+    detail: 国の制度で、妊娠しているこどもの人数×5万円。出産予定日の8週間前の日から、住民票のある市区町村に届け出できる。申請窓口と方法は市区町村ごと（市区町村ファイルで上書きする）。
+    trigger_document_id: null
+    channel: 市区町村
+    source_url: https://www.cfa.go.jp/assets/contents/node/basic_page/field_ref_resources/be80930d-51d1-4084-aa3e-b80930646538/42e36027/20250325_policies_shussan-kosodate_52.pdf
+    verified_at: 2026-09-19
+
+  - id: jp.s09
+    phase: postpartum
+    sort_order: 90
+    title: 児童手当を申請する
+    detail: 3歳未満は月15,000円（第3子以降は30,000円）。現住所の市区町村に申請する。公務員は勤務先に申請する。
+    trigger_document_id: null
+    channel: 市区町村（公務員は勤務先）
+    deadline_base: birth_date
+    deadline_offset_days: 15
+    deadline_note: 出生の日の翌日から15日以内
+    source_url: https://www.cfa.go.jp/policies/kokoseido/jidouteate/annai
+    verified_at: 2026-09-19
+
+  - id: jp.s09b
+    phase: postpartum
+    sort_order: 91
+    title: 子どもを健康保険に加入させる
+    trigger_document_id: null
+    channel: 勤務先の健康保険 または 市区町村（国民健康保険）
+    source_url: "TODO: 一次資料を確認（協会けんぽ・市区町村の国保ページ）"
+    verified_at: 2026-09-19
+    needs_review: true
+
+  - id: jp.s09c
+    phase: postpartum
+    sort_order: 92
+    title: （会社員など）育児休業中の健康保険・厚生年金の保険料免除を勤務先に確認する
+    detail: 手続きをするのは勤務先（事業主）。事業主が「育児休業等取得者申出書」を日本年金機構に出すと、本人負担分と事業主負担分の両方が免除される。育休を開始した月から、終了日の翌日が属する月の前月まで。同じ月の中で14日以上取得した場合もその月は免除。賞与の保険料は、育休が1か月を超える場合だけ免除。
+    trigger_document_id: null
+    channel: 勤務先
+    deadline_note: 事業主が、育児休業中または終了後1か月以内に提出する
+    source_url: https://www.nenkin.go.jp/service/kounen/hokenryo/menjo/ikuji-menjo/20140327-05.html
+    verified_at: 2026-09-19
+
+subsidies:
+  - id: jp.lumpsum
+    name: 出産育児一時金
+    kind: at_counter
+    amount_formula: "500000 * children"
+    amount_note: 子ども1人につき原則50万円。直接支払制度を使うと施設に直接支払われ、窓口で払うのは残りの額だけになる。費用の総額が一時金より少ないときは、差額を加入している医療保険から受け取れる。
+    apply_via: 分娩施設（直接支払制度）または健康保険
+    scheme_applicable: [lumpsum]
+    source_url: https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/shussan/index.html
+    verified_at: 2026-09-19
+
+  - id: jp.new_scheme
+    name: 新しい制度（分娩費用を保険から施設に直接支給＋定額の現金給付）
+    kind: conditional
+    amount_note: 金額はまだ決まっていない。保険診療以外の分娩の基本単価を国が決め、保険者から施設に直接支給して妊婦に負担が生じないようにする（給付水準は告示で定める）。これとは別に、すべての妊婦に定額の現金給付を行う（金額は政令で定める）。
+    conditions: 新しい制度に移行した施設で出産する場合。当分の間、施設ごとに今の制度（出産育児一時金）を選ぶこともできる。
+    scheme_applicable: [new_scheme]
+    source_url: https://www.mhlw.go.jp/content/12400000/001713111.pdf
+    verified_at: 2026-09-19
