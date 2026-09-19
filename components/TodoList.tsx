@@ -37,6 +37,20 @@ function ActionCard({ action, today, emphasized, onMark }: { action: NextAction;
   const { step } = action;
   return (
     <article className={emphasized ? "space-y-3 rounded-lg border-2 border-blue-700 bg-white p-4" : "space-y-2 rounded-lg border border-gray-300 bg-gray-50 p-4"}>
+      {emphasized ? (
+        <p className="flex flex-wrap items-center gap-2 text-base">
+          <span className="rounded bg-blue-700 px-2 py-1 font-bold text-white">Next Action</span>
+          <span className={action.reason === "flow" ? "text-gray-700" : "font-bold text-amber-800"}>
+            {action.reason === "overdue"
+              ? "期限を過ぎているので、いちばん先に出しています"
+              : action.reason === "deadline_soon"
+                ? "期限が30日以内なので、いちばん先に出しています"
+                : "手続きの順番で、次はこれです"}
+          </span>
+        </p>
+      ) : action.reason !== "flow" ? (
+        <p className="text-base font-bold text-amber-800">{action.reason === "overdue" ? "期限を過ぎています" : "期限が30日以内"}</p>
+      ) : null}
       <h3 className={emphasized ? "text-xl font-bold" : "text-base font-bold"}>{step.title}</h3>
       {emphasized && step.detail ? <p className="text-base">{step.detail}</p> : null}
       {step.channel ? <p className="text-base text-gray-700">どこで: {step.channel}</p> : null}
@@ -151,7 +165,7 @@ export function TodoList() {
       ) : null}
 
       <section className="space-y-3">
-        <h2 className="text-lg font-bold">いまやること</h2>
+        <h2 className="text-lg font-bold">次にやること</h2>
         {result.current ? (
           <ActionCard action={result.current} today={today} emphasized onMark={mark} />
         ) : (
@@ -164,7 +178,7 @@ export function TodoList() {
       {result.upcoming.length > 0 ? (
         <section className="space-y-3">
           <h2 className="text-lg font-bold">このあと</h2>
-          <p className="text-base text-gray-600">先に終わったものがあれば、ここからチェックしてもかまいません。</p>
+          <p className="text-base text-gray-600">期限が近いものが上、そのあとは手続きの順番です。先に終わったものがあれば、ここからチェックしてもかまいません。</p>
           {result.upcoming.map((a) => <ActionCard key={a.step.id} action={a} today={today} emphasized={false} onMark={mark} />)}
         </section>
       ) : null}

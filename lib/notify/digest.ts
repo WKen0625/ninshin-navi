@@ -1,12 +1,12 @@
 // メール通知の中身を決める純粋関数（設計原則2: 同じ入力なら同じ結果）。
 // ROADMAP Week 8: 申請期限の前・完了チェックの催促。メールは週1回まで。
 
-import { addDays, resolveNextActions, type DocumentDef, type Family, type NextAction, type Region, type Step } from "../next-actions";
+import { addDays, resolveNextActions, URGENT_DAYS, type DocumentDef, type Family, type NextAction, type Region, type Step } from "../next-actions";
 
 /** 通知を希望した人から預かる内容。Family と同じ形（氏名・メール以外の個人情報は無い） */
 export type Snapshot = Family;
 
-export const DEADLINE_AHEAD_DAYS = 30; // 期限の何日前から知らせるか
+export const DEADLINE_AHEAD_DAYS = URGENT_DAYS; // 期限の何日前から知らせるか（「今週やること」で先頭に出す基準と同じ）
 export const DEADLINE_PAST_DAYS = 14; // 期限を過ぎても何日間は知らせるか
 export const NUDGE_AFTER_DAYS = 7; // 完了チェックが何日動かなければ催促するか
 export const MAX_NUDGES = 3; // 進みが無いまま催促する回数の上限

@@ -93,15 +93,24 @@ describe("家族B: 妊娠20週・保健バッグ受取済み・ネウボラ面�
     expect(resolve(family).gestational_week).toBe(20);
   });
 
-  it("8か月時面談（28週）→ 支援給付1回目（確認日から2年）→ 期限なし の順", () => {
+  it("期限が30日より先のものは先頭に出さず、手続きの流れの順（sort_order）で並ぶ", () => {
     expect(summary(family)).toEqual([
-      ["setagaya.s05b", "2026-11-13"], // LMP 2026-05-01 ＋ 28週
-      ["setagaya.s05", "2028-06-18"], // 2026-06-19 ＋ 730日
       ["jp.s04", null], // 妊婦健診
+      ["setagaya.s05", "2028-06-18"], // 支援給付1回目（心拍確認日 2026-06-19 ＋ 730日。ずっと先なので流れの順）
+      ["setagaya.s05b", "2026-11-13"], // 8か月時アンケート（LMP 2026-05-01 ＋ 28週。56日先）
       ["setagaya.s05c", null], // 産前の歯科健診（受診券は保健バッグの中）
       ["jp.s06", null], // 直接支払制度の書類（施設ごと）
       ["jp.s06b", null], // 産休中の健康保険・厚生年金の免除（会社員など）
     ]);
+    expect(resolve(family).actions.every((a) => a.reason === "flow")).toBe(true);
+    expect(resolve(family).current!.step.id).toBe("jp.s04");
+  });
+
+  it("8か月時アンケートは、期限の30日前になると先頭（Next Action）に上がる", () => {
+    const at = (today: string) => resolveNextActions({ family, today, ...rules }).current!;
+    expect(at("2026-10-13").step.id).toBe("jp.s04"); // 31日前
+    expect(at("2026-10-14")).toMatchObject({ step: { id: "setagaya.s05b" }, reason: "deadline_soon", deadline: "2026-11-13" }); // 30日前
+    expect(at("2026-11-14")).toMatchObject({ step: { id: "setagaya.s05b" }, reason: "overdue" }); // 期限の翌日
   });
 
   it("保健バッグだけを選んでも、中の母子手帳・受診票が条件のステップが出る", () => {
@@ -158,18 +167,18 @@ describe("家族C: 出産後2週・領収書あり・赤ちゃん訪問はまだ
     not_applicable_step_ids: ["jp.s06c", "setagaya.s06d"],
   };
 
-  it("出生届（期限切れも先頭）→ 児童手当 → 1か月児健診 → 助成の申請 → 期限なし の順", () => {
-    expect(summary(family)).toEqual([
-      ["jp.s07", "2026-09-17"], // 出生日を1日目として14日以内 = 出生日＋13日（戸籍法43条・49条）。昨日が期限
-      ["jp.s09", "2026-09-19"], // 児童手当: 出生の日の翌日から15日以内
-      ["setagaya.s08d", "2026-10-15"], // 1か月児健診: 生後41日まで（出生日を0日目）
-      ["setagaya.s07b", "2027-09-04"], // 出生日 ＋ 365日
-      ["tokyo.s02", "2027-09-04"], // 同じ期限は sort_order 順
-      ["setagaya.s08c", null], // 新生児聴覚検査
-      ["setagaya.s08b", null], // 産婦健診
-      ["tokyo.s03", null], // 都の赤ちゃんファースト＋018サポート
-      ["jp.s09b", null], // 子どもの健康保険
-      ["jp.s09c", null], // 育休中の社会保険料免除
+  it("期限切れ・期限が近いものが期限順で先頭。そのあとは手続きの流れの順", () => {
+    expect(resolve(family).actions.map((a) => [a.step.id, a.deadline, a.reason])).toEqual([
+      ["jp.s07", "2026-09-17", "overdue"], // 出生届: 出生日を1日目として14日以内 = 出生日＋13日。昨日が期限
+      ["jp.s09", "2026-09-19", "deadline_soon"], // 児童手当: 出生の日の翌日から15日以内
+      ["setagaya.s08d", "2026-10-15", "deadline_soon"], // 1か月児健診: 生後41日まで（27日後）
+      ["setagaya.s08c", null, "flow"], // 新生児聴覚検査（sort_order 71）
+      ["setagaya.s07b", "2027-09-04", "flow"], // 区の出産費助成（出産から1年。まだ先なので流れの順）
+      ["tokyo.s02", "2027-09-04", "flow"], // 都の無痛分娩助成
+      ["setagaya.s08b", null, "flow"], // 産婦健診
+      ["tokyo.s03", null, "flow"], // 都の赤ちゃんファースト＋018サポート
+      ["jp.s09b", null, "flow"], // 子どもの健康保険
+      ["jp.s09c", null, "flow"], // 育休中の社会保険料免除
     ]);
   });
 

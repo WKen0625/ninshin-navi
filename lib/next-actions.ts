@@ -67,8 +67,13 @@ export type Family = {
   not_applicable_step_ids: string[];
 };
 
+/** 期限がこの日数以内（または過ぎている）ものを「期限が近い」として先頭に出す。メール通知の「30日前から知らせる」と同じ */
+export const URGENT_DAYS = 30;
+
 export type NextAction = {
   step: Step;
+  /** なぜこの位置にあるか: overdue = 期限を過ぎている ／ deadline_soon = 期限が近い ／ flow = 手続きの流れの順 */
+  reason: "overdue" | "deadline_soon" | "flow";
   deadline: string | null;
   /** 心拍確認日が未入力で、LMP＋49日の推定から期限を出した（画面に「推定」と表示する） */
   deadline_estimated: boolean;
@@ -202,19 +207,23 @@ export function resolveNextActions(input: {
       !completed.has(s.id),
   );
 
-  // 6. 期限の昇順。期限なしは末尾。同順位は sort_order → id で固定する（結果を決定的にするため）。
+  // 6. 期限が近いもの（30日以内・期限切れ）を期限順で先頭に。それ以外は手続きの流れの順（sort_order）。
+  //    ずっと先の期限（例: 妊娠28週）が、日付のない急ぎの手続き（妊娠届・分娩予約）より前に来ないようにするため。
+  //    同順位は sort_order → id で固定する（結果を決定的にするため）。
+  const soon = addDays(today, URGENT_DAYS);
+  const flow = (a: NextAction, b: NextAction) => a.step.sort_order - b.step.sort_order || (a.step.id < b.step.id ? -1 : 1);
   const actions = candidates
     .map((step): NextAction => {
       const { date, estimated } = deadlineOf(step, family, documents);
-      return { step, deadline: date, deadline_estimated: estimated, needs_review: step.needs_review };
+      const reason = date == null || date > soon ? "flow" : date < today ? "overdue" : "deadline_soon";
+      return { step, reason, deadline: date, deadline_estimated: estimated, needs_review: step.needs_review };
     })
     .sort((a, b) => {
-      if (a.deadline !== b.deadline) {
-        if (a.deadline == null) return 1;
-        if (b.deadline == null) return -1;
-        return a.deadline < b.deadline ? -1 : 1;
-      }
-      return a.step.sort_order - b.step.sort_order || (a.step.id < b.step.id ? -1 : 1);
+      const urgentA = a.reason !== "flow";
+      const urgentB = b.reason !== "flow";
+      if (urgentA !== urgentB) return urgentA ? -1 : 1;
+      if (urgentA && a.deadline !== b.deadline) return a.deadline! < b.deadline! ? -1 : 1;
+      return flow(a, b);
     });
 
   // 7. 市区町村が verified でなければ「確認中」
