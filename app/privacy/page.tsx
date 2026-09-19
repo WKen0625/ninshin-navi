@@ -40,7 +40,9 @@ export default function PrivacyPage() {
 
       <PrivacyPanel />
 
-      <p className="text-base text-gray-600">利用規約とプライバシーポリシーの正式版は、弁護士の確認後に掲載します（準備中）。</p>
+      <p className="text-base text-gray-600">
+        <a href="/terms" className="text-info underline">利用規約</a>と<a href="/policy" className="text-info underline">プライバシーポリシー</a>は、いまは下書きです。弁護士の確認のあと、正式版に差し替えます。
+      </p>
     </div>
   );
 }

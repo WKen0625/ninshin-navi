@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { overLimit, TOO_MANY } from "@/lib/rate-limit";
 import { validateAnswers, type Answers } from "@/lib/surveys";
 import { isDeviceId, loadSurveys, reporterHash } from "@/lib/surveys-server";
 
@@ -29,6 +30,7 @@ export async function POST(request: Request) {
 
   const s = server();
   if (!s) return NextResponse.json({ error: "保存先が未設定" }, { status: 503 });
+  if (await overLimit(s.db, request, "reports")) return NextResponse.json(TOO_MANY, { status: 429 });
 
   const facilities = await s.db.from("facilities").select("id").eq("region_code", region);
   if (facilities.error) return NextResponse.json({ error: "保存できませんでした" }, { status: 500 });

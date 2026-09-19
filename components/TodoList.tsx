@@ -6,6 +6,7 @@ import { clearStep, markStep, toFamily } from "@/lib/family-state";
 import { resolveNextActions, type NextAction, type Step } from "@/lib/next-actions";
 import type { Rules } from "@/lib/rules";
 import type { Survey } from "@/lib/surveys";
+import { FeedbackLink } from "./FeedbackLink";
 import { SourceLink } from "./SourceLink";
 import { SurveyCard } from "./SurveyCard";
 import { todayLocal, useFamilyState } from "./useFamilyState";
@@ -33,7 +34,7 @@ function Deadline({ action, today }: { action: NextAction; today: string }) {
   );
 }
 
-function ActionCard({ action, today, emphasized, onMark }: { action: NextAction; today: string; emphasized: boolean; onMark: (step: Step, status: "done" | "not_applicable") => void }) {
+function ActionCard({ action, today, emphasized, regionCode, onMark }: { action: NextAction; today: string; emphasized: boolean; regionCode: string; onMark: (step: Step, status: "done" | "not_applicable") => void }) {
   const { step } = action;
   return (
     <article className={emphasized ? "space-y-3 rounded-lg border-2 border-blue-700 bg-white p-4" : "space-y-2 rounded-lg border border-gray-300 bg-gray-50 p-4"}>
@@ -74,6 +75,7 @@ function ActionCard({ action, today, emphasized, onMark }: { action: NextAction;
           自分は該当しない
         </button>
       </div>
+      {emphasized ? <FeedbackLink target={`steps:${step.id}`} regionCode={regionCode} /> : null}
     </article>
   );
 }
@@ -167,7 +169,7 @@ export function TodoList() {
       <section className="space-y-3">
         <h2 className="text-lg font-bold">次にやること</h2>
         {result.current ? (
-          <ActionCard action={result.current} today={today} emphasized onMark={mark} />
+          <ActionCard action={result.current} today={today} emphasized regionCode={state.region_code} onMark={mark} />
         ) : (
           <p className="rounded-md border border-green-200 bg-green-50 p-4 text-base text-done">
             いま出せる手続きは、すべて終わっています。新しい紙を受け取ったら「入力を直す」から追加してください。
@@ -179,7 +181,7 @@ export function TodoList() {
         <section className="space-y-3">
           <h2 className="text-lg font-bold">このあと</h2>
           <p className="text-base text-gray-600">期限が近いものが上、そのあとは手続きの順番です。先に終わったものがあれば、ここからチェックしてもかまいません。</p>
-          {result.upcoming.map((a) => <ActionCard key={a.step.id} action={a} today={today} emphasized={false} onMark={mark} />)}
+          {result.upcoming.map((a) => <ActionCard key={a.step.id} action={a} today={today} emphasized={false} regionCode={state.region_code} onMark={mark} />)}
         </section>
       ) : null}
 

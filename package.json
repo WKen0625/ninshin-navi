@@ -14,7 +14,9 @@
     "db:check-rls": "tsx --env-file-if-exists=.env.local scripts/check-rls.ts",
     "notify:run": "tsx --conditions=react-server --env-file-if-exists=.env.local scripts/notify.ts",
     "watch:run": "tsx --conditions=react-server --env-file-if-exists=.env.local scripts/source-watch.ts",
-    "watch:report": "tsx --conditions=react-server --env-file-if-exists=.env.local scripts/source-watch.ts --report"
+    "watch:report": "tsx --conditions=react-server --env-file-if-exists=.env.local scripts/source-watch.ts --report",
+    "feedback:list": "tsx --env-file-if-exists=.env.local scripts/feedback.ts",
+    "preflight": "pnpm seed:check && pnpm typecheck && pnpm test && pnpm db:check-rls && pnpm watch:report"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.126.0",

@@ -6,6 +6,7 @@ import { toFamily } from "@/lib/family-state";
 import { calculateMoney, schemesOf, type MoneyLine, type MoneyResult } from "@/lib/money";
 import { expandHeldDocuments } from "@/lib/next-actions";
 import type { MoneyData, Rules } from "@/lib/rules";
+import { FeedbackLink } from "./FeedbackLink";
 import { SourceLink } from "./SourceLink";
 import { useFamilyState } from "./useFamilyState";
 
@@ -209,6 +210,7 @@ export function MoneyView() {
       </section>
 
       {results.map((r) => <SchemeResult key={r.scheme} result={r} facilityName={facility?.name ?? null} />)}
+      <FeedbackLink target="screen:money" regionCode={state.region_code} />
     </div>
   );
 }

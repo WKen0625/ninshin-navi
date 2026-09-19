@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { maskEmail, normalizeEmail, progressChanged, renderConfirmMail, validateSnapshot, type Snapshot } from "@/lib/notify/digest";
+import { overLimit, TOO_MANY } from "@/lib/rate-limit";
 import { hashToken, isToken, linkFor, mailProviderReady, newDeviceToken, notifyServer, sendMail, todayJst } from "@/lib/notify/server";
 
 // メール通知の登録（希望する人だけ）。ログインなし。端末が持つ合言葉（token）で本人の登録だけを更新・削除できる。
@@ -18,6 +19,7 @@ export async function POST(request: Request) {
   const s = notifyServer();
   const dev = process.env.NODE_ENV !== "production";
   if (!s || (!mailProviderReady() && !dev)) return unavailable();
+  if (await overLimit(s.db, request, "notifications")) return NextResponse.json(TOO_MANY, { status: 429 });
 
   // 同じアドレスへ確認メールを連続で送らない（いたずら対策の最低限）
   const recent = await s.db.from("notification_subscriptions").select("id").eq("email", email).eq("status", "pending").gt("created_at", new Date(Date.now() - 2 * 60_000).toISOString());

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { overLimit, TOO_MANY } from "@/lib/rate-limit";
 
 // POST /api/document-suggestions … 「その他（一覧にない紙）」の自由記述を保存する（設計原則6）。
 // ログイン不要・氏名なし。保存するのは地域コードと紙の名前だけ。人がレビューしてマスタに追加する。
@@ -14,6 +15,7 @@ export async function POST(request: Request) {
   if (!url || !key) return NextResponse.json({ error: "保存先が未設定" }, { status: 503 });
 
   const db = createClient(url, key, { auth: { persistSession: false } });
+  if (await overLimit(db, request, "suggestions")) return NextResponse.json(TOO_MANY, { status: 429 });
   const { error } = await db.from("document_suggestions").insert({ region_code: region, free_text: text });
   if (error) return NextResponse.json({ error: "保存できませんでした" }, { status: 500 });
   return NextResponse.json({ ok: true }, { status: 201 });

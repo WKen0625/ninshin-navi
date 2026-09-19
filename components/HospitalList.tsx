@@ -6,6 +6,7 @@ import { toFamily } from "@/lib/family-state";
 import { listFacilities, type FacilityItem } from "@/lib/facilities";
 import { gestationalWeek } from "@/lib/next-actions";
 import type { HospitalData } from "@/lib/rules";
+import { FeedbackLink } from "./FeedbackLink";
 import { SourceLink } from "./SourceLink";
 import { todayLocal, useFamilyState } from "./useFamilyState";
 
@@ -38,7 +39,7 @@ function DeadlineBox({ item }: { item: FacilityItem }) {
   );
 }
 
-function FacilityCard({ item, chosen, onChoose }: { item: FacilityItem; chosen: boolean; onChoose: () => void }) {
+function FacilityCard({ item, chosen, regionCode, onChoose }: { item: FacilityItem; chosen: boolean; regionCode: string; onChoose: () => void }) {
   const f = item.facility;
   const map = f.lat != null && f.lng != null ? `https://www.google.com/maps/search/?api=1&query=${f.lat},${f.lng}` : null;
   return (
@@ -94,6 +95,9 @@ function FacilityCard({ item, chosen, onChoose }: { item: FacilityItem; chosen: 
       <button type="button" onClick={onChoose} aria-pressed={chosen} className={`min-h-11 rounded-md px-4 py-2 text-base ${chosen ? "bg-blue-700 font-bold text-white" : "border border-gray-400 bg-white"}`}>
         {chosen ? "この施設で「お金」を計算中" : "この施設で「お金」を計算する"}
       </button>
+      <div>
+        <FeedbackLink target={`facilities:${f.id}`} regionCode={regionCode} />
+      </div>
     </article>
   );
 }
@@ -165,6 +169,7 @@ export function HospitalList() {
                 key={item.facility.id}
                 item={item}
                 chosen={state.preferences.facility_id === item.facility.id}
+                regionCode={state.region_code}
                 onChoose={() => save({ ...state, preferences: { ...state.preferences, facility_id: item.facility.id } })}
               />
             ))}

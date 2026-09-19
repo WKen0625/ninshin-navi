@@ -29,7 +29,7 @@ async function main() {
   const del = await db.from("facilities").delete().eq("id", "ncchd").select();
   check("facilities を消せない", del.error != null || (del.data?.length ?? 0) === 0, del.error?.message ?? `${del.data?.length}行を削除`);
 
-  for (const table of ["profiles", "held_documents", "step_progress", "booking_reports", "cost_reports", "product_reports", "document_suggestions", "source_watch", "notification_subscriptions"]) {
+  for (const table of ["profiles", "held_documents", "step_progress", "booking_reports", "cost_reports", "product_reports", "document_suggestions", "source_watch", "notification_subscriptions", "rate_limits", "feedback"]) {
     const { data, error } = await db.from(table).select("*").limit(1);
     check(`${table} を読めない`, error != null || (data?.length ?? 0) === 0, error?.message ?? `${data?.length}行`);
   }
@@ -38,6 +38,9 @@ async function main() {
   check("booking_reports にログインなしで書けない", rep.error != null, rep.error?.message ?? "書けてしまった");
   const sug = await db.from("document_suggestions").insert({ region_code: "13112", free_text: "rls-check" });
   check("document_suggestions に公開の鍵で直接は書けない（サーバー経由のみ）", sug.error != null, sug.error?.message ?? "書けてしまった");
+
+  const rpc = await db.rpc("rate_limit_hit", { p_key: "rls-check", p_window: new Date().toISOString() });
+  check("回数制限の関数を公開の鍵で呼べない", rpc.error != null, rpc.error?.message ?? "呼べてしまった");
 
   for (const view of ["v_booking_stats", "v_cost_stats", "v_source_urls"]) {
     const { error } = await db.from(view).select("*").limit(1);
