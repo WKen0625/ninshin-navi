@@ -29,6 +29,22 @@ surveys:
           - { value: full, label: 満枠で断られた }
           - { value: waitlist, label: キャンセル待ちになった }
           - { value: declined_highrisk, label: 条件（ハイリスク等）で断られた }
+      - key: told_deadline_week
+        label: 施設から「妊娠◯週までに予約を」と言われましたか（サイトに書いてあった場合も）
+        type: select
+        option_suffix: 週まで
+        options: [{ value: null, label: 言われなかった・覚えていない }, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 22, 24, 26, 28, 30, 32, 34]
+      - key: deposit_yen
+        label: 分娩予約金（予約のときに払うお金）
+        type: select_band                # value は幅の代表値（円）。集計の中央値はこの値で計算する
+        options:
+          - { value: null, label: わからない・まだ払っていない }
+          - { value: 0, label: なし（0円） }
+          - { value: 10000, label: 1万円くらい }
+          - { value: 30000, label: 3万円くらい }
+          - { value: 50000, label: 5万円くらい }
+          - { value: 100000, label: 10万円くらい }
+          - { value: 200000, label: 20万円以上 }
       - key: wants_epidural
         label: 無痛分娩を希望していましたか
         type: select

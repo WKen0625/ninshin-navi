@@ -6,7 +6,9 @@ import { toFamily } from "@/lib/family-state";
 import { listFacilities, type FacilityItem } from "@/lib/facilities";
 import { gestationalWeek } from "@/lib/next-actions";
 import type { HospitalData } from "@/lib/rules";
+import type { Survey } from "@/lib/surveys";
 import { FeedbackLink } from "./FeedbackLink";
+import { SurveyCard } from "./SurveyCard";
 import { SourceLink } from "./SourceLink";
 import { todayLocal, useFamilyState } from "./useFamilyState";
 
@@ -39,7 +41,7 @@ function DeadlineBox({ item }: { item: FacilityItem }) {
   );
 }
 
-function FacilityCard({ item, chosen, regionCode, onChoose }: { item: FacilityItem; chosen: boolean; regionCode: string; onChoose: () => void }) {
+function FacilityCard({ item, chosen, regionCode, onChoose, onRecord }: { item: FacilityItem; chosen: boolean; regionCode: string; onChoose: () => void; onRecord: (() => void) | null }) {
   const f = item.facility;
   const map = f.lat != null && f.lng != null ? `https://www.google.com/maps/search/?api=1&query=${f.lat},${f.lng}` : null;
   return (
@@ -81,6 +83,11 @@ function FacilityCard({ item, chosen, regionCode, onChoose }: { item: FacilityIt
         <p className="notice notice-info">
           同じ予定月の人の記録 {item.stat.reports}件: 予約できた {item.stat.booked}件／満枠・キャンセル待ち {item.stat.full_or_wait}件
           {item.stat.median_week_booked != null ? `／予約できた人が電話した週のまん中は妊娠${item.stat.median_week_booked}週` : ""}
+          {item.stat.told_reports && item.stat.median_told_deadline_week != null ? (
+            <span className="block">施設から言われた締切のまん中: 妊娠{item.stat.median_told_deadline_week}週まで（{item.stat.told_reports}件の記録）</span>
+          ) : null}
+          {item.stat.median_deposit_yen != null ? <span className="block">分娩予約金のまん中: {yen(item.stat.median_deposit_yen)}くらい</span> : null}
+          <span className="block text-slate-600">利用者の記録の集計です。施設の公式の情報ではありません。</span>
         </p>
       ) : (
         <p className="text-base text-gray-600">同じ予定月の人の記録は、まだありません。</p>
@@ -92,6 +99,11 @@ function FacilityCard({ item, chosen, regionCode, onChoose }: { item: FacilityIt
       </div>
       <SourceLink url={f.source_url} verifiedAt={f.verified_at} needsReview={f.needs_review} />
 
+      {onRecord ? (
+        <button type="button" onClick={onRecord} className="btn btn-ghost w-full">
+          この施設に電話した結果を記録する（任意）
+        </button>
+      ) : null}
       <button type="button" onClick={onChoose} aria-pressed={chosen} className={`btn ${chosen ? "btn-primary" : "btn-ghost"}`}>
         {chosen ? "この施設で「お金」を計算中" : "この施設で「お金」を計算する"}
       </button>
@@ -107,6 +119,17 @@ export function HospitalList() {
   const [data, setData] = useState<HospitalData | null>(null);
   const [failed, setFailed] = useState(false);
   const [onlyEpidural, setOnlyEpidural] = useState<boolean | null>(null);
+  const [survey, setSurvey] = useState<Survey | null>(null);
+  const [recording, setRecording] = useState<string | null>(null);
+  const [reload, setReload] = useState(0);
+
+  // 「電話した結果」の質問（data/surveys.yaml の booking_result）。利用者の入力で、施設の予約の実態を溜めていく
+  useEffect(() => {
+    fetch("/api/surveys")
+      .then((r) => (r.ok ? r.json() : []))
+      .then((list: Survey[]) => setSurvey(list.find((s) => s.target_table === "booking_reports") ?? null))
+      .catch(() => {});
+  }, []);
   const today = todayLocal();
   const region = state?.region_code;
 
@@ -120,7 +143,7 @@ export function HospitalList() {
     return () => {
       stale = true;
     };
-  }, [region]);
+  }, [region, reload]);
 
   // 入口で「無痛分娩を希望する」と答えた人は、最初から絞り込んでおく（外せる）
   const filter = onlyEpidural ?? state?.preferences.epidural === "yes";
@@ -164,15 +187,28 @@ export function HospitalList() {
             無痛分娩ができると確認できた施設だけ（{items.length}件を表示中）
           </label>
           <section className="space-y-4">
-            {items.map((item) => (
+            {items.map((item) =>
+              recording === item.facility.id && survey ? (
+                <SurveyCard
+                  key={`record-${item.facility.id}`}
+                  survey={survey}
+                  state={state}
+                  facilityId={item.facility.id}
+                  onSave={save}
+                  onSaved={() => setReload((n) => n + 1)}
+                  onClose={() => setRecording(null)}
+                />
+              ) : (
               <FacilityCard
                 key={item.facility.id}
                 item={item}
+                onRecord={survey ? () => setRecording(item.facility.id) : null} // 出産後の人も、記憶で記録できる
                 chosen={state.preferences.facility_id === item.facility.id}
                 regionCode={state.region_code}
                 onChoose={() => save({ ...state, preferences: { ...state.preferences, facility_id: item.facility.id } })}
               />
-            ))}
+              ),
+            )}
           </section>
           <p className="text-base text-gray-600">
             施設の基本情報と費用の出所: 厚生労働省「出産なび」。無痛分娩の欄は施設の自己申告で、実際に受けられるかは施設の判断によります。

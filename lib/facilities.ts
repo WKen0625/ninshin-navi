@@ -35,6 +35,10 @@ export type BookingStat = {
   booked: number;
   full_or_wait: number;
   median_week_booked: number | null;
+  /** 施設から言われた締切を記録した人の数と、その中央値（妊娠◯週まで） */
+  told_reports?: number;
+  median_told_deadline_week?: number | null;
+  median_deposit_yen?: number | null;
 };
 
 export type FacilityItem = {

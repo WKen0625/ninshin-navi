@@ -19,14 +19,23 @@ const cost = surveys.find((s) => s.id === "cost_paid")!;
 const facilityIds = ["ncchd", "seijo-kinoshita"];
 
 describe("回答の検査", () => {
-  const ok = { facility_id: "ncchd", due_month: "2027-05", contacted_week: 8, result: "booked", wants_epidural: true };
+  const ok = { facility_id: "ncchd", due_month: "2027-05", contacted_week: 8, result: "booked", told_deadline_week: null, deposit_yen: null, wants_epidural: true };
 
   it("分娩予約の回答を、表に入れる形にする（月は1日固定）", () => {
     expect(validateAnswers({ survey: booking, answers: ok, facilityIds, consentSensitive: false })).toEqual({
       ok: true,
       listed_facility: true,
-      row: { facility_id: "ncchd", due_month: "2027-05-01", contacted_week: 8, result: "booked", wants_epidural: true },
+      row: { facility_id: "ncchd", due_month: "2027-05-01", contacted_week: 8, result: "booked", told_deadline_week: null, deposit_yen: null, wants_epidural: true },
     });
+  });
+
+  it("施設から言われた締切と分娩予約金は、任意。選択肢にある値だけを受け取り、「言われなかった」は null", () => {
+    const told = validateAnswers({ survey: booking, answers: { ...ok, told_deadline_week: 12, deposit_yen: 50000 }, facilityIds, consentSensitive: false });
+    expect(told).toMatchObject({ ok: true, row: { told_deadline_week: 12, deposit_yen: 50000 } });
+    const none = validateAnswers({ survey: booking, answers: { ...ok, told_deadline_week: null, deposit_yen: null }, facilityIds, consentSensitive: false });
+    expect(none).toMatchObject({ ok: true, row: { told_deadline_week: null, deposit_yen: null } });
+    expect(validateAnswers({ survey: booking, answers: { ...ok, told_deadline_week: 21 }, facilityIds, consentSensitive: false }).ok).toBe(false); // 選択肢に無い週
+    expect(validateAnswers({ survey: booking, answers: { ...ok, deposit_yen: 12345 }, facilityIds, consentSensitive: false }).ok).toBe(false);
   });
 
   it("「21週以上」は 21、「答えない」は null で保存する", () => {
@@ -95,6 +104,13 @@ describe("保存と集計（本物のスキーマ）", () => {
   it("集計ビューは、予定月×施設ごとの件数と「予約できた人が電話した週」の中央値を返す", async () => {
     const { rows } = await db.query("select reports::int, booked::int, full_or_wait::int, median_week_booked::float from v_booking_stats where facility_id = 'ncchd'");
     expect(rows).toEqual([{ reports: 3, booked: 2, full_or_wait: 1, median_week_booked: 9 }]);
+  });
+
+  it("施設から言われた締切は、記録した人の数と中央値が集計に出る（言われなかった人は数えない）", async () => {
+    await db.query("update booking_reports set told_deadline_week = 12, deposit_yen = 50000 where reporter_hash = 'a' and facility_id = 'ncchd'");
+    await db.query("update booking_reports set told_deadline_week = 16, deposit_yen = 100000 where reporter_hash = 'b'");
+    const { rows } = await db.query("select reports::int, told_reports::int, median_told_deadline_week::float, median_deposit_yen::int from v_booking_stats where facility_id = 'ncchd'");
+    expect(rows).toEqual([{ reports: 3, told_reports: 2, median_told_deadline_week: 14, median_deposit_yen: 75000 }]);
   });
 
   it("金額の集計は、帯の中点の中央値になる", async () => {

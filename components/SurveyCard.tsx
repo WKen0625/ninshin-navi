@@ -16,15 +16,20 @@ type CostStat = { facility_id: string; epidural: boolean | null; reports: number
 type Result = { saved: boolean; kind: "booking"; stats: BookingStat[] } | { saved: boolean; kind: "cost"; min_reports: number; stats: CostStat[] };
 
 function defaultOf(f: SurveyField, state: FamilyState): string {
+  // 「わからない・答えない」（値が null）の選択肢がある項目は、それを初期値にする（任意の項目で手を止めさせない）
+  const skip = f.options?.findIndex((o) => o.value === null) ?? -1;
+  if (skip >= 0) return String(skip);
   if (f.type === "select_facility") return state.preferences.facility_id ?? "";
   if (f.default_from === "profiles.due_date") return state.due_date.slice(0, 7);
   if (f.default_from === "profiles.birth_date") return state.birth_date?.slice(0, 7) ?? "";
   return "";
 }
 
-export function SurveyCard({ survey, state, onSave, onClose }: { survey: Survey; state: FamilyState; onSave: (next: FamilyState) => void; onClose: () => void }) {
+export function SurveyCard({ survey, state, facilityId, onSave, onClose, onSaved }: { survey: Survey; state: FamilyState; facilityId?: string; onSave: (next: FamilyState) => void; onClose: () => void; onSaved?: () => void }) {
   const [facilities, setFacilities] = useState<{ id: string; name: string }[]>([]);
-  const [values, setValues] = useState<Record<string, string>>(() => Object.fromEntries(survey.fields.map((f) => [f.key, defaultOf(f, state)])));
+  const [values, setValues] = useState<Record<string, string>>(() =>
+    Object.fromEntries(survey.fields.map((f) => [f.key, f.type === "select_facility" && facilityId ? facilityId : defaultOf(f, state)])),
+  );
   const [agree, setAgree] = useState(state.consent_survey);
   const [agreeSensitive, setAgreeSensitive] = useState(state.consent_sensitive);
   const [error, setError] = useState("");
@@ -70,6 +75,7 @@ export function SurveyCard({ survey, state, onSave, onClose }: { survey: Survey;
       if (!res.ok) throw new Error();
       onSave({ ...state, consent_survey: true, consent_sensitive: agreeSensitive });
       setResult((await res.json()) as Result);
+      onSaved?.();
     } catch {
       setError("送れませんでした。少し待ってからもう一度押すか、「答えない」で閉じてください。");
     } finally {
