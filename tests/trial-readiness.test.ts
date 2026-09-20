@@ -53,10 +53,13 @@ describe("利用規約・プライバシーポリシーの下書き", () => {
     ]);
   });
 
-  it("どちらも「下書き」と明記し、決まっていないところは【 】で残してある", () => {
+  it("どちらも「下書き」と明記し、運営者と問い合わせ先を書いてある。弁護士に確認するところは【要確認】で残してある", () => {
     for (const f of ["terms.md", "privacy.md"]) {
       expect(read(f)).toContain("下書き");
-      expect(read(f)).toContain("【運営者名】");
+      expect(read(f)).toContain("Tsugiraku事務局");
+      expect(read(f)).toContain("info@tsugiraku.jp");
+      expect(read(f)).toContain("【要確認】");
+      expect(read(f)).not.toContain("【運営者名】");
     }
   });
 
