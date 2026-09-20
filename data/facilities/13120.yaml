@@ -16,13 +16,15 @@ facilities:
     has_epidural: null   # 出産なびでは未回答（ー）
     epidural_24h: null
     tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
-    booking_policy: null
+    booking_policy: 妊娠がわかって自宅出産を検討している人は、助産師に連絡してお産の相談をする（自分の良いタイミングで相談してよい）。初期から30週までは近くの医療機関か嘱託医で健診を受け、32週以降は連携医療機関で健診を受ける。
     booking_deadline_week_official: null
+    booking_source_url: https://asanomi-jyosanjyo.com/osan
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11915
     website_url: "https://asanomi-jyosanjyo.com"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11915
     verified_at: 2026-09-20
+    needs_review: true
     costs: []
 
   - id: bn-10077
@@ -35,13 +37,15 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: false
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
-    booking_deadline_week_official: null
+    booking_policy: 医師の診察で当院での分娩が可能となった人に、会計時に案内がある。初回妊婦健診から妊娠20週0日までに、予約保証金100,000円（現金・クレジットカード）と分娩予約申込書、直接支払制度の合意文書を同じ日に受付へ出すと、正式に予約完了。分娩予約の数を制限していて、申し込みが多い月は順番待ちになることがある。妊娠15週以前に妊娠確認・妊婦健診を受けていない人は受けられない。里帰り分娩は予定日が決まり次第、電話で問い合わせる。
+    booking_deadline_week_official: 20
+    booking_source_url: https://kubota-hosp.jp/service/delivery/
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10077
     website_url: "https://kubota-hosp.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10077
     verified_at: 2026-09-20
+    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -66,13 +70,15 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: false
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
+    booking_policy: 毎月の分娩数を制限している。妊娠がわかったら、なるべく早く電話で初診予約を取る（一定数に達すると初診の受付を締め切る。締め切り後は電話でキャンセル待ちを申し込める）。妊娠8〜10週頃に仮予約、妊娠30週頃に正式な分娩予約をする。
     booking_deadline_week_official: null
+    booking_source_url: https://www.sakuradai-mc.com/
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10899
-    website_url: null
+    website_url: "https://www.sakuradai-mc.com/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10899
     verified_at: 2026-09-20
+    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -97,13 +103,15 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: false
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
+    booking_policy: 無痛分娩（計画無痛分娩）は受け入れ枠に制限があり、希望する人は妊娠20週までに医師へ相談する。
     booking_deadline_week_official: null
+    booking_source_url: https://nerima-hosp.or.jp/hospitalization/obstetric.html
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10836
     website_url: "https://www.nerima-hosp.or.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10836
     verified_at: 2026-09-20
+    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -128,13 +136,15 @@ facilities:
     has_epidural: null   # 出産なびでは未回答（ー）
     epidural_24h: null
     tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
-    booking_policy: null
+    booking_policy: 初診の予約には他の医療機関からの紹介状が必要（紹介状がなくても、予約なしで受診はできる）。電話で産婦人科の受診予約を取る。セミオープンシステムを使う人は、妊娠16週の週までに受診できるよう電話で初診予約をする。当院への里帰り出産は、紹介状を持って32〜34週頃までに受診する。
     booking_deadline_week_official: null
+    booking_source_url: https://www.nerimahikarigaoka-sanka.com/sanzen.htm
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10402
     website_url: "https://hikarigaoka-jadecom.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10402
     verified_at: 2026-09-20
+    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -159,13 +169,15 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: true
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
+    booking_policy: 当院で出産を希望する人は、予約センターに電話して産科の初診予約を取る（紹介状が無い人も予約できる）。セミオープンシステムでは、妊婦健診を近くの医療機関で受け、妊娠34週以降（帝王切開の場合は32週未満）から当院を受診する。
     booking_deadline_week_official: null
+    booking_source_url: https://hosp-nerima.juntendo.ac.jp/clinic/obstetrics_gynecology/index.html
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10428
     website_url: "https://hosp-nerima.juntendo.ac.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10428
     verified_at: 2026-09-20
+    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -190,13 +202,15 @@ facilities:
     has_epidural: null   # 出産なびでは未回答（ー）
     epidural_24h: null
     tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
-    booking_policy: null
+    booking_policy: まず電話で相談する。健診は完全予約制。16週までは近くの医療機関で健診を受け、その後は嘱託医健診（20・30・36週）と助産所健診を受ける。
     booking_deadline_week_official: null
+    booking_source_url: https://www.tsumugi-birth.com/
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11786
     website_url: "https://www.tsumugi-birth.com/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11786
     verified_at: 2026-09-20
+    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月

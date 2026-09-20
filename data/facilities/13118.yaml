@@ -16,13 +16,15 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: false
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
+    booking_policy: 予定日が確定してから（超音波検査で赤ちゃんが8週相当の大きさを超えてから）分娩予約を申し込める。先着順で、予定日が確定した時点で予約が取れない場合もある。申し込み後、母子手帳を使う妊婦健診が始まる日（妊娠10〜11週頃）までに予約金（通常分娩5万円、無痛分娩10万円。現金またはクレジットカード）を入金すると予約完了。入金が確認できないとキャンセルになる。
     booking_deadline_week_official: null
+    booking_source_url: https://www.arakawalc.jp/news/1934/
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11110
     website_url: "http://www.arakawalc.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11110
     verified_at: 2026-09-20
+    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -47,13 +49,15 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: false
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
-    booking_deadline_week_official: null
+    booking_policy: 他院からの紹介・里帰り分娩に関わらず、妊娠23週6日までに予約する。予約は電話で受け付けている。来院できない場合は電話で相談する。当院へ戻るのは32週までに。過体重や母体合併症の内容によっては、分娩を受けられない場合がある。
+    booking_deadline_week_official: 23
+    booking_source_url: https://www.trshp.jp/birth/reservation/
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10096
     website_url: "https://www.trshp.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10096
     verified_at: 2026-09-20
+    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -78,11 +82,13 @@ facilities:
     has_epidural: null   # 出産なびでは未回答（ー）
     epidural_24h: null
     tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
-    booking_policy: null
+    booking_policy: 妊娠が分かったら見学・説明会へ行く。妊娠20週前後を目安に当院の初診を受ける。中期・後期には連携医療機関を受診する。
     booking_deadline_week_official: null
+    booking_source_url: https://www.fuwafuwatannpopoarakawa.com/blank-3
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11903
     website_url: "https://www.fuwafuwatannpopo.com"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11903
     verified_at: 2026-09-20
+    needs_review: true
     costs: []

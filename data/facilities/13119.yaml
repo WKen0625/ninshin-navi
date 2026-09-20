@@ -16,13 +16,15 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: false
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
+    booking_policy: 分娩制限はしていない。里帰り分娩の案内に、当院での分娩を希望する人は制限なく分娩予約を取れる（前金不要）とあり、経腟分娩予定の人は34週までに、帝王切開予定の人は32週までに、紹介状を持って当院で健診を受ける。初診は予約優先で、紹介元の医療機関から診療情報提供書をFAXしてもらい、翌日に予約専用電話で予約する。
     booking_deadline_week_official: null
+    booking_source_url: https://www.itabashi.med.nihon-u.ac.jp/division/obstetrics/kenshin
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10629
     website_url: "https://www.itabashi.med.nihon-u.ac.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10629
     verified_at: 2026-09-20
+    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -47,13 +49,15 @@ facilities:
     has_epidural: null   # 出産なびでは未回答（ー）
     epidural_24h: null
     tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
-    booking_policy: null
+    booking_policy: 里帰り出産を受け入れている。妊娠34週までに、かかりつけ医の紹介状を持って受診する。
     booking_deadline_week_official: null
+    booking_source_url: https://www.itabashi-med.jp/shinryou/sanfujinka.php
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10791
     website_url: "https://www.itabashi-med.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10791
     verified_at: 2026-09-20
+    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -78,13 +82,15 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: false
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
+    booking_policy: 分娩予約は随時受け付けている。今回の妊娠で初めて受診する人は（他院で妊婦健診を受けている人も）、まず婦人科を受診する。他院から当院へ里帰りする人は、初期のうちに一度問い合わせ、妊娠24週までに分娩を申し込み、妊娠33週頃から当院を受診する。保険証を持っている人は、分娩予約のときに入院保証金は預からない。
     booking_deadline_week_official: null
+    booking_source_url: https://www.ims-itabashi.jp/sanfujinka/service/flow.html
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10697
     website_url: "https://ims-itabashi.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10697
     verified_at: 2026-09-20
+    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -109,13 +115,15 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: true
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
+    booking_policy: 当院で胎児心拍を確認したあとから分娩予約ができる。予約は来院時のみ受け付ける。2026年10月予定日の人から分娩受け入れ制限の対象で、予約可能数を超えると断られる場合がある。予約後、妊娠20〜30週の間に分娩予約金10万円（現金のみ）を受付で支払う。里帰り分娩などで遠方に住んでいる人は、電話で事前に相談する。
     booking_deadline_week_official: null
+    booking_source_url: https://sho-hospital.jp/maternity/childbirth/reserve
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10197
     website_url: "https://sho-hospital.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10197
     verified_at: 2026-09-20
+    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -171,13 +179,15 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: true
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
+    booking_policy: 妊娠の初診は予約制（予約専用電話。平日9時〜14時）。どこにもかかっていない人は、まず他の医療機関を受診し、分娩予定日が決まってから分娩の予約をする。すでに他院にかかっている人は、電話のときに分娩予定日と無痛分娩の希望を聞かれる。分娩予定日によっては予約が上限に達していて、予約できない場合がある。予約なしで初診した日には分娩の予約はできない。
     booking_deadline_week_official: null
+    booking_source_url: https://www.tmhp.jp/toshima/information250213.html
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10516
     website_url: "https://www.tmhp.jp/toshima/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10516
     verified_at: 2026-09-20
+    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月

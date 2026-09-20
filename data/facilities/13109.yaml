@@ -16,8 +16,10 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: true
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
-    booking_deadline_week_official: null
+    booking_policy: "公式サイトの分娩予約フォームから申し込む（仮予約。クリニックから診療日時の確認の連絡が来て確定）。妊娠11週6日までに分娩予約金10万円を支払う（未払いだと分娩予約が完了しない）。30週6日までに分娩保証金25万円、無痛分娩を希望する人は34週6日までに無痛分娩予約金20万円。予約金・保証金は原則返金されない。BMIが基準以上、帝王切開歴2回以上、双子などの場合は受けられない。里帰りは34週までに紹介状を持って一度受診する。"
+    booking_deadline_week_official: 11
+    booking_source_url: https://tokyobirthclinic.com/clinic-information/price-information/
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/12199
     website_url: "https://tokyobirthclinic.com/"
@@ -47,8 +49,10 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: false
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
+    booking_policy: "電話（03-3448-6111）またはWEB初診予約で予約して受診する。ほかの医療機関で妊婦健診を受ける人（セミオープン）は、紹介状を持って33週6日までに一度受診し、34週以降の健診はこの病院で受ける。それ以外の週数でも、事情があれば電話で相談できる。出生前検査と双子は取り扱っていない。"
     booking_deadline_week_official: null
+    booking_source_url: https://www.nmct.ntt-east.co.jp/birth/
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10802
     website_url: "https://www.nmct.ntt-east.co.jp/"
@@ -78,8 +82,10 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: false
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
-    booking_deadline_week_official: null
+    booking_policy: "地域のクリニックなどで紹介状を用意してから、初診を予約する（WEBの産科分娩仮予約、または患者支援センター 03-3764-7481）。紹介状なしで直接来院しても、緊急でなければ当日の診療はない。分娩を希望する人は20週頃までに前納金10万円を納める（会計で支払い、または振り込み）。里帰り先で産む人の妊婦健診だけの受診は行っていない。"
+    booking_deadline_week_official: 20
+    booking_source_url: https://tokyo-shinagawa.jp/department/clinic/birthcenter
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10698
     website_url: "https://tokyo-shinagawa.jp/"
@@ -109,8 +115,10 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: false
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
+    booking_policy: "産婦人科外来に8:30〜11:00に来院して分娩予約をする（電話での分娩予約は不可）。ほかの医療機関で健診を受けている人は紹介状を持参する。制限数を超えた場合は断られることがある。14週以後34週未満の妊婦健診は、近くのクリニックで受けるセミオープンシステム。"
     booking_deadline_week_official: null
+    booking_source_url: https://www.showa-obgy.jp/patient/delivery.html
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10368
     website_url: "https://www.showa-u.ac.jp/SUH/"
