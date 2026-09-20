@@ -73,3 +73,25 @@ describe("利用規約・プライバシーポリシーの下書き", () => {
     for (const word of ["医療に関する判断や助言をしません", "最終確認", "お礼の品やポイントはありません", "広告や製品の紹介は置きません", "掲載料を受け取りません"]) expect(t, word).toContain(word);
   });
 });
+
+describe("対象地域（data/service-area.yaml）", () => {
+  it("いまは東京23区だけ。どの市区町村コードも総務省の一覧にあり、問い合わせ先が書いてある", async () => {
+    const { parse } = await import("yaml");
+    const area = parse(readFileSync(join(ROOT, "data", "service-area.yaml"), "utf8")) as { contact: string; municipalities: string[] };
+    const master = JSON.parse(readFileSync(join(ROOT, "data", "reference", "municipalities.json"), "utf8")) as { prefectures: { code: string; municipalities: { code: string; name: string }[] }[] };
+    const tokyo = new Map(master.prefectures.find((p) => p.code === "13")!.municipalities.map((m) => [m.code, m.name]));
+    expect(area.municipalities).toHaveLength(23);
+    expect(new Set(area.municipalities).size).toBe(23);
+    for (const code of area.municipalities) expect(tokyo.get(code), code).toMatch(/区$/);
+    expect(area.municipalities).toContain("13112"); // 世田谷区
+    expect(area.municipalities).toContain("13103"); // 港区
+    expect(area.contact).toBe("info@tsugiraku.jp");
+  });
+
+  it("制度データのある市区町村は、すべて対象地域に入っている（選べないのにデータだけある、をつくらない）", async () => {
+    const { parse } = await import("yaml");
+    const { readdirSync } = await import("node:fs");
+    const area = parse(readFileSync(join(ROOT, "data", "service-area.yaml"), "utf8")) as { municipalities: string[] };
+    for (const file of readdirSync(join(ROOT, "data", "municipalities"))) expect(area.municipalities, file).toContain(file.replace(".yaml", ""));
+  });
+});

@@ -8,19 +8,16 @@ import type { Rules } from "@/lib/rules";
 import { SourceLink } from "./SourceLink";
 import { todayLocal, useFamilyState } from "./useFamilyState";
 
-type Pref = { code: string; name: string };
-type Municipality = { code: string; name: string };
+type Area = { contact: string; label: string; municipalities: { code: string; name: string; prefecture: string }[] };
 
 const PHASE_ORDER = ["pre_notification", "notification", "pregnancy", "birth", "postpartum"];
 const field = "block min-h-11 w-full rounded-md border border-gray-400 bg-white px-3 py-2 text-base";
 const legend = "mb-2 text-lg font-bold";
 
-export function EntryForm({ prefectures }: { prefectures: Pref[] }) {
+export function EntryForm({ area }: { area: Area }) {
   const router = useRouter();
   const { state, loaded, save } = useFamilyState();
 
-  const [pref, setPref] = useState("");
-  const [municipalities, setMunicipalities] = useState<Municipality[]>([]);
   const [region, setRegion] = useState("");
   const [dueDate, setDueDate] = useState("");
   const [born, setBorn] = useState(false);
@@ -35,8 +32,8 @@ export function EntryForm({ prefectures }: { prefectures: Pref[] }) {
   // 前に入力した内容があれば、それを初期値にする
   useEffect(() => {
     if (!state) return;
-    setPref(state.region_code.slice(0, 2));
-    setRegion(state.region_code);
+    // 前に選んだ地域が、いまの対象地域に無ければ、選び直してもらう
+    setRegion(area.municipalities.some((m) => m.code === state.region_code) ? state.region_code : "");
     setDueDate(state.due_date);
     setBorn(state.birth_date != null);
     setBirthDate(state.birth_date ?? "");
@@ -44,17 +41,6 @@ export function EntryForm({ prefectures }: { prefectures: Pref[] }) {
     setPreferences(state.preferences);
     setSelected(state.held_documents.filter((h) => !h.from_step).map((h) => h.document_id));
   }, [state]);
-
-  useEffect(() => {
-    if (!pref) return setMunicipalities([]);
-    let stale = false;
-    fetch(`/api/municipalities?pref=${pref}`)
-      .then((r) => r.json())
-      .then((list: Municipality[]) => !stale && setMunicipalities(list));
-    return () => {
-      stale = true;
-    };
-  }, [pref]);
 
   useEffect(() => {
     if (!region) return setRules(null);
@@ -85,13 +71,14 @@ export function EntryForm({ prefectures }: { prefectures: Pref[] }) {
 
   const otherId = documents.find((d) => d.id.endsWith(".other"))?.id;
   const ownRegion = rules?.regions.find((r) => r.code === region);
-  const regionName = `${prefectures.find((p) => p.code === pref)?.name ?? ""}${municipalities.find((m) => m.code === region)?.name ?? ""}`;
+  const chosen = area.municipalities.find((m) => m.code === region);
+  const regionName = chosen ? `${chosen.prefecture}${chosen.name}` : "";
 
   const toggle = (id: string) => setSelected((cur) => (cur.includes(id) ? cur.filter((x) => x !== id) : [...cur, id]));
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
-    if (!region) return setError("お住まいの市区町村を選んでください。");
+    if (!chosen) return setError("お住まいの区を選んでください。");
     if (!dueDate) return setError("出産予定日を入れてください。");
     if (born && !birthDate) return setError("出産した日を入れてください。");
     if (selected.length === 0) return setError("手元にある紙を1つ以上選んでください。何もなければ、いちばん上の「まだ紙がない」を選んでください。");
@@ -131,22 +118,20 @@ export function EntryForm({ prefectures }: { prefectures: Pref[] }) {
   return (
     <form onSubmit={submit} className="space-y-8">
       <fieldset>
-        <legend className={legend}>1. お住まいの市区町村</legend>
+        <legend className={legend}>1. お住まいの区（{area.label}）</legend>
         <div className="space-y-3">
           <label className="block text-base">
-            都道府県
-            <select className={field} value={pref} onChange={(e) => { setPref(e.target.value); setRegion(""); }}>
+            区
+            <select className={field} value={region} onChange={(e) => setRegion(e.target.value)}>
               <option value="">選んでください</option>
-              {prefectures.map((p) => <option key={p.code} value={p.code}>{p.name}</option>)}
+              {area.municipalities.map((m) => <option key={m.code} value={m.code}>{m.name}</option>)}
             </select>
           </label>
-          <label className="block text-base">
-            市区町村
-            <select className={field} value={region} onChange={(e) => setRegion(e.target.value)} disabled={!pref}>
-              <option value="">選んでください</option>
-              {municipalities.map((m) => <option key={m.code} value={m.code}>{m.name}</option>)}
-            </select>
-          </label>
+          <p className="text-base text-gray-600">
+            いまは{area.label}だけです。ほかの市区町村は準備中です。リクエストがあれば、
+            <a href={`mailto:${area.contact}?subject=${encodeURIComponent("対象地域のリクエスト")}`} className="text-info underline">{area.contact}</a>
+            あてにご連絡ください。
+          </p>
           {rules && ownRegion?.status !== "verified" ? (
             <p className="rounded-md border border-blue-200 bg-blue-50 p-3 text-base text-info">
               {ownRegion ? "この市区町村の情報は確認中です。" : "この市区町村の情報はまだありません。国と都道府県の共通の手続きを表示します。"}
