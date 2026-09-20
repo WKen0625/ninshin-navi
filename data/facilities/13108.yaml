@@ -23,7 +23,6 @@ facilities:
     website_url: "https://josanpu-ishimura.jp"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11828
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs: []
 
   - id: bn-11509
@@ -43,7 +42,6 @@ facilities:
     website_url: "https://sunamachi-gyne.com/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11509
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -75,7 +73,6 @@ facilities:
     website_url: "https://www.toho-clinic.or.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10949
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -107,7 +104,6 @@ facilities:
     website_url: "https://www.showa-u.ac.jp/SHKT/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10734
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -139,7 +135,6 @@ facilities:
     website_url: "https://www.gonohashi-sanfujinka.com"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11243
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月

@@ -77,7 +77,6 @@ steps:
     deadline_note: 期限は区のページに記載なし
     source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninsin.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: ota.s03b
     phase: pregnancy
@@ -91,7 +90,6 @@ steps:
     deadline_note: いつまでに受けるかは区のページに記載なし
     source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/karugamo.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: ota.s05
     overrides_step_id: jp.s05
@@ -104,7 +102,6 @@ steps:
     deadline_note: 申請期限は区のページに記載なし（面接のときに確認する）
     source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninpunotamenosienkyuhu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: ota.s05c
     phase: pregnancy
@@ -116,7 +113,6 @@ steps:
     deadline_note: 妊娠中に1回
     source_url: https://www.city.ota.tokyo.jp/seikatsu/hoken/shussan/sika/ninpushikakenkoushinsa.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: ota.s06d
     phase: pregnancy
@@ -128,7 +124,6 @@ steps:
     deadline_note: 出産予定日の6か月前から届け出できる
     source_url: https://www.city.ota.tokyo.jp/seikatsu/kokunen/kokuho/topics/kokuho_sanzensango_genmen.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: ota.s07c
     phase: postpartum
@@ -142,7 +137,6 @@ steps:
     deadline_note: 出生通知書はできるだけ生後14日以内に。訪問の対象は生後120日まで
     source_url: https://www.city.ota.tokyo.jp/seikatsu/hoken/shussan/sukoyaka-akachan-houmon.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: ota.s08
     overrides_step_id: jp.s08
@@ -155,7 +149,6 @@ steps:
     deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
     source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninpunotamenosienkyuhu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: ota.s08b
     phase: postpartum
@@ -167,7 +160,6 @@ steps:
     deadline_note: 2週間健診と1か月健診
     source_url: https://www.city.ota.tokyo.jp/seikatsu/hoken/shussan/12154545.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: ota.s08d
     phase: postpartum
@@ -179,7 +171,6 @@ steps:
     deadline_note: 生後1か月ごろ
     source_url: https://www.city.ota.tokyo.jp/seikatsu/hoken/shussan/1kensinhiyoujosei.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: ota.s08e
     phase: postpartum
@@ -192,7 +183,6 @@ steps:
     deadline_note: 大田区に住民票があった期間に、最後に健診を受けた日から1年以内
     source_url: https://www.city.ota.tokyo.jp/faq/bunya/kosodate/satogaeri_ninpukenshin.html
     verified_at: 2026-09-20
-    needs_review: true
 
 subsidies:
   - id: ota.shien_kyufu_1
@@ -204,7 +194,6 @@ subsidies:
     apply_via: 妊婦面接で受け取る案内の2次元コードから申請。問い合わせ 健康づくり課 管理担当 03-5744-1661
     source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninpunotamenosienkyuhu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: ota.shien_kyufu_2
     name: 妊婦のための支援給付（2回目・大田区）
@@ -215,7 +204,6 @@ subsidies:
     apply_via: すこやか赤ちゃん訪問で受け取る案内の2次元コードから申請
     source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninpunotamenosienkyuhu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: ota.kouketsuatsu
     name: 妊娠高血圧症候群等医療費助成（大田区）
@@ -225,4 +213,3 @@ subsidies:
     apply_via: 各地域健康課に問い合わせる（申請のしかた・期限はこのページに記載なし）
     source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninsin.html
     verified_at: 2026-09-20
-    needs_review: true

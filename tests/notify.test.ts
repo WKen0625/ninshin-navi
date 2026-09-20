@@ -63,12 +63,12 @@ describe("何を送るか", () => {
     expect(digest(snapshot({}), { lastProgressOn: addDays(TODAY, -30), nudgesSent: 3 })).toBeNull();
   });
 
-  it("妊娠20週: 8か月時アンケート（28週）は56日先なので、まだ知らせない。30日前になったら知らせる", () => {
+  it("妊娠20週: 近い期限が無いので送らない。期限の30日前になったら知らせる（1か月児健診の例）", () => {
     expect(digest(week20)).toBeNull();
-    const later = addDays(TODAY, 26); // 期限 2026-11-13 の30日前
-    const d = digest(week20, { today: later, lastProgressOn: later })!;
-    expect(d.deadlines.map((a) => [a.step.id, a.deadline])).toEqual([["setagaya.s05b", "2026-11-13"]]);
-    expect(d.nudge).toBeNull();
+    // 出産後の家族: 1か月児健診の期限は 2026-10-15。31日前はまだ入れず、30日前から入る
+    const ids = (today: string) => digest(born, { today, lastProgressOn: today })?.deadlines.map((a) => a.step.id) ?? [];
+    expect(ids("2026-09-14")).not.toContain("setagaya.s08d");
+    expect(ids("2026-09-15")).toContain("setagaya.s08d");
   });
 
   it("出産後2週: 出生届（期限切れ1日）・児童手当（明日）・1か月児健診（27日後）を期限順に。1年先の助成申請はまだ入れない", () => {

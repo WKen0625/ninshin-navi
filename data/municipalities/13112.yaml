@@ -136,9 +136,7 @@ steps:
     detail: 妊娠7か月を過ぎると区からアンケートが届く。必ず回答する。回答後、必要に応じてネウボラ・チームから面談の案内がある。急ぐ場合は区公式LINEで面談を予約できる。
     trigger_document_id: setagaya.hoken_bag
     channel: 総合支所健康づくり課
-    deadline_base: gestational_week
-    deadline_week: 28
-    deadline_note: 妊娠8か月（28〜31週）
+    deadline_note: 妊娠7か月を過ぎると区からアンケートが届く（面談は妊娠8か月ごろ）
     source_url: https://www.city.setagaya.lg.jp/02244/online_tetsuzuki/1182.html
     verified_at: 2026-09-19
 

@@ -23,7 +23,6 @@ facilities:
     website_url: "https://ootorii-iin.or.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10940
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -55,7 +54,6 @@ facilities:
     website_url: "https://seo-clinic.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/12193
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -87,7 +85,6 @@ facilities:
     website_url: "https://www.makita-hosp.or.jp/birth/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10637
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -119,7 +116,6 @@ facilities:
     website_url: "https://www.tmhp.jp/ebara/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10571
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -151,7 +147,6 @@ facilities:
     website_url: "https://www.omori.med.toho-u.ac.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10746
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -183,7 +178,6 @@ facilities:
     website_url: "https://omori.jrc.or.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10352
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月

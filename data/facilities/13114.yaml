@@ -23,7 +23,6 @@ facilities:
     website_url: "https://www.keisatsubyoin.or.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10779
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -55,7 +54,6 @@ facilities:
     website_url: "http://snwomen.net"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11193
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -87,7 +85,6 @@ facilities:
     website_url: "https://www.shirasagifureai.com/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11790
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -119,5 +116,4 @@ facilities:
     website_url: "https://matsugaoka-birth.com/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11796
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs: []

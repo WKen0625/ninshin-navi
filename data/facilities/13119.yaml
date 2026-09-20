@@ -23,7 +23,6 @@ facilities:
     website_url: "https://www.itabashi.med.nihon-u.ac.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10629
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -55,7 +54,6 @@ facilities:
     website_url: "https://www.itabashi-med.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10791
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -87,7 +85,6 @@ facilities:
     website_url: "https://ims-itabashi.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10697
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -119,7 +116,6 @@ facilities:
     website_url: "https://sho-hospital.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10197
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -151,7 +147,6 @@ facilities:
     website_url: "https://www.teikyo-hospital.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10783
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -183,7 +178,6 @@ facilities:
     website_url: "https://www.tmhp.jp/toshima/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10516
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月

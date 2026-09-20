@@ -84,7 +84,6 @@ steps:
     action_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1002071.html
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1002071.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: katsushika.s03b
     phase: pregnancy
@@ -98,7 +97,6 @@ steps:
     deadline_note: いつまでに受けるかは区のページに記載なし
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1014924.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: katsushika.s05
     overrides_step_id: jp.s05
@@ -113,7 +111,6 @@ steps:
     deadline_note: 医療機関で胎児心拍が確認された日（受診日）から2年間
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1037742.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: katsushika.s05c
     phase: pregnancy
@@ -126,7 +123,6 @@ steps:
     deadline_note: 妊娠期間中に1回
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1002079.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: katsushika.s06d
     phase: pregnancy
@@ -138,7 +134,6 @@ steps:
     deadline_note: 出産予定日の6か月前から届け出できる。出産後でも届け出できるが、対象の年度の最初の保険料の納期の翌日から2年を過ぎると、免除できなくなることがある
     source_url: https://www.city.katsushika.lg.jp/kurashi/1000049/1001690/1033959.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: katsushika.s08c
     phase: birth
@@ -152,7 +147,6 @@ steps:
     deadline_note: 生後1か月以内に。受診票が使えるのは、生まれた日を0日として生後50日以内
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1037959.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: katsushika.s07b
     phase: postpartum
@@ -167,7 +161,6 @@ steps:
     deadline_note: 出生または転入で対象になった日から数えて1年以内
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1031538.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: katsushika.s07c
     phase: postpartum
@@ -181,7 +174,6 @@ steps:
     deadline_note: 赤ちゃんが生まれてから申し込む。生後3か月を過ぎたら相談
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1024614.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: katsushika.s08
     overrides_step_id: jp.s08
@@ -196,7 +188,6 @@ steps:
     deadline_note: 出産予定日の8週前から2年間
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1037742.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: katsushika.s08b
     phase: postpartum
@@ -210,7 +201,6 @@ steps:
     deadline_note: 産後2か月以内
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1030308/1042839.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: katsushika.s08d
     phase: postpartum
@@ -224,7 +214,6 @@ steps:
     deadline_note: 生後28日から生後41日まで（出生日を0日目として数える）
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001804/1042840.html
     verified_at: 2026-09-20
-    needs_review: true
 
 subsidies:
   - id: katsushika.shien_kyufu_1
@@ -238,7 +227,6 @@ subsidies:
     deadline_offset_days: 730
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1037742.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: katsushika.shien_kyufu_2
     name: 葛飾区妊婦支援給付金（2回目・出産後給付）
@@ -251,7 +239,6 @@ subsidies:
     deadline_offset_days: 674
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1037742.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: katsushika.shussan_ouen
     name: かつしか出産応援給付金
@@ -264,7 +251,6 @@ subsidies:
     deadline_offset_days: 365
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1031538.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: katsushika.kouketsuatsu
     name: 妊娠高血圧症候群等の医療費助成（葛飾区）
@@ -274,4 +260,3 @@ subsidies:
     apply_via: 子ども総合センター母子保健係、各保健センター、堀切区民事務所、高砂区民事務所。原則として退院前に申請。退院後は退院日から3か月以内に出す。問い合わせ 青戸保健センター母子保健係 03-3602-1387
     source_url: https://www.city.katsushika.lg.jp/kosodate/1000056/1002336/1002431.html
     verified_at: 2026-09-20
-    needs_review: true

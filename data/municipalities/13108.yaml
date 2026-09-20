@@ -92,7 +92,6 @@ steps:
     deadline_note: 期限は区のページに記載なし
     source_url: https://www.city.koto.lg.jp/261201/kodomo/ninshinshussan/ninshin/6875.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: koto.s03b
     phase: pregnancy
@@ -108,7 +107,6 @@ steps:
     deadline_note: 妊婦本人が出産前に受ける（くわしい期限は区のページに記載なし）
     source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97550.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: koto.s05
     overrides_step_id: jp.s05
@@ -123,7 +121,6 @@ steps:
     deadline_note: 医療機関で胎児の心拍が確認された日から2年間
     source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97552.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: koto.s05c
     phase: pregnancy
@@ -135,7 +132,6 @@ steps:
     action_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/6878.html
     source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/6878.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: koto.s06d
     phase: pregnancy
@@ -148,7 +144,6 @@ steps:
     deadline_note: 出産予定日の6か月前から届け出できる。出産後でも届け出できる
     source_url: https://www.city.koto.lg.jp/250102/kokuhosanzensango.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: koto.s08c
     phase: birth
@@ -160,7 +155,6 @@ steps:
     deadline_note: 生後50日まで（生後50日に達する日以降の検査は対象外）
     source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/6890.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: koto.s07c
     phase: postpartum
@@ -174,7 +168,6 @@ steps:
     deadline_note: 訪問の対象は生後4か月の前日まで
     source_url: https://www.city.koto.lg.jp/261301/kodomo/ninshinshussan/shussan/6880.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: koto.s08
     overrides_step_id: jp.s08
@@ -189,7 +182,6 @@ steps:
     deadline_note: 出産予定日の8週間前から2年間（= 予定日−56日 から 730日間）
     source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97552.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: koto.s08b
     phase: postpartum
@@ -201,7 +193,6 @@ steps:
     deadline_note: 産後2か月以内（産後2週間ごろに1回、産後1か月ごろに1回）
     source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97801.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: koto.s08d
     phase: postpartum
@@ -215,7 +206,6 @@ steps:
     deadline_note: 生後28日から生後41日まで
     source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97801.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: koto.s08e
     phase: postpartum
@@ -230,7 +220,6 @@ steps:
     deadline_note: 出産後から、子どもの1歳の誕生日の前日まで（1回限り）
     source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/24990.html
     verified_at: 2026-09-20
-    needs_review: true
 
 subsidies:
   - id: koto.shien_kyufu_1
@@ -244,7 +233,6 @@ subsidies:
     deadline_offset_days: 730
     source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97552.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: koto.shien_kyufu_2
     name: 子育て応援給付金（妊婦のための支援給付2回目・江東区）
@@ -257,7 +245,6 @@ subsidies:
     deadline_offset_days: 674
     source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97552.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: koto.kouketsuatsu
     name: 妊娠高血圧症候群等医療費助成（江東区で申請）
@@ -267,4 +254,3 @@ subsidies:
     apply_via: 住んでいる地区を担当する保健相談所に申請。手続きが遅れると助成を受けられないことがある（くわしい期限は区のページに記載なし）。
     source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/6886.html
     verified_at: 2026-09-20
-    needs_review: true

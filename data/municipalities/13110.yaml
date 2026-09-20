@@ -85,7 +85,6 @@ steps:
     deadline_note: 期限は区のページに記載なし
     source_url: https://www.city.meguro.tokyo.jp/smph/kurashi/shussan/ninshintodoke_mynumber.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: meguro.s03b
     phase: pregnancy
@@ -99,7 +98,6 @@ steps:
     deadline_note: いつまでに受けるかは区のページに記載なし（対象は妊婦）
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/syussannkosodate.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: meguro.s05
     overrides_step_id: jp.s05
@@ -114,7 +112,6 @@ steps:
     deadline_note: 医療機関で胎児心拍が確認された日（受診日）から2年間
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/ninpunotameno_sienkyuhu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: meguro.s05c
     phase: pregnancy
@@ -127,7 +124,6 @@ steps:
     deadline_note: 妊婦の分は妊娠中に。産婦の分は子どもの1歳の誕生日の前日まで
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/ninpusika.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: meguro.s06d
     phase: pregnancy
@@ -140,7 +136,6 @@ steps:
     deadline_note: 出産予定日の6か月前から届け出できる。出産後でも届け出できる
     source_url: https://www.city.meguro.tokyo.jp/kokuho/kurashi/kokuho/hokenryo_keigen.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: meguro.s08c
     phase: birth
@@ -152,7 +147,6 @@ steps:
     deadline_note: 生後50日以内
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/sinnseiji_tyoukakukensa.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: meguro.s07b
     phase: postpartum
@@ -167,7 +161,6 @@ steps:
     deadline_note: 子どもの出生日から3か月以内
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/shinseizitanzyoiwaikin.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: meguro.s07c
     phase: postpartum
@@ -181,7 +174,6 @@ steps:
     deadline_note: 期限は区のページに記載なし
     source_url: https://www.city.meguro.tokyo.jp/hokenyobou/kosodatekyouiku/ninshin/homon.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: meguro.s08
     overrides_step_id: jp.s08
@@ -196,7 +188,6 @@ steps:
     deadline_note: 出産予定日の8週前から2年間（= 予定日−56日 から 730日間）
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/ninpunotameno_sienkyuhu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: meguro.s08b
     phase: postpartum
@@ -208,7 +199,6 @@ steps:
     deadline_note: 産後2週間ごろに1回目、産後1か月ごろに2回目。受診票の有効期間は出産後2か月以内
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/sanpukensin.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: meguro.s08d
     phase: postpartum
@@ -222,7 +212,6 @@ steps:
     deadline_note: 生後28日から生後41日の間に1回
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/ikkagetujikensin.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: meguro.s08e
     phase: postpartum
@@ -237,7 +226,6 @@ steps:
     deadline_note: 出産日などから1年以内
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/satogaeri.html
     verified_at: 2026-09-20
-    needs_review: true
 
 subsidies:
   - id: meguro.shien_kyufu_1
@@ -251,7 +239,6 @@ subsidies:
     deadline_offset_days: 730
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/ninpunotameno_sienkyuhu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: meguro.shien_kyufu_2
     name: 妊婦支援給付金（2回目・出産後・目黒区）
@@ -264,7 +251,6 @@ subsidies:
     deadline_offset_days: 674
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/ninpunotameno_sienkyuhu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: meguro.tanjo_iwaikin
     name: 目黒区 新生児誕生祝金
@@ -277,7 +263,6 @@ subsidies:
     deadline_offset_days: 89
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/shinseizitanzyoiwaikin.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: meguro.kouketsuatsu
     name: 妊娠高血圧症候群等の医療費助成（目黒区で申請）
@@ -287,4 +272,3 @@ subsidies:
     apply_via: 地域保健課（03-5722-9503）。申請の時期・期限は区のページに記載なし。
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kenkoufukushi/iryou/ninshinchu.html
     verified_at: 2026-09-20
-    needs_review: true

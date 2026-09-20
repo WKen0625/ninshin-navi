@@ -15,7 +15,7 @@ facilities:
     facility_type: 有床診療所
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: true
-    tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
+    tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず。無痛分娩可の施設は、運営者が JALA のサイトでも確認して対象外と判断（2026-09-20）
     booking_policy: null
     booking_deadline_week_official: null
     scheme: lumpsum
@@ -23,7 +23,6 @@ facilities:
     website_url: "http://kawazoe-sanfujinka.com"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11267
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -47,7 +46,7 @@ facilities:
     facility_type: 有床診療所
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: null
-    tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
+    tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず。無痛分娩可の施設は、運営者が JALA のサイトでも確認して対象外と判断（2026-09-20）
     booking_policy: null
     booking_deadline_week_official: null
     scheme: lumpsum
@@ -55,7 +54,6 @@ facilities:
     website_url: "http://www.tatsukiclinic.com/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11596
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs: []
 
   - id: bn-10273
@@ -75,7 +73,6 @@ facilities:
     website_url: "https://www.hosp.keio.ac.jp"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10273
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -107,7 +104,6 @@ facilities:
     website_url: "https://www.hosp.ncgm.go.jp/s016/110/index.html"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10661
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -139,7 +135,6 @@ facilities:
     website_url: "https://www.seibokai.or.jp/sanka/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10439
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -171,7 +166,6 @@ facilities:
     website_url: "https://yamate.jcho.go.jp"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10275
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -203,7 +197,6 @@ facilities:
     website_url: "https://hospinfo.tokyo-med.ac.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10272
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -235,7 +228,6 @@ facilities:
     website_url: "https://www.twmu.ac.jp/info-twmu/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10859
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月

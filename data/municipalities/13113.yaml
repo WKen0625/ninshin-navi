@@ -70,7 +70,6 @@ steps:
     deadline_note: 医療機関で妊娠と診断されたら早めに
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-todoke/ninshin_todoke.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shibuya.s03b
     phase: pregnancy
@@ -85,7 +84,6 @@ steps:
     deadline_note: 妊娠16〜32週の間に受ける
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-sodan/ninpu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shibuya.s05
     overrides_step_id: jp.s05
@@ -100,7 +98,6 @@ steps:
     deadline_note: 医療機関で妊娠が確認された日から2年間
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/ninpu_kyuhu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shibuya.s05c
     phase: pregnancy
@@ -112,7 +109,6 @@ steps:
     deadline_note: 妊娠中に1回
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/nimpu-kenshin/ninpu_shika.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shibuya.s06d
     phase: pregnancy
@@ -125,7 +121,6 @@ steps:
     deadline_note: 出産予定日の6か月前から届け出できる
     source_url: https://www.city.shibuya.tokyo.jp/kurashi/kokuho/kenkohokenryo/sanzensangokokuho.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shibuya.s07b
     phase: postpartum
@@ -141,7 +136,6 @@ steps:
     survey_question_id: cost_paid
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/happy_josei.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shibuya.s07c
     phase: postpartum
@@ -154,7 +148,6 @@ steps:
     deadline_note: 出生通知票の期限は区のページに記載なし。訪問の対象は生後4か月まで
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/kodomo-sodan/shinseiji-sodan/homon_baby.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shibuya.s08
     overrides_step_id: jp.s08
@@ -169,7 +162,6 @@ steps:
     deadline_note: 出産予定日の8週間前から2年間（= 予定日−56日 から 730日間）
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/ninpu_kyuhu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shibuya.s08b
     phase: postpartum
@@ -181,7 +173,6 @@ steps:
     deadline_note: 原則、出産後2か月以内（1回目は産後2週間ごろ、2回目は産後1か月ごろ）
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/nimpu-kenshin/sanpu_kenshin.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shibuya.s08e
     phase: postpartum
@@ -196,7 +187,6 @@ steps:
     deadline_note: 分娩日または出生日から1年間（消印有効）
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/ninpukensin.html
     verified_at: 2026-09-20
-    needs_review: true
 
 subsidies:
   - id: shibuya.shien_kyufu_1
@@ -210,7 +200,6 @@ subsidies:
     deadline_offset_days: 730
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/ninpu_kyuhu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shibuya.shien_kyufu_2
     name: 渋谷区妊婦支援給付金（2回目）
@@ -223,7 +212,6 @@ subsidies:
     deadline_offset_days: 674
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/ninpu_kyuhu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shibuya.happy_mother
     name: ハッピーマザー出産助成金（渋谷区）
@@ -238,7 +226,6 @@ subsidies:
     taxable: true
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/happy_josei.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shibuya.kouketsuatsu
     name: 妊娠高血圧症候群医療費助成（渋谷区）
@@ -248,4 +235,3 @@ subsidies:
     apply_via: 前もって地域保健課地域医療係（03-3463-1211）に問い合わせ、入院（見込み）期間が決まったらすぐに窓口か郵送で申請する。退院後はなるべく早めに。
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/ninshiniryo.html
     verified_at: 2026-09-20
-    needs_review: true

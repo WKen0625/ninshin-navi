@@ -97,7 +97,7 @@ describe("家族B: 妊娠20週・保健バッグ受取済み・ネウボラ面�
     expect(summary(family)).toEqual([
       ["jp.s04", null], // 妊婦健診
       ["setagaya.s05", "2028-06-18"], // 支援給付1回目（心拍確認日 2026-06-19 ＋ 730日。ずっと先なので流れの順）
-      ["setagaya.s05b", "2026-11-13"], // 8か月時アンケート（LMP 2026-05-01 ＋ 28週。56日先）
+      ["setagaya.s05b", null], // 8か月時アンケート（区のページに週数が無いので、日付の期限は持たない）
       ["setagaya.s05c", null], // 産前の歯科健診（受診券は保健バッグの中）
       ["jp.s06", null], // 直接支払制度の書類（施設ごと）
       ["jp.s06b", null], // 産休中の健康保険・厚生年金の免除（会社員など）
@@ -106,11 +106,13 @@ describe("家族B: 妊娠20週・保健バッグ受取済み・ネウボラ面�
     expect(resolve(family).current!.step.id).toBe("jp.s04");
   });
 
-  it("8か月時アンケートは、期限の30日前になると先頭（Next Action）に上がる", () => {
-    const at = (today: string) => resolveNextActions({ family, today, ...rules }).current!;
-    expect(at("2026-10-13").step.id).toBe("jp.s04"); // 31日前
-    expect(at("2026-10-14")).toMatchObject({ step: { id: "setagaya.s05b" }, reason: "deadline_soon", deadline: "2026-11-13" }); // 30日前
-    expect(at("2026-11-14")).toMatchObject({ step: { id: "setagaya.s05b" }, reason: "overdue" }); // 期限の翌日
+  it("期限のある手続きは、期限の30日前になると先頭（Next Action）に上がる", () => {
+    // 支援給付1回目の期限は 2028-06-18（心拍確認日から2年）
+    const at = (today: string) => resolveNextActions({ family, today, ...rules }).actions.find((a) => a.step.id === "setagaya.s05")!;
+    expect(at("2028-05-18").reason).toBe("flow"); // 31日前
+    expect(at("2028-05-19")).toMatchObject({ reason: "deadline_soon", deadline: "2028-06-18" }); // 30日前
+    expect(resolveNextActions({ family, today: "2028-05-19", ...rules }).current!.step.id).toBe("setagaya.s05");
+    expect(at("2028-06-19").reason).toBe("overdue"); // 期限の翌日
   });
 
   it("保健バッグだけを選んでも、中の母子手帳・受診票が条件のステップが出る", () => {
@@ -182,11 +184,9 @@ describe("家族C: 出産後2週・領収書あり・赤ちゃん訪問はまだ
     ]);
   });
 
-  it("出産後は、妊娠中にしかできない手続き（妊婦健診・8か月時アンケート）を、未完了でも出さない", () => {
-    const notDone = { ...family, completed_step_ids: family.completed_step_ids.filter((id) => !["jp.s04", "setagaya.s05b"].includes(id)) };
-    const ids = resolve(notDone).actions.map((a) => a.step.id);
-    expect(ids).not.toContain("jp.s04");
-    expect(ids).not.toContain("setagaya.s05b");
+  it("出産後は、妊娠中にしかできない手続き（期限が妊娠週数や出産予定日で決まるもの。例: 妊婦健診）を、未完了でも出さない", () => {
+    const notDone = { ...family, completed_step_ids: family.completed_step_ids.filter((id) => id !== "jp.s04") };
+    expect(resolve(notDone).actions.map((a) => a.step.id)).not.toContain("jp.s04");
     expect(resolve(notDone).current!.step.id).toBe("jp.s07");
     // 出産後も申請できるもの（支援給付1回目: 心拍確認日から2年）は、未完了なら残る
     const s05 = { ...family, completed_step_ids: family.completed_step_ids.filter((id) => id !== "setagaya.s05") };

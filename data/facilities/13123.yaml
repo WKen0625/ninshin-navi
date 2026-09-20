@@ -23,7 +23,6 @@ facilities:
     website_url: "https://www.shimizuclinic.net/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/12016
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -55,7 +54,6 @@ facilities:
     website_url: "https://famil-s-edogawa.com"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11608
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -87,7 +85,6 @@ facilities:
     website_url: "https://www.saigusa.or.jp"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11212
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs: []
 
   - id: bn-10003
@@ -107,7 +104,6 @@ facilities:
     website_url: "https://www.matsushima-wh.or.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10003
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -139,7 +135,6 @@ facilities:
     website_url: "https://www.iwakura-byoin.com"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10282
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -171,7 +166,6 @@ facilities:
     website_url: "https://gt-kasai.com/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11408
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -203,7 +197,6 @@ facilities:
     website_url: "https://sugiura-clinic.com/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10978
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -235,7 +228,6 @@ facilities:
     website_url: "https://www.tokyorinkai.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10376
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月

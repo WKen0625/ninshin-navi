@@ -85,7 +85,6 @@ steps:
     deadline_note: 医療機関などで妊娠がわかったら届け出る（期限は区のページに記載なし）
     source_url: https://www.city.suginami.tokyo.jp/s054/1109.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: suginami.s03b
     phase: pregnancy
@@ -101,7 +100,6 @@ steps:
     deadline_note: 妊娠期間中であればいつでも受けられる。つわりなどで体調が悪いときは、落ち着いてからでよい
     source_url: https://www.city.suginami.tokyo.jp/s054/22919.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: suginami.s05
     overrides_step_id: jp.s05
@@ -114,7 +112,6 @@ steps:
     deadline_note: 申請期限は区のページに記載なし（面接のときに確認する）
     source_url: https://www.city.suginami.tokyo.jp/s054/1125.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: suginami.s05c
     phase: pregnancy
@@ -126,7 +123,6 @@ steps:
     deadline_note: 妊娠期間中に1回
     source_url: https://www.city.suginami.tokyo.jp/s054/1110.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: suginami.s06d
     phase: pregnancy
@@ -139,7 +135,6 @@ steps:
     deadline_note: 出産予定日の6か月前から届け出できる。出産後の届出もできる
     source_url: https://www.city.suginami.tokyo.jp/s035/2022.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: suginami.s08c
     phase: birth
@@ -153,7 +148,6 @@ steps:
     deadline_note: 生後50日に達する日まで（生まれた日を0日とする）
     source_url: https://www.city.suginami.tokyo.jp/s054/1110.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: suginami.s08
     overrides_step_id: jp.s08
@@ -166,7 +160,6 @@ steps:
     deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
     source_url: https://www.city.suginami.tokyo.jp/s054/1125.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: suginami.s08b
     phase: postpartum
@@ -178,7 +171,6 @@ steps:
     deadline_note: 受診のめやすは、1回目が産後2週間ごろ、2回目が産後1か月ごろ。産後2か月以内（出産日から2か月後の前日まで）
     source_url: https://www.city.suginami.tokyo.jp/s054/1110.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: suginami.s08d
     phase: postpartum
@@ -192,7 +184,6 @@ steps:
     deadline_note: 生後28日から生後41日まで（出生日を0日目として数える）
     source_url: https://www.city.suginami.tokyo.jp/s054/1110.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: suginami.s08e
     phase: postpartum
@@ -207,7 +198,6 @@ steps:
     deadline_note: 出産後1年以内（お子さんの1歳の誕生日の前日まで）。区外に転出する人は、転出日が決まったあとなら出産前でも申請できる
     source_url: https://www.city.suginami.tokyo.jp/s054/shinseisho/8707.html
     verified_at: 2026-09-20
-    needs_review: true
 
 subsidies:
   - id: suginami.shien_kyufu_1
@@ -219,7 +209,6 @@ subsidies:
     apply_via: ゆりかご面接で渡される案内の2次元コードから、妊婦給付認定の申請をする。問い合わせは地域子育て支援課子育て支援係 03-5307-0786（午前8時30分〜午後5時、土日祝日を除く）
     source_url: https://www.city.suginami.tokyo.jp/s054/1125.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: suginami.shien_kyufu_2
     name: 妊婦支援給付金（2回目・出産時）
@@ -230,7 +219,6 @@ subsidies:
     apply_via: すこやか赤ちゃん訪問で渡される案内の2次元コードから、子どもの数の届出をする
     source_url: https://www.city.suginami.tokyo.jp/s054/1125.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: suginami.kouketsuatsu
     name: 妊娠高血圧症候群等の医療費助成（杉並区）
@@ -240,4 +228,3 @@ subsidies:
     apply_via: 担当地域の保健センターに申請する。退院の日から3か月を過ぎると申請できない。申請書・診断書・世帯調書・同意書の用紙は保健センターにある
     source_url: https://www.city.suginami.tokyo.jp/s054/1112.html
     verified_at: 2026-09-20
-    needs_review: true

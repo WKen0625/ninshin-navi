@@ -88,7 +88,6 @@ steps:
     deadline_note: 医療機関で妊娠の診断を受けたら。いつまでにという日付は区のページに記載なし
     source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1004062.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: itabashi.s03b
     phase: pregnancy
@@ -102,7 +101,6 @@ steps:
     deadline_note: いつまでにという期限は区のページに記載なし
     source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1004064.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: itabashi.s05
     overrides_step_id: jp.s05
@@ -117,7 +115,6 @@ steps:
     deadline_note: 医療機関で胎児の心拍が確認された日から2年間
     source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1056054.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: itabashi.s05c
     phase: pregnancy
@@ -132,7 +129,6 @@ steps:
     deadline_note: 妊娠中に1回だけ
     source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1049772.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: itabashi.s06d
     phase: pregnancy
@@ -145,7 +141,6 @@ steps:
     deadline_note: 出産予定日の6か月前から届け出できる。出産後の届出もできる
     source_url: https://www.city.itabashi.tokyo.jp/kenko/kokuho/kokuho/hokenryo/1003138.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: itabashi.s08c
     phase: birth
@@ -159,12 +154,11 @@ steps:
     deadline_note: 生後50日まで（生まれた日を0日と数える）
     source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/shusan/1004083.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: itabashi.s08
     overrides_step_id: jp.s08
-    phase: postpartum
-    sort_order: 80
+    phase: pregnancy   # 出産予定日の8週間前から、妊娠中に届出できる（2026-09-20 決定）
+    sort_order: 65
     title: 妊婦のための支援給付（2回目・子ども1人につき5万円）の届出をする
     detail: 区から「妊娠8か月アンケート」と一緒に送られてくる案内に沿って、胎児の数の届出をする。届出ができるのは出産予定日の8週間前の日から。届出のときに板橋区に住民登録があり、板橋区の妊婦支援給付認定を受けていることが条件。妊婦本人名義の口座に振り込まれる（届出を受け付けてから約2〜3か月が目安）。問い合わせ つながるITABASHIコールセンター 0120-100-619。
     trigger_document_id: itabashi.shien_kyufu_annai_2
@@ -174,7 +168,6 @@ steps:
     deadline_note: 出産予定日の8週間前の日から2年間（= 予定日−56日 から 730日間）
     source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1056054.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: itabashi.s08b
     phase: postpartum
@@ -186,7 +179,6 @@ steps:
     deadline_note: 出産後2か月までに受けた健診が対象
     source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/shusan/1060401.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: itabashi.s08d
     phase: postpartum
@@ -200,7 +192,6 @@ steps:
     deadline_note: 生後28日から生後41日までに受ける（出生日を0日とする）
     source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/shusan/1060401.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: itabashi.s08e
     phase: postpartum
@@ -215,7 +206,6 @@ steps:
     deadline_note: 出産した日より1年以内
     source_url: https://www.city.itabashi.tokyo.jp/kosodate/teate/ninshin/1004615.html
     verified_at: 2026-09-20
-    needs_review: true
 
 subsidies:
   - id: itabashi.shien_kyufu_1
@@ -229,7 +219,6 @@ subsidies:
     deadline_offset_days: 730
     source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1056054.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: itabashi.shien_kyufu_2
     name: 妊婦のための支援給付（2回目）
@@ -242,7 +231,6 @@ subsidies:
     deadline_offset_days: 674
     source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1056054.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: itabashi.kouketsuatsu
     name: 妊娠高血圧症候群等医療費助成
@@ -252,4 +240,3 @@ subsidies:
     apply_via: 各健康福祉センターに申請。退院後に申請する場合は、退院日から3か月以内（遅延理由書が必要）。問い合わせ 健康推進課母子保健係 03-3579-2313
     source_url: https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/033/138/r7ninshinkouketsuatsuoshirase.pdf
     verified_at: 2026-09-20
-    needs_review: true

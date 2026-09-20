@@ -96,7 +96,6 @@ steps:
     deadline_note: 妊娠していることがわかったら（区のページに日付の期限は記載なし）
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/ninshin/ninsintodoke.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: sumida.s03b
     phase: pregnancy
@@ -112,7 +111,6 @@ steps:
     deadline_note: 妊娠中に受ける。産後は対象にならない。体調の良いときに
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/ninshin/yurikagosumida.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: sumida.s05
     overrides_step_id: jp.s05
@@ -128,7 +126,6 @@ steps:
     deadline_note: 医療機関で胎児心拍が確認された日から2年を経過する日まで
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/syussan_junbi_class/skogift.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: sumida.s05c
     phase: pregnancy
@@ -141,7 +138,6 @@ steps:
     deadline_note: 妊娠中は体調の良いときに、なるべく早めに。産後の分は出産後1年未満の間に1回
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/kenko_zukuri/ha_kenkou/ninpusikakenkousinsa.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: sumida.s06d
     phase: pregnancy
@@ -154,7 +150,6 @@ steps:
     deadline_note: 出産予定日の6か月前から届け出できる。出産後の届け出もできる
     source_url: https://www.city.sumida.lg.jp/kurashi/kenkouhoken/kokuminkenkouhoken/genmen/sanzensango.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: sumida.s08c
     phase: birth
@@ -166,7 +161,6 @@ steps:
     deadline_note: できるだけ出生後1か月ごろまでに。事情があるときは生後50日に達するまで使える
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/ninshin/akachan-mimikikoe.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: sumida.s07c
     phase: postpartum
@@ -180,7 +174,6 @@ steps:
     deadline_note: 出生通知票はできるだけ早めに郵送。訪問の対象は生後120日になるまで
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/syussan_junbi_class/akatyanhoumon.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: sumida.s08
     overrides_step_id: jp.s08
@@ -196,7 +189,6 @@ steps:
     deadline_note: 出産予定日の8週前（32週）から2年を経過する日まで
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/syussan_junbi_class/skogift.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: sumida.s08b
     phase: postpartum
@@ -208,7 +200,6 @@ steps:
     deadline_note: 出産後2か月以内。払い戻しの申請は出産した日から1年以内
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/teatejyosei/sannpu1kagetujyosei.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: sumida.s08d
     phase: postpartum
@@ -222,7 +213,6 @@ steps:
     deadline_note: 生後28日から生後41日まで（出生日を0日とする）。払い戻しの申請は出産した日から1年以内
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/teatejyosei/sannpu1kagetujyosei.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: sumida.s08e
     phase: postpartum
@@ -237,7 +227,6 @@ steps:
     deadline_note: 出産日から1年以内
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/teatejyosei/ninpukenshinjosei.html
     verified_at: 2026-09-20
-    needs_review: true
 
 subsidies:
   - id: sumida.shien_kyufu_1
@@ -251,7 +240,6 @@ subsidies:
     deadline_offset_days: 730
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/syussan_junbi_class/skogift.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: sumida.shien_kyufu_2
     name: 妊婦のための支援給付（出産後・2回目支給）
@@ -264,7 +252,6 @@ subsidies:
     deadline_offset_days: 674
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/syussan_junbi_class/skogift.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: sumida.kouketsuatsu
     name: 妊娠高血圧症候群等の医療費助成
@@ -274,4 +261,3 @@ subsidies:
     apply_via: 墨田区保健所 健康推進課 地域保健担当（横川5-7-4 すみだ保健子育て総合センター2階、03-3622-9130）。手続きが遅れると助成を受けられないことがある（日数の期限は区のページに記載なし）。
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/josei_hosyou/ninshinkouketuatu.html
     verified_at: 2026-09-20
-    needs_review: true

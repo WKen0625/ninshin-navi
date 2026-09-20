@@ -79,7 +79,6 @@ steps:
     deadline_note: 医療機関で妊娠の確定診断（胎児心拍の確認）を受けたら。いつまでにという日付は区のページに記載なし
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/boshitecho.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: nerima.s03b
     phase: pregnancy
@@ -95,7 +94,6 @@ steps:
     deadline_note: 妊娠中に面談した人がギフトの対象（やむを得ない理由で面談できなかった人は、担当係に相談する）
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/ikupake.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: nerima.s05
     overrides_step_id: jp.s05
@@ -110,7 +108,6 @@ steps:
     deadline_note: 医療機関で胎児心拍が確認された日から2年
     source_url: https://www.city.nerima.tokyo.jp/kosodatekyoiku/shussan/nerimama.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: nerima.s05c
     phase: pregnancy
@@ -123,7 +120,6 @@ steps:
     deadline_note: 妊娠中から産後1年未満の間に1回
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/kenkoshinsa/ninsanpushikakenshin/ninpusikakensinn.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: nerima.s06d
     phase: pregnancy
@@ -136,7 +132,6 @@ steps:
     deadline_note: 届出の期限は区のページに記載なし
     source_url: https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/sannzennsanngo.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: nerima.s08c
     phase: birth
@@ -150,7 +145,6 @@ steps:
     deadline_note: 赤ちゃんが生後50日に達する日までに受けた検査が対象
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/sinseijicyoukaku.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: nerima.s07c
     phase: postpartum
@@ -165,7 +159,6 @@ steps:
     deadline_note: 第3子以降の子どもの出生日から1年（転入日から出生日までが1年未満の場合は、転入日の1年後から1年）
     source_url: https://www.city.nerima.tokyo.jp/kosodatekyoiku/shussan/iwaikin.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: nerima.s08
     overrides_step_id: jp.s08
@@ -180,7 +173,6 @@ steps:
     deadline_note: 出産予定日の8週間前の日（それより前に出産・死産・流産した場合はその日）から2年（= 予定日−56日 から 730日間）
     source_url: https://www.city.nerima.tokyo.jp/kosodatekyoiku/shussan/nerimama.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: nerima.s08b
     phase: postpartum
@@ -194,7 +186,6 @@ steps:
     deadline_note: 出産後2か月（60日）以内
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/sannpu10gatuikou.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: nerima.s08d
     phase: postpartum
@@ -208,7 +199,6 @@ steps:
     deadline_note: 生後28日から41日まで（出生日を0日目とする）
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/nyuyoji/ikkagetuji10gatuikou.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: nerima.s08e
     phase: postpartum
@@ -223,7 +213,6 @@ steps:
     deadline_note: 出産日から赤ちゃんが1歳になる前日まで（出産日から1年を超えないこと）
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/02satogaeri.html
     verified_at: 2026-09-20
-    needs_review: true
 
 subsidies:
   - id: nerima.shien_kyufu_1
@@ -237,7 +226,6 @@ subsidies:
     deadline_offset_days: 730
     source_url: https://www.city.nerima.tokyo.jp/kosodatekyoiku/shussan/nerimama.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: nerima.shien_kyufu_2
     name: ねりママ子育て応援金〈妊婦支援給付金・2回目〉
@@ -250,7 +238,6 @@ subsidies:
     deadline_offset_days: 674
     source_url: https://www.city.nerima.tokyo.jp/kosodatekyoiku/shussan/nerimama.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: nerima.daisanshi_iwaikin
     name: 練馬区 第3子誕生祝金
@@ -263,7 +250,6 @@ subsidies:
     deadline_offset_days: 365
     source_url: https://www.city.nerima.tokyo.jp/kosodatekyoiku/shussan/iwaikin.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: nerima.kouketsuatsu
     name: 妊娠高血圧症候群等医療費助成
@@ -273,4 +259,3 @@ subsidies:
     apply_via: 窓口（区役所東庁舎6階 健康推進課母子保健係。平日8時30分〜17時15分）、郵送、LoGoフォーム（xIDアプリとマイナンバーカードが必要）。原則、入院前か入院中に申請する。やむを得ず退院後になる場合は、退院日から3か月以内。問い合わせ 03-5984-4621
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/ninsanpu_kyufu.html
     verified_at: 2026-09-20
-    needs_review: true

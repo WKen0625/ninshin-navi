@@ -85,7 +85,6 @@ steps:
     deadline_note: 医療機関で妊娠の診断を受けたら届け出る（期限は区のページに記載なし）
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018244/1002779.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: kita.s03b
     phase: pregnancy
@@ -99,7 +98,6 @@ steps:
     deadline_note: 面接そのものの期限は区のページに記載なし。「はぴママグッズ」は、出産前までに面接を終えた人が対象
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018244/1002780.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: kita.s05
     overrides_step_id: jp.s05
@@ -115,7 +113,6 @@ steps:
     deadline_note: 医療機関で胎児心拍が確認された日から2年間
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002777/1002795.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: kita.s05c
     phase: pregnancy
@@ -127,7 +124,6 @@ steps:
     deadline_note: 区は妊娠中期（16週〜27週）ごろの受診をすすめている。使えるのは出産後1年未満まで（例：5月1日出産なら翌年4月30日まで）
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018245/1002782.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: kita.s06d
     phase: pregnancy
@@ -140,7 +136,6 @@ steps:
     deadline_note: 出産予定日の6か月前から届け出できる
     source_url: https://www.city.kita.lg.jp/living/insurance-pension/1001703/1001723/1001733/1001737.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: kita.s08c
     phase: birth
@@ -151,7 +146,6 @@ steps:
     channel: 医療機関
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018245/1002781.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: kita.s08
     overrides_step_id: jp.s08
@@ -167,7 +161,6 @@ steps:
     deadline_note: 出産予定日の8週間前の日から2年間（予定日より前に出産した場合は、その日から2年間）。日数は「予定日−56日 から 730日間」で計算している
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002777/1002795.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: kita.s08b
     phase: postpartum
@@ -178,7 +171,6 @@ steps:
     channel: 医療機関
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018245/1002781.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: kita.s08d
     phase: postpartum
@@ -189,7 +181,6 @@ steps:
     channel: 医療機関
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018245/1002781.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: kita.s08e
     phase: postpartum
@@ -204,7 +195,6 @@ steps:
     deadline_note: 出産日から1年以内（出産前に北区から転出した場合は、転出日から1年以内）。1年を過ぎると申請できない
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002764/1002773.html
     verified_at: 2026-09-20
-    needs_review: true
 
 subsidies:
   - id: kita.shien_kyufu_1
@@ -218,7 +208,6 @@ subsidies:
     deadline_offset_days: 730
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002777/1002795.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: kita.shien_kyufu_2
     name: 北区妊婦のための支援給付（2回目）
@@ -231,7 +220,6 @@ subsidies:
     deadline_offset_days: 674
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002777/1002795.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: kita.kouketsuatsu
     name: 妊娠高血圧症候群等医療費助成（北区）
@@ -241,4 +229,3 @@ subsidies:
     apply_via: 住んでいる地域を担当する健康支援センター（王子 03-3919-7588／赤羽 03-3903-6481／滝野川 03-3915-0184。午前8時30分〜午後5時）。入院前か入院中に申請する。退院後の場合は、退院日から3か月以内（過ぎると申請できない）
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002764/1002772.html
     verified_at: 2026-09-20
-    needs_review: true

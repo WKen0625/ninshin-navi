@@ -93,7 +93,6 @@ steps:
     deadline_note: 期限は区のページに記載なし（医師か助産師の診察を受けたあとに届け出る）
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/tetyokohu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chuo.s03b
     phase: pregnancy
@@ -107,7 +106,6 @@ steps:
     deadline_note: 期限は区のページに記載なし。区は、体調が安定する妊娠15週以降に受けることをすすめている
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/tetyokohu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chuo.s03c
     phase: pregnancy
@@ -120,7 +118,6 @@ steps:
     deadline_note: 出産日の前日まで
     source_url: https://www.city.chuo.lg.jp/a0020/kosodate/shussan/shussanshien/taxi.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chuo.s05
     overrides_step_id: jp.s05
@@ -135,7 +132,6 @@ steps:
     deadline_note: 胎児の心拍が医療機関で確認され、妊娠が確定した日から2年間
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/ninpunotamenoshienkyufu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chuo.s05b
     phase: pregnancy
@@ -148,7 +144,6 @@ steps:
     deadline_note: アンケートは妊娠7か月ごろに届く。面談は妊娠8か月ごろ
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/ninpunotamenoshienkyufu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chuo.s05c
     phase: pregnancy
@@ -161,7 +156,6 @@ steps:
     deadline_note: 産前は妊娠中に1回
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/kenshin/sanzensango.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chuo.s06d
     phase: pregnancy
@@ -174,7 +168,6 @@ steps:
     deadline_note: 出産予定日の6か月前から届け出できる（出産後でもよい）
     source_url: https://www.city.chuo.lg.jp/a0024/kurashi/hokennenkin/kokuho/kokuhonitsuite/noufu/sanzensango.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chuo.s08c
     phase: birth
@@ -188,7 +181,6 @@ steps:
     deadline_note: 生後50日に達する日まで（原則は出生後の入院中か、生後1か月ごろまで）
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/kodomonokenkou/kenshin/sinseijichokaku.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chuo.s07c
     phase: postpartum
@@ -203,7 +195,6 @@ steps:
     deadline_note: 妊婦健診と産婦健診は、最後に受診した日または出産日から1年以内。新生児聴覚検査と1か月児健診は、受診した日から1年以内
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/josei/ninpukennshin.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chuo.s07d
     phase: postpartum
@@ -216,7 +207,6 @@ steps:
     deadline_note: 子どもが1歳になる前日まで
     source_url: https://www.city.chuo.lg.jp/a0020/kosodate/shussan/shussanshien/kaimonokenn.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chuo.s07e
     phase: postpartum
@@ -230,7 +220,6 @@ steps:
     deadline_note: 対象は生後4か月まで
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/homonsido.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chuo.s08
     overrides_step_id: jp.s08
@@ -245,7 +234,6 @@ steps:
     deadline_note: 出産予定日の8週間前の日から2年間（流産などの場合は、妊娠が続かなくなった日から2年間）
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/ninpunotamenoshienkyufu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chuo.s08b
     phase: postpartum
@@ -257,7 +245,6 @@ steps:
     deadline_note: 原則として産後2か月以内
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/kenshin/sanpukenshin.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chuo.s08d
     phase: postpartum
@@ -271,7 +258,6 @@ steps:
     deadline_note: 生後28日から41日の間（出生日を0日目として数える）
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/kodomonokenkou/kenshin/01kagetu.html
     verified_at: 2026-09-20
-    needs_review: true
 
 subsidies:
   - id: chuo.shien_kyufu_1
@@ -285,7 +271,6 @@ subsidies:
     deadline_offset_days: 730
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/ninpunotamenoshienkyufu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chuo.shien_kyufu_2
     name: 妊婦支援給付金（2回目）
@@ -298,7 +283,6 @@ subsidies:
     deadline_offset_days: 674
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/ninpunotamenoshienkyufu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chuo.kouketsuatsu
     name: 妊娠高血圧症候群等医療費助成
@@ -308,4 +292,3 @@ subsidies:
     apply_via: 申請の窓口と期限は区のページに記載なし。問い合わせは中央区保健所健康推進課給付係 03-3541-5930、または日本橋・月島・晴海の各保健センター
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/josei/nyuinzyosei.html
     verified_at: 2026-09-20
-    needs_review: true

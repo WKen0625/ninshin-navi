@@ -84,7 +84,6 @@ steps:
     deadline_note: 医療機関で妊娠と診断されたら出す
     source_url: https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/ninshin-shussho.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: adachi.s03b
     phase: pregnancy
@@ -98,7 +97,6 @@ steps:
     deadline_note: いつまでに受けるかは区のページに記載なし
     source_url: https://www.city.adachi.tokyo.jp/hoken/smilemamamensetsu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: adachi.s05
     overrides_step_id: jp.s05
@@ -112,7 +110,6 @@ steps:
     deadline_note: 申請期限は区のページに記載なし（面接のときに確認する）
     source_url: https://www.city.adachi.tokyo.jp/hoken/shussannkosodatekouhukin.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: adachi.s05c
     phase: pregnancy
@@ -125,7 +122,6 @@ steps:
     deadline_note: 妊娠期間中に1回。区のページでは、妊娠16週から28週ごろまでの体調のよい時期がおすすめとされている
     source_url: https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/ninnpushika.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: adachi.s06d
     phase: pregnancy
@@ -137,7 +133,6 @@ steps:
     deadline_note: 出産予定日の6か月前から届け出できる
     source_url: https://www.city.adachi.tokyo.jp/kokuho/sanzensango.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: adachi.s08c
     phase: birth
@@ -151,7 +146,6 @@ steps:
     deadline_note: 生後50日に達する日までに受けた初回検査が対象
     source_url: https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/sinseijityoukaku.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: adachi.s07b
     phase: postpartum
@@ -167,7 +161,6 @@ steps:
     survey_question_id: cost_paid
     source_url: https://www.city.adachi.tokyo.jp/oyako/k-kyoiku/kosodate/syussanhi-josei.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: adachi.s07c
     phase: postpartum
@@ -181,7 +174,6 @@ steps:
     deadline_note: 対象は生後3か月までの赤ちゃんがいる家庭
     source_url: https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/ninshin-konnichiha.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: adachi.s08
     overrides_step_id: jp.s08
@@ -195,7 +187,6 @@ steps:
     deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
     source_url: https://www.city.adachi.tokyo.jp/hoken/shussannkosodatekouhukin.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: adachi.s08b
     phase: postpartum
@@ -209,7 +200,6 @@ steps:
     deadline_note: 産後2か月まで
     source_url: https://www.city.adachi.tokyo.jp/hoken/sanpukenkoushinsa.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: adachi.s08d
     phase: postpartum
@@ -223,7 +213,6 @@ steps:
     deadline_note: 生後28日から生後41日まで（出生日を0日目として数える）
     source_url: https://www.city.adachi.tokyo.jp/hoken/1monthkenkoushinsa.html
     verified_at: 2026-09-20
-    needs_review: true
 
 subsidies:
   - id: adachi.shien_kyufu_1
@@ -235,7 +224,6 @@ subsidies:
     apply_via: スマイルママ面接のときに受け取るご案内用紙の二次元コードからオンライン申請。問い合わせ 保健予防課保健予防係 03-3880-5892
     source_url: https://www.city.adachi.tokyo.jp/hoken/shussannkosodatekouhukin.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: adachi.shien_kyufu_2
     name: あだち出産・子育て応援給付金（妊婦のための支援給付・2回目）
@@ -246,7 +234,6 @@ subsidies:
     apply_via: こんにちは赤ちゃん訪問のときに受け取るご案内用紙の二次元コードからオンライン申請
     source_url: https://www.city.adachi.tokyo.jp/hoken/shussannkosodatekouhukin.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: adachi.shussanhi
     name: 足立区 出産費助成
@@ -262,7 +249,6 @@ subsidies:
     scheme_applicable: [lumpsum]
     source_url: https://www.city.adachi.tokyo.jp/oyako/k-kyoiku/kosodate/syussanhi-josei.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: adachi.kouketsuatsu
     name: 妊娠高血圧症候群等の医療費助成（足立区）
@@ -272,4 +258,3 @@ subsidies:
     apply_via: 保健予防課保健予防係、中央本町地域・保健総合支援課、各保健センター。原則として入院前か入院中に申請。入院中に申請できないときは、退院日から3か月以内に限り受け付ける。問い合わせ 03-3880-5892
     source_url: https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/ninshin-koketsuatsu.html
     verified_at: 2026-09-20
-    needs_review: true

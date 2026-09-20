@@ -23,7 +23,6 @@ facilities:
     website_url: "https://www.yklc.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11602
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs: []
 
   - id: bn-10703
@@ -43,7 +42,6 @@ facilities:
     website_url: "https://twmu-amc.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10703
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -75,7 +73,6 @@ facilities:
     website_url: "https://hinajyosanin.com"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11787
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -107,7 +104,6 @@ facilities:
     website_url: "https://majima-cl.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11114
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -139,7 +135,6 @@ facilities:
     website_url: "https://www.machiki.net/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/12197
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月

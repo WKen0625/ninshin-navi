@@ -90,7 +90,6 @@ steps:
     deadline_note: 妊娠の診断を受けたら早めに（区のページに日付の期限は記載なし）
     source_url: https://www.city.bunkyo.lg.jp/b027/p001524.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: bunkyo.s03b
     phase: pregnancy
@@ -105,7 +104,6 @@ steps:
     deadline_note: 妊娠中に受ける。産後の人は対象外
     source_url: https://www.city.bunkyo.lg.jp/b029/p001562.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: bunkyo.s05
     overrides_step_id: jp.s05
@@ -121,7 +119,6 @@ steps:
     deadline_note: 妊娠確定日から2年以内
     source_url: https://www.city.bunkyo.lg.jp/b027/p007561.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: bunkyo.s05c
     phase: pregnancy
@@ -133,7 +130,6 @@ steps:
     action_url: https://www.city.bunkyo.lg.jp/b027/p001531.html
     source_url: https://www.city.bunkyo.lg.jp/b027/p001531.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: bunkyo.s06d
     phase: pregnancy
@@ -145,7 +141,6 @@ steps:
     deadline_note: 期限は区のページに記載なし
     source_url: https://www.city.bunkyo.lg.jp/b021/p000425.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: bunkyo.s08c
     phase: birth
@@ -157,7 +152,6 @@ steps:
     deadline_note: 生後50日に達する日までに受けた初回検査が対象
     source_url: https://www.city.bunkyo.lg.jp/b027/p001532.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: bunkyo.s07c
     phase: postpartum
@@ -170,7 +164,6 @@ steps:
     deadline_note: 赤ちゃんが生まれたらすぐに郵送。訪問の対象は生後4か月まで
     source_url: https://www.city.bunkyo.lg.jp/b029/p001542.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: bunkyo.s08
     overrides_step_id: jp.s08
@@ -186,7 +179,6 @@ steps:
     deadline_note: 出産予定日の8週間前から2年以内（予定日より前に出産・死産・流産などをした場合は、その日から2年以内）
     source_url: https://www.city.bunkyo.lg.jp/b027/p007561.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: bunkyo.s08b
     phase: postpartum
@@ -198,7 +190,6 @@ steps:
     deadline_note: 目安は産後2週間ごろ（1回目）と産後1か月ごろ（2回目）。原則として産後2か月以内
     source_url: https://www.city.bunkyo.lg.jp/b027/p007569.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: bunkyo.s08d
     phase: postpartum
@@ -210,7 +201,6 @@ steps:
     deadline_note: 対象は、出生後27日を超え、生後6週に達しない赤ちゃん
     source_url: https://www.city.bunkyo.lg.jp/b027/p007571.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: bunkyo.s08e
     phase: postpartum
@@ -225,7 +215,6 @@ steps:
     deadline_note: 出産日から1年以内（満1歳の誕生日の前日まで）
     source_url: https://www.city.bunkyo.lg.jp/b027/p001526.html
     verified_at: 2026-09-20
-    needs_review: true
 
 subsidies:
   - id: bunkyo.shien_kyufu_1
@@ -239,7 +228,6 @@ subsidies:
     deadline_offset_days: 730
     source_url: https://www.city.bunkyo.lg.jp/b027/p007561.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: bunkyo.shien_kyufu_2
     name: 妊婦のための支援給付（2回目）
@@ -252,7 +240,6 @@ subsidies:
     deadline_offset_days: 674
     source_url: https://www.city.bunkyo.lg.jp/b027/p007561.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: bunkyo.kouketsuatsu
     name: 妊娠高血圧症候群等医療費助成
@@ -262,4 +249,3 @@ subsidies:
     apply_via: 健康推進課健康増進係（03-5803-1961）へ郵送または窓口。原則、入院前か入院中に申請。やむを得ず退院後になる場合は、退院日から3か月以内（遅延理由書が必要）。
     source_url: https://www.city.bunkyo.lg.jp/b027/p001529.html
     verified_at: 2026-09-20
-    needs_review: true

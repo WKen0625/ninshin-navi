@@ -92,7 +92,6 @@ steps:
     deadline_note: 期限は区のページに記載なし
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-service/hpg000000783.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinagawa.s03b
     phase: pregnancy
@@ -106,7 +105,6 @@ steps:
     deadline_note: いつまでに受けるかは区のページに記載なし（対象は「妊娠中の方」）
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-service/hpg000026799.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinagawa.s05
     overrides_step_id: jp.s05
@@ -121,7 +119,6 @@ steps:
     deadline_note: 胎児の心拍が確認されてから2年間
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/20230120091157.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinagawa.s05c
     phase: pregnancy
@@ -134,7 +131,6 @@ steps:
     deadline_note: 妊婦歯科は妊娠中いつでも。産婦歯科は出産後1年以内
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kenkou/kenkou-dukuri/kenkou-dukuri-hatokuchi/20221219162441.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinagawa.s06d
     phase: pregnancy
@@ -147,7 +143,6 @@ steps:
     deadline_note: 出産予定日の6か月前から届け出できる
     source_url: https://www.city.shinagawa.tokyo.jp/PC/procedure/procedure-kenkouhoken/procedure-kenkouhoken-hokenryo/20231122101648.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinagawa.s08c
     phase: birth
@@ -159,7 +154,6 @@ steps:
     deadline_note: 区のページでは、生後1週間までに行うことがすすめられている
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/hpg000029337.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinagawa.s07c
     phase: postpartum
@@ -173,7 +167,6 @@ steps:
     deadline_note: 赤ちゃんが生まれたら早めに。訪問は生後4か月になる前まで
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-umaretara/hpg000022461.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinagawa.s08
     overrides_step_id: jp.s08
@@ -188,7 +181,6 @@ steps:
     deadline_note: 出産予定日の8週間前から2年間（= 予定日−56日 から 730日間）
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/20230120091157.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinagawa.s08b
     phase: postpartum
@@ -200,7 +192,6 @@ steps:
     deadline_note: 原則、出産後2か月以内
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-umaretara/20260213150439.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinagawa.s08d
     phase: postpartum
@@ -214,7 +205,6 @@ steps:
     deadline_note: 生後28日目から41日目までに1回
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-umaretara/20260213150439.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinagawa.s08e
     phase: postpartum
@@ -229,7 +219,6 @@ steps:
     deadline_note: 出産の日から1年以内（満1歳の誕生日の前日まで）
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-service/hpg000003975.html
     verified_at: 2026-09-20
-    needs_review: true
 
 subsidies:
   - id: shinagawa.shien_kyufu_1
@@ -243,7 +232,6 @@ subsidies:
     deadline_offset_days: 730
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/20230120091157.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinagawa.shien_kyufu_2
     name: 妊婦支援給付金（出産後・品川区）
@@ -256,7 +244,6 @@ subsidies:
     deadline_offset_days: 674
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/20230120091157.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinagawa.kouketsuatsu
     name: 妊娠高血圧症候群等の医療費助成（品川区で申請）
@@ -266,4 +253,3 @@ subsidies:
     apply_via: 品川・大井・荏原の各保健センター。原則、入院前（入院見込み期間が決まってから）か入院中に申請。退院後に申請するときは、退院の日から3か月以内。
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-service/hpg000000785.html
     verified_at: 2026-09-20
-    needs_review: true

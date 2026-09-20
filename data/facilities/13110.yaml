@@ -23,7 +23,6 @@ facilities:
     website_url: "https://www.ikuryo.or.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/12132
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs: []
 
   - id: bn-10488
@@ -43,7 +42,6 @@ facilities:
     website_url: "https://www.kohseichuo.jp/obstetrics"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10488
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -75,7 +73,6 @@ facilities:
     website_url: "https://tokyo-mc.hosp.go.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10724
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月

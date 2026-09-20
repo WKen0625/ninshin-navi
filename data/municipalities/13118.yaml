@@ -81,7 +81,6 @@ steps:
     deadline_note: 医療機関で妊娠の診断を受けたら。いつまでにという日付は区のページに記載なし
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/shinsei/kenkotecho.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: arakawa.s03b
     phase: pregnancy
@@ -95,7 +94,6 @@ steps:
     deadline_note: いつまでにという期限は区のページに記載なし（対象は妊婦）
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/ninsampushien/yurikago.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: arakawa.s05
     overrides_step_id: jp.s05
@@ -108,7 +106,6 @@ steps:
     deadline_note: 申請期限は区のページに記載なし（面接のときに確認する）
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/ninpushien.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: arakawa.s05c
     phase: pregnancy
@@ -123,7 +120,6 @@ steps:
     deadline_note: 妊娠中に受ける。出産後は受けられない
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/nimpukenshin/ninpushikakenshin.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: arakawa.s06d
     phase: pregnancy
@@ -136,7 +132,6 @@ steps:
     deadline_note: 出産予定日の6か月前から届け出できる。出産後の届出もできる
     source_url: https://www.city.arakawa.tokyo.jp/a031/kenkouhoken/sannzennsanngo.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: arakawa.s08c
     phase: birth
@@ -150,7 +145,6 @@ steps:
     deadline_note: 生後50日に達する日までに
     source_url: https://www.city.arakawa.tokyo.jp/a033/kosodate/nyuuyouji/choukaku.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: arakawa.s08
     overrides_step_id: jp.s08
@@ -163,7 +157,6 @@ steps:
     deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/ninpushien.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: arakawa.s08b
     phase: postpartum
@@ -175,7 +168,6 @@ steps:
     deadline_note: 1回目は産後2週間頃、2回目は産後1か月頃
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/sanpukensin_josei.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: arakawa.s08d
     phase: postpartum
@@ -189,7 +181,6 @@ steps:
     deadline_note: 生後27日を超え、生後6週に達しない間に受ける
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/sanpukensin_josei.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: arakawa.s08e
     phase: postpartum
@@ -204,7 +195,6 @@ steps:
     deadline_note: 出産日から1年以内
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/satogaerishussan.html
     verified_at: 2026-09-20
-    needs_review: true
 
 subsidies:
   - id: arakawa.shien_kyufu_1
@@ -216,7 +206,6 @@ subsidies:
     apply_via: ゆりかご面接のときに渡される申請フォーム。問い合わせ 健康推進課健康推進係 03-3802-3111（内線433）
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/ninpushien.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: arakawa.shien_kyufu_2
     name: 妊婦のための支援給付（2回目）
@@ -227,7 +216,6 @@ subsidies:
     apply_via: 新生児訪問のときに渡される申請フォーム
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/ninpushien.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: arakawa.kouketsuatsu
     name: 妊娠高血圧症候群等の医療費助成
@@ -237,4 +225,3 @@ subsidies:
     apply_via: 荒川区保健所健康推進課。原則、入院前か入院中に申請する。退院後の場合は、退院日から3か月以内。問い合わせ 03-3802-3111（内線433）
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/iryohi.html
     verified_at: 2026-09-20
-    needs_review: true

@@ -85,7 +85,6 @@ steps:
     deadline_note: なるべく早めに（できれば妊娠11週までに）。母子健康手帳をもらう前に自費で受けた妊婦健診の費用は助成されない
     source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00001.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinjuku.s03b
     phase: pregnancy
@@ -99,7 +98,6 @@ steps:
     deadline_note: いつまでに受けるかは区のページに記載なし
     source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00001_2.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinjuku.s05
     overrides_step_id: jp.s05
@@ -112,7 +110,6 @@ steps:
     deadline_note: 申請期限は区のページに記載なし（面談のときか、コールセンターに確認する）
     source_url: https://www.city.shinjuku.lg.jp/fukushi/syussan_kosodate_gift.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinjuku.s05b
     phase: pregnancy
@@ -124,7 +121,6 @@ steps:
     deadline_note: 妊娠7か月ごろ（回答の期限は区のページに記載なし）
     source_url: https://www.city.shinjuku.lg.jp/fukushi/syussan_kosodate_gift.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinjuku.s05c
     phase: pregnancy
@@ -139,7 +135,6 @@ steps:
     deadline_note: 受診票は産後1年まで使える（例 5月1日に出産したら翌年4月30日まで）
     source_url: https://www.city.shinjuku.lg.jp/fukushi/kenko01_000112.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinjuku.s06d
     phase: pregnancy
@@ -152,7 +147,6 @@ steps:
     deadline_note: 出産予定日の6か月前から届け出できる。出産後でもよいが、その年度の最初の保険料の納期の翌日から2年を過ぎると、その年度の保険料は変更できない
     source_url: https://www.city.shinjuku.lg.jp/kenkou/hoken01_000001_00038.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinjuku.s08c
     phase: birth
@@ -166,7 +160,6 @@ steps:
     deadline_note: 受診票が使えるのは、生後50日に達する日まで
     source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00003.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinjuku.s07c
     phase: postpartum
@@ -181,7 +174,6 @@ steps:
     deadline_note: 出産（出生）日から1年間
     source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00002.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinjuku.s07d
     phase: postpartum
@@ -195,7 +187,6 @@ steps:
     deadline_note: 連絡票は出産後すぐに送る。対象は生後4か月以内
     source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_00026.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinjuku.s08
     overrides_step_id: jp.s08
@@ -208,7 +199,6 @@ steps:
     deadline_note: 申請期限は区のページに記載なし（訪問のときか、コールセンターに確認する）
     source_url: https://www.city.shinjuku.lg.jp/fukushi/syussan_kosodate_gift.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinjuku.s08b
     phase: postpartum
@@ -220,7 +210,6 @@ steps:
     deadline_note: 原則として産後2か月以内
     source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00004.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinjuku.s08d
     phase: postpartum
@@ -234,7 +223,6 @@ steps:
     deadline_note: 生後28日から生後41日まで
     source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00004.html
     verified_at: 2026-09-20
-    needs_review: true
 
 subsidies:
   - id: shinjuku.shien_kyufu_1
@@ -246,7 +234,6 @@ subsidies:
     apply_via: 「ゆりかご・しんじゅく」面談のときに申請書を受け取る。問い合わせ 新宿区妊婦支援給付金コールセンター 0120-002-274（無料、平日8時30分〜17時）
     source_url: https://www.city.shinjuku.lg.jp/fukushi/syussan_kosodate_gift.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinjuku.shien_kyufu_2
     name: 妊婦支援給付金（2回目）
@@ -257,7 +244,6 @@ subsidies:
     apply_via: 出産後の「すくすく赤ちゃん訪問」のときに申請書を受け取る。問い合わせ 新宿区妊婦支援給付金コールセンター 0120-002-274（無料、平日8時30分〜17時）
     source_url: https://www.city.shinjuku.lg.jp/fukushi/syussan_kosodate_gift.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: shinjuku.kouketsuatsu
     name: 妊娠高血圧症候群等の医療給付
@@ -267,4 +253,3 @@ subsidies:
     apply_via: 保健センターで医療費助成申請書と診断書などの書類を受け取り、住所を担当する保健センターへ申請する（牛込 03-3260-6231、四谷 03-3351-5161、東新宿 03-3200-1026、落合 03-3952-7161）。申請の期限は区のページに記載なし
     source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_00005.html
     verified_at: 2026-09-20
-    needs_review: true

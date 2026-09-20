@@ -86,7 +86,6 @@ steps:
     deadline_note: なるべく早く（11週ごろまでに）
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/ninshin/todokede/boshikenkotecho.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: taito.s03b
     phase: pregnancy
@@ -102,7 +101,6 @@ steps:
     deadline_note: 妊娠中に受ける。出産した人は対象にならない
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/nenrei/ninshinki/soudan_shien/yurikago.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: taito.s05
     overrides_step_id: jp.s05
@@ -115,7 +113,6 @@ steps:
     deadline_note: 申請期限は区のページに記載なし（面接のときに確認する）
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/ninpusienkyufu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: taito.s05c
     phase: pregnancy
@@ -128,7 +125,6 @@ steps:
     deadline_note: 妊娠中に1回。安定期の体調のよいときに
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/kenkoushinsa/ninshinchu/ninnpu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: taito.s06d
     phase: pregnancy
@@ -141,7 +137,6 @@ steps:
     deadline_note: 出産予定日の6か月前から申請できる。出産後も届け出できるが、早めに
     source_url: https://www.city.taito.lg.jp/kurashi/zeikin/kokuminkenkohoken/hokenryou/sanzensango.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: taito.s08c
     phase: birth
@@ -153,7 +148,6 @@ steps:
     deadline_note: 生後50日に達するまで
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/kenkoushinsa/sinseijityoukaku.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: taito.s07b
     phase: postpartum
@@ -169,7 +163,6 @@ steps:
     survey_question_id: cost_paid
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/syussanhiyoujyosei.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: taito.s07c
     phase: postpartum
@@ -183,7 +176,6 @@ steps:
     deadline_note: 出生通知書は、できれば生まれてから2週間以内に
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/shussan/shinseijihomonshido.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: taito.s08
     overrides_step_id: jp.s08
@@ -196,7 +188,6 @@ steps:
     deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/ninpusienkyufu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: taito.s08b
     phase: postpartum
@@ -208,7 +199,6 @@ steps:
     deadline_note: 受診票の有効期限は出産後2か月以内。目安は産後2週間ごろ（1回目）と産後1か月ごろ（2回目）
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/kenkoushinsa/taitosanpu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: taito.s08d
     phase: postpartum
@@ -222,7 +212,6 @@ steps:
     deadline_note: 生後28日から生後41日まで（出生日を0日と数える）
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/kenkoushinsa/1kagetu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: taito.s08e
     phase: postpartum
@@ -237,7 +226,6 @@ steps:
     deadline_note: 出産した子の1歳の誕生日の前日まで（必着）
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/iryohijosei/satogaerijyosei.html
     verified_at: 2026-09-20
-    needs_review: true
 
 subsidies:
   - id: taito.shien_kyufu_1
@@ -249,7 +237,6 @@ subsidies:
     apply_via: ゆりかご・たいとう面接のあとに案内される申請フォーム
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/ninpusienkyufu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: taito.shien_kyufu_2
     name: 妊婦のための支援給付（2回目）
@@ -260,7 +247,6 @@ subsidies:
     apply_via: こんにちは赤ちゃん訪問のときに案内される
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/ninpusienkyufu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: taito.shussanhi
     name: 台東区 出産費用助成
@@ -273,7 +259,6 @@ subsidies:
     deadline_offset_days: 365
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/syussanhiyoujyosei.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: taito.kouketsuatsu
     name: 妊娠高血圧症候群等の医療費助成
@@ -283,4 +268,3 @@ subsidies:
     apply_via: 台東保健所保健サービス課 母子成人保健担当（東上野4-22-8 台東保健所2階）の窓口か郵送。診断書の発行日から3か月以内に申請する。
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/ninshin/teate_josei/ninshinchudoku.html
     verified_at: 2026-09-20
-    needs_review: true

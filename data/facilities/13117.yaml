@@ -23,7 +23,6 @@ facilities:
     website_url: "https://r.goope.jp/ikajosanjo"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11924
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs: []
 
   - id: bn-11626
@@ -43,7 +42,6 @@ facilities:
     website_url: "https://www.swan-lc.com/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11626
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs: []
 
   - id: bn-10415
@@ -63,7 +61,6 @@ facilities:
     website_url: "https://www.tokyokita-jadecom.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10415
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -95,7 +92,6 @@ facilities:
     website_url: null
     source_url: https://birth-navi.mhlw.go.jp/facilities/11689
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs: []
 
   - id: bn-11841
@@ -115,7 +111,6 @@ facilities:
     website_url: "https://nakanojosanin.com"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11841
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月

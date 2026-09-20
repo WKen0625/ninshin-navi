@@ -78,7 +78,6 @@ steps:
     deadline_note: 妊娠がわかったら早めに。届出の前に受けた妊婦健診の費用は助成されない
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/boshitecho.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chiyoda.s03b
     phase: pregnancy
@@ -92,7 +91,6 @@ steps:
     deadline_note: いつまでに受けるかは区のページに記載なし
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/chiyomama.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chiyoda.s05
     overrides_step_id: jp.s05
@@ -105,7 +103,6 @@ steps:
     deadline_note: 申請期限は区のページに記載なし（流産・死産・人工妊娠中絶の場合は、医師が確認した日から2年まで）
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/ninpu-shienkyufu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chiyoda.s05c
     phase: pregnancy
@@ -118,7 +115,6 @@ steps:
     deadline_note: 妊娠中から出産後1年未満まで。受けられる回数は区のページに記載なし
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/shikakenshin.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chiyoda.s06d
     phase: pregnancy
@@ -131,7 +127,6 @@ steps:
     deadline_note: 出産予定日の6か月前から届け出できる。出産後でもよいが、保険料を変更できる期間には限りがあるので早めに
     source_url: https://www.city.chiyoda.lg.jp/koho/kurashi/hoken/kenkohoken/hokenryo-menjo.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chiyoda.s08c
     phase: birth
@@ -145,7 +140,6 @@ steps:
     deadline_note: 生後50日に達する日まで
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/kenko/chokaku.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chiyoda.s07b
     phase: postpartum
@@ -161,7 +155,6 @@ steps:
     survey_question_id: cost_paid
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/teate/shussanhiyojosei.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chiyoda.s07c
     phase: postpartum
@@ -176,7 +169,6 @@ steps:
     deadline_note: 出産の日から1年以内（出産に至らなかったときは、最後に妊婦健診を受けた日から1年以内）
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/josanjo.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chiyoda.s07d
     phase: postpartum
@@ -190,7 +182,6 @@ steps:
     deadline_note: 対象は生後4か月まで
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/kenko/homonshido.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chiyoda.s08
     overrides_step_id: jp.s08
@@ -203,7 +194,6 @@ steps:
     deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/ninpu-shienkyufu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chiyoda.s08b
     phase: postpartum
@@ -215,7 +205,6 @@ steps:
     deadline_note: 原則として産後2か月以内
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/sampu-kenshin.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chiyoda.s08d
     phase: postpartum
@@ -229,7 +218,6 @@ steps:
     deadline_note: 生後28日から41日の間（出生日を0日目として数える）
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/kenko/kenko1.html
     verified_at: 2026-09-20
-    needs_review: true
 
 subsidies:
   - id: chiyoda.shien_kyufu_1
@@ -241,7 +229,6 @@ subsidies:
     apply_via: ままぱぱ面談のときに申請方法が案内される。問い合わせ 03-6380-8552（千代田保健所保健サービス課母子保健係）
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/ninpu-shienkyufu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chiyoda.shien_kyufu_2
     name: 妊婦支援給付金（2回目）
@@ -252,7 +239,6 @@ subsidies:
     apply_via: 乳児家庭訪問のときに申請方法が案内される。問い合わせ 03-6380-8552（千代田保健所保健サービス課母子保健係）
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/ninpu-shienkyufu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chiyoda.shussanhi
     name: 千代田区 出産費用助成（区独自制度）
@@ -268,7 +254,6 @@ subsidies:
     scheme_applicable: [lumpsum]
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/teate/shussanhiyojosei.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: chiyoda.kouketsuatsu
     name: 妊娠高血圧症候群等の医療費助成
@@ -278,4 +263,3 @@ subsidies:
     apply_via: 千代田保健所。入院前か入院中に申請する。退院後は、退院日から3か月以内に遅延理由書などを添えて申請する。問い合わせ 03-6256-8477
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/koketsuatsu.html
     verified_at: 2026-09-20
-    needs_review: true

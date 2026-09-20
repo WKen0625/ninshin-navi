@@ -23,7 +23,6 @@ facilities:
     website_url: "https://www.tohtobunkyo-hp.com"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10409
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -55,7 +54,6 @@ facilities:
     website_url: "https://hosp.juntendo.ac.jp/clinic/department/sanka/ob/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10244
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -87,7 +85,6 @@ facilities:
     website_url: "https://www.tmd.ac.jp/med/gyne/patient/birth_index.html"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10256
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -119,7 +116,6 @@ facilities:
     website_url: "https://www.obstetrics-htu.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10634
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -151,7 +147,6 @@ facilities:
     website_url: null
     source_url: https://birth-navi.mhlw.go.jp/facilities/11811
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -183,5 +178,4 @@ facilities:
     website_url: "https://www.nms.ac.jp/hosp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10403
     verified_at: 2026-09-20
-    needs_review: true   # 一括で転載したもの。人の承認待ち
     costs: []

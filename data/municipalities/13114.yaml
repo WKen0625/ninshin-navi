@@ -79,7 +79,6 @@ steps:
     deadline_note: 期限は区のページに記載なし
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/tetsuduki/ninshintodoke.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: nakano.s03b
     phase: pregnancy
@@ -93,7 +92,6 @@ steps:
     deadline_note: 妊娠20週以降に予約する。いつまでに受けるかは区のページに記載なし
     source_url: https://www.city.tokyo-nakano.lg.jp/dept/172050/d021411.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: nakano.s05
     overrides_step_id: jp.s05
@@ -106,7 +104,6 @@ steps:
     deadline_note: 申請期限は区のページに記載なし（窓口で確認する）
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/teate_zyosei/ninpu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: nakano.s05c
     phase: pregnancy
@@ -118,7 +115,6 @@ steps:
     deadline_note: 妊娠中（受けられなかった人は出産後1年まで）
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/kenshin/ninpukenkoshinsa_jyushin.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: nakano.s06d
     phase: pregnancy
@@ -131,7 +127,6 @@ steps:
     deadline_note: 出産予定日の6か月前から届け出できる
     source_url: https://www.city.tokyo-nakano.lg.jp/kurashi/hoken/hokenryo/0234707520231031160300299.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: nakano.s08c
     phase: birth
@@ -145,7 +140,6 @@ steps:
     deadline_note: 生後50日以内
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/teate/shien/cyokakukensa.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: nakano.s07c
     phase: postpartum
@@ -159,7 +153,6 @@ steps:
     deadline_note: 訪問は生後4か月以内
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/syussan/sangoshien/akachanhomon.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: nakano.s08
     overrides_step_id: jp.s08
@@ -172,7 +165,6 @@ steps:
     deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/teate_zyosei/ninpu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: nakano.s08b
     phase: postpartum
@@ -184,7 +176,6 @@ steps:
     deadline_note: 産後2週間ごろに1回、産後1か月ごろに1回
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/kenshin/sannpukennsinn.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: nakano.s08e
     phase: postpartum
@@ -199,7 +190,6 @@ steps:
     deadline_note: 出産日（または妊娠の終了）から1年以内
     source_url: https://www.city.tokyo-nakano.lg.jp/dept/242900/d001464.html
     verified_at: 2026-09-20
-    needs_review: true
 
 subsidies:
   - id: nakano.shien_kyufu_1
@@ -211,7 +201,6 @@ subsidies:
     apply_via: 妊娠届のとき、またはかんがるー面接のときに案内される二次元コードから電子申請。問い合わせ すこやか福祉センター企画調整係 03-3228-8809（平日8時30分〜17時）
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/teate_zyosei/ninpu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: nakano.shien_kyufu_2
     name: 妊婦のための支援給付（産後・中野区）
@@ -222,7 +211,6 @@ subsidies:
     apply_via: こんにちは赤ちゃん訪問のときに案内される二次元コードから電子申請
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/teate_zyosei/ninpu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: nakano.kouketsuatsu
     name: 妊娠高血圧症候群等の医療費助成（中野区）
@@ -232,4 +220,3 @@ subsidies:
     apply_via: 区役所3階子ども総合窓口、または各すこやか福祉センター（中部・北部・鷺宮・南部）。入院前か入院中に申請する。やむを得ず退院後になるときは退院後3か月以内。問い合わせ 子育て支援課 03-3228-3253
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/teate/shien/ninshinkoketsuatsu.html
     verified_at: 2026-09-20
-    needs_review: true
