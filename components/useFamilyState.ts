@@ -99,6 +99,18 @@ export function forgetDeviceId() {
   }
 }
 
+/** メール通知を受け付けられる状態か。準備中（メール送信が未設定）のあいだは、入口を出さない。null = 確認中 */
+export function useNotifyAvailable(): boolean | null {
+  const [available, setAvailable] = useState<boolean | null>(null);
+  useEffect(() => {
+    fetch("/api/notifications/available")
+      .then((r) => r.json())
+      .then((d: { available?: boolean }) => setAvailable(d.available === true))
+      .catch(() => setAvailable(false));
+  }, []);
+  return available;
+}
+
 /** 端末の日付（YYYY-MM-DD） */
 export function todayLocal(): string {
   const d = new Date();

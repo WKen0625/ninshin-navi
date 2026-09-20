@@ -9,7 +9,7 @@ import type { Survey } from "@/lib/surveys";
 import { FeedbackLink } from "./FeedbackLink";
 import { SourceLink } from "./SourceLink";
 import { SurveyCard } from "./SurveyCard";
-import { todayLocal, useFamilyState } from "./useFamilyState";
+import { todayLocal, useFamilyState, useNotifyAvailable } from "./useFamilyState";
 
 const fmt = (d: string) => {
   const [y, m, day] = d.split("-").map(Number);
@@ -85,6 +85,7 @@ export function TodoList() {
   const [rules, setRules] = useState<Rules | null>(null);
   const [failed, setFailed] = useState(false);
   const [surveys, setSurveys] = useState<Survey[]>([]);
+  const notifyAvailable = useNotifyAvailable();
   const today = todayLocal();
 
   useEffect(() => {
@@ -144,7 +145,7 @@ export function TodoList() {
         </p>
         <div className="flex flex-wrap gap-x-4">
           <Link href="/" className="inline-flex min-h-11 items-center text-base text-info underline">入力を直す（紙が増えたとき・出産したとき）</Link>
-          <Link href="/notify" className="inline-flex min-h-11 items-center text-base text-info underline">期限が近づいたらメールで知らせる</Link>
+          {notifyAvailable ? <Link href="/notify" className="inline-flex min-h-11 items-center text-base text-info underline">期限が近づいたらメールで知らせる</Link> : null}
         </div>
       </header>
 

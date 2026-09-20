@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { toFamily } from "@/lib/family-state";
-import { getNotifyRegistration, setNotifyRegistration, useFamilyState, type NotifyRegistration } from "./useFamilyState";
+import { getNotifyRegistration, setNotifyRegistration, useFamilyState, useNotifyAvailable, type NotifyRegistration } from "./useFamilyState";
 
 const field = "block min-h-11 w-full rounded-md border border-gray-400 bg-white px-3 py-2 text-base";
 
@@ -17,6 +17,7 @@ export function NotifyPanel() {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [devUrl, setDevUrl] = useState("");
+  const available = useNotifyAvailable();
 
   useEffect(() => {
     const r = getNotifyRegistration();
@@ -80,7 +81,14 @@ export function NotifyPanel() {
     setMessage("通知をやめました。メールアドレスと、預かっていた内容を消しました。");
   }
 
-  if (!loaded) return <p className="text-base">読み込み中…</p>;
+  if (!loaded || available == null) return <p className="text-base">読み込み中…</p>;
+  if (!available && !reg) {
+    return (
+      <p className="rounded-md border border-blue-200 bg-blue-50 p-4 text-base text-info">
+        メールでのお知らせは、いま準備中です。始まったら、この画面から登録できるようになります。期限は「次にやること」の画面でいつでも確認できます。
+      </p>
+    );
+  }
   if (!state) {
     return (
       <div className="space-y-4">

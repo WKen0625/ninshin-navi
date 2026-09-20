@@ -35,7 +35,7 @@ export default function PrivacyPage() {
           <li>登録した人の分だけ、メールアドレスと、期限の計算に必要な入力（市区町村・日付・手元の紙・完了チェック）をサーバーでお預かりします。</li>
           <li>メールは週1回までで、広告は入れません。通知をやめると、預かった内容はすべて消します。</li>
         </ul>
-        <a href="/notify" className="inline-flex min-h-11 items-center text-info underline">メール通知の登録・取り消し</a>
+        <a href="/notify" className="inline-flex min-h-11 items-center text-info underline">メール通知の登録・取り消し（いまは準備中の場合があります）</a>
       </section>
 
       <PrivacyPanel />
