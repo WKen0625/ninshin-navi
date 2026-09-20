@@ -19,7 +19,6 @@ facilities:
     booking_policy: 初診は予約できないので直接来院する。受診して医師が当院での分娩が可能と判断したら申込書を受け取り、妊娠12週までに申し込む。分娩予約が満床の場合は予約を受けられないことがある。他院で診察を受けている人は紹介状と検査結果を持参する。
     booking_deadline_week_official: 12
     booking_source_url: https://nakabayashi-hp.com/syoshin.html
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10154
     website_url: "https://nakabayashi-hp.com/"
@@ -52,7 +51,6 @@ facilities:
     booking_policy: 分娩件数の制限は現在行っていない。産科外来で「妊産婦のしおり」をもらったら、中の「入院申込書」をできるだけ早めに産科外来へ出すと分娩予約になる。前納金（直接支払制度を使う場合10万円、使わない場合60万円）を妊娠30〜32週の間に入退院窓口で支払う。里帰り・転院は妊娠34週頃までに紹介状を持って受診する。
     booking_deadline_week_official: null
     booking_source_url: https://www.san-ikukai.or.jp/sumida/hospital_sanka/faq.php
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10679
     website_url: "https://www.san-ikukai.or.jp/sumida/hospital/"
@@ -85,7 +83,6 @@ facilities:
     booking_policy: 原則として江東区・墨田区・江戸川区のハイリスク妊娠の人を診ている。まず近くの医療機関で妊娠の診断を受け、その紹介状を用意して予約センター（03-3633-5511）で診療予約をしてから受診する。入院申し込み用紙は妊娠32週の保健指導のときに渡される。
     booking_deadline_week_official: null
     booking_source_url: https://www.tmhp.jp/bokutoh/section/perinatal-period/childbirth.html
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10725
     website_url: "https://www.tmhp.jp/bokutoh/index.html"

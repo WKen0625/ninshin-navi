@@ -24,7 +24,6 @@ facilities:
     website_url: "http://www.arakawalc.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11110
     verified_at: 2026-09-20
-    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -57,7 +56,6 @@ facilities:
     website_url: "https://www.trshp.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10096
     verified_at: 2026-09-20
-    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -90,5 +88,4 @@ facilities:
     website_url: "https://www.fuwafuwatannpopo.com"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11903
     verified_at: 2026-09-20
-    needs_review: true
     costs: []

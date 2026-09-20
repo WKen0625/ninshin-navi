@@ -19,7 +19,6 @@ facilities:
     booking_policy: 毎月の分娩数に制限があるので、早めの予約を求めている。外来・分娩の予約は代官山ウィメンズクリニックのWeb予約で受け付ける。分娩予約金100,000円を預け、入院費用の支払いのときに精算する。里帰り出産を希望する人は妊娠16週ごろを目安に一度連絡し、紹介状を持って来院する。
     booking_deadline_week_official: null
     booking_source_url: https://db-clinic.jp/homecoming.html
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/12198
     website_url: "https://db-clinic.jp/"
@@ -83,7 +82,6 @@ facilities:
     booking_policy: 分娩は予約制。近くの医療機関で妊娠の診断を受けたうえで、予約センターで外来の予約を取り、早めに受診する（初診時は紹介状と検査結果を必ず持参）。分娩の予約状況により希望に沿えないことがある。やむを得ず妊娠24週以降に分娩を希望する場合は、かかりつけの医師から当院の医療連携へ相談してもらう。経過に問題がなければ、妊娠初期に一度受診して分娩予約を取り、妊娠31週までは近くの医療機関で健診、32週以降は当院で健診を受けることもできる。
     booking_deadline_week_official: null
     booking_source_url: https://www.tmhp.jp/hiroo/section/gekakei/fujin/osan.html
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10632
     website_url: "https://www.tmhp.jp/hiroo/"
@@ -116,7 +114,6 @@ facilities:
     booking_policy: 分娩の予約は原則妊娠20週までに済ませる（20週以降でも連絡は受け付ける）。予約の方法は初診のときに案内されるので、まず産科を受診する。産科の初診は完全予約制で、紹介状・母子手帳・プロフィール用紙を持参する。
     booking_deadline_week_official: 20
     booking_source_url: https://www.med.jrc.or.jp/hospital/clinic/tabid/408/Default.aspx
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10164
     website_url: "https://www.med.jrc.or.jp/"

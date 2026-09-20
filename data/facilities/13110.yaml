@@ -38,7 +38,6 @@ facilities:
     booking_policy: "電話（03-3716-8124、平日9:00〜16:00）で分娩の初診予約をして受診し、分娩できると判断されたあと、入院予約センターで分娩予約の手続きをする。分娩予約金10万円が必要（20週まで）。ほかの施設で健診を受ける人（セミオープン）や里帰り出産の人も、20週までに一度受診して分娩予約をする。里帰りは空き状況によって受けられないことがあり、ハイリスクの人は受けられないことがある。"
     booking_deadline_week_official: 20
     booking_source_url: https://www.kohseichuo.jp/obstetrics/before.html
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10488
     website_url: "https://www.kohseichuo.jp/obstetrics"
@@ -71,7 +70,6 @@ facilities:
     booking_policy: "紹介状が無くても初診予約ができ、分娩予約はいつでも受け付けている。分娩制限はない。事前の予約金はなく、支払いは出産後。"
     booking_deadline_week_official: null
     booking_source_url: https://tokyo-mc.hosp.go.jp/section/obstetrics_ward_index.html
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10724
     website_url: "https://tokyo-mc.hosp.go.jp/"

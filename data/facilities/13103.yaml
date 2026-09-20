@@ -18,7 +18,6 @@ facilities:
     booking_policy: 初診は事前予約が必要で、予約センターに電話する（予約は妊娠6週目以降）。妊娠10週前後を目安に受診する。里帰り出産（セミオープンシステム）は受けておらず、妊婦健診も当院に通う。
     booking_deadline_week_official: null
     booking_source_url: https://www.sannoclc.or.jp/birth/patient/first/
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11189
     website_url: https://www.sannoclc.or.jp/birth/
@@ -51,7 +50,6 @@ facilities:
     booking_policy: 分娩の予約は、予約専用の電話（月〜土 8:30〜17:30）か、Web予約で受け付けている。里帰り出産にも対応している。予約の期限（週数）や分娩予約金は公式サイトに書かれていないので、電話で確認する。
     booking_deadline_week_official: null
     booking_source_url: https://www.sannoclc.or.jp/hospital/patient/department/sanfujinka/
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10436
     website_url: https://www.sannoclc.or.jp/hospital/
@@ -115,7 +113,6 @@ facilities:
     booking_policy: 当院で妊婦健診と出産の両方を希望する人は、妊娠14週6日までに受診する。予約は、かかりつけの医療機関からFAXかWebで行う（紹介状を持っている人は自分でWeb予約できる）。週数を過ぎているなど条件が合わないときは、紹介状を書いた医療機関から問い合わせる。里帰り出産は妊娠33週までに、無痛分娩を希望する人は妊娠30週までに受診する（それ以降は電話で問い合わせ）。
     booking_deadline_week_official: 14
     booking_source_url: https://www.hosp.jikei.ac.jp/boshiiryou/obgyn/visit.html
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10822
     website_url: https://www.hosp.jikei.ac.jp/
@@ -148,7 +145,6 @@ facilities:
     booking_policy: 妊娠がわかったら、まず病院の代表番号に電話して産婦人科外来につないでもらい、受診の予約を取る（予約の受付は平日の午後1時半〜午後4時）。紹介状や妊婦健康診査受診票があれば持っていく。
     booking_deadline_week_official: null
     booking_source_url: https://www.saichu.jp/department/obstetrics-and-gynecology/gynecology/obstetrics/
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10076
     website_url: https://www.saichu.jp
@@ -181,7 +177,6 @@ facilities:
     booking_policy: 予約制。今回の妊娠で初めて受診する人はWeb予約が使えないので、予約専用ダイヤルに電話して初診を予約する。妊婦健診は近くの登録クリニックで受けて分娩は当院でする「産科セミオープンシステム」も使える（クリニックで「愛育病院での分娩を希望」と伝え、書類を当院に送る）。里帰り出産を希望する人の健診は、愛育クリニックでの受診をすすめている。
     booking_deadline_week_official: null
     booking_source_url: https://www.aiiku.net/outpatient
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10117
     website_url: https://www.aiiku.net/

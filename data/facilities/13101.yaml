@@ -19,7 +19,6 @@ facilities:
     booking_policy: 分娩予定日がまだ決まっていない人は妊娠10週までに、予定日が決まっている人は妊娠12週までに受診する（12週を過ぎた人は産婦人科外来に相談）。合併症などにより分娩予約を受けられない場合がある。当院で分娩しない人の妊婦健診は行っていない。
     booking_deadline_week_official: 12
     booking_source_url: https://www.mitsuihosp.or.jp/division/department/gynecology/syussannogoannai/
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10350
     website_url: "https://www.mitsuihosp.or.jp/"

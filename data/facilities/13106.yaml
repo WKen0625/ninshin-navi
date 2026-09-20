@@ -19,7 +19,6 @@ facilities:
     booking_policy: まず電話で予約して受診する。妊娠16週までに分娩予約をする。予約金10,000円（税込）を支払い、出産後の1か月健診のときに返金される。里帰り出産の人は、妊娠34週までに前の病院の紹介状を持って受診する。
     booking_deadline_week_official: 16
     booking_source_url: https://www.eijuhp.com/shinryouka/sanfujinka/obstetrics.html
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10658
     website_url: "https://www.eijuhp.com"

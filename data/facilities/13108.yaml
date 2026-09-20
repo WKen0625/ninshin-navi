@@ -19,7 +19,6 @@ facilities:
     booking_policy: 自宅出産を手伝う助産所。まず病院で妊娠の検査を受け、家族の同意を得てから助産婦石村で説明を受け、合意書を取り交わす。妊娠28週以降の初診は断っている。自宅まで車で30分以内の人に限る。妊娠初期・中期・後期に最低3回、医師の診断と検査を受ける必要がある。
     booking_deadline_week_official: null
     booking_source_url: https://josanpu-ishimura.jp/birth/
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11828
     website_url: "https://josanpu-ishimura.jp"
@@ -40,7 +39,6 @@ facilities:
     booking_policy: 必ず一度外来を受診して予約する（電話での分娩予約は不可。里帰り希望の人も同じ）。妊娠8週以降で分娩予定日が決まっている人だけ予約できる。予約金10万円を支払った時点で予約が確定し、自己都合のキャンセルは5万円かかる。来院時に満員の場合はキャンセル待ちになる。他院に通っている人や不妊治療で妊娠した人は紹介状が必要。
     booking_deadline_week_official: null
     booking_source_url: https://sunamachi-gyne.com/obstetrics
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11509
     website_url: "https://sunamachi-gyne.com/"
@@ -73,7 +71,6 @@ facilities:
     booking_policy: 妊娠16週までに分娩予約をする。予約のときに予約金20万円を預ける（自己都合のキャンセルは手続き料2万円を引いて返金。妊娠34週0日以降のキャンセルは返金なし）。分娩予約がいっぱいのときは受けられないことがある。里帰り出産は遅くとも妊娠34週までに帰省して当院で健診を受ける。初診はWeb予約がすすめられている。
     booking_deadline_week_official: 16
     booking_source_url: https://toho-clinic.or.jp/faq/
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10949
     website_url: "https://www.toho-clinic.or.jp/"
@@ -106,7 +103,6 @@ facilities:
     booking_policy: 一度来院し、初診で医師の診察を受けたあとに分娩予約をする。初診は予約が無くても9:00〜12:00に受診できるが、状況により受けられない場合があるので初診予約がすすめられている（予約センター 03-6204-6489、紹介状の有無は問わない）。
     booking_deadline_week_official: null
     booking_source_url: https://www.showa-u.ac.jp/SHKT/patient/outpatient/childbirth.html
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10734
     website_url: "https://www.showa-u.ac.jp/SHKT/"
@@ -139,7 +135,6 @@ facilities:
     booking_policy: 妊娠14週までに、預かり金10万円と必要な書類を持参して予約する。預かり金は退院時の会計で入院費用に充てられる。里帰り出産も受けており、妊娠がわかったら早めに連絡する。
     booking_deadline_week_official: 14
     booking_source_url: https://www.gonohashi-sanfujinka.com/obs-delivery.php
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11243
     website_url: "https://www.gonohashi-sanfujinka.com"

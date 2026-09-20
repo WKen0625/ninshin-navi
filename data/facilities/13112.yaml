@@ -184,7 +184,6 @@ facilities:
     booking_policy: 胎のう（赤ちゃんが入っている袋）が確認できたら、分娩予約を受け付ける。問い合わせは産婦人科外来へ電話（平日10〜16時、03-3700-1151）。初診は予約なしで、受付時間内に行く。里帰り出産も受けている（詳細は産婦人科外来に問い合わせ）。
     booking_deadline_week_official: null
     booking_source_url: https://www.tamagawa-hosp-oag.jp/pregnancy/office-visit/
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10851
     website_url: https://www.tamagawa-hosp-oag.jp
@@ -338,7 +337,6 @@ facilities:
     booking_policy: 初診の妊婦は電話（03-5727-5335、日中の外来診療時間内）で予約する。里帰り分娩もできるが、早めに分娩予約を取るよう案内している。受けられない条件や、個別に相談が必要な場合があるので、施設のページで確認する。
     booking_deadline_week_official: null
     booking_source_url: https://www.seijo-mc.com/guide2
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10981
     website_url: https://www.seijo-mc.com/
@@ -370,7 +368,6 @@ facilities:
     booking_policy: 妊娠6週前後で分娩枠が埋まる状況のため、妊娠がわかった時点で早めに受診するよう案内している。初診は院長外来（月曜午後、火・金曜午前）を予約し、枠が埋まっていれば電話（03-3701-3033）で予約する。正式な申し込みは2回目の受診（2週間以内）のときで、予約金12万円（分娩費用の一部）を預ける。自分の都合で転院する場合、予約金は返金されない。
     booking_deadline_week_official: null
     booking_source_url: https://todoroki-7.jp/info/index.php?topics_id=TPC_5f9c28c1ad819_20400
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10931
     website_url: https://todoroki-7.jp/   # 出産なびにHPの記載なし。都の対象医療機関一覧のURLから

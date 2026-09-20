@@ -24,7 +24,6 @@ facilities:
     website_url: "https://asanomi-jyosanjyo.com"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11915
     verified_at: 2026-09-20
-    needs_review: true
     costs: []
 
   - id: bn-10077
@@ -45,7 +44,6 @@ facilities:
     website_url: "https://kubota-hosp.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10077
     verified_at: 2026-09-20
-    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -78,7 +76,6 @@ facilities:
     website_url: "https://www.sakuradai-mc.com/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10899
     verified_at: 2026-09-20
-    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -111,7 +108,6 @@ facilities:
     website_url: "https://www.nerima-hosp.or.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10836
     verified_at: 2026-09-20
-    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -144,7 +140,6 @@ facilities:
     website_url: "https://hikarigaoka-jadecom.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10402
     verified_at: 2026-09-20
-    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -177,7 +172,6 @@ facilities:
     website_url: "https://hosp-nerima.juntendo.ac.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10428
     verified_at: 2026-09-20
-    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -210,7 +204,6 @@ facilities:
     website_url: "https://www.tsumugi-birth.com/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11786
     verified_at: 2026-09-20
-    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月

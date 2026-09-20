@@ -19,7 +19,6 @@ facilities:
     booking_policy: 妊娠12〜13週までに、分娩予約金10万円と分娩予約申込書を提出する（予約状況によっては締切の時期が変わることがあるので、クリニックに問い合わせる）。自己都合のキャンセルは返金されない。里帰り出産は、妊娠20週ごろまでに一度受診し、33週までに里帰りする。
     booking_deadline_week_official: null
     booking_source_url: http://tootake-ladies.com/medical/medical01.html
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11014
     website_url: "http://tootake-ladies.com"
@@ -52,7 +51,6 @@ facilities:
     booking_policy: 出産は予約制。予約のときに入院予約金10万円を預け、分娩予約申込書を15週（4か月末）までに提出する。予約数が多い場合、初回の診察時に6か月以上でそれまで未健診の人は受けられなくなる。里帰り分娩は、なるべく18週までに電話で連絡し、母子手帳・紹介状を持って受診する。
     booking_deadline_week_official: 15
     booking_source_url: https://masudasanfujinka.jp/%e5%85%a5%e9%99%a2%e3%81%ae%e3%81%94%e6%a1%88%e5%86%85
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11330
     website_url: "https://masudasanfujinka.jp"
@@ -85,7 +83,6 @@ facilities:
     booking_policy: 妊娠30週目までに入院予約をし、予約金（前払金）を納める。予約金は、出産育児一時金の直接支払制度を使う人は15万円、使わない人は30万円。分娩の申込み数による制限はしていない。転院・里帰り分娩の人も、妊娠30週までに受診する。
     booking_deadline_week_official: 30
     booking_source_url: https://katsushika.jrc.or.jp/medical-subject/obstetrics/
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10160
     website_url: "https://katsushika.jrc.or.jp/"
@@ -137,7 +134,6 @@ facilities:
     booking_policy: 分娩予約は、妊娠8週以降に心拍を確認し、当院で診察を受けて予定日が確定してから。診察を受けずに電話で分娩予約はできない。予約枠が急に埋まることがあるので、早めの受診をすすめている。里帰り分娩も事前の来院が必須（初期検査の結果を持参）。
     booking_deadline_week_official: null
     booking_source_url: https://www.tokyo-felicia.com/childbirth/
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11334
     website_url: "https://www.tokyo-felicia.com/"

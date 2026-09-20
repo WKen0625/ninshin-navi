@@ -24,7 +24,6 @@ facilities:
     website_url: "https://r.goope.jp/ikajosanjo"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11924
     verified_at: 2026-09-20
-    needs_review: true
     costs: []
 
   - id: bn-11626
@@ -45,7 +44,6 @@ facilities:
     website_url: "https://www.swan-lc.com/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11626
     verified_at: 2026-09-20
-    needs_review: true
     costs: []
 
   - id: bn-10415
@@ -66,7 +64,6 @@ facilities:
     website_url: "https://www.tokyokita-jadecom.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10415
     verified_at: 2026-09-20
-    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -118,7 +115,6 @@ facilities:
     website_url: "https://nakanojosanin.com"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11841
     verified_at: 2026-09-20
-    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月

@@ -19,7 +19,6 @@ facilities:
     booking_policy: 妊娠24週0日までに、分娩費の一部20万円（現金またはクレジットカード一括払い）を添えて分娩予約をする。24週より前でも定員に達して受けられないことがあり、24週を過ぎても予約できる場合があるので受付に確認する。里帰り出産で当院で産む人は、20週頃に一度健診を受ける（初回の健診は電話で予約）。
     booking_deadline_week_official: 24
     booking_source_url: https://www.yklc.jp/sanka.shtml
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11602
     website_url: "https://www.yklc.jp/"
@@ -71,7 +70,6 @@ facilities:
     booking_policy: 妊娠がわかったら電話で問い合わせ、予約のうえ助産院を見学しながら説明を聞く。十分に話をしたうえで、当院での出産を決める。助産院での妊婦健診は20週以降。
     booking_deadline_week_official: null
     booking_source_url: https://hinajyosanin.com/flow/
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11787
     website_url: "https://hinajyosanin.com"
@@ -104,7 +102,6 @@ facilities:
     booking_policy: 分娩予定日が決まったら速やかに分娩予約をする（妊娠8週0日以降に予約できる。予約が埋まってしまう場合がある）。分娩予約金50,000円を妊娠23週までに現金で支払う。満員の場合は断られることがある。BMIなどの条件で分娩を受けられない場合がある。
     booking_deadline_week_official: 23
     booking_source_url: https://majima-cl.jp/cost/
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11114
     website_url: "https://majima-cl.jp/"
@@ -137,7 +134,6 @@ facilities:
     booking_policy: 里帰り出産で当院で産む場合は、予定日にあわせて35週までに来院する。逆子など特別な事情がある場合は、なるべく早い時期の来院をすすめている。初診時は保険証・母子手帳・血液検査の結果・紹介状を持参する。
     booking_deadline_week_official: null
     booking_source_url: https://www.machiki.net/treat/
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/12197
     website_url: "https://www.machiki.net/"

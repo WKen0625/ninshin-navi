@@ -167,7 +167,6 @@ steps:
     action_url: https://www.city.minato.tokyo.jp/kodomokyufu/kenko/ninshin/community-bus.html
     source_url: https://www.city.minato.tokyo.jp/kodomokyufu/kenko/ninshin/community-bus.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: minato.s06d
     phase: pregnancy
@@ -180,7 +179,6 @@ steps:
     deadline_note: 出産予定日の6か月前から届け出できる。出産後は速やかに
     source_url: https://www.city.minato.tokyo.jp/shikaku/kurashi/hoken/kenkohoken/hokenryo.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: minato.s08c
     phase: birth
@@ -194,7 +192,6 @@ steps:
     deadline_note: 生後50日に達する日までに受けた初回検査が対象
     source_url: https://www.city.minato.tokyo.jp/chiikihoken/kenko/kenko/boshi/1saimiman/shinseizichoukakukensa.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: minato.s07c
     phase: postpartum
@@ -209,7 +206,6 @@ steps:
     deadline_note: 出産日から1年以内（出産に至らなかった場合は、最後の受診日から1年以内）
     source_url: https://www.city.minato.tokyo.jp/chiikihoken/kenko/ninshin/ninshin/kenko_shinsa.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: minato.s07d
     phase: postpartum
@@ -223,7 +219,6 @@ steps:
     deadline_note: 対象はおおむね生後120日以内（120日を超えると「ママの健康相談」としての訪問になる）
     source_url: https://www.city.minato.tokyo.jp/chiikihoken/kenko/kenko/boshi/1saimiman/homon.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: minato.s08d
     phase: postpartum
@@ -237,7 +232,6 @@ steps:
     deadline_note: 生後27日から生後41日の間に受ける（この期間の外で受けたものは対象外）
     source_url: https://www.city.minato.tokyo.jp/chiikihoken/1shinsa.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: minato.s08e
     phase: postpartum
@@ -250,7 +244,6 @@ steps:
     deadline_note: 産後1年未満の間に1回
     source_url: https://www.city.minato.tokyo.jp/chiikihoken/kenko/kenko/shinsa/ninsanpushika.html
     verified_at: 2026-09-20
-    needs_review: true
 
 subsidies:
   - id: minato.shien_kyufu_1
@@ -296,7 +289,6 @@ subsidies:
     apply_via: みなと保健所健康推進課地域保健係（03-6400-0084。郵送も可）または各総合支所区民課保健福祉係。申請書・診断書・療養証明書・世帯調書・保険情報がわかるもの・領収書を、退院日から3か月以内に出す（3か月を超えると申請できない）。高額療養費支給決定通知書は、あとからでもよい。
     source_url: https://www.city.minato.tokyo.jp/chiikihoken/kenko/ninshin/ninshin/koketsuatsu.html
     verified_at: 2026-09-20
-    needs_review: true
 
   - id: minato.tatai_kenshin
     name: 多胎妊婦の妊婦健康診査費用助成
@@ -308,4 +300,3 @@ subsidies:
     deadline_offset_days: 365
     source_url: https://www.city.minato.tokyo.jp/chiikihoken/tatai.html
     verified_at: 2026-09-20
-    needs_review: true

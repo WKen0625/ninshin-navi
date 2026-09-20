@@ -19,7 +19,6 @@ facilities:
     booking_policy: 分娩予約がとても混み合っているので、当院で出産すると決めたら、妊娠8週0日以降できるだけ早く予約センターに電話する（月〜金 8時30分〜17時）。初診には必ず紹介状を持っていく。合併症などの内容によっては、受診後に受けられないことがある。里帰り出産は、妊娠初期に一度受診して分娩予約を取り、妊娠34週頃から当院で健診を受ける。
     booking_deadline_week_official: null
     booking_source_url: https://hospital.luke.ac.jp/guide/maternity/perinatal-reservation.html
-    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10433
     website_url: "https://hospital.luke.ac.jp/"
