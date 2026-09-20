@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { forgetDeviceId, getDeviceId, getNotifyRegistration, setNotifyRegistration, useFamilyState } from "./useFamilyState";
 
-const button = "min-h-11 rounded-md border border-gray-400 bg-white px-4 py-2 text-base";
+const button = "btn btn-ghost";
 
 export function PrivacyPanel() {
   const { state, loaded, save } = useFamilyState();
@@ -38,7 +38,7 @@ export function PrivacyPanel() {
   if (!loaded) return <p className="text-base">読み込み中…</p>;
   return (
     <section className="space-y-4">
-      <h2 className="text-lg font-bold">いまの状態</h2>
+      <h2 className="h-section">いまの状態</h2>
       <ul className="list-disc space-y-1 pl-6 text-base">
         <li>この端末への入力の保存: {state ? "あり" : "なし"}</li>
         <li>記録（アンケート）への同意: {state?.consent_survey ? "同意している" : "同意していない"}</li>
@@ -48,7 +48,7 @@ export function PrivacyPanel() {
         <button type="button" className={button} onClick={withdraw}>同意を取り消して、送った記録を消す</button>
         <button type="button" className={button} onClick={eraseAll}>この端末の入力をすべて消す</button>
       </div>
-      {message ? <p role="status" className="rounded-md border border-green-200 bg-green-50 p-3 text-base text-done">{message}</p> : null}
+      {message ? <p role="status" className="notice notice-done">{message}</p> : null}
     </section>
   );
 }

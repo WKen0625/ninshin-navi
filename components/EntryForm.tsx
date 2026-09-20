@@ -11,8 +11,8 @@ import { todayLocal, useFamilyState } from "./useFamilyState";
 type Area = { contact: string; label: string; municipalities: { code: string; name: string; prefecture: string }[] };
 
 const PHASE_ORDER = ["pre_notification", "notification", "pregnancy", "birth", "postpartum"];
-const field = "block min-h-11 w-full rounded-md border border-gray-400 bg-white px-3 py-2 text-base";
-const legend = "mb-2 text-lg font-bold";
+const field = "field";
+const legend = "h-section";
 
 export function EntryForm({ area }: { area: Area }) {
   const router = useRouter();
@@ -116,8 +116,8 @@ export function EntryForm({ area }: { area: Area }) {
   if (!loaded) return <p className="text-base">読み込み中…</p>;
 
   return (
-    <form onSubmit={submit} className="space-y-8">
-      <fieldset>
+    <form onSubmit={submit} className="space-y-5">
+      <fieldset className="card space-y-1">
         <legend className={legend}>1. お住まいの区（{area.label}）</legend>
         <div className="space-y-3">
           <label className="block text-base">
@@ -129,18 +129,18 @@ export function EntryForm({ area }: { area: Area }) {
           </label>
           <p className="text-base text-gray-600">
             いまは{area.label}だけです。ほかの市区町村は準備中です。リクエストがあれば、
-            <a href={`mailto:${area.contact}?subject=${encodeURIComponent("対象地域のリクエスト")}`} className="text-info underline">{area.contact}</a>
+            <a href={`mailto:${area.contact}?subject=${encodeURIComponent("対象地域のリクエスト")}`} className="link-inline">{area.contact}</a>
             あてにご連絡ください。
           </p>
           {rules && ownRegion?.status !== "verified" ? (
-            <p className="rounded-md border border-blue-200 bg-blue-50 p-3 text-base text-info">
+            <p className="notice notice-info">
               {ownRegion ? "この市区町村の情報は確認中です。" : "この市区町村の情報はまだありません。国と都道府県の共通の手続きを表示します。"}
             </p>
           ) : null}
         </div>
       </fieldset>
 
-      <fieldset>
+      <fieldset className="card space-y-1">
         <legend className={legend}>2. 出産予定日</legend>
         <div className="space-y-3">
           <label className="block text-base">
@@ -153,7 +153,7 @@ export function EntryForm({ area }: { area: Area }) {
             <input type="date" className={field} value={confirmationDate} onChange={(e) => setConfirmationDate(e.target.value)} />
           </label>
           <label className="flex min-h-11 items-center gap-3 text-base">
-            <input type="checkbox" className="size-6" checked={born} onChange={(e) => setBorn(e.target.checked)} />
+            <input type="checkbox" className="check" checked={born} onChange={(e) => setBorn(e.target.checked)} />
             もう出産した
           </label>
           {born ? (
@@ -165,7 +165,7 @@ export function EntryForm({ area }: { area: Area }) {
         </div>
       </fieldset>
 
-      <fieldset>
+      <fieldset className="card space-y-1">
         <legend className={legend}>3. 希望</legend>
         <div className="space-y-3">
           <label className="block text-base">
@@ -187,7 +187,7 @@ export function EntryForm({ area }: { area: Area }) {
         </div>
       </fieldset>
 
-      <fieldset>
+      <fieldset className="card space-y-1">
         <legend className={legend}>4. いま手元にある紙（いくつでも）</legend>
         {!rules ? (
           <p className="text-base text-gray-600">市区町村を選ぶと、選べる紙が出ます。</p>
@@ -196,9 +196,9 @@ export function EntryForm({ area }: { area: Area }) {
             {documents.map((d) => {
               const inside = includedBy.get(d.id);
               return (
-                <li key={d.id} className="rounded-md border border-gray-300 p-3">
+                <li key={d.id} className="rounded-xl border border-slate-200 bg-white/70 p-3">
                   <label className="flex min-h-11 items-start gap-3 text-base">
-                    <input type="checkbox" className="mt-1 size-6 shrink-0" checked={selected.includes(d.id) || inside != null} disabled={inside != null} onChange={() => toggle(d.id)} />
+                    <input type="checkbox" className="check mt-1" checked={selected.includes(d.id) || inside != null} disabled={inside != null} onChange={() => toggle(d.id)} />
                     <span>
                       <span className="font-bold">{d.name}</span>
                       {d.aliases?.length ? <span className="text-gray-600">（{d.aliases.join("、")}）</span> : null}
@@ -221,9 +221,9 @@ export function EntryForm({ area }: { area: Area }) {
         )}
       </fieldset>
 
-      {error ? <p role="alert" className="rounded-md border border-amber-300 bg-amber-50 p-3 text-base text-amber-800">{error}</p> : null}
+      {error ? <p role="alert" className="notice notice-warn">{error}</p> : null}
 
-      <button type="submit" className="min-h-12 w-full rounded-md bg-blue-700 px-4 py-3 text-lg font-bold text-white">
+      <button type="submit" className="btn btn-primary w-full text-lg">
         今週やることを見る
       </button>
       <p className="text-base text-gray-600">入力した内容は、この端末の中にだけ保存します。名前やメールアドレスは要りません。</p>

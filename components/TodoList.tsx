@@ -20,7 +20,7 @@ function Deadline({ action, today }: { action: NextAction; today: string }) {
   const { deadline, deadline_estimated, step } = action;
   if (!deadline && !step.deadline_note) return null;
   return (
-    <p className="rounded-md bg-amber-50 p-3 text-base text-amber-800">
+    <p className="notice notice-warn">
       {deadline ? (
         <span className="font-bold">
           期限: {fmt(deadline)}
@@ -37,10 +37,10 @@ function Deadline({ action, today }: { action: NextAction; today: string }) {
 function ActionCard({ action, today, emphasized, regionCode, onMark }: { action: NextAction; today: string; emphasized: boolean; regionCode: string; onMark: (step: Step, status: "done" | "not_applicable") => void }) {
   const { step } = action;
   return (
-    <article className={emphasized ? "space-y-3 rounded-lg border-2 border-blue-700 bg-white p-4" : "space-y-2 rounded-lg border border-gray-300 bg-gray-50 p-4"}>
+    <article className={emphasized ? "card card-hero space-y-3" : "card card-quiet space-y-2"}>
       {emphasized ? (
         <p className="flex flex-wrap items-center gap-2 text-base">
-          <span className="rounded bg-blue-700 px-2 py-1 font-bold text-white">Next Action</span>
+          <span className="chip-ai">Next Action</span>
           <span className={action.reason === "flow" ? "text-gray-700" : "font-bold text-amber-800"}>
             {action.reason === "overdue"
               ? "期限を過ぎているので、いちばん先に出しています"
@@ -57,21 +57,21 @@ function ActionCard({ action, today, emphasized, regionCode, onMark }: { action:
       {step.channel ? <p className="text-base text-gray-700">どこで: {step.channel}</p> : null}
       <Deadline action={action} today={today} />
       {emphasized && step.action_url ? (
-        <a href={step.action_url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-base text-info underline">
+        <a href={step.action_url} target="_blank" rel="noopener noreferrer" className="link">
           手続きのページを開く
         </a>
       ) : null}
       {step.deadline_base === "facility" ? (
-        <Link href="/hospitals" className="inline-flex min-h-11 items-center text-base text-info underline">
+        <Link href="/hospitals" className="link">
           病院と締切を見る
         </Link>
       ) : null}
       <SourceLink url={step.source_url} verifiedAt={step.verified_at} needsReview={action.needs_review} />
       <div className="flex flex-wrap gap-3">
-        <button type="button" onClick={() => onMark(step, "done")} className="min-h-11 rounded-md bg-green-700 px-4 py-2 text-base font-bold text-white">
+        <button type="button" onClick={() => onMark(step, "done")} className="btn btn-done">
           完了した
         </button>
-        <button type="button" onClick={() => onMark(step, "not_applicable")} className="min-h-11 rounded-md border border-gray-400 bg-white px-4 py-2 text-base">
+        <button type="button" onClick={() => onMark(step, "not_applicable")} className="btn btn-ghost">
           自分は該当しない
         </button>
       </div>
@@ -118,11 +118,11 @@ export function TodoList() {
     return (
       <div className="space-y-4">
         <p className="text-base">まだ入力がありません。</p>
-        <Link href="/" className="inline-flex min-h-11 items-center text-base text-info underline">最初の入力へ</Link>
+        <Link href="/" className="link">最初の入力へ</Link>
       </div>
     );
   }
-  if (failed) return <p className="rounded-md bg-amber-50 p-3 text-base text-amber-800">情報を読み込めませんでした。少し待ってから開き直してください。</p>;
+  if (failed) return <p className="notice notice-warn">情報を読み込めませんでした。少し待ってから開き直してください。</p>;
   if (!result || !rules) return <p className="text-base">読み込み中…</p>;
 
   const stepById = new Map(rules.steps.map((s) => [s.id, s]));
@@ -138,19 +138,35 @@ export function TodoList() {
   return (
     <div className="space-y-6">
       <header className="space-y-1">
-        <h1 className="text-2xl font-bold">今週やること</h1>
+        <h1 className="h-page">今週やること</h1>
         <p className="text-base text-gray-700">
           {state.region_name}
           {state.birth_date ? `・出産日 ${fmt(state.birth_date)}` : `・いま妊娠${result.gestational_week}週・予定日 ${fmt(state.due_date)}`}
         </p>
         <div className="flex flex-wrap gap-x-4">
-          <Link href="/" className="inline-flex min-h-11 items-center text-base text-info underline">入力を直す（紙が増えたとき・出産したとき）</Link>
-          {notifyAvailable ? <Link href="/notify" className="inline-flex min-h-11 items-center text-base text-info underline">期限が近づいたらメールで知らせる</Link> : null}
+          <Link href="/" className="link">入力を直す（紙が増えたとき・出産したとき）</Link>
+          {notifyAvailable ? <Link href="/notify" className="link">期限が近づいたらメールで知らせる</Link> : null}
         </div>
       </header>
 
+      {(() => {
+        const done = finished.length;
+        const total = done + result.actions.length;
+        return total > 0 ? (
+          <div className="card card-quiet space-y-2" aria-label={`進み具合 ${done}/${total}`}>
+            <p className="flex items-baseline justify-between text-base text-slate-600">
+              <span>いま出ている手続きの進み具合</span>
+              <span className="font-bold text-ink">{done} / {total}</span>
+            </p>
+            <div className="h-2 overflow-hidden rounded-full bg-slate-200/80">
+              <div className="h-full rounded-full bg-gradient-to-r from-indigo-500 via-violet-500 to-sky-400 transition-all" style={{ width: `${Math.round((done / total) * 100)}%` }} />
+            </div>
+          </div>
+        ) : null;
+      })()}
+
       {result.region_unverified ? (
-        <p className="rounded-md border border-blue-200 bg-blue-50 p-3 text-base text-info">
+        <p className="notice notice-info">
           {result.regions.some((r) => r.code === state.region_code)
             ? "この市区町村の情報は確認中です。"
             : "この市区町村の情報はまだありません。国と都道府県の共通の手続きだけを表示しています。"}
@@ -168,11 +184,11 @@ export function TodoList() {
       ) : null}
 
       <section className="space-y-3">
-        <h2 className="text-lg font-bold">次にやること</h2>
+        <h2 className="h-section">次にやること</h2>
         {result.current ? (
           <ActionCard action={result.current} today={today} emphasized regionCode={state.region_code} onMark={mark} />
         ) : (
-          <p className="rounded-md border border-green-200 bg-green-50 p-4 text-base text-done">
+          <p className="notice notice-done">
             いま出せる手続きは、すべて終わっています。新しい紙を受け取ったら「入力を直す」から追加してください。
           </p>
         )}
@@ -180,7 +196,7 @@ export function TodoList() {
 
       {result.upcoming.length > 0 ? (
         <section className="space-y-3">
-          <h2 className="text-lg font-bold">このあと</h2>
+          <h2 className="h-section">このあと</h2>
           <p className="text-base text-gray-600">期限が近いものが上、そのあとは手続きの順番です。先に終わったものがあれば、ここからチェックしてもかまいません。</p>
           {result.upcoming.map((a) => <ActionCard key={a.step.id} action={a} today={today} emphasized={false} regionCode={state.region_code} onMark={mark} />)}
         </section>
@@ -188,15 +204,15 @@ export function TodoList() {
 
       {finished.length > 0 ? (
         <section className="space-y-2">
-          <h2 className="text-lg font-bold">終わったもの</h2>
+          <h2 className="h-section">終わったもの</h2>
           <ul className="space-y-2">
             {finished.map((p) => (
-              <li key={p.step_id} className="flex flex-wrap items-center justify-between gap-2 rounded-md border border-gray-200 p-3 text-base">
+              <li key={p.step_id} className="card card-quiet flex flex-wrap items-center justify-between gap-2 text-base">
                 <span>
                   <span className={p.status === "done" ? "font-bold text-done" : "text-gray-600"}>{p.status === "done" ? "完了" : "該当しない"}</span>
                   ：{stepById.get(p.step_id)!.title}
                 </span>
-                <button type="button" onClick={() => save(clearStep(state, p.step_id))} className="min-h-11 rounded-md border border-gray-400 px-3 text-base">
+                <button type="button" onClick={() => save(clearStep(state, p.step_id))} className="btn btn-ghost">
                   元に戻す
                 </button>
               </li>

@@ -15,12 +15,12 @@ const fmt = (d: string) => {
   const [y, m, day] = d.split("-").map(Number);
   return `${y}年${m}月${day}日`;
 };
-const field = "block min-h-11 w-full rounded-md border border-gray-400 bg-white px-3 py-2 text-base";
+const field = "field";
 
 function Line({ line, sign }: { line: MoneyLine; sign: "−" | "＋" | "" }) {
   const s = line.subsidy;
   return (
-    <li className="space-y-1 rounded-md border border-gray-300 p-3">
+    <li className="card space-y-1">
       <div className="flex items-baseline justify-between gap-3 text-base">
         <span className="font-bold">{s.name}</span>
         <span className="shrink-0 font-bold">
@@ -36,12 +36,12 @@ function Line({ line, sign }: { line: MoneyLine; sign: "−" | "＋" | "" }) {
       {s.apply_via ? <p className="text-base text-gray-700">申請: {s.apply_via}</p> : null}
       {s.taxable ? <p className="text-base text-gray-700">税金: 課税の対象です。</p> : null}
       {line.deadline ? (
-        <p className="rounded-md bg-amber-50 p-2 text-base font-bold text-amber-800">
+        <p className="notice notice-warn font-bold">
           申請期限: {fmt(line.deadline)}
           {line.deadline_estimated ? "（推定。心拍を確認した日が未入力のため）" : ""}
         </p>
       ) : s.deadline_base === "birth_date" ? (
-        <p className="rounded-md bg-amber-50 p-2 text-base text-amber-800">申請期限: 出産した日から{s.deadline_offset_days === 365 ? "1年" : `${s.deadline_offset_days}日`}以内（出産日を入力すると日付で出ます）</p>
+        <p className="notice notice-warn">申請期限: 出産した日から{s.deadline_offset_days === 365 ? "1年" : `${s.deadline_offset_days}日`}以内（出産日を入力すると日付で出ます）</p>
       ) : null}
       <SourceLink url={s.source_url} verifiedAt={s.verified_at} needsReview={s.needs_review} />
     </li>
@@ -52,15 +52,15 @@ function SchemeResult({ result, facilityName }: { result: MoneyResult; facilityN
   const isNew = result.scheme === "new_scheme";
   return (
     <section className="space-y-4">
-      <h2 className="text-lg font-bold">
+      <h2 className="h-section">
         {isNew ? "新しい制度（分娩費用を保険でまかなう制度）の場合" : "いまの制度（出産育児一時金 50万円）の場合"}
       </h2>
 
       {isNew ? (
-        <p className="rounded-md border border-blue-200 bg-blue-50 p-3 text-base text-info">新しい制度の金額はまだ決まっていないため、計算はしません。決まっている内容だけを下に出します。</p>
+        <p className="notice notice-info">新しい制度の金額はまだ決まっていないため、計算はしません。決まっている内容だけを下に出します。</p>
       ) : (
         <>
-          <div className="space-y-1 rounded-md border border-gray-300 p-3">
+          <div className="card space-y-1">
             <div className="flex items-baseline justify-between gap-3 text-base">
               <span className="font-bold">出産にかかる費用{facilityName ? `（${facilityName}）` : ""}</span>
               <span className="shrink-0 font-bold">{result.cost ? yen(result.cost.yen) : "—"}</span>
@@ -81,7 +81,7 @@ function SchemeResult({ result, facilityName }: { result: MoneyResult; facilityN
           </div>
           <ul className="space-y-2">{result.at_counter.map((l) => <Line key={l.subsidy.id} line={l} sign="−" />)}</ul>
           {result.pay_at_counter_yen != null ? (
-            <p className="flex items-baseline justify-between gap-3 rounded-md bg-gray-100 p-3 text-base font-bold">
+            <p className="notice notice-muted flex items-baseline justify-between gap-3 font-bold">
               <span>退院のとき窓口で払う目安</span>
               <span>{yen(result.pay_at_counter_yen)}</span>
             </p>
@@ -97,7 +97,7 @@ function SchemeResult({ result, facilityName }: { result: MoneyResult; facilityN
       ) : null}
 
       {result.net_yen != null ? (
-        <div className="rounded-lg border-2 border-blue-700 p-4">
+        <div className="card card-hero">
           <p className="flex items-baseline justify-between gap-3 text-xl font-bold">
             <span>実際の負担の目安</span>
             <span>{yen(Math.max(0, result.net_yen))}</span>
@@ -155,11 +155,11 @@ export function MoneyView() {
     return (
       <div className="space-y-4">
         <p className="text-base">まだ入力がありません。</p>
-        <Link href="/" className="inline-flex min-h-11 items-center text-base text-info underline">最初の入力へ</Link>
+        <Link href="/" className="link">最初の入力へ</Link>
       </div>
     );
   }
-  if (failed) return <p className="rounded-md bg-amber-50 p-3 text-base text-amber-800">情報を読み込めませんでした。少し待ってから開き直してください。</p>;
+  if (failed) return <p className="notice notice-warn">情報を読み込めませんでした。少し待ってから開き直してください。</p>;
   if (!data) return <p className="text-base">読み込み中…</p>;
 
   const ownRegion = data.rules.regions.find((r) => r.code === state.region_code);
@@ -168,12 +168,12 @@ export function MoneyView() {
   return (
     <div className="space-y-6">
       <header className="space-y-1">
-        <h1 className="text-2xl font-bold">お金</h1>
+        <h1 className="h-page">お金</h1>
         <p className="text-base text-gray-700">{state.region_name}・出産にかかる費用から、もらえるお金を引いた目安です。</p>
       </header>
 
       {ownRegion?.status !== "verified" ? (
-        <p className="rounded-md border border-blue-200 bg-blue-50 p-3 text-base text-info">
+        <p className="notice notice-info">
           {ownRegion ? "この市区町村の情報は確認中です。" : "この市区町村の情報はまだありません。国と都道府県の制度だけを表示しています。"}
         </p>
       ) : null}
@@ -204,7 +204,7 @@ export function MoneyView() {
           </select>
         </label>
         {wantsEpidural && facility && facility.tokyo_epidural_subsidy_target === false ? (
-          <p className="rounded-md bg-amber-50 p-3 text-base text-amber-800">この施設は、都道府県の無痛分娩の助成の「対象医療機関」の一覧に載っていません。助成を受けられない可能性があります。施設と都道府県の窓口に確認してください。</p>
+          <p className="notice notice-warn">この施設は、都道府県の無痛分娩の助成の「対象医療機関」の一覧に載っていません。助成を受けられない可能性があります。施設と都道府県の窓口に確認してください。</p>
         ) : null}
         {wantsEpidural ? <p className="text-base text-gray-700">無痛分娩の費用は施設ごとに違い、下の「出産にかかる費用」に上乗せになる場合があります。</p> : null}
       </section>

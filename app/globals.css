@@ -1,18 +1,142 @@
 @import "tailwindcss";
 
-/* UI規約（CLAUDE.md §6）: 赤を使わない。期限の注意=琥珀、完了=緑、情報=青。本文16px以上。 */
+/* UI規約（CLAUDE.md §6）: 本文16px以上・タップ領域44px以上・赤を使わない。期限の注意=琥珀、完了=緑、情報=青。
+   見た目の方針: やわらかい光のグラデーションの上に、半透明のカードを重ねる。強調は藍〜紫のグラデーション1色だけ。 */
 @theme {
   --color-notice: var(--color-amber-600);
-  --color-done: var(--color-green-700);
+  --color-done: var(--color-emerald-700);
   --color-info: var(--color-blue-700);
+  --color-ink: #1e1b4b;
+  --font-sans: "Hiragino Sans", "Noto Sans JP", "Yu Gothic UI", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --shadow-card: 0 1px 2px rgb(30 27 75 / 0.04), 0 8px 24px -12px rgb(30 27 75 / 0.12);
+  --shadow-hero: 0 1px 2px rgb(79 70 229 / 0.08), 0 18px 40px -16px rgb(99 102 241 / 0.45);
 }
 
 html {
   font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: #fff;
-  color: #1f2937;
-  font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif;
+  color: #1f2340;
+  font-family: var(--font-sans);
+  font-feature-settings: "palt";
+  letter-spacing: 0.01em;
+  line-height: 1.75;
+  background-color: #f7f7fc;
+  background-image:
+    radial-gradient(60rem 32rem at 110% -10%, rgb(167 139 250 / 0.22), transparent 60%),
+    radial-gradient(48rem 28rem at -20% 8%, rgb(125 211 252 / 0.24), transparent 60%),
+    radial-gradient(40rem 30rem at 50% 120%, rgb(199 210 254 / 0.35), transparent 60%);
+  background-attachment: fixed;
+}
+
+:focus-visible {
+  outline: 3px solid rgb(99 102 241 / 0.55);
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+@layer components {
+  .h-page {
+    @apply text-[1.7rem] leading-tight font-bold tracking-tight text-ink;
+  }
+  .h-section {
+    @apply flex items-center gap-2 text-lg font-bold text-ink;
+  }
+  .h-section::before {
+    content: "";
+    @apply inline-block h-4 w-1.5 rounded-full bg-gradient-to-b from-indigo-500 to-violet-500;
+  }
+  /* legend を枠線の上ではなく、カードの中に置く */
+  fieldset.card > legend {
+    @apply float-left mb-3 w-full;
+  }
+  fieldset.card > legend + * {
+    clear: both;
+  }
+
+  .card {
+    @apply rounded-2xl border border-white/70 bg-white/80 p-4 shadow-card backdrop-blur-md;
+  }
+  .card-quiet {
+    @apply bg-white/55 shadow-none;
+  }
+  .card-selected {
+    @apply border-indigo-400 ring-2 ring-indigo-300/60;
+  }
+  .card-ai {
+    @apply border-indigo-200/80 bg-gradient-to-br from-indigo-50/90 via-white/80 to-sky-50/90;
+  }
+  /* 次にやること: 藍〜紫のグラデーションの縁取りと、やわらかい光 */
+  .card-hero {
+    @apply relative border-transparent bg-white shadow-hero;
+    background:
+      linear-gradient(#fff, #fff) padding-box,
+      linear-gradient(135deg, #6366f1, #a855f7 55%, #38bdf8) border-box;
+    border: 2px solid transparent;
+  }
+
+  .chip-ai {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 px-3 py-1 text-sm font-bold tracking-wide text-white shadow-sm;
+  }
+  .chip-ai::before {
+    content: "✦";
+    @apply text-xs opacity-90;
+  }
+
+  .btn {
+    @apply inline-flex min-h-11 items-center justify-center rounded-xl px-4 py-2 text-base transition duration-150 active:scale-[0.98] disabled:opacity-60;
+  }
+  .btn-primary {
+    @apply min-h-12 bg-gradient-to-r from-indigo-600 to-violet-600 font-bold text-white shadow-hero hover:from-indigo-500 hover:to-violet-500;
+  }
+  .btn-done {
+    @apply bg-emerald-600 font-bold text-white shadow-sm hover:bg-emerald-500;
+  }
+  .btn-ghost {
+    @apply border border-slate-300 bg-white/80 text-slate-700 hover:bg-white;
+  }
+
+  .field {
+    @apply mt-1 block min-h-12 w-full rounded-xl border border-slate-300 bg-white/90 px-3 py-2 text-base shadow-sm transition focus:border-indigo-400 focus:ring-4 focus:ring-indigo-200/60 focus:outline-none disabled:bg-slate-100;
+  }
+  .check {
+    @apply size-6 shrink-0 rounded-md accent-indigo-600;
+  }
+
+  .link {
+    @apply inline-flex min-h-11 items-center text-base font-medium text-info underline decoration-blue-300 underline-offset-4 hover:decoration-blue-600;
+  }
+  .link-inline {
+    @apply font-medium text-info underline decoration-blue-300 underline-offset-4;
+  }
+
+  .notice {
+    @apply rounded-xl border p-3 text-base;
+  }
+  .notice-info {
+    @apply border-blue-200/80 bg-blue-50/80 text-info;
+  }
+  .notice-warn {
+    @apply border-amber-200 bg-amber-50/90 text-amber-800;
+  }
+  .notice-done {
+    @apply border-emerald-200 bg-emerald-50/90 text-done;
+  }
+  .notice-muted {
+    @apply border-slate-200 bg-slate-100/80 text-slate-700;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  main > * {
+    animation: rise 0.35s ease-out both;
+  }
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+  }
 }

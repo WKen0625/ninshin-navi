@@ -21,10 +21,10 @@ function DeadlineBox({ item }: { item: FacilityItem }) {
   const week = item.facility.booking_deadline_week_official;
   if (item.status === "after_birth") return null;
   if (item.status === "unknown") {
-    return <p className="rounded-md bg-gray-100 p-3 text-base text-gray-700">締切の週は公表されていません（または未確認です）。早めに施設へ電話で確認してください。</p>;
+    return <p className="notice notice-muted">締切の週は公表されていません（または未確認です）。早めに施設へ電話で確認してください。</p>;
   }
   return (
-    <p className="rounded-md bg-amber-50 p-3 text-base text-amber-800">
+    <p className="notice notice-warn">
       <span className="font-bold">
         施設が公表している目安: 妊娠{week}週まで（{fmt(item.deadline!)}ごろ）
       </span>
@@ -43,9 +43,9 @@ function FacilityCard({ item, chosen, regionCode, onChoose }: { item: FacilityIt
   const f = item.facility;
   const map = f.lat != null && f.lng != null ? `https://www.google.com/maps/search/?api=1&query=${f.lat},${f.lng}` : null;
   return (
-    <article className={`space-y-3 rounded-lg border p-4 ${chosen ? "border-2 border-blue-700" : "border-gray-300"}`}>
+    <article className={`card space-y-3 ${chosen ? "card-selected" : ""}`}>
       <header>
-        <h3 className="text-lg font-bold">{f.name}</h3>
+        <h3 className="text-lg leading-snug font-bold text-ink">{f.name}</h3>
         <p className="text-base text-gray-700">
           {f.facility_type ?? "種別は未確認"}
           {f.address ? `・${f.address}` : ""}
@@ -78,7 +78,7 @@ function FacilityCard({ item, chosen, regionCode, onChoose }: { item: FacilityIt
       </dl>
 
       {item.stat ? (
-        <p className="rounded-md border border-blue-200 bg-blue-50 p-3 text-base text-info">
+        <p className="notice notice-info">
           同じ予定月の人の記録 {item.stat.reports}件: 予約できた {item.stat.booked}件／満枠・キャンセル待ち {item.stat.full_or_wait}件
           {item.stat.median_week_booked != null ? `／予約できた人が電話した週のまん中は妊娠${item.stat.median_week_booked}週` : ""}
         </p>
@@ -87,12 +87,12 @@ function FacilityCard({ item, chosen, regionCode, onChoose }: { item: FacilityIt
       )}
 
       <div className="flex flex-wrap gap-x-4">
-        {f.website_url ? <a href={f.website_url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-base text-info underline">施設のページ</a> : null}
-        {map ? <a href={map} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-base text-info underline">地図で見る</a> : null}
+        {f.website_url ? <a href={f.website_url} target="_blank" rel="noopener noreferrer" className="link">施設のページ</a> : null}
+        {map ? <a href={map} target="_blank" rel="noopener noreferrer" className="link">地図で見る</a> : null}
       </div>
       <SourceLink url={f.source_url} verifiedAt={f.verified_at} needsReview={f.needs_review} />
 
-      <button type="button" onClick={onChoose} aria-pressed={chosen} className={`min-h-11 rounded-md px-4 py-2 text-base ${chosen ? "bg-blue-700 font-bold text-white" : "border border-gray-400 bg-white"}`}>
+      <button type="button" onClick={onChoose} aria-pressed={chosen} className={`btn ${chosen ? "btn-primary" : "btn-ghost"}`}>
         {chosen ? "この施設で「お金」を計算中" : "この施設で「お金」を計算する"}
       </button>
       <div>
@@ -134,17 +134,17 @@ export function HospitalList() {
     return (
       <div className="space-y-4">
         <p className="text-base">まだ入力がありません。</p>
-        <Link href="/" className="inline-flex min-h-11 items-center text-base text-info underline">最初の入力へ</Link>
+        <Link href="/" className="link">最初の入力へ</Link>
       </div>
     );
   }
-  if (failed) return <p className="rounded-md bg-amber-50 p-3 text-base text-amber-800">情報を読み込めませんでした。少し待ってから開き直してください。</p>;
+  if (failed) return <p className="notice notice-warn">情報を読み込めませんでした。少し待ってから開き直してください。</p>;
   if (!data) return <p className="text-base">読み込み中…</p>;
 
   return (
     <div className="space-y-6">
       <header className="space-y-1">
-        <h1 className="text-2xl font-bold">病院と締切</h1>
+        <h1 className="h-page">病院と締切</h1>
         <p className="text-base text-gray-700">
           {state.region_name}でお産ができる施設
           {state.birth_date ? "" : `・いま妊娠${gestationalWeek(state.due_date, today)}週`}
@@ -153,14 +153,14 @@ export function HospitalList() {
       </header>
 
       {data.facilities.length === 0 ? (
-        <p className="rounded-md border border-blue-200 bg-blue-50 p-3 text-base text-info">
+        <p className="notice notice-info">
           この市区町村の施設の情報はまだありません。厚生労働省の「出産なび」で探せます。
-          <a href="https://birth-navi.mhlw.go.jp/" target="_blank" rel="noopener noreferrer" className="ml-1 inline-flex min-h-11 items-center underline">出産なびを開く</a>
+          <a href="https://birth-navi.mhlw.go.jp/" target="_blank" rel="noopener noreferrer" className="link ml-1">出産なびを開く</a>
         </p>
       ) : (
         <>
           <label className="flex min-h-11 items-center gap-3 text-base">
-            <input type="checkbox" className="size-6" checked={filter} onChange={(e) => setOnlyEpidural(e.target.checked)} />
+            <input type="checkbox" className="check" checked={filter} onChange={(e) => setOnlyEpidural(e.target.checked)} />
             無痛分娩ができると確認できた施設だけ（{items.length}件を表示中）
           </label>
           <section className="space-y-4">

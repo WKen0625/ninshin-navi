@@ -4,7 +4,7 @@ export function SourceLink({ url, verifiedAt, needsReview }: { url: string | nul
   return (
     <p className="text-base text-gray-600">
       {isUrl ? (
-        <a href={url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-info underline">
+        <a href={url} target="_blank" rel="noopener noreferrer" className="link">
           出典
         </a>
       ) : (

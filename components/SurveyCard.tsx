@@ -7,7 +7,7 @@ import type { HospitalData } from "@/lib/rules";
 import type { Answers, Survey, SurveyField } from "@/lib/surveys";
 import { getDeviceId } from "./useFamilyState";
 
-const field = "block min-h-11 w-full rounded-md border border-gray-400 bg-white px-3 py-2 text-base";
+const field = "field";
 const yen = (n: number) => `${Math.round(n).toLocaleString("ja-JP")}円`;
 const NOT_LISTED = "__not_listed__";
 
@@ -79,8 +79,8 @@ export function SurveyCard({ survey, state, onSave, onClose }: { survey: Survey;
 
   if (result) {
     return (
-      <section className="space-y-3 rounded-lg border border-blue-200 bg-blue-50 p-4">
-        <h2 className="text-lg font-bold text-info">ありがとうございます。{result.saved ? "記録しました。" : "一覧にない施設のため、今回は記録していません。"}</h2>
+      <section className="card card-ai space-y-3">
+        <h2 className="h-section">ありがとうございます。{result.saved ? "記録しました。" : "一覧にない施設のため、今回は記録していません。"}</h2>
         {result.kind === "booking" ? (
           result.stats.length === 0 ? (
             <p className="text-base">同じ予定月の記録は、まだほかにありません。</p>
@@ -107,15 +107,15 @@ export function SurveyCard({ survey, state, onSave, onClose }: { survey: Survey;
           </ul>
         )}
         <p className="text-base text-gray-700">同じ区の人の記録の集計です。最終確認は窓口・医療機関へ。</p>
-        <button type="button" onClick={onClose} className="min-h-11 rounded-md border border-gray-400 bg-white px-4 text-base">閉じる</button>
+        <button type="button" onClick={onClose} className="btn btn-ghost">閉じる</button>
       </section>
     );
   }
 
   return (
-    <form onSubmit={submit} className="space-y-4 rounded-lg border border-blue-200 bg-blue-50 p-4">
+    <form onSubmit={submit} className="card card-ai space-y-4">
       <header className="space-y-1">
-        <h2 className="text-lg font-bold text-info">{survey.title}</h2>
+        <h2 className="h-section">{survey.title}</h2>
         <p className="text-base">{survey.reward_text}</p>
         <p className="text-base text-gray-700">答えなくても、このサイトは今までどおり使えます。お礼の品やポイントはありません。</p>
       </header>
@@ -136,31 +136,31 @@ export function SurveyCard({ survey, state, onSave, onClose }: { survey: Survey;
         </label>
       ))}
 
-      <fieldset className="space-y-2 rounded-md border border-gray-300 bg-white p-3">
+      <fieldset className="card space-y-2">
         <legend className="px-1 text-base font-bold">保存についての同意</legend>
         <p className="text-base text-gray-700">
           保存するのは上で選んだ内容だけです。名前・メールアドレス・住所は保存しません。ほかの人には、件数やまん中の値などの集計だけを見せます。同じ人の二重回答を防ぐため、この端末を区別する記号（名前とは結びつきません）を暗号化して一緒に保存します。
-          <Link href="/privacy" className="ml-1 text-info underline">くわしく・取り消す方法</Link>
+          <Link href="/privacy" className="link-inline ml-1">くわしく・取り消す方法</Link>
         </p>
         <label className="flex min-h-11 items-center gap-3 text-base">
-          <input type="checkbox" className="size-6 shrink-0" checked={agree} onChange={(e) => setAgree(e.target.checked)} />
+          <input type="checkbox" className="check" checked={agree} onChange={(e) => setAgree(e.target.checked)} />
           同意する（上の内容を保存してよい）
         </label>
         {hasSensitive ? (
           <label className="flex min-h-11 items-center gap-3 text-base">
-            <input type="checkbox" className="size-6 shrink-0" checked={agreeSensitive} onChange={(e) => setAgreeSensitive(e.target.checked)} />
+            <input type="checkbox" className="check" checked={agreeSensitive} onChange={(e) => setAgreeSensitive(e.target.checked)} />
             分娩方法（経腟分娩・帝王切開）も答える（任意）
           </label>
         ) : null}
       </fieldset>
 
-      {error ? <p role="alert" className="rounded-md border border-amber-300 bg-amber-50 p-3 text-base text-amber-800">{error}</p> : null}
+      {error ? <p role="alert" className="notice notice-warn">{error}</p> : null}
 
       <div className="flex flex-wrap gap-3">
-        <button type="submit" disabled={sending} className="min-h-11 rounded-md bg-blue-700 px-4 py-2 text-base font-bold text-white disabled:opacity-60">
+        <button type="submit" disabled={sending} className="btn btn-primary">
           {sending ? "送っています…" : "答えて集計を見る"}
         </button>
-        <button type="button" onClick={onClose} className="min-h-11 rounded-md border border-gray-400 bg-white px-4 py-2 text-base">答えない</button>
+        <button type="button" onClick={onClose} className="btn btn-ghost">答えない</button>
       </div>
     </form>
   );

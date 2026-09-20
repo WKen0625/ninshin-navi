@@ -6,10 +6,10 @@ export const metadata: Metadata = { title: "記録と同意｜妊娠手続きナ
 export default function PrivacyPage() {
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-bold">記録と同意</h1>
+      <h1 className="h-page">記録と同意</h1>
 
       <section className="space-y-2 text-base">
-        <h2 className="text-lg font-bold">このサイトが保存するもの</h2>
+        <h2 className="h-section">このサイトが保存するもの</h2>
         <ul className="list-disc space-y-1 pl-6">
           <li>入口で入れた内容（市区町村・出産予定日・希望・手元の紙・完了チェック）は、<strong>この端末の中にだけ</strong>保存します。サーバーには、制度の情報を取るための市区町村コードだけを送ります。</li>
           <li>名前・住所・健診の結果は、聞きませんし保存しません。写真を送る機能もありません。メールアドレスは、メール通知を希望した人の分だけお預かりします。</li>
@@ -18,7 +18,7 @@ export default function PrivacyPage() {
       </section>
 
       <section className="space-y-2 text-base">
-        <h2 className="text-lg font-bold">記録（任意の1問）について</h2>
+        <h2 className="h-section">記録（任意の1問）について</h2>
         <ul className="list-disc space-y-1 pl-6">
           <li>手続きの完了チェックのあとに、任意で1問だけお聞きすることがあります。答えなくても、サイトは同じように使えます。お礼の品やポイントはありません。</li>
           <li>保存するのは、同意して答えた場合だけです。内容はすべて選択式で、自由に文章を書く欄はありません。</li>
@@ -30,18 +30,18 @@ export default function PrivacyPage() {
       </section>
 
       <section className="space-y-2 text-base">
-        <h2 className="text-lg font-bold">メール通知（希望する人だけ）について</h2>
+        <h2 className="h-section">メール通知（希望する人だけ）について</h2>
         <ul className="list-disc space-y-1 pl-6">
           <li>登録した人の分だけ、メールアドレスと、期限の計算に必要な入力（市区町村・日付・手元の紙・完了チェック）をサーバーでお預かりします。</li>
           <li>メールは週1回までで、広告は入れません。通知をやめると、預かった内容はすべて消します。</li>
         </ul>
-        <a href="/notify" className="inline-flex min-h-11 items-center text-info underline">メール通知の登録・取り消し（いまは準備中の場合があります）</a>
+        <a href="/notify" className="link">メール通知の登録・取り消し（いまは準備中の場合があります）</a>
       </section>
 
       <PrivacyPanel />
 
       <p className="text-base text-gray-600">
-        <a href="/terms" className="text-info underline">利用規約</a>と<a href="/policy" className="text-info underline">プライバシーポリシー</a>は、いまは下書きです。弁護士の確認のあと、正式版に差し替えます。
+        <a href="/terms" className="link-inline">利用規約</a>と<a href="/policy" className="link-inline">プライバシーポリシー</a>は、いまは下書きです。弁護士の確認のあと、正式版に差し替えます。
       </p>
     </div>
   );

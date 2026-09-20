@@ -24,17 +24,17 @@ export function LinkAction({ purpose, id, sig }: { purpose: "confirm" | "unsubsc
   if (state === "done") {
     return (
       <div className="space-y-4">
-        <p role="status" className="rounded-md border border-green-200 bg-green-50 p-4 text-base text-done">
+        <p role="status" className="notice notice-done">
           {confirm ? "登録が完了しました。申請の期限が近いときなどに、週1回までメールでお知らせします。" : "通知をやめました。メールアドレスと、預かっていた内容を消しました。"}
         </p>
-        <Link href="/todo" className="inline-flex min-h-11 items-center text-base text-info underline">今週やることを見る</Link>
+        <Link href="/todo" className="link">今週やることを見る</Link>
       </div>
     );
   }
   return (
     <div className="space-y-4">
-      {state === "error" ? <p role="alert" className="rounded-md border border-amber-300 bg-amber-50 p-3 text-base text-amber-800">{error}</p> : null}
-      <button type="button" onClick={run} disabled={state === "busy"} className="min-h-12 w-full rounded-md bg-blue-700 px-4 py-3 text-lg font-bold text-white disabled:opacity-60">
+      {state === "error" ? <p role="alert" className="notice notice-warn">{error}</p> : null}
+      <button type="button" onClick={run} disabled={state === "busy"} className="btn btn-primary w-full text-lg">
         {state === "busy" ? "処理しています…" : confirm ? "登録を完了する" : "通知をやめる（登録を消す）"}
       </button>
     </div>
