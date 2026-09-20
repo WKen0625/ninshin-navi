@@ -16,8 +16,10 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: false
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
-    booking_deadline_week_official: null
+    booking_policy: 赤ちゃんの心拍を確認したあと、近くの医療機関で紹介状を作ってもらい、電話またはWebで初診を予約する（里帰り出産・セミオープンシステム希望の人も同じ）。初診は妊娠8〜15週ごろをすすめており、遅くとも妊娠22週までに受ける。里帰り出産の人も22週までに一度受診する。22週以降に初診となる人は、かかりつけの医療機関から病院へ連絡してもらう。無痛分娩は予約枠に限りがある。
+    booking_deadline_week_official: null   # 初診の最終期限・受診の目安であって、分娩予約の締切ではないので、数字は入れない（文章を参照）
+    booking_source_url: https://www.tmhp.jp/ohtsuka/birth/hope.html
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10363
     website_url: "https://www.tmhp.jp/ohtsuka/"
@@ -47,8 +49,10 @@ facilities:
     has_epidural: null   # 出産なびでは未回答（ー）
     epidural_24h: null
     tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
-    booking_policy: null
+    booking_policy: 出産を希望する人は、必ず見学説明会に参加する（個別見学は予約制で3,000円。メールか電話で問い合わせる）。先に産婦人科で妊娠の確定診断を受けておく。当院の妊婦健診は、見学説明会に参加したあと、妊娠15週以降から始まる（完全予約制）。年齢の制限があり、帝王切開や子宮筋腫の手術を受けたことがある人、慢性の病気がある人などは受けられない。
     booking_deadline_week_official: null
+    booking_source_url: https://www.birthhouse.com/qa/
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11878
     website_url: "https://www.birthhouse.com/"

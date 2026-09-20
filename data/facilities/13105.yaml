@@ -47,8 +47,10 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: true
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
+    booking_policy: 月ごとの分娩予約数に上限がある。妊娠8週以降に超音波で分娩予定日を決め、そのあと産科外来で分娩予約をする。初診のときは紹介状を持参するよう案内されている。予約の空き状況は産科専用サイトのカレンダーで確認できる。
     booking_deadline_week_official: null
+    booking_source_url: https://hosp.juntendo.ac.jp/clinic/department/sanka/ob/birth.html
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10244
     website_url: "https://hosp.juntendo.ac.jp/clinic/department/sanka/ob/"
@@ -109,8 +111,10 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: true
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
+    booking_policy: 胎児心拍が確認されたら紹介状をもらい、予約センターに電話して初診を予約する。セミオープン連携施設に通う人は妊娠20週ごろまでに初診する。里帰り出産の人は妊娠34〜35週以降は東大病院で健診を受け、その前に一度初診するのが原則。外来予約のページには分娩数の制限はしていないとあるが、2026年1月のお知らせでは予約の急増により受け入れを制限することがあるとされている。
     booking_deadline_week_official: null
+    booking_source_url: https://www.obstetrics-htu.jp/outpatient/reservation/
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10634
     website_url: "https://www.obstetrics-htu.jp/"
@@ -171,8 +175,10 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: false
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
-    booking_deadline_week_official: null
+    booking_policy: 妊娠15週ごろまでに一度受診し、この病院で出産することを伝える（助産外来の予約も取る）。その後は他院で妊婦健診を受けてもよいが、32〜34週以降はこの病院で健診を受ける。他院で診察・健診を受けていた人は紹介状が必要。
+    booking_deadline_week_official: null   # 初診の最終期限・受診の目安であって、分娩予約の締切ではないので、数字は入れない（文章を参照）
+    booking_source_url: https://www.nms.ac.jp/hosp/section/female/guide/_24732/_21662.html
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10403
     website_url: "https://www.nms.ac.jp/hosp/"

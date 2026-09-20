@@ -85,7 +85,7 @@ describe("今週やること（港区）", () => {
     expect(mendan.deadline).toBe(f.due_date);
   });
 
-  it("出産後2週: 出生届 → 児童手当 → 港区の出産費用助成と都の無痛分娩助成（出産から1年）", () => {
+  it("出産後2週: 出生届 → 児童手当 → 1か月児健診が先頭。港区の出産費用助成と都の無痛分娩助成（出産から1年）はそのあと", () => {
     const f = family({
       due_date: "2026-09-08",
       birth_date: "2026-09-04",
@@ -94,16 +94,18 @@ describe("今週やること（港区）", () => {
       not_applicable_step_ids: ["jp.s06c"],
     });
     const actions = resolveNextActions({ family: f, today: TODAY, ...rules }).actions.map((a) => [a.step.id, a.deadline]);
-    expect(actions.slice(0, 4)).toEqual([
+    expect(actions.slice(0, 3)).toEqual([
       ["jp.s07", "2026-09-17"],
       ["jp.s09", "2026-09-19"],
-      ["minato.s07b", "2027-09-04"],
-      ["tokyo.s02", "2027-09-04"],
+      ["minato.s08d", "2026-10-15"], // 1か月児健診（生後41日まで）
     ]);
+    // 出産から1年が期限の申請は、まだ先なので、手続きの流れの順に並ぶ
+    expect(actions).toContainEqual(["minato.s07b", "2027-09-04"]);
+    expect(actions).toContainEqual(["tokyo.s02", "2027-09-04"]);
     // メール通知も、コードを変えずに港区の内容になる
     const digest = buildDigest({ snapshot: f, today: TODAY, lastProgressOn: TODAY, nudgesSent: 0, ...rules })!;
     expect(digest.region_name).toBe("港区");
-    expect(digest.deadlines.map((a) => a.step.id)).toEqual(["jp.s07", "jp.s09"]);
+    expect(digest.deadlines.map((a) => a.step.id)).toEqual(["jp.s07", "jp.s09", "minato.s08d"]);
   });
 
   it("港区も verified ではないので「確認中」を表示する", () => {
@@ -153,10 +155,11 @@ describe("お金（港区）", () => {
 });
 
 describe("病院と締切（港区）", () => {
-  it("出産なびの6施設が出る。予約の締切週は未確認なので、すべて「電話で確認」になる", () => {
+  it("出産なびの6施設が出る。公表の締切がある施設（慈恵医大: 14週6日までに受診）が先頭、ほかは「電話で確認」", () => {
     const items = listFacilities({ facilities, stats: [], family: family({}), today: TODAY, onlyEpidural: false });
     expect(items).toHaveLength(6);
-    expect(items.every((i) => i.status === "unknown")).toBe(true);
+    expect(items[0]).toMatchObject({ facility: { id: "jikei-hospital", booking_deadline_week_official: 14 }, status: "open", weeks_left: 8 });
+    expect(items.slice(1).every((i) => i.status === "unknown")).toBe(true);
     expect(items.every((i) => i.facility.tokyo_epidural_subsidy_target === true)).toBe(true);
   });
 });

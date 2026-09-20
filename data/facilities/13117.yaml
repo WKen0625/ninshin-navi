@@ -16,13 +16,15 @@ facilities:
     has_epidural: null   # 出産なびでは未回答（ー）
     epidural_24h: null
     tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
-    booking_policy: null
+    booking_policy: 出張専門の助産所（自宅出産と、病院でのオープンシステムのお産）。自宅出産・オープンシステムを考えている人は、妊娠16週ころまでにまず問い合わせる。自宅出産は経産婦のみで、初産婦はオープンシステム（日赤医療センター、または東京かつしか赤十字母子医療センター）を利用する。
     booking_deadline_week_official: null
+    booking_source_url: https://r.goope.jp/ikajosanjo/free/osan
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11924
     website_url: "https://r.goope.jp/ikajosanjo"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11924
     verified_at: 2026-09-20
+    needs_review: true
     costs: []
 
   - id: bn-11626
@@ -35,13 +37,15 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: true
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
-    booking_deadline_week_official: null
+    booking_policy: 分娩予約は必須。受診して問題がなければ、分娩予約申込書兼誓約書を出し、妊娠11週6日までに分娩予約金150,000円を指定口座に振り込む（支払いがないと、通院中でも分娩を引き受けてもらえない）。さらに妊娠29週6日までに分娩保証金250,000円、無痛分娩を希望する人は妊娠35週6日までに無痛分娩予約金250,000円を振り込む（いずれも返金不可）。里帰り出産は、まず受診して分娩予約と予約金の支払いをし、妊娠35週までに紹介状を持って戻る。
+    booking_deadline_week_official: 11
+    booking_source_url: https://swan-lc.com/about/cost/
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11626
     website_url: "https://www.swan-lc.com/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11626
     verified_at: 2026-09-20
+    needs_review: true
     costs: []
 
   - id: bn-10415
@@ -54,13 +58,15 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: false
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
-    booking_deadline_week_official: null
+    booking_policy: 分娩予約の制限はしていない。妊娠34週までに受診すれば出産を受けてもらえる（それまでの定期健診を他院で必ず受けていることが条件）。分娩予約のために早めに受診する必要はなく、初回の受診のときに分娩予約を取る。妊娠26〜30週までに入院手続きをする。里帰り出産は34週の妊婦健診を当センターで受ける（帝王切開が必要な人などは30週ごろなど早めに受診）。
+    booking_deadline_week_official: null   # 初診の最終期限・受診の目安であって、分娩予約の締切ではないので、数字は入れない（文章を参照）
+    booking_source_url: https://www.tokyokita-jadecom.jp/gynecology/hospitalization/reservation/
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10415
     website_url: "https://www.tokyokita-jadecom.jp/"
     source_url: https://birth-navi.mhlw.go.jp/facilities/10415
     verified_at: 2026-09-20
+    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月
@@ -104,13 +110,15 @@ facilities:
     has_epidural: null   # 出産なびでは未回答（ー）
     epidural_24h: null
     tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
-    booking_policy: null
+    booking_policy: 出張専門の助産院（自宅出産）。病院で予定日が確定し安定期に入ったら連絡し、自宅で初回説明（予約制・無料）を受ける。説明のあと家族で話し合い、自宅でのお産を決めたら連絡して出産予約をする。日本助産師会のガイドラインにより、状態によっては受けられないことがある。助産院の初診は妊娠20〜24週ごろまでに自宅で行う。
     booking_deadline_week_official: null
+    booking_source_url: https://nakanojosanin.com/free/osan
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11841
     website_url: "https://nakanojosanin.com"
     source_url: https://birth-navi.mhlw.go.jp/facilities/11841
     verified_at: 2026-09-20
+    needs_review: true
     costs:
       - as_of: 2025-09-30
         period: 2025年4月〜2025年9月

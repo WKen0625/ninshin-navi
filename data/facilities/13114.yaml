@@ -16,8 +16,10 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: false
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
+    booking_policy: 妊娠して初めての診察は、平日午前の婦人科外来を受診する（8:30〜11:30に来院）。紹介状があれば初診でも予約でき、初回の受診予約は医療連携室（03-5343-5760）へ。里帰り出産は妊娠初期のできるだけ早い時期に（遠方でも妊娠29週までには）一度受診し、妊娠34週以降は当院で健診を受ける。
     booking_deadline_week_official: null
+    booking_source_url: https://keisatsubyoin.or.jp/shinryoka/sanka/kenshin/
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10779
     website_url: "https://www.keisatsubyoin.or.jp/"
@@ -47,8 +49,10 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: true
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
+    booking_policy: 予約・問い合わせは電話（03-3384-3281）。入院までに預かり金100,000円を預ける（入院費用から差し引かれる）。里帰り出産は妊娠20週頃までに一度連絡し、帰省後の最初の受診は妊娠34週頃までが目安。
     booking_deadline_week_official: null
+    booking_source_url: https://snwomen.net/obstetrics/
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11193
     website_url: "http://snwomen.net"
@@ -78,8 +82,10 @@ facilities:
     has_epidural: null   # 出産なびでは未回答（ー）
     epidural_24h: null
     tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
-    booking_policy: null
+    booking_policy: お産を希望する人は、まず助産院に電話する（03-3339-5356、平日9:30〜15:00）。産婦人科で初期検査を受けて出産予定日が決まったら、みちクラス（お産の説明会）に参加する。助産院の初診は13週目以降。お母さんと赤ちゃんの健康状態に不安要素がない人に限られる。
     booking_deadline_week_official: null
+    booking_source_url: https://www.shirasagifureai.com/menu_details/birth/
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11790
     website_url: "https://www.shirasagifureai.com/"
@@ -109,8 +115,10 @@ facilities:
     has_epidural: null   # 出産なびでは未回答（ー）
     epidural_24h: null
     tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
-    booking_policy: null
+    booking_policy: 分娩を希望する人は、まず助産院見学会に参加する（ウェブ予約。予定が合わなければ電話 03-5343-6071、9〜17時）。この助産院でお産ができない条件や、先に電話で問い合わせが必要な場合があるので、施設のページで確認する。
     booking_deadline_week_official: null
+    booking_source_url: https://matsugaoka-birth.com/important
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11796
     website_url: "https://matsugaoka-birth.com/"

@@ -39,3 +39,9 @@ export PATH="$HOME/.npm-global/bin:$PATH"; cd /Users/kenwada/Downloads/files; pn
 ## 報告（区ごとに `docs/research/facilities-<5桁コード>.md`）
 
 施設の id ごとに、出典URLと、根拠にした**原文の引用**。見つからなかった施設は「見つからず（見たページのURL）」と書く。最後の返事には、区ごとに「埋めた施設数／全体」「締切週を入れた施設と週数」「確認してほしい点」を短く。
+
+## 進め方（重要。前回、調べ終えてからまとめて書こうとした担当が、途中で止まって成果を失った）
+
+- **1施設調べるごとに、すぐ** `data/facilities/<コード>.yaml` と `docs/research/facilities-<コード>.md` に書き込む。まとめて最後に書かない。
+- ページの取得は必ず `curl -sL --max-time 20 -A "Mozilla/5.0" <URL>`。応答が無い・文字化けする・本文が取れないサイトは、その施設を「見つからず」として次へ進む。1施設に使うのは最大で5ページまで。
+- 既に `booking_policy` が入っている施設は触らない。

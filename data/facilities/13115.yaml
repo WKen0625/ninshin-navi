@@ -16,8 +16,10 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: false
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
-    booking_deadline_week_official: null
+    booking_policy: 妊娠12週未満の人は、月〜土の初診受付時間（8時〜11時30分）に直接受診する。妊娠12週以降の人（転院・里帰り出産など）は、予約センターに電話して産科外来を予約し、紹介状を持って受診する。分娩予約は受診のときに行う。分娩件数を制限しているため、予定日が決まったらサイトの「分娩予約状況」を見て早めに受診する。35週以降の初診は受け付けておらず、34週6日までに初診を受ける（無痛分娩・帝王切開予定の人は30週台までに受診）。
+    booking_deadline_week_official: null   # 初診の最終期限・受診の目安であって、分娩予約の締切ではないので、数字は入れない（文章を参照）
+    booking_source_url: https://www.ogikubo-hospital.or.jp/department/gynecology/
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10045
     website_url: "https://www.ogikubo-hospital.or.jp"
@@ -47,8 +49,10 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: true
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
+    booking_policy: 胎児の心拍が確認でき、予定日がわかっている人が出産を申し込める。本人か代理の人が来院して、総合受付または産科外来受付で手続きする（電話での申し込みは不可）。申し込みのあとに産科の初診を予約し、初診は妊娠15週までにできる限り取るよう案内されている。初診予約が入らないままの場合や、連絡なく初診をキャンセルした場合は、申し込みが取り消される。多胎や卵子提供後の妊娠は対応しておらず、リスクが高い場合は初診時に断られることがある。
     booking_deadline_week_official: null
+    booking_source_url: https://www.tokyoeisei.com/department/gynecology/mother/
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10619
     website_url: "https://www.tokyoeisei.com"
@@ -78,8 +82,10 @@ facilities:
     has_epidural: null   # 出産なびでは未回答（ー）
     epidural_24h: null
     tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
-    booking_policy: null
+    booking_policy: 診察を受けたあとに、分娩予約の手続きを案内される。初診は電話で来院日を予約する。遠方などで来院が難しい人は電話で相談する。分娩予約に期限はないが、なるべく早めの予約をすすめている。分娩予約金は8,000円で、妊娠38週ごろに支払う。年齢制限はないが、持病の状況によっては受けられない場合があり、院長が判断する。
     booking_deadline_week_official: null
+    booking_source_url: https://akagawaclinic.jp/shitsumon/
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11601
     website_url: "http://akagawaclinic.jp"
@@ -109,8 +115,10 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: false
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
-    booking_deadline_week_official: null
+    booking_policy: 来院して妊婦健診を受け、そのときに分娩予約の手続きをする。分娩予約は妊娠34週まで。紹介状がある人は紹介予約センターに電話して予約する（妊娠14週未満の初診は婦人科で、紹介状がなくても受診できる）。里帰り出産の人は妊娠20〜24週ごろまでに一度受診し、32〜34週以降は当院で健診を受けられるように里帰りする。遠方で事前の受診が難しい人は電話で相談できる。
+    booking_deadline_week_official: 34
+    booking_source_url: https://hospital.kawakita.or.jp/visitor/shinryou/obstetrics/outpatient.html
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10502
     website_url: "https://hospital.kawakita.or.jp/visitor/index.html"
@@ -140,8 +148,10 @@ facilities:
     has_epidural: null   # 出産なびでは未回答（ー）
     epidural_24h: null
     tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
-    booking_policy: null
+    booking_policy: 妊娠16〜20週を目安に、外来3階の産婦人科外来L受付で、産科医療補償制度の申し込み用紙を添えて分娩予約をする。かかりつけでない人は、近くの医療機関で当院あての紹介状をもらって外来を予約する（紹介状がないと選定療養費7,700円がかかる）。里帰り出産などで転院する人は、紹介状を持って妊娠16週までに一度受診し、経過に問題がなければ妊娠34週ごろまでにもう一度受診する。
     booking_deadline_week_official: null
+    booking_source_url: https://www.kyorin-u.ac.jp/hospital/suginami/clinic/gynecology/pdf/yoyaku.pdf
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10321
     website_url: "https://www.kyorin-u.ac.jp/hospital/suginami/"
@@ -171,8 +181,10 @@ facilities:
     has_epidural: null   # 出産なびに無痛分娩の記載なし
     epidural_24h: null
     tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
-    booking_policy: null
+    booking_policy: 院長の外来を受診し、当院で分娩できると判断されたら分娩予約を取る（電話での分娩予約は不可）。予約は受診した順の先着順で、毎月約30名が目安。定数に達するとキャンセル待ちになり、妊娠16週ぐらいまでに繰り上がらなければ他の施設を紹介される。例年8月の分娩予約は休止。年齢や体格、持病などの受け入れ基準がある。里帰り出産の人も、まず妊娠初期に本人が受診し、妊娠20週ごろにもう一度受診して手続きをする。
     booking_deadline_week_official: null
+    booking_source_url: https://toyoshima-sanfujinka.com/home/bunben/
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11598
     website_url: "https://toyoshima-sanfujinka.com/"

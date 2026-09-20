@@ -16,8 +16,10 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: false
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
-    booking_deadline_week_official: null
+    booking_policy: 分娩数に制限があり、予約は先着順。受診のときに「分娩仮予約申込書」を受付に出し（仮予約）、妊娠12週0日までに第1期入院保証金5万円を預けてWebから申し込むと本予約が完了する。第2期の保証金15万円は妊娠30週まで。里帰り出産は遅くとも妊娠34〜35週の間に帰省を済ませる。
+    booking_deadline_week_official: 12
+    booking_source_url: https://ootorii-iin.or.jp/publics/index/122/
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10940
     website_url: "https://ootorii-iin.or.jp/"
@@ -47,8 +49,10 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: false
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
+    booking_policy: 妊娠16〜17週の健診のときに分娩保証金10万円を納める。詳しいことは分娩予約書を取り交わした人に案内される。初診の予約は診療日の11時〜12時30分に電話で取る。分娩予約の締切の週数は公式サイトに書かれていない。
     booking_deadline_week_official: null
+    booking_source_url: https://seo-clinic.jp/haveachild/
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/12193
     website_url: "https://seo-clinic.jp/"
@@ -78,8 +82,10 @@ facilities:
     has_epidural: null   # 出産なびに無痛分娩の記載なし
     epidural_24h: null
     tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
-    booking_policy: null
+    booking_policy: 診察・妊婦健診は産科専用ダイヤルに電話で予約してから受診する。分娩予約については妊娠20〜25週ごろの妊婦健診で案内される。他院で健診を受けて当院で分娩する人は、妊娠10〜14週に1回、19〜22週に1回、32週以降は毎回当院で健診を受ける（初診時と32週時に紹介状を持参）。事情により妊娠中期・後期からでも分娩予約を取れる。
     booking_deadline_week_official: null
+    booking_source_url: https://www.makita-hosp.or.jp/birth/
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10637
     website_url: "https://www.makita-hosp.or.jp/birth/"
@@ -109,8 +115,10 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: false
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
-    booking_deadline_week_official: null
+    booking_policy: 一般の分娩は妊娠16週目までの人が対象で、電話予約室で産婦人科初診を予約する（紹介状がないと初診加算料5,000円がかかる）。分娩予約は月60件程度が目安で、キャンセル待ちは受けていない。里帰り分娩は妊娠8〜16週に1回、24週に1回、34〜35週以降は毎回受診できる人が対象。妊婦健診だけの人・多胎の人は受けられない。
+    booking_deadline_week_official: 16
+    booking_source_url: https://www.tmhp.jp/ebara/section/department/obstetrics_gynecology/bunben_annai.html
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10571
     website_url: "https://www.tmhp.jp/ebara/"
@@ -140,8 +148,10 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: false
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
+    booking_policy: 当院での分娩を希望する人は、必ず紹介状（診療情報提供書）を持参する。紹介状がないと分娩の予約は受けられない。分娩予約ができるのは、分娩予定日が確定したおおよそ妊娠8週以降の人。他院で分娩を予定している人の妊婦健診は原則断っている。分娩予約の締切の週数は公式サイトに書かれていない。
     booking_deadline_week_official: null
+    booking_source_url: https://www.lab.toho-u.ac.jp/med/omori/gyne/patient/obstetrics/index.html
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10746
     website_url: "https://www.omori.med.toho-u.ac.jp/"
@@ -171,8 +181,10 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: false
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
-    booking_deadline_week_official: null
+    booking_policy: 当院で分娩を希望する場合、妊娠24週までに分娩預かり金を現金で支払う（出産育児一時金の直接支払制度を使う場合は15万円、使わない場合は30万円）。預かり金の支払いをもって分娩の本予約となる。里帰り分娩・セミオープンを希望する人は、妊娠初期に一度受診し、妊娠32週以降は当院で健診・出産をする。
+    booking_deadline_week_official: 24
+    booking_source_url: https://omori.jrc.or.jp/gynecology/obstetrics/delivery/
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10352
     website_url: "https://omori.jrc.or.jp/"

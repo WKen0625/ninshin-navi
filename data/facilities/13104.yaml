@@ -16,8 +16,10 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: true
     tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず。無痛分娩可の施設は、運営者が JALA のサイトでも確認して対象外と判断（2026-09-20）
-    booking_policy: null
+    booking_policy: 入院予約制で、分娩予約は先着順。出産月の予約数に達すると受付が終わるので、妊娠がわかったらなるべく早く申し出る。受付で分娩予約票（印鑑が必要）を出し、出産予約金100,000円を現金で支払うと手続き完了。
     booking_deadline_week_official: null
+    booking_source_url: http://kawazoe-sanfujinka.com/information.html
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11267
     website_url: "http://kawazoe-sanfujinka.com"
@@ -66,8 +68,10 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: false
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
+    booking_policy: 外来は予約制。外来予約窓口（03-3353-1257、診察日の8時30分〜16時）に電話して初診の予約をとる。病院は「分娩制限もしておりません」と書いている。分娩予約の締切の週や予約金は、公式サイトに記載なし。
     booking_deadline_week_official: null
+    booking_source_url: https://www.hosp.keio.ac.jp/shinryo/obstet/
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10273
     website_url: "https://www.hosp.keio.ac.jp"
@@ -97,8 +101,10 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: false
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
+    booking_policy: 分娩予約は妊娠20〜24週に、受診したうえで行う（電話では予約できない）。受診には紹介状が必要で、予約センターで予約をとる。分娩制限は設けていない。産科保証金を妊娠22〜26週までに入金する（金額は記載なし）。里帰り分娩は34週までに受診し、初回の妊婦健診で分娩予約をする。
     booking_deadline_week_official: null
+    booking_source_url: https://www.hosp.ncgm.go.jp/s016/110/index.html
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10661
     website_url: "https://www.hosp.ncgm.go.jp/s016/110/index.html"
@@ -128,8 +134,10 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: true
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
+    booking_policy: はじめての人は予約センターで「産科初診」を予約する。ふつうは妊娠10〜20週くらいに入院予約の手続きをする（費用3,000円）。健診のときに産婦人科外来のスタッフに伝える。20週以降も相談できる。
     booking_deadline_week_official: null
+    booking_source_url: https://www.seibokai.or.jp/sanka/support02.html
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10439
     website_url: "https://www.seibokai.or.jp/sanka/"
@@ -159,8 +167,10 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: false
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
+    booking_policy: 里帰り出産は、妊娠20週ごろに紹介状を持って一度受診し、分娩予約と里帰り後の妊婦健診の予約をとる（34週からは当院で健診。帝王切開の予定の人は32週ごろまでに電話で予約して来院）。多胎妊娠・前置胎盤の人の分娩予約は受けていない。妊婦健診は完全予約制。里帰り以外の分娩予約の時期や予約金は、公式サイトに記載なし。
     booking_deadline_week_official: null
+    booking_source_url: https://yamate.jcho.go.jp/wp-content/uploads/2026/07/%E5%A6%8A%E5%A9%A6%E6%A4%9C%E8%A8%BA%E3%83%BB%E5%88%86%E5%A8%A9%E5%85%A5%E9%99%A2%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%EF%BC%B1%EF%BC%86%EF%BC%A1.pdf
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10275
     website_url: "https://yamate.jcho.go.jp"
@@ -190,8 +200,10 @@ facilities:
     has_epidural: true   # 出産なび「希望による無痛分娩可能」
     epidural_24h: true
     tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
-    booking_policy: null
+    booking_policy: 出産を考えている人は、かかっている病院で紹介状を用意して受診する。無痛分娩を希望する人は、毎週火曜午後の専用の初診外来を受診する（事前予約はできない。1日の受入人数に上限があり、多いときは抽選）。無痛分娩は週ごとに定員になりしだい締め切る。分娩予約の締切の週や予約金は、公式サイトに記載なし。
     booking_deadline_week_official: null
+    booking_source_url: https://hospinfo.tokyo-med.ac.jp/news/shinryo/bunben.html
+    needs_review: true
     scheme: lumpsum
     birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10272
     website_url: "https://hospinfo.tokyo-med.ac.jp/"
