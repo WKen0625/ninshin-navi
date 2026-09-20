@@ -1,0 +1,243 @@
+# 杉並区（全国地方公共団体コード 13115）  確認日: 2026-09-20
+# 区の公式サイト（city.suginami.tokyo.jp）で読めた内容だけを入れた。全行が人の承認待ち（needs_review: true）。
+# 根拠の引用は docs/research/13115.md。
+
+region:
+  code: "13115"
+  level: municipality
+  name: 杉並区
+  parent_code: "13"
+  status: in_progress
+  verified_at: 2026-09-20
+
+documents:
+  - id: suginami.hoken_bag
+    name: 母と子の保健バッグ（杉並区。母子健康手帳と一緒に受け取る袋）
+    aliases: [保健バッグ, 母子手帳のセット]
+    # この袋を持っていれば、中の紙も持っている扱いにする
+    includes:
+      - jp.boshi_techo
+      - jp.kenshin_ticket
+      - suginami.kenshin_ticket
+      - suginami.shinseiji_choukaku_ticket
+      - suginami.shika_kenshin_ticket
+      - suginami.sanpu_kenshin_ticket          # 令和8年4月1日以降に妊娠届を出した人。それより前の人には郵送
+      - suginami.ikkagetsuji_kenshin_ticket    # 同上
+    phase: notification
+    description: 妊娠届を出すと、母子健康手帳と一緒に受け取る。中身は妊婦健康診査受診票、新生児聴覚検査受診票、子育て便利帳など、出産に向けて必要なサービスの案内。
+    source_url: https://www.city.suginami.tokyo.jp/s054/1109.html
+    verified_at: 2026-09-20
+  - id: suginami.kenshin_ticket
+    name: 妊婦健康診査受診票・妊婦超音波検査受診票・妊婦子宮頸がん検診受診票（杉並区）
+    aliases: [受診票, 補助券]
+    phase: notification
+    description: 「母と子の保健バッグ」に入っている。都内の指定医療機関などで、健診のたびに先に出して使う。妊娠判定の検査には使えない。再発行は原則できない。枚数は区のページにはっきりとは書かれていない（多胎の人の説明に「妊婦健康診査受診票14回分」とある）。
+    source_url: https://www.city.suginami.tokyo.jp/s054/1110.html
+    verified_at: 2026-09-20
+  - id: suginami.shinseiji_choukaku_ticket
+    name: 新生児聴覚検査受診票（杉並区）
+    phase: birth
+    description: 「母と子の保健バッグ」に入っている。生後50日に達する日まで（生まれた日を0日とする）に使う。
+    source_url: https://www.city.suginami.tokyo.jp/s054/1110.html
+    verified_at: 2026-09-20
+  - id: suginami.shika_kenshin_ticket
+    name: 妊婦歯科健康診査受診票（杉並区）
+    phase: pregnancy
+    description: 「母と子の保健バッグ」に入っている。再発行はしない。受診できる歯科医療機関の一覧表が一緒に渡される。
+    source_url: https://www.city.suginami.tokyo.jp/s054/1110.html
+    verified_at: 2026-09-20
+  - id: suginami.sanpu_kenshin_ticket
+    name: 産婦健康診査受診票（杉並区。都内共通受診票）
+    phase: postpartum
+    description: 令和8年10月1日以降の受診で使える。令和8年4月1日以降に妊娠届を出した人は「母と子の保健バッグ」に同封。それより前に届け出た人で対象になりうる人には、令和8年8月下旬ごろに郵送。原則、再発行できない。
+    source_url: https://www.city.suginami.tokyo.jp/s054/1110.html
+    verified_at: 2026-09-20
+  - id: suginami.ikkagetsuji_kenshin_ticket
+    name: 1か月児健康診査受診票（杉並区。都内共通受診票）
+    phase: postpartum
+    description: 令和8年10月1日以降の受診で使える。令和8年4月1日以降に妊娠届を出した人は「母と子の保健バッグ」に同封。それより前に届け出た人で対象になりうる人には、令和8年8月下旬ごろに郵送。原則、再発行できない。
+    source_url: https://www.city.suginami.tokyo.jp/s054/1110.html
+    verified_at: 2026-09-20
+  - id: suginami.shien_kyufu_annai_1
+    name: 妊婦支援給付金の案内（1回目。ゆりかご面接で受け取る。2次元コードつき）
+    phase: pregnancy
+    description: ゆりかご面接を受けた人に渡される案内。書いてある2次元コードから、妊婦給付認定の申請をする。
+    source_url: https://www.city.suginami.tokyo.jp/s054/1125.html
+    verified_at: 2026-09-20
+  - id: suginami.akachan_homon_annai
+    name: 妊婦支援給付金の案内（2回目。すこやか赤ちゃん訪問で受け取る。2次元コードつき）
+    phase: postpartum
+    description: すこやか赤ちゃん訪問を受けた人に渡される案内。書いてある2次元コードから、子どもの数の届出をする。
+    source_url: https://www.city.suginami.tokyo.jp/s054/1125.html
+    verified_at: 2026-09-20
+
+steps:
+  - id: suginami.s03
+    overrides_step_id: jp.s03
+    phase: notification
+    sort_order: 30
+    title: 妊娠届を出し、母子健康手帳と「母と子の保健バッグ」を受け取る
+    detail: 窓口は、担当地域の保健センター（荻窪・高井戸・高円寺・上井草・和泉）か、区役所の地域子育て支援課母子保健係（東棟3階）。持ち物は、妊婦のマイナンバーの確認書類（マイナンバーカードなど。番号がわからなくても届出はできる）と、届出人の本人確認書類（顔写真つきなら1点、なければ2点）。代理人は委任状も必要。保健センターで「ゆりかご面接」も同時に受けたいときは電話で予約する。区役所（平日・第2水曜の夜間）と土曜の荻窪ゆりかご面接コーナーは、申請フォームで希望日の2営業日前までに予約する。マイナポータルで電子申請もできるが、それだけでは終わらず、母子健康手帳と保健バッグの受け取りと面接のために、あとで来庁が必要。
+    trigger_document_id: jp.heartbeat_confirmed
+    produces_document_id: suginami.hoken_bag
+    channel: 保健センター または 区役所 地域子育て支援課母子保健係（電子申請のあと来庁）
+    action_url: https://www.city.suginami.tokyo.jp/s054/1109.html
+    deadline_note: 医療機関などで妊娠がわかったら届け出る（期限は区のページに記載なし）
+    source_url: https://www.city.suginami.tokyo.jp/s054/1109.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: suginami.s03b
+    phase: pregnancy
+    sort_order: 35
+    title: ゆりかご面接（妊婦面接）を受ける
+    detail: すべての妊婦が対象で、助産師や保健師などと話す面接。妊婦本人が行く必要がある。予約制。場所は担当地域の保健センター（平日 午前8時30分〜午後4時、電話で予約）、区役所の地域子育て支援課母子保健係（平日と第2水曜の夜間、申請フォームで予約）、荻窪ゆりかご面接コーナー（土曜、申請フォームで予約）。面接を受けると、必要なサービスをまとめた「ゆりかごプラン」、ゆりかご券（杉並子育て応援券。現金ではなく、地域の子育てサービスに使える券）、妊婦支援給付金の案内を受け取る。医師から安静を指示されている人と、里帰りで区外にいる人は、Teams を使ったオンライン面接もできる（まず担当の保健センターに相談）。
+    trigger_document_id: suginami.hoken_bag
+    produces_document_id: suginami.shien_kyufu_annai_1
+    channel: 保健センター / 区役所 / 荻窪ゆりかご面接コーナー（条件つきでオンラインも可）
+    action_url: https://www.city.suginami.tokyo.jp/s054/22919.html
+    deadline_base: due_date
+    deadline_offset_days: 0
+    deadline_note: 妊娠期間中であればいつでも受けられる。つわりなどで体調が悪いときは、落ち着いてからでよい
+    source_url: https://www.city.suginami.tokyo.jp/s054/22919.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: suginami.s05
+    overrides_step_id: jp.s05
+    phase: pregnancy
+    sort_order: 50
+    title: 妊婦支援給付金（1回目・5万円）を申請する
+    detail: 対象は、申請日に杉並区に住所がある妊産婦で、産科の医療機関などで医師などが胎児の心拍を確認した人。流産・死産の場合も対象。ゆりかご面接で渡される案内の2次元コードから、妊婦給付認定の申請をする。妊婦本人名義の口座に5万円が振り込まれる。ほかの区市町村で同じ妊娠について受け取った人は対象外。問い合わせは地域子育て支援課子育て支援係 03-5307-0786（午前8時30分〜午後5時、土日祝日を除く）。
+    trigger_document_id: suginami.shien_kyufu_annai_1
+    channel: オンライン（案内の2次元コードから）
+    deadline_note: 申請期限は区のページに記載なし（面接のときに確認する）
+    source_url: https://www.city.suginami.tokyo.jp/s054/1125.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: suginami.s05c
+    phase: pregnancy
+    sort_order: 57
+    title: 妊婦歯科健康診査を受ける（妊娠中に1回・無料）
+    detail: 区内の指定歯科医療機関で、受診票を使って受ける。内容は問診、口の中の診査、結果にもとづく保健指導（1回）。費用は無料。
+    trigger_document_id: suginami.shika_kenshin_ticket
+    channel: 医療機関（区内の指定歯科）
+    deadline_note: 妊娠期間中に1回
+    source_url: https://www.city.suginami.tokyo.jp/s054/1110.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: suginami.s06d
+    phase: pregnancy
+    sort_order: 66
+    title: （杉並区の国民健康保険の人）産前産後期間の国民健康保険料の軽減を届け出る
+    detail: 出産する本人の分の保険料（所得割と均等割）が、出産予定月（または出産月）の前月から4か月間（多胎は3か月前から6か月間）軽くなる。妊娠85日（4か月）以上の出産が対象で、死産・流産・早産・人工妊娠中絶を含む。窓口は区役所東棟2階9番（国保年金課国保資格係）で、区民事務所でも受け付ける。郵送と電子申請フォームでもできる。必要なものは「出産被保険者に関する届書」、母子健康手帳など出産（予定）日がわかるもの、届け出る人の本人確認書類。保険料がすでに最高限度額のときは、軽減しても金額が変わらないことがある。
+    trigger_document_id: suginami.hoken_bag
+    channel: 窓口 / 郵送 / オンライン（電子申請フォーム）
+    action_url: https://www.city.suginami.tokyo.jp/s035/2022.html
+    deadline_note: 出産予定日の6か月前から届け出できる。出産後の届出もできる
+    source_url: https://www.city.suginami.tokyo.jp/s035/2022.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: suginami.s08c
+    phase: birth
+    sort_order: 71
+    title: 新生児聴覚検査を受ける
+    detail: 生まれてすぐの赤ちゃんの耳の聞こえを調べる検査。都内の指定医療機関などで受診票を出して受ける。受診票に書かれた検査項目の費用の一部を区が負担する（自己負担の額は受診機関によって違う）。都外で受けたときは受診票が使えないので、あとから費用の助成を申請する。
+    trigger_document_id: suginami.shinseiji_choukaku_ticket
+    channel: 医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 50
+    deadline_note: 生後50日に達する日まで（生まれた日を0日とする）
+    source_url: https://www.city.suginami.tokyo.jp/s054/1110.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: suginami.s08
+    overrides_step_id: jp.s08
+    phase: postpartum
+    sort_order: 80
+    title: 妊婦支援給付金（2回目・子どもの数×5万円）を申請する
+    detail: すこやか赤ちゃん訪問（生後4か月までの全戸訪問）を受けた人に渡される案内の2次元コードから、子どもの数の届出をする。産婦本人名義の口座に振り込まれる。訪問を受けるには、生まれたら早めに「すこやか赤ちゃん連絡票」を出す（電子申請、または母子健康手帳にとじ込みのはがき）。里帰り中の人は、杉並区の自宅に戻ってから訪問を受ける。
+    trigger_document_id: suginami.akachan_homon_annai
+    channel: オンライン（案内の2次元コードから）
+    deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
+    source_url: https://www.city.suginami.tokyo.jp/s054/1125.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: suginami.s08b
+    phase: postpartum
+    sort_order: 82
+    title: 産婦健康診査を受ける（2回まで）
+    detail: 令和8年10月1日以降は、都内の指定機関で都内共通受診票を使って受けると、対象の検査項目の費用を区が負担する。対象は、受診日に区内に住民登録がある産後2か月以内の産婦（流産・死産の人を含む）。都外で受けるときは、受診票と同封の「産婦健康診査 実施のお願い」を出して受け、あとで申請すると1回あたり5,000円を上限に2回まで助成される（申請は出産後1年以内）。令和8年9月30日までは、区内の指定機関で受ける産婦健康診査だけが対象（出産日から8週間以内）。
+    trigger_document_id: suginami.sanpu_kenshin_ticket
+    channel: 医療機関
+    deadline_note: 受診のめやすは、1回目が産後2週間ごろ、2回目が産後1か月ごろ。産後2か月以内（出産日から2か月後の前日まで）
+    source_url: https://www.city.suginami.tokyo.jp/s054/1110.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: suginami.s08d
+    phase: postpartum
+    sort_order: 83
+    title: 1か月児健康診査を受ける
+    detail: 令和8年10月1日から、都内の指定機関で都内共通受診票を使って受けると、対象の検査項目の費用を区が負担する。対象は、受診日に区内に住民登録がある赤ちゃん。都外で受けるときは、受診票と同封の「1か月児健康診査 実施のお願い」を出して受け、あとで申請すると赤ちゃん1人あたり6,000円を上限に助成される（申請は出産後1年以内）。早産の場合は、主治医に相談する。
+    trigger_document_id: suginami.ikkagetsuji_kenshin_ticket
+    channel: 医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 41
+    deadline_note: 生後28日から生後41日まで（出生日を0日目として数える）
+    source_url: https://www.city.suginami.tokyo.jp/s054/1110.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: suginami.s08e
+    phase: postpartum
+    sort_order: 84
+    title: （里帰りなど都外で健診を受けた人）妊婦健康診査などの費用助成を申請する
+    detail: 都外の医療機関などでは受診票が使えない。使わなかった受診票の枚数の範囲で、払った実費の一部（上限あり。上限額は申請書に書いてある）が助成される。新生児聴覚検査の分も一緒に申請できる。申請は1回だけ。窓口は担当地域の保健センターか区役所の地域子育て支援課母子保健係で、郵送もできる。必要なものは、未使用の受診票（都内で交付されたもの・全部）、母子健康手帳、「妊娠中の経過」のページのコピー、領収書・明細書（原本とコピー）、印鑑（朱肉を使うもの）、振込先がわかるもの。受診のときは必ず領収書と明細書をもらい、母子健康手帳に健診の記録を書いてもらう。
+    trigger_document_id: suginami.kenshin_ticket
+    channel: 窓口 / 郵送
+    action_url: https://www.city.suginami.tokyo.jp/s054/shinseisho/8707.html
+    deadline_base: birth_date
+    deadline_offset_days: 364
+    deadline_note: 出産後1年以内（お子さんの1歳の誕生日の前日まで）。区外に転出する人は、転出日が決まったあとなら出産前でも申請できる
+    source_url: https://www.city.suginami.tokyo.jp/s054/shinseisho/8707.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+subsidies:
+  - id: suginami.shien_kyufu_1
+    name: 妊婦支援給付金（1回目・妊娠時）
+    kind: cash_later
+    amount_yen: 50000
+    amount_note: 妊娠に対して5万円。妊婦本人名義の口座に振り込まれる。
+    conditions: 申請日に杉並区に住所がある妊産婦で、産科の医療機関などで医師などが胎児の心拍を確認した人。流産・死産の場合も対象。ほかの市区町村ですでに受け取った人、同じ妊娠について出産応援ギフトを受け取った人は対象外。
+    apply_via: ゆりかご面接で渡される案内の2次元コードから、妊婦給付認定の申請をする。問い合わせは地域子育て支援課子育て支援係 03-5307-0786（午前8時30分〜午後5時、土日祝日を除く）
+    source_url: https://www.city.suginami.tokyo.jp/s054/1125.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: suginami.shien_kyufu_2
+    name: 妊婦支援給付金（2回目・出産時）
+    kind: cash_later
+    amount_formula: "50000 * children"
+    amount_note: 妊娠している子どもの数に応じて5万円。産婦本人名義の口座に振り込まれる。
+    conditions: 妊婦給付認定を受けた人。流産・死産の場合も対象。
+    apply_via: すこやか赤ちゃん訪問で渡される案内の2次元コードから、子どもの数の届出をする
+    source_url: https://www.city.suginami.tokyo.jp/s054/1125.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: suginami.kouketsuatsu
+    name: 妊娠高血圧症候群等の医療費助成（杉並区）
+    kind: conditional
+    amount_note: 認定された病気の入院医療費のうち、医療保険を使ったあとの自己負担額を助成（高額療養費制度にあたるときは、その限度額まで）。入院中の食事代と、差額ベッド代など保険がきかない費用は対象外。
+    conditions: 入院が始まる日より前から杉並区に住所がある妊産婦で、妊娠高血圧症候群とその関連疾患・糖尿病・貧血・産科出血・心疾患（とその続発症）で入院が必要で、一定の基準を満たす人。さらに、前年の世帯の総所得税額が30,000円以下、または入院見込み期間が26日以上であること。
+    apply_via: 担当地域の保健センターに申請する。退院の日から3か月を過ぎると申請できない。申請書・診断書・世帯調書・同意書の用紙は保健センターにある
+    source_url: https://www.city.suginami.tokyo.jp/s054/1112.html
+    verified_at: 2026-09-20
+    needs_review: true

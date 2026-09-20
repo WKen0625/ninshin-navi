@@ -1,0 +1,251 @@
+# 渋谷区（全国地方公共団体コード 13113）  確認日: 2026-09-20
+# 区の公式サイト（city.shibuya.tokyo.jp）で読めた内容だけを入れている。全行が人の承認待ち（needs_review: true）。
+# 1か月児健康診査の助成は、区のサイトで確かなページが見つからなかった（入れていない）。
+
+region:
+  code: "13113"
+  level: municipality
+  name: 渋谷区
+  parent_code: "13"
+  status: in_progress
+  verified_at: 2026-09-20
+
+documents:
+  - id: shibuya.hoken_bag
+    name: 母と子の保健バッグ（渋谷区。母子健康手帳と一緒に受け取る袋）
+    aliases: [保健バッグ, 母子手帳のセット]
+    # この袋を持っていれば、中の紙も持っている扱いにする
+    includes:
+      - jp.boshi_techo
+      - jp.kenshin_ticket
+      - shibuya.kenshin_ticket
+      - shibuya.shika_kenshin_ticket
+      - shibuya.sanpu_kenshin_ticket      # 令和8年4月1日以降に妊娠届を出した人。それより前の人には郵送
+    phase: notification
+    description: 妊娠届を出すと、母子健康手帳と一緒に受け取る。妊婦健康診査受診票や各種サービスの案内などが入っている。
+    source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-todoke/ninshin_todoke.html
+    verified_at: 2026-09-20
+  - id: shibuya.kenshin_ticket
+    name: 妊婦健康診査受診票（渋谷区）
+    aliases: [受診票, 補助券]
+    phase: notification
+    description: 妊婦健康診査14回、妊婦超音波検査4回、妊婦子宮頸がん検診1回。「母と子の保健バッグ」に入っている。助産所や、里帰りなどで東京都外の医療機関で受けた人は、出産後に「里帰り等妊婦健康診査費用助成金」を申請する。
+    source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/nimpu-kenshin/ninpu_kenshin.html
+    verified_at: 2026-09-20
+  - id: shibuya.shika_kenshin_ticket
+    name: 渋谷区妊婦歯科健康診査票
+    phase: pregnancy
+    description: 「母と子の保健バッグ」に入っている。
+    source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/nimpu-kenshin/ninpu_shika.html
+    verified_at: 2026-09-20
+  - id: shibuya.sanpu_kenshin_ticket
+    name: 産婦健康診査受診票（渋谷区）
+    phase: postpartum
+    description: 令和8年10月1日以降の受診から使える（9月30日までの受診は、受診票を持っていても助成の対象にならない）。令和8年4月1日以降に妊娠届を出した人は母子健康手帳と一緒に受け取る。3月31日までに届け出た人には9月3日に発送。
+    source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/nimpu-kenshin/sanpu_kenshin.html
+    verified_at: 2026-09-20
+  - id: shibuya.shien_kyufu_annai_1
+    name: 渋谷区妊婦支援給付金（1回目）の案内（妊婦給付認定申請の案内）
+    phase: pregnancy
+    description: 妊娠届を出した翌月の下旬ごろまでに、区から送られてくる。
+    source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/ninpu_kyuhu.html
+    verified_at: 2026-09-20
+  - id: shibuya.shien_kyufu_annai_2
+    name: 渋谷区妊婦支援給付金（2回目）の案内
+    phase: postpartum
+    description: 出産予定日の翌月の下旬ごろまでに、区から送られてくる。
+    source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/ninpu_kyuhu.html
+    verified_at: 2026-09-20
+
+steps:
+  - id: shibuya.s03
+    overrides_step_id: jp.s03
+    phase: notification
+    sort_order: 30
+    title: 妊娠届を出し、母子健康手帳と「母と子の保健バッグ」を受け取る
+    detail: 窓口は、各保健相談所（中央保健相談所母子保健係・恵比寿保健相談所・幡ヶ谷保健相談所）、区役所3階の住民戸籍課窓口、出張所、区民サービスセンター。持ち物は、妊婦の本人確認書類、個人番号（マイナンバー）確認書類、妊娠の診断を受けた医療機関の情報（診察券など）。代理人が届け出るときは、委任状、代理人の身元確認書類、妊婦本人の番号確認書類が必要。オンラインでの届出は区のページに記載なし。
+    trigger_document_id: jp.heartbeat_confirmed
+    produces_document_id: shibuya.hoken_bag
+    channel: 各保健相談所・区役所3階住民戸籍課・出張所・区民サービスセンター
+    deadline_note: 医療機関で妊娠と診断されたら早めに
+    source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-todoke/ninshin_todoke.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shibuya.s03b
+    phase: pregnancy
+    sort_order: 35
+    title: 妊婦面接を受ける（妊娠16〜32週）
+    detail: 保健師が、区内に住むすべての妊婦と会って話を聞く。場所は住所地を受け持つ保健相談所（中央・恵比寿・幡ヶ谷）。平日9〜17時、30分ほど。予約は渋谷区LINE公式アカウント（24時間受付）か電話で、希望日の30日前から。来所が難しいときはオンラインの相談もある。面接を受けると、育児パッケージ（肌着・ベビー服などの衣類、スタイ、体温計、ガーゼ、バスタオル、おもちゃ、爪切りなど）を受け取る。
+    trigger_document_id: shibuya.hoken_bag
+    channel: 住所地を受け持つ保健相談所（オンライン相談も可）
+    action_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-sodan/ninpu.html
+    deadline_base: gestational_week
+    deadline_week: 32
+    deadline_note: 妊娠16〜32週の間に受ける
+    source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-sodan/ninpu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shibuya.s05
+    overrides_step_id: jp.s05
+    phase: pregnancy
+    sort_order: 50
+    title: 渋谷区妊婦支援給付金（1回目・5万円）を申請する
+    detail: 妊娠届を出した翌月の下旬ごろまでに、区から案内が送られてくる。届いたら早めに、原則としてLINEでオンライン申請する。現金（口座振込）か、同じ額のギフトを申請のときに選ぶ。対象は渋谷区に住所があり、妊婦給付認定を受けた妊婦。流産・死産の場合も対象。問い合わせは渋谷区妊婦支援給付金コールセンター 03-3463-3589。
+    trigger_document_id: shibuya.shien_kyufu_annai_1
+    channel: オンライン（LINE）
+    deadline_base: confirmation_date
+    deadline_offset_days: 730
+    deadline_note: 医療機関で妊娠が確認された日から2年間
+    source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/ninpu_kyuhu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shibuya.s05c
+    phase: pregnancy
+    sort_order: 57
+    title: 妊婦歯科健診を受ける（妊娠中に1回）
+    detail: 区内の契約歯科医療機関に前もって連絡し、「渋谷区妊婦歯科健康診査票」と母子健康手帳を持って受ける。費用は区のページに記載なし。問い合わせは中央保健相談所母子保健係 03-3463-2409。
+    trigger_document_id: shibuya.shika_kenshin_ticket
+    channel: 区内の契約歯科医療機関
+    deadline_note: 妊娠中に1回
+    source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/nimpu-kenshin/ninpu_shika.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shibuya.s06d
+    phase: pregnancy
+    sort_order: 66
+    title: （渋谷区の国民健康保険の人）産前産後期間の国民健康保険料の免除を届け出る
+    detail: 妊娠85日（4か月）以上で出産する（した）国民健康保険の加入者が対象。出産月の前月から4か月分（多胎は出産月の3か月前から6か月分）の保険料が免除される。届出は、区役所3階3番窓口（国民健康保険課資格賦課係）、オンライン申請、LINE申請、郵送のどれか。顔写真つきの本人確認書類と、出産予定日か出産日がわかる母子健康手帳が必要。出産後の届出もできる。問い合わせ 03-3463-1781。
+    trigger_document_id: shibuya.hoken_bag
+    channel: 窓口 / オンライン / LINE / 郵送
+    action_url: https://www.city.shibuya.tokyo.jp/kurashi/kokuho/kenkohokenryo/sanzensangokokuho.html
+    deadline_note: 出産予定日の6か月前から届け出できる
+    source_url: https://www.city.shibuya.tokyo.jp/kurashi/kokuho/kenkohokenryo/sanzensangokokuho.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shibuya.s07b
+    phase: postpartum
+    sort_order: 72
+    title: ハッピーマザー出産助成金（上限10万円）を申請する
+    detail: 渋谷区が独自に出す助成金。1人の出産につき上限10万円で、加入している健康保険から付加給付（出産育児一時金への上乗せ）が出るときは、その額が引かれる。窓口（区役所6階国民健康保険課給付係・出張所・区民サービスセンター）、郵送、LINEで申請できる。出産の事実がわかるもの（母子健康手帳の「出生届出済証明」のページなど）、健康保険がわかる書類、付加給付の額がわかる書類（渋谷区の国保・全国健保の人は不要）が必要。助成金は所得税の課税対象（一時所得）。問い合わせは国民健康保険課給付係 03-3463-1776。
+    trigger_document_id: jp.hospital_receipt
+    channel: 窓口 / 郵送 / オンライン（LINE）
+    action_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/happy_josei.html
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    deadline_note: 出産日から数えて1年以内
+    survey_question_id: cost_paid
+    source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/happy_josei.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shibuya.s07c
+    phase: postpartum
+    sort_order: 75
+    title: 「出生通知票」を出し、こんにちは赤ちゃん訪問を受ける
+    detail: 子どもが生まれたら「出生通知票」を出す。渋谷区LINE公式アカウント、郵送、窓口（区役所3階住民戸籍課、出張所・区民サービスセンター、各保健相談所）で出せる。生後4か月までの赤ちゃんのいるすべての家庭を、保健師・助産師・看護師が訪問する（生後2か月に入ると訪問の手紙が届く）。生後28日までの新生児には、必要に応じて保健師か助産師の新生児訪問もある。問い合わせは中央保健相談所母子保健係 03-3463-2409。
+    trigger_document_id: shibuya.hoken_bag
+    channel: LINE / 郵送 / 窓口（そのあと自宅で訪問を受ける）
+    action_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-todoke/shussho_tsuchi.html
+    deadline_note: 出生通知票の期限は区のページに記載なし。訪問の対象は生後4か月まで
+    source_url: https://www.city.shibuya.tokyo.jp/kodomo/kodomo-sodan/shinseiji-sodan/homon_baby.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shibuya.s08
+    overrides_step_id: jp.s08
+    phase: postpartum
+    sort_order: 80
+    title: 渋谷区妊婦支援給付金（2回目・胎児1人につき5万円）を申請する
+    detail: 出産予定日の翌月の下旬ごろまでに、区から案内が送られてくる。届いたら早めに、原則としてLINEでオンライン申請する。現金（口座振込）かギフトを選ぶ。対象は、渋谷区で妊婦給付認定を受け、胎児の数の届出をした人。問い合わせは渋谷区妊婦支援給付金コールセンター 03-3463-3589。
+    trigger_document_id: shibuya.shien_kyufu_annai_2
+    channel: オンライン（LINE）
+    deadline_base: due_date
+    deadline_offset_days: 674
+    deadline_note: 出産予定日の8週間前から2年間（= 予定日−56日 から 730日間）
+    source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/ninpu_kyuhu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shibuya.s08b
+    phase: postpartum
+    sort_order: 82
+    title: 産婦健康診査を受ける（産後2週間ごろと1か月ごろの2回まで）
+    detail: 受診した日に渋谷区に住民登録がある、出産後2か月以内の産婦が対象（流産・死産も対象）。受診票に書かれた項目は公費で受けられる。受診票は令和8年10月1日以降の受診から使える（9月30日までの受診は対象にならない）。都内の委託医療機関以外で受けたときは、1回5,000円を上限に2回まで、あとから払い戻しを申請できる（手続きのページは9月下旬ごろ公開予定）。問い合わせは中央保健相談所母子保健係 03-3463-2409。
+    trigger_document_id: shibuya.sanpu_kenshin_ticket
+    channel: 医療機関
+    deadline_note: 原則、出産後2か月以内（1回目は産後2週間ごろ、2回目は産後1か月ごろ）
+    source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/nimpu-kenshin/sanpu_kenshin.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shibuya.s08e
+    phase: postpartum
+    sort_order: 84
+    title: （助産所や東京都外で健診を受けた人）里帰り等妊婦健康診査費用助成金・新生児聴覚検査費用助成金を申請する
+    detail: 受診した日に渋谷区に住民登録があり、受診票が使えない国内の機関（都内の一部の助産所、里帰りなどでの都外の医療機関・助産所）で受けた人が対象。令和8年4月1日以降の受診分の上限は、妊婦健康診査1回目11,670円、2〜14回目各5,460円、超音波検査5,300円（4回）、子宮頸がん検診3,400円、新生児聴覚検査3,000円（生後50日までの初回検査）。申請書兼請求書、使わなかった受診票、領収書と診療費明細書のコピー、母子健康手帳のコピーを、原則として郵送で出す。問い合わせは中央保健相談所母子保健係 03-3463-2409。
+    trigger_document_id: shibuya.hoken_bag
+    channel: 郵送（窓口も可）
+    action_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/ninpukensin.html
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    deadline_note: 分娩日または出生日から1年間（消印有効）
+    source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/ninpukensin.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+subsidies:
+  - id: shibuya.shien_kyufu_1
+    name: 渋谷区妊婦支援給付金（1回目）
+    kind: cash_later
+    amount_yen: 50000
+    amount_note: 妊婦1人あたり5万円。現金（口座振込）か、同じ額のギフトを申請のときに選ぶ。
+    conditions: 渋谷区に住所があり、妊婦給付認定を受けた妊婦。流産・死産の場合も対象。令和7年3月31日までに出産した人は対象外。
+    apply_via: 区から送られてくる案内に沿って、原則LINEでオンライン申請。問い合わせ 渋谷区妊婦支援給付金コールセンター 03-3463-3589
+    deadline_base: confirmation_date
+    deadline_offset_days: 730
+    source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/ninpu_kyuhu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shibuya.shien_kyufu_2
+    name: 渋谷区妊婦支援給付金（2回目）
+    kind: cash_later
+    amount_formula: "50000 * children"
+    amount_note: 妊娠している胎児1人につき5万円。現金（口座振込）かギフトを選ぶ。
+    conditions: 渋谷区で妊婦給付認定を受け、胎児の数の届出をした人。
+    apply_via: 区から送られてくる案内に沿って、原則LINEでオンライン申請
+    deadline_base: due_date
+    deadline_offset_days: 674
+    source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/ninpu_kyuhu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shibuya.happy_mother
+    name: ハッピーマザー出産助成金（渋谷区）
+    kind: cash_later
+    amount_yen: 100000
+    amount_is_upper_limit: true
+    amount_note: 1人の出産につき上限10万円。加入している健康保険から付加給付が出るときは、その額を引いた金額になる。
+    conditions: 妊娠12週以上（85日以上）で出産した人（流産・死産を含む）。出産日の3か月前から申請のときまで続けて渋谷区に住民登録があり、健康保険に入っていること。
+    apply_via: 窓口（区役所6階国民健康保険課給付係・出張所・区民サービスセンター）/ 郵送 / LINE。問い合わせ 03-3463-1776
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    taxable: true
+    source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/happy_josei.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shibuya.kouketsuatsu
+    name: 妊娠高血圧症候群医療費助成（渋谷区）
+    kind: conditional
+    amount_note: 入院治療にかかった医療費のうち、医療保険がきく診療の自己負担額を助成（食事療養費を除く）。
+    conditions: 渋谷区に住民登録があり、妊娠高血圧症候群とその関連疾患、糖尿病・妊娠糖尿病、貧血、産科出血（1000cc以上）、心疾患で入院治療を受ける人。前年分の世帯の総所得税額が30,000円以下、または対象の病気での入院期間が26日以上。生活保護を受けている人は除く。
+    apply_via: 前もって地域保健課地域医療係（03-3463-1211）に問い合わせ、入院（見込み）期間が決まったらすぐに窓口か郵送で申請する。退院後はなるべく早めに。
+    source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/ninshiniryo.html
+    verified_at: 2026-09-20
+    needs_review: true

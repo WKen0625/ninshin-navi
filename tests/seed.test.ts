@@ -27,14 +27,17 @@ describe("seed: 本物の data/ を投入できる", () => {
 
   it("schema.sql と policies.sql が通り、全行が入る", async () => {
     const result = await seed(ctx.db, DATA);
-    expect(result.upserted).toEqual({ regions: 4, documents: 23, steps: 34, subsidies: 12, facilities: 18, facility_costs_public: 18 });
+    // 件数は data/ の中身そのもの（区を足すたびにテストを直さなくて済むように、読み込んだ件数と比べる）
+    const { data } = loadSeedData(DATA);
+    expect(result.upserted).toEqual(Object.fromEntries(Object.entries(data).map(([table, rows]) => [table, rows.length])));
+    expect(data.regions.length).toBeGreaterThanOrEqual(4);
     expect(result.orphans).toEqual({});
   });
 
   it("もう一度流しても同じ結果（上書き）", async () => {
     await seed(ctx.db, DATA);
     const { rows } = await ctx.db.query("select count(*)::int as n from steps");
-    expect(rows[0].n).toBe(34);
+    expect(rows[0].n).toBe(loadSeedData(DATA).data.steps.length);
   });
 
   it("投入後、出典と確認日の無いルール・金額の行は0件", async () => {

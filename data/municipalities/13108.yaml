@@ -1,0 +1,270 @@
+# 江東区（全国地方公共団体コード 13108）  確認日: 2026-09-20
+# 区の公式サイト（city.koto.lg.jp）で読めた内容だけを入れた。全行が人の承認待ち（needs_review: true）。
+# 根拠の引用は docs/research/13108.md。
+
+region:
+  code: "13108"
+  level: municipality
+  name: 江東区
+  parent_code: "13"
+  status: in_progress
+  verified_at: 2026-09-20
+
+documents:
+  - id: koto.hoken_bag
+    name: 母と子の保健バッグ（江東区。母子健康手帳と受診票が入った袋）
+    aliases: [保健バッグ, 母子手帳のセット]
+    # この袋を持っていれば、中の紙も持っている扱いにする
+    includes:
+      - jp.boshi_techo
+      - jp.kenshin_ticket
+      - koto.kenshin_ticket
+      - koto.shika_kenshin_ticket
+      - koto.shinseiji_choukaku_ticket
+      - koto.shussei_tsuchihyo
+      - koto.sanpu_kenshin_ticket          # 令和8年4月以降に妊娠届を出した人。それより前の人には郵送
+      - koto.ikkagetsuji_kenshin_ticket    # 同上
+    phase: notification
+    description: 妊娠届を出すと受け取る。母子健康手帳、妊婦健康診査の受診票などが入っている。
+    source_url: https://www.city.koto.lg.jp/261201/kodomo/ninshinshussan/ninshin/6875.html
+    verified_at: 2026-09-20
+  - id: koto.kenshin_ticket
+    name: 妊婦健康診査受診票（江東区）
+    aliases: [受診票, 補助券]
+    phase: notification
+    description: 妊婦健康診査14回分、妊婦超音波検査4回分、妊婦子宮頸がん検診1回分。都外の市区町村の受診票は使えない（転入した人には江東区の受診票が交付される）。令和6年10月1日以降に妊娠届を出した人は、助産所でも受診票を使える。
+    source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/6876.html
+    verified_at: 2026-09-20
+  - id: koto.shika_kenshin_ticket
+    name: 妊婦歯科健康診査受診票（江東区）
+    phase: notification
+    description: 「母と子の保健バッグ」に入っている。江東区内の契約歯科医療機関で使う。
+    source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/6878.html
+    verified_at: 2026-09-20
+  - id: koto.shinseiji_choukaku_ticket
+    name: 新生児聴覚検査受診票（江東区）
+    phase: birth
+    description: 「母と子の保健バッグ」に入っている。東京都内の契約医療機関で使う。都外で受けたときは、子どもの1歳の誕生日の前日までに払い戻しを申請できる。
+    source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/6890.html
+    verified_at: 2026-09-20
+  - id: koto.shussei_tsuchihyo
+    name: 出生通知票（江東区。ハガキ）
+    phase: postpartum
+    description: 「母と子の保健バッグ」に入っているハガキ。新生児・産婦訪問の申し込みに使う。電子申請（LoGoフォーム）でも出せる。
+    source_url: https://www.city.koto.lg.jp/261301/kodomo/ninshinshussan/shussan/6880.html
+    verified_at: 2026-09-20
+  - id: koto.sanpu_kenshin_ticket
+    name: 産婦健康診査受診票（江東区）
+    phase: postpartum
+    description: 2回まで、1回あたり5,000円を助成。令和8年4月以降に妊娠届を出した人は、妊娠届のときに受け取る。令和8年3月31日以前に届け出て、9月1日以降に出産予定の人には、7月中旬に発送。
+    source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97801.html
+    verified_at: 2026-09-20
+  - id: koto.ikkagetsuji_kenshin_ticket
+    name: 1か月児健康診査受診票（江東区）
+    phase: postpartum
+    description: 1回、6,000円を助成。配り方は産婦健康診査受診票と同じ。
+    source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97801.html
+    verified_at: 2026-09-20
+  - id: koto.shien_kyufu_annai_1
+    name: 出産応援給付金（妊婦のための支援給付1回目）の申請案内（江東区）
+    phase: pregnancy
+    description: ゆりかご面接のあとに受け取る案内。
+    source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97552.html
+    verified_at: 2026-09-20
+  - id: koto.akachan_homon_annai
+    name: 子育て応援給付金（妊婦のための支援給付2回目）の申請案内（江東区）
+    phase: postpartum
+    description: 新生児・産婦訪問のときに受け取る案内。
+    source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97552.html
+    verified_at: 2026-09-20
+
+steps:
+  - id: koto.s03
+    overrides_step_id: jp.s03
+    phase: notification
+    sort_order: 30
+    title: 妊娠届を出し、「母と子の保健バッグ」を受け取る
+    detail: 届出先は、各保健相談所、江東区保健所保健予防課、区役所区民課・特別出張所・各出張所。持ち物は、個人番号（マイナンバー）が確認できる書類と本人確認ができる書類。代理人のときは、妊婦の個人番号確認書類、代理人の本人確認書類、委任状。マイナポータルでも妊娠届を出せる。問い合わせは保健予防課保健係 03-3647-5906。
+    trigger_document_id: jp.heartbeat_confirmed
+    produces_document_id: koto.hoken_bag
+    channel: 窓口（保健相談所・保健所・区民課・出張所）または オンライン（マイナポータル）
+    action_url: https://www.city.koto.lg.jp/261201/kodomo/ninshinshussan/ninshin/6875.html
+    deadline_note: 期限は区のページに記載なし
+    source_url: https://www.city.koto.lg.jp/261201/kodomo/ninshinshussan/ninshin/6875.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: koto.s03b
+    phase: pregnancy
+    sort_order: 35
+    title: 「ゆりかご面接」（妊婦面接）を受ける
+    detail: 保健師などの専門職との面接。対象は江東区に住む妊婦本人。場所は、住んでいる地域を担当する保健相談所か、豊洲特別出張所。月〜金の9時〜16時30分で、保健相談所は予約不要（豊洲特別出張所は予約優先）。江東区に住民票がある人は、その場で「こども商品券1万円分」を受け取れる。面接のあと、出産応援給付金（支援給付1回目）の申請案内を受け取る。妊娠届を保健相談所以外で出した人は、妊娠届の控えと母子健康手帳を持っていく。問い合わせは保健予防課保健係 03-3647-5906。
+    trigger_document_id: koto.hoken_bag
+    produces_document_id: koto.shien_kyufu_annai_1
+    channel: 保健相談所 または 豊洲特別出張所
+    action_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97550.html
+    deadline_base: due_date
+    deadline_offset_days: 0
+    deadline_note: 妊婦本人が出産前に受ける（くわしい期限は区のページに記載なし）
+    source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97550.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: koto.s05
+    overrides_step_id: jp.s05
+    phase: pregnancy
+    sort_order: 50
+    title: 出産応援給付金（妊婦のための支援給付1回目・5万円）を申請する
+    detail: ゆりかご面接のあとに受け取る案内に沿って申請する。現金（口座振込）かギフトカードを選ぶ。対象は、医療機関で胎児の心拍を確認し、申請のときに江東区に住民登録がある人。妊娠届のあとに流産・死産・人工妊娠中絶などをした人も、同じ流れで申請できる。問い合わせ 0120-501-627。
+    trigger_document_id: koto.shien_kyufu_annai_1
+    channel: 面接のあとの案内に沿って申請
+    deadline_base: confirmation_date
+    deadline_offset_days: 730
+    deadline_note: 医療機関で胎児の心拍が確認された日から2年間
+    source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97552.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: koto.s05c
+    phase: pregnancy
+    sort_order: 57
+    title: 妊婦歯科健康診査を受ける
+    detail: 妊娠した人が対象。江東区内の契約歯科医療機関で、「母と子の保健バッグ」に入っている受診票を出して受ける。受けられる歯科は区の「妊婦歯科健康診査実施医療機関名簿」で確認する。回数・費用・期限は区のページに記載なし。問い合わせは保健予防課保健係 03-3647-5906。
+    trigger_document_id: koto.shika_kenshin_ticket
+    channel: 医療機関（区内の契約歯科）
+    action_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/6878.html
+    source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/6878.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: koto.s06d
+    phase: pregnancy
+    sort_order: 66
+    title: （江東区の国民健康保険の人）産前産後期間の国民健康保険料の免除を届け出る
+    detail: 出産予定日（出産日）の月の前月から翌々月までの4か月間（双子など多胎は3か月前から6か月間）の保険料（所得割額と均等割額）が減額される。妊娠85日以上の出産が対象で、死産・流産も含む。窓口は江東区役所 医療保険課 資格賦課係（2階7番）。郵送、マイナポータル（マイナンバーカードが必要）でも届け出できる。出産前は母子健康手帳か妊娠届出書、出産後は出生証明書など親子関係がわかる書類と、マイナンバーがわかるもの、本人確認書類が必要。問い合わせ 03-3647-3167。
+    trigger_document_id: koto.hoken_bag
+    channel: 窓口 / 郵送 / オンライン（マイナポータル）
+    action_url: https://www.city.koto.lg.jp/250102/kokuhosanzensango.html
+    deadline_note: 出産予定日の6か月前から届け出できる。出産後でも届け出できる
+    source_url: https://www.city.koto.lg.jp/250102/kokuhosanzensango.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: koto.s08c
+    phase: birth
+    sort_order: 71
+    title: 新生児聴覚検査を受ける
+    detail: 江東区に住民登録のある、生後50日までの赤ちゃんが対象。検査1回につき3,000円を上限に助成。「母と子の保健バッグ」に入っている受診票を、東京都内の契約医療機関に出して受ける。里帰り出産などで都外で受けたときは、使わなかった受診票・領収書と明細書・母子健康手帳などをそろえて、払い戻しを申請する（子どもの1歳の誕生日の前日まで）。
+    trigger_document_id: koto.shinseiji_choukaku_ticket
+    channel: 医療機関
+    deadline_note: 生後50日まで（生後50日に達する日以降の検査は対象外）
+    source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/6890.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: koto.s07c
+    phase: postpartum
+    sort_order: 75
+    title: 出生通知票を出し、新生児・産婦訪問を受ける
+    detail: 助産師か保健師が家に来る。対象は、生後4か月の前日までの赤ちゃんがいるすべての家庭。申し込みは、電子申請（LoGoフォーム）か、「母と子の保健バッグ」に入っているハガキ（出生通知票）で。子育て応援給付金（支援給付2回目）の申請案内は、この訪問のときに受け取る。
+    trigger_document_id: koto.shussei_tsuchihyo
+    produces_document_id: koto.akachan_homon_annai
+    channel: オンライン（LoGoフォーム）または ハガキ → 自宅に訪問
+    action_url: https://www.city.koto.lg.jp/261301/kodomo/ninshinshussan/shussan/6880.html
+    deadline_note: 訪問の対象は生後4か月の前日まで
+    source_url: https://www.city.koto.lg.jp/261301/kodomo/ninshinshussan/shussan/6880.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: koto.s08
+    overrides_step_id: jp.s08
+    phase: postpartum
+    sort_order: 80
+    title: 子育て応援給付金（妊婦のための支援給付2回目・子ども1人につき5万円）を申請する
+    detail: 令和7年4月1日以降に出産した人が対象。新生児・産婦訪問のときに受け取る案内に沿って申請する。現金（口座振込）かギフトカードを選ぶ。問い合わせ 0120-501-627。
+    trigger_document_id: koto.akachan_homon_annai
+    channel: 訪問のときの案内に沿って申請
+    deadline_base: due_date
+    deadline_offset_days: 674
+    deadline_note: 出産予定日の8週間前から2年間（= 予定日−56日 から 730日間）
+    source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97552.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: koto.s08b
+    phase: postpartum
+    sort_order: 82
+    title: 産婦健康診査を受ける（産後2週間ごろと1か月ごろの2回まで）
+    detail: 1回あたり5,000円を、産婦1人につき2回まで助成。流産・死産をした人も対象。令和8年10月1日から、都内の契約医療機関（助産所も可）に受診票を出して受けられる。受診票を使わずに自費で受けた分（令和8年4月1日以降に出産した人）は、保健所か保健相談所の窓口、または郵送で払い戻しを申請できる（出産後〜子どもの1歳の誕生日の前日まで）。
+    trigger_document_id: koto.sanpu_kenshin_ticket
+    channel: 医療機関・助産所
+    deadline_note: 産後2か月以内（産後2週間ごろに1回、産後1か月ごろに1回）
+    source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97801.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: koto.s08d
+    phase: postpartum
+    sort_order: 83
+    title: 1か月児健康診査を受ける
+    detail: 赤ちゃん1人につき1回、6,000円を助成。令和8年10月1日から、都内の契約医療機関に受診票を出して受けられる。受診票を使わずに自費で受けた分（令和8年4月1日以降に生まれた子）は、あとから払い戻しを申請できる（子どもの1歳の誕生日の前日まで）。
+    trigger_document_id: koto.ikkagetsuji_kenshin_ticket
+    channel: 医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 41
+    deadline_note: 生後28日から生後41日まで
+    source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97801.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: koto.s08e
+    phase: postpartum
+    sort_order: 84
+    title: （里帰り出産などで受診票を使えなかった人）妊婦健康診査の費用の払い戻しを申請する
+    detail: 受診した日に江東区に住民登録があった人が対象。上限額（令和6年度の額）は、妊婦健診1回目10,980円、2〜14回目5,140円、超音波検査5,300円、子宮頸がん検診3,400円。助産所で受けた分は、2〜14回目の健診だけが対象。保健相談所か保健所で申請する。使わなかった受診票、領収書の原本、母子健康手帳、印鑑、預金通帳などが必要。申請は1回限り。
+    trigger_document_id: koto.kenshin_ticket
+    channel: 窓口（保健相談所・保健所）
+    action_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/24990.html
+    deadline_base: birth_date
+    deadline_offset_days: 364
+    deadline_note: 出産後から、子どもの1歳の誕生日の前日まで（1回限り）
+    source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/24990.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+subsidies:
+  - id: koto.shien_kyufu_1
+    name: 出産応援給付金（妊婦のための支援給付1回目・江東区）
+    kind: cash_later
+    amount_yen: 50000
+    amount_note: 妊婦1人あたり5万円。現金（口座振込）またはギフトカードを選ぶ。
+    conditions: 令和7年4月1日時点で妊娠中、またはそれ以降に妊娠し、医療機関で胎児の心拍を確認した人。申請のときに江東区に住民登録があること。妊娠届のあとに流産・死産・人工妊娠中絶などをした人も対象。
+    apply_via: ゆりかご面接のあとに受け取る案内に沿って申請。問い合わせ 0120-501-627
+    deadline_base: confirmation_date
+    deadline_offset_days: 730
+    source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97552.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: koto.shien_kyufu_2
+    name: 子育て応援給付金（妊婦のための支援給付2回目・江東区）
+    kind: cash_later
+    amount_formula: "50000 * children"
+    amount_note: 子ども1人につき5万円。現金（口座振込）またはギフトカードを選ぶ。
+    conditions: 令和7年4月1日以降に出産した人。
+    apply_via: 新生児・産婦訪問のときに受け取る案内に沿って申請。問い合わせ 0120-501-627
+    deadline_base: due_date
+    deadline_offset_days: 674
+    source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97552.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: koto.kouketsuatsu
+    name: 妊娠高血圧症候群等医療費助成（江東区で申請）
+    kind: conditional
+    amount_note: 医療保険を使って入院治療したときの自己負担額を助成。入院中の食事代（入院時食事療養費の標準負担額）は自己負担。
+    conditions: 妊娠高血圧症候群とその関連疾患・糖尿病・貧血・産科出血・心疾患で入院治療が必要な人。前年分の所得税額が30,000円以下の世帯の人、またはそれ以外で入院期間が26日以上の人。
+    apply_via: 住んでいる地区を担当する保健相談所に申請。手続きが遅れると助成を受けられないことがある（くわしい期限は区のページに記載なし）。
+    source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/6886.html
+    verified_at: 2026-09-20
+    needs_review: true

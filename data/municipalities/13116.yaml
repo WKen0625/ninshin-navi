@@ -1,0 +1,253 @@
+# 豊島区（全国地方公共団体コード 13116）  確認日: 2026-09-20
+# 区の公式サイト（city.toshima.lg.jp）で読めた内容だけを入れた。全行が人の承認待ち（needs_review: true）。
+# 根拠の引用は docs/research/13116.md。
+
+region:
+  code: "13116"
+  level: municipality
+  name: 豊島区
+  parent_code: "13"
+  status: in_progress
+  verified_at: 2026-09-20
+
+documents:
+  - id: toshima.hoken_bag
+    name: 母と子の保健バッグ（豊島区。母子健康手帳と一緒に受け取る袋）
+    aliases: [保健バッグ, 母と子の保健バック, 母子手帳のセット]
+    # この袋を持っていれば、中の紙も持っている扱いにする
+    includes:
+      - jp.boshi_techo
+      - jp.kenshin_ticket
+      - toshima.kenshin_ticket
+      - toshima.shinseiji_choukaku_ticket
+      - toshima.shika_kenshin_ticket
+      - toshima.sanpu_kenshin_ticket          # 令和8年4月1日以降に母子健康手帳を受け取った人。それより前の人には郵送
+      - toshima.ikkagetsuji_kenshin_ticket    # 同上
+    phase: notification
+    description: 妊娠届を出した人に渡される。中身は妊婦健康診査受診票（14回）、妊婦超音波検査受診票（4回）、子宮頸がん検診受診票、新生児聴覚検査受診票（子の数の分）、妊産婦歯科健康診査受診票、産婦健康診査受診票（2回）、1か月児健康診査受診票、先天性代謝異常検査のお知らせ、母親学級などのお知らせ、出生通知票（赤ちゃん訪問用のはがき）。郵送では受け取れない。
+    source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/001311.html
+    verified_at: 2026-09-20
+  - id: toshima.kenshin_ticket
+    name: 妊婦健康診査受診票・妊婦超音波検査受診票・子宮頸がん検診受診票（豊島区）
+    aliases: [受診票, 補助券]
+    phase: notification
+    description: 妊婦健康診査14回分（1回目用1枚、2回目以降用13枚）、超音波検査4枚、子宮頸がん検診1枚。都内の委託医療機関などで使える。一定の額を上限に助成するもので、検査の内容によっては自己負担が出る。妊娠判定のときの診察、妊娠届より前の健診、健康保険がきく診療は対象外。原則、再発行できない。
+    source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/1508210843.html
+    verified_at: 2026-09-20
+  - id: toshima.shinseiji_choukaku_ticket
+    name: 新生児聴覚検査受診票（豊島区）
+    phase: birth
+    description: 妊娠届を出したときに、妊婦健康診査受診票と一緒に渡される。検査費用の一部が助成される。
+    source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/1902121543.html
+    verified_at: 2026-09-20
+  - id: toshima.shika_kenshin_ticket
+    name: 妊産婦歯科健康診査受診票（豊島区）
+    phase: pregnancy
+    description: 母と子の保健バッグと一緒に渡される。区内の妊産婦歯科健診の実施医療機関で使える。
+    source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/1503241448.html
+    verified_at: 2026-09-20
+  - id: toshima.sanpu_kenshin_ticket
+    name: 産婦健康診査受診票（豊島区。都内共通の受診票）
+    phase: postpartum
+    description: 令和8年4月1日以降に母子健康手帳を受け取った人は「母と子の保健バッグ」に同封。それより前の人で、令和8年10月1日以降に受診しそうな人には7月上旬に郵送。令和8年9月30日までは使えない。なくしても再発行できない。
+    source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/1508210843.html
+    verified_at: 2026-09-20
+  - id: toshima.ikkagetsuji_kenshin_ticket
+    name: 1か月児健康診査受診票（豊島区。都内共通の受診票）
+    phase: postpartum
+    description: 令和8年4月1日以降に母子健康手帳を受け取った人は「母と子の保健バッグ」に同封。それより前の人で、令和8年10月1日以降に受診しそうな人には7月上旬に郵送。令和8年9月30日までは使えない。なくしても再発行できない。
+    source_url: https://www.city.toshima.lg.jp/219/kosodate/kosodate/kenko/001439/2604281710.html
+    verified_at: 2026-09-20
+  - id: toshima.shien_kyufu_annai_1
+    name: 妊婦のための支援給付金の案内（1回目。ゆりかご面接で受け取る。二次元コードつき）
+    phase: pregnancy
+    description: 妊娠届のあと、ゆりかご面接のときに案内される二次元コードから電子申請をする。
+    source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/2503251025.html
+    verified_at: 2026-09-20
+  - id: toshima.akachan_homon_annai
+    name: 妊婦のための支援給付金の案内（2回目。こんにちは赤ちゃん訪問で受け取る。二次元コードつき）
+    phase: postpartum
+    description: こんにちは赤ちゃん訪問のときに案内される二次元コードから電子申請（胎児の数の届出）をする。
+    source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/2503251025.html
+    verified_at: 2026-09-20
+
+steps:
+  - id: toshima.s03
+    overrides_step_id: jp.s03
+    phase: notification
+    sort_order: 30
+    title: 妊娠届を出し、母子健康手帳と「母と子の保健バッグ」を受け取る
+    detail: 窓口は、健康推進課（豊島区保健所2階 総合窓口、南池袋2-1-1、03-3987-4173）、長崎健康相談所1階（長崎3-6-24、03-3957-1191）、東部区民事務所、西部区民事務所。平日の午前8時30分〜午後5時。持ち物は、マイナンバーカード（写真つき）か、マイナンバー入りの住民票と本人確認書類（写真つきでないものは2点以上）。妊娠の証明書などはいらない。代理の人は、代理人の本人確認書類・妊婦のマイナンバーを確認する書類・委任状が必要。同じ日に「ゆりかご面接」も受けたい人は、午後4時までに健康推進課か長崎健康相談所へ行く。マイナポータルで電子申請もできるが、それだけでは終わらず、母子健康手帳と保健バッグは、あとで健康推進課か長崎健康相談所へ受け取りに行く（郵送はできない。申請から7日以内（土日祝・年末年始を除く）に区から電話かメールで連絡が来る）。
+    trigger_document_id: jp.heartbeat_confirmed
+    produces_document_id: toshima.hoken_bag
+    channel: 健康推進課 / 長崎健康相談所 / 東部・西部区民事務所（電子申請のあと来所）
+    action_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/001311.html
+    deadline_note: 医療機関で妊娠の診断を受けたら届け出る（期限は区のページに記載なし）。母子健康手帳を受け取る前の健診は、助成の対象にならない
+    source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/001311.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: toshima.s03b
+    phase: pregnancy
+    sort_order: 35
+    title: ゆりかご面接（妊婦面接）を受ける
+    detail: 助産師か保健師との面接で、30〜60分ほど。対象は、豊島区で妊娠届（転入した人は転入者用の妊娠届）を出し、面接の日に豊島区に住民登録がある妊婦。パートナーも同席できる。場所は豊島区保健所 健康推進課（2階の総合窓口、03-6311-6842）か長崎健康相談所（03-3957-1191）で、住んでいる地域で分かれる。平日9時〜16時。予約が優先で、予約フォームから申し込む。予約なしでも16時までに受付すれば受けられるが、待つことがある。持ち物は母子健康手帳（必須）と、ゆりかご面接券（なくても受けられる）。面接のあと、妊婦のための支援給付金（1回目）の案内があり、区から「ゆりかご応援ギフト」（電子クーポン1万円分。現金ではない）が渡される（ギフトと案内については「ゆりかご・としま事業」のページ https://www.city.toshima.lg.jp/219/kosodate/ninshin/yurikago/1508100918.html に書かれている）。切迫早産で入院中か自宅安静の人と、里帰り出産で来所がむずかしい人は、オンライン面接もできる（長崎健康相談所に電話で相談）。
+    trigger_document_id: toshima.hoken_bag
+    produces_document_id: toshima.shien_kyufu_annai_1
+    channel: 豊島区保健所 健康推進課 / 長崎健康相談所（条件つきでオンラインも可）
+    action_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/yurikago/1507071003.html
+    deadline_base: due_date
+    deadline_offset_days: 0
+    deadline_note: 出産までに受ける。つわりなどで体調がすぐれない時期は無理をしなくてよい
+    source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/yurikago/1507071003.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: toshima.s05
+    overrides_step_id: jp.s05
+    phase: pregnancy
+    sort_order: 50
+    title: 妊婦のための支援給付金（1回目・5万円）を申請する
+    detail: 対象は、令和7年4月1日以降に妊娠届を出し、妊婦給付認定の申請をして認定を受けた妊婦（申請のときに豊島区に住民登録があること）。医師が胎児の心拍を確認していることが必須。妊娠届のあと、ゆりかご面接で案内される二次元コードから電子申請をする。現金かギフト（東京都のギフトカード）を選べる。現金は妊産婦本人名義の口座に振り込まれる。流産・死産・人工妊娠中絶などを経験した人も対象（異所性妊娠は対象外。申請の前に担当窓口へ問い合わせる）。問い合わせは健康推進課 03-3987-4173、長崎健康相談所 03-3957-1191。
+    trigger_document_id: toshima.shien_kyufu_annai_1
+    channel: オンライン（面接で案内される二次元コードから）
+    deadline_note: 申請期限は区のページに記載なし（面接のときに確認する）
+    source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/2503251025.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: toshima.s05c
+    phase: pregnancy
+    sort_order: 57
+    title: 妊産婦歯科健康診査を受ける（1回の妊娠につき1回・無料）
+    detail: 対象は、豊島区に住民登録がある妊婦と、出産後（または妊娠が終わってから）1年までの人。実施歯科医療機関に予約し、「豊島区妊産婦歯科健康診査」の受診票を使うと伝える。持ち物は母子健康手帳、受診票、保険の資格がわかるもの（マイナ保険証など）、歯ブラシ。母子健康手帳か受診票を忘れると受けられない。内容は口の中の診査と歯みがきなどの指導で、X線の検査はしない。名簿にない歯科で受けると費用がかかる。
+    trigger_document_id: toshima.shika_kenshin_ticket
+    channel: 医療機関（区内の実施歯科）
+    deadline_note: 妊娠中から、出産後または妊娠終了後1年まで
+    source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/1503241448.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: toshima.s06d
+    phase: pregnancy
+    sort_order: 66
+    title: （豊島区の国民健康保険の人）産前産後期間の国民健康保険料の減額を届け出る
+    detail: 出産する本人の分の保険料（所得割額と均等割額）から、出産予定月の前月から翌々月までの4か月分（多胎は3か月前からの6か月分）にあたる額が減る。妊娠85日（4か月）以上の出産が対象で、死産・流産・早産・人工妊娠中絶を含む。窓口は区役所3階9番の国民健康保険課（母子健康手帳、資格確認書か資格情報通知書、本人確認書類を持参）。郵送もできる（届出書と、母子健康手帳の表紙・出産予定日がわかるページのコピー）。豊島区の国民健康保険の出産育児一時金を使う場合は届出がいらず、出産後に自動で減額される。保険料が限度額に達していると、減額しても金額が変わらないことがある。
+    trigger_document_id: toshima.hoken_bag
+    channel: 窓口 / 郵送
+    action_url: https://www.city.toshima.lg.jp/109/tetsuzuki/nenkin/kenkohoken/hokenryo/018792.html
+    deadline_note: 出産予定日の6か月前から届け出できる
+    source_url: https://www.city.toshima.lg.jp/109/tetsuzuki/nenkin/kenkohoken/hokenryo/018792.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: toshima.s08c
+    phase: birth
+    sort_order: 71
+    title: 新生児聴覚検査を受ける
+    detail: 生まれてすぐの赤ちゃんの耳の聞こえを調べる検査。受診票を使うと、検査費用の一部が助成される。都外の医療機関で受けたときは、いったん全額を払い、あとで申請すると指定の口座に振り込まれる。
+    trigger_document_id: toshima.shinseiji_choukaku_ticket
+    channel: 医療機関
+    source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/1902121543.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: toshima.s08
+    overrides_step_id: jp.s08
+    phase: postpartum
+    sort_order: 80
+    title: 妊婦のための支援給付金（2回目・子どもの数×5万円）を申請する
+    detail: 対象は、令和7年4月1日以降に出産し、胎児の数の届出の日に豊島区に住民票がある産婦。こんにちは赤ちゃん訪問（保健師か助産師の訪問・無料）のときに案内される二次元コードから電子申請をする。現金かギフト（東京都のギフトカード）を選べる。訪問を受けるには、赤ちゃんが生まれたら出生通知票を申請フォームから出す（受理から連絡まで2週間ほど）。
+    trigger_document_id: toshima.akachan_homon_annai
+    channel: オンライン（訪問で案内される二次元コードから）
+    deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
+    source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/2503251025.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: toshima.s08b
+    phase: postpartum
+    sort_order: 82
+    title: 産婦健康診査を受ける（2回まで）
+    detail: 令和8年10月1日以降に、都内の指定医療機関で都内共通の受診票を使って受ける。1度の出産で産婦1人につき2回まで、1回につき5,000円を上限に助成（上限に満たないときは実費）。対象は、受診日に豊島区に住民登録がある人。母子健康手帳と受診票を持っていく。対象外の検査や上限を超えた分は自己負担。都外で自己負担で受けたときは、あとから申請すると上限の範囲で助成される。
+    trigger_document_id: toshima.sanpu_kenshin_ticket
+    channel: 医療機関
+    deadline_note: 1回目は産後2週間ごろ、2回目は産後1か月ごろ
+    source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/1508210843.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: toshima.s08d
+    phase: postpartum
+    sort_order: 83
+    title: 1か月児健康診査を受ける
+    detail: 令和8年10月1日以降に、都内の指定医療機関で都内共通の受診票を使って受ける。1回につき6,000円を上限に助成。対象は、受診日に豊島区に住民登録がある人。母子健康手帳と受診票を持っていく。対象外の検査や上限を超えた分は自己負担。都外で自己負担で受けたときは、あとから申請すると上限の範囲で助成される。
+    trigger_document_id: toshima.ikkagetsuji_kenshin_ticket
+    channel: 医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 41
+    deadline_note: 生後28日から生後41日までに1回（出生日を0日目と数える）
+    source_url: https://www.city.toshima.lg.jp/219/kosodate/kosodate/kenko/001439/2604281710.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: toshima.s08e
+    phase: postpartum
+    sort_order: 84
+    title: （里帰りなど都外で健診を受けた人）妊婦健康診査・新生児聴覚検査などの助成金を申請する
+    detail: 都外の医療機関などで受診票が使えず、自費で受けた分の一部が助成される（海外での受診は対象外）。令和8年4月1日以降の受診の上限は、妊婦健康診査1回目11,670円、2〜14回目5,460円、超音波検査1〜4回目5,300円、子宮頸がん検診3,400円、新生児聴覚検査3,000円（子1人につき1回）。令和8年10月1日以降の受診は、産婦健康診査（1回目・2回目 各5,000円）と1か月児健康診査（6,000円）も対象。上限に満たないときは実費。窓口は健康推進課（豊島区保健所2階）か長崎健康相談所。持ち物は母子健康手帳、領収書の原本（明細書があれば一緒に）、未使用の受診票、印鑑（朱肉を使うもの）、振込口座がわかるもの。
+    trigger_document_id: toshima.kenshin_ticket
+    channel: 窓口（健康推進課 / 長崎健康相談所）
+    action_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/013360.html
+    deadline_base: birth_date
+    deadline_offset_days: 364
+    deadline_note: 出産日から1年以内（子の1歳の誕生日の前日まで）、または妊娠が終わってから1年以内。まとめて一度に申請する。出産前に区外へ転出する人は、転出の手続きのあとなら出産前でも申請できる
+    source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/013360.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: toshima.s08f
+    phase: postpartum
+    sort_order: 87
+    title: 「としま出産サポートクーポン」（育児支援品と引き換えられる電子クーポン）を申請する
+    detail: 区の独自事業。現金ではなく、育児支援品に引き換えられる電子クーポン50,000円相当。対象は、区内に住み、令和6年4月1日以降に生まれた子どもを育てている世帯。受け取るには「子育てエール」（子育て世帯見守り訪問事業）への登録が必要。届いた案内にそって専用WEBサイトから申請すると、翌日までにマイページにクーポンが届く。子ども1人につき1回だけで、多胎の場合は子どもごとに申請する。問い合わせは豊島区子育て世帯見守り訪問事業コールセンター 0570-033100（祝日を除く平日 午前9時〜午後5時）。
+    trigger_document_id: null
+    channel: オンライン（専用WEBサイト）
+    action_url: https://www.city.toshima.lg.jp/258/2406201637.html
+    deadline_note: 子どもが1歳になるまでに申請する
+    source_url: https://www.city.toshima.lg.jp/258/2406201637.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+subsidies:
+  - id: toshima.shien_kyufu_1
+    name: 妊婦のための支援給付金（1回目・妊娠時）
+    kind: cash_later
+    amount_yen: 50000
+    amount_note: 5万円。現金かギフト（出産育児関連用品や家電製品などに使える東京都のギフトカード）を選べる。現金は妊産婦本人名義の口座に振り込まれる（本人以外の名義は指定できない）。
+    conditions: 令和7年4月1日以降に妊娠届を出し、妊婦給付認定の申請をして認定を受けた妊婦。申請のときに豊島区に住民登録があること。医師による胎児心拍の確認が必須。流産・死産・人工妊娠中絶などを経験した人も対象（異所性妊娠は対象外）。
+    apply_via: 妊娠届のあと、ゆりかご面接で案内される二次元コードから電子申請。問い合わせは健康推進課 03-3987-4173、長崎健康相談所 03-3957-1191
+    source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/2503251025.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: toshima.shien_kyufu_2
+    name: 妊婦のための支援給付金（2回目・出産後）
+    kind: cash_later
+    amount_formula: "50000 * children"
+    amount_note: こども（胎児）の人数×5万円。現金かギフト（東京都のギフトカード）を選べる。
+    conditions: 令和7年4月1日以降に出産し、胎児の数の届出の日に豊島区に住民票がある産婦。申請のときに豊島区に住民登録があること。
+    apply_via: こんにちは赤ちゃん訪問で案内される二次元コードから電子申請
+    source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/2503251025.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: toshima.kouketsuatsu
+    name: 妊娠高血圧症候群等医療費助成（豊島区）
+    kind: conditional
+    amount_note: 対象の病気での入院治療にかかる費用のうち、健康保険がきく分の自己負担額を助成。入院中の食事代（標準負担額）は自己負担。認定されると医療券が交付され、保険の資格がわかるものと一緒に医療機関の窓口で見せる。すでに払った分は、申請者に直接支払われる。
+    conditions: 豊島区に住民登録があり、妊娠高血圧症候群とその関連疾患・糖尿病と妊娠糖尿病・貧血・産科出血・心疾患（とその続発症）で入院治療が必要な人（病気ごとに認定基準がある）。さらに、前年分の世帯の総所得税額が30,000円以下、または入院見込み期間が26日以上であること。生活保護を受けている世帯は対象外。
+    apply_via: 健康推進課（豊島区保健所3階、03-3987-4173）か長崎健康相談所（03-3957-1191）。平日 午前8時30分〜午後5時。原則、入院前か入院中に申請する。退院後になった場合は退院後3か月以内（遅延理由書が必要で、実際の入院期間が26日以上の人だけが対象）
+    source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/001336.html
+    verified_at: 2026-09-20
+    needs_review: true

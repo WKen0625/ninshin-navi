@@ -1,0 +1,240 @@
+# 荒川区（全国地方公共団体コード 13118）  確認日: 2026-09-20
+# 区の公式サイト（city.arakawa.tokyo.jp）で読めた内容だけを入れた。全行が人の承認待ち（needs_review: true）。
+# 根拠の引用は docs/research/13118.md にある。
+# 区独自の出産費用の助成・出産祝い金は、区の「助成・給付」の一覧に見つからなかったので入れていない。
+
+region:
+  code: "13118"
+  level: municipality
+  name: 荒川区
+  parent_code: "13"
+  status: in_progress
+  verified_at: 2026-09-20
+
+documents:
+  - id: arakawa.hoken_bag
+    name: 母と子の保健バッグ（荒川区。母子健康手帳と妊婦健康診査受診票が入った袋）
+    aliases: [保健バッグ, 母子手帳のセット]
+    # この袋を持っていれば、中の紙も持っている扱いにする
+    includes:
+      - jp.boshi_techo
+      - jp.kenshin_ticket
+      - arakawa.kenshin_ticket
+      - arakawa.shinseiji_choukaku_ticket
+      - arakawa.shika_kenshin_ticket        # 区のページは「母子手帳交付時に受診券をお渡しします」。袋の中とは明記されていない
+      - arakawa.sanpu_ikkagetsu_ticket      # 区のページは「妊娠届をされた際にお渡しています」。手元にない人には郵送
+    phase: notification
+    description: 妊娠届出書を出すと窓口で受け取る。母子健康手帳と妊婦健康診査受診票が入っている。受け取れるのは窓口だけ（電子申請で届け出た人は、あとで保健所へ行く）。この袋を受け取る前に受けた妊婦健診の費用は助成されない。
+    source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/shinsei/kenkotecho.html
+    verified_at: 2026-09-20
+  - id: arakawa.kenshin_ticket
+    name: 妊婦健康診査受診票（荒川区）
+    aliases: [受診票, 補助券]
+    phase: notification
+    description: 妊婦健康診査14回分（1回目〜14回目）、超音波検査4回分、子宮頸がん検診1回分。都内の医療機関などで使うと、費用の一部が公費負担になる。令和6年10月1日以降に妊娠届を出した人は、都内の一部の助産所でも使える（原則7回まで）。助成の金額は区のページに記載なし。
+    source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/nimpukenshin/kenkoshinsa.html
+    verified_at: 2026-09-20
+  - id: arakawa.shinseiji_choukaku_ticket
+    name: 新生児聴覚検査受診票（荒川区）
+    phase: birth
+    description: 「母と子の保健バッグ」の中に入っている。赤ちゃんの耳の聞こえの検査（初回だけ）の費用の一部が助成される。
+    source_url: https://www.city.arakawa.tokyo.jp/a033/kosodate/nyuuyouji/choukaku.html
+    verified_at: 2026-09-20
+  - id: arakawa.shika_kenshin_ticket
+    name: 妊婦歯科健康診査の受診券（荒川区）
+    aliases: [歯科の受診券]
+    phase: notification
+    description: 母子健康手帳を受け取るときに渡される。区内の協力歯科医療機関で、妊娠中に無料で歯科健診を受けられる。
+    source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/nimpukenshin/ninpushikakenshin.html
+    verified_at: 2026-09-20
+  - id: arakawa.sanpu_ikkagetsu_ticket
+    name: 産婦健康診査・1か月児健康診査の都内共通受診券（荒川区）
+    aliases: [産婦健診の受診券, 1か月児健診の受診券]
+    phase: postpartum
+    description: 令和8年10月以降の受診で、病院に出すと助成が受けられる。妊娠届を出したときに渡される。手元にない人には郵送してもらえる（健康推進課 03-3802-3111 内線433 に連絡）。
+    source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/sanpukensin_josei.html
+    verified_at: 2026-09-20
+  - id: arakawa.shien_kyufu_shinsei_1
+    name: 妊婦のための支援給付（1回目）とゆりかごギフトの申請書（荒川区）
+    phase: pregnancy
+    description: ゆりかご面接（妊婦面接）のときに配られる。
+    source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/ninsampushien/yurikago.html
+    verified_at: 2026-09-20
+  - id: arakawa.akachan_homon_annai
+    name: 妊婦のための支援給付（2回目）の申請フォームの案内（荒川区。新生児訪問で受け取る）
+    phase: postpartum
+    description: 助産師または保健師による新生児訪問のときに渡される。
+    source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/ninsampushien/homon.html
+    verified_at: 2026-09-20
+
+steps:
+  - id: arakawa.s03
+    overrides_step_id: jp.s03
+    phase: notification
+    sort_order: 30
+    title: 妊娠届出書を出し、母子健康手帳と「母と子の保健バッグ」を受け取る
+    detail: 窓口は保健所（がん予防・健康づくりセンター2階1番窓口）か、区民事務所（南千住・町屋・尾久・日暮里）。月〜金の午前8時30分〜午後5時15分。保健所では、予約すれば妊娠届と同時に「ゆりかご面接」を受けられる。持ち物は、妊婦の個人番号（マイナンバー）がわかるもの、届け出る人の本人確認書類、妊娠の診断を受けた医療機関の名前・所在地・医師または助産師の名前がわかるもの。マイナポータルで電子申請もできるが、袋の受け取りは窓口だけなので、あとで保健所へ行く必要がある（区民事務所では受け取りだけの対応はできない）。
+    trigger_document_id: jp.heartbeat_confirmed
+    produces_document_id: arakawa.hoken_bag
+    channel: 保健所 または 区民事務所（電子申請のあと保健所へ来所）
+    action_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/shinsei/kenkotecho.html
+    deadline_note: 医療機関で妊娠の診断を受けたら。いつまでにという日付は区のページに記載なし
+    source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/shinsei/kenkotecho.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: arakawa.s03b
+    phase: pregnancy
+    sort_order: 35
+    title: ゆりかご面接（妊婦面接）を予約して受ける
+    detail: 助産師または保健師との面接（40分程度。家族も同席できる）。対象は、医療機関で赤ちゃんの心拍の確認か出産予定日の診断を受けた区内在住の妊婦。場所は荒川区保健所健康推進課（がん予防・健康づくりセンター2階）。区民事務所ではやっていない。月〜金と、月1回の土曜または日曜の午前9時〜午後4時30分。予約は「ゆりかご面接予約サイト」から。持ち物は母子健康手帳。面接で配られる申請書から、妊婦のための支援給付（1回目・5万円）と、区独自のゆりかごギフト（1万円分のギフト）を申請できる。
+    trigger_document_id: arakawa.hoken_bag
+    produces_document_id: arakawa.shien_kyufu_shinsei_1
+    channel: 荒川区保健所健康推進課（予約制）
+    action_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/ninsampushien/yurikago.html
+    deadline_note: いつまでにという期限は区のページに記載なし（対象は妊婦）
+    source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/ninsampushien/yurikago.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: arakawa.s05
+    overrides_step_id: jp.s05
+    phase: pregnancy
+    sort_order: 50
+    title: 妊婦のための支援給付（1回目・5万円）を申請する
+    detail: ゆりかご面接のときに渡される申請フォームから申請する。現金（妊婦本人の口座に振込）かカタログギフトを選ぶ。申請した月の翌々月末が目安。申請のときに荒川区に住民登録があることが条件。流産・死産などを経験した人も申請できる（健康推進課に問い合わせる）。問い合わせ 健康推進課健康推進係 03-3802-3111（内線433）。
+    trigger_document_id: arakawa.shien_kyufu_shinsei_1
+    channel: ゆりかご面接で渡される申請フォーム
+    deadline_note: 申請期限は区のページに記載なし（面接のときに確認する）
+    source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/ninpushien.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: arakawa.s05c
+    phase: pregnancy
+    sort_order: 57
+    title: 妊婦歯科健康診査を受ける（妊娠中・無料）
+    detail: 「荒川区 歯科健康診査 会場」のポスターがある区内の協力歯科医療機関に、自分で電話などで予約して受ける。持ち物は受診券、保険の資格がわかるもの（マイナ保険証・資格確認書など）、母子健康手帳。内容は歯や歯ぐきの検査と歯みがき指導など。健診のあとの治療は有料。
+    trigger_document_id: arakawa.shika_kenshin_ticket
+    channel: 区内の協力歯科医療機関
+    action_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/nimpukenshin/ninpushikakenshin.html
+    deadline_base: due_date
+    deadline_offset_days: 0
+    deadline_note: 妊娠中に受ける。出産後は受けられない
+    source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/nimpukenshin/ninpushikakenshin.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: arakawa.s06d
+    phase: pregnancy
+    sort_order: 66
+    title: （荒川区の国民健康保険の人）産前産後期間の国民健康保険料の免除を届け出る
+    detail: 出産予定月（または出産月）と、その前1か月・後ろ2か月の計4か月分（多胎は前3か月・後ろ2か月の計6か月分）の保険料（所得割額と均等割額）が免除される。妊娠85日（4か月）以上の出産が対象（死産・流産・早産・人工妊娠中絶を含む）。必要なものは届出書、母子健康手帳など、届け出る人の顔写真つき本人確認書類。オンライン申請フォームでも手続きできる（本人か同じ世帯の人だけ）。問い合わせ 国保年金課国保資格係（本庁舎1階）03-3802-3111（内線2373〜2376）。
+    trigger_document_id: arakawa.hoken_bag
+    channel: オンライン申請フォーム / 国保年金課国保資格係
+    action_url: https://www.city.arakawa.tokyo.jp/a031/kenkouhoken/sanzensangogenmen2025.html
+    deadline_note: 出産予定日の6か月前から届け出できる。出産後の届出もできる
+    source_url: https://www.city.arakawa.tokyo.jp/a031/kenkouhoken/sannzennsanngo.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: arakawa.s08c
+    phase: birth
+    sort_order: 71
+    title: 新生児聴覚検査を受ける（受診票を出す）
+    detail: 「新生児聴覚検査受診票」を使って、東京都内の協力医療機関で受ける。助成されるのは初回の検査だけで、一定の金額の助成なので自己負担が出ることがある（金額は区のページに記載なし）。都外の医療機関では受診票は使えないが、あとから費用の一部を助成する制度（里帰り出産等の費用助成）がある。
+    trigger_document_id: arakawa.shinseiji_choukaku_ticket
+    channel: 東京都内の協力医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 50
+    deadline_note: 生後50日に達する日までに
+    source_url: https://www.city.arakawa.tokyo.jp/a033/kosodate/nyuuyouji/choukaku.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: arakawa.s08
+    overrides_step_id: jp.s08
+    phase: postpartum
+    sort_order: 80
+    title: 妊婦のための支援給付（2回目・子どもの人数×5万円）を申請する
+    detail: 出生通知票（電子申請またはハガキ）を出すと、助産師または保健師が新生児訪問に来る。そのときに渡される申請フォームから申請する。現金（妊婦本人の口座）かカタログギフトを選ぶ。申請のときに荒川区に住民登録があることが条件。里帰り先で訪問を受けた人は別の申請が必要なので、訪問のあと健康推進課健康推進係 03-3802-3111（内線433）に連絡する。
+    trigger_document_id: arakawa.akachan_homon_annai
+    channel: 新生児訪問で渡される申請フォーム
+    deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
+    source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/ninpushien.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: arakawa.s08b
+    phase: postpartum
+    sort_order: 82
+    title: 産婦健康診査を受ける（2回まで）
+    detail: 令和8年4月1日以降に出産し、受診日に荒川区に住民登録がある人が対象。産婦1人につき2回、助成の上限は5,000円。令和8年10月以降の受診は、都内共通受診券を病院で見せると助成が受けられる。令和8年4月〜9月に都内で受けた分は、ロゴフォーム（区の電子申請）からあとで申請する（1か月児健康診査とまとめて1回だけ。申請期限は出産日から1年）。
+    trigger_document_id: arakawa.sanpu_ikkagetsu_ticket
+    channel: 医療機関
+    deadline_note: 1回目は産後2週間頃、2回目は産後1か月頃
+    source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/sanpukensin_josei.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: arakawa.s08d
+    phase: postpartum
+    sort_order: 83
+    title: 1か月児健康診査を受ける
+    detail: 令和8年4月1日以降に生まれ、受診日に荒川区に住民登録がある赤ちゃんが対象。乳児1人につき1回、助成の上限は6,000円。令和8年10月以降の受診は、都内共通受診券を病院で見せると助成が受けられる。
+    trigger_document_id: arakawa.sanpu_ikkagetsu_ticket
+    channel: 医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 41
+    deadline_note: 生後27日を超え、生後6週に達しない間に受ける
+    source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/sanpukensin_josei.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: arakawa.s08e
+    phase: postpartum
+    sort_order: 84
+    title: （都外で健診を受けた人）里帰り出産等の健診費用の助成を申請する
+    detail: 都外の医療機関や助産所で、受診票を使えずに自費で受けた妊婦健康診査・超音波検査・子宮頸がん検診・新生児聴覚検査（令和8年4月1日以降の出産は産婦健康診査・1か月児健康診査も）の費用の一部が、あとから助成される。回数の上限は都内で受診票を使った回数を含み、助成には上限額がある。荒川区保健所健康推進課の窓口か郵送で、申請書、領収書（原本）と診療明細書、使わなかった受診票、母子健康手帳、振込先がわかるものを出す。申請はまとめて1回だけ。国外での健診、保険診療の分、母子手帳を受け取る前の健診は対象外。
+    trigger_document_id: arakawa.kenshin_ticket
+    channel: 荒川区保健所健康推進課（窓口 / 郵送）
+    action_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/satogaerishussan.html
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    deadline_note: 出産日から1年以内
+    source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/satogaerishussan.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+subsidies:
+  - id: arakawa.shien_kyufu_1
+    name: 妊婦のための支援給付（1回目）
+    kind: cash_later
+    amount_yen: 50000
+    amount_note: 現金（妊婦本人の口座に振込）かカタログギフトを選ぶ。申請した月の翌々月末が目安。
+    conditions: 令和7年4月1日以降に妊娠届を出し、妊婦給付認定の申請をして認定を受けた人。申請のときに荒川区に住民登録があること。医療機関で胎児の心拍が確認できたことを「妊娠」とする。流産・死産・人工妊娠中絶を経験した人も申請できる。
+    apply_via: ゆりかご面接のときに渡される申請フォーム。問い合わせ 健康推進課健康推進係 03-3802-3111（内線433）
+    source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/ninpushien.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: arakawa.shien_kyufu_2
+    name: 妊婦のための支援給付（2回目）
+    kind: cash_later
+    amount_formula: "50000 * children"
+    amount_note: お子さん（胎児）の人数×5万円。現金かカタログギフトを選ぶ。
+    conditions: 令和7年4月1日以降に出産し、胎児の数の届け出をした人。申請のときに荒川区に住民登録があること。
+    apply_via: 新生児訪問のときに渡される申請フォーム
+    source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/ninpushien.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: arakawa.kouketsuatsu
+    name: 妊娠高血圧症候群等の医療費助成
+    kind: conditional
+    amount_note: 医療保険を使って入院治療したときの自己負担額が助成される。入院中の食事代（標準負担額）は自己負担。
+    conditions: 荒川区に住所があり、妊娠高血圧症候群とその関連疾患・糖尿病・貧血・産科出血・心疾患で、認定基準を満たし、入院して治療を受ける必要がある人。そのうえで、前年の所得税額が30,000円以下の世帯の人、または入院見込み期間が26日以上の人。生活保護を受けている人は除く。
+    apply_via: 荒川区保健所健康推進課。原則、入院前か入院中に申請する。退院後の場合は、退院日から3か月以内。問い合わせ 03-3802-3111（内線433）
+    source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/iryohi.html
+    verified_at: 2026-09-20
+    needs_review: true

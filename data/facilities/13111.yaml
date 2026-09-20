@@ -1,0 +1,199 @@
+# 大田区の分娩施設  確認日: 2026-09-20
+# 出所: 出産なび（厚生労働省） https://birth-navi.mhlw.go.jp/ 「東京都大田区」の出産施設 6件。施設名・住所は出産なびの表記のまま。
+# 費用（costs）は、直接支払制度の請求書データ（保険診療を行った分娩を除く）から出産なびが算出した値。一時金を引く前。集計期間は 2025年4月〜2025年9月。
+# tokyo_epidural_subsidy_target の出所: 東京都「対象医療機関一覧」（令和8年7月31日時点） https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/mutsubunben/subsidy
+#   施設名と住所で突き合わせた。一覧に見つからなければ false。
+# 予約ルール（booking_policy）が null の施設は未確認（画面では「電話で確認」と出る）。わかったら埋める。
+
+facilities:
+  - id: bn-10940
+    region_code: "13111"
+    name: 大鳥居医院
+    address: 東京都大田区西糀谷３－８－１６
+    lat: 35.5557596
+    lng: 139.738514
+    facility_type: 有床診療所
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10940
+    website_url: "https://ootorii-iin.or.jp/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10940
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 741000
+        total_median_yen: 732000
+        basic_avg_yen: 669000
+        basic_median_yen: 680000
+        room_diff_avg_yen: 800
+        room_diff_median_yen: 0
+        stay_days_avg: 6
+        stay_days_median: 6
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10940
+        verified_at: 2026-09-20
+
+  - id: bn-12193
+    region_code: "13111"
+    name: 産婦人科瀬尾医院
+    address: 東京都大田区池上6-20-1
+    lat: 35.5701512
+    lng: 139.7023811
+    facility_type: 有床診療所
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/12193
+    website_url: "https://seo-clinic.jp/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/12193
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 734000
+        total_median_yen: 751000
+        basic_avg_yen: 716000
+        basic_median_yen: 734000
+        room_diff_avg_yen: 0
+        room_diff_median_yen: 0
+        stay_days_avg: 6
+        stay_days_median: 6
+        source_url: https://birth-navi.mhlw.go.jp/facilities/12193
+        verified_at: 2026-09-20
+
+  - id: bn-10637
+    region_code: "13111"
+    name: 社会医療法人財団仁医会　牧田総合病院
+    address: 東京都大田区西蒲田８－２０－１
+    lat: 35.5598368
+    lng: 139.7125019
+    facility_type: 病院
+    has_epidural: null   # 出産なびに無痛分娩の記載なし
+    epidural_24h: null
+    tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10637
+    website_url: "https://www.makita-hosp.or.jp/birth/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10637
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 716000
+        total_median_yen: 704000
+        basic_avg_yen: 647000
+        basic_median_yen: 650000
+        room_diff_avg_yen: 47600
+        room_diff_median_yen: 29000
+        stay_days_avg: 6
+        stay_days_median: 6
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10637
+        verified_at: 2026-09-20
+
+  - id: bn-10571
+    region_code: "13111"
+    name: 地方独立行政法人東京都立病院機構　東京都立荏原病院
+    address: 東京都大田区東雪谷４－５－１０
+    lat: 35.5937351
+    lng: 139.6929758
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10571
+    website_url: "https://www.tmhp.jp/ebara/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10571
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 572000
+        total_median_yen: 552000
+        basic_avg_yen: 520000
+        basic_median_yen: 515000
+        room_diff_avg_yen: 15200
+        room_diff_median_yen: 0
+        stay_days_avg: 7
+        stay_days_median: 7
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10571
+        verified_at: 2026-09-20
+
+  - id: bn-10746
+    region_code: "13111"
+    name: 東邦大学医療センター大森病院
+    address: 東京都大田区大森西6-11-1
+    lat: 35.5683924
+    lng: 139.7233523
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10746
+    website_url: "https://www.omori.med.toho-u.ac.jp/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10746
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 774000
+        total_median_yen: 758000
+        basic_avg_yen: 755000
+        basic_median_yen: 742000
+        room_diff_avg_yen: 4200
+        room_diff_median_yen: 0
+        stay_days_avg: 6
+        stay_days_median: 5
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10746
+        verified_at: 2026-09-20
+
+  - id: bn-10352
+    region_code: "13111"
+    name: 日本赤十字社東京都支部大森赤十字病院
+    address: 東京都大田区中央４－３０－１
+    lat: 35.5793375
+    lng: 139.718105
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10352
+    website_url: "https://omori.jrc.or.jp/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10352
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 740000
+        total_median_yen: 721000
+        basic_avg_yen: 677000
+        basic_median_yen: 658000
+        room_diff_avg_yen: 23500
+        room_diff_median_yen: 0
+        stay_days_avg: 7
+        stay_days_median: 6
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10352
+        verified_at: 2026-09-20

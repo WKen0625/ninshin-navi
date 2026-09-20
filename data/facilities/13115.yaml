@@ -1,0 +1,187 @@
+# 杉並区の分娩施設  確認日: 2026-09-20
+# 出所: 出産なび（厚生労働省） https://birth-navi.mhlw.go.jp/ 「東京都杉並区」の出産施設 6件。施設名・住所は出産なびの表記のまま。
+# 費用（costs）は、直接支払制度の請求書データ（保険診療を行った分娩を除く）から出産なびが算出した値。一時金を引く前。集計期間は 2025年4月〜2025年9月。
+# tokyo_epidural_subsidy_target の出所: 東京都「対象医療機関一覧」（令和8年7月31日時点） https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/mutsubunben/subsidy
+#   施設名と住所で突き合わせた。一覧に見つからなければ false。
+# 予約ルール（booking_policy）が null の施設は未確認（画面では「電話で確認」と出る）。わかったら埋める。
+
+facilities:
+  - id: bn-10045
+    region_code: "13115"
+    name: 医療法人財団　荻窪病院
+    address: 東京都杉並区今川三丁目一番地二十四号
+    lat: 35.7152271
+    lng: 139.6074409
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10045
+    website_url: "https://www.ogikubo-hospital.or.jp"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10045
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 648000
+        total_median_yen: 632000
+        basic_avg_yen: 579000
+        basic_median_yen: 581000
+        room_diff_avg_yen: 29500
+        room_diff_median_yen: 0
+        stay_days_avg: 6
+        stay_days_median: 6
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10045
+        verified_at: 2026-09-20
+
+  - id: bn-10619
+    region_code: "13115"
+    name: 医療法人財団アドベンチスト会　東京衛生アドベンチスト病院
+    address: 東京都杉並区天沼三丁目１７番３号
+    lat: 35.7080758
+    lng: 139.6193099
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: true
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10619
+    website_url: "https://www.tokyoeisei.com"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10619
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 853000
+        total_median_yen: 856000
+        basic_avg_yen: 775000
+        basic_median_yen: 755000
+        room_diff_avg_yen: 47200
+        room_diff_median_yen: 35000
+        stay_days_avg: 7
+        stay_days_median: 7
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10619
+        verified_at: 2026-09-20
+
+  - id: bn-11601
+    region_code: "13115"
+    name: 医療法人社団赤恵会　赤川クリニック
+    address: 東京都杉並区上荻1-24-6
+    lat: 35.7065878
+    lng: 139.6157183
+    facility_type: 有床診療所
+    has_epidural: null   # 出産なびでは未回答（ー）
+    epidural_24h: null
+    tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11601
+    website_url: "http://akagawaclinic.jp"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/11601
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 699000
+        total_median_yen: null
+        basic_avg_yen: 596000
+        basic_median_yen: null
+        room_diff_avg_yen: 70000
+        room_diff_median_yen: null
+        stay_days_avg: 6
+        stay_days_median: null
+        source_url: https://birth-navi.mhlw.go.jp/facilities/11601
+        verified_at: 2026-09-20
+
+  - id: bn-10502
+    region_code: "13115"
+    name: 河北総合病院
+    address: 東京都杉並区阿佐谷北1丁目6番1号
+    lat: 35.7064372
+    lng: 139.6374006
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10502
+    website_url: "https://hospital.kawakita.or.jp/visitor/index.html"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10502
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 654000
+        total_median_yen: 632000
+        basic_avg_yen: 594000
+        basic_median_yen: 592000
+        room_diff_avg_yen: 0
+        room_diff_median_yen: 0
+        stay_days_avg: 7
+        stay_days_median: 7
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10502
+        verified_at: 2026-09-20
+
+  - id: bn-10321
+    region_code: "13115"
+    name: 杏林大学医学部付属杉並病院
+    address: 東京都杉並区和田二丁目２５番１号
+    lat: 35.6900867
+    lng: 139.655811
+    facility_type: 病院
+    has_epidural: null   # 出産なびでは未回答（ー）
+    epidural_24h: null
+    tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10321
+    website_url: "https://www.kyorin-u.ac.jp/hospital/suginami/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10321
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 677000
+        total_median_yen: 661000
+        basic_avg_yen: 617000
+        basic_median_yen: 615000
+        room_diff_avg_yen: 35600
+        room_diff_median_yen: 0
+        stay_days_avg: 7
+        stay_days_median: 7
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10321
+        verified_at: 2026-09-20
+
+  - id: bn-11598
+    region_code: "13115"
+    name: 豊島産婦人科
+    address: 東京都杉並区西荻南4-3-19
+    lat: 35.6999993
+    lng: 139.6047067
+    facility_type: 有床診療所
+    has_epidural: null   # 出産なびに無痛分娩の記載なし
+    epidural_24h: null
+    tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11598
+    website_url: "https://toyoshima-sanfujinka.com/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/11598
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs: []

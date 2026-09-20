@@ -1,0 +1,244 @@
+# 北区（全国地方公共団体コード 13117）  確認日: 2026-09-20
+# 区の公式サイト（city.kita.lg.jp）で読めた内容だけを入れた。全行が人の承認待ち（needs_review: true）。
+# 根拠の引用は docs/research/13117.md。
+
+region:
+  code: "13117"
+  level: municipality
+  name: 北区
+  parent_code: "13"
+  status: in_progress
+  verified_at: 2026-09-20
+
+documents:
+  - id: kita.hoken_bag
+    name: 母と子の保健バッグ（北区。母子健康手帳と一緒に受け取る袋）
+    aliases: [保健バッグ, 母子手帳のセット]
+    # この袋を持っていれば、中の紙も持っている扱いにする
+    includes:
+      - jp.boshi_techo
+      - jp.kenshin_ticket
+      - kita.kenshin_ticket
+      - kita.shinseiji_choukaku_ticket
+      - kita.shika_kenshin_ticket
+      - kita.sanpu_kenshin_ticket          # 令和8年4月1日以降に妊娠届を出した人。それより前の人には郵送
+      - kita.ikkagetsuji_kenshin_ticket    # 同上
+    phase: notification
+    description: 妊娠届を出すと、母子健康手帳と一緒に受け取る。いろいろな保健サービスのお知らせと、各種の受診票が入っている。電子申請で届け出た場合は、母子健康手帳と受診票などの一式が郵送される。
+    source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018244/1002779.html
+    verified_at: 2026-09-20
+  - id: kita.kenshin_ticket
+    name: 妊婦健康診査受診票・妊婦超音波検査受診票・妊婦子宮頸がん検診受診票（北区）
+    aliases: [受診票, 補助券]
+    phase: notification
+    description: 妊婦健康診査14回分（令和8年度の公費負担の上限は、1回目11,670円、2〜14回目は各5,460円）、超音波検査4回分（各5,300円）、子宮頸がん検診1回分（3,400円）。「母と子の保健バッグ」に入っている。都内の委託医療機関などで、健診のときに出して使う。上限を超えた分は自己負担。
+    source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018245/1002781.html
+    verified_at: 2026-09-20
+  - id: kita.shinseiji_choukaku_ticket
+    name: 新生児聴覚検査受診票（北区）
+    phase: birth
+    description: 1回分。令和8年度の公費負担の上限は3,000円。「母と子の保健バッグ」に入っている。
+    source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018245/1002781.html
+    verified_at: 2026-09-20
+  - id: kita.shika_kenshin_ticket
+    name: 妊産婦歯科健康診査受診票（北区）
+    phase: pregnancy
+    description: 母子健康手帳を受け取るときに渡される「母と子の保健バッグ」に同封されている。実施医療機関でだけ使える。北区の外へ転出すると使えない。
+    source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018245/1002782.html
+    verified_at: 2026-09-20
+  - id: kita.sanpu_kenshin_ticket
+    name: 産婦健康診査受診票（北区）
+    phase: postpartum
+    description: 2回分。令和8年度の公費負担の上限は1回5,000円。令和8年10月1日以降の受診から使える。令和8年4月1日以降に妊娠届を出した人は妊娠届のとき（母子健康手帳の交付のとき）に受け取る。それより前に届け出た人で、出産予定日が令和8年8月1日以降の人には、令和8年夏ごろまでに郵送の予定。
+    source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018245/1002781.html
+    verified_at: 2026-09-20
+  - id: kita.ikkagetsuji_kenshin_ticket
+    name: 1か月児健康診査受診票（北区）
+    phase: postpartum
+    description: 1回分。令和8年度の公費負担の上限は6,000円。令和8年10月1日以降の受診から使える。令和8年4月1日以降に妊娠届を出した人は妊娠届のとき（母子健康手帳の交付のとき）に受け取る。それより前に届け出た人で、出産予定日が令和8年8月1日以降の人には、令和8年夏ごろまでに郵送の予定。
+    source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018245/1002781.html
+    verified_at: 2026-09-20
+  - id: kita.shien_kyufu_annai_1
+    name: 妊婦のための支援給付（1回目）の電子申請用二次元コード（はぴママたまご面接で受け取る）
+    phase: pregnancy
+    description: 妊娠期の「はぴママたまご面接」のときに渡される。
+    source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002777/1002795.html
+    verified_at: 2026-09-20
+  - id: kita.akachan_homon_annai
+    name: 妊婦のための支援給付（2回目）の電子申請用二次元コード（赤ちゃん訪問で受け取る）
+    phase: postpartum
+    description: 出産後の「赤ちゃん訪問」のときに渡される。
+    source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002777/1002795.html
+    verified_at: 2026-09-20
+
+steps:
+  - id: kita.s03
+    overrides_step_id: jp.s03
+    phase: notification
+    sort_order: 30
+    title: 妊娠届を出し、母子健康手帳と「母と子の保健バッグ」を受け取る
+    detail: 医療機関で妊娠が確定したと診断を受けてから届け出る。窓口は、健康支援センター（王子 03-3919-7588／赤羽 03-3903-6481／滝野川 03-3915-0184。平日 午前8時30分〜午後5時）、保健サービス課保健サービス係（北区役所第一庁舎1階6番）、各区民事務所。健康支援センターに妊婦本人が届け出ると、原則その場で「はぴママたまご面接」も受けられる（その場合は午前9時〜午後4時30分）。区民事務所で届け出ると、面接は後日になる。持ち物は妊婦本人のマイナンバーカード。無いときは、マイナンバーが確認できる書類（通知カード、番号入りの住民票など）と本人確認書類（写真つきは1点、写真なしは2点）。代理人は代理人の本人確認書類も必要で、別世帯の人は委任状もいる。マイナポータルで電子申請もでき、その場合は母子健康手帳と受診票などの一式が郵送される（申請から2週間ほどかかることがある）。
+    trigger_document_id: jp.heartbeat_confirmed
+    produces_document_id: kita.hoken_bag
+    channel: 健康支援センター / 保健サービス課保健サービス係 / 区民事務所 / オンライン（マイナポータル。一式は郵送）
+    action_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018244/1002779.html
+    deadline_note: 医療機関で妊娠の診断を受けたら届け出る（期限は区のページに記載なし）
+    source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018244/1002779.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: kita.s03b
+    phase: pregnancy
+    sort_order: 35
+    title: はぴママたまご面接（妊婦面接）を受ける
+    detail: 妊婦全員が対象の面接。はぴママ相談員や地区担当の保健師などと話し、自分に合った「セルフプラン」を作る。対象は、北区に住民登録があり妊娠届を出した妊婦と、ほかの自治体で妊娠届を出したあと北区に転入した妊婦。場所は住所を担当する健康支援センター（王子・赤羽・滝野川。平日9時〜16時30分。先に電話で予約するとスムーズ）。保健サービス課保健サービス係（03-3908-7050）と子ども家庭支援センター（03-6903-0511）でも受けられるが、電話での予約が必要。健康支援センターに来るのがむずかしい人は、Zoom のオンライン面接（30分ほど）もできる（担当の健康支援センターに電話で申し込む）。面接のとき、妊婦のための支援給付（1回目）の電子申請用二次元コードを受け取る。出産前までに面接を終えた人には、「はぴママグッズ」（現金ではない）が後日送られる。
+    trigger_document_id: kita.hoken_bag
+    produces_document_id: kita.shien_kyufu_annai_1
+    channel: 健康支援センター / 保健サービス課保健サービス係 / 子ども家庭支援センター（オンラインも可）
+    action_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018244/1002780.html
+    deadline_note: 面接そのものの期限は区のページに記載なし。「はぴママグッズ」は、出産前までに面接を終えた人が対象
+    source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018244/1002780.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: kita.s05
+    overrides_step_id: jp.s05
+    phase: pregnancy
+    sort_order: 50
+    title: 妊婦のための支援給付（1回目・現金5万円）を申請する
+    detail: 対象は、申請のときに北区に住民登録があり、2025年4月1日以降に妊婦で、医療機関で胎児の心拍を確認されている人。はぴママたまご面接で渡される二次元コードから電子申請をする。妊婦本人名義の口座に振り込まれる（旧姓の口座、パートナーの口座は不可）。申請から振込まで1か月〜1か月半ほど。現金ではなく東京都のギフトカード5万ポイントを希望する人は、保健サービス課保健サービス係（03-3908-7050）に連絡する。流産・死産をした人も対象で、申請のしかたが別にある（区のページを確認）。
+    trigger_document_id: kita.shien_kyufu_annai_1
+    channel: オンライン（面接で渡される二次元コードから）
+    action_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002777/1002795.html
+    deadline_base: confirmation_date
+    deadline_offset_days: 730
+    deadline_note: 医療機関で胎児心拍が確認された日から2年間
+    source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002777/1002795.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: kita.s05c
+    phase: pregnancy
+    sort_order: 57
+    title: 妊産婦歯科健康診査を受ける（1回・無料）
+    detail: 妊娠中から出産後1年未満の間に1回、無料で受けられる（治療や口の中の清掃は対象外）。実施医療機関に直接予約し、母子健康手帳、マイナ保険証か資格確認書、妊産婦歯科健康診査受診票を持っていく。実施医療機関でないところでは使えない。
+    trigger_document_id: kita.shika_kenshin_ticket
+    channel: 医療機関（実施歯科）
+    deadline_note: 区は妊娠中期（16週〜27週）ごろの受診をすすめている。使えるのは出産後1年未満まで（例：5月1日出産なら翌年4月30日まで）
+    source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018245/1002782.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: kita.s06d
+    phase: pregnancy
+    sort_order: 66
+    title: （北区の国民健康保険の人）産前産後期間の国民健康保険料の軽減を届け出る
+    detail: 出産した人の保険料（所得割額と均等割額）が、出産（予定）月の前月から翌々月までの4か月分（多胎は3か月前からの6か月分）免除される。妊娠85日以上の分娩が対象で、死産・流産（人工妊娠中絶を含む）・早産を含む。届出は、電子申請（マイナンバーカードを持っている人）、窓口、郵送。届出先は国保資格係（北区役所第一庁舎2階23番、03-3908-1131）で、区民事務所ではできない。郵送のときは、先に国保資格係へ連絡して届出書を送ってもらう。窓口では、軽減届、母子健康手帳など、顔写真つきの身分証明書、資格確認書か資格情報のお知らせが必要。北区の国民健康保険の出産育児一時金を申請している人などは、届出がいらない場合がある。保険料が限度額に達している世帯は、金額が変わらないことがある。
+    trigger_document_id: kita.hoken_bag
+    channel: オンライン（マイナポータル） / 窓口 / 郵送
+    action_url: https://www.city.kita.lg.jp/living/insurance-pension/1001703/1001723/1001733/1001737.html
+    deadline_note: 出産予定日の6か月前から届け出できる
+    source_url: https://www.city.kita.lg.jp/living/insurance-pension/1001703/1001723/1001733/1001737.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: kita.s08c
+    phase: birth
+    sort_order: 71
+    title: 新生児聴覚検査を受ける
+    detail: 都内の委託医療機関などで、受診票を出して受ける。令和8年度の公費負担の上限は3,000円（1回）。上限を超えた分は自己負担。里帰り先など都内の委託医療機関以外で受けて受診票が使えなかったときは、費用の一部の助成を申請できる。
+    trigger_document_id: kita.shinseiji_choukaku_ticket
+    channel: 医療機関
+    source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018245/1002781.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: kita.s08
+    overrides_step_id: jp.s08
+    phase: postpartum
+    sort_order: 80
+    title: 妊婦のための支援給付（2回目・子ども1人につき現金5万円）を申請する
+    detail: 出産後の「赤ちゃん訪問」（保健師や助産師が自宅に来る。対象は3〜4か月児健診の前までの赤ちゃん）のときに渡される二次元コードから電子申請をする。訪問を受けるには、「出生通知票」を電子申請か、保健バッグに入っているはがきで出す（戸籍の出生届とは別のもの）。産婦本人名義の口座に振り込まれる（旧姓の口座、パートナーの口座は不可）。申請から振込まで1か月〜1か月半ほど。北区以外で1回目を受けた人も、2回目は北区で受けられる。
+    trigger_document_id: kita.akachan_homon_annai
+    channel: オンライン（訪問で渡される二次元コードから）
+    action_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002777/1002795.html
+    deadline_base: due_date
+    deadline_offset_days: 674
+    deadline_note: 出産予定日の8週間前の日から2年間（予定日より前に出産した場合は、その日から2年間）。日数は「予定日−56日 から 730日間」で計算している
+    source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002777/1002795.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: kita.s08b
+    phase: postpartum
+    sort_order: 82
+    title: 産婦健康診査を受ける（2回まで）
+    detail: 令和8年10月1日から、公費助成の産婦健康診査が始まる。都内の委託医療機関などで受診票を出して受ける。内容は問診、診察、体重・血圧測定、尿検査、アンケートを使った産後うつなどの評価。令和8年度の公費負担の上限は1回5,000円（2回）。上限を超えた分は自己負担。令和8年10月1日より前に受けた分は対象外。
+    trigger_document_id: kita.sanpu_kenshin_ticket
+    channel: 医療機関
+    source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018245/1002781.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: kita.s08d
+    phase: postpartum
+    sort_order: 83
+    title: 1か月児健康診査を受ける
+    detail: 令和8年10月1日から、公費助成の1か月児健康診査が始まる。都内の委託医療機関などで受診票を出して受ける。内容は発育・栄養の状態、病気や異常がないかの確認、ビタミンK2の投与の確認など。令和8年度の公費負担の上限は6,000円（1回）。上限を超えた分は自己負担。令和8年10月1日より前に受けた分は対象外。
+    trigger_document_id: kita.ikkagetsuji_kenshin_ticket
+    channel: 医療機関
+    source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018245/1002781.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: kita.s08e
+    phase: postpartum
+    sort_order: 84
+    title: （里帰りなど都外で健診を受けた人）妊婦健康診査費用の助成金を申請する
+    detail: 契約医療機関以外の国内の医療機関（都外など。海外は対象外）で、受診票が使えず自費で受けた妊婦健康診査・超音波検査・子宮頸がん検診について、実費に応じて助成される。回数の上限は妊婦健康診査14回・超音波検査4回・子宮頸がん検診1回で、受診票を使った分も数に入る。令和8年4月1日以降の受診の上限は、1回目11,670円、2回目以降5,460円、超音波検査5,300円、子宮頸がん検査3,400円。出産後（出産前に転出した人は転出後）に、北区役所の申請窓口で申請する。持ち物は母子健康手帳、領収書・診療明細書（原本）、未使用の受診票、「受診記録一覧表兼費用記入書」（保健バッグに同封）、振込口座がわかるもの（旧姓の口座は不可）。新生児聴覚検査・産婦健康診査・1か月児健康診査の助成金は、それぞれ別のページに案内がある。問い合わせは保健サービス課保健サービス係 03-3908-7050。
+    trigger_document_id: kita.kenshin_ticket
+    channel: 窓口（北区役所。転出した人は郵送も可）
+    action_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002764/1002773.html
+    deadline_base: birth_date
+    deadline_offset_days: 364
+    deadline_note: 出産日から1年以内（出産前に北区から転出した場合は、転出日から1年以内）。1年を過ぎると申請できない
+    source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002764/1002773.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+subsidies:
+  - id: kita.shien_kyufu_1
+    name: 北区妊婦のための支援給付（1回目）
+    kind: cash_later
+    amount_yen: 50000
+    amount_note: 妊婦1人につき現金5万円。希望すれば、現金のかわりに東京都のギフトカード5万ポイント（育児・家事支援用品などに限って使える）も選べる。申請から振込まで1か月〜1か月半ほど。
+    conditions: 申請のときに北区に住民登録があり、2025年4月1日以降に妊婦で、医療機関で胎児の心拍を確認されている人。2025年4月1日以降に流産・死産をした人も対象。2025年3月31日までに「出産応援ギフト」を申請した人は1回目の対象外。
+    apply_via: はぴママたまご面接で渡される二次元コードから電子申請。問い合わせは保健サービス課保健サービス係 03-3908-7050
+    deadline_base: confirmation_date
+    deadline_offset_days: 730
+    source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002777/1002795.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: kita.shien_kyufu_2
+    name: 北区妊婦のための支援給付（2回目）
+    kind: cash_later
+    amount_formula: "50000 * children"
+    amount_note: 子ども（胎児）1人につき現金5万円。希望すれば、現金のかわりに東京都のギフトカードも選べる。北区以外の自治体で1回目を受けた人も、2回目は受けられる。
+    conditions: 申請のときに北区に住民登録があり、2025年4月1日以降に妊婦で、医療機関で胎児の心拍を確認されている人。流産・死産をした人も対象。
+    apply_via: 赤ちゃん訪問で渡される二次元コードから電子申請。問い合わせは保健サービス課保健サービス係 03-3908-7050
+    deadline_base: due_date
+    deadline_offset_days: 674
+    source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002777/1002795.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: kita.kouketsuatsu
+    name: 妊娠高血圧症候群等医療費助成（北区）
+    kind: conditional
+    amount_note: 認定基準を満たす病気で、医療保険を使って入院治療したときの自己負担額を助成（認定期間内のものだけ。食事療養費は対象外）。認定期間は入院見込み期間で、手続きが遅れると助成を受けられないことがある。
+    conditions: 北区に住所があり、妊娠高血圧症候群とその関連疾患・糖尿病と妊娠糖尿病・貧血・産科出血・心疾患（とその続発症）で認定基準を満たし、入院治療が必要な人。さらに、前年分の総所得税額が30,000円以下の世帯の人、または入院見込み期間が26日以上の人。生活保護を受けている人と、ほかの法令などの給付で自己負担が出ない人は対象外。
+    apply_via: 住んでいる地域を担当する健康支援センター（王子 03-3919-7588／赤羽 03-3903-6481／滝野川 03-3915-0184。午前8時30分〜午後5時）。入院前か入院中に申請する。退院後の場合は、退院日から3か月以内（過ぎると申請できない）
+    source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002764/1002772.html
+    verified_at: 2026-09-20
+    needs_review: true

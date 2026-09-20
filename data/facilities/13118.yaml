@@ -1,0 +1,91 @@
+# 荒川区の分娩施設  確認日: 2026-09-20
+# 出所: 出産なび（厚生労働省） https://birth-navi.mhlw.go.jp/ 「東京都荒川区」の出産施設 3件。施設名・住所は出産なびの表記のまま。
+# 費用（costs）は、直接支払制度の請求書データ（保険診療を行った分娩を除く）から出産なびが算出した値。一時金を引く前。集計期間は 2025年4月〜2025年9月。
+# tokyo_epidural_subsidy_target の出所: 東京都「対象医療機関一覧」（令和8年7月31日時点） https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/mutsubunben/subsidy
+#   施設名と住所で突き合わせた。一覧に見つからなければ false。
+# 予約ルール（booking_policy）が null の施設は未確認（画面では「電話で確認」と出る）。わかったら埋める。
+
+facilities:
+  - id: bn-11110
+    region_code: "13118"
+    name: あらかわレディースクリニック
+    address: 東京都荒川区町屋１丁目８番地８号
+    lat: 35.7458333
+    lng: 139.7829168
+    facility_type: 有床診療所
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11110
+    website_url: "http://www.arakawalc.jp/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/11110
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 670000
+        total_median_yen: 642000
+        basic_avg_yen: 572000
+        basic_median_yen: 567000
+        room_diff_avg_yen: 15800
+        room_diff_median_yen: 15000
+        stay_days_avg: 6
+        stay_days_median: 6
+        source_url: https://birth-navi.mhlw.go.jp/facilities/11110
+        verified_at: 2026-09-20
+
+  - id: bn-10096
+    region_code: "13118"
+    name: 荒木記念東京リバーサイド病院
+    address: 東京都荒川区南千住8-4-4
+    lat: 35.7377261
+    lng: 139.8070701
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10096
+    website_url: "https://www.trshp.jp/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10096
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 736000
+        total_median_yen: 736000
+        basic_avg_yen: 593000
+        basic_median_yen: 580000
+        room_diff_avg_yen: 103100
+        room_diff_median_yen: 120000
+        stay_days_avg: 7
+        stay_days_median: 7
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10096
+        verified_at: 2026-09-20
+
+  - id: bn-11903
+    region_code: "13118"
+    name: たんぽぽ助産院
+    address: 東京都荒川区荒川１丁目３１−８
+    lat: 35.7343765
+    lng: 139.7887468
+    facility_type: 有床助産所
+    has_epidural: null   # 出産なびでは未回答（ー）
+    epidural_24h: null
+    tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11903
+    website_url: "https://www.fuwafuwatannpopo.com"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/11903
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs: []

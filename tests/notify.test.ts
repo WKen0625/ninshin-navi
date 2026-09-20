@@ -95,7 +95,7 @@ describe("何を送るか", () => {
   });
 
   it("未登録の市区町村でも、国＋都府県の手続きで通知できる（設計原則4）", () => {
-    const d = digest({ ...born, region_code: "13104", held_documents: [], completed_step_ids: ["jp.s01", "jp.s02", "tokyo.s01", "jp.s06b"], not_applicable_step_ids: [] })!;
+    const d = digest({ ...born, region_code: "13201", held_documents: [], completed_step_ids: ["jp.s01", "jp.s02", "tokyo.s01", "jp.s06b"], not_applicable_step_ids: [] })!;
     expect(d.deadlines.map((a) => a.step.id)).toEqual(["jp.s07", "jp.s09"]);
     expect(d.region_name).toBe("");
   });

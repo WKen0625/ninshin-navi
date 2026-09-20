@@ -1,0 +1,155 @@
+# 江東区の分娩施設  確認日: 2026-09-20
+# 出所: 出産なび（厚生労働省） https://birth-navi.mhlw.go.jp/ 「東京都江東区」の出産施設 5件。施設名・住所は出産なびの表記のまま。
+# 費用（costs）は、直接支払制度の請求書データ（保険診療を行った分娩を除く）から出産なびが算出した値。一時金を引く前。集計期間は 2025年4月〜2025年9月。
+# tokyo_epidural_subsidy_target の出所: 東京都「対象医療機関一覧」（令和8年7月31日時点） https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/mutsubunben/subsidy
+#   施設名と住所で突き合わせた。一覧に見つからなければ false。
+# 予約ルール（booking_policy）が null の施設は未確認（画面では「電話で確認」と出る）。わかったら埋める。
+
+facilities:
+  - id: bn-11828
+    region_code: "13108"
+    name: 一般社団法人助産婦石村
+    address: 東京都江東区東陽３－２１－１１－１０１
+    lat: 35.6690975
+    lng: 139.8118633
+    facility_type: 無床助産所
+    has_epidural: null   # 出産なびでは未回答（ー）
+    epidural_24h: null
+    tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11828
+    website_url: "https://josanpu-ishimura.jp"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/11828
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs: []
+
+  - id: bn-11509
+    region_code: "13108"
+    name: 医療法人社団　桜裕会　　砂町産婦人科
+    address: 東京都江東区南砂４－２－１３
+    lat: 35.6735037
+    lng: 139.8274372
+    facility_type: 有床診療所
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: true
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11509
+    website_url: "https://sunamachi-gyne.com/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/11509
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 833000
+        total_median_yen: 857000
+        basic_avg_yen: 606000
+        basic_median_yen: 614000
+        room_diff_avg_yen: 31600
+        room_diff_median_yen: 40000
+        stay_days_avg: 5
+        stay_days_median: 5
+        source_url: https://birth-navi.mhlw.go.jp/facilities/11509
+        verified_at: 2026-09-20
+
+  - id: bn-10949
+    region_code: "13108"
+    name: 医療法人社団東壽会東峯婦人クリニック
+    address: 東京都江東区木場５－３－１０
+    lat: 35.6690342
+    lng: 139.8081455
+    facility_type: 有床診療所
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10949
+    website_url: "https://www.toho-clinic.or.jp/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10949
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 792000
+        total_median_yen: 749000
+        basic_avg_yen: 557000
+        basic_median_yen: 556000
+        room_diff_avg_yen: 102800
+        room_diff_median_yen: 105000
+        stay_days_avg: 5
+        stay_days_median: 5
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10949
+        verified_at: 2026-09-20
+
+  - id: bn-10734
+    region_code: "13108"
+    name: 昭和医科大学江東豊洲病院
+    address: 東京都江東区豊洲５－１－３８
+    lat: 35.6503186
+    lng: 139.796273
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10734
+    website_url: "https://www.showa-u.ac.jp/SHKT/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10734
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 768000
+        total_median_yen: 766000
+        basic_avg_yen: 687000
+        basic_median_yen: 642000
+        room_diff_avg_yen: 54100
+        room_diff_median_yen: 60000
+        stay_days_avg: 6
+        stay_days_median: 6
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10734
+        verified_at: 2026-09-20
+
+  - id: bn-11243
+    region_code: "13108"
+    name: 医療法人社団　五の橋産婦人科
+    address: 東京都江東区亀戸６－１－６
+    lat: 35.6939187
+    lng: 139.8270035
+    facility_type: 有床診療所
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11243
+    website_url: "https://www.gonohashi-sanfujinka.com"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/11243
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 707000
+        total_median_yen: 711000
+        basic_avg_yen: 599000
+        basic_median_yen: 613000
+        room_diff_avg_yen: 75700
+        room_diff_median_yen: 75000
+        stay_days_avg: 5
+        stay_days_median: 5
+        source_url: https://birth-navi.mhlw.go.jp/facilities/11243
+        verified_at: 2026-09-20

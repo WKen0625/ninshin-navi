@@ -1,0 +1,228 @@
+# 大田区（全国地方公共団体コード 13111）  確認日: 2026-09-20
+# 区の公式サイト（city.ota.tokyo.jp）で読めた内容だけを入れている。全行が人の承認待ち（needs_review: true）。
+# 区独自の出産費用の助成・出産祝い金は、区のサイトでは見つからなかった（入れていない）。
+
+region:
+  code: "13111"
+  level: municipality
+  name: 大田区
+  parent_code: "13"
+  status: in_progress
+  verified_at: 2026-09-20
+
+documents:
+  - id: ota.hoken_bag
+    name: 母と子の保健バッグ（大田区。母子健康手帳と一緒に受け取る袋）
+    aliases: [保健バッグ, 母子手帳のセット]
+    # この袋を持っていれば、中の紙も持っている扱いにする
+    includes:
+      - jp.boshi_techo
+      - jp.kenshin_ticket
+      - ota.kenshin_ticket
+      - ota.shika_kenshin_ticket
+      - ota.sanpu_kenshin_ticket
+      - ota.ikkagetsuji_kenshin_ticket
+    phase: notification
+    description: 妊娠届を出すと、母子健康手帳と一緒に受け取る。妊婦健康診査受診票、妊婦超音波検査受診票、妊婦子宮頸がん検診受診票、産婦健康診査受診票、1か月児健康診査受診票、出生通知書の二次元コードなどが入っている。
+    source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninsin.html
+    verified_at: 2026-09-20
+  - id: ota.kenshin_ticket
+    name: 妊婦健康診査受診票（大田区）
+    aliases: [受診票, 補助券]
+    phase: notification
+    description: 妊婦健康診査14枚（1回目用の水色1枚、2回目以降用の黄色13枚）、妊婦超音波検査（白色4枚）、妊婦子宮頸がん検診（桃色1枚）。一定の金額を上限に助成される（金額は区のページに記載なし）。東京都外の医療機関では使えない。令和6年10月1日以降に妊娠届を出した人は、都内の助産所でも使える。
+    source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninsin.html
+    verified_at: 2026-09-20
+  - id: ota.shika_kenshin_ticket
+    name: 妊婦歯科健康診査の受診票（大田区）
+    phase: pregnancy
+    description: 「母と子の保健バッグ」の「受診セット」に入っている。
+    source_url: https://www.city.ota.tokyo.jp/seikatsu/hoken/shussan/sika/ninpushikakenkoushinsa.html
+    verified_at: 2026-09-20
+  - id: ota.sanpu_kenshin_ticket
+    name: 産婦健康診査受診票（大田区）
+    phase: postpartum
+    description: 2回分。「母と子の保健バッグ」に入っている。
+    source_url: https://www.city.ota.tokyo.jp/seikatsu/hoken/shussan/12154545.html
+    verified_at: 2026-09-20
+  - id: ota.ikkagetsuji_kenshin_ticket
+    name: 1か月児健康診査受診票（大田区）
+    phase: postpartum
+    description: 「母と子の保健バッグ」に入っている。令和8年10月1日の受診分から、原則として都内共通の受診票で受ける。
+    source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninsin.html
+    verified_at: 2026-09-20
+  - id: ota.shien_kyufu_annai_1
+    name: 妊婦のための支援給付（1回目）の申請案内（大田区）
+    phase: pregnancy
+    description: 妊婦面接を受けた人に渡される案内。書いてある2次元コードから申請する。
+    source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninpunotamenosienkyuhu.html
+    verified_at: 2026-09-20
+  - id: ota.akachan_homon_annai
+    name: 妊婦のための支援給付（2回目）の申請案内（大田区。すこやか赤ちゃん訪問で受け取る）
+    phase: postpartum
+    description: すこやか赤ちゃん訪問を受けた人に渡される案内。書いてある2次元コードから申請する。
+    source_url: https://www.city.ota.tokyo.jp/seikatsu/hoken/shussan/sukoyaka-akachan-houmon.html
+    verified_at: 2026-09-20
+
+steps:
+  - id: ota.s03
+    overrides_step_id: jp.s03
+    phase: notification
+    sort_order: 30
+    title: 妊娠届を出し、母子健康手帳と「母と子の保健バッグ」を受け取る
+    detail: 窓口は、平日（8時30分〜17時）は大森・調布・蒲田・糀谷羽田の各地域健康課、健康づくり課、各特別出張所。夜間（月曜・木曜の17〜19時）と休日（日曜の9〜17時）は、大田区役所本庁舎1階の「母子健康手帳受付（夜間・休日）窓口」。持ち物は、マイナンバーがわかるもの、本人確認書類、妊娠の診断を受けた医療機関の診察券。本人が行けないときは家族が代理で届け出できる（委任状が必要）。オンラインでの届出は区のページに記載なし。
+    trigger_document_id: jp.heartbeat_confirmed
+    produces_document_id: ota.hoken_bag
+    channel: 各地域健康課・健康づくり課・各特別出張所（夜間・休日は本庁舎1階）
+    deadline_note: 期限は区のページに記載なし
+    source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninsin.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: ota.s03b
+    phase: pregnancy
+    sort_order: 35
+    title: 妊婦面接を受ける
+    detail: 保健師または助産師との面接。対象は、面接の日に大田区に住民登録のある妊婦と、大田区へ転入した妊婦。場所は住んでいる地域を受け持つ地域健康課（大森・調布・蒲田・糀谷羽田）。「妊婦面接予約システム」で、希望日の60日前から前日12時までに予約する（電話予約もできる）。面接を受けると「大田区子育て応援ギフト1万円相当」と、妊婦のための支援給付（1回目）の申請案内を受け取る。
+    trigger_document_id: ota.hoken_bag
+    produces_document_id: ota.shien_kyufu_annai_1
+    channel: 住んでいる地域の地域健康課（予約制）
+    action_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/karugamo.html
+    deadline_note: いつまでに受けるかは区のページに記載なし
+    source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/karugamo.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: ota.s05
+    overrides_step_id: jp.s05
+    phase: pregnancy
+    sort_order: 50
+    title: 妊婦のための支援給付（1回目・5万円）を申請する
+    detail: 妊婦面接で受け取った案内の2次元コードから申請する。対象は、令和7年4月1日以降に妊婦給付認定の申請をした人で、申請の日に大田区に住民票があり、医師が胎児の心拍を確認していること。流産・死産・人工妊娠中絶の場合も対象（妊娠届を出していないときは医療機関の診断書などが必要）。妊産婦本人の名義の口座に振り込まれる。振込は申請した日の2か月後の月末ごろ。問い合わせは健康づくり課 管理担当 03-5744-1661。
+    trigger_document_id: ota.shien_kyufu_annai_1
+    channel: オンライン（案内の2次元コードから）
+    deadline_note: 申請期限は区のページに記載なし（面接のときに確認する）
+    source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninpunotamenosienkyuhu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: ota.s05c
+    phase: pregnancy
+    sort_order: 57
+    title: 妊婦歯科健康診査を受ける（妊娠中に1回・無料）
+    detail: 区内の指定歯科医療機関で、妊娠中に1回受けられる。健診の費用は無料（治療は保険診療で有料）。医療機関に電話で予約し、受診票と母子健康手帳を持っていく。問い合わせは健康づくり課 03-5744-1661。
+    trigger_document_id: ota.shika_kenshin_ticket
+    channel: 区内の指定歯科医療機関
+    deadline_note: 妊娠中に1回
+    source_url: https://www.city.ota.tokyo.jp/seikatsu/hoken/shussan/sika/ninpushikakenkoushinsa.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: ota.s06d
+    phase: pregnancy
+    sort_order: 66
+    title: （大田区の国民健康保険の人）産前産後期間の国民健康保険料の減免を届け出る
+    detail: 出産予定日（または出産日）の月の前月から4か月間（双子以上は3か月前から6か月間）の、所得割と均等割の保険料が減免される。大田区役所本庁舎の国民健康保険窓口、または郵送で届け出る。減免届出書、母子健康手帳、届け出る人の本人確認書類が必要。問い合わせは国保年金課 国保資格係 03-5744-1210。
+    trigger_document_id: ota.hoken_bag
+    channel: 窓口（大田区役所本庁舎）/ 郵送
+    deadline_note: 出産予定日の6か月前から届け出できる
+    source_url: https://www.city.ota.tokyo.jp/seikatsu/kokunen/kokuho/topics/kokuho_sanzensango_genmen.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: ota.s07c
+    phase: postpartum
+    sort_order: 75
+    title: 「出生通知書」を電子申請し、すこやか赤ちゃん訪問を受ける
+    detail: 生後120日までのすべての赤ちゃんの家庭を、助産師や保健師が訪問する。赤ちゃんが生まれたら、区のページのフォームから「出生通知書」（すこやか赤ちゃん訪問依頼書）を電子申請する。訪問を受けると、妊婦のための支援給付（2回目）の申請案内を受け取る。
+    trigger_document_id: ota.hoken_bag
+    produces_document_id: ota.akachan_homon_annai
+    channel: オンライン（電子申請）のあと、自宅で訪問を受ける
+    action_url: https://www.city.ota.tokyo.jp/seikatsu/hoken/shussan/sukoyaka-akachan-houmon.html
+    deadline_note: 出生通知書はできるだけ生後14日以内に。訪問の対象は生後120日まで
+    source_url: https://www.city.ota.tokyo.jp/seikatsu/hoken/shussan/sukoyaka-akachan-houmon.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: ota.s08
+    overrides_step_id: jp.s08
+    phase: postpartum
+    sort_order: 80
+    title: 妊婦のための支援給付（2回目・胎児の数×5万円）を申請する
+    detail: すこやか赤ちゃん訪問で受け取った案内の2次元コードから申請する。妊産婦本人の名義の口座に振り込まれる。振込は申請した日の2か月後の月末ごろ。問い合わせは健康づくり課 管理担当 03-5744-1661。
+    trigger_document_id: ota.akachan_homon_annai
+    channel: オンライン（案内の2次元コードから）
+    deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
+    source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninpunotamenosienkyuhu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: ota.s08b
+    phase: postpartum
+    sort_order: 82
+    title: 産婦健康診査を受ける（2週間健診と1か月健診の2回まで）
+    detail: 1回につき上限5,000円を助成。令和8年10月1日以降は、都内の医療機関で受ければ申請の手続きはいらない（都外で受けたときは申請が必要）。令和8年4月1日〜9月30日に受けた分は、あとから郵送で健康づくり課に申請する（受診した日から数えて1年がたつ日の前日まで。当日消印有効）。
+    trigger_document_id: ota.sanpu_kenshin_ticket
+    channel: 医療機関
+    deadline_note: 2週間健診と1か月健診
+    source_url: https://www.city.ota.tokyo.jp/seikatsu/hoken/shussan/12154545.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: ota.s08d
+    phase: postpartum
+    sort_order: 83
+    title: 1か月児健康診査を受ける
+    detail: 令和7年4月1日以降に生まれた子が対象で、1人につき1回、上限6,000円を助成。令和8年10月1日の受診分から、原則として都内共通の受診票で受ける。受診票を使えなかったときは、領収書・明細書、母子健康手帳のコピーなどを健康づくり課へ郵送して申請する（受診した日から数えて1年がたつ日の前日まで）。
+    trigger_document_id: ota.ikkagetsuji_kenshin_ticket
+    channel: 医療機関
+    deadline_note: 生後1か月ごろ
+    source_url: https://www.city.ota.tokyo.jp/seikatsu/hoken/shussan/1kensinhiyoujosei.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: ota.s08e
+    phase: postpartum
+    sort_order: 84
+    title: （東京都外で健診を受けた人）里帰り等妊産婦健康診査・新生児聴覚検査の費用助成を申請する
+    detail: 東京都外の医療機関では区の受診票が使えないので、払った費用をあとから助成してもらう。対象は妊婦健康診査（14回まで。多胎は19回まで）、産婦健康診査（2回分。令和8年4月1日の受診分から）、1か月児健康診査、新生児聴覚検査。領収書（あれば明細書も）を保管しておく。申請書セットは区のページからダウンロードするか、母子健康手帳の交付窓口でもらう。申請の受付は大田区役所6階の健康づくり課だけ。助成の上限額はこのページに記載なし。問い合わせは健康づくり課 03-5744-1661。
+    trigger_document_id: ota.hoken_bag
+    channel: 窓口（大田区役所6階 健康づくり課）
+    action_url: https://www.city.ota.tokyo.jp/faq/bunya/kosodate/satogaeri_ninpukenshin.html
+    deadline_note: 大田区に住民票があった期間に、最後に健診を受けた日から1年以内
+    source_url: https://www.city.ota.tokyo.jp/faq/bunya/kosodate/satogaeri_ninpukenshin.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+subsidies:
+  - id: ota.shien_kyufu_1
+    name: 妊婦のための支援給付（1回目・大田区）
+    kind: cash_later
+    amount_yen: 50000
+    amount_note: 妊産婦本人の名義の口座に振り込まれる。申請した日の2か月後の月末ごろ。
+    conditions: 令和7年4月1日以降に妊婦給付認定の申請をした妊産婦。申請の日に大田区に住民票があり、医師が胎児の心拍を確認していること。流産・死産・人工妊娠中絶の場合も対象。
+    apply_via: 妊婦面接で受け取る案内の2次元コードから申請。問い合わせ 健康づくり課 管理担当 03-5744-1661
+    source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninpunotamenosienkyuhu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: ota.shien_kyufu_2
+    name: 妊婦のための支援給付（2回目・大田区）
+    kind: cash_later
+    amount_formula: "50000 * children"
+    amount_note: 胎児の数×5万円。妊産婦本人の名義の口座に振り込まれる。
+    conditions: 令和7年4月1日以降に妊婦給付認定の申請をした妊産婦。申請の日に大田区に住民票があること。
+    apply_via: すこやか赤ちゃん訪問で受け取る案内の2次元コードから申請
+    source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninpunotamenosienkyuhu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: ota.kouketsuatsu
+    name: 妊娠高血圧症候群等医療費助成（大田区）
+    kind: conditional
+    amount_note: 健康保険の自己負担分（入院期間分）を助成。
+    conditions: 妊娠による高血圧症候群、糖尿病、産科出血、心疾患、貧血にかかっていて、入院治療が必要な妊産婦。前年度の所得税が3万円以下の世帯、またはそれ以外で入院見込期間が26日以上。
+    apply_via: 各地域健康課に問い合わせる（申請のしかた・期限はこのページに記載なし）
+    source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninsin.html
+    verified_at: 2026-09-20
+    needs_review: true

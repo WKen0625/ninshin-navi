@@ -1,0 +1,135 @@
+# 品川区の分娩施設  確認日: 2026-09-20
+# 出所: 出産なび（厚生労働省） https://birth-navi.mhlw.go.jp/ 「東京都品川区」の出産施設 4件。施設名・住所は出産なびの表記のまま。
+# 費用（costs）は、直接支払制度の請求書データ（保険診療を行った分娩を除く）から出産なびが算出した値。一時金を引く前。集計期間は 2025年4月〜2025年9月。
+# tokyo_epidural_subsidy_target の出所: 東京都「対象医療機関一覧」（令和8年7月31日時点） https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/mutsubunben/subsidy
+#   施設名と住所で突き合わせた。一覧に見つからなければ false。
+# 予約ルール（booking_policy）が null の施設は未確認（画面では「電話で確認」と出る）。わかったら埋める。
+
+facilities:
+  - id: bn-12199
+    region_code: "13109"
+    name: 医療法人社団敬創会　東京バースクリニック
+    address: 東京都品川区上大崎3丁目14番地19号
+    lat: 35.63064
+    lng: 139.720311
+    facility_type: 有床診療所
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: true
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/12199
+    website_url: "https://tokyobirthclinic.com/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/12199
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 1416000
+        total_median_yen: null
+        basic_avg_yen: 1041000
+        basic_median_yen: null
+        room_diff_avg_yen: 318300
+        room_diff_median_yen: null
+        stay_days_avg: 6
+        stay_days_median: null
+        source_url: https://birth-navi.mhlw.go.jp/facilities/12199
+        verified_at: 2026-09-20
+
+  - id: bn-10802
+    region_code: "13109"
+    name: NTT東日本関東病院
+    address: 東京都品川区東五反田５－９－２２
+    lat: 35.6318448
+    lng: 139.725417
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10802
+    website_url: "https://www.nmct.ntt-east.co.jp/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10802
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 681000
+        total_median_yen: 653000
+        basic_avg_yen: 589000
+        basic_median_yen: 599000
+        room_diff_avg_yen: 50100
+        room_diff_median_yen: 0
+        stay_days_avg: 7
+        stay_days_median: 7
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10802
+        verified_at: 2026-09-20
+
+  - id: bn-10698
+    region_code: "13109"
+    name: 社会医療法人社団東京巨樹の会　東京品川病院
+    address: 東京都品川区東大井６－３－２２
+    lat: 35.602385
+    lng: 139.7348518
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10698
+    website_url: "https://tokyo-shinagawa.jp/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10698
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 762000
+        total_median_yen: 758000
+        basic_avg_yen: 622000
+        basic_median_yen: 621000
+        room_diff_avg_yen: 123100
+        room_diff_median_yen: 123000
+        stay_days_avg: 7
+        stay_days_median: 7
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10698
+        verified_at: 2026-09-20
+
+  - id: bn-10368
+    region_code: "13109"
+    name: 昭和医科大学病院
+    address: 東京都品川区旗の台1-5-8
+    lat: 35.6083886
+    lng: 139.7035693
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10368
+    website_url: "https://www.showa-u.ac.jp/SUH/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10368
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 728000
+        total_median_yen: 701000
+        basic_avg_yen: 670000
+        basic_median_yen: 635000
+        room_diff_avg_yen: 19100
+        room_diff_median_yen: 0
+        stay_days_avg: 7
+        stay_days_median: 7
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10368
+        verified_at: 2026-09-20

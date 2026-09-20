@@ -1,0 +1,286 @@
+# 台東区（全国地方公共団体コード 13106）  確認日: 2026-09-20
+# 区の公式サイト（city.taito.lg.jp）で読めた内容だけを入れた。全行が人の承認待ち（needs_review: true）。
+# 根拠の引用は docs/research/13106.md。
+
+region:
+  code: "13106"
+  level: municipality
+  name: 台東区
+  parent_code: "13"
+  status: in_progress
+  verified_at: 2026-09-20
+
+documents:
+  - id: taito.hoken_bag
+    name: 母と子の保健バッグ（台東区。母子健康手帳と一緒に受け取る袋）
+    aliases: [保健バッグ, 母子バッグ, 母子手帳のセット]
+    # この袋を持っていれば、中の紙も持っている扱いにする
+    includes:
+      - jp.boshi_techo
+      - jp.kenshin_ticket
+      - taito.kenshin_ticket
+      - taito.shika_kenshin_ticket
+      - taito.shinseiji_choukaku_ticket
+      - taito.sanpu_kenshin_ticket          # 令和8年4月1日以降に配る袋に同封
+      - taito.ikkagetsuji_kenshin_ticket    # 令和8年4月1日以降に配る袋に同封
+    phase: notification
+    description: 妊娠届を出すと、母子健康手帳と一緒に受け取る。妊婦健康診査受診票や各種のお知らせが入っている。電子申請で届け出た場合は、レターパックで郵送される。
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/ninshin/todokede/boshikenkotecho.html
+    verified_at: 2026-09-20
+  - id: taito.kenshin_ticket
+    name: 妊婦健康診査受診票（台東区）
+    aliases: [受診票, 補助券]
+    phase: notification
+    description: 妊婦健康診査受診票（1回目用は水色1枚で11,670円、2回目以降用は黄色13枚で各5,460円）、妊婦子宮頸がん検診受診票（桃色1枚、3,400円）、妊婦超音波検査受診票（白色4枚、各5,300円）。金額は令和8年度の助成限度額。原則として再発行できない。
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/kenkoushinsa/ninshinchu/ninpukenkoshinsa.html
+    verified_at: 2026-09-20
+  - id: taito.shika_kenshin_ticket
+    name: 妊婦歯科健康診査の受診票（台東区）
+    aliases: [歯科の受診票]
+    phase: pregnancy
+    description: 母子健康手帳を受け取るときにもらう袋（母子バッグ）に、受診票と案内が入っている。
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/kenkoushinsa/ninshinchu/ninnpu.html
+    verified_at: 2026-09-20
+  - id: taito.shinseiji_choukaku_ticket
+    name: 新生児聴覚検査受診票（台東区。「新生児聴覚検査のごあんない」）
+    phase: birth
+    description: 「母と子の保健バッグ」に同封。都内の委託医療機関で使える。公費負担額は3,000円。
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/kenkoushinsa/sinseijityoukaku.html
+    verified_at: 2026-09-20
+  - id: taito.sanpu_kenshin_ticket
+    name: 産婦健康診査受診票（台東区）
+    phase: postpartum
+    description: 令和8年4月1日から「母と子の保健バッグ」に2枚同封。令和8年3月31日以前に妊娠届を出した人のうち対象者には、区から郵送される。令和8年10月1日以降の受診に使える。
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/kenkoushinsa/taitosanpu.html
+    verified_at: 2026-09-20
+  - id: taito.ikkagetsuji_kenshin_ticket
+    name: 1か月児健康診査受診票（台東区）
+    phase: postpartum
+    description: 令和8年4月1日から「母と子の保健バッグ」に1枚同封。令和8年1月1日〜3月31日に妊娠届を出した人のうち対象者には、区から郵送される。令和8年10月1日以降の受診に使える。
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/kenkoushinsa/1kagetu.html
+    verified_at: 2026-09-20
+  - id: taito.shien_kyufu_annai_1
+    name: 妊婦のための支援給付（1回目）の申請フォームの案内（台東区）
+    phase: pregnancy
+    description: ゆりかご・たいとう面接が終わったあとに案内される。
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/nenrei/ninshinki/soudan_shien/yurikago.html
+    verified_at: 2026-09-20
+  - id: taito.akachan_homon_annai
+    name: こんにちは赤ちゃん訪問で受ける案内（台東区）
+    phase: postpartum
+    description: 妊婦のための支援給付（2回目）の申請方法は、こんにちは赤ちゃん訪問のときに案内される。
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/ninpusienkyufu.html
+    verified_at: 2026-09-20
+
+steps:
+  - id: taito.s03
+    overrides_step_id: jp.s03
+    phase: notification
+    sort_order: 30
+    title: 妊娠届を出し、母子健康手帳と「母と子の保健バッグ」を受け取る
+    detail: 医療機関で赤ちゃんの心拍の確認や妊娠の診断を受けたら届け出る。方法は2つ。(1) マイナポータル（ぴったりサービス）で妊婦本人が電子申請し、1週間ほどでレターパックプラス（対面で受け取り）で届く。個人番号カードが必要で、転入した人は使えない。(2) 窓口で届出書を書き、その場で受け取る（20分ほど）。窓口は浅草保健相談センター（花川戸2-11-10、03-3844-8171）、台東保健所保健サービス課（東上野4-22-8、03-3847-9447）、区役所1階 戸籍住民サービス課、各区民事務所・分室。持ち物は個人番号カード（無い人は本人確認書類）。代理の人は代理人の本人確認書類、別世帯なら委任状も必要。
+    trigger_document_id: jp.heartbeat_confirmed
+    produces_document_id: taito.hoken_bag
+    channel: オンライン（マイナポータル・郵送で受け取り） / 窓口（保健所・保健相談センター・区役所・区民事務所）
+    action_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/ninshin/todokede/boshikenkotecho.html
+    deadline_note: なるべく早く（11週ごろまでに）
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/ninshin/todokede/boshikenkotecho.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: taito.s03b
+    phase: pregnancy
+    sort_order: 35
+    title: ゆりかご・たいとう面接を受ける
+    detail: 保健師などとの面接（45分ほど。パートナーも同席できる）。面接日に台東区に住民登録がある妊婦本人が対象で、出産したあとは受けられない。場所は浅草保健相談センター（花川戸2-11-10 3階）か台東保健所保健サービス課（東上野4-22-8 2階）。月〜金の9時〜16時。予約は電子申請か電話（浅草 03-3844-8172、台東保健所 03-3847-9497）。予約なしでも受けられるが、予約の人が優先。持ち物は母子健康手帳とA4の書類が入る袋。面接のあと、育児パッケージ（1万円分）を受け取り、妊婦のための支援給付（1回目）の申請フォームを案内される。
+    trigger_document_id: taito.hoken_bag
+    produces_document_id: taito.shien_kyufu_annai_1
+    channel: 浅草保健相談センター / 台東保健所
+    action_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/nenrei/ninshinki/soudan_shien/yurikago.html
+    deadline_base: due_date
+    deadline_offset_days: 0
+    deadline_note: 妊娠中に受ける。出産した人は対象にならない
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/nenrei/ninshinki/soudan_shien/yurikago.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: taito.s05
+    overrides_step_id: jp.s05
+    phase: pregnancy
+    sort_order: 50
+    title: 妊婦のための支援給付（1回目・5万円）を申請する
+    detail: 申請の時点で台東区に住民票のある妊婦が対象（令和7年4月1日以降のゆりかご・たいとう面接から）。ゆりかご・たいとう面接のあとに案内される申請フォームから申請する。現金給付で、本人名義の口座に振り込まれる。台東区やほかの自治体で、出産応援ギフトか支援給付1回目を受け取っていない人に限る。流産・死産の場合は別の申請方法がある（提出先は浅草保健相談センター庶務担当）。
+    trigger_document_id: taito.shien_kyufu_annai_1
+    channel: 面接のときの案内に沿って申請
+    deadline_note: 申請期限は区のページに記載なし（面接のときに確認する）
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/ninpusienkyufu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: taito.s05c
+    phase: pregnancy
+    sort_order: 57
+    title: 妊婦歯科健康診査を受ける（妊娠中に1回・無料）
+    detail: 区内在住の妊婦が対象。内容は問診・口の中の診査・歯科保健指導。会場は区内の委託歯科医療機関（区のページに一覧のPDFがある）。受診票と案内は、母子健康手帳と一緒にもらう袋に入っている。問い合わせは台東保健所保健サービス課 母子成人保健担当 03-3847-9449。
+    trigger_document_id: taito.shika_kenshin_ticket
+    channel: 区内の委託歯科医療機関
+    action_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/kenkoushinsa/ninshinchu/ninnpu.html
+    deadline_note: 妊娠中に1回。安定期の体調のよいときに
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/kenkoushinsa/ninshinchu/ninnpu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: taito.s06d
+    phase: pregnancy
+    sort_order: 66
+    title: （台東区の国民健康保険の人）産前産後の国民健康保険料の軽減を届け出る
+    detail: 出産する人の均等割額と所得割額の全額が、単胎なら4か月（出産（予定）日の月の前月から翌々月まで）、多胎なら6か月（3か月前から翌々月まで）軽減される。妊娠85日（4か月）以上の出産が対象。窓口は区役所2階12番窓口の国民健康保険課資格係（03-5246-1252）。郵送でも届け出できる（電話すると届出一式と返信用封筒が送られてくる）。必要なものは、本人確認書類、マイナンバーが確認できる物、母子健康手帳など。
+    trigger_document_id: taito.hoken_bag
+    channel: 窓口 / 郵送
+    action_url: https://www.city.taito.lg.jp/kurashi/zeikin/kokuminkenkohoken/hokenryou/sanzensango.html
+    deadline_note: 出産予定日の6か月前から申請できる。出産後も届け出できるが、早めに
+    source_url: https://www.city.taito.lg.jp/kurashi/zeikin/kokuminkenkohoken/hokenryou/sanzensango.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: taito.s08c
+    phase: birth
+    sort_order: 71
+    title: 新生児聴覚検査を受ける
+    detail: 赤ちゃんの耳のきこえの検査。台東区に住民登録のある、生後50日に達していない赤ちゃんが対象。公費負担額は3,000円。受診票は都内の委託医療機関で使える。都外で自費で受けたときは、あとから費用の一部の助成を申請できる。
+    trigger_document_id: taito.shinseiji_choukaku_ticket
+    channel: 医療機関
+    deadline_note: 生後50日に達するまで
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/kenkoushinsa/sinseijityoukaku.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: taito.s07b
+    phase: postpartum
+    sort_order: 72
+    title: 台東区の出産費用助成（一律5万円）を申請する
+    detail: 出産日当日に台東区に住民票がある産婦に、一律5万円が助成される（妊娠12週（85日）以降の流産・死産も対象）。病院での自己負担が0円でも対象で、保健師などとの面談は要らない。Logoフォーム（区の電子申請）か「たいとうおやこ手帳アプリ」から、産婦本人が申請する。本人確認書類、振込先口座の通帳かキャッシュカード、出産したことがわかる書類（領収書、分娩・出産明細書、出産育児一時金の支給決定通知書など）の画像を付ける。申請した月の翌々月末ごろに振り込まれる。出産前には申請できない。
+    trigger_document_id: jp.hospital_receipt
+    channel: オンライン（Logoフォーム / たいとうおやこ手帳アプリ）
+    action_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/syussanhiyoujyosei.html
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    deadline_note: 出産日から1年間（子どもの1歳の誕生日の前日まで）。期限を過ぎると、どんな理由でも対象外
+    survey_question_id: cost_paid
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/syussanhiyoujyosei.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: taito.s07c
+    phase: postpartum
+    sort_order: 75
+    title: 出生通知書を出し、こんにちは赤ちゃん訪問を受ける
+    detail: 赤ちゃんが生まれたすべての家庭を、保健師か助産師が訪問する（無料）。対象は区内在住で生後4か月を迎えるまでの赤ちゃんがいる家庭。生まれたあと、できれば2週間以内に「出生通知書（赤ちゃん訪問連絡票）」を電子申請で出す（難しければ電話でもよい）。体重測定、育児や産後の体調の相談、健診や予防接種の案内がある。里帰り先での訪問を希望するときは、出生通知書に書く。連絡先は台東保健所保健サービス課 03-3847-9497、浅草保健相談センター 03-3844-8172。
+    trigger_document_id: taito.hoken_bag
+    produces_document_id: taito.akachan_homon_annai
+    channel: オンライン（電子申請）/ 電話 → 自宅に訪問
+    action_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/shussan/shinseijihomonshido.html
+    deadline_note: 出生通知書は、できれば生まれてから2週間以内に
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/shussan/shinseijihomonshido.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: taito.s08
+    overrides_step_id: jp.s08
+    phase: postpartum
+    sort_order: 80
+    title: 妊婦のための支援給付（2回目・子ども1人につき5万円）を申請する
+    detail: 申請の時点で台東区に住民票のある産婦が対象（令和7年4月1日以降の出生分から）。今回妊娠した子ども1人につき5万円（流産・死産を含む）。申請方法は、こんにちは赤ちゃん訪問のときに案内される。現金給付で、本人名義の口座に振り込まれる。台東区やほかの自治体で、子育て応援ギフトか支援給付2回目を受け取っていない人に限る。
+    trigger_document_id: taito.akachan_homon_annai
+    channel: 訪問のときの案内に沿って申請
+    deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/ninpusienkyufu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: taito.s08b
+    phase: postpartum
+    sort_order: 82
+    title: 産婦健康診査を受ける（2回まで）
+    detail: 台東区に住民登録と妊娠届があり、令和8年10月1日以降に受ける人が対象（令和8年9月30日以前の受診は対象外）。産婦1人につき2回まで、1回の助成上限は5,000円。受診票は、東京都が委託契約している医療機関・助産所で使える。内容は問診、診察、体重・血圧測定、尿検査、アンケート。
+    trigger_document_id: taito.sanpu_kenshin_ticket
+    channel: 医療機関・助産所
+    deadline_note: 受診票の有効期限は出産後2か月以内。目安は産後2週間ごろ（1回目）と産後1か月ごろ（2回目）
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/kenkoushinsa/taitosanpu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: taito.s08d
+    phase: postpartum
+    sort_order: 83
+    title: 1か月児健康診査を受ける（1回）
+    detail: 台東区に住民登録がある赤ちゃんが対象で、令和8年10月1日以降の受診から助成される（令和8年9月30日以前の受診は対象外）。1人につき1回まで、助成上限は6,000円。受診票は、東京都が委託契約している医療機関で使える。受けるときは母子健康手帳を持っていく。
+    trigger_document_id: taito.ikkagetsuji_kenshin_ticket
+    channel: 医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 41
+    deadline_note: 生後28日から生後41日まで（出生日を0日と数える）
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/kenkoushinsa/1kagetu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: taito.s08e
+    phase: postpartum
+    sort_order: 84
+    title: （都外や一部の助産所で健診を自費で受けた人）健診費用の助成を申請する
+    detail: 里帰り出産などで受診票が使えず、妊婦健診・産婦健診・新生児聴覚検査・1か月児健診を自費で受けた人に、費用の一部が助成される（産婦健診と1か月児健診は令和8年10月の受診分から）。令和8年度の上限は、妊婦健診1回目11,670円、2〜14回目各5,460円、子宮頸がん検診3,400円、超音波検査各5,300円、新生児聴覚検査3,000円、産婦健診各5,000円、1か月児健診6,000円。助産所は妊婦健診2〜14回目と産婦健診2回だけが対象。申請は郵送で、まとめて1回だけ。送り先は浅草保健相談センター庶務担当（〒111-0033 花川戸2-11-10）。申請書、未使用の受診票、領収書と明細書、母子健康手帳の写しが必要。審査のうえ、申請月の翌々月末ごろに振り込まれる。
+    trigger_document_id: taito.kenshin_ticket
+    channel: 郵送
+    action_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/iryohijosei/satogaerijyosei.html
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    deadline_note: 出産した子の1歳の誕生日の前日まで（必着）
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/iryohijosei/satogaerijyosei.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+subsidies:
+  - id: taito.shien_kyufu_1
+    name: 妊婦のための支援給付（1回目）
+    kind: cash_later
+    amount_yen: 50000
+    amount_note: 妊婦1人につき5万円。現金給付で、本人名義の口座に振り込まれる（ゆりかご・たいとう面接の実施後）。
+    conditions: 申請の時点で台東区に住民票のある妊婦。令和7年4月1日以降のゆりかご・たいとう面接から。台東区やほかの自治体で出産応援ギフトか支援給付1回目を受け取っていない人。妊娠届を出す前に流産した人も対象。
+    apply_via: ゆりかご・たいとう面接のあとに案内される申請フォーム
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/ninpusienkyufu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: taito.shien_kyufu_2
+    name: 妊婦のための支援給付（2回目）
+    kind: cash_later
+    amount_formula: "50000 * children"
+    amount_note: 今回妊娠した子ども1人につき5万円（流産・死産を含む）。現金給付で、本人名義の口座に振り込まれる（こんにちは赤ちゃん訪問の実施後）。
+    conditions: 申請の時点で台東区に住民票のある産婦。令和7年4月1日以降の出生分から。台東区やほかの自治体で子育て応援ギフトか支援給付2回目を受け取っていない人。
+    apply_via: こんにちは赤ちゃん訪問のときに案内される
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/ninpusienkyufu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: taito.shussanhi
+    name: 台東区 出産費用助成
+    kind: cash_later
+    amount_yen: 50000
+    amount_note: 産婦1人につき一律5万円（子どもの人数ではなく、産婦1人あたり）。病院での自己負担額が0円でも対象。銀行振込だけ。
+    conditions: 出産日当日に台東区内に住民票がある産婦。妊娠12週（85日）以降の流産・死産も対象。出産後に転入した人は対象外、出産後に転出した人は対象。
+    apply_via: Logoフォームで電子申請（たいとうおやこ手帳アプリからも申請できる）。申請者は産婦本人
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/syussanhiyoujyosei.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: taito.kouketsuatsu
+    name: 妊娠高血圧症候群等の医療費助成
+    kind: conditional
+    amount_note: 医療保険を使って入院治療した場合の自己負担額を、医療券（契約医療機関）か、あとからの払い戻しで助成。入院時の食事代（標準負担額）と文書料は対象外。
+    conditions: 台東区に住民登録があり、妊娠高血圧症候群とその関連疾患・糖尿病と妊娠糖尿病・貧血・産科出血・心疾患のいずれかで、認定基準を満たし入院治療が必要な人。前年の所得税額が30,000円以下の世帯、または入院見込み期間が26日以上。
+    apply_via: 台東保健所保健サービス課 母子成人保健担当（東上野4-22-8 台東保健所2階）の窓口か郵送。診断書の発行日から3か月以内に申請する。
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/ninshin/teate_josei/ninshinchudoku.html
+    verified_at: 2026-09-20
+    needs_review: true

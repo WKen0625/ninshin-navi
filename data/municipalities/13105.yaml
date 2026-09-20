@@ -1,0 +1,265 @@
+# 文京区（全国地方公共団体コード 13105）  確認日: 2026-09-20
+# 区の公式サイト（city.bunkyo.lg.jp）で読めた内容だけを入れた。全行が人の承認待ち（needs_review: true）。
+# 根拠の引用は docs/research/13105.md。
+# 区独自の出産費用の助成・出産祝い金は、区のサイトでは見つからなかった（入れていない）。
+
+region:
+  code: "13105"
+  level: municipality
+  name: 文京区
+  parent_code: "13"
+  status: in_progress
+  verified_at: 2026-09-20
+
+documents:
+  - id: bunkyo.hoken_bag
+    name: 母と子の保健バッグ（文京区。母子健康手帳と一緒に受け取る袋）
+    aliases: [保健バッグ, 母子手帳のセット]
+    # この袋を持っていれば、中の紙も持っている扱いにする
+    includes:
+      - jp.boshi_techo
+      - jp.kenshin_ticket
+      - bunkyo.kenshin_ticket
+      - bunkyo.shika_kenshin_ticket
+      - bunkyo.shinseiji_choukaku_ticket
+      - bunkyo.sanpu_kenshin_ticket          # 令和8年4月1日以降に妊娠届を出した人
+      - bunkyo.ikkagetsuji_kenshin_ticket    # 令和8年4月1日以降に妊娠届を出した人
+      - bunkyo.shien_kyufu_annai
+      - bunkyo.shussei_tsuchihyo
+    phase: notification
+    description: 妊娠届を出すと、母子健康手帳と一緒に受け取る。妊婦健康診査受診票や各種の案内、マタニティマークストラップなどが入っている。
+    source_url: https://www.city.bunkyo.lg.jp/b027/p001524.html
+    verified_at: 2026-09-20
+  - id: bunkyo.kenshin_ticket
+    name: 妊婦健康診査受診票（文京区）
+    aliases: [受診票, 補助券]
+    phase: notification
+    description: 妊婦健康診査受診票14回分、妊婦超音波検査受診票4回分、妊婦子宮頸がん検診受診票1回分。原則として再発行できない。
+    source_url: https://www.city.bunkyo.lg.jp/b027/p001525/index.html
+    verified_at: 2026-09-20
+  - id: bunkyo.shika_kenshin_ticket
+    name: 妊婦歯周疾患検診の受診票（文京区）
+    aliases: [歯科の受診票]
+    phase: pregnancy
+    description: 「母と子の保健バッグ」に同封されている。区内の指定歯科医療機関でだけ使える。
+    source_url: https://www.city.bunkyo.lg.jp/b027/p001531.html
+    verified_at: 2026-09-20
+  - id: bunkyo.shinseiji_choukaku_ticket
+    name: 新生児聴覚検査受診票（文京区）
+    phase: birth
+    description: 妊娠届のときに配られる。生後50日に達する日までに受けた初回検査の費用を、上限3,000円まで助成。
+    source_url: https://www.city.bunkyo.lg.jp/b027/p001532.html
+    verified_at: 2026-09-20
+  - id: bunkyo.sanpu_kenshin_ticket
+    name: 産婦健康診査受診票（文京区）
+    phase: postpartum
+    description: 令和8年4月1日以降に妊娠届を出した人は「母と子の保健バッグ」に入っている。都内の契約医療機関・助産所で、令和8年10月以降の受診に使う。2回まで。
+    source_url: https://www.city.bunkyo.lg.jp/b027/p007569.html
+    verified_at: 2026-09-20
+  - id: bunkyo.ikkagetsuji_kenshin_ticket
+    name: 1か月児健康診査受診票（文京区）
+    phase: postpartum
+    description: 令和8年4月1日以降に妊娠届を出した人は「母と子の保健バッグ」に入っている。都内の契約医療機関で、令和8年10月以降の受診に使う。1回。
+    source_url: https://www.city.bunkyo.lg.jp/b027/p007571.html
+    verified_at: 2026-09-20
+  - id: bunkyo.shien_kyufu_annai
+    name: 妊婦のための支援給付の案内チラシ（文京区。電子申請フォームがのっている）
+    aliases: [支援給付のチラシ]
+    phase: pregnancy
+    description: 令和7年4月1日以降に妊娠届を出した人は、1回目・2回目とも「母と子の保健バッグ」に同封。それより前に妊娠届を出した人は、2回目の案内チラシを、こんにちは赤ちゃん訪問のときに受け取る。
+    source_url: https://www.city.bunkyo.lg.jp/b027/p007561.html
+    verified_at: 2026-09-20
+  - id: bunkyo.shussei_tsuchihyo
+    name: 出生通知票（文京区。こんにちは赤ちゃん訪問の申し込みはがき）
+    phase: postpartum
+    description: 「母と子の保健バッグ」または母子健康手帳に入っている。赤ちゃんが生まれたらすぐに郵送する。
+    source_url: https://www.city.bunkyo.lg.jp/b029/p001542.html
+    verified_at: 2026-09-20
+
+steps:
+  - id: bunkyo.s03
+    overrides_step_id: jp.s03
+    phase: notification
+    sort_order: 30
+    title: 妊娠届を出し、母子健康手帳と「母と子の保健バッグ」を受け取る
+    detail: 窓口は保健サービスセンター（文京シビックセンター8階）と保健サービスセンター本郷支所（月〜金の8時30分〜17時）。予約は不要。区民サービスコーナーでは平日の夜や土日祝日も受け取れるが、保健師はいない。持ち物は、届け出る人の本人確認書類と、妊婦本人の個人番号（マイナンバー）確認書類。同じ世帯でない人が行くときは委任状も必要。LoGoフォーム（区の電子申請）で先に妊娠届を出せるが、その場合も、住んでいる地区を受け持つ保健サービスセンターへ母子健康手帳を受け取りに行く。母子健康手帳を受け取る前の健診費用は助成されない。
+    trigger_document_id: jp.heartbeat_confirmed
+    produces_document_id: bunkyo.hoken_bag
+    channel: 保健サービスセンター / 本郷支所 / 区民サービスコーナー（電子申請のあと来所）
+    action_url: https://www.city.bunkyo.lg.jp/b027/p001524.html
+    deadline_note: 妊娠の診断を受けたら早めに（区のページに日付の期限は記載なし）
+    source_url: https://www.city.bunkyo.lg.jp/b027/p001524.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: bunkyo.s03b
+    phase: pregnancy
+    sort_order: 35
+    title: ネウボラ面接（妊婦面接）を受ける
+    detail: 母子保健コーディネーター（保健師）との面接。保健サービスセンターか本郷支所で妊婦本人が妊娠届を出したときは、その場で受けられる（予約不要）。区民サービスコーナーで届け出た人、本人以外が届け出た人、転入した人は、妊娠中に母子健康手帳を持って、8時30分〜17時に受け持ちの保健サービスセンターへ行く（予約不要）。面接を受けた妊婦は「育児パッケージ（子ども商品券）」を受け取れる（金額は区のページ本文に記載なし）。問い合わせは保健サービスセンター 03-5803-1807、本郷支所 03-3821-5106。
+    trigger_document_id: bunkyo.hoken_bag
+    channel: 保健サービスセンター / 本郷支所
+    action_url: https://www.city.bunkyo.lg.jp/b029/p001562.html
+    deadline_base: due_date
+    deadline_offset_days: 0
+    deadline_note: 妊娠中に受ける。産後の人は対象外
+    source_url: https://www.city.bunkyo.lg.jp/b029/p001562.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: bunkyo.s05
+    overrides_step_id: jp.s05
+    phase: pregnancy
+    sort_order: 50
+    title: 妊婦のための支援給付（1回目・5万円）を申請する
+    detail: 文京区に住民登録があり、令和7年4月1日以降に妊娠している人が対象（妊娠とは、医療機関で胎児の心拍が確認されていること）。妊娠が確定したあとから、LoGoフォームで電子申請する。フォームは「母と子の保健バッグ」に入っている案内チラシにのっている。申請した月の翌々月の月末ごろに、申請者（妊婦）名義の口座に振り込まれる。ほかの市区町村で受け取っている場合は対象外。流産・死産などの場合も対象になるので、健康推進課健康増進係（03-5803-1961）に問い合わせる。
+    trigger_document_id: bunkyo.shien_kyufu_annai
+    channel: オンライン（LoGoフォーム）
+    action_url: https://www.city.bunkyo.lg.jp/b027/p007561.html
+    deadline_base: confirmation_date
+    deadline_offset_days: 730
+    deadline_note: 妊娠確定日から2年以内
+    source_url: https://www.city.bunkyo.lg.jp/b027/p007561.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: bunkyo.s05c
+    phase: pregnancy
+    sort_order: 57
+    title: 妊婦歯周疾患検診（妊娠中の歯ぐきの検診）を受ける
+    detail: 文京区に住んでいる妊婦が対象。「母と子の保健バッグ」に入っている受診票を使い、区の名簿にある区内の指定歯科医療機関で受ける。内容は歯周組織検査（歯ぐきの検査）、口腔内検査、保健指導。区外では使えず、払い戻しの制度もない。問い合わせは健康推進課保健係 03-5803-1229。
+    trigger_document_id: bunkyo.shika_kenshin_ticket
+    channel: 区内の指定歯科医療機関
+    action_url: https://www.city.bunkyo.lg.jp/b027/p001531.html
+    source_url: https://www.city.bunkyo.lg.jp/b027/p001531.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: bunkyo.s06d
+    phase: pregnancy
+    sort_order: 66
+    title: （文京区の国民健康保険の人）産前産後期間の国民健康保険料の軽減を確認する
+    detail: 出産予定日または出産日の月の前月から4か月間（多胎は3か月前から6か月間）の所得割額と均等割額が免除される。妊娠85日以上の出産が対象。文京区に出産育児一時金を申請した人は自動で軽減され、届け出は要らない。文京区に出産育児一時金を申請していない人は別に申請が必要なので、国保年金課国保資格係（050-1725-5006・自動応答）に問い合わせる。
+    trigger_document_id: bunkyo.hoken_bag
+    channel: 国保年金課国保資格係（文京シビックセンター11階）
+    deadline_note: 期限は区のページに記載なし
+    source_url: https://www.city.bunkyo.lg.jp/b021/p000425.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: bunkyo.s08c
+    phase: birth
+    sort_order: 71
+    title: 新生児聴覚検査を受ける
+    detail: 赤ちゃんの耳のきこえの検査。初回検査の費用を上限3,000円まで助成。受けるときは新生児聴覚検査受診票、母子健康手帳、マイナ保険証を持っていく。都外や契約していない医療機関で受けたときは、あとから払い戻しを申請できる。
+    trigger_document_id: bunkyo.shinseiji_choukaku_ticket
+    channel: 医療機関
+    deadline_note: 生後50日に達する日までに受けた初回検査が対象
+    source_url: https://www.city.bunkyo.lg.jp/b027/p001532.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: bunkyo.s07c
+    phase: postpartum
+    sort_order: 75
+    title: 出生通知票を郵送し、こんにちは赤ちゃん訪問（新生児訪問）を受ける
+    detail: 赤ちゃんが生まれたすべての家庭を、助産師か保健師が訪問する（無料）。対象は区内在住で生後4か月までの赤ちゃんと保護者。生まれたらすぐに「出生通知票」を郵送すると、日程調整の電話が来る。体重測定、育児や産後の体調の相談ができる。令和7年3月31日以前に妊娠届を出した人は、この訪問のときに支援給付2回目の案内チラシを受け取る。
+    trigger_document_id: bunkyo.shussei_tsuchihyo
+    channel: 郵送（出生通知票）→ 自宅に訪問
+    action_url: https://www.city.bunkyo.lg.jp/b029/p001542.html
+    deadline_note: 赤ちゃんが生まれたらすぐに郵送。訪問の対象は生後4か月まで
+    source_url: https://www.city.bunkyo.lg.jp/b029/p001542.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: bunkyo.s08
+    overrides_step_id: jp.s08
+    phase: postpartum
+    sort_order: 80
+    title: 妊婦のための支援給付（2回目・胎児1人あたり5万円）を申請する
+    detail: 文京区に住民登録があり、令和7年4月1日以降に出産した人が対象。出産後から、LoGoフォームで電子申請する。フォームは「母と子の保健バッグ」の案内チラシにのっている（令和7年3月31日以前に妊娠届を出した人は、こんにちは赤ちゃん訪問のときにチラシを受け取る）。申請した月の翌々月の月末ごろに、申請者（産婦）名義の口座に振り込まれる。問い合わせは健康推進課健康増進係 03-5803-1961。
+    trigger_document_id: bunkyo.shien_kyufu_annai
+    channel: オンライン（LoGoフォーム）
+    action_url: https://www.city.bunkyo.lg.jp/b027/p007561.html
+    deadline_base: due_date
+    deadline_offset_days: 674
+    deadline_note: 出産予定日の8週間前から2年以内（予定日より前に出産・死産・流産などをした場合は、その日から2年以内）
+    source_url: https://www.city.bunkyo.lg.jp/b027/p007561.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: bunkyo.s08b
+    phase: postpartum
+    sort_order: 82
+    title: 産婦健康診査を受ける（2回まで）
+    detail: 区内に住む産後2か月以内の産婦が対象（流産・死産の場合も対象）。令和8年4月1日以降に出産した人から助成が始まった。令和8年10月以降は、都内の契約医療機関・助産所で受診票を出して受ける。令和8年9月までの受診や、都外など契約外で受けた分は、あとから払い戻し（上限は1回5,000円）。持ち物は母子健康手帳とマイナ保険証（または資格確認書）。
+    trigger_document_id: bunkyo.sanpu_kenshin_ticket
+    channel: 医療機関・助産所
+    deadline_note: 目安は産後2週間ごろ（1回目）と産後1か月ごろ（2回目）。原則として産後2か月以内
+    source_url: https://www.city.bunkyo.lg.jp/b027/p007569.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: bunkyo.s08d
+    phase: postpartum
+    sort_order: 83
+    title: 1か月児健康診査を受ける（1回）
+    detail: 令和8年4月1日以降に生まれた赤ちゃんから助成が始まった。令和8年10月以降は、都内の契約医療機関で受診票を出して受ける。令和8年9月までの受診や、都外など契約外で受けた分は、あとから払い戻し（上限6,000円）。持ち物は母子健康手帳とマイナ保険証（または資格確認書）。
+    trigger_document_id: bunkyo.ikkagetsuji_kenshin_ticket
+    channel: 医療機関
+    deadline_note: 対象は、出生後27日を超え、生後6週に達しない赤ちゃん
+    source_url: https://www.city.bunkyo.lg.jp/b027/p007571.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: bunkyo.s08e
+    phase: postpartum
+    sort_order: 84
+    title: （都外や契約外の医療機関・助産所で健診を受けた人）健診費用の払い戻しを申請する
+    detail: 区の受診票が使えない国内の医療機関などで、自分で払った妊婦健診などの費用の一部が戻る（償還払い＝あとから口座に振り込まれること）。令和8年度の上限は、妊婦健診1回目11,670円、2〜14回目各5,460円、超音波検査各5,300円（4回分）、子宮頸がん検診3,400円、新生児聴覚検査3,000円、産婦健診各5,000円（2回分）、1か月児健診6,000円。助産所は妊婦健診2〜14回目と産婦健診だけが対象。出産後にまとめて、健康推進課健康増進係（文京シビックセンター8階南側）の窓口か郵送で申請する。未使用の受診票、領収書、母子健康手帳、印鑑、振込口座のわかるものなどが必要。
+    trigger_document_id: bunkyo.kenshin_ticket
+    channel: 窓口 / 郵送（期限内必着）
+    action_url: https://www.city.bunkyo.lg.jp/b027/p001526.html
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    deadline_note: 出産日から1年以内（満1歳の誕生日の前日まで）
+    source_url: https://www.city.bunkyo.lg.jp/b027/p001526.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+subsidies:
+  - id: bunkyo.shien_kyufu_1
+    name: 妊婦のための支援給付（1回目）
+    kind: cash_later
+    amount_yen: 50000
+    amount_note: 申請した月の翌々月の月末ごろに、申請者名義の口座に振り込まれる。
+    conditions: 文京区に住民登録があり、令和7年4月1日以降に妊娠している人（医療機関で胎児の心拍が確認されていること）。令和7年3月31日までに妊娠届を出し、出産応援ギフトを申請済みの人は対象外。ほかの市区町村で受け取っている場合も対象外。
+    apply_via: LoGoフォームで電子申請（案内チラシは「母と子の保健バッグ」に同封）。問い合わせ 健康推進課健康増進係 03-5803-1961
+    deadline_base: confirmation_date
+    deadline_offset_days: 730
+    source_url: https://www.city.bunkyo.lg.jp/b027/p007561.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: bunkyo.shien_kyufu_2
+    name: 妊婦のための支援給付（2回目）
+    kind: cash_later
+    amount_formula: "50000 * children"
+    amount_note: 胎児1人あたり5万円。申請した月の翌々月の月末ごろに、申請者名義の口座に振り込まれる。
+    conditions: 文京区に住民登録があり、令和7年4月1日以降に出産した人。ほかの市区町村で受け取っている場合は対象外。
+    apply_via: LoGoフォームで電子申請（案内チラシは「母と子の保健バッグ」に同封。令和7年3月31日以前に妊娠届を出した人は、こんにちは赤ちゃん訪問のときに受け取る）
+    deadline_base: due_date
+    deadline_offset_days: 674
+    source_url: https://www.city.bunkyo.lg.jp/b027/p007561.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: bunkyo.kouketsuatsu
+    name: 妊娠高血圧症候群等医療費助成
+    kind: conditional
+    amount_note: 認定基準を満たす病気の入院治療の自己負担額を助成（医療券の有効期限内のものに限る）。入院時の食事療養費は対象外。
+    conditions: 文京区に住所登録のある妊産婦で、妊娠高血圧症候群とその関連疾病・糖尿病と妊娠糖尿病・貧血・産科出血・心疾患のいずれかで入院治療が必要な人。前年分の世帯の総所得税額が30,000円以下、または入院見込み期間が26日以上。
+    apply_via: 健康推進課健康増進係（03-5803-1961）へ郵送または窓口。原則、入院前か入院中に申請。やむを得ず退院後になる場合は、退院日から3か月以内（遅延理由書が必要）。
+    source_url: https://www.city.bunkyo.lg.jp/b027/p001529.html
+    verified_at: 2026-09-20
+    needs_review: true

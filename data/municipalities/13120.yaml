@@ -1,0 +1,276 @@
+# 練馬区（全国地方公共団体コード 13120）  確認日: 2026-09-20
+# 区の公式サイト（city.nerima.tokyo.jp）で読めた内容だけを入れた。全行が人の承認待ち（needs_review: true）。
+# 根拠の引用は docs/research/13120.md にある。
+# 出産費用そのものの助成は見つからなかった。区独自の現金給付として「第3子誕生祝金」があるので、条件つき（conditional）で入れた。
+
+region:
+  code: "13120"
+  level: municipality
+  name: 練馬区
+  parent_code: "13"
+  status: in_progress
+  verified_at: 2026-09-20
+
+documents:
+  - id: nerima.hoken_bag
+    name: 母子健康手帳セット（練馬区。母子健康手帳と「母と子の保健バッグ」）
+    aliases: [母と子の保健バッグ, 保健バッグ, 母子手帳のセット]
+    # この袋を持っていれば、中の紙も持っている扱いにする
+    includes:
+      - jp.boshi_techo
+      - jp.kenshin_ticket
+      - nerima.kenshin_ticket
+      - nerima.shinseiji_choukaku_ticket
+      - nerima.sanpu_kenshin_ticket          # 令和8年4月1日以降に母子健康手帳を受け取った人。それより前の人には郵送
+      - nerima.ikkagetsuji_kenshin_ticket    # 同上
+    phase: notification
+    description: 妊娠届を出すと受け取る。母子健康手帳、赤ちゃん訪問連絡票（出生通知票）、母と子の保健バッグ（妊婦健康診査受診票・妊婦超音波検査受診票・妊婦子宮頸がん検診受診票・新生児聴覚検査受診票・産婦健康診査受診票・1か月児健康診査受診票、赤ちゃん準備教室の案内、妊産婦歯科健診の案内、里帰り出産等妊婦健康診査費等助成の案内、ねりま子育て応援ハンドブック、マタニティストラップなど）。
+    source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/boshitecho.html
+    verified_at: 2026-09-20
+  - id: nerima.kenshin_ticket
+    name: 妊婦健康診査受診票（練馬区）
+    aliases: [受診票, 補助券]
+    phase: notification
+    description: 妊婦健康診査14回分（令和8年度の助成上限額は1回目11,670円、2〜14回目は各5,460円）、妊婦超音波検査4回分（各5,300円）、妊婦子宮頸がん検診1回分（3,400円）。都内の契約医療機関と、埼玉県の一部の医療機関（新座市の牧田産婦人科医院・大塚産婦人科小児科医院、和光市の国立病院機構埼玉病院、所沢市の瀬戸病院）で使える。令和6年10月1日以降に妊娠届を出した人は、都内の一部の助産所でも使える（原則7回まで）。
+    source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/kenkoshinsa.html
+    verified_at: 2026-09-20
+  - id: nerima.shinseiji_choukaku_ticket
+    name: 新生児聴覚検査受診票（練馬区）
+    phase: birth
+    description: 妊婦健康診査受診票と一緒に渡される。検査費用のうち3,000円を上限に助成。
+    source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/sinseijicyoukaku.html
+    verified_at: 2026-09-20
+  - id: nerima.sanpu_kenshin_ticket
+    name: 産婦健康診査受診票（練馬区・2回分）
+    phase: postpartum
+    description: 令和8年4月1日以降に母子健康手帳を受け取った人は「母と子の保健バッグ」に入っている。使えるのは令和8年10月1日以降。令和8年3月31日までに母子健康手帳を受け取った人で、10月1日以降に受診しそうな人には郵送される予定。届いていない人は母子保健係（03-5984-4621）に連絡する。
+    source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/sannpu10gatuikou.html
+    verified_at: 2026-09-20
+  - id: nerima.ikkagetsuji_kenshin_ticket
+    name: 1か月児健康診査受診票（練馬区・1回分）
+    phase: postpartum
+    description: 令和8年4月1日以降に母子健康手帳を受け取った人は「母と子の保健バッグ」に入っている。使えるのは令和8年10月1日以降。それより前に母子健康手帳を受け取った人には郵送されている。届いていない人は母子保健係（03-5984-4621）に連絡する。
+    source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/nyuyoji/ikkagetuji10gatuikou.html
+    verified_at: 2026-09-20
+  - id: nerima.shien_kyufu_annai_1
+    name: ねりママ出産応援金〈妊婦支援給付金・1回目〉の申請案内（練馬区。妊婦面談で受け取る二次元コード）
+    phase: pregnancy
+    description: 妊娠・子育て相談員との面談（妊婦面談）のときに案内される。二次元コードから電子申請する。
+    source_url: https://www.city.nerima.tokyo.jp/kosodatekyoiku/shussan/nerimama.html
+    verified_at: 2026-09-20
+  - id: nerima.akachan_homon_annai
+    name: ねりママ子育て応援金〈妊婦支援給付金・2回目〉の申請案内（練馬区。こんにちは赤ちゃん訪問で受け取る）
+    phase: postpartum
+    description: こんにちは赤ちゃん訪問を受けた人に渡される。二次元コードから電子申請する。
+    source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/homon.html
+    verified_at: 2026-09-20
+
+steps:
+  - id: nerima.s03
+    overrides_step_id: jp.s03
+    phase: notification
+    sort_order: 30
+    title: 妊娠届を出し、母子健康手帳セットを受け取る
+    detail: 医療機関で妊娠の確定診断（胎児心拍の確認）を受けたら届け出る。妊娠・子育て相談員がいて、届出と同時に面談（40分程度）ができる窓口は、保健相談所（豊玉・北・光が丘・石神井・大泉・関。月〜金の8時30分〜17時）と、健康推進課（区役所東庁舎6階）、予約制の土曜日臨時交付窓口（第2・第4土曜）。地域子ども家庭支援センター（練馬・光が丘・大泉・関。月〜土の9時〜17時）でも届け出できるが、面談は後日、保健相談所で受ける。持ち物は、妊婦の個人番号（マイナンバー）がわかるもの1点と本人確認書類。妊婦本人がマイナンバーカードを持っていれば、ぴったりサービス（マイナポータル）で電子申請もできる。その場合は、母子健康手帳セットを送ってもらうためのレターパックプラス（未使用のもの）を母子保健係に送る。
+    trigger_document_id: jp.heartbeat_confirmed
+    produces_document_id: nerima.hoken_bag
+    channel: 窓口（保健相談所など） または オンライン（ぴったりサービス）
+    action_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/boshitecho.html
+    deadline_note: 医療機関で妊娠の確定診断（胎児心拍の確認）を受けたら。いつまでにという日付は区のページに記載なし
+    source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/boshitecho.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: nerima.s03b
+    phase: pregnancy
+    sort_order: 35
+    title: 妊娠・子育て相談員との面談（妊婦面談）を受ける
+    detail: 保健相談所・健康推進課・土曜日臨時交付窓口で妊娠届を出した人は、届出と同時に面談を受ける。地域子ども家庭支援センターや代理・電子申請で届け出た人は、後日、母子健康手帳セット一式を持って、担当の保健相談所で面談を受ける。面談を受けた妊婦は、育児パッケージ（1万円相当の電子ギフト。受け取り期限は令和9年4月30日）と、ねりママ出産応援金〈妊婦支援給付金〉の案内を受け取る。ギフトは再発行できない。問い合わせ 健康推進課 出産・子育て応援担当係 03-5984-1336。
+    trigger_document_id: nerima.hoken_bag
+    produces_document_id: nerima.shien_kyufu_annai_1
+    channel: 保健相談所 / 健康推進課（区役所東庁舎6階）
+    action_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/ikupake.html
+    deadline_base: due_date
+    deadline_offset_days: 0
+    deadline_note: 妊娠中に面談した人がギフトの対象（やむを得ない理由で面談できなかった人は、担当係に相談する）
+    source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/ikupake.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: nerima.s05
+    overrides_step_id: jp.s05
+    phase: pregnancy
+    sort_order: 50
+    title: ねりママ出産応援金〈妊婦支援給付金・1回目・5万円〉を電子申請する
+    detail: 妊婦面談のときに案内される二次元コードから電子申請する。申請日に練馬区に住民票がある妊婦が対象。現金（妊婦本人名義の口座に振込）か、ギフトカードを選ぶ。流産・死産などを経験した人も対象（出産・子育て応援担当係に連絡する）。問い合わせ 健康推進課 出産・子育て応援担当係 03-5984-1336。
+    trigger_document_id: nerima.shien_kyufu_annai_1
+    channel: オンライン（電子申請）
+    deadline_base: confirmation_date
+    deadline_offset_days: 730
+    deadline_note: 医療機関で胎児心拍が確認された日から2年
+    source_url: https://www.city.nerima.tokyo.jp/kosodatekyoiku/shussan/nerimama.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: nerima.s05c
+    phase: pregnancy
+    sort_order: 57
+    title: 妊産婦歯科健康診査を受ける（無料・1回）
+    detail: 妊娠中から産後1年未満の間に、1回無料で受けられる。区のページにある健診実施会場（歯科医院）に、自分で直接電話して予約する。持ち物は母子健康手帳と、住所が確認できる書類（マイナンバーカード、運転免許証など）。内容は問診、口の中の診査、総合判定、歯みがき指導。
+    trigger_document_id: nerima.hoken_bag
+    channel: 区の健診実施会場（歯科医院）
+    action_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/kenkoshinsa/ninsanpushikakenshin/ninpusikakensinn.html
+    deadline_note: 妊娠中から産後1年未満の間に1回
+    source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/kenkoshinsa/ninsanpushikakenshin/ninpusikakensinn.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: nerima.s06d
+    phase: pregnancy
+    sort_order: 66
+    title: （練馬区の国民健康保険の人）産前産後期間の国民健康保険料の減額を届け出る
+    detail: 出産予定月（または出産月）の前月から4か月分（多胎は3か月前から6か月分）の保険料（均等割・所得割）が減額される。妊娠85日（12週）以降の出産が対象（死産・流産・早産・人工妊娠中絶を含む）。届出は電子申請（母子健康手帳の画像を添付）、郵送、窓口（国保年金課こくほ資格係・区役所本庁舎3階）の3つ。窓口の持ち物は、母子健康手帳など、出産する人の資格確認書または資格情報のお知らせ、減額届。練馬区あてに出産育児一時金を申請して決定された人は、自動で減額されるので届出はいらない（ただし適用が遅れることがある）。問い合わせ 03-5984-4554。
+    trigger_document_id: nerima.hoken_bag
+    channel: オンライン（電子申請） / 郵送 / 窓口
+    action_url: https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/sannzennsanngo.html
+    deadline_note: 届出の期限は区のページに記載なし
+    source_url: https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/sannzennsanngo.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: nerima.s08c
+    phase: birth
+    sort_order: 71
+    title: 新生児聴覚検査を受ける（受診票を出す）
+    detail: 保険のきかない（自費の）初回の検査（自動ABR方式・OAE方式）が対象で、3,000円を上限に助成。都内の契約医療機関と、区が個別に契約している埼玉県の医療機関では受診票を使う。助産所や都外の医療機関では受診票は使えないので、全額を支払ってから、あとで助成金を申請する（領収書が必要）。検査費用が出産費用に含まれていて自費負担が無い場合は、受診票は使えない。
+    trigger_document_id: nerima.shinseiji_choukaku_ticket
+    channel: 都内の契約医療機関など
+    deadline_base: birth_date
+    deadline_offset_days: 50
+    deadline_note: 赤ちゃんが生後50日に達する日までに受けた検査が対象
+    source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/sinseijicyoukaku.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: nerima.s07c
+    phase: postpartum
+    sort_order: 73
+    title: （3人目以降の出産の人）練馬区の第3子誕生祝金を申請する
+    detail: 第3子以降の出生した子ども1人につき10万円。保護者と子どもたちが、出生日の1年以上前から練馬区に住民登録をしていることなどが条件（1年未満の人は、転入した日から1年以上たてば申請できる）。里帰り出産などで子どもの住民登録を練馬区外にする場合は申請できない。申請は、窓口（区役所本庁舎10階の子育て支援課児童手当係、石神井・光が丘・大泉の総合福祉事務所）、郵送、電子申請（LoGoフォーム。マイナンバーカードとxIDアプリが必要）。窓口の持ち物は身元確認書類と、申請者名義の通帳またはキャッシュカード。問い合わせ 子育て支援課児童手当係 03-5984-5824。
+    trigger_document_id: jp.hospital_receipt
+    channel: 窓口 / 郵送 / オンライン（LoGoフォーム）
+    action_url: https://www.city.nerima.tokyo.jp/kosodatekyoiku/shussan/iwaikin.html
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    deadline_note: 第3子以降の子どもの出生日から1年（転入日から出生日までが1年未満の場合は、転入日の1年後から1年）
+    source_url: https://www.city.nerima.tokyo.jp/kosodatekyoiku/shussan/iwaikin.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: nerima.s08
+    overrides_step_id: jp.s08
+    phase: postpartum
+    sort_order: 80
+    title: ねりママ子育て応援金〈妊婦支援給付金・2回目・子どもの人数×5万円〉を電子申請する
+    detail: 出産後に「赤ちゃん訪問連絡票（出生通知票）」をLoGoフォーム（区の電子申請）かはがきで出すと、助産師・保健師が「こんにちは赤ちゃん訪問」に来る。そのときに案内される二次元コードから電子申請する。届出の日に練馬区に住民票があることが条件。現金（本人名義の口座）かギフトカードを選ぶ。
+    trigger_document_id: nerima.akachan_homon_annai
+    channel: オンライン（電子申請）
+    deadline_base: due_date
+    deadline_offset_days: 674
+    deadline_note: 出産予定日の8週間前の日（それより前に出産・死産・流産した場合はその日）から2年（= 予定日−56日 から 730日間）
+    source_url: https://www.city.nerima.tokyo.jp/kosodatekyoiku/shussan/nerimama.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: nerima.s08b
+    phase: postpartum
+    sort_order: 82
+    title: 産婦健康診査を受ける（2回まで）
+    detail: 1回につき5,000円を上限に、1度の出産で産婦1人につき2回まで助成。令和8年10月1日以降は、受診票を先に医療機関などに出してから受ける（都内の契約医療機関・契約助産所と、埼玉県の一部の医療機関）。令和8年9月30日までの受診は、自己負担で受けたあと、費用助成を申請する。流産・死産の場合も対象。
+    trigger_document_id: nerima.sanpu_kenshin_ticket
+    channel: 医療機関・助産所
+    deadline_base: birth_date
+    deadline_offset_days: 60
+    deadline_note: 出産後2か月（60日）以内
+    source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/sannpu10gatuikou.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: nerima.s08d
+    phase: postpartum
+    sort_order: 83
+    title: 1か月児健康診査を受ける
+    detail: 1回につき6,000円を上限に、1人につき1回助成。令和8年10月1日以降は、受診票を先に医療機関に出してから受ける（都内の契約医療機関と、埼玉県の一部の医療機関。助産所では受けられない）。令和8年9月30日までの受診は、自己負担で受けたあと、費用助成を申請する。
+    trigger_document_id: nerima.ikkagetsuji_kenshin_ticket
+    channel: 医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 41
+    deadline_note: 生後28日から41日まで（出生日を0日目とする）
+    source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/nyuyoji/ikkagetuji10gatuikou.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: nerima.s08e
+    phase: postpartum
+    sort_order: 84
+    title: （都外などで健診を受けた人）里帰り出産等妊婦健康診査費等の助成を申請する
+    detail: 受診票を使えない助産所や都外の医療機関などで、自費で受けた妊婦健康診査・新生児聴覚検査（令和8年4月1日以降に出産した人は産婦健康診査・1か月児健康診査も）の費用の一部が助成される。上限は受診票と同じ（令和8年4月1日以降の受診分は、妊婦健診1回目11,670円、2〜14回目5,460円、超音波5,300円、子宮頸がん検診3,400円、新生児聴覚検査3,000円、産婦健診5,000円、1か月児健診6,000円）。健診日に練馬区に住民登録があり、受診票が使われずに残っていることが条件。まとめて1度に、保健相談所か健康推進課（区役所東庁舎6階）の窓口、または郵送で申請する。確定申告の医療費控除を予定している人は、この助成を受けたあとに確定申告をする。
+    trigger_document_id: nerima.kenshin_ticket
+    channel: 保健相談所・健康推進課（窓口） / 郵送
+    action_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/02satogaeri.html
+    deadline_base: birth_date
+    deadline_offset_days: 364
+    deadline_note: 出産日から赤ちゃんが1歳になる前日まで（出産日から1年を超えないこと）
+    source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/02satogaeri.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+subsidies:
+  - id: nerima.shien_kyufu_1
+    name: ねりママ出産応援金〈妊婦支援給付金・1回目〉
+    kind: cash_later
+    amount_yen: 50000
+    amount_note: 現金（妊婦本人名義の口座に振込）か、東京都が発行するギフトカードを選ぶ。
+    conditions: 申請日に練馬区に住民票がある妊婦で、令和7年4月1日以降に妊娠届を出し、妊婦給付認定を受けた人（令和7年3月31日までに妊娠届を出し、出産応援ギフトを申請していない人も対象）。医師などによる胎児心拍の確認をもって「妊娠」とする。流産・死産・人工妊娠中絶などを経験した人も対象。
+    apply_via: 妊婦面談のときに案内される二次元コードから電子申請。問い合わせ 健康推進課 出産・子育て応援担当係 03-5984-1336
+    deadline_base: confirmation_date
+    deadline_offset_days: 730
+    source_url: https://www.city.nerima.tokyo.jp/kosodatekyoiku/shussan/nerimama.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: nerima.shien_kyufu_2
+    name: ねりママ子育て応援金〈妊婦支援給付金・2回目〉
+    kind: cash_later
+    amount_formula: "50000 * children"
+    amount_note: 胎児（こども）の人数×5万円。現金かギフトカードを選ぶ。
+    conditions: 令和7年4月1日以降に出産し、胎児（こども）の数の届出日に練馬区に住民票がある妊婦（産婦）。
+    apply_via: こんにちは赤ちゃん訪問のときに案内される二次元コードから電子申請
+    deadline_base: due_date
+    deadline_offset_days: 674
+    source_url: https://www.city.nerima.tokyo.jp/kosodatekyoiku/shussan/nerimama.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: nerima.daisanshi_iwaikin
+    name: 練馬区 第3子誕生祝金
+    kind: conditional
+    amount_yen: 100000
+    amount_note: 第3子以降の出生した子ども1人につき10万円。3人目以降の出産の人だけが対象なので、実負担の計算には入れていない。申請した月の翌月末に振込。
+    conditions: 練馬区内に住所があり、第3子以降の子どもを出生した父または母で、次のすべてにあてはまる人。(1) 今回生まれた子を含む児童（18歳になったあとの最初の3月31日まで）と同居して養育している。(2) 保護者と児童が、出生日の1年以上前から練馬区に住民登録をしている（1年未満の場合は、転入した日から1年以上たてば申請できる）。(3) 受給後も引き続き1年以上、練馬区内に住む意思がある。里帰り出産などで子どもの住民登録を練馬区外にする場合は申請できない。
+    apply_via: 窓口（子育て支援課児童手当係、石神井・光が丘・大泉の総合福祉事務所） / 郵送 / 電子申請（LoGoフォーム）。問い合わせ 03-5984-5824
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    source_url: https://www.city.nerima.tokyo.jp/kosodatekyoiku/shussan/iwaikin.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: nerima.kouketsuatsu
+    name: 妊娠高血圧症候群等医療費助成
+    kind: conditional
+    amount_note: 入院医療費（医療保険の自己負担分）を助成。
+    conditions: 練馬区に住民登録がある妊産婦で、妊娠高血圧症候群・妊娠糖尿病・貧血・産科出血・心疾患で入院が必要な人（症状によっては対象にならない）。そのうえで、前年の世帯の総所得税額が3万円以下の人、または入院見込期間が26日以上の人。生活保護を受けている場合は申請できない。
+    apply_via: 窓口（区役所東庁舎6階 健康推進課母子保健係。平日8時30分〜17時15分）、郵送、LoGoフォーム（xIDアプリとマイナンバーカードが必要）。原則、入院前か入院中に申請する。やむを得ず退院後になる場合は、退院日から3か月以内。問い合わせ 03-5984-4621
+    source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/ninsanpu_kyufu.html
+    verified_at: 2026-09-20
+    needs_review: true

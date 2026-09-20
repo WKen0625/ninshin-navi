@@ -1,0 +1,269 @@
+# 品川区（全国地方公共団体コード 13109）  確認日: 2026-09-20
+# 区の公式サイト（city.shinagawa.tokyo.jp）で読めた内容だけを入れた。全行が人の承認待ち（needs_review: true）。
+# 根拠の引用は docs/research/13109.md。品川区は母子健康手帳を「親子健康手帳」と呼ぶ。
+
+region:
+  code: "13109"
+  level: municipality
+  name: 品川区
+  parent_code: "13"
+  status: in_progress
+  verified_at: 2026-09-20
+
+documents:
+  - id: shinagawa.hoken_bag
+    name: 親と子の保健バッグ（品川区。親子健康手帳＝母子健康手帳と受診票のセット）
+    aliases: [保健バッグ, 親子健康手帳のセット, 母子手帳のセット]
+    # この袋を持っていれば、中の紙も持っている扱いにする
+    includes:
+      - jp.boshi_techo
+      - jp.kenshin_ticket
+      - shinagawa.kenshin_ticket
+      - shinagawa.shika_kenshin_ticket
+      - shinagawa.shinseiji_choukaku_ticket
+      - shinagawa.shussei_tsuchihyo
+      - shinagawa.sanpu_kenshin_ticket          # 令和8年4月以降に妊娠届を出した人。令和8年3月以前の人には別に郵送
+      - shinagawa.ikkagetsuji_kenshin_ticket    # 同上
+    phase: notification
+    description: 妊娠届を出すと受け取る。親子健康手帳（母子健康手帳）、妊婦健康診査受診票、妊婦超音波検査受診票、妊婦子宮頸がん検診受診票、新生児聴覚検査受診票、産婦健康診査受診票、1か月児健康診査受診票、妊婦歯科・産婦歯科の健康診査受診票など。袋の名前「親と子の保健バッグ」は、区の歯科健診・赤ちゃん訪問のページに書かれている呼び方。
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-service/hpg000000783.html
+    verified_at: 2026-09-20
+  - id: shinagawa.kenshin_ticket
+    name: 妊婦健康診査受診票（品川区）
+    aliases: [受診票, 補助券]
+    phase: notification
+    description: 妊婦健康診査14回分（1回目用は水色、2〜14回目用は黄色）、妊婦超音波検査4回分（白色）、妊婦子宮頸がん検診1回分（桃色）。
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-service/hpg000000783.html
+    verified_at: 2026-09-20
+  - id: shinagawa.shika_kenshin_ticket
+    name: 妊婦歯科健康診査受診票（品川区）
+    phase: notification
+    description: 妊娠届のときに、「親と子の保健バッグ」の中の妊婦健診受診票のつづりに同封されている。区内の契約歯科医院で使う。
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kenkou/kenkou-dukuri/kenkou-dukuri-hatokuchi/20221219162441.html
+    verified_at: 2026-09-20
+  - id: shinagawa.shinseiji_choukaku_ticket
+    name: 新生児聴覚検査受診票（品川区）
+    phase: birth
+    description: 妊娠届を出した人に、妊婦健康診査受診票などと一緒に渡される。都内の契約医療機関で使う。
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/hpg000029337.html
+    verified_at: 2026-09-20
+  - id: shinagawa.shussei_tsuchihyo
+    name: 出生通知票（品川区。ハガキ）
+    phase: postpartum
+    description: 「親と子の保健バッグ」に入っているハガキ。切手を貼って健康課へ送ると、すくすく赤ちゃん訪問の申し込みになる。
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-umaretara/hpg000022461.html
+    verified_at: 2026-09-20
+  - id: shinagawa.sanpu_kenshin_ticket
+    name: 産婦健康診査受診票（品川区）
+    phase: postpartum
+    description: 2回まで、1回につき5,000円を上限に助成。令和8年4月以降に妊娠届を出した人は「親と子の保健バッグ」に入っている。令和8年3月以前に届け出た人には別に郵送される。
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-umaretara/20260213150439.html
+    verified_at: 2026-09-20
+  - id: shinagawa.ikkagetsuji_kenshin_ticket
+    name: 1か月児健康診査受診票（品川区）
+    phase: postpartum
+    description: 1回、6,000円を上限に助成。令和8年4月以降に親子健康手帳（母子健康手帳）を受け取った人は「親と子の保健バッグ」に入っている。
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-umaretara/20260213150439.html
+    verified_at: 2026-09-20
+  - id: shinagawa.shien_kyufu_annai_1
+    name: 妊婦支援給付金（妊娠時）の申請案内（品川区）
+    phase: pregnancy
+    description: 妊婦相談（初回面談）のときに受け取る。二次元コードから申請する。
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/20230120091157.html
+    verified_at: 2026-09-20
+  - id: shinagawa.akachan_homon_annai
+    name: 妊婦支援給付金（出産後）の申請案内（品川区）
+    phase: postpartum
+    description: すくすく赤ちゃん訪問のときに受け取る。二次元コードから申請する。
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/20230120091157.html
+    verified_at: 2026-09-20
+
+steps:
+  - id: shinagawa.s03
+    overrides_step_id: jp.s03
+    phase: notification
+    sort_order: 30
+    title: 妊娠届を出し、親子健康手帳（母子健康手帳）と受診票を受け取る
+    detail: 届出先は、品川・大井・荏原の各保健センター、区役所健康課、地域センター（品川第一・大崎第一・大井第一・荏原第一・荏原第四・八潮）。持ち物は、妊婦の個人番号（マイナンバー）を確認できるものと、届け出る人の本人確認ができるもの（顔写真つきは1点、それ以外は2点）。代理人のときは委任状も。電子申請もでき、その場合は翌開庁日に区が確認して、親子健康手帳と受診票などをゆうメールで送る（郵便の事情で2〜3日以上かかることがある）。健康課・保健センターでは、妊娠届と一緒に面談（妊婦相談）を受けられる。問い合わせは健康課保健衛生担当 03-5742-6745。
+    trigger_document_id: jp.heartbeat_confirmed
+    produces_document_id: shinagawa.hoken_bag
+    channel: 窓口（保健センター・健康課・地域センター）または オンライン（電子申請のあと郵送）
+    action_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-service/hpg000000783.html
+    deadline_note: 期限は区のページに記載なし
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-service/hpg000000783.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinagawa.s03b
+    phase: pregnancy
+    sort_order: 35
+    title: 妊婦相談（初回面談）を受ける
+    detail: 妊産婦ネウボラ相談員（助産師）や保健師との面談。対象は、品川区に住民登録があり、妊娠届を出した妊娠中の人。保健センター（品川 03-3474-2903／大井 03-3772-2666／荏原 03-3788-7016）は予約制で、住所地を管轄するセンターに電話で予約する。初回面談のあと、お祝い品（育児用品カタログギフト）を受け取り、妊婦支援給付金（妊娠時）の申請の案内を受ける。来所がむずかしい人（22週以降の切迫早産で安静が必要、里帰り中など）はオンライン（ZOOM）の面談もある。
+    trigger_document_id: shinagawa.hoken_bag
+    produces_document_id: shinagawa.shien_kyufu_annai_1
+    channel: 保健センター（予約制。オンライン面談もあり）
+    action_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-service/hpg000026799.html
+    deadline_note: いつまでに受けるかは区のページに記載なし（対象は「妊娠中の方」）
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-service/hpg000026799.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinagawa.s05
+    overrides_step_id: jp.s05
+    phase: pregnancy
+    sort_order: 50
+    title: 妊婦支援給付金（妊娠時・5万円）を申請する
+    detail: 令和7年4月1日以降に妊娠届を出し、妊婦給付認定の申請をして、助産師・保健師などの面談を受けた妊婦が対象。面談のときの案内にある二次元コードから申請する。妊産婦名義の銀行口座に振り込まれる。胎児の心拍を確認したあとに流産・人工妊娠中絶・死産となった人は、面談の前でも対象。問い合わせは品川区妊婦のための支援給付事業コールセンター 03-6731-6732（祝日を除く月〜金 8時30分〜17時15分）。
+    trigger_document_id: shinagawa.shien_kyufu_annai_1
+    channel: オンライン（二次元コードから申請）
+    deadline_base: confirmation_date
+    deadline_offset_days: 730
+    deadline_note: 胎児の心拍が確認されてから2年間
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/20230120091157.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinagawa.s05c
+    phase: pregnancy
+    sort_order: 57
+    title: 妊婦歯科健康診査を受ける
+    detail: 妊娠中の人が対象で、妊娠中いつでも使える。区内の契約歯科医院で、受診票を出して受ける（受けられる歯科は区の実施医療機関一覧で確認）。産後には別に「産婦歯科健康診査」があり、出産後1年以内に受ける（受診票は妊娠届などの手続きのとき、または子どもの4か月健診のときに保健センターで受け取る）。
+    trigger_document_id: shinagawa.shika_kenshin_ticket
+    channel: 医療機関（区内の契約歯科医院）
+    action_url: https://www.city.shinagawa.tokyo.jp/PC/kenkou/kenkou-dukuri/kenkou-dukuri-hatokuchi/20221219162441.html
+    deadline_note: 妊婦歯科は妊娠中いつでも。産婦歯科は出産後1年以内
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kenkou/kenkou-dukuri/kenkou-dukuri-hatokuchi/20221219162441.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinagawa.s06d
+    phase: pregnancy
+    sort_order: 66
+    title: （品川区の国民健康保険の人）産前産後期間の国民健康保険料の軽減を届け出る
+    detail: 出産予定日（出産日）の月の前月から翌々月までの4か月分（双子など多胎は6か月分）の保険料が軽くなる。妊娠85日以降の出産が対象。窓口は品川区役所本庁舎4階6番窓口（国保医療年金課資格係）。郵送でも届け出できる。「産前産後期間に係る保険料軽減届出書」、マイナンバーカードか国民健康保険資格確認書、親子健康手帳（出産予定日か出産日の確認用）、出産する人のマイナンバーがわかるものが必要。問い合わせは国保医療年金課 03-5742-6676。
+    trigger_document_id: shinagawa.hoken_bag
+    channel: 窓口 / 郵送
+    action_url: https://www.city.shinagawa.tokyo.jp/PC/procedure/procedure-kenkouhoken/procedure-kenkouhoken-hokenryo/20231122101648.html
+    deadline_note: 出産予定日の6か月前から届け出できる
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/procedure/procedure-kenkouhoken/procedure-kenkouhoken-hokenryo/20231122101648.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinagawa.s08c
+    phase: birth
+    sort_order: 71
+    title: 新生児聴覚検査を受ける
+    detail: 赤ちゃんの聞こえの検査。受診票を都内の契約医療機関に出して受ける。都外での里帰り出産のときは、別に助成の申請制度がある（里帰り等健診・検査費助成）。助成額は、このページには記載なし。
+    trigger_document_id: shinagawa.shinseiji_choukaku_ticket
+    channel: 医療機関
+    deadline_note: 区のページでは、生後1週間までに行うことがすすめられている
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/hpg000029337.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinagawa.s07c
+    phase: postpartum
+    sort_order: 75
+    title: 出生通知票を送り、「すくすく赤ちゃん訪問」を受ける
+    detail: 助産師・保健師・児童センター職員などが家に来る。対象は赤ちゃんと産後のお母さんで、生後4か月になる前まで。「親と子の保健バッグ」の中のハガキ（出生通知票）に切手を貼って健康課へ送る。この訪問のときに妊婦支援給付金（出産後）の案内があるので、赤ちゃんが生まれたら早めに申し込む。
+    trigger_document_id: shinagawa.shussei_tsuchihyo
+    produces_document_id: shinagawa.akachan_homon_annai
+    channel: 郵送（出生通知票）→ 自宅に訪問
+    action_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-umaretara/hpg000022461.html
+    deadline_note: 赤ちゃんが生まれたら早めに。訪問は生後4か月になる前まで
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-umaretara/hpg000022461.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinagawa.s08
+    overrides_step_id: jp.s08
+    phase: postpartum
+    sort_order: 80
+    title: 妊婦支援給付金（出産後・子ども1人あたり5万円）を申請する
+    detail: 令和7年4月1日以降に出産し、「すくすく赤ちゃん訪問」を受け、胎児の数の届け出をした産婦が対象。訪問のときの案内にある二次元コードから申請する。妊産婦名義の銀行口座に振り込まれる。問い合わせは品川区妊婦のための支援給付事業コールセンター 03-6731-6732。
+    trigger_document_id: shinagawa.akachan_homon_annai
+    channel: オンライン（二次元コードから申請）
+    deadline_base: due_date
+    deadline_offset_days: 674
+    deadline_note: 出産予定日の8週間前から2年間（= 予定日−56日 から 730日間）
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/20230120091157.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinagawa.s08b
+    phase: postpartum
+    sort_order: 82
+    title: 産婦健康診査を受ける（産後おおむね2週間と1か月の2回まで）
+    detail: 令和8年4月1日以降に出産した人（死産・流産を含む）で、受診日に品川区に住民登録がある人が対象。健診1回につき5,000円を上限に、合計2回まで助成。都内の医療機関・助産所で受診票を出して受ける。令和8年4月〜9月に自費で受けた分は、電子申請で払い戻しを申請できる（出産から1年以内）。
+    trigger_document_id: shinagawa.sanpu_kenshin_ticket
+    channel: 医療機関・助産所
+    deadline_note: 原則、出産後2か月以内
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-umaretara/20260213150439.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinagawa.s08d
+    phase: postpartum
+    sort_order: 83
+    title: 1か月児健康診査を受ける
+    detail: 令和8年4月1日以降に生まれ、受診日に品川区に住民登録がある赤ちゃんが対象。1回、6,000円を上限に助成。都内の医療機関で受診票を出して受ける。令和8年4月〜9月に自費で受けた分は、電子申請で払い戻しを申請できる（出産から1年以内）。
+    trigger_document_id: shinagawa.ikkagetsuji_kenshin_ticket
+    channel: 医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 41
+    deadline_note: 生後28日目から41日目までに1回
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-umaretara/20260213150439.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinagawa.s08e
+    phase: postpartum
+    sort_order: 84
+    title: （里帰り出産などで受診票を使えなかった人）健診・検査の費用の払い戻しを申請する
+    detail: 受診日に品川区に住民登録があり、都外で受けた人、または都内でも契約していない医療機関で受けた人が対象。上限額（令和8年度）は、妊婦健診1回目11,670円、2回目以降は1回5,460円（13回まで）、超音波検査5,300円、子宮頸がん検診3,400円、新生児聴覚検査3,000円、産婦健康診査5,000円（2回まで）、1か月児健康診査6,000円。産婦健診と1か月児健診は令和8年4月以降に出産した人が対象。申請書、使わなかった受診票、親子健康手帳、領収書・診療明細書をそろえて、窓口に持っていくか郵送する。
+    trigger_document_id: shinagawa.kenshin_ticket
+    channel: 窓口 / 郵送
+    action_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-service/hpg000003975.html
+    deadline_base: birth_date
+    deadline_offset_days: 364
+    deadline_note: 出産の日から1年以内（満1歳の誕生日の前日まで）
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-service/hpg000003975.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+subsidies:
+  - id: shinagawa.shien_kyufu_1
+    name: 妊婦支援給付金（妊娠時・品川区）
+    kind: cash_later
+    amount_yen: 50000
+    amount_note: 妊産婦名義の銀行口座に振り込み。
+    conditions: 令和7年4月1日以降に妊娠届を出し、妊婦給付認定の申請をして、助産師・保健師などの面談を受けた妊婦。胎児の心拍を確認したあとに流産・人工妊娠中絶・死産となった人は、面談の前でも対象。
+    apply_via: 妊婦相談（初回面談）のときの案内にある二次元コードから申請。問い合わせはコールセンター 03-6731-6732（祝日を除く月〜金 8時30分〜17時15分）
+    deadline_base: confirmation_date
+    deadline_offset_days: 730
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/20230120091157.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinagawa.shien_kyufu_2
+    name: 妊婦支援給付金（出産後・品川区）
+    kind: cash_later
+    amount_formula: "50000 * children"
+    amount_note: 子ども1人あたり5万円。妊産婦名義の銀行口座に振り込み。
+    conditions: 令和7年4月1日以降に出産し、「すくすく赤ちゃん訪問」を受け、胎児の数の届け出をした産婦。出産後に子どもが亡くなった人は、面談の前でも対象。
+    apply_via: すくすく赤ちゃん訪問のときの案内にある二次元コードから申請。問い合わせはコールセンター 03-6731-6732
+    deadline_base: due_date
+    deadline_offset_days: 674
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/20230120091157.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinagawa.kouketsuatsu
+    name: 妊娠高血圧症候群等の医療費助成（品川区で申請）
+    kind: conditional
+    amount_note: 医療保険を使って治療したときの自己負担額（高額療養費・付加給付を除いた額）を助成。入院中の食事代（入院時食事療養費の標準負担額）は自己負担。
+    conditions: 品川区内に住所があり、妊娠高血圧症候群とその関連疾患・産科出血・糖尿病と妊娠糖尿病・心疾患・貧血（それぞれの続発症を含む）で入院治療が必要な人。病気が認定基準にあてはまり、前年の総所得税額が30,000円以下の世帯の人、またはそれ以外で入院見込み期間が26日以上の人。
+    apply_via: 品川・大井・荏原の各保健センター。原則、入院前（入院見込み期間が決まってから）か入院中に申請。退院後に申請するときは、退院の日から3か月以内。
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-service/hpg000000785.html
+    verified_at: 2026-09-20
+    needs_review: true

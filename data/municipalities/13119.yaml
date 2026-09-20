@@ -1,0 +1,255 @@
+# 板橋区（全国地方公共団体コード 13119）  確認日: 2026-09-20
+# 区の公式サイト（city.itabashi.tokyo.jp）で読めた内容だけを入れた。全行が人の承認待ち（needs_review: true）。
+# 根拠の引用は docs/research/13119.md にある。
+# 区独自の出産費用の助成・出産祝い金は見つからなかった（「入院助産」は経済的に困っている世帯向けの別の制度なので入れていない）。
+# 板橋区は母子健康手帳を「おやこ健康手帳」と呼ぶ（令和8年4月1日から）。
+
+region:
+  code: "13119"
+  level: municipality
+  name: 板橋区
+  parent_code: "13"
+  status: in_progress
+  verified_at: 2026-09-20
+
+documents:
+  - id: itabashi.hoken_bag
+    name: 母と子の保健バッグ（板橋区。おやこ健康手帳〈母子健康手帳〉と一緒に受け取る袋）
+    aliases: [保健バッグ, おやこ健康手帳のセット, 母子手帳のセット]
+    # この袋を持っていれば、中の紙も持っている扱いにする
+    includes:
+      - jp.boshi_techo
+      - jp.kenshin_ticket
+      - itabashi.kenshin_ticket
+      - itabashi.shinseiji_choukaku_ticket
+      - itabashi.shika_kenshin_ticket
+      - itabashi.sanpu_kenshin_ticket       # 令和8年4月以降に妊娠届を出した人。令和7年度に届け出て予定日が令和8年9月以降の人には別に郵送の予定
+      - itabashi.ikkagetsuji_kenshin_ticket
+    phase: notification
+    description: 妊娠届を出すと受け取る。おやこ健康手帳（母子健康手帳）、マタニティキーホルダー、妊婦健康診査受診票（14枚）、新生児聴覚検査受診票（1枚）、妊婦子宮頸がん検診受診票（1枚）、妊婦超音波検査受診票（4枚）、産婦健康診査受診票（2枚）、1か月児健康診査受診票（1枚）、母子健康手帳副読本、いたばし子育て情報ブックなど。郵送や電子申請で届け出た人には一式が送られてくる（1週間程度かかることがある）。
+    source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1004062.html
+    verified_at: 2026-09-20
+  - id: itabashi.kenshin_ticket
+    name: 妊婦健康診査受診票（板橋区）
+    aliases: [受診票, 補助券]
+    phase: notification
+    description: 妊婦健康診査14枚（令和8年度の公費負担額は1回目11,670円、2〜14回目は各5,460円）、妊婦超音波検査4枚（各5,300円）、妊婦子宮頸がん検診1枚（3,400円）。東京都内の契約医療機関などで使える。令和6年10月1日以降に妊娠届を出した人は、都内の一部の助産所でも使える。原則、再発行はできない。
+    source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1004063.html
+    verified_at: 2026-09-20
+  - id: itabashi.shinseiji_choukaku_ticket
+    name: 新生児聴覚検査受診票（板橋区）
+    phase: birth
+    description: 妊娠届のときに、母子健康手帳と一緒に1枚受け取る。公費負担額は3,000円。多胎の場合は子どもの人数分が必要。
+    source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/shusan/1004083.html
+    verified_at: 2026-09-20
+  - id: itabashi.shika_kenshin_ticket
+    name: 板橋区妊婦歯科健診受診券（黄色）
+    aliases: [歯科の受診券]
+    phase: notification
+    description: 「母と子の保健バッグ」に入っている。妊娠中に1回だけ、無料で歯科健診を受けられる。なくした人は区の申請フォームから発行の手続きができる。
+    source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1049772.html
+    verified_at: 2026-09-20
+  - id: itabashi.sanpu_kenshin_ticket
+    name: 産婦健康診査受診票（板橋区）
+    phase: postpartum
+    description: 2回まで、1回5,000円を上限に助成。受診票が使えるのは令和8年10月1日以降。令和8年4月以降に妊娠届を出した人は「母と子の保健バッグ」に入っている。令和7年度に妊娠届を出し、出産予定日が令和8年9月以降の人には別に郵送される予定。
+    source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/shusan/1060401.html
+    verified_at: 2026-09-20
+  - id: itabashi.ikkagetsuji_kenshin_ticket
+    name: 1か月児健康診査受診票（板橋区）
+    phase: postpartum
+    description: 1回まで、6,000円を上限に助成。受診票が使えるのは令和8年10月1日以降。
+    source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/shusan/1060401.html
+    verified_at: 2026-09-20
+  - id: itabashi.shien_kyufu_annai_1
+    name: 妊婦のための支援給付（1回目）の申請案内（板橋区。妊婦面接のあとに受け取る）
+    phase: pregnancy
+    description: 妊婦・出産ナビゲーション事業（妊婦面接）のあとに渡される案内。これに沿って申請する。
+    source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1056054.html
+    verified_at: 2026-09-20
+  - id: itabashi.shien_kyufu_annai_2
+    name: 妊婦のための支援給付（2回目）の届出案内（板橋区。妊娠8か月アンケートと一緒に届く）
+    phase: pregnancy
+    description: 区から「妊娠8か月アンケート」と一緒に送られてくる案内。これに沿って胎児の数の届出をする。
+    source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1056054.html
+    verified_at: 2026-09-20
+
+steps:
+  - id: itabashi.s03
+    overrides_step_id: jp.s03
+    phase: notification
+    sort_order: 30
+    title: 妊娠届を出し、おやこ健康手帳（母子健康手帳）と「母と子の保健バッグ」を受け取る
+    detail: 窓口は健康福祉センター（板橋・上板橋・赤塚・志村・高島平）、区民事務所（仲町・常盤台・志村坂上・蓮根・下赤塚・高島平）、区役所本庁舎1階戸籍住民課。健康福祉センターなら、妊娠届と妊婦面接を同時に予約できる。持ち物は、妊婦の個人番号（マイナンバー）がわかる書類、届け出る人の本人確認書類、もらうものを入れるエコバッグなど。郵送（住んでいる地域を担当する健康福祉センターあて）と、マイナポータルの電子申請でも届け出でき、その場合は一式が送られてくる（1週間程度かかることがある）。
+    trigger_document_id: jp.heartbeat_confirmed
+    produces_document_id: itabashi.hoken_bag
+    channel: 窓口 / 郵送 / オンライン（マイナポータル）
+    action_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1004062.html
+    deadline_note: 医療機関で妊娠の診断を受けたら。いつまでにという日付は区のページに記載なし
+    source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1004062.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: itabashi.s03b
+    phase: pregnancy
+    sort_order: 35
+    title: 妊婦・出産ナビゲーション事業（妊婦面接）を受ける
+    detail: 保健師などの専門職との面接（約30〜40分。夫・パートナーも一緒に受けられる）。健康福祉センターで妊娠届を出した人はそのときに、区役所戸籍住民課で出した人は健康推進課（3階21番窓口）で受ける。区民事務所・郵送・代理・戸籍住民課の夜間や日曜の窓口で出した人は、予約して健康福祉センターかオンライン（Webex）で受ける。予約は3日後以降なら予約フォーム、当日〜2日後は電話（住んでいる地域を担当する健康福祉センター）。受付は平日の午前8時30分〜午後4時30分。持ち物は、おやこ健康手帳、「妊婦さんの安心ミニガイドBOOK」、「いたばし子育て情報ブック」、スマートフォン。面接を受けた妊婦は、板橋区育児パッケージ（電子ギフト。再配付はできない）と、妊婦のための支援給付（1回目）の申請案内を受け取る。
+    trigger_document_id: itabashi.hoken_bag
+    produces_document_id: itabashi.shien_kyufu_annai_1
+    channel: 健康福祉センター / 区役所健康推進課 / オンライン
+    action_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1004064.html
+    deadline_note: いつまでにという期限は区のページに記載なし
+    source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1004064.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: itabashi.s05
+    overrides_step_id: jp.s05
+    phase: pregnancy
+    sort_order: 50
+    title: 妊婦のための支援給付（1回目・5万円）を申請する
+    detail: 妊婦面接のあとに渡される案内に沿って申請する。医療機関で胎児の心拍を確認していて、申請日に板橋区に住民登録があることが条件。妊婦本人名義の口座に振り込まれる（申請を受け付けてから約2〜3か月が目安）。流産・死産などの場合も対象。問い合わせ つながるITABASHIコールセンター 0120-100-619（月〜金の9時〜17時。祝日・年末年始を除く）。
+    trigger_document_id: itabashi.shien_kyufu_annai_1
+    channel: 妊婦面接のあとに渡される案内に沿って申請
+    deadline_base: confirmation_date
+    deadline_offset_days: 730
+    deadline_note: 医療機関で胎児の心拍が確認された日から2年間
+    source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1056054.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: itabashi.s05c
+    phase: pregnancy
+    sort_order: 57
+    title: 妊婦歯科健診を受ける（妊娠中に1回・無料）
+    detail: 受診日に板橋区に住民登録がある妊婦が対象。区の「実施医療機関一覧」にある歯科医院に、自分で電話して予約する。当日は「板橋区妊婦歯科健診受診券」（黄色）と、おやこ健康手帳（母子健康手帳）を出す。手帳だけでは受けられない。一覧に無い歯科医院や、里帰り先など他の自治体の歯科医院では使えない。
+    trigger_document_id: itabashi.shika_kenshin_ticket
+    channel: 区の実施医療機関（歯科医院）
+    action_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1049772.html
+    deadline_base: due_date
+    deadline_offset_days: 0
+    deadline_note: 妊娠中に1回だけ
+    source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1049772.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: itabashi.s06d
+    phase: pregnancy
+    sort_order: 66
+    title: （板橋区の国民健康保険の人）産前産後期間の国民健康保険料の減額を届け出る
+    detail: 出産（予定）月の前月から4か月分（多胎は3か月前から6か月分）の保険料が減額される。妊娠85日（4か月）以上の出産が対象（死産・流産・早産・人工妊娠中絶を含む）。窓口は国保年金課（南館2階22番窓口）と各区民事務所。郵送でも手続きできる。必要なものは、減額届出書、出産（予定）日と出産する人がわかる書類（おやこ健康手帳など）、本人確認書類、世帯主と出産する人のマイナンバーがわかる書類。届出が遅れると、保険料を変更できないことがある。
+    trigger_document_id: itabashi.hoken_bag
+    channel: 窓口 / 郵送
+    action_url: https://www.city.itabashi.tokyo.jp/kenko/kokuho/kokuho/hokenryo/1003138.html
+    deadline_note: 出産予定日の6か月前から届け出できる。出産後の届出もできる
+    source_url: https://www.city.itabashi.tokyo.jp/kenko/kokuho/kokuho/hokenryo/1003138.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: itabashi.s08c
+    phase: birth
+    sort_order: 71
+    title: 新生児聴覚検査を受ける（受診票を出す）
+    detail: 検査の日に保護者が板橋区に住民登録をしていることが条件。検査は1人1回で、公費負担額は3,000円。受診票は東京都内の契約医療機関と、区が個別に契約している国立埼玉病院で使える。それ以外（都外の医療機関や助産所など）で受けた人には、あとから費用の一部を助成する制度がある。
+    trigger_document_id: itabashi.shinseiji_choukaku_ticket
+    channel: 東京都内の契約医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 50
+    deadline_note: 生後50日まで（生まれた日を0日と数える）
+    source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/shusan/1004083.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: itabashi.s08
+    overrides_step_id: jp.s08
+    phase: postpartum
+    sort_order: 80
+    title: 妊婦のための支援給付（2回目・子ども1人につき5万円）の届出をする
+    detail: 区から「妊娠8か月アンケート」と一緒に送られてくる案内に沿って、胎児の数の届出をする。届出ができるのは出産予定日の8週間前の日から。届出のときに板橋区に住民登録があり、板橋区の妊婦支援給付認定を受けていることが条件。妊婦本人名義の口座に振り込まれる（届出を受け付けてから約2〜3か月が目安）。問い合わせ つながるITABASHIコールセンター 0120-100-619。
+    trigger_document_id: itabashi.shien_kyufu_annai_2
+    channel: 妊娠8か月アンケートと一緒に届く案内に沿って届出
+    deadline_base: due_date
+    deadline_offset_days: 674
+    deadline_note: 出産予定日の8週間前の日から2年間（= 予定日−56日 から 730日間）
+    source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1056054.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: itabashi.s08b
+    phase: postpartum
+    sort_order: 82
+    title: 産婦健康診査を受ける（2回まで）
+    detail: 令和8年4月1日以降に出産し、受診日に板橋区に住民登録がある人が対象。1回5,000円を上限に、2回まで助成。令和8年10月1日以降は、都内の契約医療機関などで受診票を出して受ける。令和8年4月1日〜9月30日に都内で受けた分は、いったん支払ってから、区の電子申請フォームで払い戻しを申請する（原則1回だけ。出産した日から1年以内）。
+    trigger_document_id: itabashi.sanpu_kenshin_ticket
+    channel: 医療機関
+    deadline_note: 出産後2か月までに受けた健診が対象
+    source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/shusan/1060401.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: itabashi.s08d
+    phase: postpartum
+    sort_order: 83
+    title: 1か月児健康診査を受ける
+    detail: 令和8年4月1日以降に生まれ、受診日に板橋区に住民登録がある赤ちゃんが対象。6,000円を上限に1回助成。令和8年10月1日以降は、都内の契約医療機関で受診票を出して受ける。
+    trigger_document_id: itabashi.ikkagetsuji_kenshin_ticket
+    channel: 医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 41
+    deadline_note: 生後28日から生後41日までに受ける（出生日を0日とする）
+    source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/shusan/1060401.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: itabashi.s08e
+    phase: postpartum
+    sort_order: 84
+    title: （都外などで健診を受けた人）里帰り出産等による妊婦健康診査等助成金を申請する
+    detail: 契約医療機関以外（都外の医療機関や助産所など）で受けたために受診票を使えなかった妊婦健康診査・新生児聴覚検査・産婦健康診査・1か月児健康診査の費用の一部が、あとから助成される。上限は受診票と同じ（令和8年度は妊婦健診1回目11,670円、2〜14回目5,460円、超音波5,300円、子宮頸がん検診3,400円、新生児聴覚検査3,000円、産婦健診5,000円、1か月児健診6,000円）。申請は原則1回までなので、すべての健診を終えてから、健康福祉センターの窓口で申請する。保険診療の分と、海外で受けた分（令和7年4月1日以降に妊娠届を出した人）は対象外。
+    trigger_document_id: itabashi.kenshin_ticket
+    channel: 健康福祉センターの窓口
+    action_url: https://www.city.itabashi.tokyo.jp/kosodate/teate/ninshin/1004615.html
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    deadline_note: 出産した日より1年以内
+    source_url: https://www.city.itabashi.tokyo.jp/kosodate/teate/ninshin/1004615.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+subsidies:
+  - id: itabashi.shien_kyufu_1
+    name: 妊婦のための支援給付（1回目）
+    kind: cash_later
+    amount_yen: 50000
+    amount_note: 妊婦1人あたり5万円。妊婦本人名義の口座に振込（申請を受け付けてから約2〜3か月が目安）。
+    conditions: 令和7年4月1日時点で妊娠中、または令和7年4月1日以降に妊娠した人。医療機関で胎児の心拍を確認していること。申請日に板橋区に住民登録があること。同じ妊娠で、旧事業（出産・子育て応援給付金）や他の自治体から給付を受けた人は対象外。
+    apply_via: 妊婦面接のあとに渡される案内に沿って申請。問い合わせ つながるITABASHIコールセンター 0120-100-619（月〜金の9時〜17時）
+    deadline_base: confirmation_date
+    deadline_offset_days: 730
+    source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1056054.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: itabashi.shien_kyufu_2
+    name: 妊婦のための支援給付（2回目）
+    kind: cash_later
+    amount_formula: "50000 * children"
+    amount_note: お子さん1人につき5万円。妊婦本人名義の口座に振込。
+    conditions: 令和7年4月1日以降に出産予定、または出産している人。胎児の数の届出のときに板橋区に住民登録があり、板橋区の妊婦支援給付認定を受けていること。
+    apply_via: 妊娠8か月アンケートと一緒に届く案内に沿って届出
+    deadline_base: due_date
+    deadline_offset_days: 674
+    source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1056054.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: itabashi.kouketsuatsu
+    name: 妊娠高血圧症候群等医療費助成
+    kind: conditional
+    amount_note: 医療保険を使って入院治療をしたときの自己負担額が助成される。ただし、健康保険組合などから支給された高額療養費の分は差し引かれ、入院中の食事代（標準負担額）は自己負担。
+    conditions: 板橋区に住所があり、妊娠高血圧症候群とその関連疾患・糖尿病・貧血・産科出血・心疾患で、認定基準を満たし、入院して治療を受ける必要がある人。そのうえで、前年の世帯の所得税が合計30,000円以下の人、または入院見込み期間が26日以上の人。生活保護を受けている世帯は対象外。
+    apply_via: 各健康福祉センターに申請。退院後に申請する場合は、退院日から3か月以内（遅延理由書が必要）。問い合わせ 健康推進課母子保健係 03-3579-2313
+    source_url: https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/033/138/r7ninshinkouketsuatsuoshirase.pdf
+    verified_at: 2026-09-20
+    needs_review: true

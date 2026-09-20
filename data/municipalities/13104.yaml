@@ -1,0 +1,270 @@
+# 新宿区（全国地方公共団体コード 13104）  確認日: 2026-09-20
+# 区の公式サイト（city.shinjuku.lg.jp）で読めた内容だけを入れた。全行が人の承認待ち（needs_review: true）。
+# 根拠の引用は docs/research/13104.md。区独自の出産費用の助成（現金）は、区のサイトで見つからなかったので入れていない。
+
+region:
+  code: "13104"
+  level: municipality
+  name: 新宿区
+  parent_code: "13"
+  status: in_progress
+  verified_at: 2026-09-20
+
+documents:
+  - id: shinjuku.hoken_bag
+    name: 母と子の保健バッグ（新宿区。母子健康手帳と一緒に受け取る袋）
+    aliases: [保健バッグ, 母子手帳のセット]
+    # この袋を持っていれば、中の紙も持っている扱いにする
+    includes:
+      - jp.boshi_techo
+      - jp.kenshin_ticket
+      - shinjuku.kenshin_ticket
+      - shinjuku.shika_kenshin_ticket
+      - shinjuku.shinseiji_choukaku_ticket
+      - shinjuku.sanpu_kenshin_ticket            # 令和8年4月1日以降に妊娠届を出した人
+      - shinjuku.ikkagetsuji_kenshin_ticket      # 令和8年4月1日以降に妊娠届を出した人
+    phase: notification
+    description: 妊娠届を出すと、その場で母子健康手帳が交付され、この袋も受け取る。妊娠・出産・育児の手引書や、妊婦健康診査などの受診票が入っている。
+    source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00001.html
+    verified_at: 2026-09-20
+  - id: shinjuku.kenshin_ticket
+    name: 妊婦健康診査受診票（新宿区）
+    aliases: [受診票, 補助券]
+    phase: notification
+    description: 妊婦健康診査受診票14回分、妊婦超音波検査受診票4回分、妊婦子宮頸がん検診受診票1回分。都内の契約医療機関と契約助産所で使える。
+    source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00002.html
+    verified_at: 2026-09-20
+  - id: shinjuku.shika_kenshin_ticket
+    name: 妊婦歯科健康診査受診票（新宿区）
+    phase: pregnancy
+    description: 母子健康手帳と同時に、「受診票」と「お知らせ兼名簿」が交付される。妊娠中から産後1年まで、通して1回だけ使える。手元にない人は健康づくり課に連絡すると発行される。
+    source_url: https://www.city.shinjuku.lg.jp/fukushi/kenko01_000112.html
+    verified_at: 2026-09-20
+  - id: shinjuku.shinseiji_choukaku_ticket
+    name: 新生児聴覚検査受診票（新宿区）
+    phase: birth
+    description: 妊娠届のときに窓口で交付される。助成額は3,000円。生後50日に達する日まで使える。
+    source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00003.html
+    verified_at: 2026-09-20
+  - id: shinjuku.sanpu_kenshin_ticket
+    name: 産婦健康診査受診票（新宿区）
+    phase: postpartum
+    description: 令和8年4月1日以降に妊娠届を出した人は「母と子の保健バッグ」に同封。令和8年3月31日までに届け出た人で対象になりそうな人には、あとから郵送される予定。1回5,000円まで、最大2回。令和8年9月30日までは使えない。
+    source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00004.html
+    verified_at: 2026-09-20
+  - id: shinjuku.ikkagetsuji_kenshin_ticket
+    name: 1か月児健康診査受診票（新宿区）
+    phase: postpartum
+    description: 令和8年4月1日以降に妊娠届を出した人は「母と子の保健バッグ」に同封。6,000円まで、1回。令和8年9月30日までは使えない。
+    source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00004.html
+    verified_at: 2026-09-20
+  - id: shinjuku.shien_kyufu_shinsei_1
+    name: 妊婦支援給付金（1回目）の申請書（新宿区）
+    phase: pregnancy
+    description: 看護職との「ゆりかご・しんじゅく」面談のときに受け取る。
+    source_url: https://www.city.shinjuku.lg.jp/fukushi/syussan_kosodate_gift.html
+    verified_at: 2026-09-20
+  - id: shinjuku.shien_kyufu_shinsei_2
+    name: 妊婦支援給付金（2回目）の申請書（新宿区）
+    phase: postpartum
+    description: 出産後の「すくすく赤ちゃん訪問」のときに受け取る。
+    source_url: https://www.city.shinjuku.lg.jp/fukushi/syussan_kosodate_gift.html
+    verified_at: 2026-09-20
+
+steps:
+  - id: shinjuku.s03
+    overrides_step_id: jp.s03
+    phase: notification
+    sort_order: 30
+    title: 妊娠届を出し、母子健康手帳と「母と子の保健バッグ」を受け取る
+    detail: 届出先は、各保健センター（牛込・四谷・東新宿・落合）、健康づくり課健康づくり推進係、各特別出張所。持ち物は、妊婦の個人番号（マイナンバー）が確認できるもの1点と、届け出る人の本人確認ができるもの（マイナンバーカードなどは1点、ない場合は資格確認書など2点）。妊娠週数、分娩予定日、診断を受けた医療機関の名前と所在地がわかるものがあれば持っていく。妊娠届の用紙は窓口でもらえる。保健センターか健康づくり課で本人が届け出ると、手帳の交付と同時に看護職との面談（ゆりかご・しんじゅく）が受けられる（特別出張所では面談はできない）。マイナポータルで電子申請もできるが、手帳と袋は後日、保健センターか健康づくり課で受け取る（郵送はできない）。電子申請した人は、受け取りの日時と場所を決めるため、必ず健康づくり課 03-5273-3047 に連絡する。
+    trigger_document_id: jp.heartbeat_confirmed
+    produces_document_id: shinjuku.hoken_bag
+    channel: 各保健センター / 健康づくり課 / 各特別出張所（電子申請のあとは保健センターか健康づくり課へ来庁）
+    action_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00001.html
+    deadline_note: なるべく早めに（できれば妊娠11週までに）。母子健康手帳をもらう前に自費で受けた妊婦健診の費用は助成されない
+    source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00001.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinjuku.s03b
+    phase: pregnancy
+    sort_order: 35
+    title: 「ゆりかご・しんじゅく」の面談（看護職との面談）を受ける
+    detail: 新宿区に住民登録がある妊婦が対象。保健センターか健康づくり課で母子健康手帳を受け取った人は、そのとき同時に面談する。特別出張所やほかの自治体で受け取った人は、保健センター（牛込 03-3260-6231、四谷 03-3351-5161、東新宿 03-3200-1026、落合 03-3952-7161）か健康づくり課（03-5273-3047）に予約して受ける。持ち物は、母子健康手帳、妊娠届出書（本人控）、母と子の保健バッグ。受付は平日8時30分〜17時。手帳の交付も合わせると30〜60分ほどかかる。面談した人は、その日に妊婦支援給付金（1回目）の申請書を受け取り、1〜2か月後に「ゆりかご応援ギフト」（1万円相当）が簡易書留で届く。
+    trigger_document_id: shinjuku.hoken_bag
+    produces_document_id: shinjuku.shien_kyufu_shinsei_1
+    channel: 各保健センター / 健康づくり課（特別出張所ではできない）
+    action_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00001_2.html
+    deadline_note: いつまでに受けるかは区のページに記載なし
+    source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00001_2.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinjuku.s05
+    overrides_step_id: jp.s05
+    phase: pregnancy
+    sort_order: 50
+    title: 妊婦支援給付金（1回目・5万円相当）を申請する
+    detail: 令和7年4月1日以降に妊娠届を出した妊婦が対象。申請日に新宿区に住民登録があり、医師に胎児の心拍を確認してもらい、ほかの自治体で妊婦支援給付金（現金やクーポンなど）を受け取っていないことが条件。現金か電子ギフト（東京都が発行する、育児用品・家電・子育てサービスなどに使えるギフトカード）を選ぶ。申請のあと1〜2か月で入金または発送される予定。申請書は「ゆりかご・しんじゅく」面談のときに受け取る。流産・死産・人工妊娠中絶をした人も対象。問い合わせは新宿区妊婦支援給付金コールセンター 0120-002-274（無料、平日8時30分〜17時）。
+    trigger_document_id: shinjuku.shien_kyufu_shinsei_1
+    channel: 面談で受け取った申請書で申請
+    deadline_note: 申請期限は区のページに記載なし（面談のときか、コールセンターに確認する）
+    source_url: https://www.city.shinjuku.lg.jp/fukushi/syussan_kosodate_gift.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinjuku.s05b
+    phase: pregnancy
+    sort_order: 55
+    title: 妊娠7か月ごろに届くアンケートに回答する（必要な人は面談）
+    detail: 妊娠7か月ごろになると、妊婦全員に区からアンケートが届く。出産や子育ての相談がある人、支援が必要な人には面談がある。
+    trigger_document_id: shinjuku.hoken_bag
+    channel: 区から届くアンケート
+    deadline_note: 妊娠7か月ごろ（回答の期限は区のページに記載なし）
+    source_url: https://www.city.shinjuku.lg.jp/fukushi/syussan_kosodate_gift.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinjuku.s05c
+    phase: pregnancy
+    sort_order: 57
+    title: 妊婦歯科健康診査を受ける（自己負担なし・1回）
+    detail: 区内に住民登録のある妊婦が対象（転入や里帰り出産などで妊娠中に受けられなかった産婦も対象）。受診票は、妊娠中から産後1年までの間に1回だけ、「お知らせ兼名簿」にのっている協力歯科医療機関で使える。内容は、口の中の診査（むし歯や歯周病がないかを見る）と歯科保健指導。自己負担はない（ほかの診査や治療を希望したときは自己負担）。区は、体調が落ち着く安定期の受診をすすめている。
+    trigger_document_id: shinjuku.shika_kenshin_ticket
+    channel: 医療機関（協力歯科医療機関）
+    action_url: https://www.city.shinjuku.lg.jp/fukushi/kenko01_000112.html
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    deadline_note: 受診票は産後1年まで使える（例 5月1日に出産したら翌年4月30日まで）
+    source_url: https://www.city.shinjuku.lg.jp/fukushi/kenko01_000112.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinjuku.s06d
+    phase: pregnancy
+    sort_order: 66
+    title: （新宿区の国民健康保険の人）産前産後期間の国民健康保険料の軽減を届け出る
+    detail: 出産予定月（または出産月）の前月から翌々月までの分（多胎は3か月前から6か月分）の、出産する本人の保険料（所得割と均等割）が減額される。妊娠85日（4か月）以上の出産が対象で、死産・流産・早産・人工妊娠中絶も含む。新宿区から出産育児一時金を受け取る人は、届出はいらない（区が出産を確認して軽減する）。窓口は区役所本庁舎4階8番の医療保険年金課国保資格係か、各特別出張所。郵送でもよい。必要なものは、「産前産後期間に係る保険料軽減届出書」、本人確認書類、世帯主と出産する人の個人番号確認書類（持っていなければ不要）、母子健康手帳など出産予定日がわかるもの。問い合わせ 医療保険年金課国保資格係 5273-4146（区のページの表記のまま。市外局番の記載なし）。
+    trigger_document_id: shinjuku.hoken_bag
+    channel: 窓口（区役所本庁舎4階8番 / 各特別出張所） / 郵送
+    action_url: https://www.city.shinjuku.lg.jp/kenkou/hoken01_000001_00038.html
+    deadline_note: 出産予定日の6か月前から届け出できる。出産後でもよいが、その年度の最初の保険料の納期の翌日から2年を過ぎると、その年度の保険料は変更できない
+    source_url: https://www.city.shinjuku.lg.jp/kenkou/hoken01_000001_00038.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinjuku.s08c
+    phase: birth
+    sort_order: 71
+    title: 新生児聴覚検査を受ける
+    detail: 赤ちゃんの耳のきこえの検査。都内の委託医療機関で「新生児聴覚検査受診票」を使うと、3,000円が助成される（検査費用は医療機関によって違う）。里帰りなどで都外で自費で受けたときは、あとで費用の一部が助成される。申請は郵送か健康づくり課の窓口で、期限は出産（出生）日から1年間。
+    trigger_document_id: shinjuku.shinseiji_choukaku_ticket
+    channel: 医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 50
+    deadline_note: 受診票が使えるのは、生後50日に達する日まで
+    source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00003.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinjuku.s07c
+    phase: postpartum
+    sort_order: 74
+    title: （里帰りなどで都外で自費で妊婦健診を受けた人）費用の助成を申請する
+    detail: 出産のため都外に里帰りしたことなどで、都内共通の受診票が使えず、自費で妊婦健診を受けた人に、費用の一部が助成される（助成の上限額は区のページに記載なし）。必要なものは、里帰り等の妊婦健康診査費助成金申請書、母子健康手帳の表紙のコピー、母子健康手帳8〜9ページ「妊娠中の経過」のコピー、領収書の原本、使っていない受診票の原本（受診票をなくすと申請できない）。郵送か窓口（窓口は健康づくり課だけ）で出す。提出先は 〒160-0022 新宿区新宿5-18-14 新宿北西ビル4階 健康づくり課健康づくり推進係（03-5273-3047）。この助成金は、医療費控除では「保険金等で補てんされる金額」にあたる。
+    trigger_document_id: shinjuku.kenshin_ticket
+    channel: 郵送 / 窓口（健康づくり課のみ）
+    action_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00002.html
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    deadline_note: 出産（出生）日から1年間
+    source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00002.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinjuku.s07d
+    phase: postpartum
+    sort_order: 78
+    title: 「すくすく赤ちゃん訪問連絡票（出生通知票）」を送り、すくすく赤ちゃん訪問を受ける
+    detail: 訪問指導員（助産師・保健師など）が家に来て、赤ちゃんの身体測定や健康状態の確認、お母さんの健康や子育ての相談、区の子育て支援の案内をしてくれる（無料）。対象は、生後4か月以内の赤ちゃんがいる家庭。母子健康手帳についている「すくすく赤ちゃん訪問連絡票（出生通知票）」を、出産後すぐに健康づくり課へ送る。電話や、住所を担当する保健センターの電子申請フォームでも申し込める。妊婦支援給付金（2回目）の申請書は、この訪問のときに受け取る。
+    trigger_document_id: shinjuku.hoken_bag
+    produces_document_id: shinjuku.shien_kyufu_shinsei_2
+    channel: 郵送（連絡票） / 電話 / オンライン（電子申請）
+    action_url: https://www.city.shinjuku.lg.jp/fukushi/file02_00026.html
+    deadline_note: 連絡票は出産後すぐに送る。対象は生後4か月以内
+    source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_00026.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinjuku.s08
+    overrides_step_id: jp.s08
+    phase: postpartum
+    sort_order: 80
+    title: 妊婦支援給付金（2回目・子ども1人につき5万円相当）を申請する
+    detail: 令和7年4月1日以降に出産した人が対象。金額は、妊娠していた子どもの人数×5万円相当。現金か電子ギフトを選ぶ。申請のあと1〜2か月で入金または発送される予定。申請書は、出産後の「すくすく赤ちゃん訪問」のときに受け取る。流産・死産・人工妊娠中絶をした人で母子健康手帳を持っている人は、区の「妊婦支援給付金申請書請求フォーム」か健康づくり課への連絡で、申請書を送ってもらえる。問い合わせは新宿区妊婦支援給付金コールセンター 0120-002-274（無料、平日8時30分〜17時）。
+    trigger_document_id: shinjuku.shien_kyufu_shinsei_2
+    channel: 訪問で受け取った申請書で申請
+    deadline_note: 申請期限は区のページに記載なし（訪問のときか、コールセンターに確認する）
+    source_url: https://www.city.shinjuku.lg.jp/fukushi/syussan_kosodate_gift.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinjuku.s08b
+    phase: postpartum
+    sort_order: 82
+    title: 産婦健康診査を受ける（最大2回）
+    detail: 出産後のお母さんの健康を確かめる健診。令和8年10月1日以降、都内の契約医療機関（一部の助産所も対象）で受診票を出すと、1回5,000円まで、最大2回、助成される。流産・死産をした人も対象。受診票があっても令和8年9月30日までは使えない。受診票を使わずに自費で受けると助成されない（里帰りなどで都内の契約医療機関以外で受けた場合を除く。その場合は受診日から1年以内に申請する）。
+    trigger_document_id: shinjuku.sanpu_kenshin_ticket
+    channel: 医療機関
+    deadline_note: 原則として産後2か月以内
+    source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00004.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinjuku.s08d
+    phase: postpartum
+    sort_order: 83
+    title: 1か月児健康診査を受ける
+    detail: 生後28日から41日までの赤ちゃんが対象。令和8年10月1日以降、都内の契約医療機関で受診票を出すと、6,000円まで、1回、助成される。受診票があっても令和8年9月30日までは使えない。里帰りなどで都内の契約医療機関以外で自費で受けたとき（令和8年10月1日以降）は、受診日から1年以内に申請すると、費用の一部が助成される。
+    trigger_document_id: shinjuku.ikkagetsuji_kenshin_ticket
+    channel: 医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 41
+    deadline_note: 生後28日から生後41日まで
+    source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00004.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+subsidies:
+  - id: shinjuku.shien_kyufu_1
+    name: 妊婦支援給付金（1回目）
+    kind: cash_later
+    amount_yen: 50000
+    amount_note: 妊婦1人あたり5万円相当。現金か電子ギフト（東京都が発行するギフトカード）を選ぶ。申請のあと1〜2か月で入金または発送の予定。
+    conditions: 令和7年4月1日以降に妊娠届を出した妊婦。申請日に新宿区に住民登録があり、医師による胎児心拍の確認を受け、ほかの自治体で妊婦支援給付金（現金やクーポンなど）を受け取っていないこと。流産・死産・人工妊娠中絶をした人も対象。
+    apply_via: 「ゆりかご・しんじゅく」面談のときに申請書を受け取る。問い合わせ 新宿区妊婦支援給付金コールセンター 0120-002-274（無料、平日8時30分〜17時）
+    source_url: https://www.city.shinjuku.lg.jp/fukushi/syussan_kosodate_gift.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinjuku.shien_kyufu_2
+    name: 妊婦支援給付金（2回目）
+    kind: cash_later
+    amount_formula: "50000 * children"
+    amount_note: 妊娠していた子どもの人数×5万円相当。現金か電子ギフトを選ぶ。
+    conditions: 令和7年4月1日以降に出産した人。申請日に新宿区に住民登録があり、医師による胎児心拍の確認を受け、ほかの自治体で妊婦支援給付金を受け取っていないこと。
+    apply_via: 出産後の「すくすく赤ちゃん訪問」のときに申請書を受け取る。問い合わせ 新宿区妊婦支援給付金コールセンター 0120-002-274（無料、平日8時30分〜17時）
+    source_url: https://www.city.shinjuku.lg.jp/fukushi/syussan_kosodate_gift.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: shinjuku.kouketsuatsu
+    name: 妊娠高血圧症候群等の医療給付
+    kind: conditional
+    amount_note: 入院治療にかかる自己負担額を助成。対象の病気にはそれぞれ認定基準がある。
+    conditions: 妊娠高血圧症候群とその関連疾患・糖尿病・貧血・産科出血・心疾患で入院治療が必要な妊産婦。世帯の前年分の総所得税額が30,000円以下の人、または入院見込み期間が26日以上の人。生活保護を受けている世帯の人は対象外。
+    apply_via: 保健センターで医療費助成申請書と診断書などの書類を受け取り、住所を担当する保健センターへ申請する（牛込 03-3260-6231、四谷 03-3351-5161、東新宿 03-3200-1026、落合 03-3952-7161）。申請の期限は区のページに記載なし
+    source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_00005.html
+    verified_at: 2026-09-20
+    needs_review: true

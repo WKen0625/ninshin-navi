@@ -1,0 +1,91 @@
+# 目黒区の分娩施設  確認日: 2026-09-20
+# 出所: 出産なび（厚生労働省） https://birth-navi.mhlw.go.jp/ 「東京都目黒区」の出産施設 3件。施設名・住所は出産なびの表記のまま。
+# 費用（costs）は、直接支払制度の請求書データ（保険診療を行った分娩を除く）から出産なびが算出した値。一時金を引く前。集計期間は 2025年4月〜2025年9月。
+# tokyo_epidural_subsidy_target の出所: 東京都「対象医療機関一覧」（令和8年7月31日時点） https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/mutsubunben/subsidy
+#   施設名と住所で突き合わせた。一覧に見つからなければ false。
+# 予約ルール（booking_policy）が null の施設は未確認（画面では「電話で確認」と出る）。わかったら埋める。
+
+facilities:
+  - id: bn-12132
+    region_code: "13110"
+    name: 医療法人社団晴晃会　育良クリニック
+    address: 東京都目黒区上目黒１－２６－１　中目黒アトラスタワー４階・５階
+    lat: 35.6437451
+    lng: 139.7005906
+    facility_type: 有床診療所
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: true
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/12132
+    website_url: "https://www.ikuryo.or.jp/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/12132
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs: []
+
+  - id: bn-10488
+    region_code: "13110"
+    name: 総合病院　厚生中央病院
+    address: 東京都目黒区三田１－１１－７
+    lat: 35.6415832
+    lng: 139.712463
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10488
+    website_url: "https://www.kohseichuo.jp/obstetrics"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10488
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 681000
+        total_median_yen: 657000
+        basic_avg_yen: 563000
+        basic_median_yen: 573000
+        room_diff_avg_yen: 68800
+        room_diff_median_yen: 0
+        stay_days_avg: 7
+        stay_days_median: 7
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10488
+        verified_at: 2026-09-20
+
+  - id: bn-10724
+    region_code: "13110"
+    name: 独立行政法人国立病院機構東京医療センター
+    address: 東京都目黒区東が丘２－５－１
+    lat: 35.6259148
+    lng: 139.6670195
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10724
+    website_url: "https://tokyo-mc.hosp.go.jp/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10724
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 811000
+        total_median_yen: 777000
+        basic_avg_yen: 747000
+        basic_median_yen: 715000
+        room_diff_avg_yen: 48000
+        room_diff_median_yen: 15000
+        stay_days_avg: 8
+        stay_days_median: 7
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10724
+        verified_at: 2026-09-20

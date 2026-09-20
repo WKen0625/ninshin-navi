@@ -1,0 +1,275 @@
+# 足立区（全国地方公共団体コード 13121）  確認日: 2026-09-20
+# 区のページ「妊娠・出産」: https://www.city.adachi.tokyo.jp/k-kyoiku/ninshin/index.html
+# 全行 needs_review: true（人の承認待ち）。根拠の引用は docs/research/13121.md。
+
+region:
+  code: "13121"
+  level: municipality
+  name: 足立区
+  parent_code: "13"
+  status: in_progress
+  verified_at: 2026-09-20
+
+documents:
+  - id: adachi.hoken_bag
+    name: 母と子の保健バッグ（足立区。母子健康手帳と一緒に受け取る袋）
+    aliases: [保健バッグ, 母子手帳のセット, 足立区こども手帳]
+    # この袋を持っていれば、中の紙も持っている扱いにする
+    includes:
+      - jp.boshi_techo
+      - jp.kenshin_ticket
+      - adachi.kenshin_ticket
+      - adachi.shika_kenshin_ticket
+      - adachi.shinseiji_choukaku_ticket
+      - adachi.sanpu_kenshin_ticket
+      - adachi.ikkagetsuji_kenshin_ticket
+    phase: notification
+    description: 妊娠届を出すと、母子健康手帳（足立区こども手帳）と一緒に受け取る。妊婦健康診査受診票などが入っている。
+    source_url: https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/ninshin-shussho.html
+    verified_at: 2026-09-20
+  - id: adachi.kenshin_ticket
+    name: 妊婦健康診査受診票（足立区）
+    aliases: [受診票, 補助券]
+    phase: notification
+    description: 妊婦健康診査14回分、妊婦超音波検査4回分、子宮頸がん検診1回分。助成される金額は区のページに記載なし。里帰り出産などで受診票を使えなかったときは、出産した子の1歳の誕生日の前日までに、保健予防課保健予防係（区役所南館2階）の窓口で費用の助成を申請できる。
+    source_url: https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/k-ninpu.html
+    verified_at: 2026-09-20
+  - id: adachi.shika_kenshin_ticket
+    name: 妊婦歯科健診の受診券（足立区）
+    phase: notification
+    description: 妊娠届のときに受け取る。転入した人は保健予防課か各保健センターで申請する。
+    source_url: https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/ninnpushika.html
+    verified_at: 2026-09-20
+  - id: adachi.shinseiji_choukaku_ticket
+    name: 新生児聴覚検査受診票（足立区）
+    phase: birth
+    description: 妊娠届のときに受け取る。「母と子の保健バッグ」に入っている。
+    source_url: https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/sinseijityoukaku.html
+    verified_at: 2026-09-20
+  - id: adachi.sanpu_kenshin_ticket
+    name: 産婦健康診査受診票（足立区）
+    phase: postpartum
+    description: 妊娠届のときに「母と子の保健バッグ」の中で受け取る。令和8年3月31日までに妊娠届を出した人は、申請すると交付される。都外から転入した人は各保健センターなどで申請（オンライン申請もできる）。
+    source_url: https://www.city.adachi.tokyo.jp/hoken/sanpukenkoushinsa.html
+    verified_at: 2026-09-20
+  - id: adachi.ikkagetsuji_kenshin_ticket
+    name: 1か月児健康診査受診票（足立区）
+    phase: postpartum
+    description: 妊娠届のときに「母と子の保健バッグ」の中で受け取る。都外から転入した人・なくした人は、保健センターの窓口かオンラインで申請する。
+    source_url: https://www.city.adachi.tokyo.jp/hoken/1monthkenkoushinsa.html
+    verified_at: 2026-09-20
+  - id: adachi.shien_kyufu_annai_1
+    name: あだち出産・子育て応援給付金（1回目）のご案内用紙（足立区）
+    phase: pregnancy
+    description: スマイルママ面接のときに受け取る。用紙の二次元コードからオンラインで申請する。
+    source_url: https://www.city.adachi.tokyo.jp/hoken/shussannkosodatekouhukin.html
+    verified_at: 2026-09-20
+  - id: adachi.akachan_homon_annai
+    name: あだち出産・子育て応援給付金（2回目）のご案内用紙（足立区）
+    phase: postpartum
+    description: こんにちは赤ちゃん訪問のときに受け取る。用紙の二次元コードからオンラインで申請する。
+    source_url: https://www.city.adachi.tokyo.jp/hoken/shussannkosodatekouhukin.html
+    verified_at: 2026-09-20
+
+steps:
+  - id: adachi.s03
+    overrides_step_id: jp.s03
+    phase: notification
+    sort_order: 30
+    title: 妊娠届を出し、母子健康手帳と「母と子の保健バッグ」を受け取る
+    detail: 窓口は各保健センターなど（中央本町地域・保健総合支援課、竹の塚・江北・千住・東部の各保健センター）と、保健予防課保健予防係（足立区役所南館2階）。区民事務所でも出せる。持ち物は、妊婦本人の個人番号（マイナンバー）がわかる書類と、本人確認書類（顔写真つきなら1点、健康保険証などなら2点）。マイナポータルで電子申請もできるが、その場合の受け取りは保健予防課だけ。問い合わせ 03-3880-5892。
+    trigger_document_id: jp.heartbeat_confirmed
+    produces_document_id: adachi.hoken_bag
+    channel: 各保健センター / 保健予防課保健予防係 / 区民事務所（電子申請もできる）
+    deadline_note: 医療機関で妊娠と診断されたら出す
+    source_url: https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/ninshin-shussho.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: adachi.s03b
+    phase: pregnancy
+    sort_order: 35
+    title: スマイルママ面接（妊婦面接）を受ける
+    detail: 足立区に住所のある妊婦本人が対象。場所は区内の各保健センターか、足立区役所の保健予防課。妊娠届と同じ日に受けられる。当日に受けられなかったときは、届出の2〜3か月後を目安に、担当の保健センターから電話がある。面接を受けると、育児パッケージとして「こども商品券」1万円分（双子なら2万円分）と、あだち出産・子育て応援給付金（1回目）のご案内用紙を受け取る。電子申請で妊娠届を出した人は、商品券を受け取るために後日、妊婦本人が担当の保健センターへ行く必要がある。問い合わせ 03-3880-5892。
+    trigger_document_id: adachi.hoken_bag
+    produces_document_id: adachi.shien_kyufu_annai_1
+    channel: 各保健センター / 保健予防課
+    action_url: https://www.city.adachi.tokyo.jp/hoken/smilemamamensetsu.html
+    deadline_note: いつまでに受けるかは区のページに記載なし
+    source_url: https://www.city.adachi.tokyo.jp/hoken/smilemamamensetsu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: adachi.s05
+    overrides_step_id: jp.s05
+    phase: pregnancy
+    sort_order: 50
+    title: あだち出産・子育て応援給付金（妊婦のための支援給付・1回目・5万円）を申請する
+    detail: 令和7年4月1日以降に妊婦で（医療機関で胎児の心拍を確認済み）、申請日に足立区に住民登録がある人が対象。スマイルママ面接のときに受け取るご案内用紙の二次元コードから、オンラインで申請する。妊婦本人の口座に振り込まれる（夫やパートナーの口座は不可）。振込は申請が受理されてから約2か月後。流産・死産などの場合も対象になることがある（各保健センターか保健予防課保健予防係 03-3880-5892 に連絡する）。
+    trigger_document_id: adachi.shien_kyufu_annai_1
+    channel: オンライン申請（ご案内用紙の二次元コードから）
+    action_url: https://www.city.adachi.tokyo.jp/hoken/shussannkosodatekouhukin.html
+    deadline_note: 申請期限は区のページに記載なし（面接のときに確認する）
+    source_url: https://www.city.adachi.tokyo.jp/hoken/shussannkosodatekouhukin.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: adachi.s05c
+    phase: pregnancy
+    sort_order: 57
+    title: 足立区妊婦歯科健診を受ける（妊娠中に1回・無料）
+    detail: 足立区に住民登録がある妊婦が対象。区内の指定医療機関（区のページの一覧にある歯科）に事前に予約し、受診券と母子健康手帳を持って行く。健診は無料だが、治療が必要になったときは保険診療の自己負担がある。問い合わせ 03-3880-5892。
+    trigger_document_id: adachi.shika_kenshin_ticket
+    channel: 区内の指定医療機関（歯科）
+    action_url: https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/ninnpushika.html
+    deadline_note: 妊娠期間中に1回。区のページでは、妊娠16週から28週ごろまでの体調のよい時期がおすすめとされている
+    source_url: https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/ninnpushika.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: adachi.s06d
+    phase: pregnancy
+    sort_order: 66
+    title: （足立区の国民健康保険の人）産前産後期間の国民健康保険料の免除を届け出る
+    detail: 出産した（する）月の前月から4か月分（双子など多胎は3か月前から6か月分）の保険料（均等割・所得割）が免除される。妊娠85日以上なら早産・流産・死産も対象。窓口は国民健康保険課 資格賦課担当（区役所北館2階2番窓口）で、郵送でも出せる。「国民健康保険料軽減届出書（産前・産後）」、届け出る人の本人確認書類、母子健康手帳など妊娠・出産がわかる書類が必要。問い合わせ 03-3880-5240。
+    trigger_document_id: adachi.hoken_bag
+    channel: 窓口 / 郵送
+    deadline_note: 出産予定日の6か月前から届け出できる
+    source_url: https://www.city.adachi.tokyo.jp/kokuho/sanzensango.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: adachi.s08c
+    phase: birth
+    sort_order: 71
+    title: 新生児聴覚検査を受ける（受診票を出す）
+    detail: 初回検査の費用を上限3,000円まで助成。都外の医療機関では受診票を使えないが、里帰り出産等の助成の対象になる（出産した子の1歳の誕生日の前日までに申請）。
+    trigger_document_id: adachi.shinseiji_choukaku_ticket
+    channel: 医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 50
+    deadline_note: 生後50日に達する日までに受けた初回検査が対象
+    source_url: https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/sinseijityoukaku.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: adachi.s07b
+    phase: postpartum
+    sort_order: 72
+    title: 足立区の出産費助成を申請する
+    detail: 出産費用の総額から出産育児一時金などを引いた、保護者が負担した分を、子ども1人につき10万円まで助成。入院料・分娩料（無痛分娩・計画分娩を含む）・検査や薬の費用・個室代・母の入院食事代などが対象で、妊婦健診や通院の診療費、産後ケアの費用などは対象外。郵送（足立区福祉部親子支援課子ども医療費給付係）か、足立区オンライン申請システムで申請する。申請書、領収書と明細書のコピー、出産育児一時金を受け取ったことがわかる書類などが必要。問い合わせ 03-3880-5923。
+    trigger_document_id: jp.hospital_receipt
+    channel: 郵送 / オンライン（足立区オンライン申請システム）
+    action_url: https://www.city.adachi.tokyo.jp/oyako/k-kyoiku/kosodate/syussanhi-josei.html
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    deadline_note: 出産の日から1年以内（郵送は必着）
+    survey_question_id: cost_paid
+    source_url: https://www.city.adachi.tokyo.jp/oyako/k-kyoiku/kosodate/syussanhi-josei.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: adachi.s07c
+    phase: postpartum
+    sort_order: 75
+    title: こんにちは赤ちゃん訪問を申し込む（赤ちゃん訪問連絡票を出す）
+    detail: 生後3か月までの赤ちゃんがいるすべての家庭が対象。保健師や助産師が訪問し、健康相談や育児のアドバイスをする。申し込みは、母子健康手帳にとじ込まれているハガキ（赤ちゃん訪問連絡票【出生通知票】）を出生届と一緒に出すか郵送する。足立区オンライン申請システムからも申し込める。受理されてから1か月以内を目安に、訪問の日程の連絡がある。あだち出産・子育て応援給付金（2回目）のご案内用紙は、この訪問のときに渡される。問い合わせ 03-3880-5892。
+    trigger_document_id: adachi.hoken_bag
+    produces_document_id: adachi.akachan_homon_annai
+    channel: ハガキ（出生届と一緒に提出 / 郵送）/ オンライン
+    action_url: https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/ninshin-konnichiha.html
+    deadline_note: 対象は生後3か月までの赤ちゃんがいる家庭
+    source_url: https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/ninshin-konnichiha.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: adachi.s08
+    overrides_step_id: jp.s08
+    phase: postpartum
+    sort_order: 80
+    title: あだち出産・子育て応援給付金（妊婦のための支援給付・2回目・子ども1人につき5万円）を申請する
+    detail: 令和7年4月1日以降に出産し、申請日に足立区に住民登録がある産婦が対象。こんにちは赤ちゃん訪問のときに受け取るご案内用紙の二次元コードから、オンラインで申請する。産婦本人の口座に振り込まれる。赤ちゃん訪問を受けられなかった人は、3〜4か月児健康診査のときに相談する。
+    trigger_document_id: adachi.akachan_homon_annai
+    channel: オンライン申請（ご案内用紙の二次元コードから）
+    action_url: https://www.city.adachi.tokyo.jp/hoken/shussannkosodatekouhukin.html
+    deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
+    source_url: https://www.city.adachi.tokyo.jp/hoken/shussannkosodatekouhukin.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: adachi.s08b
+    phase: postpartum
+    sort_order: 82
+    title: 産婦健康診査を受ける（2回まで）
+    detail: 産後2か月までに2回（目安は産後2週間ごろと1か月ごろ）。1回5,000円を上限に助成。令和8年10月1日以降は、都内の委託医療機関・助産所で都内共通の受診票を出して受ける。令和8年4月1日以降に出産し、9月30日までに受けた分は、あとから払い戻し（申請期限は令和9年3月31日）。問い合わせ 03-3880-5892。
+    trigger_document_id: adachi.sanpu_kenshin_ticket
+    channel: 医療機関 / 助産所
+    deadline_base: birth_date
+    deadline_offset_days: 59
+    deadline_note: 産後2か月まで
+    source_url: https://www.city.adachi.tokyo.jp/hoken/sanpukenkoushinsa.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: adachi.s08d
+    phase: postpartum
+    sort_order: 83
+    title: 1か月児健康診査を受ける
+    detail: 6,000円を上限に助成。令和8年10月以降は受診票を出して受ける。受診票を使えなかったときの払い戻しは、出生日から1年以内に申請する（令和8年9月30日までの受診分は令和9年3月31日まで）。領収書と診療明細書、母子健康手帳、口座情報、本人確認書類が必要。問い合わせ 03-3880-5892。
+    trigger_document_id: adachi.ikkagetsuji_kenshin_ticket
+    channel: 医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 41
+    deadline_note: 生後28日から生後41日まで（出生日を0日目として数える）
+    source_url: https://www.city.adachi.tokyo.jp/hoken/1monthkenkoushinsa.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+subsidies:
+  - id: adachi.shien_kyufu_1
+    name: あだち出産・子育て応援給付金（妊婦のための支援給付・1回目）
+    kind: cash_later
+    amount_yen: 50000
+    amount_note: 妊婦1人当たり現金5万円。妊婦本人の口座へ振込（夫やパートナーの口座は不可）。
+    conditions: 令和7年4月1日以降に妊婦の人（医療機関で胎児の心拍確認済み）。申請日時点で足立区に住民登録がある。旧制度の「出産応援ギフト」を受け取っていない。
+    apply_via: スマイルママ面接のときに受け取るご案内用紙の二次元コードからオンライン申請。問い合わせ 保健予防課保健予防係 03-3880-5892
+    source_url: https://www.city.adachi.tokyo.jp/hoken/shussannkosodatekouhukin.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: adachi.shien_kyufu_2
+    name: あだち出産・子育て応援給付金（妊婦のための支援給付・2回目）
+    kind: cash_later
+    amount_formula: "50000 * children"
+    amount_note: 妊娠していた子ども1人当たり現金5万円（双子なら10万円）。産婦本人の口座へ振込。
+    conditions: 令和7年4月1日以降に出産した産婦。申請日時点で足立区に住民登録がある。
+    apply_via: こんにちは赤ちゃん訪問のときに受け取るご案内用紙の二次元コードからオンライン申請
+    source_url: https://www.city.adachi.tokyo.jp/hoken/shussannkosodatekouhukin.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: adachi.shussanhi
+    name: 足立区 出産費助成
+    kind: cash_later
+    # 出産費用の総額から出産育児一時金などを引いた額。上限は子ども1人につき10万円
+    amount_formula: "min(max(cost - lumpsum, 0), 100000 * children)"
+    amount_is_upper_limit: true
+    amount_note: 出産費用の総額から出産育児一時金などを引いた保護者の負担分を、子ども1人につき10万円まで助成（区の例では、双子で出産費用120万円なら20万円）。ここでは出産なびの費用を目安にして計算している。付加給付金・高額療養費・東京都の無痛分娩費用助成を受けた人は、その書類も出す。助成された分は医療費控除の対象外。
+    conditions: 母が出生日以前から足立区に住所があり、申請日時点で1年以上続けて住んでいること。子どもの住所が生まれた日から足立区にあり、母と同居していること。健康保険に入っていて出産育児一時金を受けていること。妊娠85日以上の流産・死産も対象。生活保護世帯は対象外。
+    apply_via: 郵送（足立区福祉部親子支援課子ども医療費給付係）/ 足立区オンライン申請システム。問い合わせ 03-3880-5923
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    scheme_applicable: [lumpsum]
+    source_url: https://www.city.adachi.tokyo.jp/oyako/k-kyoiku/kosodate/syussanhi-josei.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: adachi.kouketsuatsu
+    name: 妊娠高血圧症候群等の医療費助成（足立区）
+    kind: conditional
+    amount_note: 対象の病気での入院医療費（保険がきく分）の自己負担額を助成。高額療養費制度にあたるときはその限度額まで。食事療養費や差額ベッド代は対象外。
+    conditions: 区内に住民登録のある妊産婦で、妊娠高血圧症候群とその関連疾患・糖尿病と妊娠糖尿病・貧血・産科出血・心疾患で入院が必要な人。前年分の総所得税額が30,000円以下の世帯、または入院見込み期間が26日以上。生活保護世帯は対象外。
+    apply_via: 保健予防課保健予防係、中央本町地域・保健総合支援課、各保健センター。原則として入院前か入院中に申請。入院中に申請できないときは、退院日から3か月以内に限り受け付ける。問い合わせ 03-3880-5892
+    source_url: https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/ninshin-koketsuatsu.html
+    verified_at: 2026-09-20
+    needs_review: true

@@ -18,7 +18,7 @@ beforeAll(async () => {
   await seed(db, join(ROOT, "data"));
   rules = await readRules(db);
   money = await readMoney(db, ["13112", "13", "JP"], "13112");
-  skeleton = await readMoney(db, ["13", "JP"], "13104"); // 未登録の新宿区
+  skeleton = await readMoney(db, ["13", "JP"], "13201"); // 未登録の八王子市
 });
 
 const family = (over: Partial<Family>): Family => ({
@@ -130,7 +130,7 @@ describe("費用データと制度の扱い", () => {
   });
 
   it("未登録の市区町村でも、国の一時金と都の助成は出る（設計原則4）", () => {
-    const r = calc(null, { data: skeleton, wantsEpidural: true, family: family({ region_code: "13104" }) });
+    const r = calc(null, { data: skeleton, wantsEpidural: true, family: family({ region_code: "13201" }) });
     expect(skeleton.facilities).toEqual([]);
     expect(ids(r.at_counter)).toEqual(["jp.lumpsum"]);
     expect(ids(r.cash_later)).toEqual(["tokyo.epidural"]);

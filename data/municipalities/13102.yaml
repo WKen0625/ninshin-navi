@@ -1,0 +1,311 @@
+# 中央区（全国地方公共団体コード 13102）  確認日: 2026-09-20
+# 区の公式サイト（city.chuo.lg.jp）で読めた内容だけを入れた。全行が人の承認待ち（needs_review: true）。
+# 根拠の引用は docs/research/13102.md。区独自の出産費用の助成（現金）は、区の「助成」の一覧に見当たらなかったので入れていない。
+
+region:
+  code: "13102"
+  level: municipality
+  name: 中央区
+  parent_code: "13"
+  status: in_progress
+  verified_at: 2026-09-20
+
+documents:
+  - id: chuo.hoken_bag
+    name: 母と子の保健バッグ（中央区。母子健康手帳が入った袋）
+    aliases: [保健バッグ, 母子手帳のセット]
+    # この袋を持っていれば、中の紙も持っている扱いにする
+    includes:
+      - jp.boshi_techo
+      - jp.kenshin_ticket
+      - chuo.kenshin_ticket
+      - chuo.shika_kenshin_ticket
+      - chuo.shussei_tsuchisho
+      - chuo.shinseiji_choukaku_ticket
+      - chuo.sanpu_kenshin_ticket            # 令和8年4月以降に妊娠届を出した人
+      - chuo.ikkagetsuji_kenshin_ticket      # 令和8年4月以降に妊娠届を出した人
+    phase: notification
+    description: 妊娠届を出すと受け取る。中身は、母子健康手帳、妊婦健康診査・産前歯科健康診査の受診票、出生通知書（赤ちゃん訪問連絡はがき）、プレママ教室・パパママ教室のお知らせなど。
+    source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/tetyokohu.html
+    verified_at: 2026-09-20
+  - id: chuo.kenshin_ticket
+    name: 妊婦健康診査受診票（中央区）
+    aliases: [受診票, 補助券]
+    phase: notification
+    description: 妊婦健康診査14回分（1回目は水色、2〜14回目は黄色）、妊婦超音波検査4回分（白色）、妊婦子宮頸がん検診1回分（桃色）。都内の契約医療機関の受付に、受診の前に出す。令和6年10月1日以降に妊娠届を出した人は、都内の助産所でも使える（1回目の健診、超音波検査、子宮頸がん検診などは医療機関で受ける）。
+    source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/kenshin/ninpukenshin.html
+    verified_at: 2026-09-20
+  - id: chuo.shika_kenshin_ticket
+    name: 産前歯科健康診査受診票（中央区）
+    phase: pregnancy
+    description: 「母と子の保健バッグ」に入っている。産後の受診票は、3〜4か月児健康診査のお知らせ（郵送）に同封される。
+    source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/kenshin/sanzensango.html
+    verified_at: 2026-09-20
+  - id: chuo.shussei_tsuchisho
+    name: 出生通知書（赤ちゃん訪問連絡はがき）（中央区）
+    aliases: [赤ちゃん訪問のはがき]
+    phase: postpartum
+    description: 「母と子の保健バッグ」に入っている。出産後に郵送すると、新生児訪問（赤ちゃん訪問）を申し込める。電子申請でも申し込める。
+    source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/homonsido.html
+    verified_at: 2026-09-20
+  - id: chuo.shinseiji_choukaku_ticket
+    name: 新生児聴覚検査受診票（中央区）
+    phase: birth
+    description: 「母と子の保健バッグ」に入っている。上限3,000円（1人につき検査1回）。
+    source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/kodomonokenkou/kenshin/sinseijichokaku.html
+    verified_at: 2026-09-20
+  - id: chuo.sanpu_kenshin_ticket
+    name: 産婦健康診査受診票（中央区）
+    phase: postpartum
+    description: 令和8年4月以降に妊娠届を出す人は「母と子の保健バッグ」に同封。令和8年3月以前に届け出た人で、出産予定日が令和8年8月15日以降の人には、妊娠7か月ごろに「妊娠8か月アンケート」と一緒に郵送される。1回5,000円まで、2回まで。
+    source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/kenshin/sanpukenshin.html
+    verified_at: 2026-09-20
+  - id: chuo.ikkagetsuji_kenshin_ticket
+    name: 1か月児健康診査受診票（中央区）
+    phase: postpartum
+    description: 令和8年4月以降に妊娠届を出す人は「母と子の保健バッグ」に同封。令和8年3月以前に届け出た人で、出産予定日が令和8年8月15日以降の人には、妊娠7か月ごろに郵送される。1回6,000円まで。
+    source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/kodomonokenkou/kenshin/01kagetu.html
+    verified_at: 2026-09-20
+  - id: chuo.shien_kyufu_annai_1
+    name: 妊婦支援給付金（1回目）の案内通知（中央区）
+    phase: pregnancy
+    description: 妊婦面談のときに受け取る。申請サイトの二次元コードとURLが書いてある。他人に渡したり、SNSなどに載せたりしてはいけない。
+    source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/ninpunotamenoshienkyufu.html
+    verified_at: 2026-09-20
+  - id: chuo.shien_kyufu_annai_2
+    name: 妊婦支援給付金（2回目）の案内通知（中央区）
+    phase: postpartum
+    description: 新生児訪問（赤ちゃん訪問）のときに受け取る。1回目と同じく、専用の申請サイトから申請する。
+    source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/ninpunotamenoshienkyufu.html
+    verified_at: 2026-09-20
+
+steps:
+  - id: chuo.s03
+    overrides_step_id: jp.s03
+    phase: notification
+    sort_order: 30
+    title: 妊娠届を出し、「母と子の保健バッグ」（母子健康手帳入り）を受け取る
+    detail: 窓口は、保健所・保健センター（中央区保健所、日本橋・月島・晴海の各保健センター）、区役所、特別出張所。医師か助産師の診察を受けてから届け出る。持ち物は、本人確認書類、マイナンバーカードまたは通知カード。診察券など（病院名、妊娠週数、出産予定日などを書くので、あるとスムーズ。必須ではない）。代理人のときは委任状などもいる。マイナポータルで電子申請もできるが、その場合は中央区役所と日本橋・月島の特別出張所では受け取れず、申請から3日後以降に、住所を担当する保健所・保健センターへ行く。問い合わせ 03-3541-5930（中央区保健所健康推進課健康係）。
+    trigger_document_id: jp.heartbeat_confirmed
+    produces_document_id: chuo.hoken_bag
+    channel: 保健所・保健センター / 区役所 / 特別出張所（電子申請のあとは保健所・保健センターへ来所）
+    action_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/tetyokohu.html
+    deadline_note: 期限は区のページに記載なし（医師か助産師の診察を受けたあとに届け出る）
+    source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/tetyokohu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chuo.s03b
+    phase: pregnancy
+    sort_order: 35
+    title: 妊婦面談（母子保健コーディネーターとの面談）を受ける
+    detail: 専門職（母子保健コーディネーター）との面談で、予約制。「ちゅうおう子育てナビアプリ」の中の妊婦面談予約システムで日時を予約する。区役所・特別出張所で妊娠届を出した人は、届出から3日後以降に予約する。オンライン面談を希望する人は、予約の前に、住所を担当する保健所・保健センターに電話する。面談のときに、妊婦支援給付金（1回目）の「案内通知」を受け取る。面談でもらえる品物があるかどうかは、区のページに記載なし。
+    trigger_document_id: chuo.hoken_bag
+    produces_document_id: chuo.shien_kyufu_annai_1
+    channel: 保健所・保健センター（オンライン面談は事前に電話）
+    action_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/tetyokohu.html
+    deadline_note: 期限は区のページに記載なし。区は、体調が安定する妊娠15週以降に受けることをすすめている
+    source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/tetyokohu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chuo.s03c
+    phase: pregnancy
+    sort_order: 36
+    title: 出産支援祝品（タクシー利用券1万2千円分）を申請する
+    detail: 産婦人科への通院などの負担を軽くするための、タクシー利用券1万2千円分（多胎児を妊娠している人は2万4千円分）。申請日に中央区に住所があり、母子健康手帳などで妊娠が確認できる人が対象。本人か同居の親族が、窓口・オンライン（ぴったりサービス）・郵送のどれかで申請する。窓口は区役所6階の子育て給付係、日本橋・月島・晴海の特別出張所、中央区保健所健康推進課、日本橋・月島・晴海の保健センター。持ち物は、妊娠がわかるもの（母子健康手帳など。多胎は手帳を複数冊）と本人確認書類。窓口なら原則その日に受け取れる。利用券の有効期限は発行から約1年。
+    trigger_document_id: chuo.hoken_bag
+    channel: 窓口 / オンライン（ぴったりサービス） / 郵送
+    action_url: https://www.city.chuo.lg.jp/a0020/kosodate/shussan/shussanshien/taxi.html
+    deadline_note: 出産日の前日まで
+    source_url: https://www.city.chuo.lg.jp/a0020/kosodate/shussan/shussanshien/taxi.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chuo.s05
+    overrides_step_id: jp.s05
+    phase: pregnancy
+    sort_order: 50
+    title: 妊婦支援給付金（1回目・5万円）を専用サイトから申請する
+    detail: 申請日に中央区に住民登録があり、令和7年4月1日以降に妊婦である人（医師に胎児の心音を確認された人）が対象。1回目は、妊娠届を出し、原則として妊婦面談を受けていることが条件。面談でもらった「案内通知」の二次元コードかURLから、専用の申請サイトで申請する。妊婦本人名義の口座に振り込まれる。申請は毎月末日で締め切られ、不備がなければ原則、申請日の2か月後の24日に振り込まれる。流産・死産・人工妊娠中絶の場合も対象で、中央区保健所に問い合わせる。電子申請の問い合わせは専用コールセンター 050-3821-1200（平日9〜17時）。
+    trigger_document_id: chuo.shien_kyufu_annai_1
+    channel: オンライン（案内通知に書かれた専用の申請サイト）
+    deadline_base: confirmation_date
+    deadline_offset_days: 730
+    deadline_note: 胎児の心拍が医療機関で確認され、妊娠が確定した日から2年間
+    source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/ninpunotamenoshienkyufu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chuo.s05b
+    phase: pregnancy
+    sort_order: 55
+    title: 「妊娠8か月頃の方へのアンケート」に回答する（希望者は面談）
+    detail: 妊娠7か月ごろに保健所からアンケートが届く。電子申請（LoGoフォーム）で回答する。「妊娠8か月頃の面談」を希望する人は、設問に「はい」と答えると、後日、保健所・保健センターから連絡が来る。面談は希望する人だけ。妊娠8か月ごろになっても届かないときは、保健所に連絡する。
+    trigger_document_id: chuo.hoken_bag
+    channel: オンライン（LoGoフォーム）
+    action_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/ninpunotamenoshienkyufu.html
+    deadline_note: アンケートは妊娠7か月ごろに届く。面談は妊娠8か月ごろ
+    source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/ninpunotamenoshienkyufu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chuo.s05c
+    phase: pregnancy
+    sort_order: 57
+    title: 産前歯科健康診査を受ける（無料）
+    detail: 妊娠中の区民が対象で、産前に1回（産後1年未満にも1回）。中央区内の協力医療機関で受ける。費用は無料（むし歯の治療や歯石除去などは自己負担）。事前に医療機関に予約する。持ち物は、受診票、母子健康手帳、使っている歯ブラシ。
+    trigger_document_id: chuo.shika_kenshin_ticket
+    channel: 医療機関（歯科。事前に予約）
+    action_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/kenshin/sanzensango.html
+    deadline_note: 産前は妊娠中に1回
+    source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/kenshin/sanzensango.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chuo.s06d
+    phase: pregnancy
+    sort_order: 66
+    title: （中央区の国民健康保険の人）産前産後期間の国民健康保険料の軽減を届け出る
+    detail: 出産予定日の月の前月から翌々月までの4か月分（多胎は3か月前から6か月分）の、出産する本人の保険料（所得割と均等割）が免除される。妊娠85日以上の出産が対象で、死産・流産・人工妊娠中絶も含む。届出先は区役所4階の保険年金課資格係。郵送でもよい。必要なものは、届出書と母子健康手帳など。問い合わせ 03-3546-5363。
+    trigger_document_id: chuo.hoken_bag
+    channel: 窓口（区役所4階 保険年金課資格係） / 郵送
+    action_url: https://www.city.chuo.lg.jp/a0024/kurashi/hokennenkin/kokuho/kokuhonitsuite/noufu/sanzensango.html
+    deadline_note: 出産予定日の6か月前から届け出できる（出産後でもよい）
+    source_url: https://www.city.chuo.lg.jp/a0024/kurashi/hokennenkin/kokuho/kokuhonitsuite/noufu/sanzensango.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chuo.s08c
+    phase: birth
+    sort_order: 71
+    title: 新生児聴覚検査を受ける
+    detail: 赤ちゃんの耳のきこえの検査。都内の契約医療機関に「新生児聴覚検査受診票」を出すと、上限3,000円（1人につき検査1回）が公費で負担される。対象は、生後50日に達する日までに初めて受ける自動ABRまたはOAEの検査。区は、原則として出生後の入院中か、できるだけ生後1か月ごろまでに受けるよう案内している。
+    trigger_document_id: chuo.shinseiji_choukaku_ticket
+    channel: 医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 50
+    deadline_note: 生後50日に達する日まで（原則は出生後の入院中か、生後1か月ごろまで）
+    source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/kodomonokenkou/kenshin/sinseijichokaku.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chuo.s07c
+    phase: postpartum
+    sort_order: 74
+    title: （里帰りなどで受診票が使えず自費で受けた人）健診費用の助成を申請する
+    detail: 受診日に中央区に住民登録があり、里帰り出産などで、受診票が使えない国内の医療機関や助産所で自費で受けた人が対象。令和8年度の上限は、妊婦健診1回目11,670円、2〜14回目は各5,460円、超音波検査は各5,300円、子宮頸がん検診3,400円、新生児聴覚検査3,000円。産婦健康診査（各5,000円）と1か月児健診（6,000円）は令和8年10月の受診分から。助産所で受けた1回目の妊婦健診・超音波検査・子宮頸がん検診・新生児聴覚検査・1か月児健診は対象外。保健所か保健センターの窓口で申請する。持ち物は、使っていない受診票（産婦健診は結果の記入と医療機関の押印かサインがある受診票）、領収書と明細書の原本、母子健康手帳、振込口座がわかるもの、本人確認書類。
+    trigger_document_id: chuo.kenshin_ticket
+    channel: 窓口（保健所・保健センター）
+    action_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/josei/ninpukennshin.html
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    deadline_note: 妊婦健診と産婦健診は、最後に受診した日または出産日から1年以内。新生児聴覚検査と1か月児健診は、受診した日から1年以内
+    source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/josei/ninpukennshin.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chuo.s07d
+    phase: postpartum
+    sort_order: 76
+    title: 新生児誕生祝品（区内共通買物・食事券）を申請する
+    detail: 区内共通買物・食事券3万円分。いまは物価高騰への追加支援2万円分と合わせて、合計5万円分がもらえる（1枚の申請書で両方を申請できる）。出生日に保護者と赤ちゃんの住所が区内にある家庭が対象（申請日に区内に住所がない人は除く）。申請できるのは、赤ちゃんと同じ世帯の保護者か親族。窓口は区役所6階の子ども子育て支援課と、日本橋・月島・晴海の特別出張所。郵送と「ぴったりサービス」でも申請できる。申請した時期によって、受け取る時期と券の有効期限が変わる。大規模小売店では使えない。海外で出産するときは、出産前に子ども子育て支援課に相談する。
+    trigger_document_id: null
+    channel: 窓口 / 郵送 / オンライン（ぴったりサービス）
+    action_url: https://www.city.chuo.lg.jp/a0020/kosodate/shussan/shussanshien/kaimonokenn.html
+    deadline_note: 子どもが1歳になる前日まで
+    source_url: https://www.city.chuo.lg.jp/a0020/kosodate/shussan/shussanshien/kaimonokenn.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chuo.s07e
+    phase: postpartum
+    sort_order: 78
+    title: 出生通知書（はがき）か電子申請で、新生児訪問（赤ちゃん訪問）を申し込む
+    detail: 保健師・助産師などが家に来て、赤ちゃんの体重測定や健康状態の確認、育児やお母さんの体調の相談、子育てサービスの紹介をしてくれる。対象は、生後4か月までの赤ちゃんがいるすべての家庭（里帰り出産の人も相談できる）。「母と子の保健バッグ」に入っている出生通知書（赤ちゃん訪問連絡はがき）を郵送するか、電子申請で申し込む。申し込みから日程の連絡まで10日〜2週間ほどかかる。妊婦支援給付金（2回目）の「案内通知」は、この訪問のときに受け取る。
+    trigger_document_id: chuo.shussei_tsuchisho
+    produces_document_id: chuo.shien_kyufu_annai_2
+    channel: 郵送（はがき） / オンライン（電子申請）
+    action_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/homonsido.html
+    deadline_note: 対象は生後4か月まで
+    source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/homonsido.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chuo.s08
+    overrides_step_id: jp.s08
+    phase: postpartum
+    sort_order: 80
+    title: 妊婦支援給付金（2回目・胎児1人につき5万円）を専用サイトから申請する
+    detail: 2回目は、出産後、原則として新生児訪問を受けていることが条件。訪問でもらった「案内通知」から、1回目と同じように専用の申請サイトで申請する。双子なら2回目は10万円。本人名義の口座に振り込まれる。申請日に中央区に住民登録があれば、そのあと転出しても中央区から支給される（転出したあとに申請した場合は、転出先の自治体から受け取る）。出産後に子どもが亡くなった人も対象。電子申請の問い合わせは専用コールセンター 050-3821-1200（平日9〜17時）。
+    trigger_document_id: chuo.shien_kyufu_annai_2
+    channel: オンライン（案内通知に書かれた専用の申請サイト）
+    deadline_base: due_date
+    deadline_offset_days: 674
+    deadline_note: 出産予定日の8週間前の日から2年間（流産などの場合は、妊娠が続かなくなった日から2年間）
+    source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/ninpunotamenoshienkyufu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chuo.s08b
+    phase: postpartum
+    sort_order: 82
+    title: 産婦健康診査を受ける（2回まで）
+    detail: 出産後のお母さんの体と心の健康を確かめる健診。令和8年10月以降の受診から、都内の契約医療機関に受診票を出すと、1回5,000円まで、2回まで助成される（令和8年9月以前の受診は対象外）。目安は1回目が産後2週間ごろ、2回目が産後1か月ごろ。検査の内容によっては自己負担が出ることがある。
+    trigger_document_id: chuo.sanpu_kenshin_ticket
+    channel: 医療機関
+    deadline_note: 原則として産後2か月以内
+    source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/kenshin/sanpukenshin.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chuo.s08d
+    phase: postpartum
+    sort_order: 83
+    title: 1か月児健康診査を受ける
+    detail: 令和8年10月以降の受診から、都内の契約医療機関に受診票を出すと、1回6,000円まで助成される（令和8年9月以前の受診は対象外）。受診票に書かれた項目のほかに健診や治療を受けたときは、自己負担が出る。
+    trigger_document_id: chuo.ikkagetsuji_kenshin_ticket
+    channel: 医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 41
+    deadline_note: 生後28日から41日の間（出生日を0日目として数える）
+    source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/kodomonokenkou/kenshin/01kagetu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+subsidies:
+  - id: chuo.shien_kyufu_1
+    name: 妊婦支援給付金（1回目）
+    kind: cash_later
+    amount_yen: 50000
+    amount_note: 妊娠1回につき5万円。妊婦本人名義の口座に振り込まれる。
+    conditions: 申請日に中央区に住民登録があり、令和7年4月1日以降に妊婦である人（医療機関の医師に胎児の心音を確認された人）。妊娠届を区に出し、原則として妊婦面談を受けていること。流産・死産・人工妊娠中絶の場合は、面談を受けていなくても対象（令和7年3月31日以前の場合は対象外）。
+    apply_via: 妊婦面談でもらう案内通知の二次元コード・URLから専用の申請サイトで申請。電子申請の問い合わせ 050-3821-1200（平日9〜17時）、支給の確認は中央区保健所健康推進課 03-3541-5930
+    deadline_base: confirmation_date
+    deadline_offset_days: 730
+    source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/ninpunotamenoshienkyufu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chuo.shien_kyufu_2
+    name: 妊婦支援給付金（2回目）
+    kind: cash_later
+    amount_formula: "50000 * children"
+    amount_note: 胎児1人につき5万円（双子なら10万円）。本人名義の口座に振り込まれる。
+    conditions: 申請日に中央区に住民登録があること。出産後、原則として新生児訪問を受けていること。流産・死産・人工妊娠中絶の場合や、出産後に子どもが亡くなった場合も対象。
+    apply_via: 新生児訪問でもらう案内通知から専用の申請サイトで申請。電子申請の問い合わせ 050-3821-1200（平日9〜17時）
+    deadline_base: due_date
+    deadline_offset_days: 674
+    source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/ninpunotamenoshienkyufu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chuo.kouketsuatsu
+    name: 妊娠高血圧症候群等医療費助成
+    kind: conditional
+    amount_note: 健康保険を使って入院治療したときの自己負担額を助成。
+    conditions: 妊娠高血圧症候群・糖尿病・貧血・産科出血・心疾患とその続発症で入院が必要な妊産婦。前年分の総所得税額が30,000円以下の世帯の人、または入院見込み期間が26日以上の人。
+    apply_via: 申請の窓口と期限は区のページに記載なし。問い合わせは中央区保健所健康推進課給付係 03-3541-5930、または日本橋・月島・晴海の各保健センター
+    source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/josei/nyuinzyosei.html
+    verified_at: 2026-09-20
+    needs_review: true

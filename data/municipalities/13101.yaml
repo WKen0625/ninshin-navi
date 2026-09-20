@@ -1,0 +1,281 @@
+# 千代田区（全国地方公共団体コード 13101）  確認日: 2026-09-20
+# 区の公式サイト（city.chiyoda.lg.jp）で読めた内容だけを入れた。全行が人の承認待ち（needs_review: true）。
+# 根拠の引用は docs/research/13101.md。
+
+region:
+  code: "13101"
+  level: municipality
+  name: 千代田区
+  parent_code: "13"
+  status: in_progress
+  verified_at: 2026-09-20
+
+documents:
+  - id: chiyoda.hoken_bag
+    name: 母と子の保健バッグ（千代田区。母子健康手帳と一緒に受け取る袋）
+    aliases: [保健バッグ, 母子手帳のセット, 親子健康手帳]
+    # この袋を持っていれば、中の紙も持っている扱いにする
+    includes:
+      - jp.boshi_techo
+      - jp.kenshin_ticket
+      - chiyoda.kenshin_ticket
+      - chiyoda.shinseiji_choukaku_ticket
+      - chiyoda.sanpu_kenshin_ticket          # 令和8年4月1日以降に妊娠届を出した人
+      - chiyoda.ikkagetsuji_kenshin_ticket    # 令和8年4月1日以降に妊娠届を出した人
+    phase: notification
+    description: 妊娠届を出すと、母子健康手帳（千代田区では「親子健康手帳」とも呼ぶ）と一緒に受け取る。妊婦健康診査受診票などが入っている。
+    source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/boshitecho.html
+    verified_at: 2026-09-20
+  - id: chiyoda.kenshin_ticket
+    name: 妊婦健康診査受診票（千代田区）
+    aliases: [受診票, 補助券]
+    phase: notification
+    description: 妊婦健康診査14回分（初回は水色1枚、2〜14回目は黄色13枚）、超音波検査4回分（白4枚）、子宮頸がん検診1回分（ピンク1枚）。都内の指定医療機関と一部の助産所で使える。
+    source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/kenkoshinsa.html
+    verified_at: 2026-09-20
+  - id: chiyoda.shinseiji_choukaku_ticket
+    name: 新生児聴覚検査受診票（千代田区）
+    phase: birth
+    description: 妊娠届を出すときに配られる。都内の指定医療機関で、生後50日に達する日までの赤ちゃんの聴覚検査に使う。
+    source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/kenko/chokaku.html
+    verified_at: 2026-09-20
+  - id: chiyoda.sanpu_kenshin_ticket
+    name: 産婦健康診査受診票（千代田区）
+    phase: postpartum
+    description: 令和8年4月1日以降に妊娠届を出した人は、妊婦健康診査などの受診票と一緒に受け取る。令和8年10月1日以降の受診から使える。持っていない人は区に問い合わせる。
+    source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/sampu-kenshin.html
+    verified_at: 2026-09-20
+  - id: chiyoda.ikkagetsuji_kenshin_ticket
+    name: 1か月児健康診査受診票（千代田区）
+    phase: postpartum
+    description: 令和8年4月1日以降に妊娠届を出した人は、妊婦健康診査や産婦健康診査の受診票と一緒に受け取る。令和8年10月1日以降の受診から使える。
+    source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/kenko/kenko1.html
+    verified_at: 2026-09-20
+  - id: chiyoda.shien_kyufu_annai_1
+    name: 妊婦支援給付金（1回目）の申請の案内（千代田区）
+    phase: pregnancy
+    description: ままぱぱ面談（妊婦の全数面談）のときに、申請のしかたを案内される。
+    source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/ninpu-shienkyufu.html
+    verified_at: 2026-09-20
+  - id: chiyoda.akachan_homon_annai
+    name: 妊婦支援給付金（2回目）の申請の案内（千代田区。乳児家庭訪問のときに受ける）
+    phase: postpartum
+    description: 乳児家庭訪問（赤ちゃん訪問）のときに、2回目の申請のしかたを案内される。
+    source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/ninpu-shienkyufu.html
+    verified_at: 2026-09-20
+
+steps:
+  - id: chiyoda.s03
+    overrides_step_id: jp.s03
+    phase: notification
+    sort_order: 30
+    title: 妊娠届を出し、母子健康手帳と「母と子の保健バッグ」を受け取る
+    detail: 窓口は、保健サービス課（千代田保健所6階）、総合窓口課（区役所2階）、各出張所。持ち物は、本人確認書類（顔写真つきなら1点、顔写真なしなら2点）、個人番号（マイナンバー）が確認できる書類、診察券など診断を受けた医療機関の名前と所在地がわかるもの、妊婦本人が記入した「妊婦さんへのアンケート」。医療機関の証明書はいらない。マイナポータルの「ぴったりサービス」で電子申請もできるが、その場合も申請の翌日以降10日以内に窓口へ行って受け取る（郵送はしていない）。保健所で届け出ると、その場で「ままぱぱ面談」を受けられる。問い合わせ 03-6256-8477。
+    trigger_document_id: jp.heartbeat_confirmed
+    produces_document_id: chiyoda.hoken_bag
+    channel: 千代田保健所6階 保健サービス課 / 区役所2階 総合窓口課 / 各出張所（電子申請のあと来庁）
+    action_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/boshitecho.html
+    deadline_note: 妊娠がわかったら早めに。届出の前に受けた妊婦健診の費用は助成されない
+    source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/boshitecho.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chiyoda.s03b
+    phase: pregnancy
+    sort_order: 35
+    title: ままぱぱ面談（妊婦の全数面談）を受ける
+    detail: 区内に住民登録があり、妊娠届を出した妊婦が対象。場所は千代田保健所6階の保健サービス課か、区役所2階の児童・家庭支援センター子ども相談窓口（区役所では保健所とオンラインで面談）。区役所か保健所で妊娠届を出した人は、その場で受けられる。出張所で出した人は、後日、面談場所へ行く。受付は平日の午前9時〜12時と午後1時〜4時15分。保健所は予約制で土曜日もあり、予約は千代田区ポータルサイトか電話 03-5211-8175。持ち物は母子健康手帳。初回の面談を受けると「こども商品券1万円」を受け取れる。このとき妊婦支援給付金（1回目）の申請のしかたも案内される。
+    trigger_document_id: chiyoda.hoken_bag
+    produces_document_id: chiyoda.shien_kyufu_annai_1
+    channel: 千代田保健所6階 保健サービス課 / 区役所2階 児童・家庭支援センター
+    action_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/chiyomama.html
+    deadline_note: いつまでに受けるかは区のページに記載なし
+    source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/chiyomama.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chiyoda.s05
+    overrides_step_id: jp.s05
+    phase: pregnancy
+    sort_order: 50
+    title: 妊婦支援給付金（1回目・現金5万円）を申請する
+    detail: 申請日に千代田区に住民登録があり、医師に胎児の心拍を確認してもらい、千代田区で「妊婦給付認定」（給付金を受ける資格があると区が認めること）を受けた人が対象。ほかの自治体で1回目を受け取った人は対象外。申請のしかたは、ままぱぱ面談のときに案内される。妊婦本人の名義の口座に振り込まれ、申請から振込まで2か月ほどかかる。流産・死産・人工妊娠中絶の場合も、心拍が確認されていれば対象で、区の電子申請フォームから申請する。問い合わせ 03-6380-8552（保健サービス課母子保健係）。
+    trigger_document_id: chiyoda.shien_kyufu_annai_1
+    channel: ままぱぱ面談のときの案内に沿って申請
+    deadline_note: 申請期限は区のページに記載なし（流産・死産・人工妊娠中絶の場合は、医師が確認した日から2年まで）
+    source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/ninpu-shienkyufu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chiyoda.s05c
+    phase: pregnancy
+    sort_order: 57
+    title: 保健所の歯科健診を受ける（無料）
+    detail: 千代田区に住む妊娠中の人と、出産後1年未満の人が対象。場所は千代田保健所4階「歯とお口の相談室」（九段北1-2-14）。費用は無料。実施日は決まっていて（平日の午後や土曜の午前など）、千代田区ポータルサイトか電話 03-5211-8178 で予約する。持ち物は母子健康手帳。
+    trigger_document_id: chiyoda.hoken_bag
+    channel: 千代田保健所4階 歯とお口の相談室（予約制）
+    action_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/shikakenshin.html
+    deadline_note: 妊娠中から出産後1年未満まで。受けられる回数は区のページに記載なし
+    source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/shikakenshin.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chiyoda.s06d
+    phase: pregnancy
+    sort_order: 66
+    title: （千代田区の国民健康保険の人）産前産後期間の国民健康保険料の免除を届け出る
+    detail: 出産予定月（または出産月）の前月から翌々月までの4か月間（多胎は3か月前から6か月間）の保険料が免除される。妊娠85日（4か月）以上の出産が対象で、死産・流産・早産・人工妊娠中絶も含む。窓口は区役所本庁舎2階の国民健康保険窓口。持ち物は顔写真つきの本人確認書類と母子健康手帳。郵送でもよい（「産前産後期間に係る保険料減額届出書」、本人確認書類のコピー、母子健康手帳の表紙と出産日または予定日がわかるページのコピー）。問い合わせ 03-5211-4204（保険年金課国民健康保険係）。
+    trigger_document_id: chiyoda.hoken_bag
+    channel: 窓口（区役所本庁舎2階） / 郵送
+    action_url: https://www.city.chiyoda.lg.jp/koho/kurashi/hoken/kenkohoken/hokenryo-menjo.html
+    deadline_note: 出産予定日の6か月前から届け出できる。出産後でもよいが、保険料を変更できる期間には限りがあるので早めに
+    source_url: https://www.city.chiyoda.lg.jp/koho/kurashi/hoken/kenkohoken/hokenryo-menjo.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chiyoda.s08c
+    phase: birth
+    sort_order: 71
+    title: 新生児聴覚検査を受ける
+    detail: 赤ちゃんの耳のきこえの検査。都内の指定医療機関に「新生児聴覚検査受診票」を出して受けると、費用の一部が助成される（助成の上限額は区のページに記載なし）。対象は、受診日に住民登録がある、生後50日に達する日までの赤ちゃん。対象の検査方法は自動ABRとOAE。里帰りなどで都外で受けたときは、いったん全額を払い、あとで申請すると払い戻される（上限あり）。
+    trigger_document_id: chiyoda.shinseiji_choukaku_ticket
+    channel: 医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 50
+    deadline_note: 生後50日に達する日まで
+    source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/kenko/chokaku.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chiyoda.s07b
+    phase: postpartum
+    sort_order: 72
+    title: 千代田区の出産費用助成（最大31万円）を申請する
+    detail: 出産費用の実費から出産育児一時金を引いた自己負担分が助成される（1度の出産につき最大31万円。双子以上でも最大31万円）。健康保険の付加給付、高額療養費、東京都の無痛分娩費用助成などを受けたときは、その額も実費から引かれる。交通費などは対象外。窓口は区役所2階の子育て推進課、千代田保健所6階の保健サービス課、各出張所。郵送（子育て推進課あて）と千代田区ポータルサイトでも申請できる。必要なものは、申請書、領収書・明細書、出産した人の健康保険がわかる書類、出産育児一時金を受け取ったことがわかる書類（直接支払制度の利用明細書など）。区外へ引っ越す人は、必ず引っ越す前に申請する。問い合わせ 03-5211-4230（子育て推進課手当・医療係）。
+    trigger_document_id: jp.hospital_receipt
+    channel: 窓口 / 郵送 / オンライン（千代田区ポータルサイト）
+    action_url: https://www.city.chiyoda.lg.jp/koho/kosodate/teate/shussanhiyojosei.html
+    deadline_base: birth_date
+    deadline_offset_days: 730
+    deadline_note: 出産の日から2年間。区内に住んで1年たっていない人は、1年を過ぎてから申請できる
+    survey_question_id: cost_paid
+    source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/teate/shussanhiyojosei.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chiyoda.s07c
+    phase: postpartum
+    sort_order: 74
+    title: （里帰りなどで都外や助産所で自費で妊婦健診を受けた人）費用の助成を申請する
+    detail: 受診日に千代田区に住民登録があり、妊娠届のあとに、都外の医療機関や、受診票が使えない助産所で、自費で妊婦健診を受けた人が対象（国内のみ）。令和8年度の上限は、妊婦健診1回目11,670円、2〜14回目は各5,460円、超音波検査は各5,300円、子宮頸がん検診3,400円（助産所では1回目の健診・超音波・子宮頸がん検診は対象外）。千代田区ポータルサイトのフォームから電子申請する。必要なものは、使っていない受診票、領収書と診療明細書、母子健康手帳の表紙と「妊娠中の経過」のページ。何回分かあるときは、まとめて申請する。入金まで2〜3か月。窓口・郵送を希望するときは 03-6256-8477 へ。
+    trigger_document_id: chiyoda.kenshin_ticket
+    channel: オンライン（千代田区ポータルサイト）
+    action_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/josanjo.html
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    deadline_note: 出産の日から1年以内（出産に至らなかったときは、最後に妊婦健診を受けた日から1年以内）
+    source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/josanjo.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chiyoda.s07d
+    phase: postpartum
+    sort_order: 78
+    title: 「出生通知票（はがき）」を送り、乳児家庭訪問（赤ちゃん訪問）を受ける
+    detail: 保健師などが家に来て、赤ちゃんの発育や健康状態を確かめ、育児の相談にのってくれる。対象は生後4か月までのすべての赤ちゃん（里帰り出産の人は相談する）。母子健康手帳にとじ込まれている「出生通知票（はがき）」を千代田保健所に送って申し込む。妊婦支援給付金（2回目）の申請のしかたは、この訪問のときに案内される。問い合わせ 03-5211-8175（保健サービス課保健相談係）。
+    trigger_document_id: chiyoda.hoken_bag
+    produces_document_id: chiyoda.akachan_homon_annai
+    channel: 郵送（出生通知票のはがき）
+    action_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/kenko/homonshido.html
+    deadline_note: 対象は生後4か月まで
+    source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/kenko/homonshido.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chiyoda.s08
+    overrides_step_id: jp.s08
+    phase: postpartum
+    sort_order: 80
+    title: 妊婦支援給付金（2回目・子ども1人につき現金5万円）を申請する
+    detail: 申請日に千代田区に住民登録があり、出産日が令和7年4月1日以降で、千代田区で妊婦給付認定を受け、妊娠している子どもの数を区に届け出た人が対象。ほかの自治体で2回目を受け取った人は対象外。申請のしかたは、乳児家庭訪問のときに案内される。本人名義の口座に振り込まれ、申請から振込まで2か月ほどかかる。問い合わせ 03-6380-8552（保健サービス課母子保健係）。
+    trigger_document_id: chiyoda.akachan_homon_annai
+    channel: 乳児家庭訪問のときの案内に沿って申請
+    deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
+    source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/ninpu-shienkyufu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chiyoda.s08b
+    phase: postpartum
+    sort_order: 82
+    title: 産婦健康診査を受ける（2回まで）
+    detail: 出産後のお母さんの体と心の健康を確かめる健診。千代田区に住民登録がある、出産後2か月以内の人が対象（流産・死産の人も対象）。令和8年10月1日以降、都内の指定医療機関や一部の助産所で受診票を出すと、2回まで費用が助成される（助成の上限額は区のページに記載なし）。目安は1回目が産後2週間ごろ、2回目が産後1か月ごろ。令和8年9月30日までの受診は全額自己負担。都外で自費で受けたとき（令和8年10月1日以降）は、あとで上限の範囲で助成される。
+    trigger_document_id: chiyoda.sanpu_kenshin_ticket
+    channel: 医療機関
+    deadline_note: 原則として産後2か月以内
+    source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/sampu-kenshin.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chiyoda.s08d
+    phase: postpartum
+    sort_order: 83
+    title: 1か月児健康診査を受ける
+    detail: 千代田区に住民登録がある、生後28日から41日までの赤ちゃんが対象（出生日を0日目と数える）。令和8年10月1日以降、都内の指定医療機関で受診票を出すと、1回分の費用が助成される（助成の上限額は区のページに記載なし）。令和8年9月30日までの受診は全額自己負担。都外で自費で受けたとき（令和8年10月1日以降）は、あとで上限の範囲で助成される。
+    trigger_document_id: chiyoda.ikkagetsuji_kenshin_ticket
+    channel: 医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 41
+    deadline_note: 生後28日から41日の間（出生日を0日目として数える）
+    source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/kenko/kenko1.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+subsidies:
+  - id: chiyoda.shien_kyufu_1
+    name: 妊婦支援給付金（1回目）
+    kind: cash_later
+    amount_yen: 50000
+    amount_note: 現金5万円。妊婦本人名義の口座に振り込まれる。申請から振込まで2か月ほど。
+    conditions: 申請日に千代田区に住民登録があること。産科医療機関などで医師に胎児の心拍を確認され、千代田区で妊婦給付認定を受けていること。国の出産・子育て事業の5万円相当のギフトカードや、1回目の給付金を（ほかの自治体も含めて）受け取っていないこと。令和7年4月1日以降の流産・死産・人工妊娠中絶も、心拍が確認されていれば対象。
+    apply_via: ままぱぱ面談のときに申請方法が案内される。問い合わせ 03-6380-8552（千代田保健所保健サービス課母子保健係）
+    source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/ninpu-shienkyufu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chiyoda.shien_kyufu_2
+    name: 妊婦支援給付金（2回目）
+    kind: cash_later
+    amount_formula: "50000 * children"
+    amount_note: 現金5万円×妊娠している子どもの数。本人名義の口座に振り込まれる。
+    conditions: 申請日に千代田区に住民登録があること。出産日が令和7年4月1日以降であること。千代田区で妊婦給付認定を受け、妊娠している子どもの数を届け出ていること。2回目の給付金を（ほかの自治体も含めて）受け取っていないこと。
+    apply_via: 乳児家庭訪問のときに申請方法が案内される。問い合わせ 03-6380-8552（千代田保健所保健サービス課母子保健係）
+    source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/ninpu-shienkyufu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chiyoda.shussanhi
+    name: 千代田区 出産費用助成（区独自制度）
+    kind: cash_later
+    # 出産費用の実費 − 出産育児一時金（付加給付なども引く）。1度の出産につき最大31万円（双子以上でも同じ）
+    amount_formula: "min(cost - lumpsum, 310000)"
+    amount_is_upper_limit: true
+    amount_note: 出産費用の実費（入院料、分娩料、新生児管理費など）から出産育児一時金を引いた額で、1度の出産につき最大31万円（双子以上でも最大31万円）。健康保険の付加給付、高額療養費の返還、東京都の無痛分娩費用助成などを受けたときは、その額も実費から引く。ここでは出産なびの費用を実費の目安にして計算している。助成を受けた金額は医療費控除を受けられない。
+    conditions: 令和7年4月1日以降に出産した人。出産日以前から区内に住所があり、申請日に引き続き1年以上区内に住所があること。国内の健康保険に入っていて、その出産で出産育児一時金を受け取っていること。出生日から赤ちゃんの住民登録が同じ住所にあること。妊娠85日以上の死産・流産（人工妊娠中絶を含む）も対象。生活保護を受けている人は対象外。区外へ転出したあとは申請できない。
+    apply_via: 区役所2階 子育て推進課 / 千代田保健所6階 保健サービス課 / 各出張所（窓口）、郵送（子育て推進課あて）、千代田区ポータルサイト。問い合わせ 03-5211-4230
+    deadline_base: birth_date
+    deadline_offset_days: 730
+    scheme_applicable: [lumpsum]
+    source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/teate/shussanhiyojosei.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: chiyoda.kouketsuatsu
+    name: 妊娠高血圧症候群等の医療費助成
+    kind: conditional
+    amount_note: 対象の病気の治療にかかった入院医療費のうち、医療保険を使ったあとの自己負担額を助成。入院時の食事代、認定期間の外の医療費、保険がきかない費用（差額ベッド代など）は対象外。
+    conditions: 千代田区に住所があり、妊娠高血圧症候群と関連疾患・糖尿病と妊娠糖尿病・貧血・産科出血・心疾患（認定基準あり）で入院する人。前年の総所得税額が30,000円以下の世帯の人、または入院見込み期間が26日以上の人。生活保護を受けている人は対象外。
+    apply_via: 千代田保健所。入院前か入院中に申請する。退院後は、退院日から3か月以内に遅延理由書などを添えて申請する。問い合わせ 03-6256-8477
+    source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/koketsuatsu.html
+    verified_at: 2026-09-20
+    needs_review: true

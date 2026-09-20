@@ -1,0 +1,135 @@
+# 渋谷区の分娩施設  確認日: 2026-09-20
+# 出所: 出産なび（厚生労働省） https://birth-navi.mhlw.go.jp/ 「東京都渋谷区」の出産施設 4件。施設名・住所は出産なびの表記のまま。
+# 費用（costs）は、直接支払制度の請求書データ（保険診療を行った分娩を除く）から出産なびが算出した値。一時金を引く前。集計期間は 2025年4月〜2025年9月。
+# tokyo_epidural_subsidy_target の出所: 東京都「対象医療機関一覧」（令和8年7月31日時点） https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/mutsubunben/subsidy
+#   施設名と住所で突き合わせた。一覧に見つからなければ false。
+# 予約ルール（booking_policy）が null の施設は未確認（画面では「電話で確認」と出る）。わかったら埋める。
+
+facilities:
+  - id: bn-12198
+    region_code: "13113"
+    name: 医療法人社団彩陽会 代官山バースクリニック
+    address: 東京都渋谷区代官山町15-3
+    lat: 35.6498499
+    lng: 139.703129
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: true
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/12198
+    website_url: "https://db-clinic.jp/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/12198
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 1245000
+        total_median_yen: 1245000
+        basic_avg_yen: 1136000
+        basic_median_yen: 1147000
+        room_diff_avg_yen: 13300
+        room_diff_median_yen: 0
+        stay_days_avg: 6
+        stay_days_median: 6
+        source_url: https://birth-navi.mhlw.go.jp/facilities/12198
+        verified_at: 2026-09-20
+
+  - id: bn-10666
+    region_code: "13113"
+    name: ＪＲ東京総合病院
+    address: 東京都渋谷区代々木2-1-3
+    lat: 35.6851898
+    lng: 139.7000332
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10666
+    website_url: "https://www.jreast.co.jp/hospital/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10666
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 735000
+        total_median_yen: 713000
+        basic_avg_yen: 639000
+        basic_median_yen: 624000
+        room_diff_avg_yen: 32400
+        room_diff_median_yen: 0
+        stay_days_avg: 8
+        stay_days_median: 8
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10666
+        verified_at: 2026-09-20
+
+  - id: bn-10632
+    region_code: "13113"
+    name: 地方独立行政法人東京都立病院機構東京都立広尾病院
+    address: 東京都渋谷区恵比寿２－３４－１０
+    lat: 35.6466156
+    lng: 139.7212418
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10632
+    website_url: "https://www.tmhp.jp/hiroo/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10632
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 516000
+        total_median_yen: 516000
+        basic_avg_yen: 432000
+        basic_median_yen: 425000
+        room_diff_avg_yen: 8300
+        room_diff_median_yen: 0
+        stay_days_avg: 7
+        stay_days_median: 6
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10632
+        verified_at: 2026-09-20
+
+  - id: bn-10164
+    region_code: "13113"
+    name: 日本赤十字社医療センター
+    address: 東京都渋谷区広尾4-1-22
+    lat: 35.6544727
+    lng: 139.7179618
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: true
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10164
+    website_url: "https://www.med.jrc.or.jp/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10164
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 918000
+        total_median_yen: 895000
+        basic_avg_yen: 732000
+        basic_median_yen: 738000
+        room_diff_avg_yen: 107100
+        room_diff_median_yen: 108000
+        stay_days_avg: 8
+        stay_days_median: 7
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10164
+        verified_at: 2026-09-20

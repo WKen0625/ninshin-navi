@@ -182,6 +182,17 @@ describe("家族C: 出産後2週・領収書あり・赤ちゃん訪問はまだ
     ]);
   });
 
+  it("出産後は、妊娠中にしかできない手続き（妊婦健診・8か月時アンケート）を、未完了でも出さない", () => {
+    const notDone = { ...family, completed_step_ids: family.completed_step_ids.filter((id) => !["jp.s04", "setagaya.s05b"].includes(id)) };
+    const ids = resolve(notDone).actions.map((a) => a.step.id);
+    expect(ids).not.toContain("jp.s04");
+    expect(ids).not.toContain("setagaya.s05b");
+    expect(resolve(notDone).current!.step.id).toBe("jp.s07");
+    // 出産後も申請できるもの（支援給付1回目: 心拍確認日から2年）は、未完了なら残る
+    const s05 = { ...family, completed_step_ids: family.completed_step_ids.filter((id) => id !== "setagaya.s05") };
+    expect(resolve(s05).actions.map((a) => a.step.id)).toContain("setagaya.s05");
+  });
+
   it("支援給付2回目は、赤ちゃん訪問の案内を受け取ってから出る（国の jp.s08 は出ない）", () => {
     expect(resolve(family).actions.map((a) => a.step.id)).not.toContain("setagaya.s08");
     const after = { ...family, held_documents: [...family.held_documents, ...held("setagaya.akachan_homon_annai")] };
@@ -226,15 +237,15 @@ describe("全家族に共通", () => {
     expect(r.region_unverified).toBe(true);
   });
 
-  it("未登録の市区町村（新宿区 13104）でも、国＋東京都の骨格は出る（設計原則4）", () => {
-    const r = resolve({ ...base, region_code: "13104" });
+  it("未登録の市区町村（八王子市 13201）でも、国＋東京都の骨格は出る（設計原則4）", () => {
+    const r = resolve({ ...base, region_code: "13201" });
     expect(r.regions.map((x) => x.code)).toEqual(["13", "JP"]);
     expect(r.region_unverified).toBe(true);
     expect(r.actions.map((a) => a.step.id)).toEqual(["jp.s01", "tokyo.s01", "jp.s02", "jp.s06b"]);
   });
 
   it("未登録の市区町村でも、出産後は国の出産後ステップが出る", () => {
-    const r = resolve({ ...base, region_code: "13104", birth_date: "2026-09-04", completed_step_ids: ["jp.s01", "jp.s02", "tokyo.s01", "jp.s06b"] });
+    const r = resolve({ ...base, region_code: "13201", birth_date: "2026-09-04", completed_step_ids: ["jp.s01", "jp.s02", "tokyo.s01", "jp.s06b"] });
     expect(r.actions.map((a) => a.step.id)).toEqual(["jp.s07", "jp.s09", "jp.s08", "tokyo.s03", "jp.s09b", "jp.s09c"]);
   });
 

@@ -1,0 +1,277 @@
+# 墨田区（全国地方公共団体コード 13107）  確認日: 2026-09-20
+# 区の公式サイト（city.sumida.lg.jp）で読めた内容だけを入れた。全行が人の承認待ち（needs_review: true）。
+# 根拠の引用は docs/research/13107.md。
+# 区独自の出産費用の助成・出産祝い金は、区のサイトでは見つからなかった（入れていない）。
+# 墨田区は母子健康手帳を「親子健康手帳（母子健康手帳）」と呼ぶ。
+
+region:
+  code: "13107"
+  level: municipality
+  name: 墨田区
+  parent_code: "13"
+  status: in_progress
+  verified_at: 2026-09-20
+
+documents:
+  - id: sumida.hoken_bag
+    name: 母と子の保健バッグ（墨田区。親子健康手帳（母子健康手帳）と一緒に受け取る袋）
+    aliases: [保健バッグ, 親子健康手帳のセット, 母子手帳のセット]
+    # この袋を持っていれば、中の紙も持っている扱いにする
+    includes:
+      - jp.boshi_techo
+      - jp.kenshin_ticket
+      - sumida.kenshin_ticket
+      - sumida.shika_kenshin_ticket
+      - sumida.shinseiji_choukaku_ticket
+      # 次の2つは「袋の中」とは書かれていないが、親子健康手帳の交付時に一緒に交付される（令和8年4月から）
+      - sumida.sanpu_kenshin_ticket
+      - sumida.ikkagetsuji_kenshin_ticket
+      - sumida.shussei_tsuchihyo             # 親子健康手帳に綴じこまれている
+    phase: notification
+    description: 妊娠届を出すと、親子健康手帳（母子健康手帳）と一緒に受け取る。妊婦健康診査受診票、新生児聴覚検査受診票、妊産婦歯科健康診査受診票、マタニティマーク、産前産後に役立つ冊子などが入っている。電子申請で届け出た場合は、1週間ほどでレターパックで届く。
+    source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/ninshin/ninsintodoke.html
+    verified_at: 2026-09-20
+  - id: sumida.kenshin_ticket
+    name: 妊産婦健康診査等受診票（墨田区）
+    aliases: [受診票, 補助券]
+    phase: notification
+    description: 親子健康手帳を受け取るときに交付される都内共通の受診票。妊婦健康診査14回分、妊婦超音波検査4回分、妊婦子宮頸がん検診1回分、新生児聴覚検査1回分が1冊にまとまっている。令和8年4月からは、産婦健康診査2回分と1か月児健康診査1回分も交付される。原則として再発行できない。
+    source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/ninshin/ninpu.html
+    verified_at: 2026-09-20
+  - id: sumida.shika_kenshin_ticket
+    name: 墨田区妊産婦歯科健康診査票
+    aliases: [歯科の受診票]
+    phase: pregnancy
+    description: 親子健康手帳を受け取るときに、実施医療機関の一覧表と一緒にもらう。妊娠中に1回、出産後1年未満の間に1回使える。
+    source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/kenko_zukuri/ha_kenkou/ninpusikakenkousinsa.html
+    verified_at: 2026-09-20
+  - id: sumida.shinseiji_choukaku_ticket
+    name: 新生児聴覚検査受診票（墨田区）
+    phase: birth
+    description: 「母と子の保健バッグ」に入っている。原則として都内の委託医療機関で使える。
+    source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/ninshin/akachan-mimikikoe.html
+    verified_at: 2026-09-20
+  - id: sumida.sanpu_kenshin_ticket
+    name: 産婦健康診査受診票（墨田区）
+    phase: postpartum
+    description: 2回分。令和8年10月1日以降の受診に使える。令和8年4月から、親子健康手帳を受け取るときに交付。令和8年3月以前に妊娠届を出した人で手元に無い場合は、健康推進課母子健康づくり担当（03-3622-9139）に連絡すると郵送される。
+    source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/ninshin/ninpu.html
+    verified_at: 2026-09-20
+  - id: sumida.ikkagetsuji_kenshin_ticket
+    name: 1か月児健康診査受診票（墨田区）
+    phase: postpartum
+    description: 1回分。令和8年10月1日以降の受診に使える。令和8年4月から、親子健康手帳を受け取るときに交付。
+    source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/ninshin/ninpu.html
+    verified_at: 2026-09-20
+  - id: sumida.shussei_tsuchihyo
+    name: 出生通知票（赤ちゃん訪問連絡票）（墨田区）
+    phase: postpartum
+    description: 親子健康手帳（母子健康手帳）に綴じこまれているはがき。出生届とは別のもの。
+    source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/syussan_junbi_class/akatyanhoumon.html
+    verified_at: 2026-09-20
+  - id: sumida.shien_kyufu_annai_1
+    name: 妊婦のための支援給付（出産前・1回目支給）の申請案内（墨田区。郵送で届く）
+    phase: pregnancy
+    description: ゆりかご・すみだ面接（妊婦面接）を受けたあと、後日郵送で届く。二次元コードから電子申請する。
+    source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/syussan_junbi_class/skogift.html
+    verified_at: 2026-09-20
+  - id: sumida.shien_kyufu_annai_2
+    name: 妊婦のための支援給付（出産後・2回目支給）の申請案内（墨田区。郵送で届く）
+    phase: postpartum
+    description: 出生通知票を出して「赤ちゃん訪問」を受けたあと、郵送で届く。二次元コードから電子申請する。
+    source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/syussan_junbi_class/skogift.html
+    verified_at: 2026-09-20
+
+steps:
+  - id: sumida.s03
+    overrides_step_id: jp.s03
+    phase: notification
+    sort_order: 30
+    title: 妊娠届を出し、親子健康手帳（母子健康手帳）と「母と子の保健バッグ」を受け取る
+    detail: 医師か助産師に妊娠と診断され（胎児の心拍確認が必要）、届け出る日に墨田区に住民登録がある人が対象。電子申請（マイナポータル、またはLoGoフォーム）で届け出ると、1週間ほどでレターパックで届く。急ぐ人は窓口へ。窓口はすみだ保健子育て総合センター（横川5-7-4）の健康推進課（03-3622-9139）で、その場で受け取れる。持ち物は、妊婦の個人番号（マイナンバー）を確認できるもの、届け出る人の本人確認書類、妊娠届出書（窓口でも書ける）。代理の人は委任状も必要。診断を受けた医療機関の名前・所在地・医師名を書く欄がある。
+    trigger_document_id: jp.heartbeat_confirmed
+    produces_document_id: sumida.hoken_bag
+    channel: オンライン（マイナポータル / LoGoフォーム・郵送で受け取り） / 窓口（すみだ保健子育て総合センター 健康推進課）
+    action_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/ninshin/ninsintodoke.html
+    deadline_note: 妊娠していることがわかったら（区のページに日付の期限は記載なし）
+    source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/ninshin/ninsintodoke.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: sumida.s03b
+    phase: pregnancy
+    sort_order: 35
+    title: 「ゆりかご・すみだ」の面接（妊婦面接）を受ける（予約制）
+    detail: 助産師・保健師などとの面接（約45分）。面接日に墨田区に住民登録があり、妊娠届を出した妊娠中の人が対象で、産後は受けられない。会場はすみだ保健子育て総合センター（横川5-7-4。区役所ではない）。平日は9時〜15時15分、土曜日の開催日もある。予約フォーム（LoGoフォーム）から45日前から予約できる。原則は対面なので、里帰り出産の人は里帰りの前に受ける。持ち物は親子健康手帳（忘れると、その日は商品券を受け取れない）と、すみだいきいき子育てガイドブック。面接のあと、その場で「育児パッケージ」（こども商品券2万円分）を受け取り、後日、支援給付（1回目）の申請案内が郵送で届く。
+    trigger_document_id: sumida.hoken_bag
+    produces_document_id: sumida.shien_kyufu_annai_1
+    channel: すみだ保健子育て総合センター（要予約）
+    action_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/ninshin/yurikagosumida.html
+    deadline_base: due_date
+    deadline_offset_days: 0
+    deadline_note: 妊娠中に受ける。産後は対象にならない。体調の良いときに
+    source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/ninshin/yurikagosumida.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: sumida.s05
+    overrides_step_id: jp.s05
+    phase: pregnancy
+    sort_order: 50
+    title: 妊婦のための支援給付（出産前・1回目・5万円）を申請する
+    detail: 申請日に墨田区に住民登録があり、令和7年4月以降に妊娠届を出し、ゆりかご・すみだ面接を受けた人が対象（転入した人は、前の自治体で受け取っていないこと）。面接のあと郵送で届く申請案内の二次元コードから電子申請する。現金5万円（口座振込）か電子クーポン5万円分を選ぶ。流産・死産などの場合や、特別な事情で面接を受けられない場合は、案内が自動では届かないので、専用コールセンター 0120-600-127（平日9〜17時）に連絡する。
+    trigger_document_id: sumida.shien_kyufu_annai_1
+    channel: オンライン（郵送で届く案内の二次元コードから）
+    action_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/syussan_junbi_class/skogift.html
+    deadline_base: confirmation_date
+    deadline_offset_days: 730
+    deadline_note: 医療機関で胎児心拍が確認された日から2年を経過する日まで
+    source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/syussan_junbi_class/skogift.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: sumida.s05c
+    phase: pregnancy
+    sort_order: 57
+    title: 妊産婦歯科健康診査を受ける（妊娠中に1回・無料）
+    detail: 妊娠中に1回、出産後1年未満の間に1回、無料で受けられる。墨田区の実施歯科医療機関に、電話などで予約して受ける。受けるときは「墨田区妊産婦歯科健康診査票」と親子健康手帳を見せる。区外に転出すると受けられない。
+    trigger_document_id: sumida.shika_kenshin_ticket
+    channel: 墨田区の実施歯科医療機関（要予約）
+    action_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/kenko_zukuri/ha_kenkou/ninpusikakenkousinsa.html
+    deadline_note: 妊娠中は体調の良いときに、なるべく早めに。産後の分は出産後1年未満の間に1回
+    source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/kenko_zukuri/ha_kenkou/ninpusikakenkousinsa.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: sumida.s06d
+    phase: pregnancy
+    sort_order: 66
+    title: （墨田区の国民健康保険の人）産前産後期間の国民健康保険料の免除を届け出る
+    detail: 出産予定日または出産日の月の前月から4か月間（多胎は3か月前から6か月間）の、出産する人の所得割額と均等割額が免除される。妊娠85日以上の分娩が対象。窓口は区役所2階の国保年金課こくほ資格係（03-5608-6121、03-5608-6122）。郵送（〒130-8640 吾妻橋1-23-20 墨田区役所 国保年金課 こくほ資格係）とLoGoフォームの電子申請もできる。必要なものは、免除届出書、親子（母子）健康手帳、出産する人のマイナンバーカードか資格確認書。
+    trigger_document_id: sumida.hoken_bag
+    channel: 窓口 / 郵送 / オンライン（LoGoフォーム）
+    action_url: https://www.city.sumida.lg.jp/kurashi/kenkouhoken/kokuminkenkouhoken/genmen/sanzensango.html
+    deadline_note: 出産予定日の6か月前から届け出できる。出産後の届け出もできる
+    source_url: https://www.city.sumida.lg.jp/kurashi/kenkouhoken/kokuminkenkouhoken/genmen/sanzensango.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: sumida.s08c
+    phase: birth
+    sort_order: 71
+    title: 新生児聴覚検査を受ける
+    detail: 赤ちゃんの耳の聞こえの検査（数分で終わり、痛みはない）。受診票を使うと、検査費用の一部が助成される。受診票は原則として都内の委託医療機関で使える。都外などで自費で受けたときは、あとから上限3,000円の助成を申請できる。
+    trigger_document_id: sumida.shinseiji_choukaku_ticket
+    channel: 医療機関
+    deadline_note: できるだけ出生後1か月ごろまでに。事情があるときは生後50日に達するまで使える
+    source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/ninshin/akachan-mimikikoe.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: sumida.s07c
+    phase: postpartum
+    sort_order: 75
+    title: 出生通知票を郵送し、こんにちは赤ちゃん事業（新生児訪問）を受ける
+    detail: 生後120日になるまでのすべての赤ちゃんを、保健師・助産師が訪問する。赤ちゃんが生まれたら、親子健康手帳に綴じこまれている「出生通知票（赤ちゃん訪問連絡票）」を書いて、できるだけ早く郵送する（名前が決まっていなければ空欄でよい。出生届とは別のもの）。届くと健康推進課から日程調整の電話が来る。里帰り先で受けたいときは「訪問してほしい場所」の欄に書く。訪問を受けると、支援給付（2回目）の申請案内が郵送で届く。問い合わせは健康推進課 03-3622-9152。
+    trigger_document_id: sumida.shussei_tsuchihyo
+    produces_document_id: sumida.shien_kyufu_annai_2
+    channel: 郵送（出生通知票）→ 自宅に訪問
+    action_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/syussan_junbi_class/akatyanhoumon.html
+    deadline_note: 出生通知票はできるだけ早めに郵送。訪問の対象は生後120日になるまで
+    source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/syussan_junbi_class/akatyanhoumon.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: sumida.s08
+    overrides_step_id: jp.s08
+    phase: postpartum
+    sort_order: 80
+    title: 妊婦のための支援給付（出産後・2回目・子ども1人あたり5万円）を申請する
+    detail: 申請日に墨田区に住民登録があり、令和7年4月以降に出産し、赤ちゃん訪問（新生児訪問）を受けた人が対象（転入した人は、前の自治体で受け取っていないこと）。訪問のあと郵送で届く申請案内の二次元コードから電子申請する。子ども1人あたり、現金5万円（口座振込）か電子クーポン5万円分を選ぶ。流産・死産などの場合や、特別な事情がある場合は、専用コールセンター 0120-600-127（平日9〜17時）に連絡する。東京都の「018サポート」「赤ちゃんファースト」は、別に東京都へ申請する。
+    trigger_document_id: sumida.shien_kyufu_annai_2
+    channel: オンライン（郵送で届く案内の二次元コードから）
+    action_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/syussan_junbi_class/skogift.html
+    deadline_base: due_date
+    deadline_offset_days: 674
+    deadline_note: 出産予定日の8週前（32週）から2年を経過する日まで
+    source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/syussan_junbi_class/skogift.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: sumida.s08b
+    phase: postpartum
+    sort_order: 82
+    title: 産婦健康診査を受ける（2回まで）
+    detail: 出産後2か月以内の健診（おもに産後2週間前後と1か月前後）が対象で、1回あたり上限5,000円、2回まで。令和8年10月1日以降は、都内の契約医療機関・助産所で都内共通の受診票を出して受ける（使える医療機関で受診票を使わずに自費で受けると、払い戻しの対象外）。令和8年4月〜9月の受診と、10月以降に都外で自費で受けた分は、区の助成（あとから払い戻し）を電子申請できる。受診日に産婦が墨田区に住民登録があること。
+    trigger_document_id: sumida.sanpu_kenshin_ticket
+    channel: 医療機関・助産所
+    deadline_note: 出産後2か月以内。払い戻しの申請は出産した日から1年以内
+    source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/teatejyosei/sannpu1kagetujyosei.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: sumida.s08d
+    phase: postpartum
+    sort_order: 83
+    title: 1か月児健康診査を受ける（1回）
+    detail: 上限6,000円、1回まで。令和8年10月1日以降は、都内の契約医療機関で都内共通の受診票を出して受ける（助産所で受けた1か月児健診は対象外）。令和8年4月〜9月の受診と、10月以降に都外で自費で受けた分は、区の助成（あとから払い戻し）を電子申請できる。受診日に子どもが墨田区に住民登録があること。
+    trigger_document_id: sumida.ikkagetsuji_kenshin_ticket
+    channel: 医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 41
+    deadline_note: 生後28日から生後41日まで（出生日を0日とする）。払い戻しの申請は出産した日から1年以内
+    source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/teatejyosei/sannpu1kagetujyosei.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: sumida.s08e
+    phase: postpartum
+    sort_order: 84
+    title: （都外や契約外の医療機関・助産所で健診を自費で受けた人）妊婦健診・新生児聴覚検査の費用の助成を申請する
+    detail: 受診票が使えない都外の医療機関や、都と契約していない医療機関・助産所で、自費で受けた妊婦健診・検査の費用の一部が、口座に振り込まれる。上限は、妊婦健診1回目11,670円、2〜14回目各5,460円（どちらも令和8年4月1日以降の受診）、超音波検査各5,300円、子宮頸がん検診3,400円、新生児聴覚検査3,000円。費用が上限より少ないときは、その費用が助成額になる。助産所での1回目の健診・超音波検査・子宮頸がん検診は対象外。申請書と、親子健康手帳の該当ページのコピー、未使用の受診票、口座のわかるもののコピー、領収書と明細書のコピーを、すみだ保健子育て総合センター2階 健康推進課（横川5-7-4、03-3622-9139）の窓口に持っていくか、郵送する。振り込みまで2〜3か月ほどかかる。
+    trigger_document_id: sumida.kenshin_ticket
+    channel: 窓口 / 郵送
+    action_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/teatejyosei/ninpukenshinjosei.html
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    deadline_note: 出産日から1年以内
+    source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/teatejyosei/ninpukenshinjosei.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+subsidies:
+  - id: sumida.shien_kyufu_1
+    name: 妊婦のための支援給付（出産前・1回目支給）
+    kind: cash_later
+    amount_yen: 50000
+    amount_note: 現金5万円（口座振込）か電子クーポン5万円分を、申請のときに選ぶ。
+    conditions: 申請日に墨田区に住民登録があること。令和7年4月以降に妊娠届を出していること（流産・死産・人工妊娠中絶の場合も対象になることがある）。ゆりかご・すみだ面接（妊婦面接）を受けたこと（特別な事情がある人は省略できる場合がある）。転入した人は、前の自治体で同じ給付を受けていないこと。
+    apply_via: 面接のあと郵送で届く申請案内の二次元コードから電子申請。専用コールセンター 0120-600-127（平日9〜17時）
+    deadline_base: confirmation_date
+    deadline_offset_days: 730
+    source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/syussan_junbi_class/skogift.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: sumida.shien_kyufu_2
+    name: 妊婦のための支援給付（出産後・2回目支給）
+    kind: cash_later
+    amount_formula: "50000 * children"
+    amount_note: 子ども1人あたり、現金5万円（口座振込）か電子クーポン5万円分を、申請のときに選ぶ。
+    conditions: 申請日に墨田区に住民登録があること。令和7年4月以降に出産していること（流産・死産・人工妊娠中絶の場合も対象）。赤ちゃん訪問（新生児訪問）を受けたこと（特別な事情がある人は不要）。転入した人は、前の自治体で同じ給付を受けていないこと。
+    apply_via: 赤ちゃん訪問のあと郵送で届く申請案内の二次元コードから電子申請。専用コールセンター 0120-600-127（平日9〜17時）
+    deadline_base: due_date
+    deadline_offset_days: 674
+    source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/syussan_junbi_class/skogift.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: sumida.kouketsuatsu
+    name: 妊娠高血圧症候群等の医療費助成
+    kind: conditional
+    amount_note: 医療保険を使って入院治療した場合の自己負担額を助成。入院時の食事代（標準負担額）は自己負担。
+    conditions: 墨田区内に住所があり、妊娠高血圧症候群とその関連疾患・糖尿病・貧血・産科出血・心疾患のいずれかで、認定基準を満たし入院治療が必要な人。前年（1〜6月の申請は前々年）の所得税額が30,000円以下の世帯、または入院見込み期間が26日以上。
+    apply_via: 墨田区保健所 健康推進課 地域保健担当（横川5-7-4 すみだ保健子育て総合センター2階、03-3622-9130）。手続きが遅れると助成を受けられないことがある（日数の期限は区のページに記載なし）。
+    source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/josei_hosyou/ninshinkouketuatu.html
+    verified_at: 2026-09-20
+    needs_review: true

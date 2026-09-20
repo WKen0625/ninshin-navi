@@ -1,0 +1,235 @@
+# 中野区（全国地方公共団体コード 13114）  確認日: 2026-09-20
+# 区の公式サイト（city.tokyo-nakano.lg.jp）で読めた内容だけを入れている。全行が人の承認待ち（needs_review: true）。
+# 区独自の出産費用の助成・出産祝い金は、区のサイトでは見つからなかった（入れていない）。
+# 1か月児健康診査は、里帰り等助成金のページに上限額があるだけで、受診票の案内ページは見つからなかった。
+
+region:
+  code: "13114"
+  level: municipality
+  name: 中野区
+  parent_code: "13"
+  status: in_progress
+  verified_at: 2026-09-20
+
+documents:
+  - id: nakano.hoken_bag
+    name: 母と子の保健バッグ（中野区。母子健康手帳と一緒に受け取る袋）
+    aliases: [保健バッグ, 母子手帳のセット]
+    # この袋を持っていれば、中の紙も持っている扱いにする
+    includes:
+      - jp.boshi_techo
+      - jp.kenshin_ticket
+      - nakano.kenshin_ticket
+      - nakano.shinseiji_choukaku_ticket
+      - nakano.sanpu_kenshin_ticket       # 令和8年4月1日以降に妊娠届を出した人。それより前の人には郵送
+      - nakano.shussho_tsuchi
+    phase: notification
+    description: 妊娠届を出すと、母子健康手帳と一緒に受け取る。妊婦健康診査受診票、妊婦歯科健康診査受診票、妊婦超音波検査受診票、新生児聴覚検査受診票、出生通知票などが入っている。
+    source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/tetsuduki/ninshintodoke.html
+    verified_at: 2026-09-20
+  - id: nakano.kenshin_ticket
+    name: 妊婦健康診査受診票（中野区。「妊婦健康診査及び新生児聴覚検査のご案内」という受診票のつづり）
+    aliases: [受診票, 補助券]
+    phase: notification
+    description: 妊婦健康診査14回分（多胎児を妊娠した人は19回分）、妊婦超音波検査4回分、子宮頸がん検診1回分。都内の助産所でも受けられる（助産所で受けられる回数は原則7回）。東京都外の医療機関では使えない（あとから助成金を申請できる）。
+    source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/kenshin/ninpukenkoshinsa_jyushin.html
+    verified_at: 2026-09-20
+  - id: nakano.shinseiji_choukaku_ticket
+    name: 新生児聴覚検査受診票（中野区）
+    phase: birth
+    description: 母子健康手帳と一緒に受け取る「妊婦健康診査及び新生児聴覚検査のご案内」（受診票のつづり）に入っている。検査の前に医療機関に出すと、検査費用のうち3,000円を上限に助成される。
+    source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/teate/shien/cyokakukensa.html
+    verified_at: 2026-09-20
+  - id: nakano.sanpu_kenshin_ticket
+    name: 産婦健康診査受診票（中野区）
+    phase: postpartum
+    description: 令和8年10月1日以降の受診が対象（9月30日までの受診は対象外）。令和8年4月1日以降に妊娠届を出した人は「母と子の保健バッグ」で受け取る。3月31日までに届け出て出産予定日が9月15日以降の人には8月27日に郵送。ほかの自治体から転入した人は各すこやか福祉センターで申請する。
+    source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/kenshin/sannpukennsinn.html
+    verified_at: 2026-09-20
+  - id: nakano.shussho_tsuchi
+    name: 出生通知票（中野区。はがき）
+    phase: birth
+    description: 「母と子の保健バッグ」に入っている。赤ちゃんが生まれたら記入して投函する（電子申請でも出せる）。こんにちは赤ちゃん訪問のもとになる。
+    source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/syussan/sangoshien/akachanhomon.html
+    verified_at: 2026-09-20
+  - id: nakano.shien_kyufu_annai_1
+    name: 妊婦のための支援給付（産前）の申請案内（中野区。二次元コード）
+    phase: pregnancy
+    description: 妊娠届のとき、または「かんがるー面接」のときに案内される二次元コード。ここから電子申請する。
+    source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/teate_zyosei/ninpu.html
+    verified_at: 2026-09-20
+  - id: nakano.akachan_homon_annai
+    name: 妊婦のための支援給付（産後）の申請案内（中野区。こんにちは赤ちゃん訪問で受け取る二次元コード）
+    phase: postpartum
+    description: こんにちは赤ちゃん訪問のときに案内される二次元コード。ここから電子申請する。
+    source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/teate_zyosei/ninpu.html
+    verified_at: 2026-09-20
+
+steps:
+  - id: nakano.s03
+    overrides_step_id: jp.s03
+    phase: notification
+    sort_order: 30
+    title: 妊娠届を出し、母子健康手帳と「母と子の保健バッグ」を受け取る
+    detail: 窓口は、すこやか福祉センター（月〜土の8時30分〜17時）と、区役所3階の子ども総合窓口（月〜金の8時30分〜17時）。持ち物は、妊婦の個人番号（マイナンバー）を確認できるもの1点と、本人確認ができるもの（マイナンバーカードなどは1点、保険証などは2点）。同じ世帯でない代理人が届け出るときは委任状が必要。マイナポータルの「ぴったりサービス」で電子申請もできる（マイナンバーカードが必要）が、その場合も母子健康手帳と保健バッグを受け取りに窓口へ行く必要がある。
+    trigger_document_id: jp.heartbeat_confirmed
+    produces_document_id: nakano.hoken_bag
+    channel: すこやか福祉センター / 区役所3階子ども総合窓口（電子申請のあと来庁）
+    action_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/tetsuduki/ninshintodoke.html
+    deadline_note: 期限は区のページに記載なし
+    source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/tetsuduki/ninshintodoke.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: nakano.s03b
+    phase: pregnancy
+    sort_order: 35
+    title: かんがるー面接を受ける（妊娠20週以降）
+    detail: 保健師などが相談を受け、使えるサービスを紹介して、支援プラン（かんがるープラン）を作る面接。対象は中野区に住民票のある妊娠中の人。妊娠20週以降に、住んでいる地域を受け持つすこやか福祉センターに電話で予約する（中部 03-3367-7788、北部 03-3388-0240、南部 03-3380-5551、鷺宮 03-3336-7111。月〜土の8時30分〜17時）。家族と一緒に受けてもよいが、家族だけの面接はできない。体調不良や急な里帰りで来所が難しい人は、訪問やオンラインでも受けられる（申し込みのときに相談する）。面接のあと、子ども商品券（10,000円相当）を受け取る。
+    trigger_document_id: nakano.hoken_bag
+    produces_document_id: nakano.shien_kyufu_annai_1
+    channel: 住んでいる地域のすこやか福祉センター（予約制。訪問・オンラインも可）
+    action_url: https://www.city.tokyo-nakano.lg.jp/dept/172050/d021411.html
+    deadline_note: 妊娠20週以降に予約する。いつまでに受けるかは区のページに記載なし
+    source_url: https://www.city.tokyo-nakano.lg.jp/dept/172050/d021411.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: nakano.s05
+    overrides_step_id: jp.s05
+    phase: pregnancy
+    sort_order: 50
+    title: 妊婦のための支援給付（産前・5万円）を申請する
+    detail: 妊娠届のとき、またはかんがるー面接のときに案内される二次元コードから電子申請する。現金（銀行振込）かギフト（電子ギフトカードを簡易書留で郵送）を選ぶ。どちらも届くまで2〜3か月ほど。対象は、令和7年4月1日以降に妊娠届と認定の申請をし、医療機関で胎児の心拍が確認された妊婦。流産・死産・人工妊娠中絶などを経験した人も対象。問い合わせはすこやか福祉センター企画調整係 03-3228-8809（平日8時30分〜17時）。
+    trigger_document_id: nakano.shien_kyufu_annai_1
+    channel: オンライン（案内の二次元コードから電子申請）
+    deadline_note: 申請期限は区のページに記載なし（窓口で確認する）
+    source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/teate_zyosei/ninpu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: nakano.s05c
+    phase: pregnancy
+    sort_order: 57
+    title: 妊産婦歯科健康診査を受ける（健診と保健指導は無料）
+    detail: 指定の医療機関に「中野区妊産婦歯科健診」と伝えて予約する。健診と保健指導は無料で、そのほかの治療は自己負担。里帰り出産などで妊娠中に受けられなかった人は、出産後1年まで受けられる。回数は区のページに記載なし。
+    trigger_document_id: nakano.hoken_bag
+    channel: 区の指定医療機関（歯科）
+    deadline_note: 妊娠中（受けられなかった人は出産後1年まで）
+    source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/kenshin/ninpukenkoshinsa_jyushin.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: nakano.s06d
+    phase: pregnancy
+    sort_order: 66
+    title: （中野区の国民健康保険の人）産前産後期間の国民健康保険料の免除を届け出る
+    detail: 出産予定日（または出産日）の月の前月から4か月間（多胎は3か月前から6か月間）の保険料が免除される。妊娠85日（4か月）以上の出産が対象で、死産・流産・早産・人工妊娠中絶を含む。届出は、区役所2階6番窓口（平日8時30分〜17時。地域事務所では受け付けない）、郵送、マイナポータルの電子申請（ぴったりサービス）のどれか。母子健康手帳、国民健康保険の資格確認書、マイナンバー確認書類が必要。問い合わせは保険医療課資格賦課係 03-3228-5511。
+    trigger_document_id: nakano.hoken_bag
+    channel: 窓口 / 郵送 / オンライン（マイナポータル）
+    action_url: https://www.city.tokyo-nakano.lg.jp/kurashi/hoken/hokenryo/0234707520231031160300299.html
+    deadline_note: 出産予定日の6か月前から届け出できる
+    source_url: https://www.city.tokyo-nakano.lg.jp/kurashi/hoken/hokenryo/0234707520231031160300299.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: nakano.s08c
+    phase: birth
+    sort_order: 71
+    title: 新生児聴覚検査を受ける（生後50日以内）
+    detail: 検査を受ける日に中野区に住民登録がある人の子で、生後50日以内が対象。検査の前に受診票を医療機関に出すと、検査費用のうち3,000円を上限に助成される。受診票が使えなかったときは、出生日から1年以内に払い戻しを申請できる。問い合わせは区役所3階子ども総合窓口 03-3228-3253。
+    trigger_document_id: nakano.shinseiji_choukaku_ticket
+    channel: 医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 50
+    deadline_note: 生後50日以内
+    source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/teate/shien/cyokakukensa.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: nakano.s07c
+    phase: postpartum
+    sort_order: 75
+    title: 「出生通知票」を出し、こんにちは赤ちゃん訪問を受ける
+    detail: 生後4か月以内の赤ちゃんのいる家庭を、保健師または訪問指導員が訪問する。「母と子の保健バッグ」に入っている出生通知票（はがき）に記入して投函するか、電子申請で担当のすこやか福祉センターあてに出す。訪問のときに、妊婦のための支援給付（産後）の申請案内を受け取る（令和7年4月1日以降に出産した人）。
+    trigger_document_id: nakano.shussho_tsuchi
+    produces_document_id: nakano.akachan_homon_annai
+    channel: はがき / オンライン（電子申請）のあと、自宅で訪問を受ける
+    action_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/syussan/sangoshien/akachanhomon.html
+    deadline_note: 訪問は生後4か月以内
+    source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/syussan/sangoshien/akachanhomon.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: nakano.s08
+    overrides_step_id: jp.s08
+    phase: postpartum
+    sort_order: 80
+    title: 妊婦のための支援給付（産後・子どもの人数×5万円）を申請する
+    detail: こんにちは赤ちゃん訪問のときに案内される二次元コードから電子申請する。現金（銀行振込）かギフトを選ぶ。対象は、令和7年4月1日以降に出産し、申請のときに中野区に住民登録のある産婦。問い合わせはすこやか福祉センター企画調整係 03-3228-8809（平日8時30分〜17時）。
+    trigger_document_id: nakano.akachan_homon_annai
+    channel: オンライン（案内の二次元コードから電子申請）
+    deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
+    source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/teate_zyosei/ninpu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: nakano.s08b
+    phase: postpartum
+    sort_order: 82
+    title: 産婦健康診査を受ける（産後2週間ごろと1か月ごろの2回まで）
+    detail: 令和8年10月1日以降に受けた産婦が対象（流産・死産も含む）。1人につき2回まで、各回5,000円を上限に助成。令和8年9月30日までの受診は対象外。東京都外で受けたときは、あとから限度額の範囲で助成される予定。問い合わせは各すこやか福祉センター、区役所3階子ども総合窓口。
+    trigger_document_id: nakano.sanpu_kenshin_ticket
+    channel: 医療機関
+    deadline_note: 産後2週間ごろに1回、産後1か月ごろに1回
+    source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/kenshin/sannpukennsinn.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: nakano.s08e
+    phase: postpartum
+    sort_order: 84
+    title: （東京都外などで受診票を使えなかった人）里帰り等妊婦健康診査等助成金を申請する
+    detail: 受診した日に中野区に住民票があった人が対象（転出したあとでも申請できる）。令和8年4月1日以降の受診分の上限は、妊婦健康診査1回目11,670円、2〜14回目5,460円、超音波検査5,300円、子宮頸がん検診3,400円、新生児聴覚検査3,000円。令和8年10月1日以降の受診分から、産婦健康診査（1・2回目、各5,000円）と1か月児健康診査（6,000円）も対象になる。申請書、母子健康手帳、使わなかった受診票、領収書・明細書の原本、本人確認書類、振込先の口座がわかるものを、区役所3階子ども総合窓口に持っていくか郵送する。問い合わせ 03-3228-3253。
+    trigger_document_id: nakano.hoken_bag
+    channel: 窓口（区役所3階子ども総合窓口）/ 郵送
+    action_url: https://www.city.tokyo-nakano.lg.jp/dept/242900/d001464.html
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    deadline_note: 出産日（または妊娠の終了）から1年以内
+    source_url: https://www.city.tokyo-nakano.lg.jp/dept/242900/d001464.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+subsidies:
+  - id: nakano.shien_kyufu_1
+    name: 妊婦のための支援給付（産前・中野区）
+    kind: cash_later
+    amount_yen: 50000
+    amount_note: 現金（銀行振込）かギフト（電子ギフトカード）を選ぶ。届くまで2〜3か月ほど。
+    conditions: 令和7年4月1日以降に妊娠届と認定の申請をし、医療機関で胎児の心拍が確認された妊婦。流産・死産・人工妊娠中絶などを経験した人も対象。
+    apply_via: 妊娠届のとき、またはかんがるー面接のときに案内される二次元コードから電子申請。問い合わせ すこやか福祉センター企画調整係 03-3228-8809（平日8時30分〜17時）
+    source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/teate_zyosei/ninpu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: nakano.shien_kyufu_2
+    name: 妊婦のための支援給付（産後・中野区）
+    kind: cash_later
+    amount_formula: "50000 * children"
+    amount_note: こども（胎児）の人数×5万円。現金かギフトを選ぶ。
+    conditions: 令和7年4月1日以降に出産し、申請のときに中野区に住民登録のある産婦。
+    apply_via: こんにちは赤ちゃん訪問のときに案内される二次元コードから電子申請
+    source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/teate_zyosei/ninpu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: nakano.kouketsuatsu
+    name: 妊娠高血圧症候群等の医療費助成（中野区）
+    kind: conditional
+    amount_note: 健康保険がきく分の自己負担額を助成（入院中の食事代は自己負担）。
+    conditions: 妊娠高血圧症候群とその関連疾患、糖尿病、貧血、産科出血、心疾患で入院治療が必要な人。総所得税額が30,000円以下の世帯の人、または入院予定期間が26日以上の人。
+    apply_via: 区役所3階子ども総合窓口、または各すこやか福祉センター（中部・北部・鷺宮・南部）。入院前か入院中に申請する。やむを得ず退院後になるときは退院後3か月以内。問い合わせ 子育て支援課 03-3228-3253
+    source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/teate/shien/ninshinkoketsuatsu.html
+    verified_at: 2026-09-20
+    needs_review: true

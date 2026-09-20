@@ -1,0 +1,290 @@
+# 目黒区（全国地方公共団体コード 13110）  確認日: 2026-09-20
+# 区の公式サイト（city.meguro.tokyo.jp）で読めた内容だけを入れた。全行が人の承認待ち（needs_review: true）。
+# 根拠の引用は docs/research/13110.md。
+
+region:
+  code: "13110"
+  level: municipality
+  name: 目黒区
+  parent_code: "13"
+  status: in_progress
+  verified_at: 2026-09-20
+
+documents:
+  - id: meguro.hoken_bag
+    name: 母と子の保健バッグ（目黒区。母子健康手帳と一緒に受け取る袋）
+    aliases: [保健バッグ, 母子手帳のセット]
+    # この袋を持っていれば、中の紙も持っている扱いにする
+    includes:
+      - jp.boshi_techo
+      - jp.kenshin_ticket
+      - meguro.kenshin_ticket
+      - meguro.shika_kenshin_ticket
+      - meguro.shinseiji_choukaku_ticket
+      - meguro.sanpu_kenshin_ticket          # 令和8年4月1日以降に母子健康手帳を受け取った人
+      - meguro.ikkagetsuji_kenshin_ticket    # 同上
+    phase: notification
+    description: 妊娠届を出すと、母子健康手帳と一緒に受け取る。妊婦健康診査受診票、マタニティキーホルダー、妊娠中・出産後の案内などが入っている。
+    source_url: https://www.city.meguro.tokyo.jp/smph/kurashi/shussan/ninshintodoke_mynumber.html
+    verified_at: 2026-09-20
+  - id: meguro.kenshin_ticket
+    name: 妊婦健康診査受診票（目黒区）
+    aliases: [受診票, 補助券]
+    phase: notification
+    description: 妊婦健康診査14回、妊婦超音波検査4回、子宮頸がん検診1回を公費で一部助成。都内の契約医療機関などで使える。令和6年10月1日以降に妊娠届を出した人は、都内の一部の助産所でも使える（助産所は原則7回が上限）。受診票を受け取る前に受けた健診には、区からの助成や返金はない。
+    source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/ninpukensa.html
+    verified_at: 2026-09-20
+  - id: meguro.shika_kenshin_ticket
+    name: 妊婦・産婦歯科健康診査受診票（目黒区）
+    phase: notification
+    description: 「母と子の保健バッグ」に同封されている。目黒区内の指定医療機関（歯科）で使う。
+    source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/ninpusika.html
+    verified_at: 2026-09-20
+  - id: meguro.shinseiji_choukaku_ticket
+    name: 新生児聴覚検査受診票（目黒区）
+    phase: birth
+    description: 妊娠届を出したときに、赤ちゃん1人につき1枚受け取る。
+    source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/sinnseiji_tyoukakukensa.html
+    verified_at: 2026-09-20
+  - id: meguro.sanpu_kenshin_ticket
+    name: 産婦健康診査受診票（目黒区）
+    phase: postpartum
+    description: 令和8年4月1日以降に母子健康手帳を受け取った人は、「母と子の保健バッグ」に入っている。有効期間は出産後2か月以内。
+    source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/sanpukensin.html
+    verified_at: 2026-09-20
+  - id: meguro.ikkagetsuji_kenshin_ticket
+    name: 1か月児健康診査受診票（目黒区）
+    phase: postpartum
+    description: 令和8年4月1日以降に母子健康手帳を受け取った人は、「母と子の保健バッグ」に入っている。
+    source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/ikkagetujikensin.html
+    verified_at: 2026-09-20
+  - id: meguro.shien_kyufu_annai_1
+    name: 妊婦支援給付金（1回目・妊娠時）の申請の案内（目黒区）
+    phase: pregnancy
+    description: 「ゆりかご・めぐろ（妊婦面接）」で受け取る。
+    source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/syussannkosodate.html
+    verified_at: 2026-09-20
+  - id: meguro.akachan_homon_annai
+    name: 妊婦支援給付金（2回目・出産後）の申請の案内（目黒区）
+    phase: postpartum
+    description: 出産後の「妊産婦・新生児訪問指導（赤ちゃん訪問）」で配られる。二次元コードから申請する。
+    source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/ninpunotameno_sienkyuhu.html
+    verified_at: 2026-09-20
+
+steps:
+  - id: meguro.s03
+    overrides_step_id: jp.s03
+    phase: notification
+    sort_order: 30
+    title: 妊娠届を出し、母子健康手帳と「母と子の保健バッグ」を受け取る
+    detail: 窓口は地域保健課保健相談係と、こども家庭センター（こども家庭センターは新規の手続きだけ）。持ち物は、妊婦の個人番号カードなどと、届け出る人の本人確認ができるもの（個人番号カード、運転免許証、パスポートなど）。代理人のときは委任状も。窓口に行くときはエコバッグなどを持っていく。マイナンバーカードを使って、電子（ぴったりサービス）でも届け出できる。その場合は、1週間ほどで母子健康手帳と「母と子の保健バッグ」などが郵送（配達員による手渡し）で届く。問い合わせは地域保健課地域保健サービス係 03-5722-9503。
+    trigger_document_id: jp.heartbeat_confirmed
+    produces_document_id: meguro.hoken_bag
+    channel: 窓口（地域保健課・こども家庭センター）または オンライン（ぴったりサービスのあと郵送）
+    action_url: https://www.city.meguro.tokyo.jp/smph/kurashi/shussan/ninshintodoke_mynumber.html
+    deadline_note: 期限は区のページに記載なし
+    source_url: https://www.city.meguro.tokyo.jp/smph/kurashi/shussan/ninshintodoke_mynumber.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: meguro.s03b
+    phase: pregnancy
+    sort_order: 35
+    title: 「ゆりかご・めぐろ」（妊婦面接）を受ける
+    detail: ゆりかご相談員（助産師・保健師・看護師）との面接。対象は、面接の日に目黒区に住民登録がある妊婦本人（転入した人も対象）。場所は地域保健課（目黒区総合庁舎3階）か、こども家庭センター（鷹番2-16-15）。電子申請で予約する（5日後から1か月先まで）。近い日を希望するときは電話 03-5722-9383 で相談できる。来所がむずかしいときはオンライン相談もある。持ち物は本人確認できるもの、母子健康手帳、黄色の妊娠面接券／受領券。目黒区で初めて面接を受けた人は、育児パッケージ（ギフトカード1万円分）と、妊婦支援給付金（1回目）の申請の案内を受け取る。
+    trigger_document_id: meguro.hoken_bag
+    produces_document_id: meguro.shien_kyufu_annai_1
+    channel: 地域保健課 または こども家庭センター（予約制。オンライン相談もあり）
+    action_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/syussannkosodate.html
+    deadline_note: いつまでに受けるかは区のページに記載なし（対象は妊婦）
+    source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/syussannkosodate.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: meguro.s05
+    overrides_step_id: jp.s05
+    phase: pregnancy
+    sort_order: 50
+    title: 妊婦支援給付金（1回目・5万円分）を申請する
+    detail: 令和7年4月1日以降に妊娠届を出し、妊婦給付認定の申請をして、助産師・保健師などの面談を受けた、目黒区に住民登録のある妊婦が対象。「ゆりかご・めぐろ（妊婦面接）」で申請書を書く。ギフトカードならその場で受け取り、現金なら申請から3か月ほどで妊婦名義の銀行口座に振り込まれる。流産・死産・人工妊娠中絶などを経験した人も申請できる。異所性妊娠（子宮外妊娠）などは対象にならない。問い合わせ 03-5722-9503。
+    trigger_document_id: meguro.shien_kyufu_annai_1
+    channel: 妊婦面接の場で申請
+    deadline_base: confirmation_date
+    deadline_offset_days: 730
+    deadline_note: 医療機関で胎児心拍が確認された日（受診日）から2年間
+    source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/ninpunotameno_sienkyuhu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: meguro.s05c
+    phase: pregnancy
+    sort_order: 57
+    title: 妊婦歯科健康診査を受ける（妊娠中に1回・無料）
+    detail: 目黒区内に住む妊娠中の人と、出産後12か月未満（子どもの1歳の誕生日の前日まで）の産婦が対象で、妊婦・産婦とも1回ずつ。健診の費用は無料（健診以外の検査や治療は実費）。目黒区内の指定医療機関（歯科）で、「母と子の保健バッグ」に同封の受診票を出して受ける。問い合わせは地域保健課地域保健サービス係 03-5722-7057。
+    trigger_document_id: meguro.shika_kenshin_ticket
+    channel: 医療機関（区内の指定歯科）
+    action_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/ninpusika.html
+    deadline_note: 妊婦の分は妊娠中に。産婦の分は子どもの1歳の誕生日の前日まで
+    source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/ninpusika.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: meguro.s06d
+    phase: pregnancy
+    sort_order: 66
+    title: （目黒区の国民健康保険の人）産前産後期間の国民健康保険料の免除を届け出る
+    detail: 出産月の前月から翌々月までの4か月間（双子など多胎は3か月前から6か月間）の保険料が免除される。妊娠85日以上の出産が対象で、死産・流産・早産・人工妊娠中絶も含む。窓口は国保年金課資格賦課係（目黒区総合庁舎1階）と各地区サービス事務所。郵送、オンライン申請でも届け出できる。母子健康手帳など出産予定日と単胎・多胎の別がわかる書類、本人確認書類、個人番号確認書類、申請書が必要。問い合わせ 03-5722-9810。
+    trigger_document_id: meguro.hoken_bag
+    channel: 窓口 / 郵送 / オンライン
+    action_url: https://www.city.meguro.tokyo.jp/kokuho/kurashi/kokuho/hokenryo_keigen.html
+    deadline_note: 出産予定日の6か月前から届け出できる。出産後でも届け出できる
+    source_url: https://www.city.meguro.tokyo.jp/kokuho/kurashi/kokuho/hokenryo_keigen.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: meguro.s08c
+    phase: birth
+    sort_order: 71
+    title: 新生児聴覚検査を受ける
+    detail: 生後50日以内の赤ちゃんが対象。初回の検査料に対して、3,000円を上限に1回助成。対象の検査は自動ABR（自動聴性脳幹反応）かOAE（耳音響放射）。妊娠届のときに受け取った受診票を使う。
+    trigger_document_id: meguro.shinseiji_choukaku_ticket
+    channel: 医療機関
+    deadline_note: 生後50日以内
+    source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/sinnseiji_tyoukakukensa.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: meguro.s07b
+    phase: postpartum
+    sort_order: 74
+    title: 出生通知票をオンラインで出し、目黒区の新生児誕生祝金（1人につき2万円）を申請する
+    detail: 出生通知票は電子申請フォームで出す。入力の途中で「新生児誕生祝金の申請をしますか。」に「はい」を選び、祝金の申請画面で必要なことを入力する。祝金は新生児1人につき2万円で、指定の金融機関の口座に振り込まれる。対象は、出生日に赤ちゃんを含む住民登録が目黒区にあり、区が出生通知票を受理した日にも目黒区に住民票がある世帯（生まれたあとに目黒区へ転入した世帯は対象外）。問い合わせは地域保健課地域保健サービス係 03-5722-9503。
+    trigger_document_id: meguro.hoken_bag
+    channel: オンライン（電子申請フォーム）
+    action_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/shinseizitanzyoiwaikin.html
+    deadline_base: birth_date
+    deadline_offset_days: 89
+    deadline_note: 子どもの出生日から3か月以内
+    source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/shinseizitanzyoiwaikin.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: meguro.s07c
+    phase: postpartum
+    sort_order: 75
+    title: 妊産婦・新生児の訪問指導（赤ちゃん訪問）を受ける
+    detail: 保健師か助産師が家に来て、体重測定、入浴のしかた、育児相談などをする（無料）。目黒区に住民登録のある人が対象で、里帰り先での訪問もできる。申し込みは、オンライン申請で出生通知票を出す。受付と住民登録の確認のあと、10〜14日ほど（土日祝を除く）で訪問担当者から日程調整の電話が来る。令和7年4月1日以降に生まれた場合、この訪問のときに妊婦支援給付金（2回目）の案内がある。
+    trigger_document_id: meguro.hoken_bag
+    produces_document_id: meguro.akachan_homon_annai
+    channel: オンライン（出生通知票）→ 自宅に訪問
+    action_url: https://www.city.meguro.tokyo.jp/hokenyobou/kosodatekyouiku/ninshin/homon.html
+    deadline_note: 期限は区のページに記載なし
+    source_url: https://www.city.meguro.tokyo.jp/hokenyobou/kosodatekyouiku/ninshin/homon.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: meguro.s08
+    overrides_step_id: jp.s08
+    phase: postpartum
+    sort_order: 80
+    title: 妊婦支援給付金（2回目・子ども1人あたり5万円分）を申請する
+    detail: 令和7年4月1日以降に出産し、新生児訪問（赤ちゃん訪問）を受け、胎児の数の届け出をした、目黒区に住民登録のある産婦が対象。赤ちゃん訪問で配られる案内の二次元コードから申請する。流産・死産などを経験した人、子どもを亡くした人も申請できる。問い合わせ 03-5722-9503。
+    trigger_document_id: meguro.akachan_homon_annai
+    channel: オンライン（二次元コードから申請）
+    deadline_base: due_date
+    deadline_offset_days: 674
+    deadline_note: 出産予定日の8週前から2年間（= 予定日−56日 から 730日間）
+    source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/ninpunotameno_sienkyuhu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: meguro.s08b
+    phase: postpartum
+    sort_order: 82
+    title: 産婦健康診査を受ける（産後2週間ごろと1か月ごろ）
+    detail: 令和8年10月1日以降に受診した産婦（流産・死産を含む）で、受診日に目黒区に住民票がある人が対象。1回あたり5,000円を助成。令和8年4月1日以降に出産し、9月30日までに自費で受けた分は、あとから払い戻しを申請できる（出産後1年以内）。区内の医療機関の名簿は「後日掲載予定」と書かれている。
+    trigger_document_id: meguro.sanpu_kenshin_ticket
+    channel: 医療機関
+    deadline_note: 産後2週間ごろに1回目、産後1か月ごろに2回目。受診票の有効期間は出産後2か月以内
+    source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/sanpukensin.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: meguro.s08d
+    phase: postpartum
+    sort_order: 83
+    title: 1か月児健康診査を受ける
+    detail: 令和8年10月1日以降に受診した赤ちゃんで、受診日に目黒区に住民票がある子が対象。助成額は6,000円。令和8年4月1日以降に生まれ、9月30日までに自費で受けた分は、都内・都外を問わず、あとから払い戻しを申請できる（出生後1年以内）。区内の医療機関の名簿は「後日掲載予定」と書かれている。
+    trigger_document_id: meguro.ikkagetsuji_kenshin_ticket
+    channel: 医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 41
+    deadline_note: 生後28日から生後41日の間に1回
+    source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/ikkagetujikensin.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: meguro.s08e
+    phase: postpartum
+    sort_order: 84
+    title: （里帰り出産などで受診票を使えなかった人）健診・検査の費用の払い戻しを申請する
+    detail: 健診を受けた日に住民票が目黒区にあった人が対象。上限額は、妊婦健診1回目11,670円（令和8年4月1日以降）、2〜14回目5,460円、妊婦超音波検査5,300円、子宮頸がん検査3,400円、新生児聴覚検査3,000円、産婦健康診査5,000円（2回）、1か月児健康診査6,000円（産婦健診と1か月児健診は令和8年4月1日以降が対象）。地域保健課（目黒区総合庁舎本館3階）の窓口か郵送で申請する。母子健康手帳、領収書、使わなかった受診票、本人確認書類、銀行口座番号がわかるものが必要。
+    trigger_document_id: meguro.kenshin_ticket
+    channel: 窓口（地域保健課）/ 郵送
+    action_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/satogaeri.html
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    deadline_note: 出産日などから1年以内
+    source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/satogaeri.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+subsidies:
+  - id: meguro.shien_kyufu_1
+    name: 妊婦支援給付金（1回目・妊娠時・目黒区）
+    kind: cash_later
+    amount_yen: 50000
+    amount_note: 5万円分。ギフトカード（面接の場で受け取る）か現金（申請から3か月ほどで妊婦名義の口座に振り込み）を選ぶ。
+    conditions: 令和7年4月1日以降に妊娠届を出し、妊婦給付認定の申請をして、助産師・保健師などの面談を受けた、目黒区に住民登録のある妊婦。流産・死産・人工妊娠中絶などを経験した人も申請できる。異所性妊娠（子宮外妊娠）・生化学的妊娠・胞状奇胎妊娠は対象にならない。
+    apply_via: 「ゆりかご・めぐろ（妊婦面接）」で申請書を書く。問い合わせ 03-5722-9503
+    deadline_base: confirmation_date
+    deadline_offset_days: 730
+    source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/ninpunotameno_sienkyuhu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: meguro.shien_kyufu_2
+    name: 妊婦支援給付金（2回目・出産後・目黒区）
+    kind: cash_later
+    amount_formula: "50000 * children"
+    amount_note: 子ども1人あたり5万円分。
+    conditions: 令和7年4月1日以降に出産し、新生児訪問（赤ちゃん訪問）を受け、胎児の数の届け出をした、目黒区に住民登録のある産婦。
+    apply_via: 赤ちゃん訪問で配られる案内の二次元コードから申請。問い合わせ 03-5722-9503
+    deadline_base: due_date
+    deadline_offset_days: 674
+    source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/ninpunotameno_sienkyuhu.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: meguro.tanjo_iwaikin
+    name: 目黒区 新生児誕生祝金
+    kind: cash_later
+    amount_formula: "20000 * children"
+    amount_note: 新生児1人につき2万円。指定の金融機関の口座に振り込み。課税かどうかは区のページに記載なし。
+    conditions: 令和5年4月1日以降に出産し、出生日に赤ちゃんを含む住民登録が目黒区にある世帯。出生通知票を出し、区が受理した日にも赤ちゃんを含む住民票が目黒区にあること。生まれたあとに目黒区へ転入した世帯は対象外。
+    apply_via: 出生通知票の電子申請フォームの中で「新生児誕生祝金の申請をしますか。」に「はい」を選んで申請。問い合わせは地域保健課地域保健サービス係 03-5722-9503
+    deadline_base: birth_date
+    deadline_offset_days: 89
+    source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/shinseizitanzyoiwaikin.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: meguro.kouketsuatsu
+    name: 妊娠高血圧症候群等の医療費助成（目黒区で申請）
+    kind: conditional
+    amount_note: 医療保険を使って入院治療したときの自己負担額を助成。入院中の食事代（入院時食事療養費の標準負担額）は自己負担。
+    conditions: 目黒区内に住所があり、妊娠高血圧症候群とその関連疾患・糖尿病と妊娠糖尿病・貧血・産科出血・心疾患（続発症を含む）で入院治療が必要な人。前年の総所得税額が30,000円以下の世帯の人、またはそれ以外で入院見込み期間が26日以上の人。
+    apply_via: 地域保健課（03-5722-9503）。申請の時期・期限は区のページに記載なし。
+    source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kenkoufukushi/iryou/ninshinchu.html
+    verified_at: 2026-09-20
+    needs_review: true

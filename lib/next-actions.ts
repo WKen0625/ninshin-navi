@@ -98,6 +98,14 @@ export type NextActionsResult = {
 /** 出生日（birth_date）が入力されるまで隠す段階。出産前の家族に出生届などを見せない。 */
 const AFTER_BIRTH_PHASES = new Set(["birth", "postpartum"]);
 
+/**
+ * 出産したあとは出さないステップ: 妊娠中にしかできないもの。
+ * データ上は「期限が妊娠週数で決まる」か「期限が出産予定日まで（予定日より後ろにずらしていない）」ステップ。
+ * 例: 妊婦健診、妊婦面接（産後は受けられない）、8か月時アンケート。これを出すと、出産後に「期限切れ」として先頭に来てしまう。
+ */
+const onlyDuringPregnancy = (s: Step) =>
+  s.deadline_base === "gestational_week" || (s.deadline_base === "due_date" && (s.deadline_offset_days ?? 0) <= 0);
+
 const DAY_MS = 86_400_000;
 const toMs = (d: string) => Date.parse(`${d.slice(0, 10)}T00:00:00Z`);
 export const addDays = (d: string, days: number) => new Date(toMs(d) + days * DAY_MS).toISOString().slice(0, 10);
@@ -195,7 +203,7 @@ export function resolveNextActions(input: {
   const inScope = steps.filter((s) => codes.has(s.region_code));
   const overridden = new Set(inScope.map((s) => s.overrides_step_id).filter((id): id is string => id != null));
 
-  // 3. trigger_document_id が null か held_documents（含まれる紙も）にある  4. 出産前は出産後の段階を隠す  5. 完了済み・該当しないを除外
+  // 3. trigger_document_id が null か held_documents（含まれる紙も）にある  4. 出産前は出産後の段階を、出産後は妊娠中にしかできないものを隠す  5. 完了済み・該当しないを除外
   const held = new Set(family.held_documents.map((h) => h.document_id));
   // 完了と「該当しない」は、どちらも一覧から外す
   const completed = new Set([...family.completed_step_ids, ...family.not_applicable_step_ids]);
@@ -203,7 +211,7 @@ export function resolveNextActions(input: {
     (s) =>
       !overridden.has(s.id) &&
       (s.trigger_document_id == null || held.has(s.trigger_document_id)) &&
-      (family.birth_date != null || !AFTER_BIRTH_PHASES.has(s.phase)) &&
+      (family.birth_date != null ? !onlyDuringPregnancy(s) : !AFTER_BIRTH_PHASES.has(s.phase)) &&
       !completed.has(s.id),
   );
 

@@ -1,0 +1,251 @@
+# 江戸川区の分娩施設  確認日: 2026-09-20
+# 出所: 出産なび（厚生労働省） https://birth-navi.mhlw.go.jp/ 「東京都江戸川区」の出産施設 8件。施設名・住所は出産なびの表記のまま。
+# 費用（costs）は、直接支払制度の請求書データ（保険診療を行った分娩を除く）から出産なびが算出した値。一時金を引く前。集計期間は 2025年4月〜2025年9月。
+# tokyo_epidural_subsidy_target の出所: 東京都「対象医療機関一覧」（令和8年7月31日時点） https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/mutsubunben/subsidy
+#   施設名と住所で突き合わせた。一覧に見つからなければ false。
+# 予約ルール（booking_policy）が null の施設は未確認（画面では「電話で確認」と出る）。わかったら埋める。
+
+facilities:
+  - id: bn-12016
+    region_code: "13123"
+    name: 医社）清雅会 ＳｈｉｍｉｚｕＭＣ
+    address: 東京都江戸川区平井６－２－３０
+    lat: 35.7045264
+    lng: 139.8373353
+    facility_type: 有床診療所
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: true
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/12016
+    website_url: "https://www.shimizuclinic.net/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/12016
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 678000
+        total_median_yen: 672000
+        basic_avg_yen: 658000
+        basic_median_yen: 654000
+        room_diff_avg_yen: 0
+        room_diff_median_yen: 0
+        stay_days_avg: 5
+        stay_days_median: 5
+        source_url: https://birth-navi.mhlw.go.jp/facilities/12016
+        verified_at: 2026-09-20
+
+  - id: bn-11608
+    region_code: "13123"
+    name: 医療法人社団義恵会　ファミール産院えどがわ
+    address: 東京都江戸川区一之江8-15-3
+    lat: 35.6864577
+    lng: 139.8827492
+    facility_type: 有床診療所
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11608
+    website_url: "https://famil-s-edogawa.com"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/11608
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 753000
+        total_median_yen: 764000
+        basic_avg_yen: 666000
+        basic_median_yen: 683000
+        room_diff_avg_yen: 51500
+        room_diff_median_yen: 52000
+        stay_days_avg: 6
+        stay_days_median: 6
+        source_url: https://birth-navi.mhlw.go.jp/facilities/11608
+        verified_at: 2026-09-20
+
+  - id: bn-11212
+    region_code: "13123"
+    name: 医療法人社団聖育会　三枝産婦人科医院
+    address: 東京都江戸川区西葛西３－１８－１
+    lat: 35.6661203
+    lng: 139.8577303
+    facility_type: 有床診療所
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11212
+    website_url: "https://www.saigusa.or.jp"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/11212
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs: []
+
+  - id: bn-10003
+    region_code: "13123"
+    name: 医療法人社団向日葵会　まつしま病院
+    address: 東京都江戸川区松島１－４１－２９
+    lat: 35.7067396
+    lng: 139.8670841
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10003
+    website_url: "https://www.matsushima-wh.or.jp/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10003
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 757000
+        total_median_yen: 707000
+        basic_avg_yen: 716000
+        basic_median_yen: 689000
+        room_diff_avg_yen: 17100
+        room_diff_median_yen: 0
+        stay_days_avg: 8
+        stay_days_median: 7
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10003
+        verified_at: 2026-09-20
+
+  - id: bn-10282
+    region_code: "13123"
+    name: 医療法人社団理弘会　岩倉病院
+    address: 東京都江戸川区南小岩７－２８－４
+    lat: 35.732437
+    lng: 139.8833308
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10282
+    website_url: "https://www.iwakura-byoin.com"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10282
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 633000
+        total_median_yen: 636000
+        basic_avg_yen: 555000
+        basic_median_yen: 567000
+        room_diff_avg_yen: 29000
+        room_diff_median_yen: 40000
+        stay_days_avg: 6
+        stay_days_median: 5
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10282
+        verified_at: 2026-09-20
+
+  - id: bn-11408
+    region_code: "13123"
+    name: 医療法人社団薫誠会　葛西産婦人科
+    address: 東京都江戸川区東葛西６－８－６
+    lat: 35.6614177
+    lng: 139.8742531
+    facility_type: 有床診療所
+    has_epidural: null   # 出産なびに無痛分娩の記載なし
+    epidural_24h: null
+    tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11408
+    website_url: "https://gt-kasai.com/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/11408
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 646000
+        total_median_yen: 646000
+        basic_avg_yen: 560000
+        basic_median_yen: 559000
+        room_diff_avg_yen: 62000
+        room_diff_median_yen: 60000
+        stay_days_avg: 5
+        stay_days_median: 5
+        source_url: https://birth-navi.mhlw.go.jp/facilities/11408
+        verified_at: 2026-09-20
+
+  - id: bn-10978
+    region_code: "13123"
+    name: 杉浦ウィメンズクリニック
+    address: 東京都江戸川区南篠崎町1-6-11
+    lat: 35.6952721
+    lng: 139.9030439
+    facility_type: 有床診療所
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10978
+    website_url: "https://sugiura-clinic.com/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10978
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 668000
+        total_median_yen: 660000
+        basic_avg_yen: 590000
+        basic_median_yen: 577000
+        room_diff_avg_yen: 56600
+        room_diff_median_yen: 60000
+        stay_days_avg: 6
+        stay_days_median: 6
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10978
+        verified_at: 2026-09-20
+
+  - id: bn-10376
+    region_code: "13123"
+    name: 日本私立学校振興・共済事業団　東京臨海病院
+    address: 東京都江戸川区臨海町1町目4番2号
+    lat: 35.6523528
+    lng: 139.8536409
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10376
+    website_url: "https://www.tokyorinkai.jp/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10376
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 580000
+        total_median_yen: 564000
+        basic_avg_yen: 520000
+        basic_median_yen: 531000
+        room_diff_avg_yen: 500
+        room_diff_median_yen: 0
+        stay_days_avg: 7
+        stay_days_median: 7
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10376
+        verified_at: 2026-09-20

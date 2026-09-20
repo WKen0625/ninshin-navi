@@ -1,0 +1,219 @@
+# 練馬区の分娩施設  確認日: 2026-09-20
+# 出所: 出産なび（厚生労働省） https://birth-navi.mhlw.go.jp/ 「東京都練馬区」の出産施設 7件。施設名・住所は出産なびの表記のまま。
+# 費用（costs）は、直接支払制度の請求書データ（保険診療を行った分娩を除く）から出産なびが算出した値。一時金を引く前。集計期間は 2025年4月〜2025年9月。
+# tokyo_epidural_subsidy_target の出所: 東京都「対象医療機関一覧」（令和8年7月31日時点） https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/mutsubunben/subsidy
+#   施設名と住所で突き合わせた。一覧に見つからなければ false。
+# 予約ルール（booking_policy）が null の施設は未確認（画面では「電話で確認」と出る）。わかったら埋める。
+
+facilities:
+  - id: bn-11915
+    region_code: "13120"
+    name: 麻の実助産所
+    address: 東京都練馬区中村南１－３５－１２
+    lat: 35.7301166
+    lng: 139.6460347
+    facility_type: 無床助産所
+    has_epidural: null   # 出産なびでは未回答（ー）
+    epidural_24h: null
+    tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11915
+    website_url: "https://asanomi-jyosanjyo.com"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/11915
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs: []
+
+  - id: bn-10077
+    region_code: "13120"
+    name: 医療法人社団久保田産婦人科病院
+    address: 東京都練馬区東大泉３丁目２９番１０号
+    lat: 35.7525782
+    lng: 139.586174
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10077
+    website_url: "https://kubota-hosp.jp/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10077
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 695000
+        total_median_yen: 711000
+        basic_avg_yen: 626000
+        basic_median_yen: 638000
+        room_diff_avg_yen: 0
+        room_diff_median_yen: 0
+        stay_days_avg: 5
+        stay_days_median: 5
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10077
+        verified_at: 2026-09-20
+
+  - id: bn-10899
+    region_code: "13120"
+    name: 医療法人社団順桜会　桜台マタニティクリニック
+    address: 東京都練馬区桜台４－３２－８
+    lat: 35.7415607
+    lng: 139.6613888
+    facility_type: 有床診療所
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10899
+    website_url: null
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10899
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 684000
+        total_median_yen: 686000
+        basic_avg_yen: 539000
+        basic_median_yen: 546000
+        room_diff_avg_yen: 115900
+        room_diff_median_yen: 116000
+        stay_days_avg: 5
+        stay_days_median: 5
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10899
+        verified_at: 2026-09-20
+
+  - id: bn-10836
+    region_code: "13120"
+    name: 公益財団法人東京都医療保健協会練馬総合病院
+    address: 東京都練馬区旭丘1-24-1
+    lat: 35.733507
+    lng: 139.6771798
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10836
+    website_url: "https://www.nerima-hosp.or.jp/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10836
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 632000
+        total_median_yen: 630000
+        basic_avg_yen: 534000
+        basic_median_yen: 531000
+        room_diff_avg_yen: 30000
+        room_diff_median_yen: 20000
+        stay_days_avg: 7
+        stay_days_median: 7
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10836
+        verified_at: 2026-09-20
+
+  - id: bn-10402
+    region_code: "13120"
+    name: 公益社団法人地域医療振興協会　練馬光が丘病院
+    address: 東京都練馬区光が丘２－５ー１
+    lat: 35.7613994
+    lng: 139.6344081
+    facility_type: 病院
+    has_epidural: null   # 出産なびでは未回答（ー）
+    epidural_24h: null
+    tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10402
+    website_url: "https://hikarigaoka-jadecom.jp/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10402
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 621000
+        total_median_yen: 637000
+        basic_avg_yen: 587000
+        basic_median_yen: 612000
+        room_diff_avg_yen: 0
+        room_diff_median_yen: 0
+        stay_days_avg: 7
+        stay_days_median: 6
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10402
+        verified_at: 2026-09-20
+
+  - id: bn-10428
+    region_code: "13120"
+    name: 順天堂大学医学部附属練馬病院
+    address: 東京都練馬区高野台3-1-10
+    lat: 35.7421245
+    lng: 139.6150022
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: true
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10428
+    website_url: "https://hosp-nerima.juntendo.ac.jp/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10428
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 924000
+        total_median_yen: 932000
+        basic_avg_yen: 850000
+        basic_median_yen: 854000
+        room_diff_avg_yen: 23400
+        room_diff_median_yen: 0
+        stay_days_avg: 7
+        stay_days_median: 7
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10428
+        verified_at: 2026-09-20
+
+  - id: bn-11786
+    region_code: "13120"
+    name: つむぎ助産所
+    address: 東京都練馬区石神井台２－２－１７
+    lat: 35.733752
+    lng: 139.5942049
+    facility_type: 有床助産所
+    has_epidural: null   # 出産なびでは未回答（ー）
+    epidural_24h: null
+    tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11786
+    website_url: "https://www.tsumugi-birth.com/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/11786
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 523000
+        total_median_yen: null
+        basic_avg_yen: 478000
+        basic_median_yen: null
+        room_diff_avg_yen: 0
+        room_diff_median_yen: null
+        stay_days_avg: 5
+        stay_days_median: null
+        source_url: https://birth-navi.mhlw.go.jp/facilities/11786
+        verified_at: 2026-09-20

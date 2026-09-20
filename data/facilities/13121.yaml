@@ -1,0 +1,155 @@
+# 足立区の分娩施設  確認日: 2026-09-20
+# 出所: 出産なび（厚生労働省） https://birth-navi.mhlw.go.jp/ 「東京都足立区」の出産施設 5件。施設名・住所は出産なびの表記のまま。
+# 費用（costs）は、直接支払制度の請求書データ（保険診療を行った分娩を除く）から出産なびが算出した値。一時金を引く前。集計期間は 2025年4月〜2025年9月。
+# tokyo_epidural_subsidy_target の出所: 東京都「対象医療機関一覧」（令和8年7月31日時点） https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/mutsubunben/subsidy
+#   施設名と住所で突き合わせた。一覧に見つからなければ false。
+# 予約ルール（booking_policy）が null の施設は未確認（画面では「電話で確認」と出る）。わかったら埋める。
+
+facilities:
+  - id: bn-11602
+    region_code: "13121"
+    name: 医療法人社団こひつじ会　横川レディースクリニック
+    address: 東京都足立区保木間１－２２－１５
+    lat: 35.7915366
+    lng: 139.8050034
+    facility_type: 有床診療所
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11602
+    website_url: "https://www.yklc.jp/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/11602
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs: []
+
+  - id: bn-10703
+    region_code: "13121"
+    name: 東京女子医科大学附属足立医療センター
+    address: 東京都足立区江北４－３３－１
+    lat: 35.7737481
+    lng: 139.7668053
+    facility_type: 病院
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/10703
+    website_url: "https://twmu-amc.jp/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/10703
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 818000
+        total_median_yen: 780000
+        basic_avg_yen: 572000
+        basic_median_yen: 535000
+        room_diff_avg_yen: 195400
+        room_diff_median_yen: 180000
+        stay_days_avg: 9
+        stay_days_median: 7
+        source_url: https://birth-navi.mhlw.go.jp/facilities/10703
+        verified_at: 2026-09-20
+
+  - id: bn-11787
+    region_code: "13121"
+    name: ひな助産院
+    address: 東京都足立区加平３−１４−１２
+    lat: 35.7810249
+    lng: 139.8302142
+    facility_type: 有床助産所
+    has_epidural: null   # 出産なびでは未回答（ー）
+    epidural_24h: null
+    tokyo_epidural_subsidy_target: false   # 都の対象医療機関一覧（令和8年7月31日時点）に見つからず
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11787
+    website_url: "https://hinajyosanin.com"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/11787
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 547000
+        total_median_yen: null
+        basic_avg_yen: 389000
+        basic_median_yen: null
+        room_diff_avg_yen: 0
+        room_diff_median_yen: null
+        stay_days_avg: 5
+        stay_days_median: null
+        source_url: https://birth-navi.mhlw.go.jp/facilities/11787
+        verified_at: 2026-09-20
+
+  - id: bn-11114
+    region_code: "13121"
+    name: 真島クリニック
+    address: 東京都足立区関原１-１４-１１
+    lat: 35.7633579
+    lng: 139.7886137
+    facility_type: 有床診療所
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/11114
+    website_url: "https://majima-cl.jp/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/11114
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 773000
+        total_median_yen: 780000
+        basic_avg_yen: 726000
+        basic_median_yen: 745000
+        room_diff_avg_yen: 12400
+        room_diff_median_yen: 0
+        stay_days_avg: 7
+        stay_days_median: 7
+        source_url: https://birth-navi.mhlw.go.jp/facilities/11114
+        verified_at: 2026-09-20
+
+  - id: bn-12197
+    region_code: "13121"
+    name: 待木医院
+    address: 東京都足立区西竹の塚2-13-17
+    lat: 35.7977872
+    lng: 139.7893241
+    facility_type: 有床診療所
+    has_epidural: true   # 出産なび「希望による無痛分娩可能」
+    epidural_24h: false
+    tokyo_epidural_subsidy_target: true   # 都の対象医療機関一覧（令和8年7月31日時点）に掲載あり
+    booking_policy: null
+    booking_deadline_week_official: null
+    scheme: lumpsum
+    birth_navi_url: https://birth-navi.mhlw.go.jp/facilities/12197
+    website_url: "https://www.machiki.net/"
+    source_url: https://birth-navi.mhlw.go.jp/facilities/12197
+    verified_at: 2026-09-20
+    needs_review: true   # 一括で転載したもの。人の承認待ち
+    costs:
+      - as_of: 2025-09-30
+        period: 2025年4月〜2025年9月
+        total_avg_yen: 594000
+        total_median_yen: 585000
+        basic_avg_yen: 561000
+        basic_median_yen: 549000
+        room_diff_avg_yen: 0
+        room_diff_median_yen: 0
+        stay_days_avg: 8
+        stay_days_median: 8
+        source_url: https://birth-navi.mhlw.go.jp/facilities/12197
+        verified_at: 2026-09-20

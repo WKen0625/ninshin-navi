@@ -1,0 +1,277 @@
+# 葛飾区（全国地方公共団体コード 13122）  確認日: 2026-09-20
+# 区のページ「妊娠・出産」: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/index.html
+# 全行 needs_review: true（人の承認待ち）。根拠の引用は docs/research/13122.md。
+
+region:
+  code: "13122"
+  level: municipality
+  name: 葛飾区
+  parent_code: "13"
+  status: in_progress
+  verified_at: 2026-09-20
+
+documents:
+  - id: katsushika.hoken_bag
+    name: 母と子の保健バッグ（葛飾区。親子健康手帳と一緒に受け取るもの）
+    aliases: [保健バッグ, 親子健康手帳, 母子手帳のセット]
+    # この袋を持っていれば、中の紙も持っている扱いにする
+    includes:
+      - jp.boshi_techo
+      - jp.kenshin_ticket
+      - katsushika.kenshin_ticket
+      - katsushika.shika_kenshin_ticket
+      - katsushika.shinseiji_choukaku_ticket
+      - katsushika.sanpu_kenshin_ticket          # 令和8年9月1日以降に妊娠届を出した人。それより前の人には9月上旬ごろから郵送
+      - katsushika.ikkagetsuji_kenshin_ticket    # 同上
+    phase: notification
+    description: 妊娠届を出すと受け取る。親子健康手帳（母子健康手帳）、妊婦健康診査・新生児聴覚検査の受診票、育児支援ガイドブック、赤ちゃん&子育てインフォ、妊婦歯科健康診査のご案内など。
+    source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1002071.html
+    verified_at: 2026-09-20
+  - id: katsushika.kenshin_ticket
+    name: 妊婦健康診査受診票（葛飾区）
+    aliases: [受診票, 補助券]
+    phase: notification
+    description: 妊婦健康診査14回分（令和8年度は1回目11,670円、2〜14回目は各5,460円を助成）、超音波検査4回分（各5,300円。多胎は6回）、子宮頸がん検診1回分（3,400円）。令和6年10月1日以降に妊娠届を出した人は、都内の助産所でも使える。里帰り出産などで使えなかった分は、出産後1年以内に申請すると一部が助成される。
+    source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1002072.html
+    verified_at: 2026-09-20
+  - id: katsushika.shika_kenshin_ticket
+    name: 妊婦歯科健康診査受診券（葛飾区）
+    phase: notification
+    description: 母子健康手帳を受け取るときに配られる。
+    source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1002079.html
+    verified_at: 2026-09-20
+  - id: katsushika.shinseiji_choukaku_ticket
+    name: 新生児聴覚検査受診票（葛飾区）
+    phase: birth
+    description: 母子健康手帳の交付のときに手渡される。
+    source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1037959.html
+    verified_at: 2026-09-20
+  - id: katsushika.sanpu_kenshin_ticket
+    name: 産婦健康診査受診票（葛飾区）
+    phase: postpartum
+    description: 令和8年9月1日以降に妊娠届を出した人は、親子健康手帳の交付のときに「母と子の保健バッグ」に同封。令和8年8月31日までに妊娠届を出した人・ゆりかご面接を受けた人には、1か月児健康診査受診票と一緒に9月上旬ごろから順に郵送される。
+    source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1030308/1042839.html
+    verified_at: 2026-09-20
+  - id: katsushika.ikkagetsuji_kenshin_ticket
+    name: 1か月児健康診査受診票（葛飾区）
+    phase: postpartum
+    description: 令和8年9月1日以降に妊娠届を出した人は、親子健康手帳の交付のときに「母と子の保健バッグ」に同封。令和8年8月31日までに妊娠届を出した人には、9月上旬ごろから住所地へ郵送される。
+    source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001804/1042840.html
+    verified_at: 2026-09-20
+  - id: katsushika.shien_kyufu_annai_1
+    name: 葛飾区妊婦支援給付金（1回目）の申請案内
+    phase: pregnancy
+    description: ゆりかご面接のあとに受け取る。
+    source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1037742.html
+    verified_at: 2026-09-20
+  - id: katsushika.akachan_homon_annai
+    name: 葛飾区妊婦支援給付金（2回目）の届出案内
+    phase: postpartum
+    description: こんにちは赤ちゃん訪問や面談のあとに受け取る。
+    source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1024614.html
+    verified_at: 2026-09-20
+
+steps:
+  - id: katsushika.s03
+    overrides_step_id: jp.s03
+    phase: notification
+    sort_order: 30
+    title: 妊娠届を出し、親子健康手帳（母子健康手帳）と受診票を受け取る
+    detail: 窓口は、保健センター（青戸・金町・新小岩・水元）、葛飾区役所の子育て支援窓口、基幹型児童館（小菅・南新宿・白鳥・新水元）、子ども未来プラザ（鎌倉・西新小岩・東四つ木）、えきにこわ。えきにこわはオンラインで4日前までの予約が必須。基幹型児童館と子ども未来プラザは、毎月第3土曜・第3日曜は予約した人だけ。ほかの窓口も事前の予約がすすめられている（ゆりかご面接の予約フォームから）。持ち物は、個人番号（マイナンバー）がわかる書類と、本人確認書類（顔写真つきの公的な書類なら1点、無ければ2点）。妊娠届そのもののオンライン提出は、区のページに記載なし。問い合わせ 母子保健係 03-3602-1387。
+    trigger_document_id: jp.heartbeat_confirmed
+    produces_document_id: katsushika.hoken_bag
+    channel: 保健センター / 区役所子育て支援窓口 / 基幹型児童館 / 子ども未来プラザ / えきにこわ
+    action_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1002071.html
+    source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1002071.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: katsushika.s03b
+    phase: pregnancy
+    sort_order: 35
+    title: ゆりかご面接（妊婦面接）を受ける
+    detail: 葛飾区に住民登録があり、親子健康手帳（母子健康手帳）の交付を受けた妊婦が対象。保健師や助産師などと面接し、サポートプランを作る。妊娠届・手帳の交付と同じときに受けられる。場所は、青戸・金町・水元の各保健センター、にこわ新小岩、えきにこわ、区役所子育て支援窓口、子ども未来プラザ（鎌倉・東四つ木）、児童館（小菅・南新宿・白鳥・新水元）の12か所。各施設の予約フォームからオンラインで予約する（予約なしだと対応できないことがある）。面接を受けると、妊娠子育て応援券（1万円分。多胎は胎児1人当たり1万円）をその場で申請でき、妊婦支援給付金（1回目）の申請案内を受け取る。問い合わせ 青戸保健センター保健サービス係 03-3602-1284。
+    trigger_document_id: katsushika.hoken_bag
+    produces_document_id: katsushika.shien_kyufu_annai_1
+    channel: 保健センターなど区内12か所（オンライン予約）
+    action_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1014924.html
+    deadline_note: いつまでに受けるかは区のページに記載なし
+    source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1014924.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: katsushika.s05
+    overrides_step_id: jp.s05
+    phase: pregnancy
+    sort_order: 50
+    title: 葛飾区妊婦支援給付金（1回目・5万円）を申請する
+    detail: 妊娠の届出をした妊婦が対象。ゆりかご面接のあとに渡される案内に沿って申請する。妊婦1人当たり現金5万円（現金の代わりにクーポンも選べる）。妊婦本人の名義の口座に振り込まれ、申請から振込まで2か月ほどかかる。問い合わせ 葛飾区妊婦支援給付金給付事業コールセンター 0120-914-946（月〜金の午前9時〜午後5時30分。祝日・年末年始を除く）。
+    trigger_document_id: katsushika.shien_kyufu_annai_1
+    channel: ゆりかご面接のあとの案内に沿って申請
+    deadline_base: confirmation_date
+    deadline_offset_days: 730
+    deadline_note: 医療機関で胎児心拍が確認された日（受診日）から2年間
+    source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1037742.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: katsushika.s05c
+    phase: pregnancy
+    sort_order: 57
+    title: 妊婦歯科健康診査を受ける（妊娠中に1回・無料）
+    detail: 葛飾区に住所のある妊婦が対象。区の「葛飾区妊婦歯科健康診査実施歯科医療機関一覧」にある歯科に、事前に電話で予約し、「葛飾区妊婦歯科健康診査を希望」と伝える。持ち物は、妊婦歯科健康診査受診券、母子健康手帳、現住所・氏名・生年月日がわかる書類。内容は問診・口の中の診査・結果の説明と指導で、治療は含まれない。問い合わせ 健康推進課歯科保健担当係 03-3602-1268。
+    trigger_document_id: katsushika.shika_kenshin_ticket
+    channel: 区内の実施歯科医療機関
+    action_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1002079.html
+    deadline_note: 妊娠期間中に1回
+    source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1002079.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: katsushika.s06d
+    phase: pregnancy
+    sort_order: 66
+    title: （葛飾区の国民健康保険の人）産前産後期間の国民健康保険料の免除を届け出る
+    detail: 出産予定月の前月から翌々月までの4か月相当分（多胎は3か月前から翌々月までの6か月相当分）の保険料が免除される。妊娠85日（4か月）以上の出産が対象で、死産・流産・早産なども含む。窓口は国保年金課資格係（区役所3階315番）で、郵送でも出せる。届出書、親子健康手帳（母子健康手帳）など、届け出る人の本人確認資料が必要。郵送のときは手帳の表紙と、出生証明か出産予定日のページのコピーを付ける。問い合わせ 03-5654-8210。
+    trigger_document_id: katsushika.hoken_bag
+    channel: 窓口 / 郵送
+    deadline_note: 出産予定日の6か月前から届け出できる。出産後でも届け出できるが、対象の年度の最初の保険料の納期の翌日から2年を過ぎると、免除できなくなることがある
+    source_url: https://www.city.katsushika.lg.jp/kurashi/1000049/1001690/1033959.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: katsushika.s08c
+    phase: birth
+    sort_order: 71
+    title: 新生児聴覚検査を受ける（受診票を出す）
+    detail: 上限3,000円を助成（子ども1人につき1回）。里帰り出産などで都外の医療機関で受けたときは、申請すると助成される（出産後1年以内）。
+    trigger_document_id: katsushika.shinseiji_choukaku_ticket
+    channel: 医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 50
+    deadline_note: 生後1か月以内に。受診票が使えるのは、生まれた日を0日として生後50日以内
+    source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1037959.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: katsushika.s07b
+    phase: postpartum
+    sort_order: 72
+    title: かつしか出産応援給付金（子ども1人につき5万円）を申請する
+    detail: 区内に住み、1歳未満の子どもを育てている人が対象。所得制限なし。児童手当の認定請求か、乳幼児医療証の交付申請のときに、一緒に申請する。本人確認書類と、申請する人の名義の普通預金の通帳かキャッシュカードが必要。申請の1〜2か月後に口座に振り込まれる。問い合わせ 子育て応援課子育て応援係 03-5654-6357。
+    trigger_document_id: jp.hospital_receipt
+    channel: 児童手当・乳幼児医療証の申請と同時に申請
+    action_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1031538.html
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    deadline_note: 出生または転入で対象になった日から数えて1年以内
+    source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1031538.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: katsushika.s07c
+    phase: postpartum
+    sort_order: 75
+    title: こんにちは赤ちゃん訪問を申し込む
+    detail: 生後4か月になるまでの赤ちゃんがいる家庭が対象。赤ちゃんが生まれてから、区のオンラインフォームで申し込む（令和7年度までの白いハガキ「出生通知票」で申し込み済みの人は不要）。申し込みが生後3か月を過ぎたときは相談する。訪問や面談のあとに、妊婦支援給付金（2回目）の申請・届出の案内がある。問い合わせ 青戸保健センター母子保健係 03-3602-1387（月〜金の午前8時30分〜午後5時。祝日を除く）。
+    trigger_document_id: katsushika.hoken_bag
+    produces_document_id: katsushika.akachan_homon_annai
+    channel: オンラインフォーム
+    action_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1024614.html
+    deadline_note: 赤ちゃんが生まれてから申し込む。生後3か月を過ぎたら相談
+    source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1024614.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: katsushika.s08
+    overrides_step_id: jp.s08
+    phase: postpartum
+    sort_order: 80
+    title: 葛飾区妊婦支援給付金（2回目・子ども1人につき5万円）を届け出る
+    detail: 1回目の「妊婦給付認定」を受けた妊婦が対象。こんにちは赤ちゃん訪問などのあとに渡される案内に沿って届け出る。子ども1人当たり現金5万円（現金の代わりにクーポンも選べる）。妊婦本人の名義の口座に振り込まれ、届出から振込まで2か月ほどかかる。問い合わせ コールセンター 0120-914-946。
+    trigger_document_id: katsushika.akachan_homon_annai
+    channel: 赤ちゃん訪問のあとの案内に沿って届出
+    deadline_base: due_date
+    deadline_offset_days: 674
+    deadline_note: 出産予定日の8週前から2年間
+    source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1037742.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: katsushika.s08b
+    phase: postpartum
+    sort_order: 82
+    title: 産婦健康診査を受ける（2回まで）
+    detail: 令和8年10月1日以降の受診が対象。1回当たり5,000円を2回まで助成。目安は1回目が産後2週間ごろ、2回目が産後1か月ごろ。内容は問診・診察・体重と血圧の測定・尿検査など。受診票を使えなかったときの払い戻しの申請方法と期限は「決まり次第お知らせ」とされている。問い合わせ 青戸保健センター母子保健係 03-3602-1387。
+    trigger_document_id: katsushika.sanpu_kenshin_ticket
+    channel: 医療機関など
+    deadline_base: birth_date
+    deadline_offset_days: 59
+    deadline_note: 産後2か月以内
+    source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1030308/1042839.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: katsushika.s08d
+    phase: postpartum
+    sort_order: 83
+    title: 1か月児健康診査を受ける
+    detail: 令和8年10月1日以降の受診が対象。6,000円を助成（1回だけ）。都内の委託医療機関で受ける。受診票を使えなかったときの払い戻しの申請方法は「決まり次第お知らせ」とされている。問い合わせ 青戸保健センター母子保健係 03-3602-1387。
+    trigger_document_id: katsushika.ikkagetsuji_kenshin_ticket
+    channel: 都内の委託医療機関
+    deadline_base: birth_date
+    deadline_offset_days: 41
+    deadline_note: 生後28日から生後41日まで（出生日を0日目として数える）
+    source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001804/1042840.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+subsidies:
+  - id: katsushika.shien_kyufu_1
+    name: 葛飾区妊婦支援給付金（1回目・妊婦給付）
+    kind: cash_later
+    amount_yen: 50000
+    amount_note: 妊婦1人当たり現金5万円。現金の代わりにクーポンでの給付も選べる。妊婦本人名義の口座へ振込。
+    conditions: 妊娠の届出をした妊婦。
+    apply_via: ゆりかご面接のあとに渡される案内に沿って申請。問い合わせ コールセンター 0120-914-946
+    deadline_base: confirmation_date
+    deadline_offset_days: 730
+    source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1037742.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: katsushika.shien_kyufu_2
+    name: 葛飾区妊婦支援給付金（2回目・出産後給付）
+    kind: cash_later
+    amount_formula: "50000 * children"
+    amount_note: 子ども1人当たり現金5万円。現金の代わりにクーポンでの給付も選べる。
+    conditions: 妊婦給付認定を受けた妊婦。
+    apply_via: こんにちは赤ちゃん訪問などのあとに渡される案内に沿って届出。問い合わせ コールセンター 0120-914-946
+    deadline_base: due_date
+    deadline_offset_days: 674
+    source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1037742.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: katsushika.shussan_ouen
+    name: かつしか出産応援給付金
+    kind: cash_later
+    amount_formula: "50000 * children"
+    amount_note: 対象の子ども1人当たり一律5万円（1回だけ）。課税かどうかは区のページに記載なし。
+    conditions: 区内に住み、1歳未満の子どもを育てている人。所得制限なし。
+    apply_via: 児童手当の認定請求、または乳幼児医療証の交付申請のときに同時に申請。問い合わせ 子育て応援課子育て応援係 03-5654-6357
+    deadline_base: birth_date
+    deadline_offset_days: 365
+    source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1031538.html
+    verified_at: 2026-09-20
+    needs_review: true
+
+  - id: katsushika.kouketsuatsu
+    name: 妊娠高血圧症候群等の医療費助成（葛飾区）
+    kind: conditional
+    amount_note: 保険がきいたあとの自己負担分を助成。入院中の食事代は対象外。
+    conditions: 妊娠高血圧症候群・糖尿病・貧血・産科出血・心疾患にかかり、入院治療が必要な妊産婦。前年分の総所得税額が30,000円以下の世帯の人、またはそれ以外で入院見込み期間が26日以上の人。生活保護を受けている人は対象外。
+    apply_via: 子ども総合センター母子保健係、各保健センター、堀切区民事務所、高砂区民事務所。原則として退院前に申請。退院後は退院日から3か月以内に出す。問い合わせ 青戸保健センター母子保健係 03-3602-1387
+    source_url: https://www.city.katsushika.lg.jp/kosodate/1000056/1002336/1002431.html
+    verified_at: 2026-09-20
+    needs_review: true
