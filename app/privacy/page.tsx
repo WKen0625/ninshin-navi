@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { PrivacyPanel } from "@/components/PrivacyPanel";
 
-export const metadata: Metadata = { title: "記録と同意｜妊娠手続きナビ（仮称）" };
+export const metadata: Metadata = { title: "記録と同意｜妊娠手続きNavi｜Tsugiraku" };
 
 export default function PrivacyPage() {
   return (

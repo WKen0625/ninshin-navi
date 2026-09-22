@@ -115,7 +115,7 @@ describe("メールの文面", () => {
 
   it("件名に件数。各項目に期限・出典・確認日。末尾に「最終確認は窓口・医療機関へ」と通知をやめるリンク（設計原則3・10）", () => {
     const mail = renderDigestMail(digest(born)!, TODAY, links);
-    expect(mail.subject).toBe("【妊娠手続きナビ】期限が近い手続きが3件あります");
+    expect(mail.subject).toBe("【妊娠手続きNavi】期限が近い手続きが3件あります");
     expect(mail.text).toContain("世田谷区・出産後");
     expect(mail.text).toContain("・出生届を出す\n　期限: 2026年9月17日（1日過ぎています。早めに窓口へ相談してください）");
     expect(mail.text).toContain("　期限: 2026年9月19日（あと1日）");
@@ -129,7 +129,7 @@ describe("メールの文面", () => {
     const d = digest({ ...week20, confirmation_date: null }, { today: "2028-06-01", lastProgressOn: "2028-06-01" })!;
     expect(renderDigestMail(d, "2028-06-01", links).text).toContain("（推定）");
     const nudge = renderDigestMail(digest(snapshot({}), { lastProgressOn: addDays(TODAY, -7) })!, TODAY, links);
-    expect(nudge.subject).toBe("【妊娠手続きナビ】いまやることの確認");
+    expect(nudge.subject).toBe("【妊娠手続きNavi】いまやることの確認");
     expect(nudge.text).toContain("■ いまやること（まだ完了チェックがありません）");
   });
 

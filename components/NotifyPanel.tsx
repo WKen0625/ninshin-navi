@@ -93,7 +93,7 @@ export function NotifyPanel() {
     return (
       <div className="space-y-4">
         <p className="text-base">先に、市区町村と出産予定日を入れてください。</p>
-        <Link href="/" className="link">最初の入力へ</Link>
+        <Link href="/navi" className="link">最初の入力へ</Link>
       </div>
     );
   }

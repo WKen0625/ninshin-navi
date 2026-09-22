@@ -155,7 +155,7 @@ export function MoneyView() {
     return (
       <div className="space-y-4">
         <p className="text-base">まだ入力がありません。</p>
-        <Link href="/" className="link">最初の入力へ</Link>
+        <Link href="/navi" className="link">最初の入力へ</Link>
       </div>
     );
   }

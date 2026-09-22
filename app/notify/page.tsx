@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { NotifyPanel } from "@/components/NotifyPanel";
 
-export const metadata: Metadata = { title: "メールでお知らせ｜妊娠手続きナビ（仮称）" };
+export const metadata: Metadata = { title: "メールでお知らせ｜妊娠手続きNavi｜Tsugiraku" };
 
 export default function NotifyPage() {
   return (

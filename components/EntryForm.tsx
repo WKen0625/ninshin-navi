@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { setSelectedDocuments, type FamilyState, type Preferences } from "@/lib/family-state";
 import type { DocumentDef } from "@/lib/next-actions";
 import type { Rules } from "@/lib/rules";
+import { normalizePostal } from "@/lib/geo";
 import { SourceLink } from "./SourceLink";
 import { todayLocal, useFamilyState } from "./useFamilyState";
 
@@ -23,7 +24,8 @@ export function EntryForm({ area }: { area: Area }) {
   const [born, setBorn] = useState(false);
   const [birthDate, setBirthDate] = useState("");
   const [confirmationDate, setConfirmationDate] = useState("");
-  const [preferences, setPreferences] = useState<Preferences>({ epidural: "undecided", distance: "any" });
+  const [preferences, setPreferences] = useState<Preferences>({ epidural: "undecided", distance: "any", postal_code: null });
+  const [postal, setPostal] = useState("");
   const [rules, setRules] = useState<Rules | null>(null);
   const [selected, setSelected] = useState<string[]>([]);
   const [otherText, setOtherText] = useState("");
@@ -39,6 +41,7 @@ export function EntryForm({ area }: { area: Area }) {
     setBirthDate(state.birth_date ?? "");
     setConfirmationDate(state.confirmation_date ?? "");
     setPreferences(state.preferences);
+    setPostal(state.preferences.postal_code ?? "");
     setSelected(state.held_documents.filter((h) => !h.from_step).map((h) => h.document_id));
   }, [state]);
 
@@ -81,6 +84,9 @@ export function EntryForm({ area }: { area: Area }) {
     if (!chosen) return setError("お住まいの区を選んでください。");
     if (!dueDate) return setError("出産予定日を入れてください。");
     if (born && !birthDate) return setError("出産した日を入れてください。");
+    const postalCode = postal.trim() ? normalizePostal(postal) : null;
+    if (postal.trim() && !postalCode) return setError("郵便番号は7桁の数字で入れてください（例: 1070052）。");
+    if (preferences.distance !== "any" && !postalCode) return setError("「自宅から病院までの時間」を選ぶには、郵便番号が要ります。郵便番号を入れるか、「こだわらない」を選んでください。");
     if (selected.length === 0) return setError("手元にある紙を1つ以上選んでください。何もなければ、いちばん上の「まだ紙がない」を選んでください。");
     setError("");
 
@@ -91,7 +97,7 @@ export function EntryForm({ area }: { area: Area }) {
       due_date: dueDate,
       confirmation_date: confirmationDate || null,
       birth_date: born ? birthDate : null,
-      preferences,
+      preferences: { ...preferences, postal_code: postalCode },
       // 市区町村を変えたら、前の地域の進み具合は引き継がない
       held_documents: state?.region_code === region ? state.held_documents : [],
       progress: state?.region_code === region ? state.progress : [],
@@ -177,7 +183,21 @@ export function EntryForm({ area }: { area: Area }) {
             </select>
           </label>
           <label className="block text-base">
-            自宅から病院までの時間
+            自宅の郵便番号（7桁。病院までの時間の目安を出すためだけに使います）
+            <input
+              type="text"
+              inputMode="numeric"
+              autoComplete="postal-code"
+              maxLength={8}
+              placeholder="例: 1070052"
+              className={field}
+              value={postal}
+              onChange={(e) => setPostal(e.target.value)}
+            />
+            <span className="block text-gray-600">番地や住所は要りません。郵便番号はこの端末の中にだけ保存します。</span>
+          </label>
+          <label className="block text-base">
+            自宅から病院までの時間（郵便番号からの直線距離で出す目安です）
             <select className={field} value={preferences.distance} onChange={(e) => setPreferences({ ...preferences, distance: e.target.value as Preferences["distance"] })}>
               <option value="any">こだわらない</option>
               <option value="30min">30分以内</option>

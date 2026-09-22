@@ -10,6 +10,8 @@ export type Preferences = {
   epidural: "yes" | "no" | "undecided";
   /** 自宅から分娩施設までの目安 */
   distance: "30min" | "60min" | "any";
+  /** 自宅の郵便番号（7桁）。時間の目安を出すためだけに使い、この端末の中にだけ保存する。住所は取らない */
+  postal_code?: string | null;
   /** 「お金」画面で選んだ施設と、おなかの赤ちゃんの人数（支援給付2回目の計算に使う） */
   facility_id?: string | null;
   children?: number;
@@ -92,6 +94,7 @@ export function parseState(raw: string | null): FamilyState | null {
       preferences: {
         epidural: s.preferences?.epidural ?? "undecided",
         distance: s.preferences?.distance ?? "any",
+        postal_code: typeof s.preferences?.postal_code === "string" && /^\d{7}$/.test(s.preferences.postal_code) ? s.preferences.postal_code : null,
         facility_id: typeof s.preferences?.facility_id === "string" ? s.preferences.facility_id : null,
         children: Number.isInteger(s.preferences?.children) && s.preferences!.children! >= 1 ? s.preferences!.children : 1,
       },

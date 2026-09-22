@@ -24,7 +24,10 @@ export function LegalDocument({ file }: { file: "terms" | "privacy" }) {
         : b.type === "h2" ? <h2 key={i} className="h-section pt-2">{b.text}</h2>
         : b.type === "h3" ? <h3 key={i} className="font-bold">{b.text}</h3>
         : b.type === "ul" ? <ul key={i} className="list-disc space-y-1 pl-6">{b.items.map((t, j) => <li key={j}><Inline text={t} /></li>)}</ul>
-        : <p key={i} className="whitespace-pre-line"><Inline text={b.text} /></p>,
+        : b.type === "ol" ? <ol key={i} className="list-decimal space-y-1 pl-6">{b.items.map((t, j) => <li key={j}><Inline text={t} /></li>)}</ol>
+        : b.type === "quote" ? <blockquote key={i} className="notice notice-muted whitespace-pre-line"><Inline text={b.text} /></blockquote>
+        : b.type === "p" ? <p key={i} className="whitespace-pre-line"><Inline text={b.text} /></p>
+        : null,
       )}
     </article>
   );

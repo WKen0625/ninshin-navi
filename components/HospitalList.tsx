@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { toFamily } from "@/lib/family-state";
 import { listFacilities, type FacilityItem } from "@/lib/facilities";
+import { lookupPostal, PREFERENCE_MINUTES, travelTo, type PostalTable, type Travel } from "@/lib/geo";
 import { gestationalWeek } from "@/lib/next-actions";
 import type { HospitalData } from "@/lib/rules";
 import type { Survey } from "@/lib/surveys";
@@ -41,7 +42,7 @@ function DeadlineBox({ item }: { item: FacilityItem }) {
   );
 }
 
-function FacilityCard({ item, chosen, regionCode, onChoose, onRecord }: { item: FacilityItem; chosen: boolean; regionCode: string; onChoose: () => void; onRecord: (() => void) | null }) {
+function FacilityCard({ item, travel, chosen, regionCode, onChoose, onRecord }: { item: FacilityItem; travel: Travel | null; chosen: boolean; regionCode: string; onChoose: () => void; onRecord: (() => void) | null }) {
   const f = item.facility;
   const map = f.lat != null && f.lng != null ? `https://www.google.com/maps/search/?api=1&query=${f.lat},${f.lng}` : null;
   return (
@@ -71,6 +72,15 @@ function FacilityCard({ item, chosen, regionCode, onChoose, onRecord }: { item: 
         </dd>
         <dt className="text-gray-600">無痛分娩の助成</dt>
         <dd>{yesNo(f.tokyo_epidural_subsidy_target, "都道府県の対象医療機関の一覧に載っている", "対象医療機関の一覧に載っていない")}</dd>
+        {travel ? (
+          <>
+            <dt className="text-gray-600">自宅から</dt>
+            <dd>
+              直線で約{travel.km}km（目安{travel.minutes}分）
+              {travel.within === false ? <span className="block text-slate-600">希望の時間より遠い目安です</span> : null}
+            </dd>
+          </>
+        ) : null}
         <dt className="text-gray-600">費用の目安</dt>
         <dd>
           {f.cost ? `${yen(f.cost.yen)}（出産なびの${f.cost.basis === "median" ? "中央値" : "平均値"}。一時金を引く前${f.cost.period ? `、${f.cost.period}` : ""}）` : "データなし"}
@@ -119,6 +129,8 @@ export function HospitalList() {
   const [data, setData] = useState<HospitalData | null>(null);
   const [failed, setFailed] = useState(false);
   const [onlyEpidural, setOnlyEpidural] = useState<boolean | null>(null);
+  const [onlyNear, setOnlyNear] = useState<boolean | null>(null);
+  const [postalTable, setPostalTable] = useState<PostalTable | null>(null);
   const [survey, setSurvey] = useState<Survey | null>(null);
   const [recording, setRecording] = useState<string | null>(null);
   const [reload, setReload] = useState(0);
@@ -145,11 +157,37 @@ export function HospitalList() {
     };
   }, [region, reload]);
 
+  // 郵便番号 → 位置。区の表だけを取りに行き、郵便番号は端末の中で照合する（設計原則5）
+  const postal = state?.preferences.postal_code ?? null;
+  useEffect(() => {
+    if (!region || !postal) return;
+    let stale = false;
+    fetch(`/api/postal?region=${region}`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((t: PostalTable | null) => !stale && setPostalTable(t))
+      .catch(() => {});
+    return () => {
+      stale = true;
+    };
+  }, [region, postal]);
+  const home = useMemo(() => lookupPostal(postalTable, postal), [postalTable, postal]);
+  const distancePref = state?.preferences.distance ?? "any";
+
   // 入口で「無痛分娩を希望する」と答えた人は、最初から絞り込んでおく（外せる）
   const filter = onlyEpidural ?? state?.preferences.epidural === "yes";
+  // 「自宅から30分／1時間」を選んだ人は、その目安に収まる施設に最初から絞る（外せる）。並びは変えない（おすすめ順にしない）
+  const nearFilter = (onlyNear ?? true) && distancePref !== "any" && home != null;
+  const travels = useMemo(() => {
+    const m = new Map<string, Travel | null>();
+    for (const f of data?.facilities ?? []) m.set(f.id, travelTo(home, f, distancePref));
+    return m;
+  }, [data, home, distancePref]);
   const items = useMemo(
-    () => (state && data ? listFacilities({ ...data, family: toFamily(state), today, onlyEpidural: filter }) : []),
-    [state, data, today, filter],
+    () =>
+      state && data
+        ? listFacilities({ ...data, family: toFamily(state), today, onlyEpidural: filter }).filter((i) => !nearFilter || travels.get(i.facility.id)?.within !== false)
+        : [],
+    [state, data, today, filter, nearFilter, travels],
   );
 
   if (!loaded) return <p className="text-base">読み込み中…</p>;
@@ -157,7 +195,7 @@ export function HospitalList() {
     return (
       <div className="space-y-4">
         <p className="text-base">まだ入力がありません。</p>
-        <Link href="/" className="link">最初の入力へ</Link>
+        <Link href="/navi" className="link">最初の入力へ</Link>
       </div>
     );
   }
@@ -186,6 +224,16 @@ export function HospitalList() {
             <input type="checkbox" className="check" checked={filter} onChange={(e) => setOnlyEpidural(e.target.checked)} />
             無痛分娩ができると確認できた施設だけ（{items.length}件を表示中）
           </label>
+          {distancePref !== "any" ? (
+            home ? (
+              <label className="flex min-h-11 items-center gap-3 text-base">
+                <input type="checkbox" className="check" checked={nearFilter} onChange={(e) => setOnlyNear(e.target.checked)} />
+                自宅から{PREFERENCE_MINUTES[distancePref]}分以内の目安に収まる施設だけ（郵便番号からの直線距離で計算。道路や電車の経路は見ていません）
+              </label>
+            ) : postal && postalTable ? (
+              <p className="notice notice-muted">郵便番号 {postal} の位置が{state.region_name}の中に見つかりませんでした。時間の目安は出せません。</p>
+            ) : null
+          ) : null}
           <section className="space-y-4">
             {items.map((item) =>
               recording === item.facility.id && survey ? (
@@ -202,6 +250,7 @@ export function HospitalList() {
               <FacilityCard
                 key={item.facility.id}
                 item={item}
+                travel={travels.get(item.facility.id) ?? null}
                 onRecord={survey ? () => setRecording(item.facility.id) : null} // 出産後の人も、記憶で記録できる
                 chosen={state.preferences.facility_id === item.facility.id}
                 regionCode={state.region_code}

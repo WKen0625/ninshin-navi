@@ -118,7 +118,7 @@ export function TodoList() {
     return (
       <div className="space-y-4">
         <p className="text-base">まだ入力がありません。</p>
-        <Link href="/" className="link">最初の入力へ</Link>
+        <Link href="/navi" className="link">最初の入力へ</Link>
       </div>
     );
   }
@@ -144,7 +144,7 @@ export function TodoList() {
           {state.birth_date ? `・出産日 ${fmt(state.birth_date)}` : `・いま妊娠${result.gestational_week}週・予定日 ${fmt(state.due_date)}`}
         </p>
         <div className="flex flex-wrap gap-x-4">
-          <Link href="/" className="link">入力を直す（紙が増えたとき・出産したとき）</Link>
+          <Link href="/navi" className="link">入力を直す（紙が増えたとき・出産したとき）</Link>
           {notifyAvailable ? <Link href="/notify" className="link">期限が近づいたらメールで知らせる</Link> : null}
         </div>
       </header>

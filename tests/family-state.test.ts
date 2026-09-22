@@ -22,7 +22,7 @@ const start: FamilyState = {
   due_date: addDays(TODAY, 280 - 6 * 7),
   confirmation_date: null,
   birth_date: null,
-  preferences: { epidural: "undecided", distance: "any", facility_id: null, children: 1 },
+  preferences: { epidural: "undecided", distance: "any", postal_code: null, facility_id: null, children: 1 },
   held_documents: [{ document_id: "jp.none_yet", held_at: TODAY }],
   progress: [],
   consent_survey: false,
