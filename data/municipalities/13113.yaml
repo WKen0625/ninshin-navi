@@ -68,6 +68,9 @@ steps:
     produces_document_id: shibuya.hoken_bag
     channel: 各保健相談所・区役所3階住民戸籍課・出張所・区民サービスセンター
     deadline_note: 医療機関で妊娠と診断されたら早めに
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-todoke/ninshin_todoke.html
     verified_at: 2026-09-20
 
@@ -82,6 +85,9 @@ steps:
     deadline_base: gestational_week
     deadline_week: 32
     deadline_note: 妊娠16〜32週の間に受ける
+    apply_from_base: gestational_week
+    apply_from_week: 16
+    apply_from_note: "妊娠16週から"
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-sodan/ninpu.html
     verified_at: 2026-09-20
 
@@ -96,6 +102,9 @@ steps:
     deadline_base: confirmation_date
     deadline_offset_days: 730
     deadline_note: 医療機関で妊娠が確認された日から2年間
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から"
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/ninpu_kyuhu.html
     verified_at: 2026-09-20
 
@@ -107,6 +116,9 @@ steps:
     trigger_document_id: shibuya.shika_kenshin_ticket
     channel: 区内の契約歯科医療機関
     deadline_note: 妊娠中に1回
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/nimpu-kenshin/ninpu_shika.html
     verified_at: 2026-09-20
 
@@ -119,6 +131,9 @@ steps:
     channel: 窓口 / オンライン / LINE / 郵送
     action_url: https://www.city.shibuya.tokyo.jp/kurashi/kokuho/kenkohokenryo/sanzensangokokuho.html
     deadline_note: 出産予定日の6か月前から届け出できる
+    apply_from_base: due_date
+    apply_from_offset_days: -182
+    apply_from_note: "出産予定日の6か月前から"
     source_url: https://www.city.shibuya.tokyo.jp/kurashi/kokuho/kenkohokenryo/sanzensangokokuho.html
     verified_at: 2026-09-20
 
@@ -134,6 +149,9 @@ steps:
     deadline_offset_days: 365
     deadline_note: 出産日から数えて1年以内
     survey_question_id: cost_paid
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/happy_josei.html
     verified_at: 2026-09-20
 
@@ -146,6 +164,9 @@ steps:
     channel: LINE / 郵送 / 窓口（そのあと自宅で訪問を受ける）
     action_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-todoke/shussho_tsuchi.html
     deadline_note: 出生通知票の期限は区のページに記載なし。訪問の対象は生後4か月まで
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（なるべく早く）"
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/kodomo-sodan/shinseiji-sodan/homon_baby.html
     verified_at: 2026-09-20
 
@@ -160,6 +181,9 @@ steps:
     deadline_base: due_date
     deadline_offset_days: 674
     deadline_note: 出産予定日の8週間前から2年間（= 予定日−56日 から 730日間）
+    apply_from_base: due_date
+    apply_from_offset_days: -56
+    apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/ninpu_kyuhu.html
     verified_at: 2026-09-20
 
@@ -171,6 +195,9 @@ steps:
     trigger_document_id: shibuya.sanpu_kenshin_ticket
     channel: 医療機関
     deadline_note: 原則、出産後2か月以内（1回目は産後2週間ごろ、2回目は産後1か月ごろ）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/nimpu-kenshin/sanpu_kenshin.html
     verified_at: 2026-09-20
 
@@ -185,6 +212,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 365
     deadline_note: 分娩日または出生日から1年間（消印有効）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/ninpukensin.html
     verified_at: 2026-09-20
 
@@ -198,6 +228,9 @@ subsidies:
     apply_via: 区から送られてくる案内に沿って、原則LINEでオンライン申請。問い合わせ 渋谷区妊婦支援給付金コールセンター 03-3463-3589
     deadline_base: confirmation_date
     deadline_offset_days: 730
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から"
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/ninpu_kyuhu.html
     verified_at: 2026-09-20
 
@@ -210,6 +243,9 @@ subsidies:
     apply_via: 区から送られてくる案内に沿って、原則LINEでオンライン申請
     deadline_base: due_date
     deadline_offset_days: 674
+    apply_from_base: due_date
+    apply_from_offset_days: -56
+    apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/ninpu_kyuhu.html
     verified_at: 2026-09-20
 
@@ -224,6 +260,9 @@ subsidies:
     deadline_base: birth_date
     deadline_offset_days: 365
     taxable: true
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/happy_josei.html
     verified_at: 2026-09-20
 
@@ -233,5 +272,6 @@ subsidies:
     amount_note: 入院治療にかかった医療費のうち、医療保険がきく診療の自己負担額を助成（食事療養費を除く）。
     conditions: 渋谷区に住民登録があり、妊娠高血圧症候群とその関連疾患、糖尿病・妊娠糖尿病、貧血、産科出血（1000cc以上）、心疾患で入院治療を受ける人。前年分の世帯の総所得税額が30,000円以下、または対象の病気での入院期間が26日以上。生活保護を受けている人は除く。
     apply_via: 前もって地域保健課地域医療係（03-3463-1211）に問い合わせ、入院（見込み）期間が決まったらすぐに窓口か郵送で申請する。退院後はなるべく早めに。
+    apply_from_note: "入院治療を受けたあと（区のページで手続きを確認）"
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/ninshiniryo.html
     verified_at: 2026-09-20

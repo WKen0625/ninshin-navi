@@ -2,11 +2,14 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { applyWindowOf } from "@/lib/apply-window";
+import { APPLY_TO_LABEL, classifyApplyTo, type ApplyTo } from "@/lib/apply-to";
 import { clearStep, markStep, markStuck, toFamily, type FamilyState } from "@/lib/family-state";
 import { STUCK_REASONS, stuckLabel, type StuckReason } from "@/lib/stuck";
-import { resolveNextActions, type NextAction, type Step } from "@/lib/next-actions";
+import { expandHeldDocuments, resolveNextActions, type NextAction, type Step } from "@/lib/next-actions";
 import type { Rules } from "@/lib/rules";
 import type { Survey } from "@/lib/surveys";
+import { ApplyToChips, ApplyWindowBox, isApplication } from "./ApplyWindow";
 import { FeedbackLink } from "./FeedbackLink";
 import { SourceLink } from "./SourceLink";
 import { SurveyCard } from "./SurveyCard";
@@ -16,24 +19,6 @@ const fmt = (d: string) => {
   const [y, m, day] = d.split("-").map(Number);
   return `${y}年${m}月${day}日`;
 };
-
-function Deadline({ action, today }: { action: NextAction; today: string }) {
-  const { deadline, deadline_estimated, step } = action;
-  if (!deadline && !step.deadline_note) return null;
-  return (
-    <p className="notice notice-warn">
-      {deadline ? (
-        <span className="font-bold">
-          期限: {fmt(deadline)}
-          {deadline_estimated ? "（推定）" : ""}
-          {deadline < today ? "　期限を過ぎています。早めに窓口へ相談してください。" : ""}
-        </span>
-      ) : null}
-      {step.deadline_note ? <span className="block">{step.deadline_note}</span> : null}
-      {deadline_estimated ? <span className="block">心拍を確認した日が未入力のため、予定日から推定しています。</span> : null}
-    </p>
-  );
-}
 
 type StuckStat = { reason: StuckReason; reports: number };
 
@@ -117,8 +102,11 @@ function StuckBox({ step, state, week, onSave, onClose }: { step: Step; state: F
   );
 }
 
-function ActionCard({ action, today, emphasized, regionCode, state, week, onMark, onSave }: { action: NextAction; today: string; emphasized: boolean; regionCode: string; state: FamilyState; week: number | null; onMark: (step: Step, status: "done" | "not_applicable") => void; onSave: (next: FamilyState) => void }) {
+function ActionCard({ action, today, emphasized, regionCode, state, week, rules, onMark, onSave }: { action: NextAction; today: string; emphasized: boolean; regionCode: string; state: FamilyState; week: number | null; rules: Rules; onMark: (step: Step, status: "done" | "not_applicable") => void; onSave: (next: FamilyState) => void }) {
   const { step } = action;
+  const family = toFamily(state);
+  const window = applyWindowOf(step, { ...family, held_documents: expandHeldDocuments(family.held_documents, rules.documents) }, rules.documents);
+  const targets = classifyApplyTo(step.channel, step.region_code);
   const [asking, setAsking] = useState(false);
   const stuck = state.stuck.find((x) => x.step_id === step.id);
   return (
@@ -139,8 +127,8 @@ function ActionCard({ action, today, emphasized, regionCode, state, week, onMark
       ) : null}
       <h3 className={emphasized ? "text-xl font-bold" : "text-base font-bold"}>{step.title}</h3>
       {emphasized && step.detail ? <p className="text-base">{step.detail}</p> : null}
-      {step.channel ? <p className="text-base text-gray-700">どこで: {step.channel}</p> : null}
-      <Deadline action={action} today={today} />
+      <ApplyToChips targets={targets} detail={step.channel} />
+      <ApplyWindowBox window={window} today={today} label={isApplication(step.title) ? "申請" : ""} />
       {emphasized && step.action_url ? (
         <a href={step.action_url} target="_blank" rel="noopener noreferrer" className="link">
           手続きのページを開く
@@ -185,6 +173,7 @@ export function TodoList() {
   const [rules, setRules] = useState<Rules | null>(null);
   const [failed, setFailed] = useState(false);
   const [surveys, setSurveys] = useState<Survey[]>([]);
+  const [applyTo, setApplyTo] = useState<ApplyTo | "all">("all");
   const notifyAvailable = useNotifyAvailable();
   const today = todayLocal();
 
@@ -286,7 +275,7 @@ export function TodoList() {
       <section className="space-y-3">
         <h2 className="h-section">次にやること</h2>
         {result.current ? (
-          <ActionCard action={result.current} today={today} emphasized regionCode={state.region_code} state={state} week={state.birth_date ? null : result.gestational_week} onMark={mark} onSave={save} />
+          <ActionCard action={result.current} today={today} emphasized regionCode={state.region_code} state={state} week={state.birth_date ? null : result.gestational_week} rules={rules} onMark={mark} onSave={save} />
         ) : (
           <p className="notice notice-done">
             いま出せる手続きは、すべて終わっています。新しい紙を受け取ったら「入力を直す」から追加してください。
@@ -316,7 +305,21 @@ export function TodoList() {
         <section className="space-y-3">
           <h2 className="h-section">このあと</h2>
           <p className="text-base text-gray-600">期限が近いものが上、そのあとは手続きの順番です。先に終わったものがあれば、ここからチェックしてもかまいません。</p>
-          {result.upcoming.map((a) => <ActionCard key={a.step.id} action={a} today={today} emphasized={false} regionCode={state.region_code} state={state} week={state.birth_date ? null : result.gestational_week} onMark={mark} onSave={save} />)}
+          {(() => {
+            const present = new Set(result.upcoming.flatMap((a) => classifyApplyTo(a.step.channel, a.step.region_code)));
+            if (present.size < 2) return null;
+            const options: (ApplyTo | "all")[] = ["all", ...(["ward", "tokyo", "national", "employer", "facility"] as ApplyTo[]).filter((t) => present.has(t))];
+            return (
+              <div role="group" aria-label="窓口で絞る" className="flex flex-wrap gap-1 rounded-2xl border border-white/70 bg-white/70 p-1">
+                {options.map((t) => (
+                  <button key={t} type="button" aria-pressed={applyTo === t} onClick={() => setApplyTo(t)} className={`min-h-11 rounded-xl px-3 text-sm font-bold ${applyTo === t ? "bg-gradient-to-br from-indigo-600 to-violet-600 text-white" : "text-slate-700 hover:bg-white"}`}>
+                    {t === "all" ? "すべての窓口" : APPLY_TO_LABEL[t]}
+                  </button>
+                ))}
+              </div>
+            );
+          })()}
+          {result.upcoming.filter((a) => applyTo === "all" || classifyApplyTo(a.step.channel, a.step.region_code).includes(applyTo)).map((a) => <ActionCard key={a.step.id} action={a} today={today} emphasized={false} regionCode={state.region_code} state={state} week={state.birth_date ? null : result.gestational_week} rules={rules} onMark={mark} onSave={save} />)}
         </section>
       ) : null}
 

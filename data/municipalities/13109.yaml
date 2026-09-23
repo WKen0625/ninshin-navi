@@ -90,6 +90,9 @@ steps:
     channel: 窓口（保健センター・健康課・地域センター）または オンライン（電子申請のあと郵送）
     action_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-service/hpg000000783.html
     deadline_note: 期限は区のページに記載なし
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-service/hpg000000783.html
     verified_at: 2026-09-20
 
@@ -103,6 +106,9 @@ steps:
     channel: 保健センター（予約制。オンライン面談もあり）
     action_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-service/hpg000026799.html
     deadline_note: いつまでに受けるかは区のページに記載なし（対象は「妊娠中の方」）
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-service/hpg000026799.html
     verified_at: 2026-09-20
 
@@ -117,6 +123,9 @@ steps:
     deadline_base: confirmation_date
     deadline_offset_days: 730
     deadline_note: 胎児の心拍が確認されてから2年間
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から"
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/20230120091157.html
     verified_at: 2026-09-20
 
@@ -129,6 +138,9 @@ steps:
     channel: 医療機関（区内の契約歯科医院）
     action_url: https://www.city.shinagawa.tokyo.jp/PC/kenkou/kenkou-dukuri/kenkou-dukuri-hatokuchi/20221219162441.html
     deadline_note: 妊婦歯科は妊娠中いつでも。産婦歯科は出産後1年以内
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kenkou/kenkou-dukuri/kenkou-dukuri-hatokuchi/20221219162441.html
     verified_at: 2026-09-20
 
@@ -141,6 +153,9 @@ steps:
     channel: 窓口 / 郵送
     action_url: https://www.city.shinagawa.tokyo.jp/PC/procedure/procedure-kenkouhoken/procedure-kenkouhoken-hokenryo/20231122101648.html
     deadline_note: 出産予定日の6か月前から届け出できる
+    apply_from_base: due_date
+    apply_from_offset_days: -182
+    apply_from_note: "出産予定日の6か月前から"
     source_url: https://www.city.shinagawa.tokyo.jp/PC/procedure/procedure-kenkouhoken/procedure-kenkouhoken-hokenryo/20231122101648.html
     verified_at: 2026-09-20
 
@@ -152,6 +167,9 @@ steps:
     trigger_document_id: shinagawa.shinseiji_choukaku_ticket
     channel: 医療機関
     deadline_note: 区のページでは、生後1週間までに行うことがすすめられている
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/hpg000029337.html
     verified_at: 2026-09-20
 
@@ -165,6 +183,9 @@ steps:
     channel: 郵送（出生通知票）→ 自宅に訪問
     action_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-umaretara/hpg000022461.html
     deadline_note: 赤ちゃんが生まれたら早めに。訪問は生後4か月になる前まで
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（なるべく早く）"
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-umaretara/hpg000022461.html
     verified_at: 2026-09-20
 
@@ -179,6 +200,9 @@ steps:
     deadline_base: due_date
     deadline_offset_days: 674
     deadline_note: 出産予定日の8週間前から2年間（= 予定日−56日 から 730日間）
+    apply_from_base: due_date
+    apply_from_offset_days: -56
+    apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/20230120091157.html
     verified_at: 2026-09-20
 
@@ -190,6 +214,9 @@ steps:
     trigger_document_id: shinagawa.sanpu_kenshin_ticket
     channel: 医療機関・助産所
     deadline_note: 原則、出産後2か月以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-umaretara/20260213150439.html
     verified_at: 2026-09-20
 
@@ -203,6 +230,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 41
     deadline_note: 生後28日目から41日目までに1回
+    apply_from_base: birth_date
+    apply_from_offset_days: 28
+    apply_from_note: "生後28日から"
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-umaretara/20260213150439.html
     verified_at: 2026-09-20
 
@@ -217,6 +247,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 364
     deadline_note: 出産の日から1年以内（満1歳の誕生日の前日まで）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-service/hpg000003975.html
     verified_at: 2026-09-20
 
@@ -230,6 +263,9 @@ subsidies:
     apply_via: 妊婦相談（初回面談）のときの案内にある二次元コードから申請。問い合わせはコールセンター 03-6731-6732（祝日を除く月〜金 8時30分〜17時15分）
     deadline_base: confirmation_date
     deadline_offset_days: 730
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（区の面接・面談のあと）"
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/20230120091157.html
     verified_at: 2026-09-20
 
@@ -242,6 +278,9 @@ subsidies:
     apply_via: すくすく赤ちゃん訪問のときの案内にある二次元コードから申請。問い合わせはコールセンター 03-6731-6732
     deadline_base: due_date
     deadline_offset_days: 674
+    apply_from_base: due_date
+    apply_from_offset_days: -56
+    apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/20230120091157.html
     verified_at: 2026-09-20
 
@@ -251,5 +290,6 @@ subsidies:
     amount_note: 医療保険を使って治療したときの自己負担額（高額療養費・付加給付を除いた額）を助成。入院中の食事代（入院時食事療養費の標準負担額）は自己負担。
     conditions: 品川区内に住所があり、妊娠高血圧症候群とその関連疾患・産科出血・糖尿病と妊娠糖尿病・心疾患・貧血（それぞれの続発症を含む）で入院治療が必要な人。病気が認定基準にあてはまり、前年の総所得税額が30,000円以下の世帯の人、またはそれ以外で入院見込み期間が26日以上の人。
     apply_via: 品川・大井・荏原の各保健センター。原則、入院前（入院見込み期間が決まってから）か入院中に申請。退院後に申請するときは、退院の日から3か月以内。
+    apply_from_note: "入院治療を受けたあと（区のページで手続きを確認）"
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-service/hpg000000785.html
     verified_at: 2026-09-20

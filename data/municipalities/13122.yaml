@@ -82,6 +82,9 @@ steps:
     produces_document_id: katsushika.hoken_bag
     channel: 保健センター / 区役所子育て支援窓口 / 基幹型児童館 / 子ども未来プラザ / えきにこわ
     action_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1002071.html
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1002071.html
     verified_at: 2026-09-20
 
@@ -95,6 +98,9 @@ steps:
     channel: 保健センターなど区内12か所（オンライン予約）
     action_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1014924.html
     deadline_note: いつまでに受けるかは区のページに記載なし
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1014924.html
     verified_at: 2026-09-20
 
@@ -109,6 +115,9 @@ steps:
     deadline_base: confirmation_date
     deadline_offset_days: 730
     deadline_note: 医療機関で胎児心拍が確認された日（受診日）から2年間
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（区の面接・面談のあと）"
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1037742.html
     verified_at: 2026-09-20
 
@@ -121,6 +130,9 @@ steps:
     channel: 区内の実施歯科医療機関
     action_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1002079.html
     deadline_note: 妊娠期間中に1回
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1002079.html
     verified_at: 2026-09-20
 
@@ -132,6 +144,9 @@ steps:
     trigger_document_id: katsushika.hoken_bag
     channel: 窓口 / 郵送
     deadline_note: 出産予定日の6か月前から届け出できる。出産後でも届け出できるが、対象の年度の最初の保険料の納期の翌日から2年を過ぎると、免除できなくなることがある
+    apply_from_base: due_date
+    apply_from_offset_days: -182
+    apply_from_note: "出産予定日の6か月前から"
     source_url: https://www.city.katsushika.lg.jp/kurashi/1000049/1001690/1033959.html
     verified_at: 2026-09-20
 
@@ -145,6 +160,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 50
     deadline_note: 生後1か月以内に。受診票が使えるのは、生まれた日を0日として生後50日以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1037959.html
     verified_at: 2026-09-20
 
@@ -159,6 +177,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 365
     deadline_note: 出生または転入で対象になった日から数えて1年以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1031538.html
     verified_at: 2026-09-20
 
@@ -172,6 +193,9 @@ steps:
     channel: オンラインフォーム
     action_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1024614.html
     deadline_note: 赤ちゃんが生まれてから申し込む。生後3か月を過ぎたら相談
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（なるべく早く）"
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1024614.html
     verified_at: 2026-09-20
 
@@ -186,6 +210,9 @@ steps:
     deadline_base: due_date
     deadline_offset_days: 674
     deadline_note: 出産予定日の8週前から2年間
+    apply_from_base: due_date
+    apply_from_offset_days: -56
+    apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1037742.html
     verified_at: 2026-09-20
 
@@ -199,6 +226,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 59
     deadline_note: 産後2か月以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1030308/1042839.html
     verified_at: 2026-09-20
 
@@ -212,6 +242,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 41
     deadline_note: 生後28日から生後41日まで（出生日を0日目として数える）
+    apply_from_base: birth_date
+    apply_from_offset_days: 28
+    apply_from_note: "生後28日から"
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001804/1042840.html
     verified_at: 2026-09-20
 
@@ -225,6 +258,9 @@ subsidies:
     apply_via: ゆりかご面接のあとに渡される案内に沿って申請。問い合わせ コールセンター 0120-914-946
     deadline_base: confirmation_date
     deadline_offset_days: 730
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（区の面接・面談のあと）"
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1037742.html
     verified_at: 2026-09-20
 
@@ -237,6 +273,9 @@ subsidies:
     apply_via: こんにちは赤ちゃん訪問などのあとに渡される案内に沿って届出。問い合わせ コールセンター 0120-914-946
     deadline_base: due_date
     deadline_offset_days: 674
+    apply_from_base: due_date
+    apply_from_offset_days: -56
+    apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1037742.html
     verified_at: 2026-09-20
 
@@ -249,6 +288,9 @@ subsidies:
     apply_via: 児童手当の認定請求、または乳幼児医療証の交付申請のときに同時に申請。問い合わせ 子育て応援課子育て応援係 03-5654-6357
     deadline_base: birth_date
     deadline_offset_days: 365
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1031538.html
     verified_at: 2026-09-20
 
@@ -258,5 +300,6 @@ subsidies:
     amount_note: 保険がきいたあとの自己負担分を助成。入院中の食事代は対象外。
     conditions: 妊娠高血圧症候群・糖尿病・貧血・産科出血・心疾患にかかり、入院治療が必要な妊産婦。前年分の総所得税額が30,000円以下の世帯の人、またはそれ以外で入院見込み期間が26日以上の人。生活保護を受けている人は対象外。
     apply_via: 子ども総合センター母子保健係、各保健センター、堀切区民事務所、高砂区民事務所。原則として退院前に申請。退院後は退院日から3か月以内に出す。問い合わせ 青戸保健センター母子保健係 03-3602-1387
+    apply_from_note: "入院治療を受けたあと（区のページで手続きを確認）"
     source_url: https://www.city.katsushika.lg.jp/kosodate/1000056/1002336/1002431.html
     verified_at: 2026-09-20

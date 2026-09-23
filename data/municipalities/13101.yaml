@@ -76,6 +76,9 @@ steps:
     channel: 千代田保健所6階 保健サービス課 / 区役所2階 総合窓口課 / 各出張所（電子申請のあと来庁）
     action_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/boshitecho.html
     deadline_note: 妊娠がわかったら早めに。届出の前に受けた妊婦健診の費用は助成されない
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/boshitecho.html
     verified_at: 2026-09-20
 
@@ -89,6 +92,9 @@ steps:
     channel: 千代田保健所6階 保健サービス課 / 区役所2階 児童・家庭支援センター
     action_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/chiyomama.html
     deadline_note: いつまでに受けるかは区のページに記載なし
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/chiyomama.html
     verified_at: 2026-09-20
 
@@ -101,6 +107,9 @@ steps:
     trigger_document_id: chiyoda.shien_kyufu_annai_1
     channel: ままぱぱ面談のときの案内に沿って申請
     deadline_note: 申請期限は区のページに記載なし（流産・死産・人工妊娠中絶の場合は、医師が確認した日から2年まで）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（区の面接・面談のあと）"
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/ninpu-shienkyufu.html
     verified_at: 2026-09-20
 
@@ -113,6 +122,9 @@ steps:
     channel: 千代田保健所4階 歯とお口の相談室（予約制）
     action_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/shikakenshin.html
     deadline_note: 妊娠中から出産後1年未満まで。受けられる回数は区のページに記載なし
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/shikakenshin.html
     verified_at: 2026-09-20
 
@@ -125,6 +137,9 @@ steps:
     channel: 窓口（区役所本庁舎2階） / 郵送
     action_url: https://www.city.chiyoda.lg.jp/koho/kurashi/hoken/kenkohoken/hokenryo-menjo.html
     deadline_note: 出産予定日の6か月前から届け出できる。出産後でもよいが、保険料を変更できる期間には限りがあるので早めに
+    apply_from_base: due_date
+    apply_from_offset_days: -182
+    apply_from_note: "出産予定日の6か月前から"
     source_url: https://www.city.chiyoda.lg.jp/koho/kurashi/hoken/kenkohoken/hokenryo-menjo.html
     verified_at: 2026-09-20
 
@@ -138,6 +153,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 50
     deadline_note: 生後50日に達する日まで
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/kenko/chokaku.html
     verified_at: 2026-09-20
 
@@ -153,6 +171,9 @@ steps:
     deadline_offset_days: 730
     deadline_note: 出産の日から2年間。区内に住んで1年たっていない人は、1年を過ぎてから申請できる
     survey_question_id: cost_paid
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/teate/shussanhiyojosei.html
     verified_at: 2026-09-20
 
@@ -167,6 +188,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 365
     deadline_note: 出産の日から1年以内（出産に至らなかったときは、最後に妊婦健診を受けた日から1年以内）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/josanjo.html
     verified_at: 2026-09-20
 
@@ -180,6 +204,9 @@ steps:
     channel: 郵送（出生通知票のはがき）
     action_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/kenko/homonshido.html
     deadline_note: 対象は生後4か月まで
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（なるべく早く）"
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/kenko/homonshido.html
     verified_at: 2026-09-20
 
@@ -192,6 +219,9 @@ steps:
     trigger_document_id: chiyoda.akachan_homon_annai
     channel: 乳児家庭訪問のときの案内に沿って申請
     deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産後、区の訪問のあと"
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/ninpu-shienkyufu.html
     verified_at: 2026-09-20
 
@@ -203,6 +233,9 @@ steps:
     trigger_document_id: chiyoda.sanpu_kenshin_ticket
     channel: 医療機関
     deadline_note: 原則として産後2か月以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/sampu-kenshin.html
     verified_at: 2026-09-20
 
@@ -216,6 +249,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 41
     deadline_note: 生後28日から41日の間（出生日を0日目として数える）
+    apply_from_base: birth_date
+    apply_from_offset_days: 28
+    apply_from_note: "生後28日から"
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/kenko/kenko1.html
     verified_at: 2026-09-20
 
@@ -227,6 +263,9 @@ subsidies:
     amount_note: 現金5万円。妊婦本人名義の口座に振り込まれる。申請から振込まで2か月ほど。
     conditions: 申請日に千代田区に住民登録があること。産科医療機関などで医師に胎児の心拍を確認され、千代田区で妊婦給付認定を受けていること。国の出産・子育て事業の5万円相当のギフトカードや、1回目の給付金を（ほかの自治体も含めて）受け取っていないこと。令和7年4月1日以降の流産・死産・人工妊娠中絶も、心拍が確認されていれば対象。
     apply_via: ままぱぱ面談のときに申請方法が案内される。問い合わせ 03-6380-8552（千代田保健所保健サービス課母子保健係）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "1回目は心拍確認後の面接・面談のあと、2回目は出産後の訪問・案内のあと"
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/ninpu-shienkyufu.html
     verified_at: 2026-09-20
 
@@ -237,6 +276,9 @@ subsidies:
     amount_note: 現金5万円×妊娠している子どもの数。本人名義の口座に振り込まれる。
     conditions: 申請日に千代田区に住民登録があること。出産日が令和7年4月1日以降であること。千代田区で妊婦給付認定を受け、妊娠している子どもの数を届け出ていること。2回目の給付金を（ほかの自治体も含めて）受け取っていないこと。
     apply_via: 乳児家庭訪問のときに申請方法が案内される。問い合わせ 03-6380-8552（千代田保健所保健サービス課母子保健係）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "1回目は心拍確認後の面接・面談のあと、2回目は出産後の訪問・案内のあと"
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/ninpu-shienkyufu.html
     verified_at: 2026-09-20
 
@@ -252,6 +294,9 @@ subsidies:
     deadline_base: birth_date
     deadline_offset_days: 730
     scheme_applicable: [lumpsum]
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/teate/shussanhiyojosei.html
     verified_at: 2026-09-20
 
@@ -261,5 +306,6 @@ subsidies:
     amount_note: 対象の病気の治療にかかった入院医療費のうち、医療保険を使ったあとの自己負担額を助成。入院時の食事代、認定期間の外の医療費、保険がきかない費用（差額ベッド代など）は対象外。
     conditions: 千代田区に住所があり、妊娠高血圧症候群と関連疾患・糖尿病と妊娠糖尿病・貧血・産科出血・心疾患（認定基準あり）で入院する人。前年の総所得税額が30,000円以下の世帯の人、または入院見込み期間が26日以上の人。生活保護を受けている人は対象外。
     apply_via: 千代田保健所。入院前か入院中に申請する。退院後は、退院日から3か月以内に遅延理由書などを添えて申請する。問い合わせ 03-6256-8477
+    apply_from_note: "入院治療を受けたあと（区のページで手続きを確認）"
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/koketsuatsu.html
     verified_at: 2026-09-20

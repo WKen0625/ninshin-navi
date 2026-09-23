@@ -3,6 +3,7 @@ title: Your hospital bag starts with the hospital's own list
 description: Every maternity hospital in Tokyo hands out its own packing list, and what they provide differs. How to read that list, and what to add or skip.
 published: 2026-09-22
 # Set pr: true when product (affiliate) links are added. The page then shows the PR notice at the top.
+stage: late
 pr: false
 sources:
   - label: MHLW "Shussan Navi" (birth facility directory)

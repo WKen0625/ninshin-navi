@@ -83,6 +83,9 @@ steps:
     channel: 各保健センター / 健康づくり課 / 各特別出張所（電子申請のあとは保健センターか健康づくり課へ来庁）
     action_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00001.html
     deadline_note: なるべく早めに（できれば妊娠11週までに）。母子健康手帳をもらう前に自費で受けた妊婦健診の費用は助成されない
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
     source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00001.html
     verified_at: 2026-09-20
 
@@ -96,6 +99,9 @@ steps:
     channel: 各保健センター / 健康づくり課（特別出張所ではできない）
     action_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00001_2.html
     deadline_note: いつまでに受けるかは区のページに記載なし
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00001_2.html
     verified_at: 2026-09-20
 
@@ -108,6 +114,9 @@ steps:
     trigger_document_id: shinjuku.shien_kyufu_shinsei_1
     channel: 面談で受け取った申請書で申請
     deadline_note: 申請期限は区のページに記載なし（面談のときか、コールセンターに確認する）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（区の面接・面談のあと）"
     source_url: https://www.city.shinjuku.lg.jp/fukushi/syussan_kosodate_gift.html
     verified_at: 2026-09-20
 
@@ -119,6 +128,9 @@ steps:
     trigger_document_id: shinjuku.hoken_bag
     channel: 区から届くアンケート
     deadline_note: 妊娠7か月ごろ（回答の期限は区のページに記載なし）
+    apply_from_base: gestational_week
+    apply_from_week: 24
+    apply_from_note: "妊娠7か月ごろ（区からアンケートが届いてから）"
     source_url: https://www.city.shinjuku.lg.jp/fukushi/syussan_kosodate_gift.html
     verified_at: 2026-09-20
 
@@ -133,6 +145,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 365
     deadline_note: 受診票は産後1年まで使える（例 5月1日に出産したら翌年4月30日まで）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.shinjuku.lg.jp/fukushi/kenko01_000112.html
     verified_at: 2026-09-20
 
@@ -145,6 +160,9 @@ steps:
     channel: 窓口（区役所本庁舎4階8番 / 各特別出張所） / 郵送
     action_url: https://www.city.shinjuku.lg.jp/kenkou/hoken01_000001_00038.html
     deadline_note: 出産予定日の6か月前から届け出できる。出産後でもよいが、その年度の最初の保険料の納期の翌日から2年を過ぎると、その年度の保険料は変更できない
+    apply_from_base: due_date
+    apply_from_offset_days: -182
+    apply_from_note: "出産予定日の6か月前から"
     source_url: https://www.city.shinjuku.lg.jp/kenkou/hoken01_000001_00038.html
     verified_at: 2026-09-20
 
@@ -158,6 +176,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 50
     deadline_note: 受診票が使えるのは、生後50日に達する日まで
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00003.html
     verified_at: 2026-09-20
 
@@ -172,6 +193,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 365
     deadline_note: 出産（出生）日から1年間
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00002.html
     verified_at: 2026-09-20
 
@@ -185,6 +209,9 @@ steps:
     channel: 郵送（連絡票） / 電話 / オンライン（電子申請）
     action_url: https://www.city.shinjuku.lg.jp/fukushi/file02_00026.html
     deadline_note: 連絡票は出産後すぐに送る。対象は生後4か月以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（なるべく早く）"
     source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_00026.html
     verified_at: 2026-09-20
 
@@ -197,6 +224,9 @@ steps:
     trigger_document_id: shinjuku.shien_kyufu_shinsei_2
     channel: 訪問で受け取った申請書で申請
     deadline_note: 申請期限は区のページに記載なし（訪問のときか、コールセンターに確認する）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.shinjuku.lg.jp/fukushi/syussan_kosodate_gift.html
     verified_at: 2026-09-20
 
@@ -208,6 +238,9 @@ steps:
     trigger_document_id: shinjuku.sanpu_kenshin_ticket
     channel: 医療機関
     deadline_note: 原則として産後2か月以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
     source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00004.html
     verified_at: 2026-09-20
 
@@ -221,6 +254,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 41
     deadline_note: 生後28日から生後41日まで
+    apply_from_base: birth_date
+    apply_from_offset_days: 28
+    apply_from_note: "生後28日から"
     source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00004.html
     verified_at: 2026-09-20
 
@@ -232,6 +268,9 @@ subsidies:
     amount_note: 妊婦1人あたり5万円相当。現金か電子ギフト（東京都が発行するギフトカード）を選ぶ。申請のあと1〜2か月で入金または発送の予定。
     conditions: 令和7年4月1日以降に妊娠届を出した妊婦。申請日に新宿区に住民登録があり、医師による胎児心拍の確認を受け、ほかの自治体で妊婦支援給付金（現金やクーポンなど）を受け取っていないこと。流産・死産・人工妊娠中絶をした人も対象。
     apply_via: 「ゆりかご・しんじゅく」面談のときに申請書を受け取る。問い合わせ 新宿区妊婦支援給付金コールセンター 0120-002-274（無料、平日8時30分〜17時）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "1回目は心拍確認後の面接・面談のあと、2回目は出産後の訪問・案内のあと"
     source_url: https://www.city.shinjuku.lg.jp/fukushi/syussan_kosodate_gift.html
     verified_at: 2026-09-20
 
@@ -242,6 +281,9 @@ subsidies:
     amount_note: 妊娠していた子どもの人数×5万円相当。現金か電子ギフトを選ぶ。
     conditions: 令和7年4月1日以降に出産した人。申請日に新宿区に住民登録があり、医師による胎児心拍の確認を受け、ほかの自治体で妊婦支援給付金を受け取っていないこと。
     apply_via: 出産後の「すくすく赤ちゃん訪問」のときに申請書を受け取る。問い合わせ 新宿区妊婦支援給付金コールセンター 0120-002-274（無料、平日8時30分〜17時）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "1回目は心拍確認後の面接・面談のあと、2回目は出産後の訪問・案内のあと"
     source_url: https://www.city.shinjuku.lg.jp/fukushi/syussan_kosodate_gift.html
     verified_at: 2026-09-20
 
@@ -251,5 +293,6 @@ subsidies:
     amount_note: 入院治療にかかる自己負担額を助成。対象の病気にはそれぞれ認定基準がある。
     conditions: 妊娠高血圧症候群とその関連疾患・糖尿病・貧血・産科出血・心疾患で入院治療が必要な妊産婦。世帯の前年分の総所得税額が30,000円以下の人、または入院見込み期間が26日以上の人。生活保護を受けている世帯の人は対象外。
     apply_via: 保健センターで医療費助成申請書と診断書などの書類を受け取り、住所を担当する保健センターへ申請する（牛込 03-3260-6231、四谷 03-3351-5161、東新宿 03-3200-1026、落合 03-3952-7161）。申請の期限は区のページに記載なし
+    apply_from_note: "入院治療を受けたあと（区のページで手続きを確認）"
     source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_00005.html
     verified_at: 2026-09-20

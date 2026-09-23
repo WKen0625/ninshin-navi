@@ -6,9 +6,11 @@ import { toFamily } from "@/lib/family-state";
 import { calculateMoney, schemesOf, type MoneyLine, type MoneyResult } from "@/lib/money";
 import { expandHeldDocuments } from "@/lib/next-actions";
 import type { MoneyData, Rules } from "@/lib/rules";
+import { classifyApplyTo } from "@/lib/apply-to";
+import { ApplyToChips, ApplyWindowBox } from "./ApplyWindow";
 import { FeedbackLink } from "./FeedbackLink";
 import { SourceLink } from "./SourceLink";
-import { useFamilyState } from "./useFamilyState";
+import { todayLocal, useFamilyState } from "./useFamilyState";
 
 const yen = (n: number) => `${n.toLocaleString("ja-JP")}円`;
 const fmt = (d: string) => {
@@ -17,7 +19,7 @@ const fmt = (d: string) => {
 };
 const field = "field";
 
-function Line({ line, sign }: { line: MoneyLine; sign: "−" | "＋" | "" }) {
+function Line({ line, sign, today }: { line: MoneyLine; sign: "−" | "＋" | ""; today: string }) {
   const s = line.subsidy;
   return (
     <li className="card space-y-1">
@@ -33,22 +35,15 @@ function Line({ line, sign }: { line: MoneyLine; sign: "−" | "＋" | "" }) {
       </div>
       {s.amount_note ? <p className="text-base text-gray-700">{s.amount_note}</p> : null}
       {s.conditions ? <p className="text-base text-gray-700">条件: {s.conditions}</p> : null}
-      {s.apply_via ? <p className="text-base text-gray-700">申請: {s.apply_via}</p> : null}
+      {s.apply_via ? <ApplyToChips targets={classifyApplyTo(s.apply_via, s.region_code)} detail={s.apply_via} /> : null}
       {s.taxable ? <p className="text-base text-gray-700">税金: 課税の対象です。</p> : null}
-      {line.deadline ? (
-        <p className="notice notice-warn font-bold">
-          申請期限: {fmt(line.deadline)}
-          {line.deadline_estimated ? "（推定。心拍を確認した日が未入力のため）" : ""}
-        </p>
-      ) : s.deadline_base === "birth_date" ? (
-        <p className="notice notice-warn">申請期限: 出産した日から{s.deadline_offset_days === 365 ? "1年" : `${s.deadline_offset_days}日`}以内（出産日を入力すると日付で出ます）</p>
-      ) : null}
+      <ApplyWindowBox window={line.window} today={today} />
       <SourceLink url={s.source_url} verifiedAt={s.verified_at} needsReview={s.needs_review} />
     </li>
   );
 }
 
-function SchemeResult({ result, facilityName }: { result: MoneyResult; facilityName: string | null }) {
+function SchemeResult({ result, facilityName, today }: { result: MoneyResult; facilityName: string | null; today: string }) {
   const isNew = result.scheme === "new_scheme";
   return (
     <section className="space-y-4">
@@ -79,7 +74,7 @@ function SchemeResult({ result, facilityName }: { result: MoneyResult; facilityN
               <p className="text-base text-gray-700">{facilityName ? "この施設の費用データはまだありません。" : "施設を選ぶと、出産なびの費用が入ります。"}</p>
             )}
           </div>
-          <ul className="space-y-2">{result.at_counter.map((l) => <Line key={l.subsidy.id} line={l} sign="−" />)}</ul>
+          <ul className="space-y-2">{result.at_counter.map((l) => <Line key={l.subsidy.id} line={l} sign="−" today={today} />)}</ul>
           {result.pay_at_counter_yen != null ? (
             <p className="notice notice-muted flex items-baseline justify-between gap-3 font-bold">
               <span>退院のとき窓口で払う目安</span>
@@ -92,7 +87,7 @@ function SchemeResult({ result, facilityName }: { result: MoneyResult; facilityN
       {result.cash_later.length > 0 ? (
         <div className="space-y-2">
           <h3 className="text-base font-bold">あとから申請して受け取るお金（合計 {yen(result.cash_later_total_yen)}）</h3>
-          <ul className="space-y-2">{result.cash_later.map((l) => <Line key={l.subsidy.id} line={l} sign="＋" />)}</ul>
+          <ul className="space-y-2">{result.cash_later.map((l) => <Line key={l.subsidy.id} line={l} sign="＋" today={today} />)}</ul>
         </div>
       ) : null}
 
@@ -112,7 +107,7 @@ function SchemeResult({ result, facilityName }: { result: MoneyResult; facilityN
       {result.not_counted.length > 0 ? (
         <div className="space-y-2">
           <h3 className="text-base font-bold">上の計算に入れていないもの（毎月の給付・条件つき）</h3>
-          <ul className="space-y-2">{result.not_counted.map((l) => <Line key={l.subsidy.id} line={l} sign="" />)}</ul>
+          <ul className="space-y-2">{result.not_counted.map((l) => <Line key={l.subsidy.id} line={l} sign="" today={today} />)}</ul>
         </div>
       ) : null}
     </section>
@@ -121,6 +116,7 @@ function SchemeResult({ result, facilityName }: { result: MoneyResult; facilityN
 
 export function MoneyView() {
   const { state, loaded, save } = useFamilyState();
+  const today = todayLocal();
   const [data, setData] = useState<{ money: MoneyData; rules: Rules } | null>(null);
   const [failed, setFailed] = useState(false);
   const region = state?.region_code;
@@ -210,7 +206,7 @@ export function MoneyView() {
         {wantsEpidural ? <p className="text-base text-gray-700">無痛分娩の費用は施設ごとに違い、下の「出産にかかる費用」に上乗せになる場合があります。</p> : null}
       </section>
 
-      {results.map((r) => <SchemeResult key={r.scheme} result={r} facilityName={facility?.name ?? null} />)}
+      {results.map((r) => <SchemeResult key={r.scheme} result={r} facilityName={facility?.name ?? null} today={today} />)}
       <FeedbackLink target="screen:money" regionCode={state.region_code} />
     </div>
   );

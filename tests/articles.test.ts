@@ -61,13 +61,23 @@ describe("記事", () => {
     expect(getArticle("../etc/passwd", "ja")).toBeNull();
   });
 
-  it("製品のリンクを含む記事は pr: true が必須。いまはアフィリエイトリンクを載せていない（弁護士確認前）", () => {
+  it("アフィリエイトのリンクを含む記事は pr: true と programs が必須（PR表記と規約の文言を出すため）", () => {
     for (const { slug, lang } of validateArticles()) {
       const a = getArticle(slug, lang)!;
       const links = a.blocks.flatMap((b) => ("text" in b ? [b.text] : b.items)).flatMap(parseInline).filter((p) => p.type === "link");
-      const affiliate = links.filter((l) => l.type === "link" && /amzn\.to|amazon\.co\.jp.*tag=|a\.r10\.to|rakuten\.co\.jp.*afid|valuecommerce|a8\.net|moshimo/.test(l.href));
-      if (affiliate.length > 0) expect(a.pr).toBe(true);
-      expect(affiliate).toEqual([]);
+      const amazon = links.some((l) => l.type === "link" && /amzn\.(to|asia)|amazon\.co\.jp.*tag=/.test(l.href));
+      const rakuten = links.some((l) => l.type === "link" && /a\.r10\.to|hb\.afl\.rakuten|rakuten\.co\.jp.*afid/.test(l.href));
+      const other = links.some((l) => l.type === "link" && /valuecommerce|a8\.net|moshimo|accesstrade|afi-b/.test(l.href));
+      if (amazon) expect(a.programs).toContain("amazon");
+      if (rakuten) expect(a.programs).toContain("rakuten");
+      if (amazon || rakuten || other) expect(a.pr).toBe(true);
+      // 周期は決まった値
+      expect(["all", "early", "mid", "late", "birth", "postpartum"]).toContain(a.stage);
     }
+  });
+  it("一覧は周期で絞れる。「いつでも」の記事はどの周期にも出る", () => {
+    const late = listArticles("ja", "late");
+    expect(late.map((a) => a.slug)).toEqual(["how-tsugiraku-works", "hospital-bag"]);
+    expect(listArticles("ja", "early").map((a) => a.slug)).toEqual(["how-tsugiraku-works"]);
   });
 });

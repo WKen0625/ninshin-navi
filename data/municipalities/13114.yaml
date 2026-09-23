@@ -77,6 +77,9 @@ steps:
     channel: すこやか福祉センター / 区役所3階子ども総合窓口（電子申請のあと来庁）
     action_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/tetsuduki/ninshintodoke.html
     deadline_note: 期限は区のページに記載なし
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/tetsuduki/ninshintodoke.html
     verified_at: 2026-09-20
 
@@ -90,6 +93,9 @@ steps:
     channel: 住んでいる地域のすこやか福祉センター（予約制。訪問・オンラインも可）
     action_url: https://www.city.tokyo-nakano.lg.jp/dept/172050/d021411.html
     deadline_note: 妊娠20週以降に予約する。いつまでに受けるかは区のページに記載なし
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.tokyo-nakano.lg.jp/dept/172050/d021411.html
     verified_at: 2026-09-20
 
@@ -102,6 +108,9 @@ steps:
     trigger_document_id: nakano.shien_kyufu_annai_1
     channel: オンライン（案内の二次元コードから電子申請）
     deadline_note: 申請期限は区のページに記載なし（窓口で確認する）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（区の面接・面談のあと）"
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/teate_zyosei/ninpu.html
     verified_at: 2026-09-20
 
@@ -113,6 +122,9 @@ steps:
     trigger_document_id: nakano.hoken_bag
     channel: 区の指定医療機関（歯科）
     deadline_note: 妊娠中（受けられなかった人は出産後1年まで）
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/kenshin/ninpukenkoshinsa_jyushin.html
     verified_at: 2026-09-20
 
@@ -125,6 +137,9 @@ steps:
     channel: 窓口 / 郵送 / オンライン（マイナポータル）
     action_url: https://www.city.tokyo-nakano.lg.jp/kurashi/hoken/hokenryo/0234707520231031160300299.html
     deadline_note: 出産予定日の6か月前から届け出できる
+    apply_from_base: due_date
+    apply_from_offset_days: -182
+    apply_from_note: "出産予定日の6か月前から"
     source_url: https://www.city.tokyo-nakano.lg.jp/kurashi/hoken/hokenryo/0234707520231031160300299.html
     verified_at: 2026-09-20
 
@@ -138,6 +153,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 50
     deadline_note: 生後50日以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/teate/shien/cyokakukensa.html
     verified_at: 2026-09-20
 
@@ -151,6 +169,9 @@ steps:
     channel: はがき / オンライン（電子申請）のあと、自宅で訪問を受ける
     action_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/syussan/sangoshien/akachanhomon.html
     deadline_note: 訪問は生後4か月以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（なるべく早く）"
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/syussan/sangoshien/akachanhomon.html
     verified_at: 2026-09-20
 
@@ -163,6 +184,9 @@ steps:
     trigger_document_id: nakano.akachan_homon_annai
     channel: オンライン（案内の二次元コードから電子申請）
     deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産後、区の訪問のあと"
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/teate_zyosei/ninpu.html
     verified_at: 2026-09-20
 
@@ -174,6 +198,9 @@ steps:
     trigger_document_id: nakano.sanpu_kenshin_ticket
     channel: 医療機関
     deadline_note: 産後2週間ごろに1回、産後1か月ごろに1回
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/kenshin/sannpukennsinn.html
     verified_at: 2026-09-20
 
@@ -188,6 +215,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 365
     deadline_note: 出産日（または妊娠の終了）から1年以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.tokyo-nakano.lg.jp/dept/242900/d001464.html
     verified_at: 2026-09-20
 
@@ -199,6 +229,9 @@ subsidies:
     amount_note: 現金（銀行振込）かギフト（電子ギフトカード）を選ぶ。届くまで2〜3か月ほど。
     conditions: 令和7年4月1日以降に妊娠届と認定の申請をし、医療機関で胎児の心拍が確認された妊婦。流産・死産・人工妊娠中絶などを経験した人も対象。
     apply_via: 妊娠届のとき、またはかんがるー面接のときに案内される二次元コードから電子申請。問い合わせ すこやか福祉センター企画調整係 03-3228-8809（平日8時30分〜17時）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "1回目は心拍確認後の面接・面談のあと、2回目は出産後の訪問・案内のあと"
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/teate_zyosei/ninpu.html
     verified_at: 2026-09-20
 
@@ -209,6 +242,9 @@ subsidies:
     amount_note: こども（胎児）の人数×5万円。現金かギフトを選ぶ。
     conditions: 令和7年4月1日以降に出産し、申請のときに中野区に住民登録のある産婦。
     apply_via: こんにちは赤ちゃん訪問のときに案内される二次元コードから電子申請
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "1回目は心拍確認後の面接・面談のあと、2回目は出産後の訪問・案内のあと"
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/teate_zyosei/ninpu.html
     verified_at: 2026-09-20
 
@@ -218,5 +254,6 @@ subsidies:
     amount_note: 健康保険がきく分の自己負担額を助成（入院中の食事代は自己負担）。
     conditions: 妊娠高血圧症候群とその関連疾患、糖尿病、貧血、産科出血、心疾患で入院治療が必要な人。総所得税額が30,000円以下の世帯の人、または入院予定期間が26日以上の人。
     apply_via: 区役所3階子ども総合窓口、または各すこやか福祉センター（中部・北部・鷺宮・南部）。入院前か入院中に申請する。やむを得ず退院後になるときは退院後3か月以内。問い合わせ 子育て支援課 03-3228-3253
+    apply_from_note: "入院治療を受けたあと（区のページで手続きを確認）"
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/teate/shien/ninshinkoketsuatsu.html
     verified_at: 2026-09-20

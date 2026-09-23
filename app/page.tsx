@@ -50,7 +50,7 @@ export default function Home() {
         </p>
         <div className="flex flex-col gap-3 sm:flex-row">
           <Link href="/navi" className="btn btn-primary text-lg sm:flex-1">Tsugiraku Naviをはじめる</Link>
-          <Link href="/articles" className="btn btn-ghost text-lg sm:flex-1">記事を読む</Link>
+          <Link href="/articles" className="btn btn-ghost text-lg sm:flex-1">負担軽減コラムを読む</Link>
         </div>
       </section>
 
@@ -100,7 +100,7 @@ export default function Home() {
       {articles.length > 0 ? (
         <section aria-labelledby="articles" className="space-y-4">
           <div className="flex items-baseline justify-between">
-            <h2 id="articles" className="h-section">記事</h2>
+            <h2 id="articles" className="h-section">負担軽減コラム</h2>
             <Link href="/articles" className="link">すべて見る</Link>
           </div>
           <ul className="space-y-3">

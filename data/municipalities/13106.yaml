@@ -84,6 +84,9 @@ steps:
     channel: オンライン（マイナポータル・郵送で受け取り） / 窓口（保健所・保健相談センター・区役所・区民事務所）
     action_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/ninshin/todokede/boshikenkotecho.html
     deadline_note: なるべく早く（11週ごろまでに）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/ninshin/todokede/boshikenkotecho.html
     verified_at: 2026-09-20
 
@@ -99,6 +102,9 @@ steps:
     deadline_base: due_date
     deadline_offset_days: 0
     deadline_note: 妊娠中に受ける。出産した人は対象にならない
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/nenrei/ninshinki/soudan_shien/yurikago.html
     verified_at: 2026-09-20
 
@@ -111,6 +117,9 @@ steps:
     trigger_document_id: taito.shien_kyufu_annai_1
     channel: 面接のときの案内に沿って申請
     deadline_note: 申請期限は区のページに記載なし（面接のときに確認する）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "区の妊婦面接・面談のあと"
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/ninpusienkyufu.html
     verified_at: 2026-09-20
 
@@ -123,6 +132,9 @@ steps:
     channel: 区内の委託歯科医療機関
     action_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/kenkoushinsa/ninshinchu/ninnpu.html
     deadline_note: 妊娠中に1回。安定期の体調のよいときに
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/kenkoushinsa/ninshinchu/ninnpu.html
     verified_at: 2026-09-20
 
@@ -135,6 +147,9 @@ steps:
     channel: 窓口 / 郵送
     action_url: https://www.city.taito.lg.jp/kurashi/zeikin/kokuminkenkohoken/hokenryou/sanzensango.html
     deadline_note: 出産予定日の6か月前から申請できる。出産後も届け出できるが、早めに
+    apply_from_base: due_date
+    apply_from_offset_days: -182
+    apply_from_note: "出産予定日の6か月前から"
     source_url: https://www.city.taito.lg.jp/kurashi/zeikin/kokuminkenkohoken/hokenryou/sanzensango.html
     verified_at: 2026-09-20
 
@@ -146,6 +161,9 @@ steps:
     trigger_document_id: taito.shinseiji_choukaku_ticket
     channel: 医療機関
     deadline_note: 生後50日に達するまで
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/kenkoushinsa/sinseijityoukaku.html
     verified_at: 2026-09-20
 
@@ -161,6 +179,9 @@ steps:
     deadline_offset_days: 365
     deadline_note: 出産日から1年間（子どもの1歳の誕生日の前日まで）。期限を過ぎると、どんな理由でも対象外
     survey_question_id: cost_paid
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/syussanhiyoujyosei.html
     verified_at: 2026-09-20
 
@@ -174,6 +195,9 @@ steps:
     channel: オンライン（電子申請）/ 電話 → 自宅に訪問
     action_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/shussan/shinseijihomonshido.html
     deadline_note: 出生通知書は、できれば生まれてから2週間以内に
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（なるべく早く）"
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/shussan/shinseijihomonshido.html
     verified_at: 2026-09-20
 
@@ -186,6 +210,9 @@ steps:
     trigger_document_id: taito.akachan_homon_annai
     channel: 訪問のときの案内に沿って申請
     deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産後、区の訪問のあと"
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/ninpusienkyufu.html
     verified_at: 2026-09-20
 
@@ -197,6 +224,9 @@ steps:
     trigger_document_id: taito.sanpu_kenshin_ticket
     channel: 医療機関・助産所
     deadline_note: 受診票の有効期限は出産後2か月以内。目安は産後2週間ごろ（1回目）と産後1か月ごろ（2回目）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/kenkoushinsa/taitosanpu.html
     verified_at: 2026-09-20
 
@@ -210,6 +240,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 41
     deadline_note: 生後28日から生後41日まで（出生日を0日と数える）
+    apply_from_base: birth_date
+    apply_from_offset_days: 28
+    apply_from_note: "生後28日から"
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/kenkoushinsa/1kagetu.html
     verified_at: 2026-09-20
 
@@ -224,6 +257,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 365
     deadline_note: 出産した子の1歳の誕生日の前日まで（必着）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/iryohijosei/satogaerijyosei.html
     verified_at: 2026-09-20
 
@@ -235,6 +271,9 @@ subsidies:
     amount_note: 妊婦1人につき5万円。現金給付で、本人名義の口座に振り込まれる（ゆりかご・たいとう面接の実施後）。
     conditions: 申請の時点で台東区に住民票のある妊婦。令和7年4月1日以降のゆりかご・たいとう面接から。台東区やほかの自治体で出産応援ギフトか支援給付1回目を受け取っていない人。妊娠届を出す前に流産した人も対象。
     apply_via: ゆりかご・たいとう面接のあとに案内される申請フォーム
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "1回目は心拍確認後の面接・面談のあと、2回目は出産後の訪問・案内のあと"
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/ninpusienkyufu.html
     verified_at: 2026-09-20
 
@@ -245,6 +284,9 @@ subsidies:
     amount_note: 今回妊娠した子ども1人につき5万円（流産・死産を含む）。現金給付で、本人名義の口座に振り込まれる（こんにちは赤ちゃん訪問の実施後）。
     conditions: 申請の時点で台東区に住民票のある産婦。令和7年4月1日以降の出生分から。台東区やほかの自治体で子育て応援ギフトか支援給付2回目を受け取っていない人。
     apply_via: こんにちは赤ちゃん訪問のときに案内される
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "1回目は心拍確認後の面接・面談のあと、2回目は出産後の訪問・案内のあと"
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/ninpusienkyufu.html
     verified_at: 2026-09-20
 
@@ -257,6 +299,9 @@ subsidies:
     apply_via: Logoフォームで電子申請（たいとうおやこ手帳アプリからも申請できる）。申請者は産婦本人
     deadline_base: birth_date
     deadline_offset_days: 365
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/syussanhiyoujyosei.html
     verified_at: 2026-09-20
 
@@ -266,5 +311,6 @@ subsidies:
     amount_note: 医療保険を使って入院治療した場合の自己負担額を、医療券（契約医療機関）か、あとからの払い戻しで助成。入院時の食事代（標準負担額）と文書料は対象外。
     conditions: 台東区に住民登録があり、妊娠高血圧症候群とその関連疾患・糖尿病と妊娠糖尿病・貧血・産科出血・心疾患のいずれかで、認定基準を満たし入院治療が必要な人。前年の所得税額が30,000円以下の世帯、または入院見込み期間が26日以上。
     apply_via: 台東保健所保健サービス課 母子成人保健担当（東上野4-22-8 台東保健所2階）の窓口か郵送。診断書の発行日から3か月以内に申請する。
+    apply_from_note: "入院治療を受けたあと（区のページで手続きを確認）"
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/ninshin/teate_josei/ninshinchudoku.html
     verified_at: 2026-09-20

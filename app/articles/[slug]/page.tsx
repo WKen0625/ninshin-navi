@@ -2,9 +2,25 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Blocks } from "@/components/Markdown";
-import { getArticle, isLang, type Lang } from "@/lib/articles";
+import { getArticle, isLang, STAGE_LABEL, type Lang } from "@/lib/articles";
 
 type Params = { params: Promise<{ slug: string }>; searchParams: Promise<{ lang?: string }> };
+
+/** アフィリエイトの仕組みごとに、規約が求める文言 */
+const PROGRAM_TEXT: Record<Lang, Record<string, string>> = {
+  ja: {
+    amazon: "Amazonのアソシエイトとして、Tsugirakuは適格販売により収入を得ています。",
+    rakuten: "楽天アフィリエイトのリンクを含みます。",
+    yahoo: "Yahoo!ショッピングのアフィリエイトリンクを含みます。",
+    other: "アフィリエイトサービスのリンクを含みます。",
+  },
+  en: {
+    amazon: "As an Amazon Associate, Tsugiraku earns from qualifying purchases.",
+    rakuten: "Contains Rakuten affiliate links.",
+    yahoo: "Contains Yahoo! Shopping affiliate links.",
+    other: "Contains affiliate links.",
+  },
+};
 
 const T: Record<Lang, { pr: string; prBody: string; sources: string; checked: string; published: string; updated: string; back: string; other: string; disclaimer: string; navi: string }> = {
   ja: {
@@ -14,7 +30,7 @@ const T: Record<Lang, { pr: string; prBody: string; sources: string; checked: st
     checked: "確認日",
     published: "公開",
     updated: "更新",
-    back: "記事の一覧へ",
+    back: "コラムの一覧へ",
     other: "Read in English",
     disclaimer: "この記事は手続きと準備の案内です。医療の判断はしません。最終確認は窓口・医療機関へ。",
     navi: "あなたの「次にやること」を見る",
@@ -26,7 +42,7 @@ const T: Record<Lang, { pr: string; prBody: string; sources: string; checked: st
     checked: "checked",
     published: "Published",
     updated: "Updated",
-    back: "All articles",
+    back: "All columns",
     other: "日本語で読む",
     disclaimer: "This article explains paperwork and preparation. It is not medical advice. Please confirm with your ward office or your clinic.",
     navi: "See your next step in the Navi",
@@ -62,6 +78,7 @@ export default async function ArticlePage({ params, searchParams }: Params) {
             <Link href={`/articles/${a.slug}${otherLang === "ja" ? "" : `?lang=${otherLang}`}`} className="link-inline" hrefLang={otherLang} lang={otherLang}>{t.other}</Link>
           ) : null}
         </p>
+        <p><span className="rounded-md border border-indigo-200 bg-indigo-50 px-1.5 text-sm text-indigo-800">{STAGE_LABEL[lang][a.stage]}</span></p>
         <h1 className="h-page">{a.title}</h1>
         <p className="text-lg text-slate-700">{a.description}</p>
         {a.pr ? (
@@ -69,12 +86,13 @@ export default async function ArticlePage({ params, searchParams }: Params) {
           <p className="notice notice-warn">
             <span className="font-bold">{t.pr}</span>
             <span className="block">{t.prBody}</span>
+            {a.programs.map((p) => <span key={p} className="block">{PROGRAM_TEXT[lang][p]}</span>)}
           </p>
         ) : null}
       </header>
 
       <div className="space-y-4">
-        <Blocks blocks={a.blocks} skipH1 />
+        <Blocks blocks={a.blocks} skipH1 sponsored={a.pr} />
       </div>
 
       {a.sources.length > 0 ? (

@@ -2,6 +2,7 @@
 title: Tsugirakuの使い方と、守っていること
 description: Tsugiraku Naviは、住んでいる区・出産予定日・手元にある紙から「次にやること」を1件ずつ出します。何を表示し、何をしないかを説明します。
 published: 2026-09-22
+stage: all
 pr: false
 sources: []
 tags: [はじめに]

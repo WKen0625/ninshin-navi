@@ -48,6 +48,11 @@ export type Step = {
   deadline_offset_days: number | null;
   deadline_week: number | null;
   deadline_note: string | null;
+  /** 申請できるようになる日（期限と同じ基準＋日数のずれ）。文章だけなら apply_from_note */
+  apply_from_base?: DeadlineBase | null;
+  apply_from_offset_days?: number | null;
+  apply_from_week?: number | null;
+  apply_from_note?: string | null;
   overrides_step_id: string | null;
   survey_question_id: string | null;
   source_url: string;

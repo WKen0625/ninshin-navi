@@ -77,6 +77,9 @@ steps:
     channel: 窓口（保健相談所など） または オンライン（ぴったりサービス）
     action_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/boshitecho.html
     deadline_note: 医療機関で妊娠の確定診断（胎児心拍の確認）を受けたら。いつまでにという日付は区のページに記載なし
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/boshitecho.html
     verified_at: 2026-09-20
 
@@ -92,6 +95,9 @@ steps:
     deadline_base: due_date
     deadline_offset_days: 0
     deadline_note: 妊娠中に面談した人がギフトの対象（やむを得ない理由で面談できなかった人は、担当係に相談する）
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/ikupake.html
     verified_at: 2026-09-20
 
@@ -106,6 +112,9 @@ steps:
     deadline_base: confirmation_date
     deadline_offset_days: 730
     deadline_note: 医療機関で胎児心拍が確認された日から2年
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から"
     source_url: https://www.city.nerima.tokyo.jp/kosodatekyoiku/shussan/nerimama.html
     verified_at: 2026-09-20
 
@@ -118,6 +127,9 @@ steps:
     channel: 区の健診実施会場（歯科医院）
     action_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/kenkoshinsa/ninsanpushikakenshin/ninpusikakensinn.html
     deadline_note: 妊娠中から産後1年未満の間に1回
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/kenkoshinsa/ninsanpushikakenshin/ninpusikakensinn.html
     verified_at: 2026-09-20
 
@@ -130,6 +142,9 @@ steps:
     channel: オンライン（電子申請） / 郵送 / 窓口
     action_url: https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/sannzennsanngo.html
     deadline_note: 届出の期限は区のページに記載なし
+    apply_from_base: due_date
+    apply_from_offset_days: -182
+    apply_from_note: "出産予定日の6か月前から"
     source_url: https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/sannzennsanngo.html
     verified_at: 2026-09-20
 
@@ -143,6 +158,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 50
     deadline_note: 赤ちゃんが生後50日に達する日までに受けた検査が対象
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/sinseijicyoukaku.html
     verified_at: 2026-09-20
 
@@ -157,6 +175,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 365
     deadline_note: 第3子以降の子どもの出生日から1年（転入日から出生日までが1年未満の場合は、転入日の1年後から1年）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.nerima.tokyo.jp/kosodatekyoiku/shussan/iwaikin.html
     verified_at: 2026-09-20
 
@@ -171,6 +192,9 @@ steps:
     deadline_base: due_date
     deadline_offset_days: 674
     deadline_note: 出産予定日の8週間前の日（それより前に出産・死産・流産した場合はその日）から2年（= 予定日−56日 から 730日間）
+    apply_from_base: due_date
+    apply_from_offset_days: -56
+    apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
     source_url: https://www.city.nerima.tokyo.jp/kosodatekyoiku/shussan/nerimama.html
     verified_at: 2026-09-20
 
@@ -184,6 +208,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 60
     deadline_note: 出産後2か月（60日）以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/sannpu10gatuikou.html
     verified_at: 2026-09-20
 
@@ -197,6 +224,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 41
     deadline_note: 生後28日から41日まで（出生日を0日目とする）
+    apply_from_base: birth_date
+    apply_from_offset_days: 28
+    apply_from_note: "生後28日から"
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/nyuyoji/ikkagetuji10gatuikou.html
     verified_at: 2026-09-20
 
@@ -211,6 +241,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 364
     deadline_note: 出産日から赤ちゃんが1歳になる前日まで（出産日から1年を超えないこと）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/02satogaeri.html
     verified_at: 2026-09-20
 
@@ -224,6 +257,9 @@ subsidies:
     apply_via: 妊婦面談のときに案内される二次元コードから電子申請。問い合わせ 健康推進課 出産・子育て応援担当係 03-5984-1336
     deadline_base: confirmation_date
     deadline_offset_days: 730
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（区の面接・面談のあと）"
     source_url: https://www.city.nerima.tokyo.jp/kosodatekyoiku/shussan/nerimama.html
     verified_at: 2026-09-20
 
@@ -236,6 +272,9 @@ subsidies:
     apply_via: こんにちは赤ちゃん訪問のときに案内される二次元コードから電子申請
     deadline_base: due_date
     deadline_offset_days: 674
+    apply_from_base: due_date
+    apply_from_offset_days: -56
+    apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
     source_url: https://www.city.nerima.tokyo.jp/kosodatekyoiku/shussan/nerimama.html
     verified_at: 2026-09-20
 
@@ -248,6 +287,9 @@ subsidies:
     apply_via: 窓口（子育て支援課児童手当係、石神井・光が丘・大泉の総合福祉事務所） / 郵送 / 電子申請（LoGoフォーム）。問い合わせ 03-5984-5824
     deadline_base: birth_date
     deadline_offset_days: 365
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.nerima.tokyo.jp/kosodatekyoiku/shussan/iwaikin.html
     verified_at: 2026-09-20
 
@@ -257,5 +299,6 @@ subsidies:
     amount_note: 入院医療費（医療保険の自己負担分）を助成。
     conditions: 練馬区に住民登録がある妊産婦で、妊娠高血圧症候群・妊娠糖尿病・貧血・産科出血・心疾患で入院が必要な人（症状によっては対象にならない）。そのうえで、前年の世帯の総所得税額が3万円以下の人、または入院見込期間が26日以上の人。生活保護を受けている場合は申請できない。
     apply_via: 窓口（区役所東庁舎6階 健康推進課母子保健係。平日8時30分〜17時15分）、郵送、LoGoフォーム（xIDアプリとマイナンバーカードが必要）。原則、入院前か入院中に申請する。やむを得ず退院後になる場合は、退院日から3か月以内。問い合わせ 03-5984-4621
+    apply_from_note: "入院治療を受けたあと（区のページで手続きを確認）"
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/ninsanpu_kyufu.html
     verified_at: 2026-09-20

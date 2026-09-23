@@ -88,6 +88,9 @@ steps:
     channel: 保健サービスセンター / 本郷支所 / 区民サービスコーナー（電子申請のあと来所）
     action_url: https://www.city.bunkyo.lg.jp/b027/p001524.html
     deadline_note: 妊娠の診断を受けたら早めに（区のページに日付の期限は記載なし）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
     source_url: https://www.city.bunkyo.lg.jp/b027/p001524.html
     verified_at: 2026-09-20
 
@@ -102,6 +105,9 @@ steps:
     deadline_base: due_date
     deadline_offset_days: 0
     deadline_note: 妊娠中に受ける。産後の人は対象外
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.bunkyo.lg.jp/b029/p001562.html
     verified_at: 2026-09-20
 
@@ -117,6 +123,9 @@ steps:
     deadline_base: confirmation_date
     deadline_offset_days: 730
     deadline_note: 妊娠確定日から2年以内
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から"
     source_url: https://www.city.bunkyo.lg.jp/b027/p007561.html
     verified_at: 2026-09-20
 
@@ -139,6 +148,9 @@ steps:
     trigger_document_id: bunkyo.hoken_bag
     channel: 国保年金課国保資格係（文京シビックセンター11階）
     deadline_note: 期限は区のページに記載なし
+    apply_from_base: due_date
+    apply_from_offset_days: -182
+    apply_from_note: "出産予定日の6か月前から"
     source_url: https://www.city.bunkyo.lg.jp/b021/p000425.html
     verified_at: 2026-09-20
 
@@ -150,6 +162,9 @@ steps:
     trigger_document_id: bunkyo.shinseiji_choukaku_ticket
     channel: 医療機関
     deadline_note: 生後50日に達する日までに受けた初回検査が対象
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.bunkyo.lg.jp/b027/p001532.html
     verified_at: 2026-09-20
 
@@ -162,6 +177,9 @@ steps:
     channel: 郵送（出生通知票）→ 自宅に訪問
     action_url: https://www.city.bunkyo.lg.jp/b029/p001542.html
     deadline_note: 赤ちゃんが生まれたらすぐに郵送。訪問の対象は生後4か月まで
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（なるべく早く）"
     source_url: https://www.city.bunkyo.lg.jp/b029/p001542.html
     verified_at: 2026-09-20
 
@@ -177,6 +195,9 @@ steps:
     deadline_base: due_date
     deadline_offset_days: 674
     deadline_note: 出産予定日の8週間前から2年以内（予定日より前に出産・死産・流産などをした場合は、その日から2年以内）
+    apply_from_base: due_date
+    apply_from_offset_days: -56
+    apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
     source_url: https://www.city.bunkyo.lg.jp/b027/p007561.html
     verified_at: 2026-09-20
 
@@ -188,6 +209,9 @@ steps:
     trigger_document_id: bunkyo.sanpu_kenshin_ticket
     channel: 医療機関・助産所
     deadline_note: 目安は産後2週間ごろ（1回目）と産後1か月ごろ（2回目）。原則として産後2か月以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
     source_url: https://www.city.bunkyo.lg.jp/b027/p007569.html
     verified_at: 2026-09-20
 
@@ -199,6 +223,9 @@ steps:
     trigger_document_id: bunkyo.ikkagetsuji_kenshin_ticket
     channel: 医療機関
     deadline_note: 対象は、出生後27日を超え、生後6週に達しない赤ちゃん
+    apply_from_base: birth_date
+    apply_from_offset_days: 28
+    apply_from_note: "生後28日から"
     source_url: https://www.city.bunkyo.lg.jp/b027/p007571.html
     verified_at: 2026-09-20
 
@@ -213,6 +240,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 365
     deadline_note: 出産日から1年以内（満1歳の誕生日の前日まで）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.bunkyo.lg.jp/b027/p001526.html
     verified_at: 2026-09-20
 
@@ -226,6 +256,9 @@ subsidies:
     apply_via: LoGoフォームで電子申請（案内チラシは「母と子の保健バッグ」に同封）。問い合わせ 健康推進課健康増進係 03-5803-1961
     deadline_base: confirmation_date
     deadline_offset_days: 730
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から"
     source_url: https://www.city.bunkyo.lg.jp/b027/p007561.html
     verified_at: 2026-09-20
 
@@ -238,6 +271,9 @@ subsidies:
     apply_via: LoGoフォームで電子申請（案内チラシは「母と子の保健バッグ」に同封。令和7年3月31日以前に妊娠届を出した人は、こんにちは赤ちゃん訪問のときに受け取る）
     deadline_base: due_date
     deadline_offset_days: 674
+    apply_from_base: due_date
+    apply_from_offset_days: -56
+    apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
     source_url: https://www.city.bunkyo.lg.jp/b027/p007561.html
     verified_at: 2026-09-20
 
@@ -247,5 +283,6 @@ subsidies:
     amount_note: 認定基準を満たす病気の入院治療の自己負担額を助成（医療券の有効期限内のものに限る）。入院時の食事療養費は対象外。
     conditions: 文京区に住所登録のある妊産婦で、妊娠高血圧症候群とその関連疾病・糖尿病と妊娠糖尿病・貧血・産科出血・心疾患のいずれかで入院治療が必要な人。前年分の世帯の総所得税額が30,000円以下、または入院見込み期間が26日以上。
     apply_via: 健康推進課健康増進係（03-5803-1961）へ郵送または窓口。原則、入院前か入院中に申請。やむを得ず退院後になる場合は、退院日から3か月以内（遅延理由書が必要）。
+    apply_from_note: "入院治療を受けたあと（区のページで手続きを確認）"
     source_url: https://www.city.bunkyo.lg.jp/b027/p001529.html
     verified_at: 2026-09-20

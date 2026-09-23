@@ -14,7 +14,7 @@ export type Rules = { regions: Region[]; documents: DocumentDef[]; steps: Step[]
 
 const STEP_COLUMNS =
   "id, region_code, phase, sort_order, title, detail, trigger_document_id, produces_document_id, channel, action_url, " +
-  "deadline_base, deadline_offset_days, deadline_week, deadline_note, overrides_step_id, survey_question_id, " +
+  "deadline_base, deadline_offset_days, deadline_week, deadline_note, apply_from_base, apply_from_offset_days, apply_from_week, apply_from_note, overrides_step_id, survey_question_id, " +
   "source_url, verified_at, needs_review";
 const DOCUMENT_COLUMNS = "id, region_code, name, aliases, includes, phase, description, source_url, verified_at";
 
@@ -75,7 +75,7 @@ export type MoneyData = { subsidies: Subsidy[]; facilities: MoneyFacility[] };
 
 const SUBSIDY_COLUMNS =
   "id, region_code, name, kind, requires, amount_yen, amount_is_upper_limit, amount_formula, amount_note, conditions, apply_via, " +
-  "deadline_base, deadline_offset_days, taxable, scheme_applicable, source_url, verified_at, needs_review";
+  "deadline_base, deadline_offset_days, apply_from_base, apply_from_offset_days, apply_from_week, apply_from_note, taxable, scheme_applicable, source_url, verified_at, needs_review";
 const FACILITY_COLUMNS =
   "id, name, scheme, has_epidural, tokyo_epidural_subsidy_target, needs_review, " +
   "costs:facility_costs_public(as_of, period, total_avg_yen, total_median_yen, source_url, verified_at)";

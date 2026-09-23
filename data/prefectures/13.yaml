@@ -34,6 +34,9 @@ steps:
     deadline_offset_days: 365
     deadline_note: 出産日の翌日から起算して1年以内（厳守）
     survey_question_id: cost_paid
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（無痛分娩で出産したあと）"
     source_url: https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/mutsubunben/subsidy
     verified_at: 2026-09-18
 
@@ -46,6 +49,9 @@ steps:
     channel: オンライン
     action_url: https://tokyobabyfirst.metro.tokyo.lg.jp/
     deadline_note: 令和8年度（令和8年4月1日〜令和9年3月31日）生まれは、申請が令和9年9月15日まで、初回登録が令和10年1月31日まで、商品の申込が令和10年2月28日まで
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（子どもの住民登録のあと）"
     source_url: https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/tokyo_shussankosodateouen
     verified_at: 2026-09-19
 
@@ -63,6 +69,9 @@ subsidies:
     deadline_offset_days: 365
     taxable: null
     scheme_applicable: [lumpsum, new_scheme]
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/mutsubunben/subsidy
     verified_at: 2026-09-18
 
@@ -73,6 +82,9 @@ subsidies:
     amount_note: 子ども1人あたり月額5,000円（年間最大60,000円）。令和8年度の支給は8月・12月・令和9年4月の予定。申請期限は支給分ごと（12月支給分は令和8年11月1日、令和9年4月支給分は令和9年3月1日）。
     conditions: 0歳から18歳に達する日以後の最初の3月31日までの子で、令和8年度中に都内に住所がある（または、あった）こと。
     apply_via: マイナンバーカード申請（親子のマイナンバーカードをスマホで読み取る）または書類郵送等。コールセンター 0120-056-018
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（子どもの住民登録のあと）"
     source_url: https://018support.metro.tokyo.lg.jp/
     verified_at: 2026-09-19
 
@@ -82,5 +94,8 @@ subsidies:
     amount_note: 育児用品や子育て支援サービスを選べるギフト（現金ではない）。金額は都のページに明記されていないため、ここでは計算に入れていない。
     conditions: 子どもが令和8年4月1日以降に生まれ、出生時点の住所が都内にあること。
     apply_via: 018サポートと同時に申請。専用サイト https://tokyobabyfirst.metro.tokyo.lg.jp/ で初回登録。コールセンター 0120-001-047
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（018サポートと同時に）"
     source_url: https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/tokyo_shussankosodateouen
     verified_at: 2026-09-19

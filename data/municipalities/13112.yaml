@@ -100,6 +100,9 @@ steps:
     channel: 窓口 または オンライン（ぴったりサービス）
     action_url: https://www.city.setagaya.lg.jp/02244/online_tetsuzuki/1179.html
     deadline_note: なるべく早く
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
     source_url: https://www.city.setagaya.lg.jp/documents/7718/2026_12_kodomowakamono_kyouiku_.pdf
     verified_at: 2026-09-18
 
@@ -112,6 +115,9 @@ steps:
     produces_document_id: setagaya.shien_kyufu_annai_1
     channel: 総合支所健康づくり課
     action_url: https://www.city.setagaya.lg.jp/02244/online_tetsuzuki/1182.html
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.setagaya.lg.jp/02244/20413.html
     verified_at: 2026-09-18
 
@@ -126,6 +132,9 @@ steps:
     deadline_base: confirmation_date
     deadline_offset_days: 730
     deadline_note: 医療機関で妊娠が確認された日から2年間
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から"
     source_url: https://www.city.setagaya.lg.jp/02244/20413.html
     verified_at: 2026-09-18
 
@@ -137,6 +146,9 @@ steps:
     trigger_document_id: setagaya.hoken_bag
     channel: 総合支所健康づくり課
     deadline_note: 妊娠7か月を過ぎると区からアンケートが届く（面談は妊娠8か月ごろ）
+    apply_from_base: gestational_week
+    apply_from_week: 24
+    apply_from_note: "妊娠7か月ごろ（区からアンケートが届いてから）"
     source_url: https://www.city.setagaya.lg.jp/02244/online_tetsuzuki/1182.html
     verified_at: 2026-09-19
 
@@ -148,6 +160,9 @@ steps:
     trigger_document_id: setagaya.shika_kenshin_ticket
     channel: 医療機関（歯科）
     deadline_note: 産前は妊娠中に1回
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.setagaya.lg.jp/02244/1195.html
     verified_at: 2026-09-19
 
@@ -159,6 +174,9 @@ steps:
     trigger_document_id: setagaya.hoken_bag
     channel: 窓口 / 郵送
     deadline_note: 出産予定日の6か月前から届け出できる
+    apply_from_base: due_date
+    apply_from_offset_days: -182
+    apply_from_note: "出産予定日の6か月前から"
     source_url: https://www.city.setagaya.lg.jp/02060/296.html
     verified_at: 2026-09-19
 
@@ -174,6 +192,9 @@ steps:
     deadline_offset_days: 365
     deadline_note: 出産の日から1年以内
     survey_question_id: cost_paid
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.setagaya.lg.jp/02413/1206.html
     verified_at: 2026-09-18
 
@@ -188,6 +209,9 @@ steps:
     deadline_base: due_date
     deadline_offset_days: 674
     deadline_note: 出産予定日の8週間前から2年間（= 予定日−56日 から 730日間）
+    apply_from_base: due_date
+    apply_from_offset_days: -56
+    apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
     source_url: https://www.city.setagaya.lg.jp/02244/20413.html
     verified_at: 2026-09-18
 
@@ -199,6 +223,9 @@ steps:
     trigger_document_id: setagaya.sanpu_kenshin_ticket
     channel: 医療機関
     deadline_note: 産後2週間頃（1回目）と産後1か月頃（2回目）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
     source_url: https://www.city.setagaya.lg.jp/02244/29565.html
     verified_at: 2026-09-19
 
@@ -210,6 +237,9 @@ steps:
     trigger_document_id: setagaya.shinseiji_choukaku_ticket
     channel: 医療機関
     deadline_note: 生後50日に達する日までに受けた初回検査が対象
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.setagaya.lg.jp/02244/1199.html
     verified_at: 2026-09-19
 
@@ -223,6 +253,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 41
     deadline_note: 生後28日から41日の間（出生日を0日目として数える）
+    apply_from_base: birth_date
+    apply_from_offset_days: 28
+    apply_from_note: "生後28日から"
     source_url: https://www.city.setagaya.lg.jp/02244/10722.html
     verified_at: 2026-09-19
 
@@ -235,6 +268,9 @@ subsidies:
     apply_via: ネウボラ面接時の案内に沿って電子申請
     deadline_base: confirmation_date
     deadline_offset_days: 730
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（区の面接・面談のあと）"
     source_url: https://www.city.setagaya.lg.jp/02244/20413.html
     verified_at: 2026-09-18
 
@@ -246,6 +282,9 @@ subsidies:
     apply_via: 赤ちゃん訪問時の案内に沿って電子申請
     deadline_base: due_date
     deadline_offset_days: 674
+    apply_from_base: due_date
+    apply_from_offset_days: -56
+    apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
     source_url: https://www.city.setagaya.lg.jp/02244/20413.html
     verified_at: 2026-09-18
 
@@ -259,6 +298,9 @@ subsidies:
     deadline_base: birth_date
     deadline_offset_days: 365
     taxable: true
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.setagaya.lg.jp/02413/1206.html
     verified_at: 2026-09-18
 
@@ -268,5 +310,6 @@ subsidies:
     amount_note: 入院医療費の自己負担分を助成（高額療養費制度に該当する場合はその限度額まで）。入院時の食事代は対象外。
     conditions: 妊娠高血圧症候群とその関連疾患・糖尿病・貧血・産科出血・心疾患で入院が必要な妊産婦。前年分の世帯の総所得税額が30,000円以下、または入院見込み期間が26日以上。
     apply_via: お住まいの地域の総合支所健康づくり課。原則、入院前（入院見込み期間が決まってから）か入院中に申請。退院後は、退院日から3か月以内に限り遅延理由書を添えて申請できる。
+    apply_from_note: "入院治療を受けたあと（区のページで手続きを確認）"
     source_url: https://www.city.setagaya.lg.jp/02244/1194.html
     verified_at: 2026-09-19

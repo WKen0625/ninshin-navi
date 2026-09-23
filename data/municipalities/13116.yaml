@@ -83,6 +83,9 @@ steps:
     channel: 健康推進課 / 長崎健康相談所 / 東部・西部区民事務所（電子申請のあと来所）
     action_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/001311.html
     deadline_note: 医療機関で妊娠の診断を受けたら届け出る（期限は区のページに記載なし）。母子健康手帳を受け取る前の健診は、助成の対象にならない
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
     source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/001311.html
     verified_at: 2026-09-20
 
@@ -98,6 +101,9 @@ steps:
     deadline_base: due_date
     deadline_offset_days: 0
     deadline_note: 出産までに受ける。つわりなどで体調がすぐれない時期は無理をしなくてよい
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/yurikago/1507071003.html
     verified_at: 2026-09-20
 
@@ -110,6 +116,9 @@ steps:
     trigger_document_id: toshima.shien_kyufu_annai_1
     channel: オンライン（面接で案内される二次元コードから）
     deadline_note: 申請期限は区のページに記載なし（面接のときに確認する）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "区の妊婦面接・面談のあと"
     source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/2503251025.html
     verified_at: 2026-09-20
 
@@ -121,6 +130,9 @@ steps:
     trigger_document_id: toshima.shika_kenshin_ticket
     channel: 医療機関（区内の実施歯科）
     deadline_note: 妊娠中から、出産後または妊娠終了後1年まで
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/1503241448.html
     verified_at: 2026-09-20
 
@@ -133,6 +145,9 @@ steps:
     channel: 窓口 / 郵送
     action_url: https://www.city.toshima.lg.jp/109/tetsuzuki/nenkin/kenkohoken/hokenryo/018792.html
     deadline_note: 出産予定日の6か月前から届け出できる
+    apply_from_base: due_date
+    apply_from_offset_days: -182
+    apply_from_note: "出産予定日の6か月前から"
     source_url: https://www.city.toshima.lg.jp/109/tetsuzuki/nenkin/kenkohoken/hokenryo/018792.html
     verified_at: 2026-09-20
 
@@ -143,6 +158,9 @@ steps:
     detail: 生まれてすぐの赤ちゃんの耳の聞こえを調べる検査。受診票を使うと、検査費用の一部が助成される。都外の医療機関で受けたときは、いったん全額を払い、あとで申請すると指定の口座に振り込まれる。
     trigger_document_id: toshima.shinseiji_choukaku_ticket
     channel: 医療機関
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/1902121543.html
     verified_at: 2026-09-20
 
@@ -155,6 +173,9 @@ steps:
     trigger_document_id: toshima.akachan_homon_annai
     channel: オンライン（訪問で案内される二次元コードから）
     deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産後、区の訪問のあと"
     source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/2503251025.html
     verified_at: 2026-09-20
 
@@ -166,6 +187,9 @@ steps:
     trigger_document_id: toshima.sanpu_kenshin_ticket
     channel: 医療機関
     deadline_note: 1回目は産後2週間ごろ、2回目は産後1か月ごろ
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
     source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/1508210843.html
     verified_at: 2026-09-20
 
@@ -179,6 +203,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 41
     deadline_note: 生後28日から生後41日までに1回（出生日を0日目と数える）
+    apply_from_base: birth_date
+    apply_from_offset_days: 28
+    apply_from_note: "生後28日から"
     source_url: https://www.city.toshima.lg.jp/219/kosodate/kosodate/kenko/001439/2604281710.html
     verified_at: 2026-09-20
 
@@ -193,6 +220,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 364
     deadline_note: 出産日から1年以内（子の1歳の誕生日の前日まで）、または妊娠が終わってから1年以内。まとめて一度に申請する。出産前に区外へ転出する人は、転出の手続きのあとなら出産前でも申請できる
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/013360.html
     verified_at: 2026-09-20
 
@@ -205,6 +235,9 @@ steps:
     channel: オンライン（専用WEBサイト）
     action_url: https://www.city.toshima.lg.jp/258/2406201637.html
     deadline_note: 子どもが1歳になるまでに申請する
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.toshima.lg.jp/258/2406201637.html
     verified_at: 2026-09-20
 
@@ -216,6 +249,9 @@ subsidies:
     amount_note: 5万円。現金かギフト（出産育児関連用品や家電製品などに使える東京都のギフトカード）を選べる。現金は妊産婦本人名義の口座に振り込まれる（本人以外の名義は指定できない）。
     conditions: 令和7年4月1日以降に妊娠届を出し、妊婦給付認定の申請をして認定を受けた妊婦。申請のときに豊島区に住民登録があること。医師による胎児心拍の確認が必須。流産・死産・人工妊娠中絶などを経験した人も対象（異所性妊娠は対象外）。
     apply_via: 妊娠届のあと、ゆりかご面接で案内される二次元コードから電子申請。問い合わせは健康推進課 03-3987-4173、長崎健康相談所 03-3957-1191
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "1回目は心拍確認後の面接・面談のあと、2回目は出産後の訪問・案内のあと"
     source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/2503251025.html
     verified_at: 2026-09-20
 
@@ -226,6 +262,9 @@ subsidies:
     amount_note: こども（胎児）の人数×5万円。現金かギフト（東京都のギフトカード）を選べる。
     conditions: 令和7年4月1日以降に出産し、胎児の数の届出の日に豊島区に住民票がある産婦。申請のときに豊島区に住民登録があること。
     apply_via: こんにちは赤ちゃん訪問で案内される二次元コードから電子申請
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "1回目は心拍確認後の面接・面談のあと、2回目は出産後の訪問・案内のあと"
     source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/2503251025.html
     verified_at: 2026-09-20
 
@@ -235,5 +274,6 @@ subsidies:
     amount_note: 対象の病気での入院治療にかかる費用のうち、健康保険がきく分の自己負担額を助成。入院中の食事代（標準負担額）は自己負担。認定されると医療券が交付され、保険の資格がわかるものと一緒に医療機関の窓口で見せる。すでに払った分は、申請者に直接支払われる。
     conditions: 豊島区に住民登録があり、妊娠高血圧症候群とその関連疾患・糖尿病と妊娠糖尿病・貧血・産科出血・心疾患（とその続発症）で入院治療が必要な人（病気ごとに認定基準がある）。さらに、前年分の世帯の総所得税額が30,000円以下、または入院見込み期間が26日以上であること。生活保護を受けている世帯は対象外。
     apply_via: 健康推進課（豊島区保健所3階、03-3987-4173）か長崎健康相談所（03-3957-1191）。平日 午前8時30分〜午後5時。原則、入院前か入院中に申請する。退院後になった場合は退院後3か月以内（遅延理由書が必要で、実際の入院期間が26日以上の人だけが対象）
+    apply_from_note: "入院治療を受けたあと（区のページで手続きを確認）"
     source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/001336.html
     verified_at: 2026-09-20

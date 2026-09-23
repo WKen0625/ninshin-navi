@@ -11,6 +11,15 @@ import { z } from "zod";
 import { parseMarkdown, type Block } from "./markdown";
 
 export const LANGS = ["ja", "en"] as const;
+
+/** 周期（妊娠のどの時期の読みものか）。一覧の並びと絞り込みに使う */
+export const STAGES = ["all", "early", "mid", "late", "birth", "postpartum"] as const;
+export type Stage = (typeof STAGES)[number];
+export const isStage = (v: string | null | undefined): v is Stage => STAGES.includes(v as Stage);
+export const STAGE_LABEL: Record<Lang, Record<Stage, string>> = {
+  ja: { all: "いつでも", early: "妊娠初期（〜15週）", mid: "妊娠中期（16〜27週）", late: "妊娠後期（28週〜）", birth: "出産・入院", postpartum: "産後" },
+  en: { all: "Any time", early: "1st trimester (–15w)", mid: "2nd trimester (16–27w)", late: "3rd trimester (28w–)", birth: "Birth & hospital stay", postpartum: "After birth" },
+};
 export type Lang = (typeof LANGS)[number];
 export const isLang = (v: string | null | undefined): v is Lang => LANGS.includes(v as Lang);
 
@@ -23,6 +32,10 @@ const Front = z
     updated: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
     /** 製品・アフィリエイトリンクを含むか。true なら表示側が PR表記を先頭に出す */
     pr: z.boolean().default(false),
+    /** 使っているアフィリエイトの仕組み（表示する規約上の文言を決める）。例: amazon */
+    programs: z.array(z.enum(["amazon", "rakuten", "yahoo", "other"])).default([]),
+    /** 周期。一覧の並び（周期順 → 新しい順）と絞り込み */
+    stage: z.enum(STAGES).default("all"),
     /** 下書き。一覧に出さず、URL直打ちでも 404 */
     draft: z.boolean().default(false),
     /** 本文で使った出典（URL と 確認日） */
@@ -51,15 +64,16 @@ function read(slug: string, lang: Lang): Article | null {
   return { ...meta, slug, lang, langs, blocks: parseMarkdown(body) };
 }
 
-/** 公開している記事の一覧（その言語版があるものだけ）。新しい順 */
-export function listArticles(lang: Lang): ArticleMeta[] {
+/** 公開している記事の一覧（その言語版があるものだけ）。周期の順 → 新しい順。stage を渡すとその周期（と「いつでも」）だけ */
+export function listArticles(lang: Lang, stage?: Stage): ArticleMeta[] {
   if (!existsSync(DIR())) return [];
   return readdirSync(DIR(), { withFileTypes: true })
     .filter((d) => d.isDirectory())
     .map((d) => read(d.name, lang))
     .filter((a): a is Article => a != null && !a.draft)
+    .filter((a) => !stage || stage === "all" || a.stage === stage || a.stage === "all")
     .map(({ blocks: _blocks, ...meta }) => meta)
-    .sort((a, b) => (a.published < b.published ? 1 : a.published > b.published ? -1 : a.slug.localeCompare(b.slug)));
+    .sort((a, b) => STAGES.indexOf(a.stage) - STAGES.indexOf(b.stage) || (a.published < b.published ? 1 : a.published > b.published ? -1 : a.slug.localeCompare(b.slug)));
 }
 
 export function getArticle(slug: string, lang: Lang): Article | null {

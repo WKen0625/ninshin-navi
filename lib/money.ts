@@ -4,7 +4,8 @@
 // 設計原則1: どの助成をどこで引くかは subsidies.kind が決める。助成の名前やidをコードに書かない。
 
 import { evaluateFormula, formulaVariables, type FormulaVars } from "./formula";
-import { deadlineOf, type DeadlineBase, type DocumentDef, type Family } from "./next-actions";
+import { applyWindowOf, type ApplyWindow } from "./apply-window";
+import { type DeadlineBase, type DocumentDef, type Family } from "./next-actions";
 
 export type Scheme = "lumpsum" | "new_scheme";
 
@@ -22,6 +23,10 @@ export type Subsidy = {
   apply_via: string | null;
   deadline_base: DeadlineBase | null;
   deadline_offset_days: number | null;
+  apply_from_base?: DeadlineBase | null;
+  apply_from_offset_days?: number | null;
+  apply_from_week?: number | null;
+  apply_from_note?: string | null;
   taxable: boolean | null;
   scheme_applicable: Scheme[];
   source_url: string;
@@ -56,6 +61,8 @@ export type MoneyLine = {
   needs_facility: boolean;
   deadline: string | null;
   deadline_estimated: boolean;
+  /** 申請期間（申請できる日と期限） */
+  window: ApplyWindow;
 };
 
 export type MoneyResult = {
@@ -116,10 +123,11 @@ export function calculateMoney(input: {
     .sort((a, b) => (a.id < b.id ? -1 : 1));
 
   const line = (subsidy: Subsidy, vars: FormulaVars): MoneyLine => {
-    const d = deadlineOf(subsidy, family, documents);
+    const window = applyWindowOf(subsidy, family, documents);
+    const d = { date: window.until?.date ?? null, estimated: window.until?.estimated ?? false };
     const amount_yen = amountOf(subsidy, vars);
     const usesCost = subsidy.amount_formula != null && formulaVariables(subsidy.amount_formula).includes("cost");
-    return { subsidy, amount_yen, needs_facility: amount_yen == null && usesCost && cost == null, deadline: d.date, deadline_estimated: d.estimated };
+    return { subsidy, amount_yen, needs_facility: amount_yen == null && usesCost && cost == null, deadline: d.date, deadline_estimated: d.estimated, window };
   };
   // 窓口で差し引かれるもの（一時金）を先に出し、その合計を「lumpsum」として、ほかの助成の式で使えるようにする
   const base: FormulaVars = { children, cost: cost?.yen ?? null };

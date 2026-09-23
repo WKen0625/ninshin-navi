@@ -83,6 +83,9 @@ steps:
     channel: 窓口（地域保健課・こども家庭センター）または オンライン（ぴったりサービスのあと郵送）
     action_url: https://www.city.meguro.tokyo.jp/smph/kurashi/shussan/ninshintodoke_mynumber.html
     deadline_note: 期限は区のページに記載なし
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
     source_url: https://www.city.meguro.tokyo.jp/smph/kurashi/shussan/ninshintodoke_mynumber.html
     verified_at: 2026-09-20
 
@@ -96,6 +99,9 @@ steps:
     channel: 地域保健課 または こども家庭センター（予約制。オンライン相談もあり）
     action_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/syussannkosodate.html
     deadline_note: いつまでに受けるかは区のページに記載なし（対象は妊婦）
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/syussannkosodate.html
     verified_at: 2026-09-20
 
@@ -110,6 +116,9 @@ steps:
     deadline_base: confirmation_date
     deadline_offset_days: 730
     deadline_note: 医療機関で胎児心拍が確認された日（受診日）から2年間
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（区の面接・面談のあと）"
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/ninpunotameno_sienkyuhu.html
     verified_at: 2026-09-20
 
@@ -122,6 +131,9 @@ steps:
     channel: 医療機関（区内の指定歯科）
     action_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/ninpusika.html
     deadline_note: 妊婦の分は妊娠中に。産婦の分は子どもの1歳の誕生日の前日まで
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/ninpusika.html
     verified_at: 2026-09-20
 
@@ -134,6 +146,9 @@ steps:
     channel: 窓口 / 郵送 / オンライン
     action_url: https://www.city.meguro.tokyo.jp/kokuho/kurashi/kokuho/hokenryo_keigen.html
     deadline_note: 出産予定日の6か月前から届け出できる。出産後でも届け出できる
+    apply_from_base: due_date
+    apply_from_offset_days: -182
+    apply_from_note: "出産予定日の6か月前から"
     source_url: https://www.city.meguro.tokyo.jp/kokuho/kurashi/kokuho/hokenryo_keigen.html
     verified_at: 2026-09-20
 
@@ -145,6 +160,9 @@ steps:
     trigger_document_id: meguro.shinseiji_choukaku_ticket
     channel: 医療機関
     deadline_note: 生後50日以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/sinnseiji_tyoukakukensa.html
     verified_at: 2026-09-20
 
@@ -159,6 +177,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 89
     deadline_note: 子どもの出生日から3か月以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/shinseizitanzyoiwaikin.html
     verified_at: 2026-09-20
 
@@ -172,6 +193,9 @@ steps:
     channel: オンライン（出生通知票）→ 自宅に訪問
     action_url: https://www.city.meguro.tokyo.jp/hokenyobou/kosodatekyouiku/ninshin/homon.html
     deadline_note: 期限は区のページに記載なし
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（なるべく早く）"
     source_url: https://www.city.meguro.tokyo.jp/hokenyobou/kosodatekyouiku/ninshin/homon.html
     verified_at: 2026-09-20
 
@@ -186,6 +210,9 @@ steps:
     deadline_base: due_date
     deadline_offset_days: 674
     deadline_note: 出産予定日の8週前から2年間（= 予定日−56日 から 730日間）
+    apply_from_base: due_date
+    apply_from_offset_days: -56
+    apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/ninpunotameno_sienkyuhu.html
     verified_at: 2026-09-20
 
@@ -197,6 +224,9 @@ steps:
     trigger_document_id: meguro.sanpu_kenshin_ticket
     channel: 医療機関
     deadline_note: 産後2週間ごろに1回目、産後1か月ごろに2回目。受診票の有効期間は出産後2か月以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/sanpukensin.html
     verified_at: 2026-09-20
 
@@ -210,6 +240,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 41
     deadline_note: 生後28日から生後41日の間に1回
+    apply_from_base: birth_date
+    apply_from_offset_days: 28
+    apply_from_note: "生後28日から"
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/ikkagetujikensin.html
     verified_at: 2026-09-20
 
@@ -224,6 +257,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 365
     deadline_note: 出産日などから1年以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/satogaeri.html
     verified_at: 2026-09-20
 
@@ -237,6 +273,9 @@ subsidies:
     apply_via: 「ゆりかご・めぐろ（妊婦面接）」で申請書を書く。問い合わせ 03-5722-9503
     deadline_base: confirmation_date
     deadline_offset_days: 730
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（区の面接・面談のあと）"
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/ninpunotameno_sienkyuhu.html
     verified_at: 2026-09-20
 
@@ -249,6 +288,9 @@ subsidies:
     apply_via: 赤ちゃん訪問で配られる案内の二次元コードから申請。問い合わせ 03-5722-9503
     deadline_base: due_date
     deadline_offset_days: 674
+    apply_from_base: due_date
+    apply_from_offset_days: -56
+    apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/ninpunotameno_sienkyuhu.html
     verified_at: 2026-09-20
 
@@ -261,6 +303,9 @@ subsidies:
     apply_via: 出生通知票の電子申請フォームの中で「新生児誕生祝金の申請をしますか。」に「はい」を選んで申請。問い合わせは地域保健課地域保健サービス係 03-5722-9503
     deadline_base: birth_date
     deadline_offset_days: 89
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/shinseizitanzyoiwaikin.html
     verified_at: 2026-09-20
 
@@ -270,5 +315,6 @@ subsidies:
     amount_note: 医療保険を使って入院治療したときの自己負担額を助成。入院中の食事代（入院時食事療養費の標準負担額）は自己負担。
     conditions: 目黒区内に住所があり、妊娠高血圧症候群とその関連疾患・糖尿病と妊娠糖尿病・貧血・産科出血・心疾患（続発症を含む）で入院治療が必要な人。前年の総所得税額が30,000円以下の世帯の人、またはそれ以外で入院見込み期間が26日以上の人。
     apply_via: 地域保健課（03-5722-9503）。申請の時期・期限は区のページに記載なし。
+    apply_from_note: "入院治療を受けたあと（区のページで手続きを確認）"
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kenkoufukushi/iryou/ninshinchu.html
     verified_at: 2026-09-20

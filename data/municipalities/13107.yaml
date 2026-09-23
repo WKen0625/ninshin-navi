@@ -94,6 +94,9 @@ steps:
     channel: オンライン（マイナポータル / LoGoフォーム・郵送で受け取り） / 窓口（すみだ保健子育て総合センター 健康推進課）
     action_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/ninshin/ninsintodoke.html
     deadline_note: 妊娠していることがわかったら（区のページに日付の期限は記載なし）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/ninshin/ninsintodoke.html
     verified_at: 2026-09-20
 
@@ -109,6 +112,9 @@ steps:
     deadline_base: due_date
     deadline_offset_days: 0
     deadline_note: 妊娠中に受ける。産後は対象にならない。体調の良いときに
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/ninshin/yurikagosumida.html
     verified_at: 2026-09-20
 
@@ -124,6 +130,9 @@ steps:
     deadline_base: confirmation_date
     deadline_offset_days: 730
     deadline_note: 医療機関で胎児心拍が確認された日から2年を経過する日まで
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から"
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/syussan_junbi_class/skogift.html
     verified_at: 2026-09-20
 
@@ -136,6 +145,9 @@ steps:
     channel: 墨田区の実施歯科医療機関（要予約）
     action_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/kenko_zukuri/ha_kenkou/ninpusikakenkousinsa.html
     deadline_note: 妊娠中は体調の良いときに、なるべく早めに。産後の分は出産後1年未満の間に1回
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/kenko_zukuri/ha_kenkou/ninpusikakenkousinsa.html
     verified_at: 2026-09-20
 
@@ -148,6 +160,9 @@ steps:
     channel: 窓口 / 郵送 / オンライン（LoGoフォーム）
     action_url: https://www.city.sumida.lg.jp/kurashi/kenkouhoken/kokuminkenkouhoken/genmen/sanzensango.html
     deadline_note: 出産予定日の6か月前から届け出できる。出産後の届け出もできる
+    apply_from_base: due_date
+    apply_from_offset_days: -182
+    apply_from_note: "出産予定日の6か月前から"
     source_url: https://www.city.sumida.lg.jp/kurashi/kenkouhoken/kokuminkenkouhoken/genmen/sanzensango.html
     verified_at: 2026-09-20
 
@@ -159,6 +174,9 @@ steps:
     trigger_document_id: sumida.shinseiji_choukaku_ticket
     channel: 医療機関
     deadline_note: できるだけ出生後1か月ごろまでに。事情があるときは生後50日に達するまで使える
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/ninshin/akachan-mimikikoe.html
     verified_at: 2026-09-20
 
@@ -172,6 +190,9 @@ steps:
     channel: 郵送（出生通知票）→ 自宅に訪問
     action_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/syussan_junbi_class/akatyanhoumon.html
     deadline_note: 出生通知票はできるだけ早めに郵送。訪問の対象は生後120日になるまで
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（なるべく早く）"
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/syussan_junbi_class/akatyanhoumon.html
     verified_at: 2026-09-20
 
@@ -187,6 +208,9 @@ steps:
     deadline_base: due_date
     deadline_offset_days: 674
     deadline_note: 出産予定日の8週前（32週）から2年を経過する日まで
+    apply_from_base: due_date
+    apply_from_offset_days: -56
+    apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/syussan_junbi_class/skogift.html
     verified_at: 2026-09-20
 
@@ -198,6 +222,9 @@ steps:
     trigger_document_id: sumida.sanpu_kenshin_ticket
     channel: 医療機関・助産所
     deadline_note: 出産後2か月以内。払い戻しの申請は出産した日から1年以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/teatejyosei/sannpu1kagetujyosei.html
     verified_at: 2026-09-20
 
@@ -211,6 +238,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 41
     deadline_note: 生後28日から生後41日まで（出生日を0日とする）。払い戻しの申請は出産した日から1年以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 28
+    apply_from_note: "生後28日から"
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/teatejyosei/sannpu1kagetujyosei.html
     verified_at: 2026-09-20
 
@@ -225,6 +255,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 365
     deadline_note: 出産日から1年以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/teatejyosei/ninpukenshinjosei.html
     verified_at: 2026-09-20
 
@@ -238,6 +271,9 @@ subsidies:
     apply_via: 面接のあと郵送で届く申請案内の二次元コードから電子申請。専用コールセンター 0120-600-127（平日9〜17時）
     deadline_base: confirmation_date
     deadline_offset_days: 730
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（区の面接・面談のあと）"
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/syussan_junbi_class/skogift.html
     verified_at: 2026-09-20
 
@@ -250,6 +286,9 @@ subsidies:
     apply_via: 赤ちゃん訪問のあと郵送で届く申請案内の二次元コードから電子申請。専用コールセンター 0120-600-127（平日9〜17時）
     deadline_base: due_date
     deadline_offset_days: 674
+    apply_from_base: due_date
+    apply_from_offset_days: -56
+    apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/syussan_junbi_class/skogift.html
     verified_at: 2026-09-20
 
@@ -259,5 +298,6 @@ subsidies:
     amount_note: 医療保険を使って入院治療した場合の自己負担額を助成。入院時の食事代（標準負担額）は自己負担。
     conditions: 墨田区内に住所があり、妊娠高血圧症候群とその関連疾患・糖尿病・貧血・産科出血・心疾患のいずれかで、認定基準を満たし入院治療が必要な人。前年（1〜6月の申請は前々年）の所得税額が30,000円以下の世帯、または入院見込み期間が26日以上。
     apply_via: 墨田区保健所 健康推進課 地域保健担当（横川5-7-4 すみだ保健子育て総合センター2階、03-3622-9130）。手続きが遅れると助成を受けられないことがある（日数の期限は区のページに記載なし）。
+    apply_from_note: "入院治療を受けたあと（区のページで手続きを確認）"
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/josei_hosyou/ninshinkouketuatu.html
     verified_at: 2026-09-20

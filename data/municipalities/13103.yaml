@@ -77,6 +77,9 @@ steps:
     produces_document_id: minato.hoken_bag
     channel: 各総合支所 区民課保健福祉係（電子申請のあと来庁）
     deadline_note: 医療機関で妊娠の診断を受けたら、なるべく早めに
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
     source_url: https://www.city.minato.tokyo.jp/chiikihoken/kenko/ninshin/ninshin/ninshin.html
     verified_at: 2026-09-19
 
@@ -92,6 +95,9 @@ steps:
     deadline_base: due_date
     deadline_offset_days: 0
     deadline_note: 妊娠5か月（安定期）以降がおすすめ。出産後は受けられない
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.minato.tokyo.jp/chiikihoken/puremama.html
     verified_at: 2026-09-19
 
@@ -104,6 +110,9 @@ steps:
     trigger_document_id: minato.shien_kyufu_shinsei_1
     channel: 面談のときの案内に沿って申請
     deadline_note: 申請期限は区のページに記載なし（面談のときに確認する）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "区の妊婦面接・面談のあと"
     source_url: https://www.city.minato.tokyo.jp/chiikihoken/kodomo/syusankosodate07.html
     verified_at: 2026-09-19
 
@@ -115,6 +124,9 @@ steps:
     trigger_document_id: minato.hoken_bag
     channel: みなと保健所
     action_url: https://www.city.minato.tokyo.jp/chiikihoken/kenko/kenko/shinsa/ninsanpushika.html
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.minato.tokyo.jp/chiikihoken/kenko/kenko/shinsa/ninsanpushika.html
     verified_at: 2026-09-19
 
@@ -130,6 +142,9 @@ steps:
     deadline_offset_days: 365
     deadline_note: 出生日から1年以内
     survey_question_id: cost_paid
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.minato.tokyo.jp/kodomokyufu/kenko/ninshin/shussan/jose.html
     verified_at: 2026-09-19
 
@@ -142,6 +157,9 @@ steps:
     trigger_document_id: minato.akachan_homon_annai
     channel: 訪問のときの案内に沿って申請
     deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産後、区の訪問のあと"
     source_url: https://www.city.minato.tokyo.jp/chiikihoken/kodomo/syusankosodate07.html
     verified_at: 2026-09-19
 
@@ -153,6 +171,9 @@ steps:
     trigger_document_id: minato.sanpu_kenshin_ticket
     channel: 医療機関
     deadline_note: 原則として産後2か月以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
     source_url: https://www.city.minato.tokyo.jp/chiikihoken/sanpu.html
     verified_at: 2026-09-19
 
@@ -165,6 +186,9 @@ steps:
     trigger_document_id: minato.hoken_bag
     channel: 各総合支所 区民課保健福祉係（台場分室でも可）
     action_url: https://www.city.minato.tokyo.jp/kodomokyufu/kenko/ninshin/community-bus.html
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.minato.tokyo.jp/kodomokyufu/kenko/ninshin/community-bus.html
     verified_at: 2026-09-20
 
@@ -177,6 +201,9 @@ steps:
     channel: 各地区総合支所 区民課窓口サービス係
     action_url: https://www.city.minato.tokyo.jp/documents/9639/20250930112721.pdf
     deadline_note: 出産予定日の6か月前から届け出できる。出産後は速やかに
+    apply_from_base: due_date
+    apply_from_offset_days: -182
+    apply_from_note: "出産予定日の6か月前から"
     source_url: https://www.city.minato.tokyo.jp/shikaku/kurashi/hoken/kenkohoken/hokenryo.html
     verified_at: 2026-09-20
 
@@ -190,6 +217,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 50
     deadline_note: 生後50日に達する日までに受けた初回検査が対象
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.minato.tokyo.jp/chiikihoken/kenko/kenko/boshi/1saimiman/shinseizichoukakukensa.html
     verified_at: 2026-09-20
 
@@ -204,6 +234,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 365
     deadline_note: 出産日から1年以内（出産に至らなかった場合は、最後の受診日から1年以内）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.minato.tokyo.jp/chiikihoken/kenko/ninshin/ninshin/kenko_shinsa.html
     verified_at: 2026-09-20
 
@@ -217,6 +250,9 @@ steps:
     channel: 郵送（出生通知書） / 電話
     action_url: https://www.city.minato.tokyo.jp/chiikihoken/kenko/kenko/boshi/1saimiman/homon.html
     deadline_note: 対象はおおむね生後120日以内（120日を超えると「ママの健康相談」としての訪問になる）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（なるべく早く）"
     source_url: https://www.city.minato.tokyo.jp/chiikihoken/kenko/kenko/boshi/1saimiman/homon.html
     verified_at: 2026-09-20
 
@@ -230,6 +266,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 41
     deadline_note: 生後27日から生後41日の間に受ける（この期間の外で受けたものは対象外）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.minato.tokyo.jp/chiikihoken/1shinsa.html
     verified_at: 2026-09-20
 
@@ -253,6 +292,9 @@ subsidies:
     amount_note: 現金または電子クーポンを選ぶ。
     conditions: 令和7年4月1日以降に妊娠届を出し、みなとプレママ応援事業（プレママ面談）を受けた人。流産・死産の場合も対象。
     apply_via: プレママ面談のときに案内される。問い合わせ 03-6722-0310（平日9〜17時）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "1回目は心拍確認後の面接・面談のあと、2回目は出産後の訪問・案内のあと"
     source_url: https://www.city.minato.tokyo.jp/chiikihoken/kodomo/syusankosodate07.html
     verified_at: 2026-09-19
 
@@ -263,6 +305,9 @@ subsidies:
     amount_note: 子ども1人につき5万円。現金または電子クーポンを選ぶ。
     conditions: 令和7年4月1日以降に出産し、こんにちは赤ちゃん訪問を受けた人。
     apply_via: こんにちは赤ちゃん訪問のときに案内される
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "1回目は心拍確認後の面接・面談のあと、2回目は出産後の訪問・案内のあと"
     source_url: https://www.city.minato.tokyo.jp/chiikihoken/kodomo/syusankosodate07.html
     verified_at: 2026-09-19
 
@@ -277,6 +322,9 @@ subsidies:
     deadline_base: birth_date
     deadline_offset_days: 365
     scheme_applicable: [lumpsum]
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.minato.tokyo.jp/kodomokyufu/kenko/ninshin/shussan/jose.html
     verified_at: 2026-09-19
 
@@ -287,6 +335,7 @@ subsidies:
     amount_note: 入院治療にかかった費用のうち、健康保険を使ったあとの自己負担額を助成（入院時の食事代と、保険がきかない費用は対象外）。
     conditions: 港区に住民登録があり、妊娠高血圧症候群とその関連疾患・糖尿病と妊娠糖尿病・貧血・産科出血・心疾患（とその続発症）で、医師が入院を必要と認めた妊婦。前年分の総所得税額が30,000円以下の世帯、またはそれ以外で入院見込み期間が26日以上の人。生活保護受給世帯などは除く。
     apply_via: みなと保健所健康推進課地域保健係（03-6400-0084。郵送も可）または各総合支所区民課保健福祉係。申請書・診断書・療養証明書・世帯調書・保険情報がわかるもの・領収書を、退院日から3か月以内に出す（3か月を超えると申請できない）。高額療養費支給決定通知書は、あとからでもよい。
+    apply_from_note: "入院治療を受けたあと（区のページで手続きを確認）"
     source_url: https://www.city.minato.tokyo.jp/chiikihoken/kenko/ninshin/ninshin/koketsuatsu.html
     verified_at: 2026-09-20
 
@@ -298,5 +347,8 @@ subsidies:
     apply_via: 郵送または窓口（みなと保健所健康推進課地域保健係 〒108-8315 港区三田1-4-10、03-6400-0084）。申請書、15回目以降の領収書・明細書の写し、子ども全員分の母子健康手帳の写しを出す。
     deadline_base: birth_date
     deadline_offset_days: 365
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.minato.tokyo.jp/chiikihoken/tatai.html
     verified_at: 2026-09-20

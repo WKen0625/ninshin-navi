@@ -38,7 +38,7 @@ export async function readRules(db: Db) {
   const steps = (
     await db.query(`
       select id, region_code, phase, sort_order, title, detail, trigger_document_id, produces_document_id, channel, action_url,
-             deadline_base, deadline_offset_days, deadline_week, deadline_note, overrides_step_id,
+             deadline_base, deadline_offset_days, deadline_week, deadline_note, apply_from_base, apply_from_offset_days, apply_from_week, apply_from_note, overrides_step_id,
              survey_question_id, source_url, verified_at::text as verified_at, needs_review
       from steps`)
   ).rows as Step[];
@@ -50,7 +50,8 @@ export async function readMoney(db: Db, regionCodes: string[], municipality: str
   const subsidies = (
     await db.query(
       `select id, region_code, name, kind, requires, amount_yen, amount_is_upper_limit, amount_formula, amount_note, conditions, apply_via,
-              deadline_base, deadline_offset_days, taxable, scheme_applicable, source_url, verified_at::text as verified_at, needs_review
+              deadline_base, deadline_offset_days, apply_from_base, apply_from_offset_days, apply_from_week, apply_from_note,
+              taxable, scheme_applicable, source_url, verified_at::text as verified_at, needs_review
        from subsidies where region_code = any($1)`,
       [regionCodes],
     )

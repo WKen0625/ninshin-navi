@@ -75,6 +75,9 @@ steps:
     produces_document_id: ota.hoken_bag
     channel: 各地域健康課・健康づくり課・各特別出張所（夜間・休日は本庁舎1階）
     deadline_note: 期限は区のページに記載なし
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
     source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninsin.html
     verified_at: 2026-09-20
 
@@ -88,6 +91,9 @@ steps:
     channel: 住んでいる地域の地域健康課（予約制）
     action_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/karugamo.html
     deadline_note: いつまでに受けるかは区のページに記載なし
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/karugamo.html
     verified_at: 2026-09-20
 
@@ -100,6 +106,9 @@ steps:
     trigger_document_id: ota.shien_kyufu_annai_1
     channel: オンライン（案内の2次元コードから）
     deadline_note: 申請期限は区のページに記載なし（面接のときに確認する）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "区の妊婦面接・面談のあと"
     source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninpunotamenosienkyuhu.html
     verified_at: 2026-09-20
 
@@ -111,6 +120,9 @@ steps:
     trigger_document_id: ota.shika_kenshin_ticket
     channel: 区内の指定歯科医療機関
     deadline_note: 妊娠中に1回
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.ota.tokyo.jp/seikatsu/hoken/shussan/sika/ninpushikakenkoushinsa.html
     verified_at: 2026-09-20
 
@@ -122,6 +134,9 @@ steps:
     trigger_document_id: ota.hoken_bag
     channel: 窓口（大田区役所本庁舎）/ 郵送
     deadline_note: 出産予定日の6か月前から届け出できる
+    apply_from_base: due_date
+    apply_from_offset_days: -182
+    apply_from_note: "出産予定日の6か月前から"
     source_url: https://www.city.ota.tokyo.jp/seikatsu/kokunen/kokuho/topics/kokuho_sanzensango_genmen.html
     verified_at: 2026-09-20
 
@@ -135,6 +150,9 @@ steps:
     channel: オンライン（電子申請）のあと、自宅で訪問を受ける
     action_url: https://www.city.ota.tokyo.jp/seikatsu/hoken/shussan/sukoyaka-akachan-houmon.html
     deadline_note: 出生通知書はできるだけ生後14日以内に。訪問の対象は生後120日まで
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（なるべく早く）"
     source_url: https://www.city.ota.tokyo.jp/seikatsu/hoken/shussan/sukoyaka-akachan-houmon.html
     verified_at: 2026-09-20
 
@@ -147,6 +165,9 @@ steps:
     trigger_document_id: ota.akachan_homon_annai
     channel: オンライン（案内の2次元コードから）
     deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産後、区の訪問のあと"
     source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninpunotamenosienkyuhu.html
     verified_at: 2026-09-20
 
@@ -158,6 +179,9 @@ steps:
     trigger_document_id: ota.sanpu_kenshin_ticket
     channel: 医療機関
     deadline_note: 2週間健診と1か月健診
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
     source_url: https://www.city.ota.tokyo.jp/seikatsu/hoken/shussan/12154545.html
     verified_at: 2026-09-20
 
@@ -169,6 +193,9 @@ steps:
     trigger_document_id: ota.ikkagetsuji_kenshin_ticket
     channel: 医療機関
     deadline_note: 生後1か月ごろ
+    apply_from_base: birth_date
+    apply_from_offset_days: 28
+    apply_from_note: "生後28日から"
     source_url: https://www.city.ota.tokyo.jp/seikatsu/hoken/shussan/1kensinhiyoujosei.html
     verified_at: 2026-09-20
 
@@ -181,6 +208,9 @@ steps:
     channel: 窓口（大田区役所6階 健康づくり課）
     action_url: https://www.city.ota.tokyo.jp/faq/bunya/kosodate/satogaeri_ninpukenshin.html
     deadline_note: 大田区に住民票があった期間に、最後に健診を受けた日から1年以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.ota.tokyo.jp/faq/bunya/kosodate/satogaeri_ninpukenshin.html
     verified_at: 2026-09-20
 
@@ -192,6 +222,9 @@ subsidies:
     amount_note: 妊産婦本人の名義の口座に振り込まれる。申請した日の2か月後の月末ごろ。
     conditions: 令和7年4月1日以降に妊婦給付認定の申請をした妊産婦。申請の日に大田区に住民票があり、医師が胎児の心拍を確認していること。流産・死産・人工妊娠中絶の場合も対象。
     apply_via: 妊婦面接で受け取る案内の2次元コードから申請。問い合わせ 健康づくり課 管理担当 03-5744-1661
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "1回目は心拍確認後の面接・面談のあと、2回目は出産後の訪問・案内のあと"
     source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninpunotamenosienkyuhu.html
     verified_at: 2026-09-20
 
@@ -202,6 +235,9 @@ subsidies:
     amount_note: 胎児の数×5万円。妊産婦本人の名義の口座に振り込まれる。
     conditions: 令和7年4月1日以降に妊婦給付認定の申請をした妊産婦。申請の日に大田区に住民票があること。
     apply_via: すこやか赤ちゃん訪問で受け取る案内の2次元コードから申請
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "1回目は心拍確認後の面接・面談のあと、2回目は出産後の訪問・案内のあと"
     source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninpunotamenosienkyuhu.html
     verified_at: 2026-09-20
 
@@ -211,5 +247,6 @@ subsidies:
     amount_note: 健康保険の自己負担分（入院期間分）を助成。
     conditions: 妊娠による高血圧症候群、糖尿病、産科出血、心疾患、貧血にかかっていて、入院治療が必要な妊産婦。前年度の所得税が3万円以下の世帯、またはそれ以外で入院見込期間が26日以上。
     apply_via: 各地域健康課に問い合わせる（申請のしかた・期限はこのページに記載なし）
+    apply_from_note: "入院治療を受けたあと（区のページで手続きを確認）"
     source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninsin.html
     verified_at: 2026-09-20

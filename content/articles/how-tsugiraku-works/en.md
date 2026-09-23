@@ -2,6 +2,7 @@
 title: How Tsugiraku works, and what we promise
 description: "The Navi turns your ward, due date and the papers you already hold into one clear next step. Here is what we show, and what we deliberately do not do."
 published: 2026-09-22
+stage: all
 pr: false
 sources: []
 tags: [start-here]

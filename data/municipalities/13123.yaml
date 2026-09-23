@@ -85,6 +85,9 @@ steps:
     channel: 住んでいる地域の健康サポートセンター（電子申請のあと来所）
     action_url: https://www.city.edogawa.tokyo.jp/e052/kosodate/ninshin/boshitecho.html
     deadline_note: 医療機関で妊娠を確認されたら出す
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
     source_url: https://www.city.edogawa.tokyo.jp/e052/kosodate/ninshin/boshitecho.html
     verified_at: 2026-09-20
 
@@ -98,6 +101,9 @@ steps:
     channel: 住んでいる地域の健康サポートセンター
     action_url: https://www.city.edogawa.tokyo.jp/e052/kosodate/ninshin/kosodateouennjigyou.html
     deadline_note: いつまでに受けるかは区のページに記載なし
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.edogawa.tokyo.jp/e052/kosodate/ninshin/kosodateouennjigyou.html
     verified_at: 2026-09-20
 
@@ -111,6 +117,9 @@ steps:
     channel: オンライン（ママページを作って申請）
     action_url: https://www.city.edogawa.tokyo.jp/e052/kosodate/ninshin/kohukin/ninpunokyuhu.html
     deadline_note: 申請期限は区のページに記載なし（ぴよママ相談のときに確認する）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "区の妊婦面接・面談のあと"
     source_url: https://www.city.edogawa.tokyo.jp/e052/kosodate/ninshin/kohukin/ninpunokyuhu.html
     verified_at: 2026-09-20
 
@@ -123,6 +132,9 @@ steps:
     channel: 区内の指定医療機関（歯科）
     action_url: https://www.city.edogawa.tokyo.jp/e052/kosodate/ninshin/ninpushikakenshin.html
     deadline_note: 妊娠中に1回。受けられなかったときは、出産日から数えて1年を過ぎる日まで
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.edogawa.tokyo.jp/e052/kosodate/ninshin/ninpushikakenshin.html
     verified_at: 2026-09-20
 
@@ -135,6 +147,9 @@ steps:
     channel: 電子申請 / 窓口 / 郵送
     action_url: https://www.city.edogawa.tokyo.jp/e053/kurashi/iryohoken/kokuho/sanzensango.html
     deadline_note: 出産予定日の6か月前から申請できる
+    apply_from_base: due_date
+    apply_from_offset_days: -182
+    apply_from_note: "出産予定日の6か月前から"
     source_url: https://www.city.edogawa.tokyo.jp/e053/kurashi/iryohoken/kokuho/sanzensango.html
     verified_at: 2026-09-20
 
@@ -148,6 +163,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 50
     deadline_note: 受診票は生後50日に達する日までに使う
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.edogawa.tokyo.jp/e052/kenko/kenko/kodomo/shinseijichoukaku.html
     verified_at: 2026-09-20
 
@@ -161,6 +179,9 @@ steps:
     channel: アプリ「ぴよナビえどがわ」/ 電子申請
     action_url: https://www.city.edogawa.tokyo.jp/e052/kenko/kenko/kodomo/homon.html
     deadline_note: 訪問は生後4か月を迎えるまで
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（なるべく早く）"
     source_url: https://www.city.edogawa.tokyo.jp/e052/kenko/kenko/kodomo/homon.html
     verified_at: 2026-09-20
 
@@ -174,6 +195,9 @@ steps:
     channel: オンライン（ママページから申請）
     action_url: https://www.city.edogawa.tokyo.jp/e052/kosodate/ninshin/kohukin/ninpunokyuhu.html
     deadline_note: 申請期限は区のページに記載なし（新生児訪問のときに確認する）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産後、区の訪問のあと"
     source_url: https://www.city.edogawa.tokyo.jp/e052/kosodate/ninshin/kohukin/ninpunokyuhu.html
     verified_at: 2026-09-20
 
@@ -187,6 +211,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 58
     deadline_note: 産後2か月未満
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.edogawa.tokyo.jp/e052/kosodate/ninshin/sampukenkoshinsa.html
     verified_at: 2026-09-20
 
@@ -200,6 +227,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 41
     deadline_note: 生後28日から生後41日まで（出生日を0日とする）
+    apply_from_base: birth_date
+    apply_from_offset_days: 28
+    apply_from_note: "生後28日から"
     source_url: https://www.city.edogawa.tokyo.jp/e052/kenko/kenko/kodomo/kenshin/1kagetsujikenkoshinsa.html
     verified_at: 2026-09-20
 
@@ -211,6 +241,9 @@ subsidies:
     amount_note: 5万円。現金またはギフトカードを選ぶ（決めたあとは変えられない）。現金は妊婦の口座に振込（旧姓の口座は不可）。
     conditions: 令和7年4月1日以降にぴよママ相談を受けた人、または同年3月31日までに受けて出産応援ギフトをまだ受け取っていない人。医師による胎児の心拍の確認が必要。令和7年4月1日以降に死産・流産・人工妊娠中絶などを経験した人も申請できる。
     apply_via: ママページ（申請用の専用ページ）を作って申請。問い合わせ コールセンター 03-4446-4327（平日の午前9時〜午後5時）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "1回目は心拍確認後の面接・面談のあと、2回目は出産後の訪問・案内のあと"
     source_url: https://www.city.edogawa.tokyo.jp/e052/kosodate/ninshin/kohukin/ninpunokyuhu.html
     verified_at: 2026-09-20
 
@@ -221,6 +254,9 @@ subsidies:
     amount_note: 区のページには「2回目出産後5万円（現金またはギフトカード）」とある。多胎のときの金額は区のページに記載がないため、国の制度（妊娠している子どもの人数×5万円）に合わせて計算している。
     conditions: 令和7年4月1日以降に出産し、新生児訪問を受けた人。
     apply_via: ママページから申請。問い合わせ コールセンター 03-4446-4327（平日の午前9時〜午後5時）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "1回目は心拍確認後の面接・面談のあと、2回目は出産後の訪問・案内のあと"
     source_url: https://www.city.edogawa.tokyo.jp/e052/kosodate/ninshin/kohukin/ninpunokyuhu.html
     verified_at: 2026-09-20
 
@@ -230,5 +266,6 @@ subsidies:
     amount_note: 入院治療にかかった費用のうち、健康保険がきいたあとの自己負担額を助成。入院中の食事代（食事療養費の標準負担額）は自己負担。切迫流産・前置胎盤・帝王切開・分娩など、対象の病気以外での入院は対象外。
     conditions: 区内に住所があり、妊娠高血圧症候群と関連疾患・糖尿病と妊娠糖尿病・貧血・産科出血・心疾患で入院治療が必要な人。前年分の所得税額（税額控除前）が3万円以下の世帯、または入院見込み期間か入院実績が26日以上の人。生活保護世帯は対象外。
     apply_via: 各健康サポートセンターの窓口、またはぴったりサービスで電子申請。原則として事前（入院前か入院中）に申請。事前に書類がそろわないときは、退院日から3か月以内。問い合わせ 健康サービス課 03-5661-2473
+    apply_from_note: "入院治療を受けたあと（区のページで手続きを確認）"
     source_url: https://www.city.edogawa.tokyo.jp/e052/kosodate/ninshin/ninshin.html
     verified_at: 2026-09-20

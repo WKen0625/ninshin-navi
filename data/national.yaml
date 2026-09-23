@@ -62,6 +62,7 @@ steps:
     deadline_base: facility
     deadline_note: 締切は施設ごとに違う（「病院と締切」画面で確認する）
     survey_question_id: booking_result
+    apply_from_note: "妊娠がわかったら、すぐ（施設によっては心拍確認後）"
     source_url: https://kawaguchiladys-clinic.net/faq/834/
     verified_at: 2026-09-18
 
@@ -73,6 +74,9 @@ steps:
     produces_document_id: jp.boshi_techo
     channel: 窓口 または オンライン（自治体による）
     deadline_note: なるべく早く（受診票は届出後から使える）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら）"
     source_url: https://www.city.setagaya.lg.jp/02244/1189.html
     verified_at: 2026-09-18
 
@@ -85,6 +89,9 @@ steps:
     channel: 医療機関
     deadline_base: gestational_week
     deadline_note: 週数に応じた頻度
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.mhlw.go.jp/file/05-Shingikai-12601000-Seisakutoukatsukan-Sanjikanshitsu_Shakaihoshoutantou/0000035240.pdf
     verified_at: 2026-09-18
 
@@ -95,6 +102,9 @@ steps:
     detail: 国の制度で、5万円。医療機関で胎児心拍が確認された後から、住民票のある市区町村に申請できる。流産・死産等の場合も対象。申請窓口と方法は市区町村ごと（市区町村ファイルで上書きする）。
     trigger_document_id: jp.boshi_techo
     channel: 市区町村
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（区の面接のあと）"
     source_url: https://www.cfa.go.jp/assets/contents/node/basic_page/field_ref_resources/be80930d-51d1-4084-aa3e-b80930646538/42e36027/20250325_policies_shussan-kosodate_52.pdf
     verified_at: 2026-09-19
 
@@ -106,6 +116,7 @@ steps:
     trigger_document_id: jp.boshi_techo
     channel: 医療機関
     deadline_base: facility
+    apply_from_note: "分娩予約のあと、施設が案内する時期に"
     source_url: https://birth-navi.mhlw.go.jp/assets/leaflet-CWn72mWw.pdf
     verified_at: 2026-09-18
 
@@ -117,6 +128,7 @@ steps:
     trigger_document_id: null
     channel: 勤務先
     deadline_note: 事業主が、産休中または産休終了後1か月以内に提出する
+    apply_from_note: "産休に入ってから（勤務先が手続きする）"
     source_url: https://www.nenkin.go.jp/service/kounen/hokenryo/menjo/sankyu-menjo/20140509-02.html
     verified_at: 2026-09-19
 
@@ -128,6 +140,9 @@ steps:
     trigger_document_id: jp.boshi_techo
     channel: 市区町村の国民年金担当窓口（郵送可）
     deadline_note: 出産予定日の6か月前から届け出できる。出産後も届け出できる
+    apply_from_base: due_date
+    apply_from_offset_days: -182
+    apply_from_note: "出産予定日の6か月前から"
     source_url: https://www.nenkin.go.jp/service/kokunen/menjo/20180810.html
     verified_at: 2026-09-19
 
@@ -141,6 +156,9 @@ steps:
     detail: 届出先は、子の出生地・本籍地または届出人の所在地の市区町村。出生証明書と一体の届書を提出する（法務省「出生届」 https://www.moj.go.jp/ONLINE/FAMILYREGISTER/5-1.html）。
     deadline_offset_days: 13
     deadline_note: 出生の日から14日以内（戸籍法第49条）。第43条により出生日を1日目として数えるため、期限は出生日＋13日。
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://laws.e-gov.go.jp/law/322AC0000000224
     verified_at: 2026-09-19
 
@@ -151,6 +169,9 @@ steps:
     detail: 国の制度で、妊娠しているこどもの人数×5万円。出産予定日の8週間前の日から、住民票のある市区町村に届け出できる。申請窓口と方法は市区町村ごと（市区町村ファイルで上書きする）。
     trigger_document_id: null
     channel: 市区町村
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（区の案内・訪問のあと）"
     source_url: https://www.cfa.go.jp/assets/contents/node/basic_page/field_ref_resources/be80930d-51d1-4084-aa3e-b80930646538/42e36027/20250325_policies_shussan-kosodate_52.pdf
     verified_at: 2026-09-19
 
@@ -164,6 +185,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 15
     deadline_note: 出生の日の翌日から15日以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.cfa.go.jp/policies/kokoseido/jidouteate/annai
     verified_at: 2026-09-19
 
@@ -173,6 +197,9 @@ steps:
     title: 子どもを健康保険に加入させる
     trigger_document_id: null
     channel: 勤務先の健康保険 または 市区町村（国民健康保険）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: "TODO: 一次資料を確認（協会けんぽ・市区町村の国保ページ）"
     verified_at: 2026-09-19
     needs_review: true
@@ -185,6 +212,7 @@ steps:
     trigger_document_id: null
     channel: 勤務先
     deadline_note: 事業主が、育児休業中または終了後1か月以内に提出する
+    apply_from_note: "育児休業に入ってから（勤務先が手続きする）"
     source_url: https://www.nenkin.go.jp/service/kounen/hokenryo/menjo/ikuji-menjo/20140327-05.html
     verified_at: 2026-09-19
 
@@ -196,6 +224,7 @@ subsidies:
     amount_note: 子ども1人につき原則50万円。直接支払制度を使うと施設に直接支払われ、窓口で払うのは残りの額だけになる。費用の総額が一時金より少ないときは、差額を加入している医療保険から受け取れる。
     apply_via: 分娩施設（直接支払制度）または健康保険
     scheme_applicable: [lumpsum]
+    apply_from_note: "出産のとき（直接支払制度なら分娩施設で手続き）"
     source_url: https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/shussan/index.html
     verified_at: 2026-09-19
 

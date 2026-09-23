@@ -90,6 +90,9 @@ steps:
     channel: 窓口（保健相談所・保健所・区民課・出張所）または オンライン（マイナポータル）
     action_url: https://www.city.koto.lg.jp/261201/kodomo/ninshinshussan/ninshin/6875.html
     deadline_note: 期限は区のページに記載なし
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
     source_url: https://www.city.koto.lg.jp/261201/kodomo/ninshinshussan/ninshin/6875.html
     verified_at: 2026-09-20
 
@@ -105,6 +108,9 @@ steps:
     deadline_base: due_date
     deadline_offset_days: 0
     deadline_note: 妊婦本人が出産前に受ける（くわしい期限は区のページに記載なし）
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97550.html
     verified_at: 2026-09-20
 
@@ -119,6 +125,9 @@ steps:
     deadline_base: confirmation_date
     deadline_offset_days: 730
     deadline_note: 医療機関で胎児の心拍が確認された日から2年間
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（区の面接・面談のあと）"
     source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97552.html
     verified_at: 2026-09-20
 
@@ -130,6 +139,9 @@ steps:
     trigger_document_id: koto.shika_kenshin_ticket
     channel: 医療機関（区内の契約歯科）
     action_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/6878.html
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/6878.html
     verified_at: 2026-09-20
 
@@ -142,6 +154,9 @@ steps:
     channel: 窓口 / 郵送 / オンライン（マイナポータル）
     action_url: https://www.city.koto.lg.jp/250102/kokuhosanzensango.html
     deadline_note: 出産予定日の6か月前から届け出できる。出産後でも届け出できる
+    apply_from_base: due_date
+    apply_from_offset_days: -182
+    apply_from_note: "出産予定日の6か月前から"
     source_url: https://www.city.koto.lg.jp/250102/kokuhosanzensango.html
     verified_at: 2026-09-20
 
@@ -153,6 +168,9 @@ steps:
     trigger_document_id: koto.shinseiji_choukaku_ticket
     channel: 医療機関
     deadline_note: 生後50日まで（生後50日に達する日以降の検査は対象外）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/6890.html
     verified_at: 2026-09-20
 
@@ -166,6 +184,9 @@ steps:
     channel: オンライン（LoGoフォーム）または ハガキ → 自宅に訪問
     action_url: https://www.city.koto.lg.jp/261301/kodomo/ninshinshussan/shussan/6880.html
     deadline_note: 訪問の対象は生後4か月の前日まで
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（なるべく早く）"
     source_url: https://www.city.koto.lg.jp/261301/kodomo/ninshinshussan/shussan/6880.html
     verified_at: 2026-09-20
 
@@ -180,6 +201,9 @@ steps:
     deadline_base: due_date
     deadline_offset_days: 674
     deadline_note: 出産予定日の8週間前から2年間（= 予定日−56日 から 730日間）
+    apply_from_base: due_date
+    apply_from_offset_days: -56
+    apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
     source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97552.html
     verified_at: 2026-09-20
 
@@ -191,6 +215,9 @@ steps:
     trigger_document_id: koto.sanpu_kenshin_ticket
     channel: 医療機関・助産所
     deadline_note: 産後2か月以内（産後2週間ごろに1回、産後1か月ごろに1回）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
     source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97801.html
     verified_at: 2026-09-20
 
@@ -204,6 +231,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 41
     deadline_note: 生後28日から生後41日まで
+    apply_from_base: birth_date
+    apply_from_offset_days: 28
+    apply_from_note: "生後28日から"
     source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97801.html
     verified_at: 2026-09-20
 
@@ -218,6 +248,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 364
     deadline_note: 出産後から、子どもの1歳の誕生日の前日まで（1回限り）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/24990.html
     verified_at: 2026-09-20
 
@@ -231,6 +264,9 @@ subsidies:
     apply_via: ゆりかご面接のあとに受け取る案内に沿って申請。問い合わせ 0120-501-627
     deadline_base: confirmation_date
     deadline_offset_days: 730
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（区の面接・面談のあと）"
     source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97552.html
     verified_at: 2026-09-20
 
@@ -243,6 +279,9 @@ subsidies:
     apply_via: 新生児・産婦訪問のときに受け取る案内に沿って申請。問い合わせ 0120-501-627
     deadline_base: due_date
     deadline_offset_days: 674
+    apply_from_base: due_date
+    apply_from_offset_days: -56
+    apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
     source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/97552.html
     verified_at: 2026-09-20
 
@@ -252,5 +291,6 @@ subsidies:
     amount_note: 医療保険を使って入院治療したときの自己負担額を助成。入院中の食事代（入院時食事療養費の標準負担額）は自己負担。
     conditions: 妊娠高血圧症候群とその関連疾患・糖尿病・貧血・産科出血・心疾患で入院治療が必要な人。前年分の所得税額が30,000円以下の世帯の人、またはそれ以外で入院期間が26日以上の人。
     apply_via: 住んでいる地区を担当する保健相談所に申請。手続きが遅れると助成を受けられないことがある（くわしい期限は区のページに記載なし）。
+    apply_from_note: "入院治療を受けたあと（区のページで手続きを確認）"
     source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/6886.html
     verified_at: 2026-09-20

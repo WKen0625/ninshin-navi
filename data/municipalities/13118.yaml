@@ -79,6 +79,9 @@ steps:
     channel: 保健所 または 区民事務所（電子申請のあと保健所へ来所）
     action_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/shinsei/kenkotecho.html
     deadline_note: 医療機関で妊娠の診断を受けたら。いつまでにという日付は区のページに記載なし
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/shinsei/kenkotecho.html
     verified_at: 2026-09-20
 
@@ -92,6 +95,9 @@ steps:
     channel: 荒川区保健所健康推進課（予約制）
     action_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/ninsampushien/yurikago.html
     deadline_note: いつまでにという期限は区のページに記載なし（対象は妊婦）
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/ninsampushien/yurikago.html
     verified_at: 2026-09-20
 
@@ -104,6 +110,9 @@ steps:
     trigger_document_id: arakawa.shien_kyufu_shinsei_1
     channel: ゆりかご面接で渡される申請フォーム
     deadline_note: 申請期限は区のページに記載なし（面接のときに確認する）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "区の妊婦面接・面談のあと"
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/ninpushien.html
     verified_at: 2026-09-20
 
@@ -118,6 +127,9 @@ steps:
     deadline_base: due_date
     deadline_offset_days: 0
     deadline_note: 妊娠中に受ける。出産後は受けられない
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/nimpukenshin/ninpushikakenshin.html
     verified_at: 2026-09-20
 
@@ -130,6 +142,9 @@ steps:
     channel: オンライン申請フォーム / 国保年金課国保資格係
     action_url: https://www.city.arakawa.tokyo.jp/a031/kenkouhoken/sanzensangogenmen2025.html
     deadline_note: 出産予定日の6か月前から届け出できる。出産後の届出もできる
+    apply_from_base: due_date
+    apply_from_offset_days: -182
+    apply_from_note: "出産予定日の6か月前から"
     source_url: https://www.city.arakawa.tokyo.jp/a031/kenkouhoken/sannzennsanngo.html
     verified_at: 2026-09-20
 
@@ -143,6 +158,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 50
     deadline_note: 生後50日に達する日までに
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.arakawa.tokyo.jp/a033/kosodate/nyuuyouji/choukaku.html
     verified_at: 2026-09-20
 
@@ -155,6 +173,9 @@ steps:
     trigger_document_id: arakawa.akachan_homon_annai
     channel: 新生児訪問で渡される申請フォーム
     deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産後、区の訪問のあと"
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/ninpushien.html
     verified_at: 2026-09-20
 
@@ -166,6 +187,9 @@ steps:
     trigger_document_id: arakawa.sanpu_ikkagetsu_ticket
     channel: 医療機関
     deadline_note: 1回目は産後2週間頃、2回目は産後1か月頃
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/sanpukensin_josei.html
     verified_at: 2026-09-20
 
@@ -179,6 +203,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 41
     deadline_note: 生後27日を超え、生後6週に達しない間に受ける
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/sanpukensin_josei.html
     verified_at: 2026-09-20
 
@@ -193,6 +220,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 365
     deadline_note: 出産日から1年以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/satogaerishussan.html
     verified_at: 2026-09-20
 
@@ -204,6 +234,9 @@ subsidies:
     amount_note: 現金（妊婦本人の口座に振込）かカタログギフトを選ぶ。申請した月の翌々月末が目安。
     conditions: 令和7年4月1日以降に妊娠届を出し、妊婦給付認定の申請をして認定を受けた人。申請のときに荒川区に住民登録があること。医療機関で胎児の心拍が確認できたことを「妊娠」とする。流産・死産・人工妊娠中絶を経験した人も申請できる。
     apply_via: ゆりかご面接のときに渡される申請フォーム。問い合わせ 健康推進課健康推進係 03-3802-3111（内線433）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "1回目は心拍確認後の面接・面談のあと、2回目は出産後の訪問・案内のあと"
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/ninpushien.html
     verified_at: 2026-09-20
 
@@ -214,6 +247,9 @@ subsidies:
     amount_note: お子さん（胎児）の人数×5万円。現金かカタログギフトを選ぶ。
     conditions: 令和7年4月1日以降に出産し、胎児の数の届け出をした人。申請のときに荒川区に住民登録があること。
     apply_via: 新生児訪問のときに渡される申請フォーム
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "1回目は心拍確認後の面接・面談のあと、2回目は出産後の訪問・案内のあと"
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/ninpushien.html
     verified_at: 2026-09-20
 
@@ -223,5 +259,6 @@ subsidies:
     amount_note: 医療保険を使って入院治療したときの自己負担額が助成される。入院中の食事代（標準負担額）は自己負担。
     conditions: 荒川区に住所があり、妊娠高血圧症候群とその関連疾患・糖尿病・貧血・産科出血・心疾患で、認定基準を満たし、入院して治療を受ける必要がある人。そのうえで、前年の所得税額が30,000円以下の世帯の人、または入院見込み期間が26日以上の人。生活保護を受けている人は除く。
     apply_via: 荒川区保健所健康推進課。原則、入院前か入院中に申請する。退院後の場合は、退院日から3か月以内。問い合わせ 03-3802-3111（内線433）
+    apply_from_note: "入院治療を受けたあと（区のページで手続きを確認）"
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/iryohi.html
     verified_at: 2026-09-20

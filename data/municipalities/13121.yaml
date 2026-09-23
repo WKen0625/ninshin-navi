@@ -82,6 +82,9 @@ steps:
     produces_document_id: adachi.hoken_bag
     channel: 各保健センター / 保健予防課保健予防係 / 区民事務所（電子申請もできる）
     deadline_note: 医療機関で妊娠と診断されたら出す
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
     source_url: https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/ninshin-shussho.html
     verified_at: 2026-09-20
 
@@ -95,6 +98,9 @@ steps:
     channel: 各保健センター / 保健予防課
     action_url: https://www.city.adachi.tokyo.jp/hoken/smilemamamensetsu.html
     deadline_note: いつまでに受けるかは区のページに記載なし
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.adachi.tokyo.jp/hoken/smilemamamensetsu.html
     verified_at: 2026-09-20
 
@@ -108,6 +114,9 @@ steps:
     channel: オンライン申請（ご案内用紙の二次元コードから）
     action_url: https://www.city.adachi.tokyo.jp/hoken/shussannkosodatekouhukin.html
     deadline_note: 申請期限は区のページに記載なし（面接のときに確認する）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "区の妊婦面接・面談のあと"
     source_url: https://www.city.adachi.tokyo.jp/hoken/shussannkosodatekouhukin.html
     verified_at: 2026-09-20
 
@@ -120,6 +129,9 @@ steps:
     channel: 区内の指定医療機関（歯科）
     action_url: https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/ninnpushika.html
     deadline_note: 妊娠期間中に1回。区のページでは、妊娠16週から28週ごろまでの体調のよい時期がおすすめとされている
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/ninnpushika.html
     verified_at: 2026-09-20
 
@@ -131,6 +143,9 @@ steps:
     trigger_document_id: adachi.hoken_bag
     channel: 窓口 / 郵送
     deadline_note: 出産予定日の6か月前から届け出できる
+    apply_from_base: due_date
+    apply_from_offset_days: -182
+    apply_from_note: "出産予定日の6か月前から"
     source_url: https://www.city.adachi.tokyo.jp/kokuho/sanzensango.html
     verified_at: 2026-09-20
 
@@ -144,6 +159,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 50
     deadline_note: 生後50日に達する日までに受けた初回検査が対象
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/sinseijityoukaku.html
     verified_at: 2026-09-20
 
@@ -159,6 +177,9 @@ steps:
     deadline_offset_days: 365
     deadline_note: 出産の日から1年以内（郵送は必着）
     survey_question_id: cost_paid
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.adachi.tokyo.jp/oyako/k-kyoiku/kosodate/syussanhi-josei.html
     verified_at: 2026-09-20
 
@@ -172,6 +193,9 @@ steps:
     channel: ハガキ（出生届と一緒に提出 / 郵送）/ オンライン
     action_url: https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/ninshin-konnichiha.html
     deadline_note: 対象は生後3か月までの赤ちゃんがいる家庭
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（なるべく早く）"
     source_url: https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/ninshin-konnichiha.html
     verified_at: 2026-09-20
 
@@ -185,6 +209,9 @@ steps:
     channel: オンライン申請（ご案内用紙の二次元コードから）
     action_url: https://www.city.adachi.tokyo.jp/hoken/shussannkosodatekouhukin.html
     deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産後、区の訪問のあと"
     source_url: https://www.city.adachi.tokyo.jp/hoken/shussannkosodatekouhukin.html
     verified_at: 2026-09-20
 
@@ -198,6 +225,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 59
     deadline_note: 産後2か月まで
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.adachi.tokyo.jp/hoken/sanpukenkoushinsa.html
     verified_at: 2026-09-20
 
@@ -211,6 +241,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 41
     deadline_note: 生後28日から生後41日まで（出生日を0日目として数える）
+    apply_from_base: birth_date
+    apply_from_offset_days: 28
+    apply_from_note: "生後28日から"
     source_url: https://www.city.adachi.tokyo.jp/hoken/1monthkenkoushinsa.html
     verified_at: 2026-09-20
 
@@ -222,6 +255,9 @@ subsidies:
     amount_note: 妊婦1人当たり現金5万円。妊婦本人の口座へ振込（夫やパートナーの口座は不可）。
     conditions: 令和7年4月1日以降に妊婦の人（医療機関で胎児の心拍確認済み）。申請日時点で足立区に住民登録がある。旧制度の「出産応援ギフト」を受け取っていない。
     apply_via: スマイルママ面接のときに受け取るご案内用紙の二次元コードからオンライン申請。問い合わせ 保健予防課保健予防係 03-3880-5892
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "1回目は心拍確認後の面接・面談のあと、2回目は出産後の訪問・案内のあと"
     source_url: https://www.city.adachi.tokyo.jp/hoken/shussannkosodatekouhukin.html
     verified_at: 2026-09-20
 
@@ -232,6 +268,9 @@ subsidies:
     amount_note: 妊娠していた子ども1人当たり現金5万円（双子なら10万円）。産婦本人の口座へ振込。
     conditions: 令和7年4月1日以降に出産した産婦。申請日時点で足立区に住民登録がある。
     apply_via: こんにちは赤ちゃん訪問のときに受け取るご案内用紙の二次元コードからオンライン申請
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "1回目は心拍確認後の面接・面談のあと、2回目は出産後の訪問・案内のあと"
     source_url: https://www.city.adachi.tokyo.jp/hoken/shussannkosodatekouhukin.html
     verified_at: 2026-09-20
 
@@ -247,6 +286,9 @@ subsidies:
     deadline_base: birth_date
     deadline_offset_days: 365
     scheme_applicable: [lumpsum]
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.adachi.tokyo.jp/oyako/k-kyoiku/kosodate/syussanhi-josei.html
     verified_at: 2026-09-20
 
@@ -256,5 +298,6 @@ subsidies:
     amount_note: 対象の病気での入院医療費（保険がきく分）の自己負担額を助成。高額療養費制度にあたるときはその限度額まで。食事療養費や差額ベッド代は対象外。
     conditions: 区内に住民登録のある妊産婦で、妊娠高血圧症候群とその関連疾患・糖尿病と妊娠糖尿病・貧血・産科出血・心疾患で入院が必要な人。前年分の総所得税額が30,000円以下の世帯、または入院見込み期間が26日以上。生活保護世帯は対象外。
     apply_via: 保健予防課保健予防係、中央本町地域・保健総合支援課、各保健センター。原則として入院前か入院中に申請。入院中に申請できないときは、退院日から3か月以内に限り受け付ける。問い合わせ 03-3880-5892
+    apply_from_note: "入院治療を受けたあと（区のページで手続きを確認）"
     source_url: https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/ninshin-koketsuatsu.html
     verified_at: 2026-09-20

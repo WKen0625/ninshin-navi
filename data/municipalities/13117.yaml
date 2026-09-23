@@ -83,6 +83,9 @@ steps:
     channel: 健康支援センター / 保健サービス課保健サービス係 / 区民事務所 / オンライン（マイナポータル。一式は郵送）
     action_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018244/1002779.html
     deadline_note: 医療機関で妊娠の診断を受けたら届け出る（期限は区のページに記載なし）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018244/1002779.html
     verified_at: 2026-09-20
 
@@ -96,6 +99,9 @@ steps:
     channel: 健康支援センター / 保健サービス課保健サービス係 / 子ども家庭支援センター（オンラインも可）
     action_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018244/1002780.html
     deadline_note: 面接そのものの期限は区のページに記載なし。「はぴママグッズ」は、出産前までに面接を終えた人が対象
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018244/1002780.html
     verified_at: 2026-09-20
 
@@ -111,6 +117,9 @@ steps:
     deadline_base: confirmation_date
     deadline_offset_days: 730
     deadline_note: 医療機関で胎児心拍が確認された日から2年間
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（区の面接・面談のあと）"
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002777/1002795.html
     verified_at: 2026-09-20
 
@@ -122,6 +131,9 @@ steps:
     trigger_document_id: kita.shika_kenshin_ticket
     channel: 医療機関（実施歯科）
     deadline_note: 区は妊娠中期（16週〜27週）ごろの受診をすすめている。使えるのは出産後1年未満まで（例：5月1日出産なら翌年4月30日まで）
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018245/1002782.html
     verified_at: 2026-09-20
 
@@ -134,6 +146,9 @@ steps:
     channel: オンライン（マイナポータル） / 窓口 / 郵送
     action_url: https://www.city.kita.lg.jp/living/insurance-pension/1001703/1001723/1001733/1001737.html
     deadline_note: 出産予定日の6か月前から届け出できる
+    apply_from_base: due_date
+    apply_from_offset_days: -182
+    apply_from_note: "出産予定日の6か月前から"
     source_url: https://www.city.kita.lg.jp/living/insurance-pension/1001703/1001723/1001733/1001737.html
     verified_at: 2026-09-20
 
@@ -144,6 +159,9 @@ steps:
     detail: 都内の委託医療機関などで、受診票を出して受ける。令和8年度の公費負担の上限は3,000円（1回）。上限を超えた分は自己負担。里帰り先など都内の委託医療機関以外で受けて受診票が使えなかったときは、費用の一部の助成を申請できる。
     trigger_document_id: kita.shinseiji_choukaku_ticket
     channel: 医療機関
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018245/1002781.html
     verified_at: 2026-09-20
 
@@ -159,6 +177,9 @@ steps:
     deadline_base: due_date
     deadline_offset_days: 674
     deadline_note: 出産予定日の8週間前の日から2年間（予定日より前に出産した場合は、その日から2年間）。日数は「予定日−56日 から 730日間」で計算している
+    apply_from_base: due_date
+    apply_from_offset_days: -56
+    apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002777/1002795.html
     verified_at: 2026-09-20
 
@@ -169,6 +190,9 @@ steps:
     detail: 令和8年10月1日から、公費助成の産婦健康診査が始まる。都内の委託医療機関などで受診票を出して受ける。内容は問診、診察、体重・血圧測定、尿検査、アンケートを使った産後うつなどの評価。令和8年度の公費負担の上限は1回5,000円（2回）。上限を超えた分は自己負担。令和8年10月1日より前に受けた分は対象外。
     trigger_document_id: kita.sanpu_kenshin_ticket
     channel: 医療機関
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018245/1002781.html
     verified_at: 2026-09-20
 
@@ -179,6 +203,9 @@ steps:
     detail: 令和8年10月1日から、公費助成の1か月児健康診査が始まる。都内の委託医療機関などで受診票を出して受ける。内容は発育・栄養の状態、病気や異常がないかの確認、ビタミンK2の投与の確認など。令和8年度の公費負担の上限は6,000円（1回）。上限を超えた分は自己負担。令和8年10月1日より前に受けた分は対象外。
     trigger_document_id: kita.ikkagetsuji_kenshin_ticket
     channel: 医療機関
+    apply_from_base: birth_date
+    apply_from_offset_days: 28
+    apply_from_note: "生後28日から"
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018245/1002781.html
     verified_at: 2026-09-20
 
@@ -193,6 +220,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 364
     deadline_note: 出産日から1年以内（出産前に北区から転出した場合は、転出日から1年以内）。1年を過ぎると申請できない
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002764/1002773.html
     verified_at: 2026-09-20
 
@@ -206,6 +236,9 @@ subsidies:
     apply_via: はぴママたまご面接で渡される二次元コードから電子申請。問い合わせは保健サービス課保健サービス係 03-3908-7050
     deadline_base: confirmation_date
     deadline_offset_days: 730
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（区の面接・面談のあと）"
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002777/1002795.html
     verified_at: 2026-09-20
 
@@ -218,6 +251,9 @@ subsidies:
     apply_via: 赤ちゃん訪問で渡される二次元コードから電子申請。問い合わせは保健サービス課保健サービス係 03-3908-7050
     deadline_base: due_date
     deadline_offset_days: 674
+    apply_from_base: due_date
+    apply_from_offset_days: -56
+    apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002777/1002795.html
     verified_at: 2026-09-20
 
@@ -227,5 +263,6 @@ subsidies:
     amount_note: 認定基準を満たす病気で、医療保険を使って入院治療したときの自己負担額を助成（認定期間内のものだけ。食事療養費は対象外）。認定期間は入院見込み期間で、手続きが遅れると助成を受けられないことがある。
     conditions: 北区に住所があり、妊娠高血圧症候群とその関連疾患・糖尿病と妊娠糖尿病・貧血・産科出血・心疾患（とその続発症）で認定基準を満たし、入院治療が必要な人。さらに、前年分の総所得税額が30,000円以下の世帯の人、または入院見込み期間が26日以上の人。生活保護を受けている人と、ほかの法令などの給付で自己負担が出ない人は対象外。
     apply_via: 住んでいる地域を担当する健康支援センター（王子 03-3919-7588／赤羽 03-3903-6481／滝野川 03-3915-0184。午前8時30分〜午後5時）。入院前か入院中に申請する。退院後の場合は、退院日から3か月以内（過ぎると申請できない）
+    apply_from_note: "入院治療を受けたあと（区のページで手続きを確認）"
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002764/1002772.html
     verified_at: 2026-09-20

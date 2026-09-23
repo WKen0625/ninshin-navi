@@ -86,6 +86,9 @@ steps:
     channel: 窓口 / 郵送 / オンライン（マイナポータル）
     action_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1004062.html
     deadline_note: 医療機関で妊娠の診断を受けたら。いつまでにという日付は区のページに記載なし
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
     source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1004062.html
     verified_at: 2026-09-20
 
@@ -99,6 +102,9 @@ steps:
     channel: 健康福祉センター / 区役所健康推進課 / オンライン
     action_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1004064.html
     deadline_note: いつまでにという期限は区のページに記載なし
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1004064.html
     verified_at: 2026-09-20
 
@@ -113,6 +119,9 @@ steps:
     deadline_base: confirmation_date
     deadline_offset_days: 730
     deadline_note: 医療機関で胎児の心拍が確認された日から2年間
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（区の面接・面談のあと）"
     source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1056054.html
     verified_at: 2026-09-20
 
@@ -127,6 +136,9 @@ steps:
     deadline_base: due_date
     deadline_offset_days: 0
     deadline_note: 妊娠中に1回だけ
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1049772.html
     verified_at: 2026-09-20
 
@@ -139,6 +151,9 @@ steps:
     channel: 窓口 / 郵送
     action_url: https://www.city.itabashi.tokyo.jp/kenko/kokuho/kokuho/hokenryo/1003138.html
     deadline_note: 出産予定日の6か月前から届け出できる。出産後の届出もできる
+    apply_from_base: due_date
+    apply_from_offset_days: -182
+    apply_from_note: "出産予定日の6か月前から"
     source_url: https://www.city.itabashi.tokyo.jp/kenko/kokuho/kokuho/hokenryo/1003138.html
     verified_at: 2026-09-20
 
@@ -152,6 +167,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 50
     deadline_note: 生後50日まで（生まれた日を0日と数える）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/shusan/1004083.html
     verified_at: 2026-09-20
 
@@ -166,6 +184,9 @@ steps:
     deadline_base: due_date
     deadline_offset_days: 674
     deadline_note: 出産予定日の8週間前の日から2年間（= 予定日−56日 から 730日間）
+    apply_from_base: due_date
+    apply_from_offset_days: -56
+    apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
     source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1056054.html
     verified_at: 2026-09-20
 
@@ -177,6 +198,9 @@ steps:
     trigger_document_id: itabashi.sanpu_kenshin_ticket
     channel: 医療機関
     deadline_note: 出産後2か月までに受けた健診が対象
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
     source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/shusan/1060401.html
     verified_at: 2026-09-20
 
@@ -190,6 +214,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 41
     deadline_note: 生後28日から生後41日までに受ける（出生日を0日とする）
+    apply_from_base: birth_date
+    apply_from_offset_days: 28
+    apply_from_note: "生後28日から"
     source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/shusan/1060401.html
     verified_at: 2026-09-20
 
@@ -204,6 +231,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 365
     deadline_note: 出産した日より1年以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.itabashi.tokyo.jp/kosodate/teate/ninshin/1004615.html
     verified_at: 2026-09-20
 
@@ -217,6 +247,9 @@ subsidies:
     apply_via: 妊婦面接のあとに渡される案内に沿って申請。問い合わせ つながるITABASHIコールセンター 0120-100-619（月〜金の9時〜17時）
     deadline_base: confirmation_date
     deadline_offset_days: 730
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（区の面接・面談のあと）"
     source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1056054.html
     verified_at: 2026-09-20
 
@@ -229,6 +262,9 @@ subsidies:
     apply_via: 妊娠8か月アンケートと一緒に届く案内に沿って届出
     deadline_base: due_date
     deadline_offset_days: 674
+    apply_from_base: due_date
+    apply_from_offset_days: -56
+    apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
     source_url: https://www.city.itabashi.tokyo.jp/kosodate/ninshin/ninshin/1056054.html
     verified_at: 2026-09-20
 
@@ -238,5 +274,6 @@ subsidies:
     amount_note: 医療保険を使って入院治療をしたときの自己負担額が助成される。ただし、健康保険組合などから支給された高額療養費の分は差し引かれ、入院中の食事代（標準負担額）は自己負担。
     conditions: 板橋区に住所があり、妊娠高血圧症候群とその関連疾患・糖尿病・貧血・産科出血・心疾患で、認定基準を満たし、入院して治療を受ける必要がある人。そのうえで、前年の世帯の所得税が合計30,000円以下の人、または入院見込み期間が26日以上の人。生活保護を受けている世帯は対象外。
     apply_via: 各健康福祉センターに申請。退院後に申請する場合は、退院日から3か月以内（遅延理由書が必要）。問い合わせ 健康推進課母子保健係 03-3579-2313
+    apply_from_note: "入院治療を受けたあと（区のページで手続きを確認）"
     source_url: https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/033/138/r7ninshinkouketsuatsuoshirase.pdf
     verified_at: 2026-09-20

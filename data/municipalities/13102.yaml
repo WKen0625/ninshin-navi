@@ -91,6 +91,9 @@ steps:
     channel: 保健所・保健センター / 区役所 / 特別出張所（電子申請のあとは保健所・保健センターへ来所）
     action_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/tetyokohu.html
     deadline_note: 期限は区のページに記載なし（医師か助産師の診察を受けたあとに届け出る）
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/tetyokohu.html
     verified_at: 2026-09-20
 
@@ -104,6 +107,9 @@ steps:
     channel: 保健所・保健センター（オンライン面談は事前に電話）
     action_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/tetyokohu.html
     deadline_note: 期限は区のページに記載なし。区は、体調が安定する妊娠15週以降に受けることをすすめている
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/tetyokohu.html
     verified_at: 2026-09-20
 
@@ -116,6 +122,9 @@ steps:
     channel: 窓口 / オンライン（ぴったりサービス） / 郵送
     action_url: https://www.city.chuo.lg.jp/a0020/kosodate/shussan/shussanshien/taxi.html
     deadline_note: 出産日の前日まで
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.chuo.lg.jp/a0020/kosodate/shussan/shussanshien/taxi.html
     verified_at: 2026-09-20
 
@@ -130,6 +139,9 @@ steps:
     deadline_base: confirmation_date
     deadline_offset_days: 730
     deadline_note: 胎児の心拍が医療機関で確認され、妊娠が確定した日から2年間
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から"
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/ninpunotamenoshienkyufu.html
     verified_at: 2026-09-20
 
@@ -142,6 +154,9 @@ steps:
     channel: オンライン（LoGoフォーム）
     action_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/ninpunotamenoshienkyufu.html
     deadline_note: アンケートは妊娠7か月ごろに届く。面談は妊娠8か月ごろ
+    apply_from_base: gestational_week
+    apply_from_week: 24
+    apply_from_note: "妊娠7か月ごろ（区からアンケートが届いてから）"
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/ninpunotamenoshienkyufu.html
     verified_at: 2026-09-20
 
@@ -154,6 +169,9 @@ steps:
     channel: 医療機関（歯科。事前に予約）
     action_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/kenshin/sanzensango.html
     deadline_note: 産前は妊娠中に1回
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/kenshin/sanzensango.html
     verified_at: 2026-09-20
 
@@ -166,6 +184,9 @@ steps:
     channel: 窓口（区役所4階 保険年金課資格係） / 郵送
     action_url: https://www.city.chuo.lg.jp/a0024/kurashi/hokennenkin/kokuho/kokuhonitsuite/noufu/sanzensango.html
     deadline_note: 出産予定日の6か月前から届け出できる（出産後でもよい）
+    apply_from_base: due_date
+    apply_from_offset_days: -182
+    apply_from_note: "出産予定日の6か月前から"
     source_url: https://www.city.chuo.lg.jp/a0024/kurashi/hokennenkin/kokuho/kokuhonitsuite/noufu/sanzensango.html
     verified_at: 2026-09-20
 
@@ -179,6 +200,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 50
     deadline_note: 生後50日に達する日まで（原則は出生後の入院中か、生後1か月ごろまで）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/kodomonokenkou/kenshin/sinseijichokaku.html
     verified_at: 2026-09-20
 
@@ -193,6 +217,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 365
     deadline_note: 妊婦健診と産婦健診は、最後に受診した日または出産日から1年以内。新生児聴覚検査と1か月児健診は、受診した日から1年以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/josei/ninpukennshin.html
     verified_at: 2026-09-20
 
@@ -205,6 +232,9 @@ steps:
     channel: 窓口 / 郵送 / オンライン（ぴったりサービス）
     action_url: https://www.city.chuo.lg.jp/a0020/kosodate/shussan/shussanshien/kaimonokenn.html
     deadline_note: 子どもが1歳になる前日まで
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から"
     source_url: https://www.city.chuo.lg.jp/a0020/kosodate/shussan/shussanshien/kaimonokenn.html
     verified_at: 2026-09-20
 
@@ -218,6 +248,9 @@ steps:
     channel: 郵送（はがき） / オンライン（電子申請）
     action_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/homonsido.html
     deadline_note: 対象は生後4か月まで
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（なるべく早く）"
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/homonsido.html
     verified_at: 2026-09-20
 
@@ -232,6 +265,9 @@ steps:
     deadline_base: due_date
     deadline_offset_days: 674
     deadline_note: 出産予定日の8週間前の日から2年間（流産などの場合は、妊娠が続かなくなった日から2年間）
+    apply_from_base: due_date
+    apply_from_offset_days: -56
+    apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/ninpunotamenoshienkyufu.html
     verified_at: 2026-09-20
 
@@ -243,6 +279,9 @@ steps:
     trigger_document_id: chuo.sanpu_kenshin_ticket
     channel: 医療機関
     deadline_note: 原則として産後2か月以内
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/kenshin/sanpukenshin.html
     verified_at: 2026-09-20
 
@@ -256,6 +295,9 @@ steps:
     deadline_base: birth_date
     deadline_offset_days: 41
     deadline_note: 生後28日から41日の間（出生日を0日目として数える）
+    apply_from_base: birth_date
+    apply_from_offset_days: 28
+    apply_from_note: "生後28日から"
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/kodomonokenkou/kenshin/01kagetu.html
     verified_at: 2026-09-20
 
@@ -269,6 +311,9 @@ subsidies:
     apply_via: 妊婦面談でもらう案内通知の二次元コード・URLから専用の申請サイトで申請。電子申請の問い合わせ 050-3821-1200（平日9〜17時）、支給の確認は中央区保健所健康推進課 03-3541-5930
     deadline_base: confirmation_date
     deadline_offset_days: 730
+    apply_from_base: confirmation_date
+    apply_from_offset_days: 0
+    apply_from_note: "心拍を確認した日から（区の面接・面談のあと）"
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/ninpunotamenoshienkyufu.html
     verified_at: 2026-09-20
 
@@ -281,6 +326,9 @@ subsidies:
     apply_via: 新生児訪問でもらう案内通知から専用の申請サイトで申請。電子申請の問い合わせ 050-3821-1200（平日9〜17時）
     deadline_base: due_date
     deadline_offset_days: 674
+    apply_from_base: due_date
+    apply_from_offset_days: -56
+    apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/shussanshien/ninpunotamenoshienkyufu.html
     verified_at: 2026-09-20
 
@@ -290,5 +338,6 @@ subsidies:
     amount_note: 健康保険を使って入院治療したときの自己負担額を助成。
     conditions: 妊娠高血圧症候群・糖尿病・貧血・産科出血・心疾患とその続発症で入院が必要な妊産婦。前年分の総所得税額が30,000円以下の世帯の人、または入院見込み期間が26日以上の人。
     apply_via: 申請の窓口と期限は区のページに記載なし。問い合わせは中央区保健所健康推進課給付係 03-3541-5930、または日本橋・月島・晴海の各保健センター
+    apply_from_note: "入院治療を受けたあと（区のページで手続きを確認）"
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/josei/nyuinzyosei.html
     verified_at: 2026-09-20
