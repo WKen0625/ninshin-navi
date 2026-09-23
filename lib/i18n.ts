@@ -9,6 +9,22 @@ export const FOREIGN_LANGS = LANGS.filter((l) => l !== "ja") as Exclude<Lang, "j
 
 export const LANG_NAME: Record<Lang, string> = { ja: "日本語", en: "English", zh: "中文", ko: "한국어", ru: "Русский" };
 
+/** いまの言語: /<lang> のトップページならその言語。コラム（/articles?lang=）は ?lang=。それ以外は日本語 */
+export function langOf(path: string, query: string | null): Lang {
+  const first = path.split("/")[1];
+  if (isLang(first)) return first;
+  return path.startsWith("/articles") && isLang(query) ? query : "ja";
+}
+
+/** 画面下の共通の文言（設計原則10「最終確認は窓口・医療機関へ」は全画面） */
+export const FOOTER: Record<Lang, { disclaimer: string; about: string; contact: string; privacy: string; terms: string; policy: string; draft: string }> = {
+  ja: { disclaimer: "最終確認は窓口・医療機関へ。", about: "このサイトについて", contact: "コンタクト", privacy: "記録と同意（保存するもの・取り消し）", terms: "利用規約", policy: "プライバシーポリシー", draft: "（下書き）" },
+  en: { disclaimer: "Always confirm with your ward office or your clinic.", about: "About this site", contact: "Contact", privacy: "Records & consent (what is stored, how to withdraw)", terms: "Terms of use", policy: "Privacy policy", draft: " (draft, Japanese)" },
+  zh: { disclaimer: "最终请向区役所窗口或医疗机构确认。", about: "关于本站", contact: "联系", privacy: "记录与同意（保存内容・撤回）", terms: "使用条款", policy: "隐私政策", draft: "（草案・日语）" },
+  ko: { disclaimer: "최종 확인은 구청 창구·의료기관에서 하세요.", about: "이 사이트에 대해", contact: "문의", privacy: "기록과 동의（저장 항목·철회）", terms: "이용약관", policy: "개인정보 처리방침", draft: "（초안·일본어）" },
+  ru: { disclaimer: "Окончательно уточняйте в администрации района и в клинике.", about: "О сайте", contact: "Контакт", privacy: "Записи и согласие (что хранится, как отозвать)", terms: "Условия использования", policy: "Политика конфиденциальности", draft: " (черновик, на японском)" },
+};
+
 /** トップページの場所。日本語は /、ほかは /<lang> */
 export const homeOf = (lang: Lang) => (lang === "ja" ? "/" : `/${lang}`);
 /** コラム一覧の場所 */

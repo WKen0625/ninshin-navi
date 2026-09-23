@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { columnsOf, HEADER, homeOf, isLang, LANG_NAME, LANGS, type Lang } from "@/lib/i18n";
+import { columnsOf, HEADER, homeOf, LANG_NAME, langOf, LANGS } from "@/lib/i18n";
 
 /** 上のタブ: Tsugiraku Navi（アプリ）／負担軽減コラム／コンタクト。どの画面にも出す。タップ領域は 44px 以上 */
 const TABS: { key: "navi" | "columns" | "contact"; href: string; match: string[] }[] = [
@@ -10,13 +10,6 @@ const TABS: { key: "navi" | "columns" | "contact"; href: string; match: string[]
   { key: "columns", href: "/articles", match: ["/articles"] },
   { key: "contact", href: "/contact", match: ["/contact"] },
 ];
-
-/** いまの言語: /<lang> のトップページならその言語。コラム（/articles?lang=）は ?lang=。それ以外は日本語 */
-function langOf(path: string, query: string | null): Lang {
-  const first = path.split("/")[1];
-  if (isLang(first)) return first;
-  return path.startsWith("/articles") && isLang(query) ? query : "ja";
-}
 
 export function SiteHeader() {
   const path = usePathname();

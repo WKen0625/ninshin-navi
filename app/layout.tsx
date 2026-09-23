@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Suspense } from "react";
 import { Nav } from "@/components/Nav";
+import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import "./globals.css";
 
@@ -17,21 +18,19 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet" />
+      </head>
       <body className="min-h-dvh antialiased">
         <Suspense fallback={<div className="mx-auto max-w-xl px-4 pt-5" />}>
           <SiteHeader />
         </Suspense>
         <main className="mx-auto max-w-xl px-4 py-6">{children}</main>
-        {/* 設計原則10: 医療的判断を返さない。全画面に添える。 */}
-        <footer className="mx-auto max-w-xl space-y-1 px-4 pb-32 pt-6 text-base text-slate-600">
-          <p className="notice notice-muted">最終確認は窓口・医療機関へ。</p>
-          <nav aria-label="このサイトについて" className="flex flex-wrap gap-x-4">
-            <a href="/contact" className="link">コンタクト</a>
-            <a href="/privacy" className="link">記録と同意（保存するもの・取り消し）</a>
-            <a href="/terms" className="link">利用規約（下書き）</a>
-            <a href="/policy" className="link">プライバシーポリシー（下書き）</a>
-          </nav>
-        </footer>
+        <Suspense fallback={<div className="pb-32" />}>
+          <SiteFooter />
+        </Suspense>
         <Nav />
       </body>
     </html>
