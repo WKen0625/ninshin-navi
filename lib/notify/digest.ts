@@ -127,8 +127,8 @@ export type Mail = { subject: string; text: string; html: string };
 export function renderDigestMail(digest: Digest, today: string, links: { todo: string; unsubscribe: string }): Mail {
   const subject =
     digest.deadlines.length > 0
-      ? `【妊娠手続きNavi】期限が近い手続きが${digest.deadlines.length}件あります`
-      : "【妊娠手続きNavi】いまやることの確認";
+      ? `【Tsugiraku Navi】期限が近い手続きが${digest.deadlines.length}件あります`
+      : "【Tsugiraku Navi】いまやることの確認";
 
   const item = (a: NextAction, withDeadline: boolean) => {
     const lines = [`・${a.step.title}`];
@@ -159,7 +159,7 @@ export function renderDigestMail(digest: Digest, today: string, links: { todo: s
 
 export function renderConfirmMail(links: { confirm: string }): Mail {
   const text = [
-    "妊娠手続きNaviの「メール通知」の登録を受け付けました。",
+    "Tsugiraku Naviの「メール通知」の登録を受け付けました。",
     "下のリンクを開いて「登録を完了する」を押すと、通知が始まります。",
     "",
     links.confirm,
@@ -171,5 +171,5 @@ export function renderConfirmMail(links: { confirm: string }): Mail {
   const html = `<div style="font-size:16px;line-height:1.7;color:#1f2937">${escapeHtml(text)
     .replace(/(https?:\/\/[^\s（）]+)/g, '<a href="$1">$1</a>')
     .replace(/\n/g, "<br>")}</div>`;
-  return { subject: "【妊娠手続きNavi】メール通知の登録を完了してください", text, html };
+  return { subject: "【Tsugiraku Navi】メール通知の登録を完了してください", text, html };
 }

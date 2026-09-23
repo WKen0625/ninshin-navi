@@ -3,11 +3,13 @@
 // ここは純粋関数だけ。localStorage の読み書きは components/useFamilyState.ts。
 
 import type { Family, Step } from "./next-actions";
+import { isStuckReason, type StuckReason } from "./stuck";
 
 export const STORAGE_KEY = "ninshin-navi:v1";
 
 export type Preferences = {
-  epidural: "yes" | "no" | "undecided";
+  /** yes_24h = 無痛分娩を希望し、24時間対応の病院を希望する */
+  epidural: "yes" | "yes_24h" | "no" | "undecided";
   /** 自宅から分娩施設までの目安 */
   distance: "30min" | "60min" | "any";
   /** 自宅の郵便番号（7桁）。時間の目安を出すためだけに使い、この端末の中にだけ保存する。住所は取らない */
@@ -33,6 +35,8 @@ export type FamilyState = {
   consent_sensitive: boolean;
   /** 完了チェック後の1問を、答えた／答えないと決めたステップ（同じ質問を何度も出さない） */
   surveys_closed: string[];
+  /** 「わからない」を押したステップと理由。一覧からは消さない（つまずいている手続きはそのまま見える） */
+  stuck: { step_id: string; reason: StuckReason; at: string }[];
 };
 
 export function toFamily(state: FamilyState): Family {
@@ -64,7 +68,14 @@ export function clearStep(state: FamilyState, stepId: string): FamilyState {
     ...state,
     held_documents: state.held_documents.filter((h) => h.from_step !== stepId),
     progress: state.progress.filter((p) => p.step_id !== stepId),
+    stuck: (state.stuck ?? []).filter((x) => x.step_id !== stepId),
   };
+}
+
+/** 「わからない」を付ける（理由つき）。完了・該当しないは外す。一覧には残す */
+export function markStuck(state: FamilyState, stepId: string, reason: StuckReason, today: string): FamilyState {
+  const cleared = clearStep(state, stepId);
+  return { ...cleared, stuck: [...cleared.stuck, { step_id: stepId, reason, at: today }] };
 }
 
 /** 入口で選んだ紙を入れ替える。完了チェックで手に入れた紙と、すでに選んでいた紙の受取日は保つ。 */
@@ -103,6 +114,7 @@ export function parseState(raw: string | null): FamilyState | null {
       consent_survey: s.consent_survey === true,
       consent_sensitive: s.consent_sensitive === true,
       surveys_closed: Array.isArray(s.surveys_closed) ? s.surveys_closed.filter((x) => typeof x === "string") : [],
+      stuck: Array.isArray(s.stuck) ? s.stuck.filter((x) => typeof x?.step_id === "string" && isStuckReason(x?.reason) && isDate(x?.at)) : [],
     };
   } catch {
     return null;

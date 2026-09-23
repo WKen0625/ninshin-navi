@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { ARCHIVE_KEY, parseArchive, type Archive } from "@/lib/archive";
 import { parseState, STORAGE_KEY, toFamily, type FamilyState } from "@/lib/family-state";
 
 /** この端末のブラウザ内にだけ保存する。loaded が true になるまでは、まだ読み込み中。 */
@@ -116,4 +117,31 @@ export function todayLocal(): string {
   const d = new Date();
   const p = (n: number) => String(n).padStart(2, "0");
   return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+}
+
+/** 分娩予約の記録のアーカイブ（ninshin-navi:archive）。家族の状態とは別に、この端末にずっと残す */
+export function useArchive() {
+  const [archive, setArchive] = useState<Archive>({ pregnancies: [] });
+  useEffect(() => {
+    try {
+      setArchive(parseArchive(window.localStorage.getItem(ARCHIVE_KEY)));
+    } catch {
+      // 読めなければ空のまま
+    }
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === ARCHIVE_KEY) setArchive(parseArchive(e.newValue));
+    };
+    window.addEventListener("storage", onStorage);
+    return () => window.removeEventListener("storage", onStorage);
+  }, []);
+  const saveArchive = useCallback((next: Archive) => {
+    setArchive(next);
+    try {
+      if (next.pregnancies.length > 0) window.localStorage.setItem(ARCHIVE_KEY, JSON.stringify(next));
+      else window.localStorage.removeItem(ARCHIVE_KEY);
+    } catch {
+      // 保存できなくても、この画面の中では動く
+    }
+  }, []);
+  return { archive, saveArchive };
 }

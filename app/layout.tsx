@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Tsugiraku｜妊娠手続きNavi",
+  title: "Tsugiraku Navi",
   description: "住んでいる区・出産予定日・手元にある紙から、次にやること・分娩予約の締切・実際の負担額がわかります。出典と確認日をすべて表示。広告なし・ログインなし。",
 };
 

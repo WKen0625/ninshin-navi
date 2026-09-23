@@ -182,7 +182,7 @@ async function notifyAdmin(summary: WatchSummary) {
     `一覧: pnpm watch:report ／ サイト: ${baseUrl()}`,
   ].join("\n");
   const html = `<pre style="font-size:14px;white-space:pre-wrap">${text.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c]!)}</pre>`;
-  await sendMail(to, { subject: `【妊娠手続きNavi・管理】出典ページの変更 ${hits.length}件`, text, html });
+  await sendMail(to, { subject: `【Tsugiraku Navi・管理】出典ページの変更 ${hits.length}件`, text, html });
 }
 
 export type WatchReport = { needs_review: { url: string; changed_at: string | null; diff_summary: string | null; refs: SourceRef[] }[]; trouble: { url: string; last_error: string; consecutive_failures: number }[]; watched: number };

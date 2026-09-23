@@ -139,7 +139,7 @@ export function MoneyView() {
 
   const facility = data?.money.facilities.find((f) => f.id === state?.preferences.facility_id) ?? null;
   const children = state?.preferences.children ?? 1;
-  const wantsEpidural = state?.preferences.epidural === "yes";
+  const wantsEpidural = state?.preferences.epidural === "yes" || state?.preferences.epidural === "yes_24h";
 
   const results = useMemo(() => {
     if (!state || !data) return [];
@@ -200,6 +200,7 @@ export function MoneyView() {
           <select className={field} value={state.preferences.epidural} onChange={(e) => setPref({ epidural: e.target.value as typeof state.preferences.epidural })}>
             <option value="undecided">まだ決めていない</option>
             <option value="yes">希望する</option>
+            <option value="yes_24h">希望する。24時間対応の病院を希望する</option>
             <option value="no">希望しない</option>
           </select>
         </label>

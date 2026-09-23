@@ -64,7 +64,7 @@ export async function DELETE(request: Request) {
   if (!s) return NextResponse.json({ error: "保存先が未設定" }, { status: 503 });
   const hash = reporterHash(body.device_id, s.secret);
   let deleted = 0;
-  for (const table of ["booking_reports", "cost_reports", "product_reports"]) {
+  for (const table of ["booking_reports", "cost_reports", "product_reports", "stuck_reports"]) {
     const { data, error } = await s.db.from(table).delete().eq("reporter_hash", hash).select("id");
     if (error) return NextResponse.json({ error: "消せませんでした" }, { status: 500 });
     deleted += data.length;

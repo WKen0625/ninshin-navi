@@ -6,6 +6,7 @@ import { setSelectedDocuments, type FamilyState, type Preferences } from "@/lib/
 import type { DocumentDef } from "@/lib/next-actions";
 import type { Rules } from "@/lib/rules";
 import { normalizePostal } from "@/lib/geo";
+import { DocumentPicker } from "./DocumentPicker";
 import { SourceLink } from "./SourceLink";
 import { todayLocal, useFamilyState } from "./useFamilyState";
 
@@ -104,6 +105,7 @@ export function EntryForm({ area }: { area: Area }) {
       consent_survey: state?.consent_survey ?? false,
       consent_sensitive: state?.consent_sensitive ?? false,
       surveys_closed: state?.region_code === region ? state.surveys_closed : [],
+      stuck: state?.region_code === region ? state.stuck : [],
     };
     const known = new Set(documents.map((d) => d.id));
     save(setSelectedDocuments(base, selected.filter((id) => known.has(id)), today));
@@ -179,6 +181,7 @@ export function EntryForm({ area }: { area: Area }) {
             <select className={field} value={preferences.epidural} onChange={(e) => setPreferences({ ...preferences, epidural: e.target.value as Preferences["epidural"] })}>
               <option value="undecided">まだ決めていない</option>
               <option value="yes">希望する</option>
+              <option value="yes_24h">希望する。24時間対応の病院を希望する</option>
               <option value="no">希望しない</option>
             </select>
           </label>
@@ -208,36 +211,20 @@ export function EntryForm({ area }: { area: Area }) {
       </fieldset>
 
       <fieldset className="card space-y-1">
-        <legend className={legend}>4. いま手元にある紙（いくつでも）</legend>
+        <legend className={legend}>4. いま手元にある紙</legend>
         {!rules ? (
           <p className="text-base text-gray-600">市区町村を選ぶと、選べる紙が出ます。</p>
         ) : (
-          <ul className="space-y-2">
-            {documents.map((d) => {
-              const inside = includedBy.get(d.id);
-              return (
-                <li key={d.id} className="rounded-xl border border-slate-200 bg-white/70 p-3">
-                  <label className="flex min-h-11 items-start gap-3 text-base">
-                    <input type="checkbox" className="check mt-1" checked={selected.includes(d.id) || inside != null} disabled={inside != null} onChange={() => toggle(d.id)} />
-                    <span>
-                      <span className="font-bold">{d.name}</span>
-                      {d.aliases?.length ? <span className="text-gray-600">（{d.aliases.join("、")}）</span> : null}
-                      {inside ? <span className="block text-gray-600">「{inside}」に入っています</span> : null}
-                      {d.description && d.id !== otherId ? <span className="block text-gray-600">{d.description}</span> : null}
-                    </span>
-                  </label>
-                  {d.source_url ? <div className="pl-9"><SourceLink url={d.source_url} verifiedAt={d.verified_at} /></div> : null}
-                  {d.id === otherId && selected.includes(d.id) ? (
-                    <label className="mt-2 block pl-9 text-base">
-                      紙に書いてある名前（名前や住所は書かないでください）
-                      <input type="text" maxLength={200} className={field} value={otherText} onChange={(e) => setOtherText(e.target.value)} />
-                      <span className="text-gray-600">一覧に追加するための参考として、紙の名前と市区町村だけを送ります。</span>
-                    </label>
-                  ) : null}
-                </li>
-              );
-            })}
-          </ul>
+          <DocumentPicker
+            documents={documents}
+            regionCode={region}
+            selected={selected}
+            includedBy={includedBy}
+            otherId={otherId}
+            otherText={otherText}
+            onToggle={toggle}
+            onOtherText={setOtherText}
+          />
         )}
       </fieldset>
 

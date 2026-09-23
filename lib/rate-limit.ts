@@ -3,7 +3,7 @@ import { createHash } from "node:crypto";
 import type { SupabaseClient } from "@supabase/supabase-js";
 
 /** 1時間あたりの上限。試用の規模（数家族）には十分ゆるく、連投のいたずらは止まる */
-export const LIMITS = { reports: 20, notifications: 5, suggestions: 10, feedback: 10 } as const;
+export const LIMITS = { reports: 20, notifications: 5, suggestions: 10, feedback: 10, stuck: 30 } as const;
 
 /**
  * 回数制限。超えていたら true（= 断る）。

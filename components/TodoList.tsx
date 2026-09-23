@@ -2,14 +2,15 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { clearStep, markStep, toFamily } from "@/lib/family-state";
+import { clearStep, markStep, markStuck, toFamily, type FamilyState } from "@/lib/family-state";
+import { STUCK_REASONS, stuckLabel, type StuckReason } from "@/lib/stuck";
 import { resolveNextActions, type NextAction, type Step } from "@/lib/next-actions";
 import type { Rules } from "@/lib/rules";
 import type { Survey } from "@/lib/surveys";
 import { FeedbackLink } from "./FeedbackLink";
 import { SourceLink } from "./SourceLink";
 import { SurveyCard } from "./SurveyCard";
-import { todayLocal, useFamilyState, useNotifyAvailable } from "./useFamilyState";
+import { getDeviceId, todayLocal, useFamilyState, useNotifyAvailable } from "./useFamilyState";
 
 const fmt = (d: string) => {
   const [y, m, day] = d.split("-").map(Number);
@@ -34,8 +35,92 @@ function Deadline({ action, today }: { action: NextAction; today: string }) {
   );
 }
 
-function ActionCard({ action, today, emphasized, regionCode, onMark }: { action: NextAction; today: string; emphasized: boolean; regionCode: string; onMark: (step: Step, status: "done" | "not_applicable") => void }) {
+type StuckStat = { reason: StuckReason; reports: number };
+
+/**
+ * 「わからない」。理由を1つ選んでもらい、同意があればサーバーに送る（どこでつまずくかの集計のため）。
+ * 送るのは ステップid・区・理由・妊娠週数 と、端末を区別する記号だけ。送らなくても、この端末には「わからない」の印が残る。
+ */
+function StuckBox({ step, state, week, onSave, onClose }: { step: Step; state: FamilyState; week: number | null; onSave: (next: FamilyState) => void; onClose: () => void }) {
+  const [reason, setReason] = useState<StuckReason | "">("");
+  const [agree, setAgree] = useState(state.consent_survey);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+  const [stats, setStats] = useState<StuckStat[] | null>(null);
+  const today = todayLocal();
+
+  async function submit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!reason) return setError("どこがわからないかを1つ選んでください。");
+    setError("");
+    const next = markStuck({ ...state, consent_survey: state.consent_survey || agree }, step.id, reason, today);
+    if (!agree) {
+      onSave(next);
+      return onClose();
+    }
+    setSending(true);
+    try {
+      const res = await fetch("/api/stuck", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ device_id: getDeviceId(true), region_code: state.region_code, step_id: step.id, reason, gestational_week: week, consent: true }),
+      });
+      if (!res.ok) throw new Error();
+      onSave(next);
+      setStats(((await res.json()) as { stats: StuckStat[] }).stats);
+    } catch {
+      setError("送れませんでした。この端末には「わからない」の印だけ付けます。");
+      onSave(next);
+    } finally {
+      setSending(false);
+    }
+  }
+
+  if (stats) {
+    const total = stats.reduce((n, x) => n + Number(x.reports), 0);
+    return (
+      <div className="card card-ai space-y-2">
+        <p className="text-base font-bold">ありがとうございます。記録しました。</p>
+        <p className="text-base">
+          同じ区でこの手続きに「わからない」を付けた人は、あなたを含めて{total}人です。
+          {total > 1 ? `いちばん多い理由は「${stuckLabel([...stats].sort((a, b) => Number(b.reports) - Number(a.reports))[0].reason)}」。` : ""}
+          運営が案内の書き方を直す材料にします。窓口に聞くときは、母子手帳と身分証を持っていくと早いです。
+        </p>
+        <button type="button" onClick={onClose} className="btn btn-ghost">閉じる</button>
+      </div>
+    );
+  }
+  return (
+    <form onSubmit={submit} className="card card-ai space-y-3">
+      <p className="text-base font-bold">どこがわからないですか（1つ）</p>
+      <div className="space-y-1">
+        {STUCK_REASONS.map((r) => (
+          <label key={r.value} className="flex min-h-11 items-center gap-3 text-base">
+            <input type="radio" name={`stuck-${step.id}`} className="check" checked={reason === r.value} onChange={() => setReason(r.value)} />
+            {r.label}
+          </label>
+        ))}
+      </div>
+      <label className="flex min-h-11 items-start gap-3 text-base">
+        <input type="checkbox" className="check mt-1" checked={agree} onChange={(e) => setAgree(e.target.checked)} />
+        <span>
+          この記録（手続きの名前・区・理由・妊娠週数）を運営に送ってよい。名前や連絡先は送りません。
+          <Link href="/privacy" className="link-inline ml-1">くわしく・取り消す方法</Link>
+        </span>
+      </label>
+      {error ? <p role="alert" className="notice notice-warn">{error}</p> : null}
+      <div className="flex flex-wrap gap-3">
+        <button type="submit" disabled={sending} className="btn btn-primary">{sending ? "送っています…" : "記録する"}</button>
+        <button type="button" onClick={onClose} className="btn btn-ghost">やめる</button>
+      </div>
+    </form>
+  );
+}
+
+function ActionCard({ action, today, emphasized, regionCode, state, week, onMark, onSave }: { action: NextAction; today: string; emphasized: boolean; regionCode: string; state: FamilyState; week: number | null; onMark: (step: Step, status: "done" | "not_applicable") => void; onSave: (next: FamilyState) => void }) {
   const { step } = action;
+  const [asking, setAsking] = useState(false);
+  const stuck = state.stuck.find((x) => x.step_id === step.id);
   return (
     <article className={emphasized ? "card card-hero space-y-3" : "card card-quiet space-y-2"}>
       {emphasized ? (
@@ -67,14 +152,29 @@ function ActionCard({ action, today, emphasized, regionCode, onMark }: { action:
         </Link>
       ) : null}
       <SourceLink url={step.source_url} verifiedAt={step.verified_at} needsReview={action.needs_review} />
-      <div className="flex flex-wrap gap-3">
-        <button type="button" onClick={() => onMark(step, "done")} className="btn btn-done">
-          完了した
-        </button>
-        <button type="button" onClick={() => onMark(step, "not_applicable")} className="btn btn-ghost">
-          自分は該当しない
-        </button>
-      </div>
+      {stuck ? (
+        <p className="notice notice-info flex flex-wrap items-center justify-between gap-2">
+          <span>「わからない」を付けています（{stuckLabel(stuck.reason)}）。窓口に聞くか、下の「まちがいを知らせる」から質問できます。</span>
+          <button type="button" onClick={() => onSave(clearStep(state, step.id))} className="btn btn-ghost">印を消す</button>
+        </p>
+      ) : null}
+      {asking ? (
+        <StuckBox step={step} state={state} week={week} onSave={onSave} onClose={() => setAsking(false)} />
+      ) : (
+        <div className="flex flex-wrap gap-3">
+          <button type="button" onClick={() => onMark(step, "done")} className="btn btn-done">
+            完了した
+          </button>
+          <button type="button" onClick={() => onMark(step, "not_applicable")} className="btn btn-ghost">
+            自分は該当しない
+          </button>
+          {!stuck ? (
+            <button type="button" onClick={() => setAsking(true)} className="btn btn-ghost">
+              わからない
+            </button>
+          ) : null}
+        </div>
+      )}
       {emphasized ? <FeedbackLink target={`steps:${step.id}`} regionCode={regionCode} /> : null}
     </article>
   );
@@ -186,21 +286,13 @@ export function TodoList() {
       <section className="space-y-3">
         <h2 className="h-section">次にやること</h2>
         {result.current ? (
-          <ActionCard action={result.current} today={today} emphasized regionCode={state.region_code} onMark={mark} />
+          <ActionCard action={result.current} today={today} emphasized regionCode={state.region_code} state={state} week={state.birth_date ? null : result.gestational_week} onMark={mark} onSave={save} />
         ) : (
           <p className="notice notice-done">
             いま出せる手続きは、すべて終わっています。新しい紙を受け取ったら「入力を直す」から追加してください。
           </p>
         )}
       </section>
-
-      {result.upcoming.length > 0 ? (
-        <section className="space-y-3">
-          <h2 className="h-section">このあと</h2>
-          <p className="text-base text-gray-600">期限が近いものが上、そのあとは手続きの順番です。先に終わったものがあれば、ここからチェックしてもかまいません。</p>
-          {result.upcoming.map((a) => <ActionCard key={a.step.id} action={a} today={today} emphasized={false} regionCode={state.region_code} onMark={mark} />)}
-        </section>
-      ) : null}
 
       {finished.length > 0 ? (
         <section className="space-y-2">
@@ -220,6 +312,14 @@ export function TodoList() {
           </ul>
         </section>
       ) : null}
+      {result.upcoming.length > 0 ? (
+        <section className="space-y-3">
+          <h2 className="h-section">このあと</h2>
+          <p className="text-base text-gray-600">期限が近いものが上、そのあとは手続きの順番です。先に終わったものがあれば、ここからチェックしてもかまいません。</p>
+          {result.upcoming.map((a) => <ActionCard key={a.step.id} action={a} today={today} emphasized={false} regionCode={state.region_code} state={state} week={state.birth_date ? null : result.gestational_week} onMark={mark} onSave={save} />)}
+        </section>
+      ) : null}
+
     </div>
   );
 }

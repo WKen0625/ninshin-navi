@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { LinkAction } from "@/components/LinkAction";
 
-export const metadata: Metadata = { title: "メール通知をやめる｜妊娠手続きNavi｜Tsugiraku", robots: { index: false } };
+export const metadata: Metadata = { title: "メール通知をやめる｜Tsugiraku Navi", robots: { index: false } };
 
 export default async function Page({ searchParams }: { searchParams: Promise<{ id?: string; sig?: string }> }) {
   const { id, sig } = await searchParams;

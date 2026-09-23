@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { addBooking, bookingsFor, countBookings, removeBooking, type BookingRecord } from "@/lib/archive";
 import { toFamily } from "@/lib/family-state";
 import { listFacilities, type FacilityItem } from "@/lib/facilities";
 import { lookupPostal, PREFERENCE_MINUTES, travelTo, type PostalTable, type Travel } from "@/lib/geo";
@@ -11,7 +12,7 @@ import type { Survey } from "@/lib/surveys";
 import { FeedbackLink } from "./FeedbackLink";
 import { SurveyCard } from "./SurveyCard";
 import { SourceLink } from "./SourceLink";
-import { todayLocal, useFamilyState } from "./useFamilyState";
+import { todayLocal, useArchive, useFamilyState } from "./useFamilyState";
 
 const yen = (n: number) => `${n.toLocaleString("ja-JP")}円`;
 const fmt = (d: string) => {
@@ -42,7 +43,7 @@ function DeadlineBox({ item }: { item: FacilityItem }) {
   );
 }
 
-function FacilityCard({ item, travel, chosen, regionCode, onChoose, onRecord }: { item: FacilityItem; travel: Travel | null; chosen: boolean; regionCode: string; onChoose: () => void; onRecord: (() => void) | null }) {
+function FacilityCard({ item, travel, mine, chosen, regionCode, onChoose, onRecord }: { item: FacilityItem; travel: Travel | null; /** この施設への、あなた自身の記録（この端末） */ mine: BookingRecord[]; chosen: boolean; regionCode: string; onChoose: () => void; onRecord: (() => void) | null }) {
   const f = item.facility;
   const map = f.lat != null && f.lng != null ? `https://www.google.com/maps/search/?api=1&query=${f.lat},${f.lng}` : null;
   return (
@@ -60,7 +61,7 @@ function FacilityCard({ item, travel, chosen, regionCode, onChoose, onRecord }: 
       {f.booking_policy ? (
         <div>
           <p className="text-base"><span className="font-bold">予約のルール: </span>{f.booking_policy}</p>
-          <SourceLink url={f.booking_source_url} verifiedAt={f.verified_at} />
+          <SourceLink url={f.booking_source_url} verifiedAt={f.verified_at} fallback="施設" />
         </div>
       ) : null}
 
@@ -107,11 +108,21 @@ function FacilityCard({ item, travel, chosen, regionCode, onChoose, onRecord }: 
         {f.website_url ? <a href={f.website_url} target="_blank" rel="noopener noreferrer" className="link">施設のページ</a> : null}
         {map ? <a href={map} target="_blank" rel="noopener noreferrer" className="link">地図で見る</a> : null}
       </div>
-      <SourceLink url={f.source_url} verifiedAt={f.verified_at} needsReview={f.needs_review} />
+      <SourceLink url={f.source_url} verifiedAt={f.verified_at} needsReview={f.needs_review} fallback="施設" />
 
+      {mine.length > 0 ? (
+        <div className="notice notice-done space-y-1">
+          <p className="font-bold">あなたの記録（この端末）</p>
+          <ul className="space-y-0.5">
+            {mine.map((b, i) => (
+              <li key={i}>{fmt(b.at)}: {b.summary || "記録あり"}{b.sent ? "" : "（運営には送っていません）"}</li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
       {onRecord ? (
         <button type="button" onClick={onRecord} className="btn btn-ghost w-full">
-          この施設に電話した結果を記録する（任意）
+          {mine.length > 0 ? "もう一度この施設に電話した結果を記録する" : "この施設に電話した結果を記録する（任意）"}
         </button>
       ) : null}
       <button type="button" onClick={onChoose} aria-pressed={chosen} className={`btn ${chosen ? "btn-primary" : "btn-ghost"}`}>
@@ -126,6 +137,7 @@ function FacilityCard({ item, travel, chosen, regionCode, onChoose, onRecord }: 
 
 export function HospitalList() {
   const { state, loaded, save } = useFamilyState();
+  const { archive, saveArchive } = useArchive();
   const [data, setData] = useState<HospitalData | null>(null);
   const [failed, setFailed] = useState(false);
   const [onlyEpidural, setOnlyEpidural] = useState<boolean | null>(null);
@@ -174,7 +186,9 @@ export function HospitalList() {
   const distancePref = state?.preferences.distance ?? "any";
 
   // 入口で「無痛分娩を希望する」と答えた人は、最初から絞り込んでおく（外せる）
-  const filter = onlyEpidural ?? state?.preferences.epidural === "yes";
+  const filter = onlyEpidural ?? (state?.preferences.epidural === "yes" || state?.preferences.epidural === "yes_24h");
+  // 「24時間対応の病院を希望する」なら、24時間対応と確認できた施設だけにする（外せる）
+  const only24h = filter && state?.preferences.epidural === "yes_24h";
   // 「自宅から30分／1時間」を選んだ人は、その目安に収まる施設に最初から絞る（外せる）。並びは変えない（おすすめ順にしない）
   const nearFilter = (onlyNear ?? true) && distancePref !== "any" && home != null;
   const travels = useMemo(() => {
@@ -185,9 +199,11 @@ export function HospitalList() {
   const items = useMemo(
     () =>
       state && data
-        ? listFacilities({ ...data, family: toFamily(state), today, onlyEpidural: filter }).filter((i) => !nearFilter || travels.get(i.facility.id)?.within !== false)
+        ? listFacilities({ ...data, family: toFamily(state), today, onlyEpidural: filter })
+            .filter((i) => !only24h || i.facility.epidural_24h === true)
+            .filter((i) => !nearFilter || travels.get(i.facility.id)?.within !== false)
         : [],
-    [state, data, today, filter, nearFilter, travels],
+    [state, data, today, filter, only24h, nearFilter, travels],
   );
 
   if (!loaded) return <p className="text-base">読み込み中…</p>;
@@ -222,7 +238,7 @@ export function HospitalList() {
         <>
           <label className="flex min-h-11 items-center gap-3 text-base">
             <input type="checkbox" className="check" checked={filter} onChange={(e) => setOnlyEpidural(e.target.checked)} />
-            無痛分娩ができると確認できた施設だけ（{items.length}件を表示中）
+            無痛分娩ができると確認できた施設だけ{only24h ? "（24時間対応）" : ""}（{items.length}件を表示中）
           </label>
           {distancePref !== "any" ? (
             home ? (
@@ -244,6 +260,7 @@ export function HospitalList() {
                   facilityId={item.facility.id}
                   onSave={save}
                   onSaved={() => setReload((n) => n + 1)}
+                  onRecorded={(record) => saveArchive(addBooking(archive, { due_date: state.due_date, region_code: state.region_code, region_name: state.region_name }, record))}
                   onClose={() => setRecording(null)}
                 />
               ) : (
@@ -251,6 +268,7 @@ export function HospitalList() {
                 key={item.facility.id}
                 item={item}
                 travel={travels.get(item.facility.id) ?? null}
+                mine={bookingsFor(archive, state.due_date, item.facility.id)}
                 onRecord={survey ? () => setRecording(item.facility.id) : null} // 出産後の人も、記憶で記録できる
                 chosen={state.preferences.facility_id === item.facility.id}
                 regionCode={state.region_code}
@@ -264,6 +282,33 @@ export function HospitalList() {
           </p>
         </>
       )}
+
+      {countBookings(archive) > 0 ? (
+        <section className="space-y-3">
+          <h2 className="h-section">記録した施設（この端末のアーカイブ）</h2>
+          <p className="text-base text-gray-700">予約を試した施設の記録です。妊娠ごと（予定日ごと）にまとめて、この端末にずっと残ります。次の妊娠のときも、ここで読み返せます。</p>
+          {archive.pregnancies.map((p) => (
+            <div key={p.due_date} className="card card-quiet space-y-2">
+              <p className="font-bold text-ink">
+                予定日 {fmt(p.due_date)}・{p.region_name || p.region_code}
+                {p.due_date === state.due_date ? "（いまの妊娠）" : ""}
+              </p>
+              <ul className="space-y-1 text-base">
+                {p.bookings.map((b, i) => (
+                  <li key={i} className="flex flex-wrap items-start justify-between gap-2">
+                    <span>
+                      <span className="font-bold">{b.facility_name}</span>
+                      <span className="block text-gray-700">{fmt(b.at)}: {b.summary || "記録あり"}{b.sent ? "" : "（運営には送っていません）"}</span>
+                    </span>
+                    <button type="button" onClick={() => saveArchive(removeBooking(archive, p.due_date, i))} className="inline-flex min-h-11 items-center text-base text-slate-500 underline decoration-slate-300 underline-offset-4">消す</button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          <p className="text-base text-gray-600">端末のブラウザのデータを消すと、このアーカイブも消えます。運営に送った記録を消すには「記録と同意」の画面へ。</p>
+        </section>
+      ) : null}
     </div>
   );
 }

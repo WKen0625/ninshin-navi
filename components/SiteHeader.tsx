@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-/** 上のタブ: 妊娠手続きNavi（アプリ）／記事／コンタクト。どの画面にも出す。タップ領域は 44px 以上 */
+/** 上のタブ: Tsugiraku Navi（アプリ）／記事／コンタクト。どの画面にも出す。タップ領域は 44px 以上 */
 const TABS = [
-  { href: "/navi", label: "妊娠手続きNavi", match: ["/navi", "/todo", "/hospitals", "/money", "/notify", "/privacy"] },
+  { href: "/navi", label: "Tsugiraku Navi", match: ["/navi", "/todo", "/hospitals", "/money", "/notify", "/privacy"] },
   { href: "/articles", label: "記事", match: ["/articles"] },
   { href: "/contact", label: "コンタクト", match: ["/contact"] },
 ];

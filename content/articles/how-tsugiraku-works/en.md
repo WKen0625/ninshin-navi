@@ -11,7 +11,7 @@ tags: [start-here]
 
 From the day you learn you are pregnant until a few weeks after the birth, there are more than ten pieces of paperwork in Japan: the pregnancy notification, the Mother-and-Child Health Handbook (母子手帳), prenatal check-up coupons, the hospital booking, the childbirth lump-sum allowance, the birth registration, the child allowance, health-insurance enrolment, and the subsidies your ward offers. Each has its own counter and deadline, and the details differ from ward to ward.
 
-Tsugiraku's **Pregnancy Paperwork Navi** replaces the scattered searching with **one thing: the single next step that applies to you right now.**
+Tsugiraku's **Tsugiraku Navi** replaces the scattered searching with **one thing: the single next step that applies to you right now.**
 
 ## You enter four things
 

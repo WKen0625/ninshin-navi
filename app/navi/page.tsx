@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { EntryForm } from "@/components/EntryForm";
 import { loadServiceArea } from "@/lib/service-area";
 
-export const metadata: Metadata = { title: "入力｜妊娠手続きNavi｜Tsugiraku" };
+export const metadata: Metadata = { title: "入力｜Tsugiraku Navi" };
 
 export default function NaviPage() {
   const area = loadServiceArea();

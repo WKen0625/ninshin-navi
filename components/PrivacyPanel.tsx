@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { forgetDeviceId, getDeviceId, getNotifyRegistration, setNotifyRegistration, useFamilyState } from "./useFamilyState";
+import { countBookings } from "@/lib/archive";
+import { forgetDeviceId, getDeviceId, getNotifyRegistration, setNotifyRegistration, useArchive, useFamilyState } from "./useFamilyState";
 
 const button = "btn btn-ghost";
 
 export function PrivacyPanel() {
   const { state, loaded, save } = useFamilyState();
+  const { archive, saveArchive } = useArchive();
   const [message, setMessage] = useState("");
 
   async function withdraw() {
@@ -43,10 +45,15 @@ export function PrivacyPanel() {
         <li>この端末への入力の保存: {state ? "あり" : "なし"}</li>
         <li>記録（アンケート）への同意: {state?.consent_survey ? "同意している" : "同意していない"}</li>
         <li>分娩方法など任意項目への同意: {state?.consent_sensitive ? "同意している" : "同意していない"}</li>
+        <li>「わからない」の印: {state?.stuck.length ?? 0}件（この端末）</li>
+        <li>分娩予約の記録のアーカイブ: {countBookings(archive)}件（この端末。妊娠{archive.pregnancies.length}回分）</li>
       </ul>
       <div className="flex flex-wrap gap-3">
         <button type="button" className={button} onClick={withdraw}>同意を取り消して、送った記録を消す</button>
         <button type="button" className={button} onClick={eraseAll}>この端末の入力をすべて消す</button>
+        {countBookings(archive) > 0 ? (
+          <button type="button" className={button} onClick={() => { saveArchive({ pregnancies: [] }); setMessage("分娩予約の記録のアーカイブを、この端末から消しました。"); }}>予約の記録のアーカイブを消す</button>
+        ) : null}
       </div>
       {message ? <p role="status" className="notice notice-done">{message}</p> : null}
     </section>

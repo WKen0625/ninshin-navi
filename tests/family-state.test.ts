@@ -28,6 +28,7 @@ const start: FamilyState = {
   consent_survey: false,
   consent_sensitive: false,
   surveys_closed: [],
+  stuck: [],
 };
 const current = (s: FamilyState) => resolveNextActions({ family: toFamily(s), today: TODAY, ...rules }).current?.step;
 const stepOf = (id: string) => rules.steps.find((s) => s.id === id)!;

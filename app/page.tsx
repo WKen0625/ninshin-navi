@@ -4,7 +4,7 @@ import { listArticles } from "@/lib/articles";
 import { loadServiceArea } from "@/lib/service-area";
 
 export const metadata: Metadata = {
-  title: "Tsugiraku｜妊娠・出産の手続きを、次の一歩から",
+  title: "Tsugiraku｜妊娠後の手続きで「次に何をするか」がすぐわかる",
   description: "住んでいる区・出産予定日・手元にある紙から、次にやること・分娩予約の締切・実際の負担額がわかります。すべての金額と期限に出典と確認日。広告なし・ログインなし。",
 };
 
@@ -14,11 +14,6 @@ const PROMISES = [
     title: "すべての金額と期限に、出典と確認日",
     body: "画面に出る数字には、区・都・国の公式ページへのリンクと、いつ確認したかを必ず添えています。出典のない情報は、仕組みのうえで表示できません。",
     icon: "M9 12h6M9 16h6M7 4h7l5 5v11a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z",
-  },
-  {
-    title: "病院の画面に、広告を置きません",
-    body: "施設の並びは「公表されている予約締切の週が早い順」だけ。おすすめ順や評価はつけません。病院からお金を受け取っていません。",
-    icon: "M12 3l8 4v5c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V7l8-4zM9 12l2 2 4-4",
   },
   {
     title: "名前もログインも、要りません",
@@ -44,19 +39,19 @@ export default function Home() {
   return (
     <div className="space-y-10">
       <section className="space-y-5">
-        <p className="chip-ai">{area.label}に住む妊婦さんと家族へ</p>
-        <h1 className="text-[2rem] leading-tight font-bold tracking-tight text-ink">
-          妊娠・出産の手続きを、
-          <span className="block bg-gradient-to-r from-indigo-600 via-violet-600 to-sky-500 bg-clip-text text-transparent">次の一歩から。</span>
+        <p className="chip-ai">東京都23区に住む妊婦さんとご家族へ</p>
+        <h1 className="text-[2.4rem] leading-[1.15] font-bold tracking-tight text-ink sm:text-[2.8rem]">
+          妊娠後の手続きで
+          <span className="block bg-gradient-to-r from-indigo-600 via-violet-600 to-sky-500 bg-clip-text text-transparent">「次に何をするか」が</span>
+          すぐわかる
         </h1>
         <p className="text-lg leading-relaxed text-slate-700">
           役所の手続き、分娩予約の締切、もらえるお金。ばらばらに調べなくても、いまのあなたに必要な「次にやること」を、出典つきで1件ずつ出します。
         </p>
         <div className="flex flex-col gap-3 sm:flex-row">
-          <Link href="/navi" className="btn btn-primary text-lg sm:flex-1">妊娠手続きNaviをはじめる</Link>
+          <Link href="/navi" className="btn btn-primary text-lg sm:flex-1">Tsugiraku Naviをはじめる</Link>
           <Link href="/articles" className="btn btn-ghost text-lg sm:flex-1">記事を読む</Link>
         </div>
-        <p className="text-base text-slate-600">無料・広告なし・ログインなし。入力は端末の中にだけ保存します。</p>
       </section>
 
       <section aria-labelledby="promises" className="space-y-4">
