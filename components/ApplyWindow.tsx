@@ -10,35 +10,37 @@ const fmt = (d: string) => {
 /** 申請ではない手続き（健診を受ける・面接を受ける）は「できる時期／期限」と書く */
 export const isApplication = (title: string) => /申請|届|免除|減額|軽減|加入|登録|書類|予約/.test(title);
 
-export function ApplyWindowBox({ window, today, label = "申請" }: { window: ApplyWindow; today: string; /** "申請" なら「申請できる／申請期限」、"" なら「できる時期／期限」 */ label?: string }) {
+export function ApplyWindowBox({ window, today, label = "申請" }: { window: ApplyWindow; today: string; /** "申請" なら「申請可能な時期／申請期限」、"" なら「可能な時期／期限」 */ label?: string }) {
   const { from, until } = window;
   if (!from && !until) return null;
   const overdue = until?.date != null && until.date < today;
+  // 見出しと日付は濃い琥珀色で太く、詳細（根拠の文章）は灰色で細く。色で読み分けられるようにする
+  const detail = "block text-base font-normal text-slate-600";
   return (
-    <dl className={`notice ${overdue ? "notice-warn" : "notice-warn"} grid grid-cols-[auto_1fr] gap-x-3 gap-y-1`}>
+    <dl className="notice notice-warn grid grid-cols-[auto_1fr] gap-x-3 gap-y-1">
       {from ? (
         <>
-          <dt className="font-bold">{label ? `${label}できる` : "できる時期"}</dt>
+          <dt className="font-bold text-amber-900">{label}可能な時期</dt>
           <dd>
-            {from.date ? <span className="font-bold">{fmt(from.date)}から</span> : null}
-            {from.text ? <span className={from.date ? "block" : "font-bold"}>{from.text}</span> : null}
+            {from.date ? <span className="font-bold text-amber-900">{fmt(from.date)}から</span> : null}
+            {from.text ? <span className={from.date ? detail : "font-bold text-amber-900"}>{from.text}</span> : null}
           </dd>
         </>
       ) : null}
       {until ? (
         <>
-          <dt className="font-bold">{label}期限</dt>
+          <dt className="font-bold text-amber-900">{label}期限</dt>
           <dd>
             {until.date ? (
-              <span className="text-lg font-bold">
+              <span className="text-lg font-bold text-amber-900">
                 {fmt(until.date)}まで{until.estimated ? "（推定）" : ""}
               </span>
             ) : (
-              <span className="font-bold">決まった日付はない</span>
+              <span className="font-bold text-amber-900">決まった日付はない</span>
             )}
-            {until.text ? <span className="block">{until.text}</span> : null}
-            {overdue ? <span className="block font-bold">期限を過ぎています。早めに窓口へ相談してください。</span> : null}
-            {until.estimated ? <span className="block">心拍を確認した日が未入力のため、予定日から推定しています。</span> : null}
+            {until.text ? <span className={detail}>{until.text}</span> : null}
+            {overdue ? <span className="block font-bold text-amber-900">期限を過ぎています。早めに窓口へ相談してください。</span> : null}
+            {until.estimated ? <span className={detail}>心拍を確認した日が未入力のため、予定日から推定しています。</span> : null}
           </dd>
         </>
       ) : null}
