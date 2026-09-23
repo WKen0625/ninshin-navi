@@ -63,7 +63,8 @@ describe("記事", () => {
 
   it("アフィリエイトのリンクを含む記事は pr: true と programs が必須（PR表記と規約の文言を出すため）", () => {
     for (const { slug, lang } of validateArticles()) {
-      const a = getArticle(slug, lang)!;
+      const a = getArticle(slug, lang);
+      if (!a) continue; // 下書き（draft: true）は公開前なので、公開の検査は通らない
       const links = a.blocks.flatMap((b) => ("text" in b ? [b.text] : b.items)).flatMap(parseInline).filter((p) => p.type === "link");
       const amazon = links.some((l) => l.type === "link" && /amzn\.(to|asia)|amazon\.co\.jp.*tag=/.test(l.href));
       const rakuten = links.some((l) => l.type === "link" && /a\.r10\.to|hb\.afl\.rakuten|rakuten\.co\.jp.*afid/.test(l.href));

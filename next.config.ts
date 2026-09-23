@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
     "/api/**": ["./data/**"],
     "/": ["./data/service-area.yaml", "./content/articles/**"],
     "/navi": ["./data/service-area.yaml"],
+    "/en": ["./data/service-area.yaml", "./content/articles/**"],
     "/contact": ["./data/service-area.yaml"],
     "/articles": ["./content/articles/**"],
     "/articles/[slug]": ["./content/articles/**"],
