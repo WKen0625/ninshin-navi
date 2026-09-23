@@ -18,7 +18,9 @@
     "feedback:list": "tsx --env-file-if-exists=.env.local scripts/feedback.ts",
     "preflight": "pnpm seed:check && pnpm typecheck && pnpm test && pnpm db:check-rls && pnpm watch:report",
     "build:postal": "tsx scripts/build-postal.ts",
-    "stuck:report": "tsx scripts/stuck.ts"
+    "stuck:report": "tsx scripts/stuck.ts",
+    "articles:export": "tsx scripts/articles-bundle.ts export",
+    "articles:import": "tsx scripts/articles-bundle.ts import"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.126.0",
