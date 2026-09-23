@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Suspense } from "react";
 import { Nav } from "@/components/Nav";
 import { SiteHeader } from "@/components/SiteHeader";
 import "./globals.css";
@@ -17,7 +18,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ja">
       <body className="min-h-dvh antialiased">
-        <SiteHeader />
+        <Suspense fallback={<div className="mx-auto max-w-xl px-4 pt-5" />}>
+          <SiteHeader />
+        </Suspense>
         <main className="mx-auto max-w-xl px-4 py-6">{children}</main>
         {/* 設計原則10: 医療的判断を返さない。全画面に添える。 */}
         <footer className="mx-auto max-w-xl space-y-1 px-4 pb-32 pt-6 text-base text-slate-600">

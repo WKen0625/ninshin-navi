@@ -10,18 +10,9 @@ import { parse } from "yaml";
 import { z } from "zod";
 import { parseMarkdown, type Block } from "./markdown";
 
-export const LANGS = ["ja", "en"] as const;
-
-/** 周期（妊娠のどの時期の読みものか）。一覧の並びと絞り込みに使う */
-export const STAGES = ["all", "early", "mid", "late", "birth", "postpartum"] as const;
-export type Stage = (typeof STAGES)[number];
-export const isStage = (v: string | null | undefined): v is Stage => STAGES.includes(v as Stage);
-export const STAGE_LABEL: Record<Lang, Record<Stage, string>> = {
-  ja: { all: "いつでも", early: "妊娠初期（〜15週）", mid: "妊娠中期（16〜27週）", late: "妊娠後期（28週〜）", birth: "出産・入院", postpartum: "産後" },
-  en: { all: "Any time", early: "1st trimester (–15w)", mid: "2nd trimester (16–27w)", late: "3rd trimester (28w–)", birth: "Birth & hospital stay", postpartum: "After birth" },
-};
-export type Lang = (typeof LANGS)[number];
-export const isLang = (v: string | null | undefined): v is Lang => LANGS.includes(v as Lang);
+import { isLang, isStage, LANGS, STAGE_LABEL, STAGES, type Lang, type Stage } from "./i18n";
+export { isLang, isStage, LANGS, STAGE_LABEL, STAGES };
+export type { Lang, Stage };
 
 const Front = z
   .object({
@@ -35,7 +26,7 @@ const Front = z
     /** 使っているアフィリエイトの仕組み（表示する規約上の文言を決める）。例: amazon */
     programs: z.array(z.enum(["amazon", "rakuten", "yahoo", "other"])).default([]),
     /** 周期。一覧の並び（周期順 → 新しい順）と絞り込み */
-    stage: z.enum(STAGES).default("all"),
+    stage: z.enum(["all", "early", "mid", "late", "birth", "postpartum"]).default("all"),
     /** 下書き。一覧に出さず、URL直打ちでも 404 */
     draft: z.boolean().default(false),
     /** 本文で使った出典（URL と 確認日） */

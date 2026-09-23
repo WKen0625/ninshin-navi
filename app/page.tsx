@@ -4,7 +4,7 @@ import { listArticles } from "@/lib/articles";
 import { loadServiceArea } from "@/lib/service-area";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "/", languages: { ja: "/", en: "/en" } },
+  alternates: { canonical: "/", languages: { ja: "/", en: "/en", zh: "/zh", ko: "/ko", ru: "/ru" } },
   title: "Tsugiraku｜妊娠後の手続きで「次に何をするか」がすぐわかる",
   description: "住んでいる区・出産予定日・手元にある紙から、次にやること・分娩予約の締切・実際の負担額がわかります。すべての金額と期限に出典と確認日。広告なし・ログインなし。",
 };

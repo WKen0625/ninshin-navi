@@ -48,7 +48,7 @@ describe("記事", () => {
     expect(ja.every((a) => !a.draft)).toBe(true);
     expect(ja.map((a) => a.published)).toEqual([...ja.map((a) => a.published)].sort().reverse());
     const intro = ja.find((a) => a.slug === "how-tsugiraku-works")!;
-    expect(intro.langs).toEqual(["ja", "en"]);
+    expect(intro.langs).toEqual(["ja", "en", "zh", "ko", "ru"]);
     expect(en.find((a) => a.slug === "how-tsugiraku-works")?.lang).toBe("en");
   });
 
