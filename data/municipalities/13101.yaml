@@ -64,13 +64,82 @@ documents:
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/ninpu-shienkyufu.html
     verified_at: 2026-09-20
 
+contacts:
+  # 出典: 千代田区「2026 千代田区子育て応援!! ガイドブック」（令和8年8月発行、区の公式PDF。#page= はPDFのページ番号）。冊子に無い窓口（国保・夜間休日窓口）は区の公式ページから。
+  - id: chiyoda.c_hoken_service
+    name: 千代田保健所 保健サービス課 保健サービス係
+    topics: 妊娠届・母子健康手帳（親子健康手帳）・母と子の保健バッグ・妊婦健康診査の受診票・里帰り出産などで自費で受けた妊婦健診・新生児聴覚検査・産婦健診・1か月児健診の費用助成・不妊治療の助成
+    phone: "03-6256-8477"
+    hours: 平日 8:30〜17:00（祝日・年末年始を除く）
+    address: 千代田区九段北1-2-14 千代田保健所6階
+    url: https://www.city.chiyoda.lg.jp/shisetsu/hokenjo/chiyoda-hokenjo.html
+    note: 妊娠届は千代田保健所・区役所2階総合窓口課・各出張所で出せる。歯科健診（妊産婦）は保健サービス係歯科保健担当 03-5211-8178
+    source_url: https://www.city.chiyoda.lg.jp/documents/1250/guidebook2026.pdf#page=6
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: chiyoda.c_hoken_sodan
+    name: 千代田保健所 保健サービス課 保健相談係
+    topics: ままぱぱ面談（妊婦の全数面談）・妊婦のための支援給付・妊娠後期訪問・産後ケア・出生通知票・赤ちゃん訪問（乳児家庭訪問）・乳幼児健診（新生児聴覚検査・1か月児健診など）・妊娠中や育児の相談
+    phone: "03-5211-8175"
+    hours: 平日 8:30〜17:00（祝日・年末年始を除く）。ままぱぱ面談は平日 9:00〜16:30（土曜は保健所のみ、事前予約制）
+    address: 千代田区九段北1-2-14 千代田保健所6階
+    url: https://www.city.chiyoda.lg.jp/shisetsu/hokenjo/chiyoda-hokenjo.html
+    note: 妊婦のための支援給付・産後ケア・妊娠後期訪問支援は母子保健係 03-6380-8552 でも受け付け。ままぱぱ面談は区役所2階 児童・家庭支援センター（保健所とオンライン面談）でも受けられる
+    source_url: https://www.city.chiyoda.lg.jp/documents/1250/guidebook2026.pdf#page=7
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: chiyoda.c_teate
+    name: 千代田区役所 子育て推進課 手当・医療係
+    topics: 児童手当・こども医療費助成（医療証）・出産費用助成・中高生世代応援手当・ひとり親家庭の手当と医療費助成
+    phone: "03-5211-4230"
+    hours: 平日 8:30〜17:00（第3土曜日も開庁、取り扱い業務は一部異なる）
+    address: 千代田区九段南1-2-1 千代田区役所2階
+    url: https://www.city.chiyoda.lg.jp/koho/kosodate/teate/shussanhiyojosei.html
+    note: 児童手当・こども医療費助成は子育て推進課または出張所の窓口で申請。出産費用助成は千代田区ポータルサイト・郵送・出張所・保健サービス課の窓口でも申請できる
+    source_url: https://www.city.chiyoda.lg.jp/documents/1250/guidebook2026.pdf#page=58
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: chiyoda.c_koseki
+    name: 千代田区役所 総合窓口課（戸籍係）
+    topics: 出生届・戸籍の届出・母子健康手帳への出生届出済証明
+    phone: "03-5211-4198"
+    hours: 平日 8:30〜17:00。毎月第3土曜日 8:30〜17:00 も開庁（第3土曜日が祝日の場合は第4土曜日。取り扱い業務は一部異なる）
+    address: 千代田区九段南1-2-1 千代田区役所2階
+    url: https://www.city.chiyoda.lg.jp/koho/kurashi/koseki/koseki/todokede.html
+    note: 夜間・休日は区役所1階の夜間休日窓口で届書を預かるだけで、内容の審査は翌開庁日。母子健康手帳への届出済証明や手当などの手続きも一緒にするなら平日 8:30〜17:00 に来庁する（それ以外の時間に出すと、出生に伴う他の手続きのために再度来庁が必要）
+    source_url: https://www.city.chiyoda.lg.jp/documents/1250/guidebook2026.pdf#page=10
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: chiyoda.c_kokuho
+    name: 千代田区役所 保険年金課 国民健康保険係
+    topics: 国民健康保険の加入・産前産後期間の保険料免除・出産育児一時金（千代田区の国民健康保険の人）
+    phone: "03-5211-4204"
+    hours: 平日 8:30〜17:00
+    address: 千代田区九段南1-2-1 千代田区役所2階
+    url: https://www.city.chiyoda.lg.jp/koho/kurashi/hoken/kenkohoken/kyuhu/syussanichijikin.html
+    note: ガイドブックには国民健康保険の案内が無く、区の公式ページから転記。出産育児一時金の申請は区役所2階の国民健康保険係の窓口へ直接持参
+    source_url: https://www.city.chiyoda.lg.jp/koho/kurashi/hoken/kenkohoken/kyuhu/syussanichijikin.html
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: chiyoda.c_kodomo_sodan
+    name: 児童・家庭支援センター 子ども相談窓口（区役所2階）
+    topics: 妊娠・出産・子育ての不安や困りごと、どこに相談していいか分からないこと。子育てコーディネーターによる子育て支援サービスの案内
+    phone: "03-5211-4116"
+    hours: 平日 9:00〜17:00（祝日・年末年始を除く。来所は事前に電話で予約）
+    address: 千代田区九段南1-2-1 千代田区役所2階
+    url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/guidebook.html
+    note: 子どもと家庭に関わる総合相談は子ども家庭相談係 03-5298-5521。24時間相談電話「千代田っこホットライン」03-3256-8150（24時間365日。夜間・休日は委託事業者が応対し、継続相談はできない）
+    source_url: https://www.city.chiyoda.lg.jp/documents/1250/guidebook2026.pdf#page=14
+    verified_at: 2026-09-25
+    needs_review: true
+
 steps:
   - id: chiyoda.s03
     overrides_step_id: jp.s03
     phase: notification
     sort_order: 30
     title: 妊娠届を出し、母子健康手帳と「母と子の保健バッグ」を受け取る
-    detail: 窓口は、保健サービス課（千代田保健所6階）、総合窓口課（区役所2階）、各出張所。持ち物は、本人確認書類（顔写真つきなら1点、顔写真なしなら2点）、個人番号（マイナンバー）が確認できる書類、診察券など診断を受けた医療機関の名前と所在地がわかるもの、妊婦本人が記入した「妊婦さんへのアンケート」。医療機関の証明書はいらない。マイナポータルの「ぴったりサービス」で電子申請もできるが、その場合も申請の翌日以降10日以内に窓口へ行って受け取る（郵送はしていない）。保健所で届け出ると、その場で「ままぱぱ面談」を受けられる。問い合わせ 03-6256-8477。
+    detail: 窓口は、保健サービス課（千代田保健所6階）、総合窓口課（区役所2階）、各出張所。持ち物は、本人確認書類（顔写真つきなら1点、顔写真なしなら2点）、個人番号（マイナンバー）が確認できる書類、診察券など診断を受けた医療機関の名前と所在地がわかるもの、妊婦本人が記入した「妊婦さんへのアンケート」。医療機関の証明書はいらない。マイナポータルの「ぴったりサービス」で電子申請もできるが、その場合も申請の翌日以降10日以内に窓口へ行って受け取る（郵送はしていない）。保健所で届け出ると、その場で「ままぱぱ面談」を受けられる。問い合わせ 03-6256-8477。母と子の保健バッグには、出生通知票（はがき）、妊婦健康診査・妊婦超音波検査・子宮頸がん検診・新生児聴覚検査・産婦健康診査・1か月児健康診査の各受診票、RSウイルスワクチン接種予診票などが入っている（2026 子育て応援ガイドブック）。
     trigger_document_id: jp.heartbeat_confirmed
     produces_document_id: chiyoda.hoken_bag
     channel: 千代田保健所6階 保健サービス課 / 区役所2階 総合窓口課 / 各出張所（電子申請のあと来庁）
@@ -79,6 +148,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
+    contact_id: chiyoda.c_hoken_service
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/boshitecho.html
     verified_at: 2026-09-20
 
@@ -86,7 +156,7 @@ steps:
     phase: pregnancy
     sort_order: 35
     title: ままぱぱ面談（妊婦の全数面談）を受ける
-    detail: 区内に住民登録があり、妊娠届を出した妊婦が対象。場所は千代田保健所6階の保健サービス課か、区役所2階の児童・家庭支援センター子ども相談窓口（区役所では保健所とオンラインで面談）。区役所か保健所で妊娠届を出した人は、その場で受けられる。出張所で出した人は、後日、面談場所へ行く。受付は平日の午前9時〜12時と午後1時〜4時15分。保健所は予約制で土曜日もあり、予約は千代田区ポータルサイトか電話 03-5211-8175。持ち物は母子健康手帳。初回の面談を受けると「こども商品券1万円」を受け取れる。このとき妊婦支援給付金（1回目）の申請のしかたも案内される。
+    detail: 区内に住民登録があり、妊娠届を出した妊婦が対象。場所は千代田保健所6階の保健サービス課か、区役所2階の児童・家庭支援センター子ども相談窓口（区役所では保健所とオンラインで面談）。区役所か保健所で妊娠届を出した人は、その場で受けられる。出張所で出した人は、後日、面談場所へ行く。受付は平日の午前9時〜12時と午後1時〜4時15分。保健所は予約制で土曜日もあり、予約は千代田区ポータルサイトか電話 03-5211-8175。持ち物は母子健康手帳。初回の面談を受けると「こども商品券1万円」を受け取れる。このとき妊婦支援給付金（1回目）の申請のしかたも案内される。平日は予約不要だが、ゆっくり相談したい場合は予約を取る（2026 子育て応援ガイドブック）。
     trigger_document_id: chiyoda.hoken_bag
     produces_document_id: chiyoda.shien_kyufu_annai_1
     channel: 千代田保健所6階 保健サービス課 / 区役所2階 児童・家庭支援センター
@@ -95,6 +165,7 @@ steps:
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: chiyoda.c_hoken_sodan
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/chiyomama.html
     verified_at: 2026-09-20
 
@@ -110,6 +181,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "心拍を確認した日から（区の面接・面談のあと）"
+    contact_id: chiyoda.c_hoken_sodan
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/ninpu-shienkyufu.html
     verified_at: 2026-09-20
 
@@ -125,6 +197,7 @@ steps:
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: chiyoda.c_hoken_service
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/shikakenshin.html
     verified_at: 2026-09-20
 
@@ -140,6 +213,7 @@ steps:
     apply_from_base: due_date
     apply_from_offset_days: -182
     apply_from_note: "出産予定日の6か月前から"
+    contact_id: chiyoda.c_kokuho
     source_url: https://www.city.chiyoda.lg.jp/koho/kurashi/hoken/kenkohoken/hokenryo-menjo.html
     verified_at: 2026-09-20
 
@@ -156,6 +230,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
+    contact_id: chiyoda.c_hoken_sodan
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/kenko/chokaku.html
     verified_at: 2026-09-20
 
@@ -163,7 +238,7 @@ steps:
     phase: postpartum
     sort_order: 72
     title: 千代田区の出産費用助成（最大31万円）を申請する
-    detail: 出産費用の実費から出産育児一時金を引いた自己負担分が助成される（1度の出産につき最大31万円。双子以上でも最大31万円）。健康保険の付加給付、高額療養費、東京都の無痛分娩費用助成などを受けたときは、その額も実費から引かれる。交通費などは対象外。窓口は区役所2階の子育て推進課、千代田保健所6階の保健サービス課、各出張所。郵送（子育て推進課あて）と千代田区ポータルサイトでも申請できる。必要なものは、申請書、領収書・明細書、出産した人の健康保険がわかる書類、出産育児一時金を受け取ったことがわかる書類（直接支払制度の利用明細書など）。区外へ引っ越す人は、必ず引っ越す前に申請する。問い合わせ 03-5211-4230（子育て推進課手当・医療係）。
+    detail: 出産費用の実費から出産育児一時金を引いた自己負担分が助成される（1度の出産につき最大31万円。双子以上でも最大31万円）。健康保険の付加給付、高額療養費、東京都の無痛分娩費用助成などを受けたときは、その額も実費から引かれる。交通費などは対象外。窓口は区役所2階の子育て推進課、千代田保健所6階の保健サービス課、各出張所。郵送（子育て推進課あて）と千代田区ポータルサイトでも申請できる。必要なものは、申請書、領収書・明細書、出産した人の健康保険がわかる書類、出産育児一時金を受け取ったことがわかる書類（直接支払制度の利用明細書など）。区外へ引っ越す人は、必ず引っ越す前に申請する。問い合わせ 03-5211-4230（子育て推進課手当・医療係）。ガイドブックでは、必要書類として産科機関の領収書、申請者の金融機関情報、出産育児一時金を受け取ったことが分かる書類、出産した人の健康保険情報が分かるものを挙げている（2026 子育て応援ガイドブック）。
     trigger_document_id: jp.hospital_receipt
     channel: 窓口 / 郵送 / オンライン（千代田区ポータルサイト）
     action_url: https://www.city.chiyoda.lg.jp/koho/kosodate/teate/shussanhiyojosei.html
@@ -174,6 +249,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    contact_id: chiyoda.c_teate
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/teate/shussanhiyojosei.html
     verified_at: 2026-09-20
 
@@ -191,6 +267,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    contact_id: chiyoda.c_hoken_service
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/josanjo.html
     verified_at: 2026-09-20
 
@@ -198,7 +275,7 @@ steps:
     phase: postpartum
     sort_order: 78
     title: 「出生通知票（はがき）」を送り、乳児家庭訪問（赤ちゃん訪問）を受ける
-    detail: 保健師などが家に来て、赤ちゃんの発育や健康状態を確かめ、育児の相談にのってくれる。対象は生後4か月までのすべての赤ちゃん（里帰り出産の人は相談する）。母子健康手帳にとじ込まれている「出生通知票（はがき）」を千代田保健所に送って申し込む。妊婦支援給付金（2回目）の申請のしかたは、この訪問のときに案内される。問い合わせ 03-5211-8175（保健サービス課保健相談係）。
+    detail: 保健師などが家に来て、赤ちゃんの発育や健康状態を確かめ、育児の相談にのってくれる。対象は生後4か月までのすべての赤ちゃん（里帰り出産の人は相談する）。母子健康手帳にとじ込まれている「出生通知票（はがき）」を千代田保健所に送って申し込む。妊婦支援給付金（2回目）の申請のしかたは、この訪問のときに案内される。問い合わせ 03-5211-8175（保健サービス課保健相談係）。出生通知票（はがき）は千代田区ポータルサイトからも出せる。訪問では保健師などが体重測定や発育状態の確認、育児に関する情報提供を行う（2026 子育て応援ガイドブック）。
     trigger_document_id: chiyoda.hoken_bag
     produces_document_id: chiyoda.akachan_homon_annai
     channel: 郵送（出生通知票のはがき）
@@ -207,6 +284,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から（なるべく早く）"
+    contact_id: chiyoda.c_hoken_sodan
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/kenko/homonshido.html
     verified_at: 2026-09-20
 
@@ -222,6 +300,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産後、区の訪問のあと"
+    contact_id: chiyoda.c_hoken_sodan
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/ninpu-shienkyufu.html
     verified_at: 2026-09-20
 
@@ -236,6 +315,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
+    contact_id: chiyoda.c_hoken_sodan
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/ninshin/sampu-kenshin.html
     verified_at: 2026-09-20
 
@@ -252,6 +332,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 28
     apply_from_note: "生後28日から"
+    contact_id: chiyoda.c_hoken_sodan
     source_url: https://www.city.chiyoda.lg.jp/koho/kosodate/kosodate/kenko/kenko1.html
     verified_at: 2026-09-20
 

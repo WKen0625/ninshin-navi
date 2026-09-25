@@ -76,13 +76,93 @@ documents:
     source_url: https://www.city.bunkyo.lg.jp/b029/p001542.html
     verified_at: 2026-09-20
 
+contacts:
+  # 出典: 文京区「文京区子育てガイド2026」（区の公式PDF。令和8年4月1日時点の情報）。#page= はPDFのページ番号（冊子の印刷ページ+4）
+  - id: bunkyo.c_hoken
+    name: 保健サービスセンター（文京保健所）
+    topics: 妊娠届・母子健康手帳・母と子の保健バッグ・ネウボラ面接・ネウボラ相談（保健師）・母親学級・両親学級・出生通知票・新生児訪問・産後ケア・沐浴指導・母乳相談
+    phone: "03-5803-1807"
+    hours: 月曜日〜金曜日（平日）8:30〜17:00
+    address: 文京区春日1-16-21 文京シビックセンター3階（健診フロア）・8階北側（事務室）
+    url: https://www.city.bunkyo.lg.jp/b029/p001562.html
+    note: 担当は住所で分かれる。後楽・春日・小石川・白山2〜4丁目・千石・水道・小日向・大塚・関口・目白台・音羽・本郷1・2・4〜6丁目・西片1丁目はこちら。それ以外は本郷支所（bunkyo.c_hongo）。健診・教室の案内では 03-5803-1805 も載っている
+    source_url: https://www.city.bunkyo.lg.jp/documents/11226/gaidozentai.pdf#page=14
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: bunkyo.c_hongo
+    name: 保健サービスセンター本郷支所
+    topics: 妊娠届・母子健康手帳・ネウボラ面接・ネウボラ相談・母親学級・両親学級・新生児訪問・産後ケア（本郷支所の担当地区の人）
+    phone: "03-3821-5106"
+    hours: 月曜日〜金曜日（平日）8:30〜17:00
+    address: 文京区千駄木5-20-18
+    url: https://www.city.bunkyo.lg.jp/b029/p001562.html
+    note: 担当地区は白山1・5丁目／本郷3・7丁目／湯島／西片2丁目／向丘／弥生／根津／千駄木／本駒込
+    source_url: https://www.city.bunkyo.lg.jp/documents/11226/gaidozentai.pdf#page=11
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: bunkyo.c_kenko
+    name: 健康推進課 健康増進係
+    topics: 妊婦のための支援給付（妊婦支援給付金）・妊婦健康診査／産婦健康診査／1か月児健康診査／新生児聴覚検査の受診票と払い戻し・妊娠高血圧症候群等医療費助成・養育医療・区民サービスコーナーの場所の案内
+    phone: "03-5803-1961"
+    address: 文京区春日1-16-21 文京シビックセンター8階南側
+    url: https://www.city.bunkyo.lg.jp/b027/p007561.html
+    source_url: https://www.city.bunkyo.lg.jp/documents/11226/gaidozentai.pdf#page=16
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: bunkyo.c_jido
+    name: 子育て支援事業コールセンター（子育て支援課 児童給付係）
+    topics: 児童手当・こどもの医療費助成（医療証）・児童扶養手当・育成手当などの手当
+    phone: "03-5803-1288"
+    hours: 月曜日〜金曜日 8:30〜17:00
+    address: 文京区春日1-16-21 文京シビックセンター5階南側（児童給付係）
+    source_url: https://www.city.bunkyo.lg.jp/documents/11226/gaidozentai.pdf#page=26
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: bunkyo.c_koseki
+    name: 戸籍住民課 戸籍係
+    topics: 出生届
+    phone: "03-5803-1183"
+    address: 文京区春日1-16-21 文京シビックセンター2階北側
+    note: 出生届は出生日から14日以内（出生日を含む）。持ち物は医師または助産師の証明のある出生届と母子健康手帳。夜間・休日に届け出たときは、出生届済証明書が翌日以降に郵送される。父母以外が持参してもよい
+    source_url: https://www.city.bunkyo.lg.jp/documents/11226/gaidozentai.pdf#page=20
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: bunkyo.c_kokuho
+    name: 国保年金課 国保資格係・国保給付係
+    topics: 国民健康保険の加入（赤ちゃんの加入）・出産育児一時金・高額療養費・産前産後期間の保険料の軽減（文京区の国民健康保険の人）
+    phone: "050-1725-5006"
+    address: 文京区春日1-16-21 文京シビックセンター11階南側
+    note: 電話は自動応答。国保組合や社会保険の人は、加入している健康保険の窓口へ
+    source_url: https://www.city.bunkyo.lg.jp/documents/11226/gaidozentai.pdf#page=20
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: bunkyo.c_kodomo
+    name: こども家庭支援センター（こどもと家庭の総合相談）
+    topics: こどもと家庭・子育ての悩みの相談（電話・来所・区ホームページの相談フォーム）
+    phone: "03-5803-1109"
+    hours: 月曜日〜金曜日 9:00〜17:00（祝日・年末年始を除く。時間外は留守電）
+    address: 文京区春日1-16-21 文京シビックセンター5階
+    note: 来所の場合は事前に電話で連絡する
+    source_url: https://www.city.bunkyo.lg.jp/documents/11226/gaidozentai.pdf#page=80
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: bunkyo.c_neuvola
+    name: ネウボラ相談（八千代助産院）
+    topics: 助産師による妊娠期から子育て期の健康・子育ての相談（365日）
+    phone: "03-5940-2102"
+    hours: 9:00〜17:00（365日）
+    address: 文京区音羽1-19-18 東京都助産師会館
+    source_url: https://www.city.bunkyo.lg.jp/documents/11226/gaidozentai.pdf#page=14
+    verified_at: 2026-09-25
+    needs_review: true
+
 steps:
   - id: bunkyo.s03
     overrides_step_id: jp.s03
     phase: notification
     sort_order: 30
     title: 妊娠届を出し、母子健康手帳と「母と子の保健バッグ」を受け取る
-    detail: 窓口は保健サービスセンター（文京シビックセンター8階）と保健サービスセンター本郷支所（月〜金の8時30分〜17時）。予約は不要。区民サービスコーナーでは平日の夜や土日祝日も受け取れるが、保健師はいない。持ち物は、届け出る人の本人確認書類と、妊婦本人の個人番号（マイナンバー）確認書類。同じ世帯でない人が行くときは委任状も必要。LoGoフォーム（区の電子申請）で先に妊娠届を出せるが、その場合も、住んでいる地区を受け持つ保健サービスセンターへ母子健康手帳を受け取りに行く。母子健康手帳を受け取る前の健診費用は助成されない。
+    detail: 窓口は保健サービスセンター（文京シビックセンター8階）と保健サービスセンター本郷支所（月〜金の8時30分〜17時）。予約は不要。区民サービスコーナーでは平日の夜や土日祝日も受け取れるが、保健師はいない。持ち物は、届け出る人の本人確認書類と、妊婦本人の個人番号（マイナンバー）確認書類。同じ世帯でない人が行くときは委任状も必要。LoGoフォーム（区の電子申請）で先に妊娠届を出せるが、その場合も、住んでいる地区を受け持つ保健サービスセンターへ母子健康手帳を受け取りに行く。母子健康手帳を受け取る前の健診費用は助成されない。「母と子の保健バッグ」には、妊婦健康診査・妊婦超音波検査・妊婦子宮頸がん検診・妊婦歯周疾患検診・新生児聴覚検査・産婦健康診査・1か月児健康診査の受診票や案内、出生通知票、母子健康手帳副読本、マタニティマークストラップが入っている（子育てガイド2026）。担当の保健サービスセンターは住所で分かれる（本郷支所の担当地区は白山1・5丁目、本郷3・7丁目、湯島、西片2丁目、向丘、弥生、根津、千駄木、本駒込）。
     trigger_document_id: jp.heartbeat_confirmed
     produces_document_id: bunkyo.hoken_bag
     channel: 保健サービスセンター / 本郷支所 / 区民サービスコーナー（電子申請のあと来所）
@@ -91,6 +171,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
+    contact_id: bunkyo.c_hoken
     source_url: https://www.city.bunkyo.lg.jp/b027/p001524.html
     verified_at: 2026-09-20
 
@@ -98,7 +179,7 @@ steps:
     phase: pregnancy
     sort_order: 35
     title: ネウボラ面接（妊婦面接）を受ける
-    detail: 母子保健コーディネーター（保健師）との面接。保健サービスセンターか本郷支所で妊婦本人が妊娠届を出したときは、その場で受けられる（予約不要）。区民サービスコーナーで届け出た人、本人以外が届け出た人、転入した人は、妊娠中に母子健康手帳を持って、8時30分〜17時に受け持ちの保健サービスセンターへ行く（予約不要）。面接を受けた妊婦は「育児パッケージ（子ども商品券）」を受け取れる（金額は区のページ本文に記載なし）。問い合わせは保健サービスセンター 03-5803-1807、本郷支所 03-3821-5106。
+    detail: 母子保健コーディネーター（保健師）との面接。保健サービスセンターか本郷支所で妊婦本人が妊娠届を出したときは、その場で受けられる（予約不要）。区民サービスコーナーで届け出た人、本人以外が届け出た人、転入した人は、妊娠中に母子健康手帳を持って、8時30分〜17時に受け持ちの保健サービスセンターへ行く（予約不要）。面接を受けた妊婦は「育児パッケージ（子ども商品券）」を受け取れる（金額は区のページ本文に記載なし）。問い合わせは保健サービスセンター 03-5803-1807、本郷支所 03-3821-5106。子育てガイド2026では、保健師・助産師が妊婦全員と面接し、終了後に育児パッケージを渡すとしている。窓口の場所はシビックセンター（保健サービスセンター）と千駄木5-20-18（本郷支所）。
     trigger_document_id: bunkyo.hoken_bag
     channel: 保健サービスセンター / 本郷支所
     action_url: https://www.city.bunkyo.lg.jp/b029/p001562.html
@@ -108,6 +189,7 @@ steps:
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: bunkyo.c_hoken
     source_url: https://www.city.bunkyo.lg.jp/b029/p001562.html
     verified_at: 2026-09-20
 
@@ -126,6 +208,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "心拍を確認した日から"
+    contact_id: bunkyo.c_kenko
     source_url: https://www.city.bunkyo.lg.jp/b027/p007561.html
     verified_at: 2026-09-20
 
@@ -137,6 +220,7 @@ steps:
     trigger_document_id: bunkyo.shika_kenshin_ticket
     channel: 区内の指定歯科医療機関
     action_url: https://www.city.bunkyo.lg.jp/b027/p001531.html
+    contact_id: bunkyo.c_kenko
     source_url: https://www.city.bunkyo.lg.jp/b027/p001531.html
     verified_at: 2026-09-20
 
@@ -144,13 +228,14 @@ steps:
     phase: pregnancy
     sort_order: 66
     title: （文京区の国民健康保険の人）産前産後期間の国民健康保険料の軽減を確認する
-    detail: 出産予定日または出産日の月の前月から4か月間（多胎は3か月前から6か月間）の所得割額と均等割額が免除される。妊娠85日以上の出産が対象。文京区に出産育児一時金を申請した人は自動で軽減され、届け出は要らない。文京区に出産育児一時金を申請していない人は別に申請が必要なので、国保年金課国保資格係（050-1725-5006・自動応答）に問い合わせる。
+    detail: 出産予定日または出産日の月の前月から4か月間（多胎は3か月前から6か月間）の所得割額と均等割額が免除される。妊娠85日以上の出産が対象。文京区に出産育児一時金を申請した人は自動で軽減され、届け出は要らない。文京区に出産育児一時金を申請していない人は別に申請が必要なので、国保年金課国保資格係（050-1725-5006・自動応答）に問い合わせる。子育てガイド2026では、国保年金課（シビックセンター11階南側）の電話は自動応答で、赤ちゃんの国保加入の手続きも同じ窓口としている。
     trigger_document_id: bunkyo.hoken_bag
     channel: 国保年金課国保資格係（文京シビックセンター11階）
     deadline_note: 期限は区のページに記載なし
     apply_from_base: due_date
     apply_from_offset_days: -182
     apply_from_note: "出産予定日の6か月前から"
+    contact_id: bunkyo.c_kokuho
     source_url: https://www.city.bunkyo.lg.jp/b021/p000425.html
     verified_at: 2026-09-20
 
@@ -165,6 +250,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
+    contact_id: bunkyo.c_kenko
     source_url: https://www.city.bunkyo.lg.jp/b027/p001532.html
     verified_at: 2026-09-20
 
@@ -172,7 +258,7 @@ steps:
     phase: postpartum
     sort_order: 75
     title: 出生通知票を郵送し、こんにちは赤ちゃん訪問（新生児訪問）を受ける
-    detail: 赤ちゃんが生まれたすべての家庭を、助産師か保健師が訪問する（無料）。対象は区内在住で生後4か月までの赤ちゃんと保護者。生まれたらすぐに「出生通知票」を郵送すると、日程調整の電話が来る。体重測定、育児や産後の体調の相談ができる。令和7年3月31日以前に妊娠届を出した人は、この訪問のときに支援給付2回目の案内チラシを受け取る。
+    detail: 赤ちゃんが生まれたすべての家庭を、助産師か保健師が訪問する（無料）。対象は区内在住で生後4か月までの赤ちゃんと保護者。生まれたらすぐに「出生通知票」を郵送すると、日程調整の電話が来る。体重測定、育児や産後の体調の相談ができる。令和7年3月31日以前に妊娠届を出した人は、この訪問のときに支援給付2回目の案内チラシを受け取る。子育てガイド2026では、母子健康手帳の二次元コードから出生通知票を出すか、電話で申し込むとしている。訪問のときに沐浴指導・相談や母乳相談（助産師の訪問型・外来型）も案内される。
     trigger_document_id: bunkyo.shussei_tsuchihyo
     channel: 郵送（出生通知票）→ 自宅に訪問
     action_url: https://www.city.bunkyo.lg.jp/b029/p001542.html
@@ -180,6 +266,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から（なるべく早く）"
+    contact_id: bunkyo.c_hoken
     source_url: https://www.city.bunkyo.lg.jp/b029/p001542.html
     verified_at: 2026-09-20
 
@@ -198,6 +285,7 @@ steps:
     apply_from_base: due_date
     apply_from_offset_days: -56
     apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
+    contact_id: bunkyo.c_kenko
     source_url: https://www.city.bunkyo.lg.jp/b027/p007561.html
     verified_at: 2026-09-20
 
@@ -212,6 +300,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
+    contact_id: bunkyo.c_kenko
     source_url: https://www.city.bunkyo.lg.jp/b027/p007569.html
     verified_at: 2026-09-20
 
@@ -226,6 +315,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 28
     apply_from_note: "生後28日から"
+    contact_id: bunkyo.c_kenko
     source_url: https://www.city.bunkyo.lg.jp/b027/p007571.html
     verified_at: 2026-09-20
 
@@ -243,6 +333,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    contact_id: bunkyo.c_kenko
     source_url: https://www.city.bunkyo.lg.jp/b027/p001526.html
     verified_at: 2026-09-20
 
