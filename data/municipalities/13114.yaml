@@ -65,13 +65,78 @@ documents:
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/teate_zyosei/ninpu.html
     verified_at: 2026-09-20
 
+contacts:
+  # 出典: 中野区「子育て支援ハンドブック おひるね」2025-2026年度版（全項PDF。#page= はPDFのページ番号で、1ページに印刷ページ2面）。冊子に無い夜間・休日の出生届受付は区の公式ページから
+  - id: nakano.c_sukoyaka
+    name: すこやか福祉センター（中部・北部・南部・鷺宮。お住まいの地域の担当センター）
+    topics: 妊娠届・母子健康手帳・母と子の保健バッグ・かんがるー面接・出生通知票・こんにちは赤ちゃん訪問・産後ケア事業・産婦健康診査・妊娠期からの育児やこころと体の健康の相談
+    phone: "03-3367-7788"
+    hours: 月〜土曜日 8:30〜17:00（日曜・祝日・12月29日〜1月3日は休み）
+    address: 中野区中央3-19-1（中部すこやか福祉センター）
+    url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/tetsuduki/ninshintodoke.html
+    note: 中部 03-3367-7788（中央3-19-1）／北部 03-3389-4321（江古田4-31-10）／南部 03-3380-5551（弥生町5-11-26）／鷺宮 03-3336-7111（若宮3-58-10）。住所によって担当のすこやか福祉センターが決まっている。保健師・栄養士・歯科衛生士・福祉職・心理職が相談を受ける
+    source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/tool/ohirune.files/zennkou.pdf#page=6
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: nakano.c_kodomo_sogo
+    name: 中野区役所3階 子ども総合窓口（子ども医療助成係）
+    topics: 妊娠届・母子健康手帳（区役所で出す場合）・妊婦健康診査・妊産婦歯科健康診査・新生児聴覚検査・里帰り等妊婦健康診査助成金・多胎妊婦健康診査費用の助成・妊娠高血圧症候群等医療費助成・子ども医療費助成（乳医療証）・子育てに関する各種手続き
+    phone: "03-3228-3253"
+    hours: 月〜金曜日 8:30〜17:00（祝日・12月29日〜1月3日を除く）
+    url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/syussan/tetsuduki/index.html
+    note: 子ども総合窓口の代表は 03-3228-5484。妊娠高血圧症候群等医療費助成・ひとり親家庭等医療費助成の問い合わせは子ども医療助成係 03-3228-5623
+    source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/tool/ohirune.files/zennkou.pdf#page=18
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: nakano.c_teate
+    name: 中野区役所3階 子ども総合窓口 児童手当係
+    topics: 児童手当
+    phone: "03-3228-8952"
+    hours: 月〜金曜日 8:30〜17:00（祝日・12月29日〜1月3日を除く）
+    url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/syussan/tetsuduki/index.html
+    note: 出生日や転出予定日の翌日から15日以内に届け出ないと、支給されない月が生じることがある。公務員は原則として勤務先で申請。子ども医療費助成（乳医療証）の申請は子ども総合窓口 03-3228-3253
+    source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/tool/ohirune.files/zennkou.pdf#page=18
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: nakano.c_koseki
+    name: 戸籍住民課 戸籍係（中野区役所2階5番窓口）
+    topics: 出生届・母子健康手帳への出生届出済証明・戸籍の届出
+    phone: "03-3228-5503"
+    hours: 月〜金曜日 8:30〜17:00
+    url: https://www.city.tokyo-nakano.lg.jp/kurashi/koseki/koseki/syussyotodoke.html
+    note: 出生届は地域事務所（南中野 03-3382-1457／東部 03-3363-0752／江古田 03-3954-6812／野方 03-3330-4201／鷺宮 03-3330-4112。平日 8:30〜17:00）でも受け付ける。夜間・休日（平日17:00〜翌8:30、土曜・日曜・祝日・年末年始）は区役所1階宿直窓口で届書を預かるのみ（翌開庁日に戸籍係が確認し、不備がなければ届出日にさかのぼって受理）。宿直窓口では母子健康手帳への出生届出済証明はできないので、翌開庁日以降に戸籍係へ母子健康手帳を持参する
+    source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/tool/ohirune.files/zennkou.pdf#page=17
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: nakano.c_kokuho
+    name: 保険医療課 国保給付係（中野区役所2階）
+    topics: 中野区の国民健康保険の出産育児一時金
+    phone: "03-3228-5508"
+    hours: 月〜金曜日 8:30〜17:00（祝日・12月29日〜1月3日を除く）
+    url: https://www.city.tokyo-nakano.lg.jp/kurashi/hoken/hokenryo/0234707520231031160300299.html
+    note: 出産した医療機関で直接支払制度の手続きをした場合、中野区の国保の人は申請不要。産前産後期間の国民健康保険料の免除は資格賦課係（2階）03-3228-5511（必要書類は母子手帳・身分証明書）。国民年金保険料の免除は国民年金係（2階）03-3228-5514
+    source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/tool/ohirune.files/zennkou.pdf#page=18
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: nakano.c_sodan
+    name: 子ども・若者支援センター 総合相談係
+    topics: 18歳未満の子どもとその家庭に関するあらゆる相談（子育ての不安、家庭のこと、子どもショートステイなど）
+    phone: "03-5937-3257"
+    hours: 月〜金曜日 8:30〜17:00（祝日・12月29日〜1月3日を除く）
+    address: 中野区中央1-41-2
+    url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/index.html
+    note: 子育てに関する各種相談は各すこやか福祉センターでも受ける。子どもの急病で受診に迷うときは東京都「子供の健康相談室」#8000 または 03-5285-8898（平日 18:00〜翌8:00、土日祝・年末年始 8:00〜翌8:00）
+    source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/tool/ohirune.files/zennkou.pdf#page=42
+    verified_at: 2026-09-25
+    needs_review: true
+
 steps:
   - id: nakano.s03
     overrides_step_id: jp.s03
     phase: notification
     sort_order: 30
     title: 妊娠届を出し、母子健康手帳と「母と子の保健バッグ」を受け取る
-    detail: 窓口は、すこやか福祉センター（月〜土の8時30分〜17時）と、区役所3階の子ども総合窓口（月〜金の8時30分〜17時）。持ち物は、妊婦の個人番号（マイナンバー）を確認できるもの1点と、本人確認ができるもの（マイナンバーカードなどは1点、保険証などは2点）。同じ世帯でない代理人が届け出るときは委任状が必要。マイナポータルの「ぴったりサービス」で電子申請もできる（マイナンバーカードが必要）が、その場合も母子健康手帳と保健バッグを受け取りに窓口へ行く必要がある。
+    detail: 窓口は、すこやか福祉センター（月〜土の8時30分〜17時）と、区役所3階の子ども総合窓口（月〜金の8時30分〜17時）。持ち物は、妊婦の個人番号（マイナンバー）を確認できるもの1点と、本人確認ができるもの（マイナンバーカードなどは1点、保険証などは2点）。同じ世帯でない代理人が届け出るときは委任状が必要。マイナポータルの「ぴったりサービス」で電子申請もできる（マイナンバーカードが必要）が、その場合も母子健康手帳と保健バッグを受け取りに窓口へ行く必要がある。妊娠届を出すときに「妊婦のための支援給付（産前）」の案内がある。母と子の保健バッグには、都内の医療機関で使う妊婦健康診査・超音波検査・子宮頸がん検診の受診票と新生児聴覚検査受診票が一緒にとじられている（子育て支援ハンドブック おひるね）。
     trigger_document_id: jp.heartbeat_confirmed
     produces_document_id: nakano.hoken_bag
     channel: すこやか福祉センター / 区役所3階子ども総合窓口（電子申請のあと来庁）
@@ -80,6 +145,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
+    contact_id: nakano.c_sukoyaka
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/tetsuduki/ninshintodoke.html
     verified_at: 2026-09-20
 
@@ -96,6 +162,7 @@ steps:
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: nakano.c_sukoyaka
     source_url: https://www.city.tokyo-nakano.lg.jp/dept/172050/d021411.html
     verified_at: 2026-09-20
 
@@ -118,13 +185,14 @@ steps:
     phase: pregnancy
     sort_order: 57
     title: 妊産婦歯科健康診査を受ける（健診と保健指導は無料）
-    detail: 指定の医療機関に「中野区妊産婦歯科健診」と伝えて予約する。健診と保健指導は無料で、そのほかの治療は自己負担。里帰り出産などで妊娠中に受けられなかった人は、出産後1年まで受けられる。回数は区のページに記載なし。
+    detail: 指定の医療機関に「中野区妊産婦歯科健診」と伝えて予約する。健診と保健指導は無料で、そのほかの治療は自己負担。里帰り出産などで妊娠中に受けられなかった人は、出産後1年まで受けられる。回数は区のページに記載なし。「母と子の保健バッグ」に入っている案内を見て、指定医療機関に電話で予約する。受診票は指定医療機関にある（子育て支援ハンドブック おひるね）。
     trigger_document_id: nakano.hoken_bag
     channel: 区の指定医療機関（歯科）
     deadline_note: 妊娠中（受けられなかった人は出産後1年まで）
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: nakano.c_kodomo_sogo
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/kenshin/ninpukenkoshinsa_jyushin.html
     verified_at: 2026-09-20
 
@@ -140,6 +208,7 @@ steps:
     apply_from_base: due_date
     apply_from_offset_days: -182
     apply_from_note: "出産予定日の6か月前から"
+    contact_id: nakano.c_kokuho
     source_url: https://www.city.tokyo-nakano.lg.jp/kurashi/hoken/hokenryo/0234707520231031160300299.html
     verified_at: 2026-09-20
 
@@ -156,6 +225,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
+    contact_id: nakano.c_kodomo_sogo
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/teate/shien/cyokakukensa.html
     verified_at: 2026-09-20
 
@@ -163,7 +233,7 @@ steps:
     phase: postpartum
     sort_order: 75
     title: 「出生通知票」を出し、こんにちは赤ちゃん訪問を受ける
-    detail: 生後4か月以内の赤ちゃんのいる家庭を、保健師または訪問指導員が訪問する。「母と子の保健バッグ」に入っている出生通知票（はがき）に記入して投函するか、電子申請で担当のすこやか福祉センターあてに出す。訪問のときに、妊婦のための支援給付（産後）の申請案内を受け取る（令和7年4月1日以降に出産した人）。
+    detail: 生後4か月以内の赤ちゃんのいる家庭を、保健師または訪問指導員が訪問する。「母と子の保健バッグ」に入っている出生通知票（はがき）に記入して投函するか、電子申請で担当のすこやか福祉センターあてに出す。訪問のときに、妊婦のための支援給付（産後）の申請案内を受け取る（令和7年4月1日以降に出産した人）。出生届は区役所2階の戸籍係か地域事務所で受け付ける。訪問日は出生通知票をもとに調整され、赤ちゃんの発育やお母さんの健康・子育ての相談を受けられる（子育て支援ハンドブック おひるね）。
     trigger_document_id: nakano.shussho_tsuchi
     produces_document_id: nakano.akachan_homon_annai
     channel: はがき / オンライン（電子申請）のあと、自宅で訪問を受ける
@@ -172,6 +242,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から（なるべく早く）"
+    contact_id: nakano.c_sukoyaka
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/syussan/sangoshien/akachanhomon.html
     verified_at: 2026-09-20
 
@@ -201,6 +272,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
+    contact_id: nakano.c_sukoyaka
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/kenshin/sannpukennsinn.html
     verified_at: 2026-09-20
 
@@ -218,6 +290,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    contact_id: nakano.c_kodomo_sogo
     source_url: https://www.city.tokyo-nakano.lg.jp/dept/242900/d001464.html
     verified_at: 2026-09-20
 

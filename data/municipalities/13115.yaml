@@ -71,13 +71,75 @@ documents:
     source_url: https://www.city.suginami.tokyo.jp/s054/1125.html
     verified_at: 2026-09-20
 
+contacts:
+  # 出典: 杉並区「令和8年度版 子育て便利帳」（区の公式PDF。分割PDFごとの #page= はそのPDFのページ番号。案内ページ https://www.city.suginami.tokyo.jp/s053/1024.html）。冊子に無い夜間・休日の出生届受付は区の公式ページから
+  - id: suginami.c_hoken_center
+    name: 保健センター（荻窪・高井戸・高円寺・上井草・和泉。担当地域の保健センター）
+    topics: 妊娠届・母子健康手帳・母と子の保健バッグ・ゆりかご面接・妊婦健康診査・母親学級・すこやか赤ちゃん連絡票（出生通知票）・すこやか赤ちゃん訪問・産婦健康診査・1か月児健康診査・新生児聴覚検査の精密健康診査・妊娠高血圧症候群等医療費助成・保健指導票・妊娠中の心配ごとの相談
+    phone: "03-3391-0015"
+    address: 杉並区荻窪5-20-1（荻窪保健センター・杉並保健所）
+    url: https://www.city.suginami.tokyo.jp/s054/1109.html
+    note: 荻窪 03-3391-0015（荻窪5-20-1）／高井戸 03-3334-4304（高井戸東3-20-3）／高円寺 03-3311-0116（高円寺南3-24-15）／上井草 03-3394-1212（上井草3-8-19）／和泉 03-3313-9331（和泉4-50-6）。担当地域は住所（丁目・番）で決まる（便利帳 p.129）
+    source_url: https://www.city.suginami.tokyo.jp/documents/1024/r8kosodatebenricho_4_21.pdf#page=1
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: suginami.c_boshi
+    name: 地域子育て支援課 母子保健係（区役所東棟3階）
+    topics: 妊娠届・母子健康手帳（区役所で出す場合）・妊婦歯科健康診査・里帰り出産などの妊婦健康診査費用と新生児聴覚検査費用の助成・多胎妊娠の妊婦健康診査費用の助成・産後ケア事業の申請
+    phone: "03-3312-2111"
+    address: 杉並区阿佐谷南1-15-1 杉並区役所
+    url: https://www.city.suginami.tokyo.jp/s054/1109.html
+    note: 03-3312-2111 は区役所の代表番号。内線 1806・1359・1829。産後ケア事業の郵送申請先は「杉並区地域子育て支援課母子保健係 産後ケア事業担当」あて
+    source_url: https://www.city.suginami.tokyo.jp/documents/1024/r8kosodatebenricho_4_21.pdf#page=4
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: suginami.c_shien
+    name: 地域子育て支援課 子育て支援係
+    topics: 妊婦のための支援給付（妊婦支援給付金）・杉並子育て応援券・バースデーサポート事業・多胎児家庭のタクシー利用券
+    phone: "03-5307-0786"
+    address: 杉並区阿佐谷南1-15-1 杉並区役所
+    url: https://www.city.suginami.tokyo.jp/s054/1125.html
+    source_url: https://www.city.suginami.tokyo.jp/documents/1024/r8kosodatebenricho_4_21.pdf#page=18
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: suginami.c_teate
+    name: 子ども家庭部管理課 子ども医療・手当係
+    topics: 子ども医療証（子どもの医療費助成）・児童手当
+    phone: "03-5307-0785"
+    address: 杉並区阿佐谷南1-15-1 杉並区役所
+    url: https://www.city.suginami.tokyo.jp/guide/kosodate/teate/index.html
+    note: 児童手当の問い合わせは児童手当専用ダイヤル 03-5913-9389。児童手当は出生日の翌日から数えて15日以内に請求する（15日を過ぎると手当を受け取れない月が発生する場合がある。公務員は勤務先へ）。子ども医療証の申請には赤ちゃんの健康保険の資格情報が必要
+    source_url: https://www.city.suginami.tokyo.jp/documents/1024/r8kosodatebenricho_22_31.pdf#page=1
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: suginami.c_koseki
+    name: 区民課 戸籍係（区役所1階3番）
+    topics: 出生届・母子健康手帳への出生届出済証明・戸籍の届出
+    phone: "03-5307-0624"
+    hours: 月曜日〜金曜日 8:30〜17:00
+    address: 杉並区阿佐谷南1-15-1 杉並区役所
+    url: https://www.city.suginami.tokyo.jp/s018/1002.html
+    note: 便利帳の問い合わせ番号は 03-5307-0624・03-5307-0641・03-5307-0642。区民事務所でも受け付ける（月・火・木・金 8:30〜17:00、水 8:30〜19:00。父母が日本人で日本国内で生まれた場合のみ。水曜17:00以降は預かりのみ）。土曜日は区民課区民係（第1・3・5土曜 9:00〜17:00）か区民事務所（第2・4土曜 9:00〜17:00）で預かりのみ。休日・夜間（平日17:00〜翌8:30、日曜・祝日・12月29日〜1月3日は終日）は区役所地下1階（青梅街道側）で預かりのみで、翌開庁日に内容を確認する。母子健康手帳を持って行けないときは後日持参する
+    source_url: https://www.city.suginami.tokyo.jp/documents/1024/r8kosodatebenricho_22_31.pdf#page=1
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: suginami.c_kokuho
+    name: 国保年金課 国保資格係・国保給付係（区役所東棟2階）
+    topics: 国民健康保険の加入（赤ちゃんの加入）・産前産後期間の保険料軽減（国保資格係）・出産育児一時金の申請（国保給付係）
+    address: 杉並区阿佐谷南1-15-1 杉並区役所
+    url: https://www.city.suginami.tokyo.jp/s035/2022.html
+    note: 便利帳に電話番号の記載なし（区役所代表 03-3312-2111）。国保以外の健康保険の人は勤務先の健康保険担当窓口へ
+    source_url: https://www.city.suginami.tokyo.jp/documents/1024/r8kosodatebenricho_22_31.pdf#page=1
+    verified_at: 2026-09-25
+    needs_review: true
+
 steps:
   - id: suginami.s03
     overrides_step_id: jp.s03
     phase: notification
     sort_order: 30
     title: 妊娠届を出し、母子健康手帳と「母と子の保健バッグ」を受け取る
-    detail: 窓口は、担当地域の保健センター（荻窪・高井戸・高円寺・上井草・和泉）か、区役所の地域子育て支援課母子保健係（東棟3階）。持ち物は、妊婦のマイナンバーの確認書類（マイナンバーカードなど。番号がわからなくても届出はできる）と、届出人の本人確認書類（顔写真つきなら1点、なければ2点）。代理人は委任状も必要。保健センターで「ゆりかご面接」も同時に受けたいときは電話で予約する。区役所（平日・第2水曜の夜間）と土曜の荻窪ゆりかご面接コーナーは、申請フォームで希望日の2営業日前までに予約する。マイナポータルで電子申請もできるが、それだけでは終わらず、母子健康手帳と保健バッグの受け取りと面接のために、あとで来庁が必要。
+    detail: 窓口は、担当地域の保健センター（荻窪・高井戸・高円寺・上井草・和泉）か、区役所の地域子育て支援課母子保健係（東棟3階）。持ち物は、妊婦のマイナンバーの確認書類（マイナンバーカードなど。番号がわからなくても届出はできる）と、届出人の本人確認書類（顔写真つきなら1点、なければ2点）。代理人は委任状も必要。保健センターで「ゆりかご面接」も同時に受けたいときは電話で予約する。区役所（平日・第2水曜の夜間）と土曜の荻窪ゆりかご面接コーナーは、申請フォームで希望日の2営業日前までに予約する。マイナポータルで電子申請もできるが、それだけでは終わらず、母子健康手帳と保健バッグの受け取りと面接のために、あとで来庁が必要。保健センターの電話は、荻窪 03-3391-0015／高井戸 03-3334-4304／高円寺 03-3311-0116／上井草 03-3394-1212／和泉 03-3313-9331。妊娠届のとき、妊婦のRSウイルス感染症予防接種の予診票も交付される（令和8年度版 子育て便利帳）。
     trigger_document_id: jp.heartbeat_confirmed
     produces_document_id: suginami.hoken_bag
     channel: 保健センター または 区役所 地域子育て支援課母子保健係（電子申請のあと来庁）
@@ -86,6 +148,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
+    contact_id: suginami.c_hoken_center
     source_url: https://www.city.suginami.tokyo.jp/s054/1109.html
     verified_at: 2026-09-20
 
@@ -104,6 +167,7 @@ steps:
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: suginami.c_hoken_center
     source_url: https://www.city.suginami.tokyo.jp/s054/22919.html
     verified_at: 2026-09-20
 
@@ -119,6 +183,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "区の妊婦面接・面談のあと"
+    contact_id: suginami.c_shien
     source_url: https://www.city.suginami.tokyo.jp/s054/1125.html
     verified_at: 2026-09-20
 
@@ -126,13 +191,14 @@ steps:
     phase: pregnancy
     sort_order: 57
     title: 妊婦歯科健康診査を受ける（妊娠中に1回・無料）
-    detail: 区内の指定歯科医療機関で、受診票を使って受ける。内容は問診、口の中の診査、結果にもとづく保健指導（1回）。費用は無料。
+    detail: 区内の指定歯科医療機関で、受診票を使って受ける。内容は問診、口の中の診査、結果にもとづく保健指導（1回）。費用は無料。案内は「母と子の保健バッグ」に入っている「杉並区妊婦歯科健康診査のご案内」にある。健診のとき、母子健康手帳の妊娠中の歯の状態のページに記録してもらう（令和8年度版 子育て便利帳）。
     trigger_document_id: suginami.shika_kenshin_ticket
     channel: 医療機関（区内の指定歯科）
     deadline_note: 妊娠期間中に1回
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: suginami.c_boshi
     source_url: https://www.city.suginami.tokyo.jp/s054/1110.html
     verified_at: 2026-09-20
 
@@ -148,6 +214,7 @@ steps:
     apply_from_base: due_date
     apply_from_offset_days: -182
     apply_from_note: "出産予定日の6か月前から"
+    contact_id: suginami.c_kokuho
     source_url: https://www.city.suginami.tokyo.jp/s035/2022.html
     verified_at: 2026-09-20
 
@@ -164,6 +231,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
+    contact_id: suginami.c_hoken_center
     source_url: https://www.city.suginami.tokyo.jp/s054/1110.html
     verified_at: 2026-09-20
 
@@ -172,13 +240,14 @@ steps:
     phase: postpartum
     sort_order: 80
     title: 妊婦支援給付金（2回目・子どもの数×5万円）を申請する
-    detail: すこやか赤ちゃん訪問（生後4か月までの全戸訪問）を受けた人に渡される案内の2次元コードから、子どもの数の届出をする。産婦本人名義の口座に振り込まれる。訪問を受けるには、生まれたら早めに「すこやか赤ちゃん連絡票」を出す（電子申請、または母子健康手帳にとじ込みのはがき）。里帰り中の人は、杉並区の自宅に戻ってから訪問を受ける。
+    detail: すこやか赤ちゃん訪問（生後4か月までの全戸訪問）を受けた人に渡される案内の2次元コードから、子どもの数の届出をする。産婦本人名義の口座に振り込まれる。訪問を受けるには、生まれたら早めに「すこやか赤ちゃん連絡票」を出す（電子申請、または母子健康手帳にとじ込みのはがき）。里帰り中の人は、杉並区の自宅に戻ってから訪問を受ける。すこやか赤ちゃん連絡票は、電子申請のほか、はがきを郵送するか区の窓口（出生届と同時）に出せる。提出後、訪問する保健師等から日程調整の電話がある（携帯電話からかかる場合もある）。里帰り先での訪問を希望するときは滞在先の市区町村に問い合わせる（令和8年度版 子育て便利帳）。
     trigger_document_id: suginami.akachan_homon_annai
     channel: オンライン（案内の2次元コードから）
     deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産後、区の訪問のあと"
+    contact_id: suginami.c_shien
     source_url: https://www.city.suginami.tokyo.jp/s054/1125.html
     verified_at: 2026-09-20
 
@@ -193,6 +262,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
+    contact_id: suginami.c_hoken_center
     source_url: https://www.city.suginami.tokyo.jp/s054/1110.html
     verified_at: 2026-09-20
 
@@ -209,6 +279,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 28
     apply_from_note: "生後28日から"
+    contact_id: suginami.c_hoken_center
     source_url: https://www.city.suginami.tokyo.jp/s054/1110.html
     verified_at: 2026-09-20
 
@@ -226,6 +297,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    contact_id: suginami.c_boshi
     source_url: https://www.city.suginami.tokyo.jp/s054/shinseisho/8707.html
     verified_at: 2026-09-20
 

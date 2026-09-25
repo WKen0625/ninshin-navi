@@ -108,6 +108,7 @@ contacts:
     name: 国保・年金課 管理係
     topics: 国民健康保険の出産育児一時金・出産費の貸付け
     phone: "03-5432-2328"
+    note: せたがや子育て応援ブック2026では、出産育児一時金の問い合わせ先は国保・年金課保険給付 03-5432-2349、国保の加入手続きと産前産後期間の保険料免除は国保・年金課資格賦課（区役所第2庁舎2階）03-5432-2331。加入手続きは各総合支所くみん窓口区民担当・各出張所でもできる（#page=29, 38）
     source_url: https://www.city.setagaya.lg.jp/documents/7718/2026_12_kodomowakamono_kyouiku_.pdf
     verified_at: 2026-09-25
   - id: setagaya.c_yobou
@@ -117,13 +118,54 @@ contacts:
     source_url: https://www.city.setagaya.lg.jp/documents/7718/2026_12_kodomowakamono_kyouiku_.pdf
     verified_at: 2026-09-25
 
+  # 以下は「せたがや子育て応援ブック2026」（電子ブック。#page= は電子ブックのページ番号で、印刷ページ番号+1）と区の公式ページから追加。人の承認待ち
+  - id: setagaya.c_teate
+    name: 子ども家庭課 子ども医療・手当担当
+    topics: 児童手当・子ども等医療費助成（乳幼児医療証）・世田谷区出産費助成
+    phone: "03-5432-2309"
+    url: https://www.city.setagaya.lg.jp/02413/1206.html
+    note: 児童手当の手続き窓口は、子ども家庭課子ども医療・手当担当のほか、各総合支所保健福祉センター子ども家庭支援課（世田谷 03-5432-2311／北沢 03-6804-7526／玉川 03-3702-1792／砧 03-3482-1344／烏山 03-3326-9864）。児童手当は申請の翌月分から支給され、さかのぼって支給されない（15日特例あり）
+    source_url: https://webbook-sample.com/setagaya_kosodate_2026/#page=40
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: setagaya.c_koseki
+    name: 総合支所くみん窓口戸籍担当（区民課戸籍係）
+    topics: 出生届・母子健康手帳（親子健康手帳）への出生届出済証明・戸籍の届出
+    phone: "03-5432-2825"
+    hours: 月曜日から金曜日 8:30〜17:00、土曜日（第3土曜日を除く）9:00〜17:00（日曜日・第3土曜日・祝日・休日・年末年始を除く）
+    address: 世田谷区世田谷4-21-27 世田谷総合支所（世田谷区役所）
+    url: https://www.city.setagaya.lg.jp/02233/59.html
+    note: 世田谷総合支所 03-5432-2825 のほか、北沢 03-5478-8041／玉川 03-3702-1136／砧 03-3482-1326／烏山 03-3326-8293。夜間・休日（第3土曜日、日曜日、祝日、休日、年末年始、平日17:00以降）は区役所第2庁舎地下1階の時間外受付窓口で届書を仮に預かる（受理は後日の開庁日。北沢・玉川・砧・烏山総合支所では時間外受付をしていない）。時間外受付窓口と土曜日窓口では母子健康手帳への出生届出済証明はできないので、後日、窓口受付時間内に各総合支所区民課戸籍係へ母子健康手帳を持参する
+    source_url: https://webbook-sample.com/setagaya_kosodate_2026/#page=38
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: setagaya.c_kodomo_shien
+    name: 総合支所保健福祉センター 子ども家庭支援課（子ども家庭支援センター）
+    topics: 妊娠・出産・育児の不安や悩みの相談、子どもの預かりや保育園入園などの相談、子育て支援サービスの案内
+    hours: 平日 8:30〜17:00（年末年始・祝日・休日を除く）
+    url: https://www.city.setagaya.lg.jp/02244/1189.html
+    note: 世田谷 03-5432-2915（世田谷4-22-33）／北沢 03-6804-7525（北沢2-8-18 北沢タウンホール内）／玉川 03-3702-1189（等々力3-4-1）／砧 03-3482-1344（成城6-2-1）／烏山 03-3326-6155（南烏山6-22-14）。お住まいの地域の子ども家庭支援センターに電話する
+    source_url: https://webbook-sample.com/setagaya_kosodate_2026/#page=14
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: setagaya.c_call
+    name: 世田谷区お問い合わせセンター「せたがやコール」
+    topics: 区の手続き・窓口・イベントなどの問い合わせ全般、休日・夜間の当番医療機関の案内
+    phone: "03-5432-3333"
+    hours: 8:00〜21:00（年中無休）
+    url: https://www.city.setagaya.lg.jp/
+    note: 子どもの急な病気で受診に迷うときは「子供の健康相談室」（小児救急相談）#8000 または 03-5285-8898
+    source_url: https://webbook-sample.com/setagaya_kosodate_2026/#page=111
+    verified_at: 2026-09-25
+    needs_review: true
+
 steps:
   - id: setagaya.s03
     overrides_step_id: jp.s03
     phase: notification
     sort_order: 30
     title: 妊娠届を出し、「母と子の保健バッグ」を受け取る
-    detail: 窓口は総合支所健康づくり課・総合支所くみん窓口・出張所・まちづくりセンター（太子堂、経堂、北沢、等々力、用賀、二子玉川、成城、烏山を除く）。マイナポータルの「ぴったりサービス」でも届出できる。持ち物はマイナンバー確認書類と本人確認書類。
+    detail: 窓口は総合支所健康づくり課・総合支所くみん窓口・出張所・まちづくりセンター（太子堂、経堂、北沢、等々力、用賀、二子玉川、成城、烏山を除く）。マイナポータルの「ぴったりサービス」でも届出できる。持ち物はマイナンバー確認書類と本人確認書類。問い合わせは総合支所保健福祉センター健康づくり課事業係（世田谷 03-5432-2893／北沢 03-6804-9355／玉川 03-3702-1948／砧 03-3483-3161／烏山 03-3308-8228）。母と子の保健バッグには、妊婦健康診査等の受診票、費用助成の申請書、子育て支援の案内が入っている（せたがや子育て応援ブック2026）。
     trigger_document_id: jp.heartbeat_confirmed
     produces_document_id: setagaya.hoken_bag
     channel: 窓口 または オンライン（ぴったりサービス）
@@ -132,6 +174,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
+    contact_id: setagaya.c_kenko
     source_url: https://www.city.setagaya.lg.jp/documents/7718/2026_12_kodomowakamono_kyouiku_.pdf
     verified_at: 2026-09-18
 
@@ -139,7 +182,7 @@ steps:
     phase: pregnancy
     sort_order: 35
     title: ネウボラ面接（妊娠期面接）を受ける
-    detail: 総合支所健康づくり課で実施。ここで「せたがや子育て利用券」と妊婦支援給付1回目の申請案内を受け取る。
+    detail: 総合支所健康づくり課で実施。ここで「せたがや子育て利用券」と妊婦支援給付1回目の申請案内を受け取る。面接は予約制で、区公式LINEか、お住まいの地域の健康づくり課（保健相談係。世田谷 03-5432-2896／北沢 03-6804-9667／玉川 03-3702-1982／砧 03-3483-3166／烏山 03-3308-8246）に電話で予約する。健康づくり課の窓口に妊娠届を出した人は、提出後にその場で面接できる場合もある。健康づくり課以外の窓口に妊娠届を出した人は、後日、お住まいの地域の健康づくり課で面接する（せたがや子育て応援ブック2026）。
     trigger_document_id: setagaya.hoken_bag
     produces_document_id: setagaya.shien_kyufu_annai_1
     channel: 総合支所健康づくり課
@@ -147,6 +190,7 @@ steps:
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: setagaya.c_kenko
     source_url: https://www.city.setagaya.lg.jp/02244/20413.html
     verified_at: 2026-09-18
 
@@ -178,6 +222,7 @@ steps:
     apply_from_base: gestational_week
     apply_from_week: 24
     apply_from_note: "妊娠7か月ごろ（区からアンケートが届いてから）"
+    contact_id: setagaya.c_kenko
     source_url: https://www.city.setagaya.lg.jp/02244/online_tetsuzuki/1182.html
     verified_at: 2026-09-19
 
@@ -192,6 +237,7 @@ steps:
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: setagaya.c_kenko
     source_url: https://www.city.setagaya.lg.jp/02244/1195.html
     verified_at: 2026-09-19
 
@@ -206,6 +252,7 @@ steps:
     apply_from_base: due_date
     apply_from_offset_days: -182
     apply_from_note: "出産予定日の6か月前から"
+    contact_id: setagaya.c_kokuho
     source_url: https://www.city.setagaya.lg.jp/02060/296.html
     verified_at: 2026-09-19
 
@@ -224,6 +271,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    contact_id: setagaya.c_teate
     source_url: https://www.city.setagaya.lg.jp/02413/1206.html
     verified_at: 2026-09-18
 
@@ -232,7 +280,7 @@ steps:
     phase: postpartum
     sort_order: 80
     title: 妊婦支援給付（2回目・子どもの数×5万円）をオンラインで申請する
-    detail: 赤ちゃん訪問（乳児期家庭訪問）で受け取る申請案内に沿って電子申請。
+    detail: 赤ちゃん訪問（乳児期家庭訪問）で受け取る申請案内に沿って電子申請。赤ちゃん訪問連絡票（出生通知票）はオンラインで提出でき、赤ちゃんが生まれたらできるだけ2週間以内に出す。区はこの通知をもとに赤ちゃん訪問の連絡をする（せたがや子育て応援ブック2026）。
     trigger_document_id: setagaya.akachan_homon_annai
     channel: オンライン（電子申請）
     deadline_base: due_date
@@ -255,6 +303,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
+    contact_id: setagaya.c_kenko
     source_url: https://www.city.setagaya.lg.jp/02244/29565.html
     verified_at: 2026-09-19
 
@@ -269,6 +318,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
+    contact_id: setagaya.c_kenko
     source_url: https://www.city.setagaya.lg.jp/02244/1199.html
     verified_at: 2026-09-19
 
@@ -285,6 +335,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 28
     apply_from_note: "生後28日から"
+    contact_id: setagaya.c_kenko
     source_url: https://www.city.setagaya.lg.jp/02244/10722.html
     verified_at: 2026-09-19
 
