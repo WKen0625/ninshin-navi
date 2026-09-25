@@ -71,13 +71,93 @@ documents:
     source_url: https://www.city.shinjuku.lg.jp/fukushi/syussan_kosodate_gift.html
     verified_at: 2026-09-20
 
+contacts:
+  # 出典: 新宿区「新宿2026はっぴー子育てガイド」（令和8年7月発行、区の公式PDF。分冊PDFの #page= はその分冊内のページ番号）。冊子に無い情報（窓口の階・番号、夜間休日受付、出産育児一時金）は区の公式ページから。冊子の電話番号は市外局番なし（例 5273-3047）で、ここでは 03- を付けた。
+  - id: shinjuku.c_kenko
+    name: 新宿区 健康づくり課 健康づくり推進係
+    topics: 妊娠届・母子健康手帳・母と子の保健バッグ・ゆりかご・しんじゅく面談・妊婦健康診査と妊婦歯科健康診査の受診票・都外で受ける妊婦健診・産婦健診・新生児聴覚検査の相談・妊婦のための支援給付・産後ケア・里帰り先でのすくすく赤ちゃん訪問・多胎児家庭の移動支援
+    phone: "03-5273-3047"
+    hours: 平日 8:30〜17:00（土日祝・年末年始は休み）。火曜日は19時まで受付時間を延長
+    address: 新宿区新宿5-18-14 新宿北西ビル4階（第二分庁舎分館分室）
+    url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00001_2.html
+    note: 妊娠届・母子健康手帳の交付とゆりかご・しんじゅく面談は、各保健センター（牛込・四谷・東新宿・落合）でもできる（特別出張所は妊娠届の受付のみ）。妊婦支援給付金の問い合わせは新宿区妊婦支援給付金コールセンター 0120-002-274（無料、平日8時30分〜17時）
+    source_url: https://www.city.shinjuku.lg.jp/content/000464468.pdf#page=1
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: shinjuku.c_hoken_center
+    name: 保健センター（牛込・四谷・東新宿・落合。住所を担当するセンターへ）
+    topics: 妊娠届・母子健康手帳の交付・ゆりかご・しんじゅく面談・母親学級・両親学級・すくすく赤ちゃん訪問・産後ケア・産婦健康相談・育児相談（保健師・栄養士・歯科衛生士）・妊娠高血圧症候群等の医療給付・未熟児養育医療の申請
+    phone: "03-3260-6231"
+    hours: 平日 8:30〜17:00（土日祝・年末年始は休み）
+    address: 牛込保健センター 新宿区弁天町50
+    url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00001_2.html
+    note: phone は牛込保健センター。四谷保健センター（四谷三栄町10-16）03-3351-5161／東新宿保健センター（新宿7-26-4）03-3200-1026／落合保健センター（下落合4-6-7）03-3952-7161。住んでいる地域を担当するセンターへ
+    source_url: https://www.city.shinjuku.lg.jp/content/000464475.pdf#page=1
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: shinjuku.c_teate
+    name: 新宿区 児童育成担当課 子ども医療・手当係（区役所本庁舎2階15番窓口）
+    topics: 児童手当・子ども医療費助成（乳幼児医療証）・誕生祝い品
+    phone: "03-5273-4546"
+    hours: 平日 8:30〜17:00
+    address: 新宿区歌舞伎町1-4-1 新宿区役所本庁舎2階15番窓口
+    url: https://www.city.shinjuku.lg.jp/kodomo/file03_04_00004.html
+    note: 児童手当と子ども医療費助成は、電子申請（マイナポータル）・郵送・窓口（児童育成担当課または各特別出張所）で申請できる。ひとり親家庭の手当や入院助産制度は同課 育成支援係 03-5273-4558
+    source_url: https://www.city.shinjuku.lg.jp/content/000464468.pdf#page=9
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: shinjuku.c_koseki
+    name: 新宿区 戸籍住民課 戸籍係（区役所本庁舎1階9番窓口）
+    topics: 出生届・戸籍の届出
+    phone: "03-5273-3506"
+    hours: 平日 8:30〜17:00（祝日・年末年始を除く）。毎週火曜日 17:00〜19:00 は届書の預かりのみ（翌開庁日に内容確認）。毎月第4日曜日 9:00〜17:00 も受付
+    address: 新宿区歌舞伎町1-4-1 新宿区役所本庁舎1階9番窓口
+    url: https://www.city.shinjuku.lg.jp/todokede/koseki02_000002.html
+    note: 各特別出張所でも受け付け（本庁舎の戸籍係へ取り次ぎ）。上記以外の時間は年中無休で本庁舎地下1階の宿直窓口が届書を預かる（庁舎管理の職員による預かりで、内容確認は翌開庁日）。必要なものは出生届書（医師・助産師の出生証明書つき）と母子健康手帳
+    source_url: https://www.city.shinjuku.lg.jp/content/000464468.pdf#page=4
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: shinjuku.c_kokuho_shikaku
+    name: 新宿区 医療保険年金課 国保資格係（区役所本庁舎4階8番窓口）
+    topics: 国民健康保険の加入・産前産後期間の国民健康保険料の軽減（免除）
+    phone: "03-5273-4146"
+    hours: 平日 8:30〜17:00
+    address: 新宿区歌舞伎町1-4-1 新宿区役所本庁舎4階8番窓口
+    url: https://www.city.shinjuku.lg.jp/kenkou/hoken01_000001_00038.html
+    note: 各特別出張所と郵送でも届け出できる。国民年金（第1号被保険者）の産前産後の保険料免除は同課 年金係 03-5273-4338
+    source_url: https://www.city.shinjuku.lg.jp/content/000464468.pdf#page=2
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: shinjuku.c_kokuho_kyufu
+    name: 新宿区 医療保険年金課 国保給付係（区役所本庁舎4階4番窓口）
+    topics: 出産育児一時金（新宿区の国民健康保険の人。直接支払制度を使わない場合や差額の申請）
+    phone: "03-5273-4149"
+    hours: 平日 8:30〜17:00
+    address: 新宿区歌舞伎町1-4-1 新宿区役所本庁舎4階4番窓口
+    url: https://www.city.shinjuku.lg.jp/hoken/file02_04_00007.html
+    note: 直接支払制度を使わない場合の申請は本庁舎4階・各特別出張所・郵送、差額の申請は本庁舎4階・郵送、海外で出産した場合は本庁舎4階4番窓口のみ。区のページの電話表記は「5273－4149（直通）」
+    source_url: https://www.city.shinjuku.lg.jp/content/000464468.pdf#page=6
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: shinjuku.c_kodomo_sogo
+    name: 子ども総合センター（子どもと家庭の総合相談）
+    topics: 妊娠・出産・子育ての不安や悩み、どこに相談していいか分からないこと・子育て訪問相談・虐待の相談（通告）
+    phone: "03-3232-0675"
+    hours: 電話相談 月〜土 8:30〜19:00、日・祝日（電話相談のみ）8:30〜17:00（年末年始は休み）
+    address: 新宿区新宿7-3-29
+    url: https://www.city.shinjuku.lg.jp/content/000464470.pdf#page=2
+    note: 子ども家庭支援センター（信濃町 03-3357-6855／榎町 03-3269-7345／中落合 03-3952-7752／北新宿 03-3362-4152。月〜金 8:30〜17:00）でも相談できる。東京都妊娠相談ほっとライン 03-5339-1133（月〜日 10:00〜22:00、元日を除く）
+    source_url: https://www.city.shinjuku.lg.jp/content/000464470.pdf#page=2
+    verified_at: 2026-09-25
+    needs_review: true
+
 steps:
   - id: shinjuku.s03
     overrides_step_id: jp.s03
     phase: notification
     sort_order: 30
     title: 妊娠届を出し、母子健康手帳と「母と子の保健バッグ」を受け取る
-    detail: 届出先は、各保健センター（牛込・四谷・東新宿・落合）、健康づくり課健康づくり推進係、各特別出張所。持ち物は、妊婦の個人番号（マイナンバー）が確認できるもの1点と、届け出る人の本人確認ができるもの（マイナンバーカードなどは1点、ない場合は資格確認書など2点）。妊娠週数、分娩予定日、診断を受けた医療機関の名前と所在地がわかるものがあれば持っていく。妊娠届の用紙は窓口でもらえる。保健センターか健康づくり課で本人が届け出ると、手帳の交付と同時に看護職との面談（ゆりかご・しんじゅく）が受けられる（特別出張所では面談はできない）。マイナポータルで電子申請もできるが、手帳と袋は後日、保健センターか健康づくり課で受け取る（郵送はできない）。電子申請した人は、受け取りの日時と場所を決めるため、必ず健康づくり課 03-5273-3047 に連絡する。
+    detail: 届出先は、各保健センター（牛込・四谷・東新宿・落合）、健康づくり課健康づくり推進係、各特別出張所。持ち物は、妊婦の個人番号（マイナンバー）が確認できるもの1点と、届け出る人の本人確認ができるもの（マイナンバーカードなどは1点、ない場合は資格確認書など2点）。妊娠週数、分娩予定日、診断を受けた医療機関の名前と所在地がわかるものがあれば持っていく。妊娠届の用紙は窓口でもらえる。保健センターか健康づくり課で本人が届け出ると、手帳の交付と同時に看護職との面談（ゆりかご・しんじゅく）が受けられる（特別出張所では面談はできない）。マイナポータルで電子申請もできるが、手帳と袋は後日、保健センターか健康づくり課で受け取る（郵送はできない）。電子申請した人は、受け取りの日時と場所を決めるため、必ず健康づくり課 03-5273-3047 に連絡する。 母子健康手帳には出生通知票（すくすく赤ちゃん訪問連絡票）が添付されていて、母と子の保健バッグには妊婦健康診査受診票や母親学級のお知らせなどが入っている。窓口は保健センター、健康づくり課（新宿5-18-14 新宿北西ビル4階）、特別出張所（2026 はっぴー子育てガイド）。
     trigger_document_id: jp.heartbeat_confirmed
     produces_document_id: shinjuku.hoken_bag
     channel: 各保健センター / 健康づくり課 / 各特別出張所（電子申請のあとは保健センターか健康づくり課へ来庁）
@@ -86,6 +166,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
+    contact_id: shinjuku.c_kenko
     source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00001.html
     verified_at: 2026-09-20
 
@@ -93,7 +174,7 @@ steps:
     phase: pregnancy
     sort_order: 35
     title: 「ゆりかご・しんじゅく」の面談（看護職との面談）を受ける
-    detail: 新宿区に住民登録がある妊婦が対象。保健センターか健康づくり課で母子健康手帳を受け取った人は、そのとき同時に面談する。特別出張所やほかの自治体で受け取った人は、保健センター（牛込 03-3260-6231、四谷 03-3351-5161、東新宿 03-3200-1026、落合 03-3952-7161）か健康づくり課（03-5273-3047）に予約して受ける。持ち物は、母子健康手帳、妊娠届出書（本人控）、母と子の保健バッグ。受付は平日8時30分〜17時。手帳の交付も合わせると30〜60分ほどかかる。面談した人は、その日に妊婦支援給付金（1回目）の申請書を受け取り、1〜2か月後に「ゆりかご応援ギフト」（1万円相当）が簡易書留で届く。
+    detail: 新宿区に住民登録がある妊婦が対象。保健センターか健康づくり課で母子健康手帳を受け取った人は、そのとき同時に面談する。特別出張所やほかの自治体で受け取った人は、保健センター（牛込 03-3260-6231、四谷 03-3351-5161、東新宿 03-3200-1026、落合 03-3952-7161）か健康づくり課（03-5273-3047）に予約して受ける。持ち物は、母子健康手帳、妊娠届出書（本人控）、母と子の保健バッグ。受付は平日8時30分〜17時。手帳の交付も合わせると30〜60分ほどかかる。面談した人は、その日に妊婦支援給付金（1回目）の申請書を受け取り、1〜2か月後に「ゆりかご応援ギフト」（1万円相当）が簡易書留で届く。 妊娠中に新宿区に転入した人も面談の対象（2026 はっぴー子育てガイド）。
     trigger_document_id: shinjuku.hoken_bag
     produces_document_id: shinjuku.shien_kyufu_shinsei_1
     channel: 各保健センター / 健康づくり課（特別出張所ではできない）
@@ -102,6 +183,7 @@ steps:
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: shinjuku.c_kenko
     source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00001_2.html
     verified_at: 2026-09-20
 
@@ -117,6 +199,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "心拍を確認した日から（区の面接・面談のあと）"
+    contact_id: shinjuku.c_kenko
     source_url: https://www.city.shinjuku.lg.jp/fukushi/syussan_kosodate_gift.html
     verified_at: 2026-09-20
 
@@ -131,6 +214,7 @@ steps:
     apply_from_base: gestational_week
     apply_from_week: 24
     apply_from_note: "妊娠7か月ごろ（区からアンケートが届いてから）"
+    contact_id: shinjuku.c_kenko
     source_url: https://www.city.shinjuku.lg.jp/fukushi/syussan_kosodate_gift.html
     verified_at: 2026-09-20
 
@@ -148,6 +232,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    contact_id: shinjuku.c_kenko
     source_url: https://www.city.shinjuku.lg.jp/fukushi/kenko01_000112.html
     verified_at: 2026-09-20
 
@@ -163,6 +248,7 @@ steps:
     apply_from_base: due_date
     apply_from_offset_days: -182
     apply_from_note: "出産予定日の6か月前から"
+    contact_id: shinjuku.c_kokuho_shikaku
     source_url: https://www.city.shinjuku.lg.jp/kenkou/hoken01_000001_00038.html
     verified_at: 2026-09-20
 
@@ -179,6 +265,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
+    contact_id: shinjuku.c_kenko
     source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00003.html
     verified_at: 2026-09-20
 
@@ -186,7 +273,7 @@ steps:
     phase: postpartum
     sort_order: 74
     title: （里帰りなどで都外で自費で妊婦健診を受けた人）費用の助成を申請する
-    detail: 出産のため都外に里帰りしたことなどで、都内共通の受診票が使えず、自費で妊婦健診を受けた人に、費用の一部が助成される（助成の上限額は区のページに記載なし）。必要なものは、里帰り等の妊婦健康診査費助成金申請書、母子健康手帳の表紙のコピー、母子健康手帳8〜9ページ「妊娠中の経過」のコピー、領収書の原本、使っていない受診票の原本（受診票をなくすと申請できない）。郵送か窓口（窓口は健康づくり課だけ）で出す。提出先は 〒160-0022 新宿区新宿5-18-14 新宿北西ビル4階 健康づくり課健康づくり推進係（03-5273-3047）。この助成金は、医療費控除では「保険金等で補てんされる金額」にあたる。
+    detail: 出産のため都外に里帰りしたことなどで、都内共通の受診票が使えず、自費で妊婦健診を受けた人に、費用の一部が助成される（助成の上限額は区のページに記載なし）。必要なものは、里帰り等の妊婦健康診査費助成金申請書、母子健康手帳の表紙のコピー、母子健康手帳8〜9ページ「妊娠中の経過」のコピー、領収書の原本、使っていない受診票の原本（受診票をなくすと申請できない）。郵送か窓口（窓口は健康づくり課だけ）で出す。提出先は 〒160-0022 新宿区新宿5-18-14 新宿北西ビル4階 健康づくり課健康づくり推進係（03-5273-3047）。この助成金は、医療費控除では「保険金等で補てんされる金額」にあたる。 都外で受診するときは、受診の前に健康づくり課に連絡する（2026 はっぴー子育てガイド）。
     trigger_document_id: shinjuku.kenshin_ticket
     channel: 郵送 / 窓口（健康づくり課のみ）
     action_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00002.html
@@ -196,6 +283,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    contact_id: shinjuku.c_kenko
     source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00002.html
     verified_at: 2026-09-20
 
@@ -203,7 +291,7 @@ steps:
     phase: postpartum
     sort_order: 78
     title: 「すくすく赤ちゃん訪問連絡票（出生通知票）」を送り、すくすく赤ちゃん訪問を受ける
-    detail: 訪問指導員（助産師・保健師など）が家に来て、赤ちゃんの身体測定や健康状態の確認、お母さんの健康や子育ての相談、区の子育て支援の案内をしてくれる（無料）。対象は、生後4か月以内の赤ちゃんがいる家庭。母子健康手帳についている「すくすく赤ちゃん訪問連絡票（出生通知票）」を、出産後すぐに健康づくり課へ送る。電話や、住所を担当する保健センターの電子申請フォームでも申し込める。妊婦支援給付金（2回目）の申請書は、この訪問のときに受け取る。
+    detail: 訪問指導員（助産師・保健師など）が家に来て、赤ちゃんの身体測定や健康状態の確認、お母さんの健康や子育ての相談、区の子育て支援の案内をしてくれる（無料）。対象は、生後4か月以内の赤ちゃんがいる家庭。母子健康手帳についている「すくすく赤ちゃん訪問連絡票（出生通知票）」を、出産後すぐに健康づくり課へ送る。電話や、住所を担当する保健センターの電子申請フォームでも申し込める。妊婦支援給付金（2回目）の申請書は、この訪問のときに受け取る。 里帰り先などでの訪問についての問い合わせは健康づくり課健康づくり推進係、それ以外の問い合わせは住所を担当する保健センター（2026 はっぴー子育てガイド）。
     trigger_document_id: shinjuku.hoken_bag
     produces_document_id: shinjuku.shien_kyufu_shinsei_2
     channel: 郵送（連絡票） / 電話 / オンライン（電子申請）
@@ -212,6 +300,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から（なるべく早く）"
+    contact_id: shinjuku.c_hoken_center
     source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_00026.html
     verified_at: 2026-09-20
 
@@ -227,6 +316,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    contact_id: shinjuku.c_kenko
     source_url: https://www.city.shinjuku.lg.jp/fukushi/syussan_kosodate_gift.html
     verified_at: 2026-09-20
 
@@ -234,13 +324,14 @@ steps:
     phase: postpartum
     sort_order: 82
     title: 産婦健康診査を受ける（最大2回）
-    detail: 出産後のお母さんの健康を確かめる健診。令和8年10月1日以降、都内の契約医療機関（一部の助産所も対象）で受診票を出すと、1回5,000円まで、最大2回、助成される。流産・死産をした人も対象。受診票があっても令和8年9月30日までは使えない。受診票を使わずに自費で受けると助成されない（里帰りなどで都内の契約医療機関以外で受けた場合を除く。その場合は受診日から1年以内に申請する）。
+    detail: 出産後のお母さんの健康を確かめる健診。令和8年10月1日以降、都内の契約医療機関（一部の助産所も対象）で受診票を出すと、1回5,000円まで、最大2回、助成される。流産・死産をした人も対象。受診票があっても令和8年9月30日までは使えない。受診票を使わずに自費で受けると助成されない（里帰りなどで都内の契約医療機関以外で受けた場合を除く。その場合は受診日から1年以内に申請する）。 都外で受診するときは健康づくり課に連絡する（2026 はっぴー子育てガイド）。
     trigger_document_id: shinjuku.sanpu_kenshin_ticket
     channel: 医療機関
     deadline_note: 原則として産後2か月以内
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
+    contact_id: shinjuku.c_kenko
     source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00004.html
     verified_at: 2026-09-20
 
@@ -257,6 +348,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 28
     apply_from_note: "生後28日から"
+    contact_id: shinjuku.c_kenko
     source_url: https://www.city.shinjuku.lg.jp/fukushi/file02_01_00004.html
     verified_at: 2026-09-20
 

@@ -72,13 +72,103 @@ documents:
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/ninpusienkyufu.html
     verified_at: 2026-09-20
 
+contacts:
+  # 出典: 台東区「たいとう子育てハンドブック」（令和7年7月発行、令和8年4月修正の一括版PDF。#page= はPDFのページ番号で、印刷ページ2面で1ページ）。冊子に無い情報（開庁時間・日曜窓口・夜間休日受付窓口）は区の公式ページから。冊子の電話番号は市外局番なし（例 ３８４７-９４４７）で、ここでは 03- を付けた。
+  - id: taito.c_hoken_boshi
+    name: 台東保健所 保健サービス課 母子成人保健担当（台東保健所2階）
+    topics: 妊娠届・母子健康手帳・母と子の保健バッグ・妊婦健康診査と妊婦精密健康診査の受診票・里帰り出産等妊婦健康診査費助成・新生児聴覚検査・乳幼児健診・妊娠高血圧症候群等医療費助成
+    phone: "03-3847-9447"
+    hours: 平日 8:30〜17:15（区の開庁時間。土日祝・12月29日〜1月3日は休み）
+    address: 台東区東上野4-22-8 台東保健所2階
+    url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/ninshin/todokede/boshikenkotecho.html
+    note: 妊婦歯科健康診査・産婦歯科健診は同担当（歯科衛生）03-3847-9449。妊娠届は浅草保健相談センター、区役所1階 戸籍住民サービス課、各区民事務所・分室でも出せる。希望者には父子健康手帳も配布
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/2025handbook.files/2026_syuusei_handobook.pdf#page=7
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: taito.c_hoken_shido
+    name: 台東保健所 保健サービス課 保健指導担当（台東保健所2階）
+    topics: ゆりかご・たいとう面接の予約・こんにちは赤ちゃん訪問（出生通知書）・プレママ・パパ交流会
+    phone: "03-3847-9497"
+    hours: 平日 8:30〜17:15（面接の受付は月〜金 9:00〜16:00、祝日・年末年始を除く）
+    address: 台東区東上野4-22-8 台東保健所2階
+    url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/nenrei/ninshinki/soudan_shien/yurikago.html
+    note: 面接の予約は台東区ホームページの電子申請が基本。浅草地域は浅草保健相談センター 保健指導担当 03-3844-8172
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/2025handbook.files/2026_syuusei_handobook.pdf#page=8
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: taito.c_asakusa
+    name: 浅草保健相談センター 母子健康包括支援担当（3階）
+    topics: ゆりかご・たいとう面接・妊婦のための支援給付の案内・ハローベビー学級・出生通知書とこんにちは赤ちゃん訪問・産後ケア（宿泊型・日帰り型・外来型・訪問型乳房ケア）
+    phone: "03-3844-8177"
+    hours: 平日 8:30〜17:15（面接の受付は月〜金 9:00〜16:00、祝日・年末年始を除く）
+    address: 台東区花川戸2-11-10 浅草保健相談センター
+    url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/nenrei/ninshinki/soudan_shien/yurikago.html
+    note: 妊娠届・母子健康手帳・受診票・里帰り出産等妊婦健康診査費助成・産前産後支援ヘルパー「あったかハンド」は同センター 庶務担当 03-3844-8171。面接の予約・訪問の連絡は保健指導担当 03-3844-8172
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/2025handbook.files/2026_syuusei_handobook.pdf#page=8
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: taito.c_kyufu
+    name: 台東区役所 子育て支援課 給付担当（区役所6階4番窓口）
+    topics: 児童手当・子ども医療費助成（乳・子・青医療証）・出産費用助成・にぎやか家庭応援プラン（第3子以降の祝い品）
+    phone: "03-5246-1232"
+    hours: 平日 8:30〜17:15。毎週水曜日は19時まで延長（祝日・年末年始を除く）。毎月第2日曜日 9:00〜17:00 は区役所1階11番窓口で児童手当・子ども医療費助成の申請を受け付け
+    address: 台東区東上野4-5-6 台東区役所6階4番窓口
+    url: https://www.city.taito.lg.jp/kurashi/todokede/madoguti/nichiyo.html
+    note: 児童手当・子ども医療費助成・出産費用助成はオンライン申請もできる。出生届を出した日に住所が台東区の人は、開庁時間内なら同じ日に児童手当と子ども医療費助成を申請できる。入院助産・区立保育園の子育て相談は同課 庶務担当 03-5246-1237
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/2025handbook.files/2026_syuusei_handobook.pdf#page=10
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: taito.c_koseki
+    name: 台東区役所 戸籍住民サービス課 届出担当（区役所1階10番窓口）
+    topics: 出生届・戸籍の届出・母子健康手帳への出生届出済証明
+    phone: "03-5246-1162"
+    hours: 平日 8:30〜17:15。毎月第2日曜日 9:00〜17:00 も1階10番窓口で戸籍の届出を受け付け
+    address: 台東区東上野4-5-6 台東区役所1階10番窓口
+    url: https://www.city.taito.lg.jp/benri/qa/todokede/qashuseitodoke.html
+    note: 戸籍の届出は区役所本庁のみ（区民事務所・分室・地区センターでは受理できない）。開庁時間外は区役所1階の「夜間休日受付窓口」に出せる（母子健康手帳を持参。審査は翌開庁日で、誤りがあれば開庁時間内に再来庁。児童手当などの申請はできない）
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/2025handbook.files/2026_syuusei_handobook.pdf#page=10
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: taito.c_kokuho_shikaku
+    name: 台東区役所 国民健康保険課 資格係（区役所2階12番窓口）
+    topics: 国民健康保険の加入・産前産後期間の国民健康保険料軽減措置
+    phone: "03-5246-1252"
+    hours: 平日 8:30〜17:15。毎週水曜日は19時まで延長（祝日・年末年始を除く）
+    address: 台東区東上野4-5-6 台東区役所2階12番窓口
+    url: https://www.city.taito.lg.jp/kurashi/zeikin/kokuminkenkohoken/hokenryou/sanzensango.html
+    note: 郵送でも届け出できる（電話すると届出一式と返信用封筒が送られてくる）。国民年金の産前産後の保険料免除は区民課 国民年金係 03-5246-1262（区役所3階1番窓口）
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/2025handbook.files/2026_syuusei_handobook.pdf#page=11
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: taito.c_kokuho_kyufu
+    name: 台東区役所 国民健康保険課 給付係（区役所2階14番窓口）
+    topics: 出産育児一時金（台東区の国民健康保険の人。直接支払制度・受取代理制度を使えなかった場合や差額の請求）
+    phone: "03-5246-1253"
+    hours: 平日 8:30〜17:15。毎週水曜日は19時まで延長（祝日・年末年始を除く）
+    address: 台東区東上野4-5-6 台東区役所2階14番窓口
+    url: https://www.city.taito.lg.jp/kurashi/todokede/madoguti/encho.html
+    note: 台東区の国民健康保険以外の健康保険の人は、加入している健康保険へ問い合わせる
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/2025handbook.files/2026_syuusei_handobook.pdf#page=11
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: taito.c_kodomo_katei
+    name: 子ども家庭支援センター 子育て総合相談（日本堤・台東・寿・谷中）
+    topics: 子育ての不安や悩み、周りの子どものことで心配なこと（0〜18歳未満の子どもとその保護者・関係者）・子育てアシスト（相談員が支援の利用を一緒に考える）
+    phone: "03-5824-2571"
+    hours: 月〜土 9:00〜17:00（祝日・年末年始を除く）。面談は要予約、電話・Eメールでも受け付け
+    url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/2025handbook.html
+    note: phone は日本堤子ども家庭支援センター。台東子ども家庭支援センター 03-3834-4497／寿子ども家庭支援センター 03-3841-4631／谷中子ども家庭支援センター 03-3824-5540
+    source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/2025handbook.files/2026_syuusei_handobook.pdf#page=39
+    verified_at: 2026-09-25
+    needs_review: true
+
 steps:
   - id: taito.s03
     overrides_step_id: jp.s03
     phase: notification
     sort_order: 30
     title: 妊娠届を出し、母子健康手帳と「母と子の保健バッグ」を受け取る
-    detail: 医療機関で赤ちゃんの心拍の確認や妊娠の診断を受けたら届け出る。方法は2つ。(1) マイナポータル（ぴったりサービス）で妊婦本人が電子申請し、1週間ほどでレターパックプラス（対面で受け取り）で届く。個人番号カードが必要で、転入した人は使えない。(2) 窓口で届出書を書き、その場で受け取る（20分ほど）。窓口は浅草保健相談センター（花川戸2-11-10、03-3844-8171）、台東保健所保健サービス課（東上野4-22-8、03-3847-9447）、区役所1階 戸籍住民サービス課、各区民事務所・分室。持ち物は個人番号カード（無い人は本人確認書類）。代理の人は代理人の本人確認書類、別世帯なら委任状も必要。
+    detail: 医療機関で赤ちゃんの心拍の確認や妊娠の診断を受けたら届け出る。方法は2つ。(1) マイナポータル（ぴったりサービス）で妊婦本人が電子申請し、1週間ほどでレターパックプラス（対面で受け取り）で届く。個人番号カードが必要で、転入した人は使えない。(2) 窓口で届出書を書き、その場で受け取る（20分ほど）。窓口は浅草保健相談センター（花川戸2-11-10、03-3844-8171）、台東保健所保健サービス課（東上野4-22-8、03-3847-9447）、区役所1階 戸籍住民サービス課、各区民事務所・分室。持ち物は個人番号カード（無い人は本人確認書類）。代理の人は代理人の本人確認書類、別世帯なら委任状も必要。 母と子の保健バッグには、出生通知書（赤ちゃん訪問連絡票。母子健康手帳の表紙を開いたところにはさんである）、マタニティキーホルダー、妊婦健康診査・超音波検査・子宮頸がん検診・新生児聴覚検査・妊婦歯科健康診査の各受診票と案内、里帰り出産等妊婦健康診査費助成の案内、ゆりかご・たいとう面接の案内、たいとうおやこ手帳アプリと出産費用助成の案内、子育てハンドブックなどが入っている。希望する人には父子健康手帳も配られる（たいとう子育てハンドブック）。
     trigger_document_id: jp.heartbeat_confirmed
     produces_document_id: taito.hoken_bag
     channel: オンライン（マイナポータル・郵送で受け取り） / 窓口（保健所・保健相談センター・区役所・区民事務所）
@@ -87,6 +177,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
+    contact_id: taito.c_hoken_boshi
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/ninshin/todokede/boshikenkotecho.html
     verified_at: 2026-09-20
 
@@ -94,7 +185,7 @@ steps:
     phase: pregnancy
     sort_order: 35
     title: ゆりかご・たいとう面接を受ける
-    detail: 保健師などとの面接（45分ほど。パートナーも同席できる）。面接日に台東区に住民登録がある妊婦本人が対象で、出産したあとは受けられない。場所は浅草保健相談センター（花川戸2-11-10 3階）か台東保健所保健サービス課（東上野4-22-8 2階）。月〜金の9時〜16時。予約は電子申請か電話（浅草 03-3844-8172、台東保健所 03-3847-9497）。予約なしでも受けられるが、予約の人が優先。持ち物は母子健康手帳とA4の書類が入る袋。面接のあと、育児パッケージ（1万円分）を受け取り、妊婦のための支援給付（1回目）の申請フォームを案内される。
+    detail: 保健師などとの面接（45分ほど。パートナーも同席できる）。面接日に台東区に住民登録がある妊婦本人が対象で、出産したあとは受けられない。場所は浅草保健相談センター（花川戸2-11-10 3階）か台東保健所保健サービス課（東上野4-22-8 2階）。月〜金の9時〜16時。予約は電子申請か電話（浅草 03-3844-8172、台東保健所 03-3847-9497）。予約なしでも受けられるが、予約の人が優先。持ち物は母子健康手帳とA4の書類が入る袋。面接のあと、育児パッケージ（1万円分）を受け取り、妊婦のための支援給付（1回目）の申請フォームを案内される。 面接についての問い合わせは浅草保健相談センター 母子健康包括支援担当 03-3844-8177（たいとう子育てハンドブック）。
     trigger_document_id: taito.hoken_bag
     produces_document_id: taito.shien_kyufu_annai_1
     channel: 浅草保健相談センター / 台東保健所
@@ -105,6 +196,7 @@ steps:
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: taito.c_asakusa
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/nenrei/ninshinki/soudan_shien/yurikago.html
     verified_at: 2026-09-20
 
@@ -120,6 +212,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "区の妊婦面接・面談のあと"
+    contact_id: taito.c_asakusa
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/ninpusienkyufu.html
     verified_at: 2026-09-20
 
@@ -135,6 +228,7 @@ steps:
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: taito.c_hoken_boshi
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/kenkoushinsa/ninshinchu/ninnpu.html
     verified_at: 2026-09-20
 
@@ -150,6 +244,7 @@ steps:
     apply_from_base: due_date
     apply_from_offset_days: -182
     apply_from_note: "出産予定日の6か月前から"
+    contact_id: taito.c_kokuho_shikaku
     source_url: https://www.city.taito.lg.jp/kurashi/zeikin/kokuminkenkohoken/hokenryou/sanzensango.html
     verified_at: 2026-09-20
 
@@ -157,13 +252,14 @@ steps:
     phase: birth
     sort_order: 71
     title: 新生児聴覚検査を受ける
-    detail: 赤ちゃんの耳のきこえの検査。台東区に住民登録のある、生後50日に達していない赤ちゃんが対象。公費負担額は3,000円。受診票は都内の委託医療機関で使える。都外で自費で受けたときは、あとから費用の一部の助成を申請できる。
+    detail: 赤ちゃんの耳のきこえの検査。台東区に住民登録のある、生後50日に達していない赤ちゃんが対象。公費負担額は3,000円。受診票は都内の委託医療機関で使える。都外で自費で受けたときは、あとから費用の一部の助成を申請できる。 実施日時は医療機関に問い合わせる（たいとう子育てハンドブック）。
     trigger_document_id: taito.shinseiji_choukaku_ticket
     channel: 医療機関
     deadline_note: 生後50日に達するまで
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
+    contact_id: taito.c_hoken_boshi
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/kenkoushinsa/sinseijityoukaku.html
     verified_at: 2026-09-20
 
@@ -171,7 +267,7 @@ steps:
     phase: postpartum
     sort_order: 72
     title: 台東区の出産費用助成（一律5万円）を申請する
-    detail: 出産日当日に台東区に住民票がある産婦に、一律5万円が助成される（妊娠12週（85日）以降の流産・死産も対象）。病院での自己負担が0円でも対象で、保健師などとの面談は要らない。Logoフォーム（区の電子申請）か「たいとうおやこ手帳アプリ」から、産婦本人が申請する。本人確認書類、振込先口座の通帳かキャッシュカード、出産したことがわかる書類（領収書、分娩・出産明細書、出産育児一時金の支給決定通知書など）の画像を付ける。申請した月の翌々月末ごろに振り込まれる。出産前には申請できない。
+    detail: 出産日当日に台東区に住民票がある産婦に、一律5万円が助成される（妊娠12週（85日）以降の流産・死産も対象）。病院での自己負担が0円でも対象で、保健師などとの面談は要らない。Logoフォーム（区の電子申請）か「たいとうおやこ手帳アプリ」から、産婦本人が申請する。本人確認書類、振込先口座の通帳かキャッシュカード、出産したことがわかる書類（領収書、分娩・出産明細書、出産育児一時金の支給決定通知書など）の画像を付ける。申請した月の翌々月末ごろに振り込まれる。出産前には申請できない。 今回出産した子どもの住民票が台東区外にある場合は、母子健康手帳も必要（たいとう子育てハンドブック）。
     trigger_document_id: jp.hospital_receipt
     channel: オンライン（Logoフォーム / たいとうおやこ手帳アプリ）
     action_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/syussanhiyoujyosei.html
@@ -182,6 +278,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    contact_id: taito.c_kyufu
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/syussanhiyoujyosei.html
     verified_at: 2026-09-20
 
@@ -189,7 +286,7 @@ steps:
     phase: postpartum
     sort_order: 75
     title: 出生通知書を出し、こんにちは赤ちゃん訪問を受ける
-    detail: 赤ちゃんが生まれたすべての家庭を、保健師か助産師が訪問する（無料）。対象は区内在住で生後4か月を迎えるまでの赤ちゃんがいる家庭。生まれたあと、できれば2週間以内に「出生通知書（赤ちゃん訪問連絡票）」を電子申請で出す（難しければ電話でもよい）。体重測定、育児や産後の体調の相談、健診や予防接種の案内がある。里帰り先での訪問を希望するときは、出生通知書に書く。連絡先は台東保健所保健サービス課 03-3847-9497、浅草保健相談センター 03-3844-8172。
+    detail: 赤ちゃんが生まれたすべての家庭を、保健師か助産師が訪問する（無料）。対象は区内在住で生後4か月を迎えるまでの赤ちゃんがいる家庭。生まれたあと、できれば2週間以内に「出生通知書（赤ちゃん訪問連絡票）」を電子申請で出す（難しければ電話でもよい）。体重測定、育児や産後の体調の相談、健診や予防接種の案内がある。里帰り先での訪問を希望するときは、出生通知書に書く。連絡先は台東保健所保健サービス課 03-3847-9497、浅草保健相談センター 03-3844-8172。 出生通知書についての問い合わせは浅草保健相談センター 母子健康包括支援担当 03-3844-8177でもよい（たいとう子育てハンドブック）。
     trigger_document_id: taito.hoken_bag
     produces_document_id: taito.akachan_homon_annai
     channel: オンライン（電子申請）/ 電話 → 自宅に訪問
@@ -198,6 +295,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から（なるべく早く）"
+    contact_id: taito.c_asakusa
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/shussan/shinseijihomonshido.html
     verified_at: 2026-09-20
 
@@ -213,6 +311,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産後、区の訪問のあと"
+    contact_id: taito.c_asakusa
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/ninpusienkyufu.html
     verified_at: 2026-09-20
 
@@ -227,6 +326,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
+    contact_id: taito.c_hoken_boshi
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/kenkoushinsa/taitosanpu.html
     verified_at: 2026-09-20
 
@@ -243,6 +343,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 28
     apply_from_note: "生後28日から"
+    contact_id: taito.c_hoken_boshi
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/kenkou_iryou/kenkoushinsa/1kagetu.html
     verified_at: 2026-09-20
 
@@ -260,6 +361,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    contact_id: taito.c_asakusa
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/iryohijosei/satogaerijyosei.html
     verified_at: 2026-09-20
 
