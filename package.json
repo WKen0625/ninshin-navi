@@ -20,7 +20,8 @@
     "build:postal": "tsx scripts/build-postal.ts",
     "stuck:report": "tsx scripts/stuck.ts",
     "articles:export": "tsx scripts/articles-bundle.ts export",
-    "articles:import": "tsx scripts/articles-bundle.ts import"
+    "articles:import": "tsx scripts/articles-bundle.ts import",
+    "retention:run": "tsx --env-file-if-exists=.env.local scripts/retention.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.126.0",

@@ -26,44 +26,44 @@ documents:
     phase: notification
     description: 妊娠届を出すと、母子健康手帳と一緒に受け取る。妊婦健康診査受診票、妊婦歯科健康診査受診票、妊婦超音波検査受診票、新生児聴覚検査受診票、出生通知票などが入っている。
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/tetsuduki/ninshintodoke.html
-    verified_at: 2026-09-20
+    verified_at: 2026-09-25
   - id: nakano.kenshin_ticket
     name: 妊婦健康診査受診票（中野区。「妊婦健康診査及び新生児聴覚検査のご案内」という受診票のつづり）
     aliases: [受診票, 補助券]
     phase: notification
     description: 妊婦健康診査14回分（多胎児を妊娠した人は19回分）、妊婦超音波検査4回分、子宮頸がん検診1回分。都内の助産所でも受けられる（助産所で受けられる回数は原則7回）。東京都外の医療機関では使えない（あとから助成金を申請できる）。
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/kenshin/ninpukenkoshinsa_jyushin.html
-    verified_at: 2026-09-20
+    verified_at: 2026-09-25
   - id: nakano.shinseiji_choukaku_ticket
     name: 新生児聴覚検査受診票（中野区）
     phase: birth
     description: 母子健康手帳と一緒に受け取る「妊婦健康診査及び新生児聴覚検査のご案内」（受診票のつづり）に入っている。検査の前に医療機関に出すと、検査費用のうち3,000円を上限に助成される。
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/teate/shien/cyokakukensa.html
-    verified_at: 2026-09-20
+    verified_at: 2026-09-25
   - id: nakano.sanpu_kenshin_ticket
     name: 産婦健康診査受診票（中野区）
     phase: postpartum
     description: 令和8年10月1日以降の受診が対象（9月30日までの受診は対象外）。令和8年4月1日以降に妊娠届を出した人は「母と子の保健バッグ」で受け取る。3月31日までに届け出て出産予定日が9月15日以降の人には8月27日に郵送。ほかの自治体から転入した人は各すこやか福祉センターで申請する。
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/kenshin/sannpukennsinn.html
-    verified_at: 2026-09-20
+    verified_at: 2026-09-25
   - id: nakano.shussho_tsuchi
     name: 出生通知票（中野区。はがき）
     phase: birth
     description: 「母と子の保健バッグ」に入っている。赤ちゃんが生まれたら記入して投函する（電子申請でも出せる）。こんにちは赤ちゃん訪問のもとになる。
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/syussan/sangoshien/akachanhomon.html
-    verified_at: 2026-09-20
+    verified_at: 2026-09-25
   - id: nakano.shien_kyufu_annai_1
     name: 妊婦のための支援給付（産前）の申請案内（中野区。二次元コード）
     phase: pregnancy
     description: 妊娠届のとき、または「かんがるー面接」のときに案内される二次元コード。ここから電子申請する。
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/teate_zyosei/ninpu.html
-    verified_at: 2026-09-20
+    verified_at: 2026-09-25
   - id: nakano.akachan_homon_annai
     name: 妊婦のための支援給付（産後）の申請案内（中野区。こんにちは赤ちゃん訪問で受け取る二次元コード）
     phase: postpartum
     description: こんにちは赤ちゃん訪問のときに案内される二次元コード。ここから電子申請する。
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/teate_zyosei/ninpu.html
-    verified_at: 2026-09-20
+    verified_at: 2026-09-25
 
 contacts:
   # 出典: 中野区「子育て支援ハンドブック おひるね」2025-2026年度版（全項PDF。#page= はPDFのページ番号で、1ページに印刷ページ2面）。冊子に無い夜間・休日の出生届受付は区の公式ページから
@@ -141,7 +141,7 @@ steps:
     apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
     contact_id: nakano.c_sukoyaka
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/tetsuduki/ninshintodoke.html
-    verified_at: 2026-09-20
+    verified_at: 2026-09-25
 
   - id: nakano.s03b
     phase: pregnancy
@@ -158,7 +158,7 @@ steps:
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     contact_id: nakano.c_sukoyaka
     source_url: https://www.city.tokyo-nakano.lg.jp/dept/172050/d021411.html
-    verified_at: 2026-09-20
+    verified_at: 2026-09-25
 
   - id: nakano.s05
     overrides_step_id: jp.s05
@@ -173,7 +173,7 @@ steps:
     apply_from_offset_days: 0
     apply_from_note: "心拍を確認した日から（区の面接・面談のあと）"
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/teate_zyosei/ninpu.html
-    verified_at: 2026-09-20
+    verified_at: 2026-09-25
 
   - id: nakano.s05c
     phase: pregnancy
@@ -188,7 +188,7 @@ steps:
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
     contact_id: nakano.c_kodomo_sogo
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/kenshin/ninpukenkoshinsa_jyushin.html
-    verified_at: 2026-09-20
+    verified_at: 2026-09-25
 
   - id: nakano.s06d
     phase: pregnancy
@@ -204,7 +204,7 @@ steps:
     apply_from_note: "出産予定日の6か月前から"
     contact_id: nakano.c_kokuho
     source_url: https://www.city.tokyo-nakano.lg.jp/kurashi/hoken/hokenryo/0234707520231031160300299.html
-    verified_at: 2026-09-20
+    verified_at: 2026-09-25
 
   - id: nakano.s08c
     phase: birth
@@ -221,7 +221,7 @@ steps:
     apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     contact_id: nakano.c_kodomo_sogo
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/teate/shien/cyokakukensa.html
-    verified_at: 2026-09-20
+    verified_at: 2026-09-25
 
   - id: nakano.s07c
     phase: postpartum
@@ -238,7 +238,7 @@ steps:
     apply_from_note: "出産した日から（なるべく早く）"
     contact_id: nakano.c_sukoyaka
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/syussan/sangoshien/akachanhomon.html
-    verified_at: 2026-09-20
+    verified_at: 2026-09-25
 
   - id: nakano.s08
     overrides_step_id: jp.s08
@@ -253,7 +253,7 @@ steps:
     apply_from_offset_days: 0
     apply_from_note: "出産後、区の訪問のあと"
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/teate_zyosei/ninpu.html
-    verified_at: 2026-09-20
+    verified_at: 2026-09-25
 
   - id: nakano.s08b
     phase: postpartum
@@ -268,7 +268,7 @@ steps:
     apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
     contact_id: nakano.c_sukoyaka
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/kenshin/sannpukennsinn.html
-    verified_at: 2026-09-20
+    verified_at: 2026-09-25
 
   - id: nakano.s08e
     phase: postpartum
@@ -287,7 +287,7 @@ steps:
     contact_id: nakano.c_kodomo_sogo
     requires: satogaeri
     source_url: https://www.city.tokyo-nakano.lg.jp/dept/242900/d001464.html
-    verified_at: 2026-09-20
+    verified_at: 2026-09-25
 
 subsidies:
   - id: nakano.shien_kyufu_1
@@ -301,7 +301,7 @@ subsidies:
     apply_from_offset_days: 0
     apply_from_note: "1回目は心拍確認後の面接・面談のあと、2回目は出産後の訪問・案内のあと"
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/teate_zyosei/ninpu.html
-    verified_at: 2026-09-20
+    verified_at: 2026-09-25
 
   - id: nakano.shien_kyufu_2
     name: 妊婦のための支援給付（産後・中野区）
@@ -314,7 +314,7 @@ subsidies:
     apply_from_offset_days: 0
     apply_from_note: "1回目は心拍確認後の面接・面談のあと、2回目は出産後の訪問・案内のあと"
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/teate_zyosei/ninpu.html
-    verified_at: 2026-09-20
+    verified_at: 2026-09-25
 
   - id: nakano.kouketsuatsu
     name: 妊娠高血圧症候群等の医療費助成（中野区）
@@ -324,4 +324,4 @@ subsidies:
     apply_via: 区役所3階子ども総合窓口、または各すこやか福祉センター（中部・北部・鷺宮・南部）。入院前か入院中に申請する。やむを得ず退院後になるときは退院後3か月以内。問い合わせ 子育て支援課 03-3228-3253
     apply_from_note: "入院治療を受けたあと（区のページで手続きを確認）"
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/teate/shien/ninshinkoketsuatsu.html
-    verified_at: 2026-09-20
+    verified_at: 2026-09-25

@@ -11,7 +11,7 @@ async function main() {
   try {
     const i = process.argv.indexOf("--done");
     if (i > 0) {
-      const { rowCount } = await client.query("update feedback set status = 'done' where id = $1", [Number(process.argv[i + 1])]);
+      const { rowCount } = await client.query("update feedback set status = 'done', resolved_at = now() where id = $1", [Number(process.argv[i + 1])]);
       console.log(rowCount ? "対応済みにしました。" : "その番号は見つかりません。");
       return;
     }

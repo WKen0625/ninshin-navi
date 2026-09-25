@@ -214,7 +214,7 @@ steps:
     apply_from_note: "出産予定日の6か月前から"
     contact_id: arakawa.c_kokuho
     source_url: https://www.city.arakawa.tokyo.jp/a031/kenkouhoken/sannzennsanngo.html
-    verified_at: 2026-09-20
+    verified_at: 2026-09-25
 
   - id: arakawa.s08c
     phase: birth

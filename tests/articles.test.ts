@@ -46,7 +46,12 @@ describe("記事", () => {
     const ja = listArticles("ja");
     const en = listArticles("en");
     expect(ja.every((a) => !a.draft)).toBe(true);
-    expect(ja.map((a) => a.published)).toEqual([...ja.map((a) => a.published)].sort().reverse());
+    // 並びは周期の順（いつでも → 初期 → 中期 → 後期 → 出産 → 産後）、同じ周期の中は新しい順
+    const order = ["all", "early", "mid", "late", "birth", "postpartum"];
+    for (let i = 1; i < ja.length; i++) {
+      const a = ja[i - 1], b = ja[i];
+      expect(order.indexOf(a.stage) < order.indexOf(b.stage) || (a.stage === b.stage && a.published >= b.published)).toBe(true);
+    }
     const intro = ja.find((a) => a.slug === "how-tsugiraku-works")!;
     expect(intro.langs).toEqual(["ja", "en", "zh", "ko", "ru"]);
     expect(en.find((a) => a.slug === "how-tsugiraku-works")?.lang).toBe("en");
@@ -78,7 +83,9 @@ describe("記事", () => {
   });
   it("一覧は周期で絞れる。「いつでも」の記事はどの周期にも出る", () => {
     const late = listArticles("ja", "late");
-    expect(late.map((a) => a.slug)).toEqual(["how-tsugiraku-works", "hospital-bag"]);
-    expect(listArticles("ja", "early").map((a) => a.slug)).toEqual(["how-tsugiraku-works"]);
+    expect(late.every((a) => a.stage === "late" || a.stage === "all")).toBe(true);
+    expect(late.map((a) => a.slug)).toContain("hospital-bag");
+    expect(late.map((a) => a.slug)).toContain("how-tsugiraku-works");
+    expect(listArticles("ja", "early").map((a) => a.slug)).toEqual(["how-tsugiraku-works", "first-two-weeks"]);
   });
 });

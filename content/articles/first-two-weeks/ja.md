@@ -4,7 +4,6 @@ description: 検査薬が陽性になってから、病院・役所・職場で�
 published: 2026-09-23
 stage: early
 pr: false
-draft: true
 sources:
   - label: こども家庭庁「妊婦のための支援給付」（1回目・2回目 各5万円）
     url: https://www.cfa.go.jp/assets/contents/node/basic_page/field_ref_resources/be80930d-51d1-4084-aa3e-b80930646538/42e36027/20250325_policies_shussan-kosodate_52.pdf

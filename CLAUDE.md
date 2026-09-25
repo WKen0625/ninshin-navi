@@ -79,7 +79,7 @@
 - ログインなしで使える（2026-09-19 決定）。入力・完了チェックは端末のブラウザ内にだけ保存する。ログイン（マジックリンク）は製品の購入など段階4以降で使う
 - メール通知は希望する人だけ（2026-09-19 決定）。確認メールのリンクで有効化。登録した人の分だけ、メールアドレスと期限計算に必要な入力をサーバーで預かる。週1回まで・広告なし。送信は Resend、実行は Vercel の週次 cron（`/api/cron/notify`）
 - 記録（任意の1問）もログインなし。同意した場合だけ、サーバー（service_role）が保存する。重複防止は `reporter_hash = sha256(端末ごとのランダムID + REPORTER_HASH_SECRET)`。`/privacy` で同意の取り消しと記録の削除ができる
-- Vercel でホスティング。週1回のcronで `source_watch` を実行
+- Vercel でホスティング。週1回のcronで `source_watch` を実行。月1回のcronで保存期間（2年）を過ぎた行を消す（`retention_run()`、`/api/cron/retention`）
 - 制度データ: `data/` のYAMLが正。`pnpm seed` でSupabaseへ投入（上書き）。差分はgitで追う
 - 変更監視: `source_url` を取得しハッシュ比較 → 変更で `needs_review=true` → Claude API（Haiku）が差分を要約 → **人が承認してからYAMLを更新**
 - 決済・紹介: Stripe／アフィリエイト（段階4以降。弁護士確認後）
