@@ -69,7 +69,6 @@ contacts:
     note: 渋谷区公式LINE（＠shibuyacity）の登録・申請についての問い合わせ先もここ
     source_url: https://files.city.shibuya.tokyo.jp/assets/12995aba8b194961be709ba879857f70/71273d2bb29940ce87f4f7b6d1a8bf31/neuvola_childcare_handbook8.pdf#page=10
     verified_at: 2026-09-25
-    needs_review: true
   - id: shibuya.c_hokensodan
     name: お住まいを受け持つ保健相談所（中央・恵比寿・幡ヶ谷）の地区担当保健師
     topics: 妊婦面接・育児パッケージ・パパ・ママ入門学級・母乳相談・育児学級・赤ちゃんショートステイ。健診や育児のことで困ったときの相談
@@ -78,7 +77,6 @@ contacts:
     note: 中央保健相談所 03-3463-2439（宇田川町・渋谷・代々木・神南・代々木神園町・西原・南平台町・道玄坂・猿楽町・桜丘町・代官山町・鉢山町・鶯谷町・松濤・大山町・千駄ヶ谷・富ヶ谷・神山町・初台・元代々木町・上原・円山町・神泉町・神宮前）／恵比寿保健相談所 03-3443-6251（東・広尾・恵比寿・恵比寿西・恵比寿南）／幡ヶ谷保健相談所 03-3374-7591（幡ヶ谷・本町・笹塚）
     source_url: https://files.city.shibuya.tokyo.jp/assets/12995aba8b194961be709ba879857f70/71273d2bb29940ce87f4f7b6d1a8bf31/neuvola_childcare_handbook8.pdf#page=31
     verified_at: 2026-09-25
-    needs_review: true
   - id: shibuya.c_koseki
     name: 住民戸籍課 戸籍係（出生届）
     topics: 出生届・出生届と同時のマイナンバーカード特急発行
@@ -89,14 +87,12 @@ contacts:
     note: 出張所（月〜金 8時30分〜16時）、区民サービスセンター（月〜金 11時〜19時、土 9時〜17時）でも出せる。本庁舎1階の夜間・休日窓口と、区民サービスセンターの夜間（月〜金 17時〜19時）・土曜日は届書の預かりのみで、審査は翌開庁日以降。夜間・休日窓口では母子手帳の証明や手当・助成の受付はしていない（出生届のページによる）。マイナンバーカード特急発行の問い合わせは住民戸籍課マイナンバーカード管理主査 03-3463-1785
     source_url: https://files.city.shibuya.tokyo.jp/assets/12995aba8b194961be709ba879857f70/71273d2bb29940ce87f4f7b6d1a8bf31/neuvola_childcare_handbook8.pdf#page=18
     verified_at: 2026-09-25
-    needs_review: true
   - id: shibuya.c_kyufu
     name: 子ども青少年課 子育て給付係
     topics: 児童手当・子ども医療費助成（医療証の交付申請）
     phone: "03-3463-2558"
     source_url: https://files.city.shibuya.tokyo.jp/assets/12995aba8b194961be709ba879857f70/71273d2bb29940ce87f4f7b6d1a8bf31/neuvola_childcare_handbook8.pdf#page=19
     verified_at: 2026-09-25
-    needs_review: true
   - id: shibuya.c_kokuho_shikaku
     name: 国民健康保険課 資格賦課係
     topics: 産前産後期間の国民健康保険料免除・国民健康保険の加入
@@ -104,28 +100,24 @@ contacts:
     address: 渋谷区役所本庁舎3階 国民健康保険課窓口
     source_url: https://files.city.shibuya.tokyo.jp/assets/12995aba8b194961be709ba879857f70/71273d2bb29940ce87f4f7b6d1a8bf31/neuvola_childcare_handbook8.pdf#page=17
     verified_at: 2026-09-25
-    needs_review: true
   - id: shibuya.c_kokuho_kyufu
     name: 国民健康保険課 給付係
     topics: ハッピーマザー出産助成金
     phone: "03-3463-1776"
     source_url: https://files.city.shibuya.tokyo.jp/assets/12995aba8b194961be709ba879857f70/71273d2bb29940ce87f4f7b6d1a8bf31/neuvola_childcare_handbook8.pdf#page=21
     verified_at: 2026-09-25
-    needs_review: true
   - id: shibuya.c_callcenter
     name: 渋谷区妊婦支援給付金コールセンター
     topics: 妊婦のための支援給付金（1回目・2回目）・バースデーサポート事業
     phone: "03-3463-3589"
     source_url: https://files.city.shibuya.tokyo.jp/assets/12995aba8b194961be709ba879857f70/71273d2bb29940ce87f4f7b6d1a8bf31/neuvola_childcare_handbook8.pdf#page=14
     verified_at: 2026-09-25
-    needs_review: true
   - id: shibuya.c_yobou
     name: 地域保健課 予防接種係
     topics: 妊婦のRSウイルスワクチン定期接種・子どもの予防接種・東京23区外で接種するときの予防接種依頼書
     phone: "03-3463-1412"
     source_url: https://files.city.shibuya.tokyo.jp/assets/12995aba8b194961be709ba879857f70/71273d2bb29940ce87f4f7b6d1a8bf31/neuvola_childcare_handbook8.pdf#page=13
     verified_at: 2026-09-25
-    needs_review: true
 
 steps:
   - id: shibuya.s03
@@ -295,6 +287,7 @@ steps:
     apply_from_offset_days: 0
     apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     contact_id: shibuya.c_boshi
+    requires: satogaeri
     source_url: https://www.city.shibuya.tokyo.jp/kodomo/ninshin/ninshin-teate/ninpukensin.html
     verified_at: 2026-09-20
 

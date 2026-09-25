@@ -83,7 +83,6 @@ contacts:
     note: 妊娠届・はぴママたまご面接・赤ちゃん訪問は住所を担当する健康支援センター（王子 03-3919-7588／赤羽 03-3903-6481／滝野川 03-3915-0184）が窓口。保健サービス係でも面接を受けられるが時間が限られるので先に電話で予約する
     source_url: https://www.city.kita.lg.jp/_res/projects/default_project/_page_/001/002/838/kouhann.pdf#page=1
     verified_at: 2026-09-25
-    needs_review: true
   - id: kita.c_oji_center
     name: 保健サービス課 王子健康支援センター（北区保健所1階）
     topics: 妊娠届・母子健康手帳・保健バッグ・はぴママたまご面接・赤ちゃん訪問（出生通知票）・乳幼児健診・出産育児講座（赤ちゃん学級）・成長や発達の相談（担当地域は王子・王子本町・豊島・堀船・上十条・中十条・東十条・岸町・十条台・十条仲原）
@@ -94,7 +93,6 @@ contacts:
     note: 赤羽健康支援センター 03-3903-6481（赤羽南1-13-1 赤羽会館6階。赤羽・西が丘・赤羽西・赤羽北・赤羽南・赤羽台・志茂・岩淵町・浮間・桐ケ丘・神谷）、滝野川健康支援センター 03-3915-0184（西ケ原1-19-12。滝野川・西ケ原・栄町・上中里・中里・昭和町・田端新町・東田端・田端）。里帰り先への赤ちゃん訪問を希望するときも担当の健康支援センターへ電話
     source_url: https://www.city.kita.lg.jp/_res/projects/default_project/_page_/001/002/838/kouhann.pdf#page=1
     verified_at: 2026-09-25
-    needs_review: true
   - id: kita.c_teate
     name: 北区役所 子ども未来課 子育て給付係（第一庁舎2階6番）
     topics: 児童手当・子ども医療費助成（マル乳・マル子・マル青の医療証）・ひとり親家庭の手当と助成
@@ -105,7 +103,6 @@ contacts:
     note: 児童手当・子ども医療証は窓口のほか郵送・電子申請（マイナポータル）でも申請できる（郵送は届いた日が申請日）。出生届と同じ日に手続きするなら時間に余裕をもって行く（地下巡視室での受付のときは同日にはできない）
     source_url: https://www.city.kita.lg.jp/_res/projects/default_project/_page_/001/002/838/kouhann.pdf#page=5
     verified_at: 2026-09-25
-    needs_review: true
   - id: kita.c_koseki
     name: 北区役所 戸籍住民課 戸籍係（第二庁舎2階5番）
     topics: 出生届・戸籍の届出・母子健康手帳の出生届出済証明
@@ -116,7 +113,6 @@ contacts:
     note: 戸籍係の受付時間外と土日・祝日・年末年始（12月29日〜1月3日）は、第一庁舎の地下巡視室で届書を受け付ける。巡視室で出したときは、母子健康手帳の「出生届出済証明」は後日の発行になるので、受付時間内に母子健康手帳を戸籍係へ持っていく。電話番号は区の出生届ページの問い合わせ先（戸籍住民課）のもの。冊子の戸籍係の番号はOCRで読み取りが不確かなため入れていない
     source_url: https://www.city.kita.lg.jp/_res/projects/default_project/_page_/001/002/838/kouhann.pdf#page=4
     verified_at: 2026-09-25
-    needs_review: true
   - id: kita.c_kokuho
     name: 北区役所 国保年金課 国保資格係（第一庁舎2階23番）
     topics: 赤ちゃんの国民健康保険への加入・産前産後期間の国民健康保険料の軽減（免除）
@@ -127,7 +123,6 @@ contacts:
     note: 出産育児一時金は国保給付係（第一庁舎2階22番）03-3908-1132。国民年金保険料の産前産後の免除は国民年金係（2階26番）。北区の国民健康保険以外の健康保険の人は、それぞれの健康保険へ
     source_url: https://www.city.kita.lg.jp/_res/projects/default_project/_page_/001/002/838/kouhann.pdf#page=4
     verified_at: 2026-09-25
-    needs_review: true
   - id: kita.c_kodomo_katei
     name: 子ども家庭支援センター「子どもと家庭の総合相談」（電話相談）
     topics: 妊娠中から18歳未満の子どもと子育てに関する相談全般（育児の悩み、親子関係、子どもへの接し方など）。はぴママひよこ面接・安心ママパパヘルパー・ショートステイの問い合わせも
@@ -138,7 +133,6 @@ contacts:
     note: はぴママひよこ面接・安心ママパパヘルパー・ショートステイは 03-6903-0511。代表は 03-3914-9565。子どもの急な病気の相談は #8000（小児救急電話相談）
     source_url: https://www.city.kita.lg.jp/_res/projects/default_project/_page_/001/002/838/r8gaidobukkuzennhann.pdf#page=8
     verified_at: 2026-09-25
-    needs_review: true
 
 steps:
   - id: kita.s03
@@ -302,6 +296,7 @@ steps:
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
     contact_id: kita.c_hoken_service
+    requires: satogaeri
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002764/1002773.html
     verified_at: 2026-09-20
 

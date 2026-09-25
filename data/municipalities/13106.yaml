@@ -84,7 +84,6 @@ contacts:
     note: 妊婦歯科健康診査・産婦歯科健診は同担当（歯科衛生）03-3847-9449。妊娠届は浅草保健相談センター、区役所1階 戸籍住民サービス課、各区民事務所・分室でも出せる。希望者には父子健康手帳も配布
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/2025handbook.files/2026_syuusei_handobook.pdf#page=7
     verified_at: 2026-09-25
-    needs_review: true
   - id: taito.c_hoken_shido
     name: 台東保健所 保健サービス課 保健指導担当（台東保健所2階）
     topics: ゆりかご・たいとう面接の予約・こんにちは赤ちゃん訪問（出生通知書）・プレママ・パパ交流会
@@ -95,7 +94,6 @@ contacts:
     note: 面接の予約は台東区ホームページの電子申請が基本。浅草地域は浅草保健相談センター 保健指導担当 03-3844-8172
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/2025handbook.files/2026_syuusei_handobook.pdf#page=8
     verified_at: 2026-09-25
-    needs_review: true
   - id: taito.c_asakusa
     name: 浅草保健相談センター 母子健康包括支援担当（3階）
     topics: ゆりかご・たいとう面接・妊婦のための支援給付の案内・ハローベビー学級・出生通知書とこんにちは赤ちゃん訪問・産後ケア（宿泊型・日帰り型・外来型・訪問型乳房ケア）
@@ -106,7 +104,6 @@ contacts:
     note: 妊娠届・母子健康手帳・受診票・里帰り出産等妊婦健康診査費助成・産前産後支援ヘルパー「あったかハンド」は同センター 庶務担当 03-3844-8171。面接の予約・訪問の連絡は保健指導担当 03-3844-8172
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/2025handbook.files/2026_syuusei_handobook.pdf#page=8
     verified_at: 2026-09-25
-    needs_review: true
   - id: taito.c_kyufu
     name: 台東区役所 子育て支援課 給付担当（区役所6階4番窓口）
     topics: 児童手当・子ども医療費助成（乳・子・青医療証）・出産費用助成・にぎやか家庭応援プラン（第3子以降の祝い品）
@@ -117,7 +114,6 @@ contacts:
     note: 児童手当・子ども医療費助成・出産費用助成はオンライン申請もできる。出生届を出した日に住所が台東区の人は、開庁時間内なら同じ日に児童手当と子ども医療費助成を申請できる。入院助産・区立保育園の子育て相談は同課 庶務担当 03-5246-1237
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/2025handbook.files/2026_syuusei_handobook.pdf#page=10
     verified_at: 2026-09-25
-    needs_review: true
   - id: taito.c_koseki
     name: 台東区役所 戸籍住民サービス課 届出担当（区役所1階10番窓口）
     topics: 出生届・戸籍の届出・母子健康手帳への出生届出済証明
@@ -128,7 +124,6 @@ contacts:
     note: 戸籍の届出は区役所本庁のみ（区民事務所・分室・地区センターでは受理できない）。開庁時間外は区役所1階の「夜間休日受付窓口」に出せる（母子健康手帳を持参。審査は翌開庁日で、誤りがあれば開庁時間内に再来庁。児童手当などの申請はできない）
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/2025handbook.files/2026_syuusei_handobook.pdf#page=10
     verified_at: 2026-09-25
-    needs_review: true
   - id: taito.c_kokuho_shikaku
     name: 台東区役所 国民健康保険課 資格係（区役所2階12番窓口）
     topics: 国民健康保険の加入・産前産後期間の国民健康保険料軽減措置
@@ -139,7 +134,6 @@ contacts:
     note: 郵送でも届け出できる（電話すると届出一式と返信用封筒が送られてくる）。国民年金の産前産後の保険料免除は区民課 国民年金係 03-5246-1262（区役所3階1番窓口）
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/2025handbook.files/2026_syuusei_handobook.pdf#page=11
     verified_at: 2026-09-25
-    needs_review: true
   - id: taito.c_kokuho_kyufu
     name: 台東区役所 国民健康保険課 給付係（区役所2階14番窓口）
     topics: 出産育児一時金（台東区の国民健康保険の人。直接支払制度・受取代理制度を使えなかった場合や差額の請求）
@@ -150,7 +144,6 @@ contacts:
     note: 台東区の国民健康保険以外の健康保険の人は、加入している健康保険へ問い合わせる
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/2025handbook.files/2026_syuusei_handobook.pdf#page=11
     verified_at: 2026-09-25
-    needs_review: true
   - id: taito.c_kodomo_katei
     name: 子ども家庭支援センター 子育て総合相談（日本堤・台東・寿・谷中）
     topics: 子育ての不安や悩み、周りの子どものことで心配なこと（0〜18歳未満の子どもとその保護者・関係者）・子育てアシスト（相談員が支援の利用を一緒に考える）
@@ -160,7 +153,6 @@ contacts:
     note: phone は日本堤子ども家庭支援センター。台東子ども家庭支援センター 03-3834-4497／寿子ども家庭支援センター 03-3841-4631／谷中子ども家庭支援センター 03-3824-5540
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/2025handbook.files/2026_syuusei_handobook.pdf#page=39
     verified_at: 2026-09-25
-    needs_review: true
 
 steps:
   - id: taito.s03
@@ -362,6 +354,7 @@ steps:
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
     contact_id: taito.c_asakusa
+    requires: satogaeri
     source_url: https://www.city.taito.lg.jp/kosodatekyouiku/kosodate/mokutei/teate_josei/iryohijosei/satogaerijyosei.html
     verified_at: 2026-09-20
 

@@ -50,7 +50,6 @@ contacts:
     url: https://www.mhlw.go.jp/topics/2006/10/tp1010-3.html
     source_url: https://www.mhlw.go.jp/topics/2006/10/tp1010-3.html
     verified_at: 2026-09-25
-    needs_review: true
 
 steps:
   - id: jp.s01
@@ -226,6 +225,53 @@ steps:
     apply_from_note: "育児休業に入ってから（勤務先が手続きする）"
     source_url: https://www.nenkin.go.jp/service/kounen/hokenryo/menjo/ikuji-menjo/20140327-05.html
     verified_at: 2026-09-19
+
+  - id: jp.s06e
+    phase: pregnancy
+    sort_order: 65
+    title: （双子以上）産前休業を出産予定日の14週間前から請求できることを、勤務先に伝える
+    detail: 多胎妊娠の産前休業は、出産予定日の6週間前ではなく14週間前から請求できる（労働基準法第65条第1項）。産休の開始日と、出産手当金の対象期間（多胎は98日前から）が変わるので、勤務先の担当者に早めに伝える。
+    channel: 勤務先
+    requires: multiple
+    apply_from_base: due_date
+    apply_from_offset_days: -98
+    apply_from_note: "出産予定日の14週間前から（本人が請求したとき）"
+    deadline_note: 産前休業を始めたい日の前に、勤務先へ
+    source_url: https://laws.e-gov.go.jp/law/322AC0000000049
+    verified_at: 2026-09-25
+
+  - id: jp.s10
+    phase: postpartum
+    sort_order: 78
+    title: （子が日本国籍にならない場合）子の在留資格取得許可申請を、出入国在留管理局に出す
+    detail: 両親とも外国籍などで、生まれた子が日本国籍を取らないときは、出生の日から60日を超えて日本にいるために、出生の日から30日以内に「在留資格取得許可申請」を出す（入管法第22条の2）。出生届と住民票の手続きのあとに、子のパスポート（または出生届受理証明書など）・親の在留カード・住民票などを持って、住んでいる地域の出入国在留管理局へ。手数料はかからない。必要書類は出入国在留管理庁のページで確認する。
+    trigger_document_id: null
+    channel: 出入国在留管理局（住所地を管轄する地方出入国在留管理局）
+    action_url: https://www.moj.go.jp/isa/applications/procedures/16-10.html
+    requires: foreign_parent
+    deadline_base: birth_date
+    deadline_offset_days: 30
+    deadline_note: 出生の日から30日以内（入管法第22条の2）。60日を超えて在留するには申請が必要
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（出生届のあと）"
+    source_url: https://www.moj.go.jp/isa/applications/procedures/16-10.html
+    verified_at: 2026-09-25
+
+  - id: jp.s10b
+    phase: postpartum
+    sort_order: 79
+    title: （外国籍の親）母国の大使館・領事館に出生を届け出て、子のパスポートを申請する
+    detail: 親の国籍の国にも子の出生を登録する。手続きと必要書類は国ごとに違うので、大使館・領事館のページで確認する。子の在留資格取得許可申請には子のパスポートがあると進めやすい（無い場合の扱いは入管に相談）。
+    channel: 母国の大使館・領事館
+    requires: foreign_parent
+    deadline_note: 期限は国ごとに違う（大使館・領事館で確認）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（出生届のあと）"
+    source_url: https://www.kifjp.org/child/threeprocedure
+    verified_at: 2026-09-25
+    needs_review: true
 
 subsidies:
   - id: jp.lumpsum

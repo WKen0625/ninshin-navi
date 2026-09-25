@@ -90,7 +90,6 @@ contacts:
     note: 妊娠届は保健所のほか、各保健相談所、区役所区民課、豊洲特別出張所、各出張所でも出せる（区民課・出張所は混雑で待つことがある）。ゆりかご面接はお住まいの地域を担当する保健相談所か豊洲特別出張所で。出産・子育て応援給付金の申請の問い合わせは 0120-501-627
     source_url: https://www.city.koto.lg.jp/261201/kodomo/ninshinshussan/ninshin/6875.html
     verified_at: 2026-09-25
-    needs_review: true
   - id: koto.c_hokensodan
     name: 保健相談所（住んでいる地域を担当する所。区内4か所）
     topics: 妊娠届・母子健康手帳・ゆりかご面接（妊婦面接）・妊婦健診や産婦健診・1か月児健診の払い戻し申請・新生児・産婦訪問・乳幼児健診・妊娠高血圧症候群等医療費助成・母子保健の相談
@@ -99,7 +98,6 @@ contacts:
     note: 城東保健相談所 03-3637-6521（大島3-1-3。亀戸・大島・東砂1〜3丁目）／深川保健相談所 03-3641-1181（白河3-4-3-301。清澄・常盤・森下・平野・白河・門前仲町・富岡・木場・東陽・住吉など）／深川南部保健相談所 03-5632-2291（枝川1-8-15-102。塩浜・枝川・豊洲・東雲・有明・辰巳・潮見・青海・海の森）／城東南部保健相談所 03-5606-5001（南砂4-3-10。北砂・東砂4〜8丁目・南砂と新砂の一部・新木場・夢の島・若洲）。担当地域の詳しい町名は区の一覧ページで確認
     source_url: https://www.city.koto.lg.jp/260501/fukushi/hoken/ippan/15.html
     verified_at: 2026-09-25
-    needs_review: true
   - id: koto.c_teate
     name: 江東区役所 こども家庭支援課 給付係（区役所3階14番）
     topics: 児童手当・子ども医療費助成（マル乳・マル子・マル青医療証）・児童扶養手当・児童育成手当・ひとり親家庭等医療費助成
@@ -110,7 +108,6 @@ contacts:
     note: 豊洲シビックセンター内 豊洲特別出張所3階7番窓口（03-5859-0165）でも申請できる。郵送とマイナポータルの電子申請も可（区に届いた日が申請日）。児童手当は住民登録の前でも申請できる場合があるので給付係に相談する
     source_url: https://www.city.koto.lg.jp/281011/2024jidou.html
     verified_at: 2026-09-25
-    needs_review: true
   - id: koto.c_koseki
     name: 江東区役所 区民課 戸籍係（本庁舎2階1番）
     topics: 出生届・戸籍の届出・母子健康手帳への出生届出済証明
@@ -121,7 +118,6 @@ contacts:
     note: 上記以外の夜間・休日は区役所1階の夜間・休日受付（宿直室）で預かる（豊洲特別出張所では受け付けない）。宿直室では母子健康手帳の証明・出産育児一時金の証明・各手当の申請はできず、審査は開庁後（数日かかる）。豊洲特別出張所戸籍係（豊洲シビックセンター3階1番、03-5859-0069）は日本人の出生届のみで、外国籍の人・海外や自宅で出産した人の出生届は本庁舎へ。郵送での届出もできる
     source_url: https://www.city.koto.lg.jp/060302/kurashi/jumin/koseki/5061.html
     verified_at: 2026-09-25
-    needs_review: true
   - id: koto.c_kokuho
     name: 江東区役所 医療保険課 保険給付係（区役所2階6番）
     topics: 出産育児一時金（江東区の国民健康保険の人。直接支払制度を使わない場合・差額がある場合・受取代理制度の申請）
@@ -132,7 +128,6 @@ contacts:
     note: 産前産後期間の国民健康保険料の免除と、子どもが生まれたときの国保加入は資格賦課係（区役所2階7番、03-3647-3167）。出産育児一時金の申請は出張所・豊洲特別出張所ではできない
     source_url: https://www.city.koto.lg.jp/250104/fukushi/kokumin/kyufu/5170.html
     verified_at: 2026-09-25
-    needs_review: true
   - id: koto.c_kodomo_sodan
     name: 子ども家庭支援センター（区内8か所。子育て相談）
     topics: 子育ての悩みや不安・子どもの育ちの心配・リフレッシュひととき保育・子育てひろば
@@ -141,7 +136,6 @@ contacts:
     note: 相談専用電話は、深川北 03-5600-8708／豊洲 03-3536-7682／有明 03-5962-4118／住吉 03-5600-3882／東陽 03-5665-4017／亀戸 03-3683-1103／大島 03-5836-1625／南砂 03-5617-7772。夜間の子どもの健康相談は東京都の「子供の健康相談室」#8000（03-5285-8898。月〜金 18:00〜23:00、土日休日 9:00〜23:00）
     source_url: https://www.city.koto.lg.jp/282011/kodomo/kosodate/service/5874.html
     verified_at: 2026-09-25
-    needs_review: true
 
 steps:
   - id: koto.s03
@@ -327,6 +321,7 @@ steps:
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
     contact_id: koto.c_hokensodan
+    requires: satogaeri
     source_url: https://www.city.koto.lg.jp/260501/kodomo/ninshinshussan/ninshin/24990.html
     verified_at: 2026-09-20
 

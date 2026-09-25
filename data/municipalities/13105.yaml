@@ -88,7 +88,6 @@ contacts:
     note: 担当は住所で分かれる。後楽・春日・小石川・白山2〜4丁目・千石・水道・小日向・大塚・関口・目白台・音羽・本郷1・2・4〜6丁目・西片1丁目はこちら。それ以外は本郷支所（bunkyo.c_hongo）。健診・教室の案内では 03-5803-1805 も載っている
     source_url: https://www.city.bunkyo.lg.jp/documents/11226/gaidozentai.pdf#page=14
     verified_at: 2026-09-25
-    needs_review: true
   - id: bunkyo.c_hongo
     name: 保健サービスセンター本郷支所
     topics: 妊娠届・母子健康手帳・ネウボラ面接・ネウボラ相談・母親学級・両親学級・新生児訪問・産後ケア（本郷支所の担当地区の人）
@@ -99,7 +98,6 @@ contacts:
     note: 担当地区は白山1・5丁目／本郷3・7丁目／湯島／西片2丁目／向丘／弥生／根津／千駄木／本駒込
     source_url: https://www.city.bunkyo.lg.jp/documents/11226/gaidozentai.pdf#page=11
     verified_at: 2026-09-25
-    needs_review: true
   - id: bunkyo.c_kenko
     name: 健康推進課 健康増進係
     topics: 妊婦のための支援給付（妊婦支援給付金）・妊婦健康診査／産婦健康診査／1か月児健康診査／新生児聴覚検査の受診票と払い戻し・妊娠高血圧症候群等医療費助成・養育医療・区民サービスコーナーの場所の案内
@@ -108,7 +106,6 @@ contacts:
     url: https://www.city.bunkyo.lg.jp/b027/p007561.html
     source_url: https://www.city.bunkyo.lg.jp/documents/11226/gaidozentai.pdf#page=16
     verified_at: 2026-09-25
-    needs_review: true
   - id: bunkyo.c_jido
     name: 子育て支援事業コールセンター（子育て支援課 児童給付係）
     topics: 児童手当・こどもの医療費助成（医療証）・児童扶養手当・育成手当などの手当
@@ -117,7 +114,6 @@ contacts:
     address: 文京区春日1-16-21 文京シビックセンター5階南側（児童給付係）
     source_url: https://www.city.bunkyo.lg.jp/documents/11226/gaidozentai.pdf#page=26
     verified_at: 2026-09-25
-    needs_review: true
   - id: bunkyo.c_koseki
     name: 戸籍住民課 戸籍係
     topics: 出生届
@@ -126,7 +122,6 @@ contacts:
     note: 出生届は出生日から14日以内（出生日を含む）。持ち物は医師または助産師の証明のある出生届と母子健康手帳。夜間・休日に届け出たときは、出生届済証明書が翌日以降に郵送される。父母以外が持参してもよい
     source_url: https://www.city.bunkyo.lg.jp/documents/11226/gaidozentai.pdf#page=20
     verified_at: 2026-09-25
-    needs_review: true
   - id: bunkyo.c_kokuho
     name: 国保年金課 国保資格係・国保給付係
     topics: 国民健康保険の加入（赤ちゃんの加入）・出産育児一時金・高額療養費・産前産後期間の保険料の軽減（文京区の国民健康保険の人）
@@ -135,7 +130,6 @@ contacts:
     note: 電話は自動応答。国保組合や社会保険の人は、加入している健康保険の窓口へ
     source_url: https://www.city.bunkyo.lg.jp/documents/11226/gaidozentai.pdf#page=20
     verified_at: 2026-09-25
-    needs_review: true
   - id: bunkyo.c_kodomo
     name: こども家庭支援センター（こどもと家庭の総合相談）
     topics: こどもと家庭・子育ての悩みの相談（電話・来所・区ホームページの相談フォーム）
@@ -145,7 +139,6 @@ contacts:
     note: 来所の場合は事前に電話で連絡する
     source_url: https://www.city.bunkyo.lg.jp/documents/11226/gaidozentai.pdf#page=80
     verified_at: 2026-09-25
-    needs_review: true
   - id: bunkyo.c_neuvola
     name: ネウボラ相談（八千代助産院）
     topics: 助産師による妊娠期から子育て期の健康・子育ての相談（365日）
@@ -154,7 +147,6 @@ contacts:
     address: 文京区音羽1-19-18 東京都助産師会館
     source_url: https://www.city.bunkyo.lg.jp/documents/11226/gaidozentai.pdf#page=14
     verified_at: 2026-09-25
-    needs_review: true
 
 steps:
   - id: bunkyo.s03
@@ -334,6 +326,7 @@ steps:
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
     contact_id: bunkyo.c_kenko
+    requires: satogaeri
     source_url: https://www.city.bunkyo.lg.jp/b027/p001526.html
     verified_at: 2026-09-20
 

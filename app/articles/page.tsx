@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { isLang, isStage, listArticles, STAGE_LABEL, STAGES, type Lang, type Stage } from "@/lib/articles";
-import { articleOf, columnsOf, LANG_NAME, LANGS, LIST } from "@/lib/i18n";
+import { articleOf, columnsOf, ENGLISH_HINT, LANG_NAME, LANGS, LIST } from "@/lib/i18n";
 
 export const metadata: Metadata = { title: "負担軽減コラム｜Tsugiraku" };
 
@@ -16,6 +16,7 @@ export default async function ArticlesPage({ searchParams }: { searchParams: Pro
       <header className="space-y-2">
         <h1 className="h-page">{t.title}</h1>
         <p className="text-base text-slate-700">{t.lead}</p>
+        {ENGLISH_HINT[lang] ? <p className="text-base"><Link href={columnsOf("en", stage)} hrefLang="en" className="link">{ENGLISH_HINT[lang]}</Link></p> : null}
         <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-600">
           <span>{t.alsoIn}:</span>
           {LANGS.filter((l) => l !== lang).map((l) => (

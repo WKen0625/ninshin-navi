@@ -14,7 +14,7 @@ export type Rules = { regions: Region[]; documents: DocumentDef[]; steps: Step[]
 
 const STEP_COLUMNS =
   "id, region_code, phase, sort_order, title, detail, trigger_document_id, produces_document_id, channel, action_url, " +
-  "deadline_base, deadline_offset_days, deadline_week, deadline_note, apply_from_base, apply_from_offset_days, apply_from_week, apply_from_note, overrides_step_id, survey_question_id, contact_id, " +
+  "deadline_base, deadline_offset_days, deadline_week, deadline_note, apply_from_base, apply_from_offset_days, apply_from_week, apply_from_note, overrides_step_id, survey_question_id, contact_id, requires, " +
   "source_url, verified_at, needs_review";
 const CONTACT_COLUMNS = "id, region_code, name, topics, phone, hours, address, url, note, source_url, verified_at, needs_review";
 const DOCUMENT_COLUMNS = "id, region_code, name, aliases, includes, phase, description, source_url, verified_at";
@@ -39,7 +39,7 @@ function rulesFromYaml(): Rules {
       deadline_offset_days: nn(s.deadline_offset_days), deadline_week: nn(s.deadline_week), deadline_note: nn(s.deadline_note),
       overrides_step_id: nn(s.overrides_step_id), survey_question_id: nn(s.survey_question_id),
       apply_from_base: nn(s.apply_from_base), apply_from_offset_days: nn(s.apply_from_offset_days), apply_from_week: nn(s.apply_from_week), apply_from_note: nn(s.apply_from_note),
-      contact_id: nn(s.contact_id),
+      contact_id: nn(s.contact_id), requires: nn(s.requires),
       source_url: s.source_url!, verified_at: s.verified_at!, needs_review: s.needs_review,
     })),
     contacts: data.contacts.map((c) => ({

@@ -82,7 +82,6 @@ contacts:
     note: 荻窪 03-3391-0015（荻窪5-20-1）／高井戸 03-3334-4304（高井戸東3-20-3）／高円寺 03-3311-0116（高円寺南3-24-15）／上井草 03-3394-1212（上井草3-8-19）／和泉 03-3313-9331（和泉4-50-6）。担当地域は住所（丁目・番）で決まる（便利帳 p.129）
     source_url: https://www.city.suginami.tokyo.jp/documents/1024/r8kosodatebenricho_4_21.pdf#page=1
     verified_at: 2026-09-25
-    needs_review: true
   - id: suginami.c_boshi
     name: 地域子育て支援課 母子保健係（区役所東棟3階）
     topics: 妊娠届・母子健康手帳（区役所で出す場合）・妊婦歯科健康診査・里帰り出産などの妊婦健康診査費用と新生児聴覚検査費用の助成・多胎妊娠の妊婦健康診査費用の助成・産後ケア事業の申請
@@ -92,7 +91,6 @@ contacts:
     note: 03-3312-2111 は区役所の代表番号。内線 1806・1359・1829。産後ケア事業の郵送申請先は「杉並区地域子育て支援課母子保健係 産後ケア事業担当」あて
     source_url: https://www.city.suginami.tokyo.jp/documents/1024/r8kosodatebenricho_4_21.pdf#page=4
     verified_at: 2026-09-25
-    needs_review: true
   - id: suginami.c_shien
     name: 地域子育て支援課 子育て支援係
     topics: 妊婦のための支援給付（妊婦支援給付金）・杉並子育て応援券・バースデーサポート事業・多胎児家庭のタクシー利用券
@@ -101,7 +99,6 @@ contacts:
     url: https://www.city.suginami.tokyo.jp/s054/1125.html
     source_url: https://www.city.suginami.tokyo.jp/documents/1024/r8kosodatebenricho_4_21.pdf#page=18
     verified_at: 2026-09-25
-    needs_review: true
   - id: suginami.c_teate
     name: 子ども家庭部管理課 子ども医療・手当係
     topics: 子ども医療証（子どもの医療費助成）・児童手当
@@ -111,7 +108,6 @@ contacts:
     note: 児童手当の問い合わせは児童手当専用ダイヤル 03-5913-9389。児童手当は出生日の翌日から数えて15日以内に請求する（15日を過ぎると手当を受け取れない月が発生する場合がある。公務員は勤務先へ）。子ども医療証の申請には赤ちゃんの健康保険の資格情報が必要
     source_url: https://www.city.suginami.tokyo.jp/documents/1024/r8kosodatebenricho_22_31.pdf#page=1
     verified_at: 2026-09-25
-    needs_review: true
   - id: suginami.c_koseki
     name: 区民課 戸籍係（区役所1階3番）
     topics: 出生届・母子健康手帳への出生届出済証明・戸籍の届出
@@ -122,7 +118,6 @@ contacts:
     note: 便利帳の問い合わせ番号は 03-5307-0624・03-5307-0641・03-5307-0642。区民事務所でも受け付ける（月・火・木・金 8:30〜17:00、水 8:30〜19:00。父母が日本人で日本国内で生まれた場合のみ。水曜17:00以降は預かりのみ）。土曜日は区民課区民係（第1・3・5土曜 9:00〜17:00）か区民事務所（第2・4土曜 9:00〜17:00）で預かりのみ。休日・夜間（平日17:00〜翌8:30、日曜・祝日・12月29日〜1月3日は終日）は区役所地下1階（青梅街道側）で預かりのみで、翌開庁日に内容を確認する。母子健康手帳を持って行けないときは後日持参する
     source_url: https://www.city.suginami.tokyo.jp/documents/1024/r8kosodatebenricho_22_31.pdf#page=1
     verified_at: 2026-09-25
-    needs_review: true
   - id: suginami.c_kokuho
     name: 国保年金課 国保資格係・国保給付係（区役所東棟2階）
     topics: 国民健康保険の加入（赤ちゃんの加入）・産前産後期間の保険料軽減（国保資格係）・出産育児一時金の申請（国保給付係）
@@ -131,7 +126,6 @@ contacts:
     note: 便利帳に電話番号の記載なし（区役所代表 03-3312-2111）。国保以外の健康保険の人は勤務先の健康保険担当窓口へ
     source_url: https://www.city.suginami.tokyo.jp/documents/1024/r8kosodatebenricho_22_31.pdf#page=1
     verified_at: 2026-09-25
-    needs_review: true
 
 steps:
   - id: suginami.s03
@@ -298,6 +292,7 @@ steps:
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
     contact_id: suginami.c_boshi
+    requires: satogaeri
     source_url: https://www.city.suginami.tokyo.jp/s054/shinseisho/8707.html
     verified_at: 2026-09-20
 

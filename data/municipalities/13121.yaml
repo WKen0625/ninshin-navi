@@ -83,7 +83,6 @@ contacts:
     note: お住まいの地域の保健センター等でも受け付け（中央本町地域・保健総合支援課 03-3880-5351／竹の塚保健センター 03-3855-5082／江北保健センター 03-3896-4004／千住保健センター 03-3888-4277／東部保健センター 03-3606-4171。受付は月〜金 8:30〜17:00、祝日・年末年始を除く）。FAX 03-3880-5602
     source_url: https://www.city.adachi.tokyo.jp/documents/2950/guide2026_0-77.pdf#page=10
     verified_at: 2026-09-25
-    needs_review: true
   - id: adachi.c_ninsanpu
     name: 保健予防課 妊産婦支援係（こども家庭センター）
     topics: 妊娠・出産・子育て・乳幼児の健康診査に関する相談
@@ -91,7 +90,6 @@ contacts:
     note: 各保健センター等でも相談できる
     source_url: https://www.city.adachi.tokyo.jp/documents/2950/guide2026_0-77.pdf#page=18
     verified_at: 2026-09-25
-    needs_review: true
   - id: adachi.c_koseki
     name: 区民部戸籍住民課 戸籍届出係（足立区役所南館1階）
     topics: 出生届・マイナンバーカードの特急発行（出生届と同時）
@@ -102,7 +100,6 @@ contacts:
     note: 区民事務所では出生届は出せない。窓口時間外（夜間・土日祝・年末年始）は区役所の時間外受付（中央館地下1階・宿直）で預かり（仮受付）となり、翌日以降の開庁日に内容を確認する。マイナンバーカード交付担当 03-3880-5698、住民記録係 03-3880-5724
     source_url: https://www.city.adachi.tokyo.jp/documents/2950/guide2026_0-77.pdf#page=12
     verified_at: 2026-09-25
-    needs_review: true
   - id: adachi.c_jido
     name: 福祉部親子支援課 児童手当係
     topics: 児童手当
@@ -110,7 +107,6 @@ contacts:
     note: 申請場所は親子支援課児童手当係または足立福祉事務所各福祉課。持ち物は母子健康手帳・請求者名義の普通預金通帳・請求者とお子さまの健康保険情報がわかるもの。公務員は勤務先へ申請。FAX 03-3880-5573
     source_url: https://www.city.adachi.tokyo.jp/documents/2950/guide2026_0-77.pdf#page=19
     verified_at: 2026-09-25
-    needs_review: true
   - id: adachi.c_iryo
     name: 福祉部親子支援課 子ども医療費給付係
     topics: 子ども医療費助成（医療証）・出産費助成
@@ -118,7 +114,6 @@ contacts:
     note: 申請場所は親子支援課子ども医療費給付係または足立福祉事務所各福祉課。FAX 03-3880-5573
     source_url: https://www.city.adachi.tokyo.jp/documents/2950/guide2026_0-77.pdf#page=18
     verified_at: 2026-09-25
-    needs_review: true
   - id: adachi.c_kokuho
     name: 国民健康保険課 資格賦課担当（足立区役所北館2階）
     topics: 国民健康保険の加入・産前産後期間の保険料免除・未就学児の均等割軽減
@@ -126,7 +121,6 @@ contacts:
     note: 出産育児一時金は国民健康保険課 給付担当 03-3880-5241（持ち物はマイナ保険証または国民健康保険資格確認書・領収書・明細書・母子健康手帳・世帯主の普通預金通帳。出産した医療機関により手続き不要な場合がある）。FAX 03-3880-5618
     source_url: https://www.city.adachi.tokyo.jp/documents/2950/guide2026_0-77.pdf#page=20
     verified_at: 2026-09-25
-    needs_review: true
   - id: adachi.c_kodomo_soudan
     name: こども家庭相談課（こども家庭相談室）
     topics: 子育ての悩み・不安に関する相談。子どもへの虐待が心配なときの連絡
@@ -134,7 +128,6 @@ contacts:
     note: FAX 03-3889-3400。児童相談所全国共通ダイヤルは 189
     source_url: https://www.city.adachi.tokyo.jp/documents/2950/guide2026_78-134.pdf#page=15
     verified_at: 2026-09-25
-    needs_review: true
   - id: adachi.c_yobou
     name: 保健予防課 予防接種係
     topics: 子どもの予防接種・里帰り出産等による予防接種の費用助成・母子健康手帳再交付時の予防接種記録
@@ -142,7 +135,6 @@ contacts:
     note: FAX 03-3880-5602
     source_url: https://www.city.adachi.tokyo.jp/documents/2950/guide2026_0-77.pdf#page=18
     verified_at: 2026-09-25
-    needs_review: true
 
 steps:
   - id: adachi.s03

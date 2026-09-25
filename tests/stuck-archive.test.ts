@@ -89,3 +89,38 @@ describe("出典の表記", () => {
     expect(sourceLabel("TODO")).toBe("出典のページへ飛ぶ");
   });
 });
+
+describe("家族の状況で出し分ける手続き（requires）", () => {
+  it("双子以上・里帰り・外国籍の親のステップは、印がある家族にだけ出る", async () => {
+    const { resolveNextActions } = await import("../lib/next-actions");
+    const { flagsOf } = await import("../lib/family-state");
+    const { seed } = await import("../lib/seed");
+    const { createTestDb, readRules, ROOT } = await import("./helpers/db");
+    const { join } = await import("node:path");
+    const { db } = await createTestDb();
+    await seed(db, join(ROOT, "data"));
+    const rules = await readRules(db);
+    const base = {
+      region_code: "13104", due_date: "2027-01-10", confirmation_date: "2026-06-01", birth_date: null,
+      held_documents: [{ document_id: "jp.heartbeat_confirmed", held_at: "2026-06-01" }, { document_id: "shinjuku.hoken_bag", held_at: "2026-06-10" }],
+      completed_step_ids: [], not_applicable_step_ids: [],
+    };
+    const ids = (flags: ReturnType<typeof flagsOf>) => resolveNextActions({ family: { ...base, flags }, today: "2026-09-25", ...rules }).actions.map((a) => a.step.id);
+    const plain = ids([]);
+    expect(plain).not.toContain("shinjuku.s04m");
+    expect(plain).not.toContain("jp.s06e");
+    expect(plain.some((id) => rules.steps.find((s) => s.id === id)!.requires === "satogaeri")).toBe(false);
+    const twins = ids(flagsOf({ epidural: "undecided", distance: "any", children: 2 }));
+    expect(twins).toContain("shinjuku.s04m");
+    expect(twins).toContain("jp.s06e");
+    // 里帰りの払い戻しは出産後の手続きなので、出産日を入れて確かめる
+    const satoFamily = { ...base, birth_date: "2026-09-20", held_documents: [...base.held_documents, { document_id: "shinjuku.kenshin_ticket", held_at: "2026-06-10" }], flags: flagsOf({ epidural: "undecided", distance: "any", satogaeri: true }) };
+    const sato = resolveNextActions({ family: satoFamily, today: "2026-09-25", ...rules }).actions.map((a) => a.step.id);
+    expect(sato.some((id) => rules.steps.find((s) => s.id === id)!.requires === "satogaeri")).toBe(true);
+    expect(resolveNextActions({ family: { ...satoFamily, flags: [] }, today: "2026-09-25", ...rules }).actions.some((a) => a.step.requires === "satogaeri")).toBe(false);
+    // 外国籍の親: 出産後に在留資格の取得（出生の日から30日以内）
+    const after = resolveNextActions({ family: { ...base, birth_date: "2026-09-20", flags: ["foreign_parent"] }, today: "2026-09-25", ...rules }).actions;
+    expect(after.find((a) => a.step.id === "jp.s10")?.deadline).toBe("2026-10-20");
+    expect(flagsOf({ epidural: "undecided", distance: "any" })).toEqual([]);
+  });
+});

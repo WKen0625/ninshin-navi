@@ -90,7 +90,6 @@ contacts:
     note: 妊娠届は各保健センターと地域センター（品川第一・大崎第一・大井第一・荏原第一・荏原第四・八潮）でも出せる。健康課では妊娠届出時に限り予約なしで面談できる（面談希望は午後4時までに来庁）。荏原第一地域センターは火曜延長窓口（17:00〜19:00）と第2・4日曜（8:30〜17:00）も受け付ける。地域センター・電子申請で届け出た人の面談は、あとで管轄の保健センターに予約する
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-kateisoudan/kosodateguide2026_h1-17.pdf#page=9
     verified_at: 2026-09-25
-    needs_review: true
   - id: shinagawa.c_hoken_center
     name: 保健センター（品川・大井・荏原）妊産婦ネウボラ相談員
     topics: 妊婦相談（初回面談、予約制）・8か月面談・産後全戸電話相談・すくすく赤ちゃん訪問・産後ケア・乳幼児健診・マタニティクラス／両親学級・妊娠高血圧症候群等の医療費助成・健康の相談
@@ -101,7 +100,6 @@ contacts:
     note: 住所地を管轄する保健センターに電話で予約する。大井保健センター 03-3772-2666（大井2-27-20）／荏原保健センター 03-3788-7016（荏原2-9-6。冊子では令和8年5月上旬に仮設から移転予定と案内）。保健センター内には地域子ども家庭支援センターもある。管轄地域は区の「保健センター管轄地域一覧表」で確認
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-kateisoudan/kosodateguide2026_h1-17.pdf#page=1
     verified_at: 2026-09-25
-    needs_review: true
   - id: shinagawa.c_teate
     name: 品川区役所 子育て応援課 手当医療助成担当
     topics: 児童手当・子どもすこやか医療費助成（医療証）・出生届と同じ日にできる手当の手続き
@@ -112,7 +110,6 @@ contacts:
     note: 子ども医療費助成（医療証）の問い合わせは 03-5742-9174。地域センターの窓口では取り扱わない。郵送（〒140-8715 品川区広町2-1-36 子育て応援課手当医療助成担当）と電子申請（マイナンバーカードと電子署名が必要）でも申請できる。第2・4日曜の日曜開庁（本庁舎）でも児童手当・子どもの医療証交付の申請ができる
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-kateisoudan/kosodateguide2026_18-37.pdf#page=1
     verified_at: 2026-09-25
-    needs_review: true
   - id: shinagawa.c_koseki
     name: 品川区役所 戸籍住民課 戸籍住民担当（戸籍届出）
     topics: 出生届・戸籍の届出・親子健康手帳への出生届出済証明
@@ -123,7 +120,6 @@ contacts:
     note: 出生など戸籍の届出は夜間休日受付（第2庁舎2階）で24時間・年中無休で受け付ける（業務時間外は預かり）。出生届と同じ日に、児童手当・子どもの医療費助成（子育て応援課）、子どもの国民健康保険の加入・出産育児一時金（国保医療年金課）の手続きができる。届書は病院に用意されていることが多い
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-kateisoudan/kosodateguide2026_18-37.pdf#page=1
     verified_at: 2026-09-25
-    needs_review: true
   - id: shinagawa.c_kokuho
     name: 品川区役所 国保医療年金課（資格係・給付係）
     topics: 産前産後期間の国民健康保険料の軽減（資格係）・赤ちゃんの国民健康保険の加入（資格係）・出産育児一時金（給付係。直接支払制度を使わないとき、受取代理制度、海外出産）
@@ -134,7 +130,6 @@ contacts:
     note: 電話は資格係 03-5742-6676、給付係（出産育児一時金）03-5742-6677。産前産後期間の国民年金保険料の免除は国民年金係 03-5742-6682。受取代理制度は出産予定日の2か月前から給付係で手続き。社会保険（健康保険・厚生年金）の人は勤務先へ
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-kateisoudan/kosodateguide2026_18-37.pdf#page=1
     verified_at: 2026-09-25
-    needs_review: true
   - id: shinagawa.c_kodomo_katei
     name: 品川区子ども家庭支援センター（児童相談担当）
     topics: 0〜18歳未満の子どもと家庭に関するあらゆる相談。子育てネウボラ相談員による子育て全般の相談・サービス情報の提供・サポートプラン作成
@@ -145,7 +140,6 @@ contacts:
     note: 産前から就学前の相談は各保健センター内の地域子ども家庭支援センター（月〜金 8:30〜17:00）。品川 03-3471-5570／大井 03-3772-9090／荏原 03-3490-6070。オンライン相談もある。子育て相談・情報提供（子育て支援連携担当）は 03-6421-5237
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-kateisoudan/kosodateguide2026_h1-17.pdf#page=1
     verified_at: 2026-09-25
-    needs_review: true
   - id: shinagawa.c_shien_call
     name: 品川区妊婦のための支援給付事業コールセンター
     topics: 妊婦支援給付金（妊娠時・出産後）の申請方法・申請状況の問い合わせ
@@ -155,7 +149,6 @@ contacts:
     note: 給付金の申請は、妊婦相談（初回面談）とすくすく赤ちゃん訪問のときに案内される二次元コードから行う。冊子には給付金の案内（11頁）はあるがコールセンターの番号は無く、区の公式ページから転記
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/20230120091157.html
     verified_at: 2026-09-25
-    needs_review: true
 
 steps:
   - id: shinagawa.s03
@@ -340,6 +333,7 @@ steps:
     apply_from_offset_days: 0
     apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     contact_id: shinagawa.c_kenko
+    requires: satogaeri
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-service/hpg000003975.html
     verified_at: 2026-09-20
 

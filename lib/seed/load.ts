@@ -77,6 +77,8 @@ const stepSchema = z.strictObject({
   survey_question_id: z.string().nullish(),
   /** 困ったときの問い合わせ先（contacts の id）。無ければ、その区の代表の窓口を画面が出す */
   contact_id: z.string().nullish(),
+  /** 該当する家族にだけ出す: multiple（双子以上）／satogaeri（里帰り出産）／foreign_parent（子が日本国籍にならない） */
+  requires: z.enum(["multiple", "satogaeri", "foreign_parent"]).nullish(),
   ...sourced,
 });
 

@@ -86,7 +86,6 @@ contacts:
     note: 電話番号は板橋健康福祉センターのもの。上板橋 03-3937-1041（桜川3-18-6）／赤塚 03-3979-0511（赤塚1-10-13）／志村 03-3969-3836（蓮根2-5-5）／高島平 03-3938-8621（高島平3-13-28）。担当地域（町名）は区のページで確認する。妊婦面接の予約は3日後以降は予約フォーム、当日〜2日後は電話
     source_url: https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/004/606/r8kosodate.pdf#page=32
     verified_at: 2026-09-25
-    needs_review: true
   - id: itabashi.c_boshi
     name: 板橋区役所 健康推進課 母子保健係（南館3階21番窓口）
     topics: おやこ健康手帳（母子健康手帳）・区役所で妊娠届を出した人の妊婦面接・妊婦のための支援給付・新生児聴覚検査・産婦健康診査・1か月児健康診査・多胎児家庭支援事業・妊娠高血圧症候群等医療費助成の問い合わせ
@@ -97,7 +96,6 @@ contacts:
     note: 妊婦のための支援給付の問い合わせは つながるITABASHIコールセンター 0120-100-619（平日 9:00〜17:00）。妊婦歯科健診は健康推進課 健康づくり・女性保健係 03-3579-2727
     source_url: https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/004/606/r8kosodate.pdf#page=64
     verified_at: 2026-09-25
-    needs_review: true
   - id: itabashi.c_teate
     name: 板橋区役所 子育て支援課 子どもの手当医療係（北館1階6番窓口）
     topics: 児童手当・子ども医療費助成（乳幼児医療証〈マル乳〉）・児童育成手当・児童扶養手当・ひとり親家庭の手当と医療費助成
@@ -108,7 +106,6 @@ contacts:
     note: 赤塚支所1階 住民サービス係 03-3938-5113 でも申請できる。乳幼児医療証は郵送（郵送用申請書と保険資格がわかるもののコピー）や国の電子申請（ぴったりサービス）でも申請できる
     source_url: https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/004/606/r8kosodate.pdf#page=17
     verified_at: 2026-09-25
-    needs_review: true
   - id: itabashi.c_koseki
     name: 板橋区役所 戸籍住民課 戸籍係（本庁舎1階）
     topics: 出生届・戸籍の届出・おやこ健康手帳（母子健康手帳）への出生届出済証明
@@ -119,7 +116,6 @@ contacts:
     note: 赤塚支所1階 住民サービス係 03-3938-5113 でも平日に受け付け（赤塚支所・区民事務所に休日・夜間受付はない）。上記以外の時間（平日 17:00〜翌8:30、土日祝）は区役所本庁舎1階東口玄関の夜間受付で守衛が届書を預かるだけで、審査は翌開庁日以降（不備があれば2開庁日以内に戸籍係から電話）。届出済証明のシールや手当などの手続きは開庁時間に
     source_url: https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/004/606/r8kosodate.pdf#page=25
     verified_at: 2026-09-25
-    needs_review: true
   - id: itabashi.c_kokuho
     name: 板橋区役所 国保年金課（南館2階20〜25番窓口）
     topics: 国民健康保険の赤ちゃんの加入・出産育児一時金・高額療養費（国保給付係）、産前産後期間の国民健康保険料の減額（国保資格係）、国民年金保険料の産前産後免除（国民年金係）
@@ -130,7 +126,6 @@ contacts:
     note: 電話番号は国保給付係（出産育児一時金・高額療養費）。産前産後の保険料減額と赤ちゃんの加入は国保資格係 03-3579-2406（自動音声応答）、国民年金の産前産後免除は国民年金係 03-3579-2431。出産育児一時金の申請に必要なものは、出産した人の本人確認書類、出生届出済証明のあるおやこ健康手帳、世帯主の口座番号、医療機関の領収書と明細書、直接支払制度の合意文書（すべて原本）
     source_url: https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/004/606/r8kosodate.pdf#page=24
     verified_at: 2026-09-25
-    needs_review: true
   - id: itabashi.c_josei_sodan
     name: 板橋区女性健康支援センター（区役所南館3階）
     topics: 妊娠・出産・産後など女性の心とからだの悩みの相談（保健師または女性婦人科医）
@@ -141,7 +136,6 @@ contacts:
     note: 妊娠・出産の悩みは東京都妊娠相談ほっとライン 03-5339-1133（通年 10:00〜22:00、元日を除く。メール相談あり）、助産師への相談は東京都助産師会 子育て・女性健康支援センター 080-3915-9923（火・木曜日 10:00〜16:00）でもできる。育児の相談は住んでいる地域の健康福祉センターへ
     source_url: https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/004/606/r8kosodate.pdf#page=63
     verified_at: 2026-09-25
-    needs_review: true
 
 steps:
   - id: itabashi.s03
@@ -312,6 +306,7 @@ steps:
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
     contact_id: itabashi.c_hoken_center
+    requires: satogaeri
     source_url: https://www.city.itabashi.tokyo.jp/kosodate/teate/ninshin/1004615.html
     verified_at: 2026-09-20
 

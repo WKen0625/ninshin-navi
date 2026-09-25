@@ -78,6 +78,13 @@ export const PROGRAM_TEXT: Record<Lang, Record<string, string>> = {
   ru: { amazon: "Как участник партнёрской программы Amazon, Tsugiraku получает доход от соответствующих покупок.", rakuten: "Содержит партнёрские ссылки Rakuten.", yahoo: "Содержит партнёрские ссылки Yahoo! Shopping.", other: "Содержит партнёрские ссылки." },
 };
 
+/** 中国語・韓国語・ロシア語のページで、英語のページ（情報が多い）を案内する */
+export const ENGLISH_HINT: Partial<Record<Lang, string>> = {
+  zh: "更详细的内容请看英文页面（English）。",
+  ko: "더 자세한 내용은 영어 페이지(English)를 보세요.",
+  ru: "Более подробная информация — на английской странице (English).",
+};
+
 export type HomeText = {
   chip: string; h1a: string; h1b: string; lead: string; navi: string; columns: string; naviNote: string;
   promises: string; promise: { title: string; body: string }[];

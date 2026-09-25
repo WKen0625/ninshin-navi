@@ -186,6 +186,23 @@ export function EntryForm({ area }: { area: Area }) {
             </select>
           </label>
           <label className="block text-base">
+            おなかの赤ちゃんの人数
+            <select className={field} value={preferences.children ?? 1} onChange={(e) => setPreferences({ ...preferences, children: Number(e.target.value) })}>
+              <option value={1}>1人</option>
+              <option value={2}>2人（双子）</option>
+              <option value={3}>3人以上</option>
+            </select>
+            <span className="block text-gray-600">双子以上のときは、健診の追加助成や産休の日数など、多胎の手続きを出します。</span>
+          </label>
+          <label className="flex min-h-11 items-center gap-3 text-base">
+            <input type="checkbox" className="check" checked={preferences.satogaeri === true} onChange={(e) => setPreferences({ ...preferences, satogaeri: e.target.checked })} />
+            里帰り出産の予定がある（東京都外や助産所で健診を受ける）
+          </label>
+          <label className="flex min-h-11 items-start gap-3 text-base">
+            <input type="checkbox" className="check mt-1" checked={preferences.foreign_parent === true} onChange={(e) => setPreferences({ ...preferences, foreign_parent: e.target.checked })} />
+            <span>生まれる子が日本国籍にならない（両親とも外国籍など）<span className="block text-gray-600">在留資格の取得など、外国籍の家族の手続きを出します。</span></span>
+          </label>
+          <label className="block text-base">
             自宅の郵便番号（7桁。病院までの時間の目安を出すためだけに使います）
             <input
               type="text"

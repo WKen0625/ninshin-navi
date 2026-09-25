@@ -19,7 +19,6 @@ contacts:
     url: https://www.tfd.metro.tokyo.lg.jp/lfe/kyuu-adv/soudan-center.htm
     source_url: https://www.tfd.metro.tokyo.lg.jp/lfe/kyuu-adv/soudan-center.htm
     verified_at: 2026-09-25
-    needs_review: true
   - id: tokyo.c_hotline
     name: 東京都妊娠相談ほっとライン
     topics: 妊娠・出産の悩みを、看護師・助産師に匿名で相談（電話・メール）
@@ -28,7 +27,6 @@ contacts:
     url: https://www.fukushi.metro.tokyo.lg.jp/kodomo/sodan/ninshin-hotline
     source_url: https://www.fukushi.metro.tokyo.lg.jp/kodomo/sodan/ninshin-hotline
     verified_at: 2026-09-25
-    needs_review: true
 
 steps:
   - id: tokyo.s01

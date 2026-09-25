@@ -83,7 +83,6 @@ contacts:
     note: 担当地域は駒込・巣鴨・西巣鴨・北大塚・南大塚・池袋・上池袋・東池袋・西池袋・南池袋・池袋本町・雑司ヶ谷・高田・目白（長崎・南長崎・千早・要町・高松・千川は長崎健康相談所）。ゆりかご面接・産後ケア・こんにちは赤ちゃん訪問などは母子継続支援グループ 03-6311-6842。妊娠中・産後の電話・来所相談（保健師・助産師）は保健指導グループ 03-3987-4174、栄養相談 03-3987-4361。妊娠届は東部区民事務所 03-3915-9961、西部区民事務所 03-4566-4021 でも出せる
     source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/001311.html
     verified_at: 2026-09-25
-    needs_review: true
   - id: toshima.c_nagasaki
     name: 長崎健康相談所（管理・事業グループ／母子継続支援グループ）
     topics: 妊娠届・母子健康手帳・保健バッグ・ゆりかご面接（オンライン面接の相談も）・妊婦のための支援給付金・産後ケア・こんにちは赤ちゃん訪問・里帰り出産などの健診助成金・妊娠中や産後の相談（長崎・南長崎・千早・要町・高松・千川に住む人）
@@ -94,7 +93,6 @@ contacts:
     note: 保健・助産・栄養・歯科衛生の相談も同じ番号。切迫早産で入院中・自宅安静の人や里帰り中の人のゆりかごオンライン面接は、ここに電話で相談する
     source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/yurikago/1507071003.html
     verified_at: 2026-09-25
-    needs_review: true
   - id: toshima.c_teate
     name: 豊島区役所 子育て支援課 児童給付グループ（区役所4階）
     topics: 児童手当・子どもの医療費助成（医療証）・ひとり親家庭等の医療費助成
@@ -105,7 +103,6 @@ contacts:
     note: 児童手当は窓口のほか郵送・電子申請でも手続きできる（郵送は届いた日が申請日）。出生届と一緒に、子どもの住民登録・乳幼児医療証・児童手当の手続きもできる。子育ての窓口案内は子育てインフォメーション 03-4566-2487（4階。第2・第4土曜も開庁）
     source_url: https://www.city.toshima.lg.jp/261/kosodate/kosodate/teate-jose/017993.html
     verified_at: 2026-09-25
-    needs_review: true
   - id: toshima.c_koseki
     name: 豊島区役所 総合窓口課 戸籍グループ（区役所3階 4番窓口）
     topics: 出生届・戸籍の届出・出生届と同時にする子どもの住民登録
@@ -116,7 +113,6 @@ contacts:
     note: 窓口が閉まっている時間帯は本庁舎1階の宿直室で預かりだけをする。区民事務所では出生届を受け付けない。豊島区に住んでいる人は子どもの住民登録も必要なので、平日は15時まで、土曜は14時までに来庁する。土曜は他の自治体への照会が必要なときは預かりのみ。子の名の振り仮名に関することは 03-4566-2335。出生の手続きをした家庭には「応援ふくろう」（記念樹の引換券など）を3階総合窓口課か4階子育て支援課で渡す
     source_url: https://www.city.toshima.lg.jp/094/tetsuzuki/todokede/todokede/000292.html
     verified_at: 2026-09-25
-    needs_review: true
   - id: toshima.c_kokuho
     name: 豊島区役所 国民健康保険課（区役所3階 9番窓口）
     topics: 国民健康保険の加入・産前産後期間の保険料の減額（資格・保険料グループ）・出産育児一時金（給付グループ）
@@ -127,7 +123,6 @@ contacts:
     note: 出産育児一時金は給付グループ 03-3981-1296（申請は窓口のみで郵送不可）。産前産後の減額は郵送（〒171-8422 南池袋2-45-1 国民健康保険課資格・保険料グループ）や電子申請でもできる
     source_url: https://www.city.toshima.lg.jp/112/tetsuzuki/nenkin/kenkohoken/kyufu/018182.html
     verified_at: 2026-09-25
-    needs_review: true
   - id: toshima.c_kodomo_katei
     name: 東部子ども家庭支援センター（こども家庭センター）
     topics: 妊娠中から18歳までの子どもと家庭の相談全般（子育ての不安、夜泣き、発達の心配など）。電話・メール・来所・訪問での相談
@@ -138,7 +133,6 @@ contacts:
     note: 西部子ども家庭支援センター（千早4-6-14）03-5966-3131。妊娠・出産の相談は健康推進課 03-3987-4174／03-6311-6842、長崎健康相談所 03-3957-1191。子どもの急な病気は #8000（子供の健康相談室）
     source_url: https://www.city.toshima.lg.jp/528/kosodate/kosodate/kodomokateicenter.html
     verified_at: 2026-09-25
-    needs_review: true
 
 steps:
   - id: toshima.s03
@@ -302,6 +296,7 @@ steps:
     apply_from_offset_days: 0
     apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     contact_id: toshima.c_hoken
+    requires: satogaeri
     source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/013360.html
     verified_at: 2026-09-20
 

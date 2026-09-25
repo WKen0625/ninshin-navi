@@ -91,7 +91,6 @@ contacts:
     note: 住所地を担当する保健センターでも同じ手続きができる（日本橋保健センター健康係 03-3661-5071 日本橋堀留町1-1-1／月島保健センター健康係 03-5560-0765 月島2-10-3／晴海保健センター健康係 03-6381-2972 晴海4-8-1）。妊娠届・母子健康手帳の交付は区役所の区民生活課住民記録係 03-3546-5320 と特別出張所区民係（日本橋 03-3666-4253／月島 03-3531-1153／晴海 03-3520-8096）でも受け付け。こころの相談（要予約）は保健所 03-3541-5963
     source_url: https://www.city.chuo.lg.jp/documents/4889/9_.pdf#page=1
     verified_at: 2026-09-25
-    needs_review: true
   - id: chuo.c_hoken_kyufu
     name: 中央区保健所 健康推進課 給付係
     topics: 妊婦のための支援給付（妊婦支援給付金）・妊産婦用江戸バス無料乗車券・妊娠高血圧症候群等の医療費助成・禁煙外来医療費助成・流産・死産のときの手続き
@@ -101,7 +100,6 @@ contacts:
     note: 日本橋・月島・晴海の各保健センター健康係でも受け付け（電話は c_hoken の note）。妊婦支援給付金の電子申請の操作は専用コールセンター 050-3821-1200（既存 steps の記載）
     source_url: https://www.city.chuo.lg.jp/documents/4889/9_.pdf#page=3
     verified_at: 2026-09-25
-    needs_review: true
   - id: chuo.c_teate
     name: 中央区役所 福祉保健部 子ども子育て支援課 子育て給付係
     topics: 児童手当・子ども医療費助成（乳幼児医療証・子ども医療証・高校生等医療証）・新生児誕生祝品（区内共通買物・食事券）・出産支援祝品（タクシー利用券）
@@ -112,7 +110,6 @@ contacts:
     note: 電話は 03-3546-5351 でもよい。窓口は区役所6階のほか日本橋・月島・晴海の特別出張所地域活動係。郵送と「ぴったりサービス」（中央区オンライン手続きポータル）でも申請できる。特別出張所・郵送・オンラインで医療証を申請すると、医療証は後日郵送
     source_url: https://www.city.chuo.lg.jp/documents/4889/10_.pdf#page=3
     verified_at: 2026-09-25
-    needs_review: true
   - id: chuo.c_koseki
     name: 中央区役所 区民部 区民生活課 戸籍係
     topics: 出生届・戸籍の届出・母子健康手帳への出生届出済証明
@@ -123,7 +120,6 @@ contacts:
     note: 平日の日中は日本橋・月島・晴海の特別出張所区民係にも出せる（日本橋 03-3666-4253／月島 03-3531-1153／晴海 03-3520-8096）。休日・夜間は区役所本庁舎1階の宿直室で届書を預かるだけで、審査は翌開庁日（日曜日を除く）。受付は平日と日曜日の開庁時間外（17:00〜翌8:30、水曜日は 19:00〜翌8:30）と土曜日・祝日の終日。宿直室では母子健康手帳への証明や児童手当などの手続きはできないので、後日、開庁時間に戸籍係か特別出張所へ母子健康手帳を持って行く
     source_url: https://www.city.chuo.lg.jp/documents/4889/10_.pdf#page=1
     verified_at: 2026-09-25
-    needs_review: true
   - id: chuo.c_kokuho_kyufu
     name: 中央区役所 福祉保健部 保険年金課 給付係
     topics: 出産育児一時金（中央区の国民健康保険の人。直接支払制度の差額・受取代理制度・海外で出産したとき）
@@ -134,7 +130,6 @@ contacts:
     note: 会社の健康保険などに入っている人は、勤務先や健康保険組合に問い合わせる。受取代理制度は出産前に世帯主が申請する（出産後は申請できない）
     source_url: https://www.city.chuo.lg.jp/documents/4889/10_.pdf#page=1
     verified_at: 2026-09-25
-    needs_review: true
   - id: chuo.c_kokuho_shikaku
     name: 中央区役所 福祉保健部 保険年金課 資格係
     topics: 産前産後期間の国民健康保険料の軽減（免除）の届出・国民健康保険の加入（赤ちゃんの加入）
@@ -145,7 +140,6 @@ contacts:
     note: 冊子の電話は 03-3546-5362。既存の s06d の detail にある 03-3546-5363 とは末尾が違う（要確認）
     source_url: https://www.city.chuo.lg.jp/documents/4889/9_.pdf#page=4
     verified_at: 2026-09-25
-    needs_review: true
   - id: chuo.c_kirara
     name: 子ども家庭支援センター「きらら中央」（子どもと子育て家庭の総合相談）
     topics: 妊娠・出産・子育ての不安や困りごと、どこに相談していいか分からないこと。育児支援ヘルパーの派遣。オンライン相談もある
@@ -156,7 +150,6 @@ contacts:
     note: 育児支援ヘルパーの派遣は 03-3542-6321。児童虐待情報専用電話「子どもほっとライン」03-3542-6328（月〜金 9:00〜17:00）。オンライン相談 https://logoform.jp/form/CxKB/364806 。夜間・休日の子どもの健康相談は東京都「子供の健康相談室」03-5285-8898（平日 18:00〜翌8:00、土日休日・年末年始 8:00〜翌8:00）
     source_url: https://www.city.chuo.lg.jp/documents/4889/7_.pdf#page=1
     verified_at: 2026-09-25
-    needs_review: true
 
 steps:
   - id: chuo.s03
@@ -308,6 +301,7 @@ steps:
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
     contact_id: chuo.c_hoken
+    requires: satogaeri
     source_url: https://www.city.chuo.lg.jp/a0031/kosodate/shussan/josei/ninpukennshin.html
     verified_at: 2026-09-20
 

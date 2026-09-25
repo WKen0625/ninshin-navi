@@ -83,7 +83,6 @@ contacts:
     note: 妊娠届はこども家庭センター（鷹番2-16-15 ☎03-5722-6836。新規の手続きのみ）でも出せるほか、マイナポータルからオンラインで提出できる。母子健康手帳の内容の問い合わせは 03-5722-9504。出生通知票のオンライン提出が難しいときは電話で申し込める
     source_url: https://ebooks.scinex.co.jp/contents/12776/html/index.php#page=41
     verified_at: 2026-09-25
-    needs_review: true
   - id: meguro.c_yurikago
     name: 目黒区 地域保健課 保健相談（ゆりかご・めぐろ／妊産婦保健相談／赤ちゃん訪問）
     topics: ゆりかご・めぐろ（妊婦面接）の予約・妊娠期からの健康や出産の相談（電話・面接・訪問）・赤ちゃん訪問（産婦・新生児訪問）・産後ケア事業（訪問型／宿泊型／日帰り型／通所型）
@@ -94,7 +93,6 @@ contacts:
     note: 保健師等への相談・赤ちゃん訪問の問い合わせは 03-5722-9504。ゆりかご面接は二次元コード（予約フォーム）または電話 03-5722-9383 で予約し、地域保健課（総合庁舎3階）かこども家庭センター（鷹番2-16-15）で受ける。面接を受けた妊婦には育児パッケージ
     source_url: https://ebooks.scinex.co.jp/contents/12776/html/index.php#page=8
     verified_at: 2026-09-25
-    needs_review: true
   - id: meguro.c_teate
     name: 目黒区 子ども若者課 児童手当・医療証係（総合庁舎2階）
     topics: 児童手当・子ども医療費助成（乳幼児・子ども・高校生等医療証）・家事育児支援ヘルパー派遣・家事育児サポーター（産後ドゥーラ）利用費助成・ベビーシッター利用支援
@@ -105,7 +103,6 @@ contacts:
     note: 子ども医療費助成（医療証）の問い合わせは 03-5722-9864。冊子では家事育児支援ヘルパー等の問い合わせ先として 03-5722-8709。児童手当・医療証の申請は子ども若者課の窓口のほか、北部・中央・南部・西部の各地区サービス事務所（東部地区を除く）、郵送（〒153-8573 目黒区上目黒2-19-15 子ども若者課）、オンライン（児童手当はマイナポータル「ぴったりサービス」、医療証はLoGoフォーム）でもできる
     source_url: https://ebooks.scinex.co.jp/contents/12776/html/index.php#page=55
     verified_at: 2026-09-25
-    needs_review: true
   - id: meguro.c_koseki
     name: 目黒区 戸籍住民課 戸籍届出係（総合庁舎1階）
     topics: 出生届・戸籍の届出・母子健康手帳への出生届出済証明
@@ -116,7 +113,6 @@ contacts:
     note: 平日の受付時間外は、夜間・休日受付（総合庁舎1階西口）で届書を預かり、翌開庁日に戸籍届出係が審査する（受理日は原則、預けた日）。夜間・休日受付では内容の確認と母子健康手帳への証明ができないので、できるだけ事前に戸籍届出係で審査を受ける。届書（出生証明書と一体）は病院でもらえるほか、総合庁舎・各地区サービス事務所でも受け取れる。児童手当・子ども医療費助成の手続きは住所地で行うので、住所のある区市町村への届出がすすめられている
     source_url: https://ebooks.scinex.co.jp/contents/12776/html/index.php#page=45
     verified_at: 2026-09-25
-    needs_review: true
   - id: meguro.c_kokuho
     name: 目黒区 国保年金課（資格賦課係・給付係、総合庁舎1階）
     topics: 産前産後期間の国民健康保険料の免除（資格賦課係）・出産育児一時金（給付係。直接支払制度を使わないとき、受取代理制度、海外出産、出産前の貸付）・赤ちゃんの国民健康保険の加入
@@ -127,7 +123,6 @@ contacts:
     note: 電話は資格賦課係（保険料の免除）03-5722-9810、給付係（出産育児一時金）03-5722-9811。産前産後期間の国民年金保険料の免除は国民年金係 03-5722-9814。出産育児一時金の受取代理制度は出産前に給付係で手続き。国民健康保険以外の人は加入している健康保険へ
     source_url: https://ebooks.scinex.co.jp/contents/12776/html/index.php#page=46
     verified_at: 2026-09-25
-    needs_review: true
   - id: meguro.c_kodomo_katei
     name: 目黒区 こども家庭センター（鷹番2-16-15）
     topics: 子育てに不安や悩みを抱える家庭からの相談（母子保健連携係・養育支援係）・妊娠届の受付／母子健康手帳の交付（新規のみ）・ゆりかご面接の会場・子育てふれあいひろば「ほ・ねっと ひろば」・子どもショートステイ／乳幼児ショートステイ（事業係）
@@ -138,7 +133,6 @@ contacts:
     note: 事業係（ショートステイ等・妊娠届の受付）03-5722-6836。子育て総合相談（利用者支援係、総合庁舎別館2階）03-5722-9596、相談専用電話 03-3715-2641（月〜土 8:30〜17:00）
     source_url: https://ebooks.scinex.co.jp/contents/12776/html/index.php#page=43
     verified_at: 2026-09-25
-    needs_review: true
 
 steps:
   - id: meguro.s03
@@ -341,6 +335,7 @@ steps:
     apply_from_offset_days: 0
     apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     contact_id: meguro.c_chiiki_hoken
+    requires: satogaeri
     source_url: https://www.city.meguro.tokyo.jp/chiikihoken/kosodatekyouiku/ninshin/satogaeri.html
     verified_at: 2026-09-20
 

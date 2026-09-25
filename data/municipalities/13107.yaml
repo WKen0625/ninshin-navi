@@ -94,7 +94,6 @@ contacts:
     note: 妊産婦・お子さんの健康相談、妊産婦訪問指導、出産準備クラスは健康相談 03-3622-9152。栄養相談 03-3622-9165。妊産婦歯科健康診査などの歯科相談 03-5608-1462。妊娠高血圧症候群等の医療費助成・未熟児養育医療は地域保健担当 03-3622-9130。押上駅B1出口から徒歩8分、錦糸町駅4番出口から徒歩12分（受付時間は冊子に記載なし）
     source_url: https://www.city.sumida.lg.jp/kosodate_kyouiku/kosodate_site/ikiikikosodategaido.files/6P28_35kosodatesoudan.pdf#page=5
     verified_at: 2026-09-25
-    needs_review: true
   - id: sumida.c_kosodate_sodan
     name: 子育て支援総合センター（すみだ保健子育て総合センター内）
     topics: 子育て支援サービスの案内・子育ての悩み全般・虐待に関すること・いっしょに保育（保育士の家庭訪問）・家事・育児サポーター事業・児童養育家庭ホームヘルプサービス・多胎児家庭支援
@@ -104,7 +103,6 @@ contacts:
     note: 相談専用 03-3622-1154。両国子育てひろば 03-3621-6455（相談専用 03-3621-1314）、文花子育てひろば 03-5630-6027（相談専用 03-3616-0393）でも保育士・助産師などに相談できる。からだやこころの悩みは健康推進課 03-3622-9152
     source_url: https://www.city.sumida.lg.jp/kosodate_kyouiku/kosodate_site/ikiikikosodategaido.files/6P28_35kosodatesoudan.pdf#page=1
     verified_at: 2026-09-25
-    needs_review: true
   - id: sumida.c_teate
     name: 墨田区役所 子育て支援課 児童手当・医療助成係（区役所4階）
     topics: 児童手当・子ども医療費助成（医療証）・児童扶養手当・児童育成手当・ひとり親家庭等の医療費助成
@@ -115,7 +113,6 @@ contacts:
     note: 子ども医療費助成の問い合わせは 03-5608-1439。児童手当・子ども医療証は「行かない窓口」（電子申請）・「書かない窓口」（区役所の窓口のパソコンで入力）に対応。子ども医療費助成は各出張所でも申請できる
     source_url: https://www.city.sumida.lg.jp/kosodate_kyouiku/kosodate_site/ikiikikosodategaido.files/7P36_47akachangaumaretara.pdf#page=2
     verified_at: 2026-09-25
-    needs_review: true
   - id: sumida.c_koseki
     name: 墨田区役所 窓口課 戸籍係（区役所1階4番）
     topics: 出生届・戸籍の届出・親子健康手帳（母子健康手帳）への出生届出済証明
@@ -126,7 +123,6 @@ contacts:
     note: 上記以外の時間（祝日・年末年始を含む）は区役所1階の夜間休日受付（宿直）で届書を預かるだけで、証明書の発行はできない。出張所では戸籍の届出を受け付けていない。戸籍・住民票コールセンター 03-5608-6912
     source_url: https://www.city.sumida.lg.jp/kosodate_kyouiku/kosodate_site/ikiikikosodategaido.files/7P36_47akachangaumaretara.pdf#page=1
     verified_at: 2026-09-25
-    needs_review: true
   - id: sumida.c_kokuho
     name: 墨田区役所 国保年金課 こくほ給付係（区役所2階）
     topics: 出産育児一時金（墨田区の国民健康保険の人）・出産費資金の貸付
@@ -137,7 +133,6 @@ contacts:
     note: 産前産後期間の国民健康保険料の免除・国保の加入はこくほ資格係 03-5608-6121（直通）。国民年金第1号の人の産前産後の国民年金保険料の免除は国民年金係 03-5608-6130（直通）。経済的な理由で出産費用に困っている人の入院助産制度は生活福祉課 相談係 03-5608-1295（出産前の申請が必須）
     source_url: https://www.city.sumida.lg.jp/kosodate_kyouiku/kosodate_site/ikiikikosodategaido.files/6P28_35kosodatesoudan.pdf#page=7
     verified_at: 2026-09-25
-    needs_review: true
 
 steps:
   - id: sumida.s03
@@ -326,8 +321,26 @@ steps:
     apply_from_offset_days: 0
     apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
     contact_id: sumida.c_hoken
+    requires: satogaeri
     source_url: https://www.city.sumida.lg.jp/kenko_fukushi/kenko/oyako_kenko/teatejyosei/ninpukenshinjosei.html
     verified_at: 2026-09-20
+
+  - id: sumida.s04m
+    phase: pregnancy
+    sort_order: 46
+    title: （双子以上）15回目以降の妊婦健康診査の費用助成（最大5回分・償還払い）を申請する
+    detail: 多胎妊娠のときは、15回目以上の一般健康診査を対象に、最大5回分の費用の一部を償還払い（あとから払い戻し）で助成する（すみだいきいき子育てガイドブック P34）。申請の方法と期限は健康推進課に確認する。
+    trigger_document_id: sumida.hoken_bag
+    channel: 健康推進課
+    requires: multiple
+    contact_id: sumida.c_hoken
+    apply_from_base: notification_date
+    apply_from_offset_days: 0
+    apply_from_note: "母子健康手帳を受け取ってから（15回目以降の健診を受けたあと）"
+    deadline_note: 期限は冊子に記載なし（健康推進課に確認）
+    source_url: https://www.city.sumida.lg.jp/kosodate_kyouiku/kosodate_site/ikiikikosodategaido.html
+    verified_at: 2026-09-25
+    needs_review: true
 
 subsidies:
   - id: sumida.shien_kyufu_1

@@ -77,7 +77,6 @@ contacts:
     note: 電話番号は豊玉保健相談所のもの。北 03-3931-1347（北町6-35-7）／光が丘 03-5997-7722（光が丘2-9-6 光が丘区民センター1階）／石神井 03-3996-0634（石神井町7-3-28）／大泉 03-3921-0217（大泉学園町5-8-8）／関 03-3929-5381（関町東1-27-4）。担当地域（町名）は区のページで確認する。地域子ども家庭支援センター（練馬・光が丘・大泉・関。月〜土 9:00〜17:00）でも妊娠届は出せるが、相談員はいないので面談は後日保健相談所で受ける
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/kosodatehandbook.files/akaytanngayattekita.pdf#page=1
     verified_at: 2026-09-25
-    needs_review: true
   - id: nerima.c_boshi
     name: 練馬区役所 健康推進課 母子保健係（東庁舎6階）
     topics: 区役所での妊娠届・母子健康手帳セットの交付・土曜日臨時交付窓口（第2・第4土曜、予約制）・妊婦健康診査／新生児聴覚検査／産婦健康診査／1か月児健康診査の受診票・里帰り出産等妊婦健康診査費等助成・妊娠高血圧症候群等医療費助成・産後ケア事業・赤ちゃん訪問連絡票（出生通知票）のはがきの送付先・ぴったりサービスで妊娠届を出した人の母子健康手帳セットの郵送
@@ -88,7 +87,6 @@ contacts:
     note: 育児パッケージ（ギフト）とねりママ出産・子育て応援金〈妊婦支援給付金〉は健康推進課 出産・子育て応援担当係 03-5984-1336。区役所の窓口は混み合うので、区はなるべく保健相談所の利用をすすめている
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/kosodatehandbook.files/akaytanngayattekita.pdf#page=1
     verified_at: 2026-09-25
-    needs_review: true
   - id: nerima.c_teate
     name: 練馬区役所 子育て支援課 児童手当係（本庁舎10階）
     topics: 児童手当・子ども医療費助成（マル乳・マル子・マル青医療証）・児童育成手当・児童扶養手当・ひとり親家庭等医療費助成・第3子誕生祝金
@@ -99,7 +97,6 @@ contacts:
     note: 児童手当の窓口申請は、光が丘区民センター2階・石神井庁舎4階・大泉学園ゆめりあ1（4階）の福祉事務係でもできる（区民事務所では受け付けない）。郵送（児童手当係あて）とぴったりサービスの電子申請もできる。医療証の交付申請は原則 LoGoフォームの電子申請（申請用紙は送られてこない）で、申請から1週間程度で住民票の住所に郵送される
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/kosodatehandbook.files/akaytanngayattekita.pdf#page=6
     verified_at: 2026-09-25
-    needs_review: true
   - id: nerima.c_koseki
     name: 練馬区役所 戸籍住民課 戸籍第一係（本庁舎2階）
     topics: 出生届・戸籍の届出・母子健康手帳への出生届出済証明
@@ -110,7 +107,6 @@ contacts:
     note: 戸籍第二係（石神井庁舎2階）03-3995-1105 でも平日に受け付け。平日 17:00〜翌8:30 と土曜・日曜・祝日・年末年始は、区役所西庁舎1階の休日・夜間窓口（予約不要）で届書を預かるだけで、審査は翌開庁日。このとき母子健康手帳はいったん預かりとなり、後日取りに行くか簡易書留で返送（有料）。持ち物は出生届（出生証明書欄に医師か助産師の記入があるもの）、母子健康手帳、国民健康保険の人はその資格がわかるもの
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/kosodatehandbook.files/akaytanngayattekita.pdf#page=6
     verified_at: 2026-09-25
-    needs_review: true
   - id: nerima.c_kokuho
     name: 練馬区役所 国保年金課 こくほ給付係（本庁舎3階）
     topics: 出産育児一時金（直接支払制度を使わなかったとき・差額の申請）・高額療養費・国民健康保険の給付
@@ -120,7 +116,6 @@ contacts:
     note: 赤ちゃんの国民健康保険への加入と産前産後期間の保険料の減額は こくほ資格係 03-5984-4554。石神井庁舎は こくほ石神井係 03-3995-1114〜1116。平日 17:15〜19:30 の夜間は当日17時までにこくほ給付係へ電話予約すれば申請できる（土日祝・年末年始は不可）。出産育児一時金の申請に必要なものは、本人確認書類、世帯主名義の口座番号、出生届出済証明を受けた母子健康手帳、直接支払制度の合意文書、出産費用の領収・明細書
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/kosodatehandbook.files/akaytanngayattekita.pdf#page=3
     verified_at: 2026-09-25
-    needs_review: true
 
 steps:
   - id: nerima.s03
@@ -311,6 +306,7 @@ steps:
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
     contact_id: nerima.c_boshi
+    requires: satogaeri
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/02satogaeri.html
     verified_at: 2026-09-20
 

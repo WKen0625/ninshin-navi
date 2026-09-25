@@ -39,7 +39,7 @@ export async function readRules(db: Db) {
     await db.query(`
       select id, region_code, phase, sort_order, title, detail, trigger_document_id, produces_document_id, channel, action_url,
              deadline_base, deadline_offset_days, deadline_week, deadline_note, apply_from_base, apply_from_offset_days, apply_from_week, apply_from_note, overrides_step_id,
-             survey_question_id, contact_id, source_url, verified_at::text as verified_at, needs_review
+             survey_question_id, contact_id, requires, source_url, verified_at::text as verified_at, needs_review
       from steps`)
   ).rows as Step[];
   const contacts = (await db.query("select id, region_code, name, topics, phone, hours, address, url, note, source_url, verified_at::text as verified_at, needs_review from contacts")).rows as Contact[];

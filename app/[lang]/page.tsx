@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { listArticles } from "@/lib/articles";
-import { articleOf, columnsOf, FOREIGN_LANGS, HOME, isLang, type Lang } from "@/lib/i18n";
+import { articleOf, columnsOf, ENGLISH_HINT, FOREIGN_LANGS, HOME, isLang, type Lang } from "@/lib/i18n";
 import { loadServiceArea } from "@/lib/service-area";
 
 type Params = { params: Promise<{ lang: string }> };
@@ -46,6 +46,11 @@ export default async function HomeIntl({ params }: Params) {
           <Link href={columnsOf(lang)} className="btn btn-ghost text-lg sm:flex-1">{t.columns}</Link>
         </div>
         <p className="notice notice-info">{t.naviNote}</p>
+        {ENGLISH_HINT[lang] ? (
+          <p className="text-base">
+            <Link href="/en" hrefLang="en" className="link">{ENGLISH_HINT[lang]}</Link>
+          </p>
+        ) : null}
       </section>
 
       <section aria-labelledby="promises" className="space-y-4">

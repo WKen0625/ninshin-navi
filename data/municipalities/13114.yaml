@@ -77,7 +77,6 @@ contacts:
     note: 中部 03-3367-7788（中央3-19-1）／北部 03-3389-4321（江古田4-31-10）／南部 03-3380-5551（弥生町5-11-26）／鷺宮 03-3336-7111（若宮3-58-10）。住所によって担当のすこやか福祉センターが決まっている。保健師・栄養士・歯科衛生士・福祉職・心理職が相談を受ける
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/tool/ohirune.files/zennkou.pdf#page=6
     verified_at: 2026-09-25
-    needs_review: true
   - id: nakano.c_kodomo_sogo
     name: 中野区役所3階 子ども総合窓口（子ども医療助成係）
     topics: 妊娠届・母子健康手帳（区役所で出す場合）・妊婦健康診査・妊産婦歯科健康診査・新生児聴覚検査・里帰り等妊婦健康診査助成金・多胎妊婦健康診査費用の助成・妊娠高血圧症候群等医療費助成・子ども医療費助成（乳医療証）・子育てに関する各種手続き
@@ -87,7 +86,6 @@ contacts:
     note: 子ども総合窓口の代表は 03-3228-5484。妊娠高血圧症候群等医療費助成・ひとり親家庭等医療費助成の問い合わせは子ども医療助成係 03-3228-5623
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/tool/ohirune.files/zennkou.pdf#page=18
     verified_at: 2026-09-25
-    needs_review: true
   - id: nakano.c_teate
     name: 中野区役所3階 子ども総合窓口 児童手当係
     topics: 児童手当
@@ -97,7 +95,6 @@ contacts:
     note: 出生日や転出予定日の翌日から15日以内に届け出ないと、支給されない月が生じることがある。公務員は原則として勤務先で申請。子ども医療費助成（乳医療証）の申請は子ども総合窓口 03-3228-3253
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/tool/ohirune.files/zennkou.pdf#page=18
     verified_at: 2026-09-25
-    needs_review: true
   - id: nakano.c_koseki
     name: 戸籍住民課 戸籍係（中野区役所2階5番窓口）
     topics: 出生届・母子健康手帳への出生届出済証明・戸籍の届出
@@ -107,7 +104,6 @@ contacts:
     note: 出生届は地域事務所（南中野 03-3382-1457／東部 03-3363-0752／江古田 03-3954-6812／野方 03-3330-4201／鷺宮 03-3330-4112。平日 8:30〜17:00）でも受け付ける。夜間・休日（平日17:00〜翌8:30、土曜・日曜・祝日・年末年始）は区役所1階宿直窓口で届書を預かるのみ（翌開庁日に戸籍係が確認し、不備がなければ届出日にさかのぼって受理）。宿直窓口では母子健康手帳への出生届出済証明はできないので、翌開庁日以降に戸籍係へ母子健康手帳を持参する
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/tool/ohirune.files/zennkou.pdf#page=17
     verified_at: 2026-09-25
-    needs_review: true
   - id: nakano.c_kokuho
     name: 保険医療課 国保給付係（中野区役所2階）
     topics: 中野区の国民健康保険の出産育児一時金
@@ -117,7 +113,6 @@ contacts:
     note: 出産した医療機関で直接支払制度の手続きをした場合、中野区の国保の人は申請不要。産前産後期間の国民健康保険料の免除は資格賦課係（2階）03-3228-5511（必要書類は母子手帳・身分証明書）。国民年金保険料の免除は国民年金係（2階）03-3228-5514
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/tool/ohirune.files/zennkou.pdf#page=18
     verified_at: 2026-09-25
-    needs_review: true
   - id: nakano.c_sodan
     name: 子ども・若者支援センター 総合相談係
     topics: 18歳未満の子どもとその家庭に関するあらゆる相談（子育ての不安、家庭のこと、子どもショートステイなど）
@@ -128,7 +123,6 @@ contacts:
     note: 子育てに関する各種相談は各すこやか福祉センターでも受ける。子どもの急病で受診に迷うときは東京都「子供の健康相談室」#8000 または 03-5285-8898（平日 18:00〜翌8:00、土日祝・年末年始 8:00〜翌8:00）
     source_url: https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/nenreibetsu/ninshin/tool/ohirune.files/zennkou.pdf#page=42
     verified_at: 2026-09-25
-    needs_review: true
 
 steps:
   - id: nakano.s03
@@ -291,6 +285,7 @@ steps:
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
     contact_id: nakano.c_kodomo_sogo
+    requires: satogaeri
     source_url: https://www.city.tokyo-nakano.lg.jp/dept/242900/d001464.html
     verified_at: 2026-09-20
 

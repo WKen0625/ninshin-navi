@@ -73,10 +73,15 @@ export type Step = {
   survey_question_id: string | null;
   /** 困ったときの問い合わせ先（contacts.id）。無ければ画面がその区の代表の窓口を出す */
   contact_id?: string | null;
+  /** 該当する家族にだけ出す（family.flags に同じ値があるとき） */
+  requires?: StepFlag | null;
   source_url: string;
   verified_at: string;
   needs_review: boolean;
 };
+
+/** 家族の状況。multiple = 双子以上／satogaeri = 里帰り出産の予定／foreign_parent = 子が日本国籍にならない（両親とも外国籍など） */
+export type StepFlag = "multiple" | "satogaeri" | "foreign_parent";
 
 /** 日付はすべて 'YYYY-MM-DD'（時刻・タイムゾーンを持ち込まない） */
 export type Family = {
@@ -88,6 +93,8 @@ export type Family = {
   completed_step_ids: string[];
   /** 「自分は該当しない」を付けたステップ（step_progress.status = 'not_applicable'） */
   not_applicable_step_ids: string[];
+  /** 家族の状況（steps.requires と照らす）。省略は「どれも該当しない」 */
+  flags?: StepFlag[];
 };
 
 /** 期限がこの日数以内（または過ぎている）ものを「期限が近い」として先頭に出す。メール通知の「30日前から知らせる」と同じ */
@@ -226,14 +233,17 @@ export function resolveNextActions(input: {
   const inScope = steps.filter((s) => codes.has(s.region_code));
   const overridden = new Set(inScope.map((s) => s.overrides_step_id).filter((id): id is string => id != null));
 
-  // 3. trigger_document_id が null か held_documents（含まれる紙も）にある  4. 出産前は出産後の段階を、出産後は妊娠中にしかできないものを隠す  5. 完了済み・該当しないを除外
+  // 3. trigger_document_id が null か held_documents（含まれる紙も）にある  3b. requires は家族の状況に合うときだけ
+  //    4. 出産前は出産後の段階を、出産後は妊娠中にしかできないものを隠す  5. 完了済み・該当しないを除外
   const held = new Set(family.held_documents.map((h) => h.document_id));
+  const flags = new Set(family.flags ?? []);
   // 完了と「該当しない」は、どちらも一覧から外す
   const completed = new Set([...family.completed_step_ids, ...family.not_applicable_step_ids]);
   const candidates = inScope.filter(
     (s) =>
       !overridden.has(s.id) &&
       (s.trigger_document_id == null || held.has(s.trigger_document_id)) &&
+      (s.requires == null || flags.has(s.requires)) &&
       (family.birth_date != null ? !onlyDuringPregnancy(s) : !AFTER_BIRTH_PHASES.has(s.phase)) &&
       !completed.has(s.id),
   );

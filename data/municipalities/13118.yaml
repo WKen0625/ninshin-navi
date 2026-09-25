@@ -79,7 +79,6 @@ contacts:
     note: 代表番号のあと内線433。妊婦歯科健康診査は歯科担当 内線423。妊娠届は区民事務所でも出せる（電子申請はマイナポータル）
     source_url: https://www.city.arakawa.tokyo.jp/documents/1111/04umarerumae6-13.pdf#page=1
     verified_at: 2026-09-25
-    needs_review: true
   - id: arakawa.c_hoken_sodan
     name: 荒川区保健所 健康推進課 保健相談担当（がん予防・健康づくりセンター2階）
     topics: ゆりかご面接（妊婦面接）・赤ちゃん訪問（新生児訪問）・妊娠中や産後のこころとからだの相談・育児相談・産前産後うつ病予防支援・ハローベビー学級・新米パパ講座・心理士の予約相談
@@ -90,7 +89,6 @@ contacts:
     note: 代表番号のあと内線447（ゆりかご面接・赤ちゃん訪問）または内線432（こころの相談・育児相談・学級）。ゆりかご面接は区のホームページの「ゆりかご面接予約サイト」から予約する。栄養・歯科の相談は内線423
     source_url: https://www.city.arakawa.tokyo.jp/documents/1111/04umarerumae6-13.pdf#page=1
     verified_at: 2026-09-25
-    needs_review: true
   - id: arakawa.c_teate
     name: 荒川区役所 子育て支援課 子育て給付係（本庁舎2階16番窓口）
     topics: 児童手当・乳幼児・子ども・高校生等医療費助成（乳・子・青の医療証）
@@ -101,7 +99,6 @@ contacts:
     note: 代表番号のあと内線3819（児童手当）または内線3817（医療証）。児童手当は出生などの翌日から数えて15日以内、医療証は3か月以内の申請なら出生日にさかのぼる（冊子 p.15〜16）
     source_url: https://www.city.arakawa.tokyo.jp/documents/1111/05umaretara14-28.pdf#page=2
     verified_at: 2026-09-25
-    needs_review: true
   - id: arakawa.c_koseki
     name: 荒川区役所 戸籍住民課 戸籍係（本庁舎1階4番窓口）
     topics: 出生届・戸籍の届出・母子健康手帳への出生届出済証明
@@ -112,7 +109,6 @@ contacts:
     note: 代表番号のあと内線2354。区民事務所では受け付けない。夜間・休日など閉庁中は区役所地下1階の夜間・休日受付窓口（巡視室・宿直室）で届書を預かる。母子健康手帳の出生届出済証明は平日 8:30〜17:15 に届け出たときだけ同日に発行され、水曜延長・日曜開庁・巡視室での受付では発行されない（後日、平日に母子健康手帳を持っていく）
     source_url: https://www.city.arakawa.tokyo.jp/documents/1111/05umaretara14-28.pdf#page=1
     verified_at: 2026-09-25
-    needs_review: true
   - id: arakawa.c_kokuho
     name: 荒川区役所 国保年金課 国保資格係（本庁舎1階10番窓口）
     topics: 赤ちゃんの国民健康保険への加入・産前産後期間の国民健康保険料の免除
@@ -123,7 +119,6 @@ contacts:
     note: 出産育児一時金・高額療養費は保険給付係 03-3802-4067（本庁舎1階12番窓口）。国民年金保険料の産前産後免除は国民年金係 03-3802-4168。加入の持ち物は資格確認書など、母子健康手帳、届出人の本人確認書類とマイナンバーがわかるもの
     source_url: https://www.city.arakawa.tokyo.jp/documents/1111/05umaretara14-28.pdf#page=1
     verified_at: 2026-09-25
-    needs_review: true
   - id: arakawa.c_kodomo_katei
     name: 荒川区子ども家庭総合センター（子どもと子育ての総合相談）
     topics: 妊娠中の人と18歳未満の子どもとその保護者の、子育ての心配ごとの相談全般
@@ -134,7 +129,6 @@ contacts:
     note: 24時間・年中無休の電話相談「あらかわキッズ・ファミリーコール24」0120-536-883（通話料無料。妊娠・出産・育児の悩みを看護師などが受ける）。子どもの急な病気は #8000（子供の健康相談室。平日 18:00〜翌 8:00、休日 8:00〜翌 8:00）
     source_url: https://www.city.arakawa.tokyo.jp/documents/1111/11mangaichi84-89.pdf#page=6
     verified_at: 2026-09-25
-    needs_review: true
 
 steps:
   - id: arakawa.s03
@@ -302,6 +296,7 @@ steps:
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
     contact_id: arakawa.c_hoken_suishin
+    requires: satogaeri
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/satogaerishussan.html
     verified_at: 2026-09-20
 

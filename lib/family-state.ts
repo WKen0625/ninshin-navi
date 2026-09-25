@@ -2,7 +2,7 @@
 // サーバーに送るのは市区町村コードだけ（制度データの取得のため）。
 // ここは純粋関数だけ。localStorage の読み書きは components/useFamilyState.ts。
 
-import type { Family, Step } from "./next-actions";
+import type { Family, Step, StepFlag } from "./next-actions";
 import { isStuckReason, type StuckReason } from "./stuck";
 
 export const STORAGE_KEY = "ninshin-navi:v1";
@@ -14,9 +14,13 @@ export type Preferences = {
   distance: "30min" | "60min" | "any";
   /** 自宅の郵便番号（7桁）。時間の目安を出すためだけに使い、この端末の中にだけ保存する。住所は取らない */
   postal_code?: string | null;
-  /** 「お金」画面で選んだ施設と、おなかの赤ちゃんの人数（支援給付2回目の計算に使う） */
+  /** 「お金」画面で選んだ施設と、おなかの赤ちゃんの人数（支援給付2回目の計算と、双子以上の手続きに使う） */
   facility_id?: string | null;
   children?: number;
+  /** 里帰り出産の予定（里帰り先の健診費用の払い戻しなどの手続きを出す） */
+  satogaeri?: boolean;
+  /** 子が日本国籍にならない（両親とも外国籍など。在留資格の取得などの手続きを出す） */
+  foreign_parent?: boolean;
 };
 
 export type FamilyState = {
@@ -48,7 +52,17 @@ export function toFamily(state: FamilyState): Family {
     held_documents: state.held_documents.map(({ document_id, held_at }) => ({ document_id, held_at })),
     completed_step_ids: state.progress.filter((p) => p.status === "done").map((p) => p.step_id),
     not_applicable_step_ids: state.progress.filter((p) => p.status === "not_applicable").map((p) => p.step_id),
+    flags: flagsOf(state.preferences),
   };
+}
+
+/** 家族の状況 → steps.requires と照らす印 */
+export function flagsOf(p: Preferences): StepFlag[] {
+  const out: StepFlag[] = [];
+  if ((p.children ?? 1) >= 2) out.push("multiple");
+  if (p.satogaeri) out.push("satogaeri");
+  if (p.foreign_parent) out.push("foreign_parent");
+  return out;
 }
 
 /** 完了／該当しない を付ける。完了なら、そのステップで手に入る紙（produces_document_id）を持っている紙に加える。 */
@@ -108,6 +122,8 @@ export function parseState(raw: string | null): FamilyState | null {
         postal_code: typeof s.preferences?.postal_code === "string" && /^\d{7}$/.test(s.preferences.postal_code) ? s.preferences.postal_code : null,
         facility_id: typeof s.preferences?.facility_id === "string" ? s.preferences.facility_id : null,
         children: Number.isInteger(s.preferences?.children) && s.preferences!.children! >= 1 ? s.preferences!.children : 1,
+        satogaeri: s.preferences?.satogaeri === true,
+        foreign_parent: s.preferences?.foreign_parent === true,
       },
       held_documents: Array.isArray(s.held_documents) ? s.held_documents.filter((h) => typeof h?.document_id === "string" && isDate(h?.held_at)) : [],
       progress: Array.isArray(s.progress) ? s.progress.filter((p) => typeof p?.step_id === "string") : [],
