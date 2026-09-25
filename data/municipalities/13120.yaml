@@ -65,13 +65,70 @@ documents:
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/homon.html
     verified_at: 2026-09-20
 
+contacts:
+  # 出典: 練馬区「ねりま子育て応援ハンドブック」令和8年度版（区の公式PDF。章ごとに分かれていて #page= は各PDFのページ番号）。PDFの電話番号は埋め込みフォントの都合で数字が欠けて抽出されるため、電話番号・所在地・受付時間は区の公式ページの文字を写した。
+  - id: nerima.c_hoken_sodan
+    name: 保健相談所（住んでいる地域を担当する所。豊玉・北・光が丘・石神井・大泉・関）
+    topics: 妊娠届・母子健康手帳セットの交付・妊娠・子育て相談員（保健師）との面談・妊婦訪問・赤ちゃん準備教室・こんにちは赤ちゃん訪問・妊娠中や産後・育児の相談（電話・来所・訪問）・多胎判明時の受診票の追加交付・母子健康手帳や受診票の再交付・保健指導票
+    phone: "03-3992-1188"
+    hours: 月〜金曜日 8:30〜17:00（祝日・年末年始を除く）。17:00〜18:30 の受付を希望する場合は前日までに電話予約
+    address: 豊玉保健相談所 練馬区豊玉北5-15-19 豊玉すこやかセンター内（担当地域は旭丘・向山・小竹町・栄町・桜台・豊玉上・豊玉北・豊玉中・豊玉南・中村・中村北・中村南・貫井・練馬・羽沢）
+    url: https://www.city.nerima.tokyo.jp/shisetsu/hokenfuku/hokensodan/index.html
+    note: 電話番号は豊玉保健相談所のもの。北 03-3931-1347（北町6-35-7）／光が丘 03-5997-7722（光が丘2-9-6 光が丘区民センター1階）／石神井 03-3996-0634（石神井町7-3-28）／大泉 03-3921-0217（大泉学園町5-8-8）／関 03-3929-5381（関町東1-27-4）。担当地域（町名）は区のページで確認する。地域子ども家庭支援センター（練馬・光が丘・大泉・関。月〜土 9:00〜17:00）でも妊娠届は出せるが、相談員はいないので面談は後日保健相談所で受ける
+    source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/kosodatehandbook.files/akaytanngayattekita.pdf#page=1
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: nerima.c_boshi
+    name: 練馬区役所 健康推進課 母子保健係（東庁舎6階）
+    topics: 区役所での妊娠届・母子健康手帳セットの交付・土曜日臨時交付窓口（第2・第4土曜、予約制）・妊婦健康診査／新生児聴覚検査／産婦健康診査／1か月児健康診査の受診票・里帰り出産等妊婦健康診査費等助成・妊娠高血圧症候群等医療費助成・産後ケア事業・赤ちゃん訪問連絡票（出生通知票）のはがきの送付先・ぴったりサービスで妊娠届を出した人の母子健康手帳セットの郵送
+    phone: "03-5984-4621"
+    hours: 月〜金曜日 8:30〜17:00（祝日・年末年始・閉庁日を除く。17時以降の受付はできない）
+    address: 練馬区豊玉北6-12-1 練馬区役所東庁舎6階
+    url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/boshitecho.html
+    note: 育児パッケージ（ギフト）とねりママ出産・子育て応援金〈妊婦支援給付金〉は健康推進課 出産・子育て応援担当係 03-5984-1336。区役所の窓口は混み合うので、区はなるべく保健相談所の利用をすすめている
+    source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/kosodatehandbook.files/akaytanngayattekita.pdf#page=1
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: nerima.c_teate
+    name: 練馬区役所 子育て支援課 児童手当係（本庁舎10階）
+    topics: 児童手当・子ども医療費助成（マル乳・マル子・マル青医療証）・児童育成手当・児童扶養手当・ひとり親家庭等医療費助成・第3子誕生祝金
+    phone: "03-5984-5824"
+    hours: 平日 8:30〜17:15（土曜・日曜・祝日・年末年始は受け付けない）
+    address: 練馬区豊玉北6-12-1 練馬区役所本庁舎10階
+    url: https://www.city.nerima.tokyo.jp/kosodatekyoiku/kodomo/teateiryo/index.html
+    note: 児童手当の窓口申請は、光が丘区民センター2階・石神井庁舎4階・大泉学園ゆめりあ1（4階）の福祉事務係でもできる（区民事務所では受け付けない）。郵送（児童手当係あて）とぴったりサービスの電子申請もできる。医療証の交付申請は原則 LoGoフォームの電子申請（申請用紙は送られてこない）で、申請から1週間程度で住民票の住所に郵送される
+    source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/kosodatehandbook.files/akaytanngayattekita.pdf#page=6
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: nerima.c_koseki
+    name: 練馬区役所 戸籍住民課 戸籍第一係（本庁舎2階）
+    topics: 出生届・戸籍の届出・母子健康手帳への出生届出済証明
+    phone: "03-5984-4530"
+    hours: 平日 8:30〜17:00
+    address: 練馬区豊玉北6-12-1 練馬区役所本庁舎2階
+    url: https://www.city.nerima.tokyo.jp/kurashi/koseki/todokede/shussei25.html
+    note: 戸籍第二係（石神井庁舎2階）03-3995-1105 でも平日に受け付け。平日 17:00〜翌8:30 と土曜・日曜・祝日・年末年始は、区役所西庁舎1階の休日・夜間窓口（予約不要）で届書を預かるだけで、審査は翌開庁日。このとき母子健康手帳はいったん預かりとなり、後日取りに行くか簡易書留で返送（有料）。持ち物は出生届（出生証明書欄に医師か助産師の記入があるもの）、母子健康手帳、国民健康保険の人はその資格がわかるもの
+    source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/kosodatehandbook.files/akaytanngayattekita.pdf#page=6
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: nerima.c_kokuho
+    name: 練馬区役所 国保年金課 こくほ給付係（本庁舎3階）
+    topics: 出産育児一時金（直接支払制度を使わなかったとき・差額の申請）・高額療養費・国民健康保険の給付
+    phone: "03-5984-4553"
+    address: 練馬区豊玉北6-12-1 練馬区役所本庁舎3階
+    url: https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_kyufu/shussan_shikyu.html
+    note: 赤ちゃんの国民健康保険への加入と産前産後期間の保険料の減額は こくほ資格係 03-5984-4554。石神井庁舎は こくほ石神井係 03-3995-1114〜1116。平日 17:15〜19:30 の夜間は当日17時までにこくほ給付係へ電話予約すれば申請できる（土日祝・年末年始は不可）。出産育児一時金の申請に必要なものは、本人確認書類、世帯主名義の口座番号、出生届出済証明を受けた母子健康手帳、直接支払制度の合意文書、出産費用の領収・明細書
+    source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/kosodatehandbook.files/akaytanngayattekita.pdf#page=3
+    verified_at: 2026-09-25
+    needs_review: true
+
 steps:
   - id: nerima.s03
     overrides_step_id: jp.s03
     phase: notification
     sort_order: 30
     title: 妊娠届を出し、母子健康手帳セットを受け取る
-    detail: 医療機関で妊娠の確定診断（胎児心拍の確認）を受けたら届け出る。妊娠・子育て相談員がいて、届出と同時に面談（40分程度）ができる窓口は、保健相談所（豊玉・北・光が丘・石神井・大泉・関。月〜金の8時30分〜17時）と、健康推進課（区役所東庁舎6階）、予約制の土曜日臨時交付窓口（第2・第4土曜）。地域子ども家庭支援センター（練馬・光が丘・大泉・関。月〜土の9時〜17時）でも届け出できるが、面談は後日、保健相談所で受ける。持ち物は、妊婦の個人番号（マイナンバー）がわかるもの1点と本人確認書類。妊婦本人がマイナンバーカードを持っていれば、ぴったりサービス（マイナポータル）で電子申請もできる。その場合は、母子健康手帳セットを送ってもらうためのレターパックプラス（未使用のもの）を母子保健係に送る。
+    detail: 医療機関で妊娠の確定診断（胎児心拍の確認）を受けたら届け出る。妊娠・子育て相談員がいて、届出と同時に面談（40分程度）ができる窓口は、保健相談所（豊玉・北・光が丘・石神井・大泉・関。月〜金の8時30分〜17時）と、健康推進課（区役所東庁舎6階）、予約制の土曜日臨時交付窓口（第2・第4土曜）。地域子ども家庭支援センター（練馬・光が丘・大泉・関。月〜土の9時〜17時）でも届け出できるが、面談は後日、保健相談所で受ける。持ち物は、妊婦の個人番号（マイナンバー）がわかるもの1点と本人確認書類。妊婦本人がマイナンバーカードを持っていれば、ぴったりサービス（マイナポータル）で電子申請もできる。その場合は、母子健康手帳セットを送ってもらうためのレターパックプラス（未使用のもの）を母子保健係に送る。保健相談所で17時〜18時30分の受付を希望する場合は前日までに電話で予約する。地域子ども家庭支援センターには妊娠・子育て相談員がいないので、面談は保健相談所で受ける（ねりま子育て応援ハンドブック・区のページ）。
     trigger_document_id: jp.heartbeat_confirmed
     produces_document_id: nerima.hoken_bag
     channel: 窓口（保健相談所など） または オンライン（ぴったりサービス）
@@ -80,6 +137,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
+    contact_id: nerima.c_hoken_sodan
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/boshitecho.html
     verified_at: 2026-09-20
 
@@ -98,6 +156,7 @@ steps:
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: nerima.c_hoken_sodan
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/ikupake.html
     verified_at: 2026-09-20
 
@@ -115,6 +174,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "心拍を確認した日から"
+    contact_id: nerima.c_boshi
     source_url: https://www.city.nerima.tokyo.jp/kosodatekyoiku/shussan/nerimama.html
     verified_at: 2026-09-20
 
@@ -145,6 +205,7 @@ steps:
     apply_from_base: due_date
     apply_from_offset_days: -182
     apply_from_note: "出産予定日の6か月前から"
+    contact_id: nerima.c_kokuho
     source_url: https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/sannzennsanngo.html
     verified_at: 2026-09-20
 
@@ -161,6 +222,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
+    contact_id: nerima.c_boshi
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/sinseijicyoukaku.html
     verified_at: 2026-09-20
 
@@ -178,6 +240,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    contact_id: nerima.c_teate
     source_url: https://www.city.nerima.tokyo.jp/kosodatekyoiku/shussan/iwaikin.html
     verified_at: 2026-09-20
 
@@ -186,7 +249,7 @@ steps:
     phase: postpartum
     sort_order: 80
     title: ねりママ子育て応援金〈妊婦支援給付金・2回目・子どもの人数×5万円〉を電子申請する
-    detail: 出産後に「赤ちゃん訪問連絡票（出生通知票）」をLoGoフォーム（区の電子申請）かはがきで出すと、助産師・保健師が「こんにちは赤ちゃん訪問」に来る。そのときに案内される二次元コードから電子申請する。届出の日に練馬区に住民票があることが条件。現金（本人名義の口座）かギフトカードを選ぶ。
+    detail: 出産後に「赤ちゃん訪問連絡票（出生通知票）」をLoGoフォーム（区の電子申請）かはがきで出すと、助産師・保健師が「こんにちは赤ちゃん訪問」に来る。そのときに案内される二次元コードから電子申請する。届出の日に練馬区に住民票があることが条件。現金（本人名義の口座）かギフトカードを選ぶ。赤ちゃん訪問連絡票（出生通知票）のはがきの送付先は健康推進課母子保健係。訪問は生後4か月までのすべての世帯が対象で、急ぐときや里帰り先で訪問を受けたいときは担当の保健相談所に電話する（ねりま子育て応援ハンドブック・区のページ）。
     trigger_document_id: nerima.akachan_homon_annai
     channel: オンライン（電子申請）
     deadline_base: due_date
@@ -195,6 +258,7 @@ steps:
     apply_from_base: due_date
     apply_from_offset_days: -56
     apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
+    contact_id: nerima.c_boshi
     source_url: https://www.city.nerima.tokyo.jp/kosodatekyoiku/shussan/nerimama.html
     verified_at: 2026-09-20
 
@@ -211,6 +275,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    contact_id: nerima.c_boshi
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/sannpu10gatuikou.html
     verified_at: 2026-09-20
 
@@ -227,6 +292,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 28
     apply_from_note: "生後28日から"
+    contact_id: nerima.c_boshi
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/nyuyoji/ikkagetuji10gatuikou.html
     verified_at: 2026-09-20
 
@@ -244,6 +310,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    contact_id: nerima.c_boshi
     source_url: https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/02satogaeri.html
     verified_at: 2026-09-20
 

@@ -73,13 +73,79 @@ documents:
     source_url: https://www.city.edogawa.tokyo.jp/e052/kenko/kenko/kodomo/homon.html
     verified_at: 2026-09-20
 
+contacts:
+  # 出典: 江戸川区「令和8年度 えどがわ子育てガイド」（令和8年5月発行、区の公式PDF。#page= はPDFのページ番号で、冊子の印刷ページ+2）。冊子に無い受付時間・夜間休日の窓口・所在地は区の公式ページから補った。
+  - id: edogawa.c_support_center
+    name: 健康サポートセンター（住んでいる地域を担当するセンター。中央・小岩・東部・清新町・葛西・鹿骨・小松川・なぎさ）
+    topics: 妊娠届・親子健康手帳（母子健康手帳）と母と子の保健バッグの交付・ぴよママ相談（妊婦全数面接）・ぴよママギフト・ハローベビー教室（平日コース）・乳児健康診査・妊娠中や育児の相談
+    phone: "03-5661-2467"
+    hours: 妊娠届の受付は月〜金曜日 8:30〜16:30（祝日・年末年始を除く）
+    address: 中央健康サポートセンター 江戸川区中央4-24-19 江戸川保健所内（担当区域は区役所区民課の管内地域）
+    url: https://www.city.edogawa.tokyo.jp/kuseijoho/gaiyo/shisetsuguide/bunya/kenkofukushi/kenko/index.html
+    note: 電話番号は中央健康サポートセンターのもの。小岩 03-3658-3171（東小岩3-23-3）／東部 03-3678-6441（瑞江2-5-7 東部フレンドホール内）／清新町 03-3878-1221（清新町1-3-11）／葛西 03-3688-0154（中葛西3-10-1）／鹿骨 03-3678-8711（鹿骨1-55-10）／小松川 03-3683-5531（小松川3-6-1）／なぎさ 03-5675-2515（南葛西7-1-27）。担当区域（町丁名）は区の「健康サポートセンター所管区域一覧」で確認する
+    source_url: https://www.city.edogawa.tokyo.jp/documents/7206/guide.pdf#page=39
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: edogawa.c_boshi
+    name: 健康サービス課 母子保健係（江戸川保健所内）
+    topics: 妊娠届の郵送申請・電子申請（ぴったりサービス）のあとの連絡先・新生児訪問（出生連絡票）・産後ケア事業・入院助産・新生児聴覚検査／産婦健康診査／1か月児健康診査の受診票・パパとパートナーのための育児ゼミ
+    phone: "03-5661-2466"
+    address: 江戸川区中央4-24-19 江戸川保健所内
+    url: https://www.city.edogawa.tokyo.jp/e052/kosodate/ninshin/boshitecho.html
+    note: 妊娠届の郵送先は「〒132-8507 江戸川区中央4-24-19 健康サービス課母子保健係」（妊娠届出書、本人確認書類の写し、返送用のレターパックライトを送る。到着まで10日〜2週間）。郵送や電子申請だけではぴよママギフトは渡されないので、出産前に健康サポートセンターでぴよママ相談を受ける
+    source_url: https://www.city.edogawa.tokyo.jp/documents/7206/guide.pdf#page=7
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: edogawa.c_teate
+    name: 江戸川区役所 児童家庭課 手当助成係（本庁舎東棟2階4番窓口）
+    topics: 児童手当・乳児養育手当（0歳児）・児童育成手当
+    phone: "03-5662-0082"
+    hours: 平日 8:30〜17:00（祝日・年末年始を除く）
+    address: 江戸川区中央1-4-1 江戸川区役所本庁舎東棟2階
+    url: https://www.city.edogawa.tokyo.jp/kosodate/kosodate/teateshien/index.html
+    note: 児童手当の窓口申請は本庁舎の児童家庭課窓口のみ（各事務所では受け付けない）。郵送（児童家庭課手当助成係あて）とマイナポータルの電子申請もできる。子ども医療証（子ども医療費助成）は児童家庭課 医療費助成係 03-5662-8578。医療証は区役所児童家庭課の窓口か各事務所（小松川・葛西・小岩・東部・鹿骨）の保険年金係の窓口で申請するとその場で交付、電子申請・郵送は1週間ほどで郵送
+    source_url: https://www.city.edogawa.tokyo.jp/documents/7206/guide.pdf#page=9
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: edogawa.c_koseki
+    name: 江戸川区役所 区民課 戸籍住民係（本庁舎南棟1階）
+    topics: 出生届・戸籍の届出・親子健康手帳（母子健康手帳）への出生届出済証明
+    phone: "03-5662-0591"
+    hours: 平日 8:30〜17:00（祝日・年末年始を除く）。第1・第3水曜日は区民課（本庁舎）のみ 19:30 まで延長
+    address: 江戸川区中央1-4-1 江戸川区役所本庁舎南棟1階
+    url: https://www.city.edogawa.tokyo.jp/e031/kurashi/todoke/koseki/madoguchi.html
+    note: 各事務所の戸籍住民係でも受け付け（小松川 03-3683-5184／葛西 03-3688-0437／小岩 03-3657-7837／東部 03-3679-1125／鹿骨 03-3678-6115）。それ以外の時間は、区役所警備室（東棟1階。平日 17:00〜翌8:30、土日祝・年末年始は終日）か各区民館の受付（平日 17:00〜21:30、土日祝 9:00〜21:30。休館日と12月28日〜1月4日を除く）で届書を預かるだけで、審査は翌開庁日以降（不備があれば電話が来るので日中の連絡先を届書に書く）。夜間休日は母子健康手帳への証明ができないので手帳は持参不要。区民課の窓口はネット・電話（03-5662-0591）で事前予約できる
+    source_url: https://www.city.edogawa.tokyo.jp/documents/7206/guide.pdf#page=7
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: edogawa.c_kokuho
+    name: 江戸川区役所 医療保険年金課 国民健康保険給付係
+    topics: 出産育児一時金（直接支払制度を使わなかったとき・差額の申請・受取代理制度）・高額療養費
+    phone: "03-5662-8053"
+    address: 江戸川区中央1-4-1 江戸川区役所
+    url: https://www.city.edogawa.tokyo.jp/e053/kurashi/iryohoken/kokuho/kyuhu/sinsei/childbirth.html
+    note: 申請の窓口は区役所区民課と各事務所の保険年金係。産前産後期間の国民健康保険料の免除と赤ちゃんの加入は国民健康保険資格係 03-5662-0560、国民年金保険料の産前産後免除は国民年金係 03-5662-0574。出産育児一時金の申請に必要なものは、世帯主と出産した人のマイナンバーがわかるもの、来る人の本人確認書類、母子健康手帳、出産費用の領収書・明細書、直接支払制度を利用しない旨の合意文書、世帯主の口座がわかるもの
+    source_url: https://www.city.edogawa.tokyo.jp/documents/7206/guide.pdf#page=7
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: edogawa.c_kyufu_call
+    name: 妊婦のための支援給付 コールセンター（江戸川区）
+    topics: 妊婦のための支援給付（1回目・2回目）の申請・「ママページ」の使い方の問い合わせ
+    phone: "03-4446-4327"
+    hours: 平日 9:00〜17:00
+    url: https://www.city.edogawa.tokyo.jp/e052/kosodate/ninshin/kohukin/ninpunokyuhu.html
+    note: 妊娠・出産・育児の相談は住んでいる地域の健康サポートセンター（保健師）へ。区役所の代表電話は 03-3652-1151
+    source_url: https://www.city.edogawa.tokyo.jp/documents/7206/guide.pdf#page=6
+    verified_at: 2026-09-25
+    needs_review: true
+
 steps:
   - id: edogawa.s03
     overrides_step_id: jp.s03
     phase: notification
     sort_order: 30
     title: 妊娠届を出し、親子健康手帳（母子健康手帳）と「母と子の保健バッグ」を受け取る
-    detail: 窓口は、住んでいる地域の健康サポートセンター（月〜金の8時30分〜16時30分。祝日・年末年始を除く）。妊婦本人が行くときの持ち物は、身元確認書類（写真つきなら1点、写真なしなら2点）と、マイナンバーカードか通知カード。マイナポータルの「ぴったりサービス」で電子申請もできる（本人だけ）。その場合は、申請のあと母子保健係（03-5661-2466）に連絡し、持ち物を持って健康サポートセンターへ行く。問い合わせ 健康サービス課母子保健係 03-5661-2466。
+    detail: 窓口は、住んでいる地域の健康サポートセンター（月〜金の8時30分〜16時30分。祝日・年末年始を除く）。妊婦本人が行くときの持ち物は、身元確認書類（写真つきなら1点、写真なしなら2点）と、マイナンバーカードか通知カード。マイナポータルの「ぴったりサービス」で電子申請もできる（本人だけ）。その場合は、申請のあと母子保健係（03-5661-2466）に連絡し、持ち物を持って健康サポートセンターへ行く。問い合わせ 健康サービス課母子保健係 03-5661-2466。郵送でも届け出できる（妊娠届出書、本人確認書類の写し、返送用のレターパックライトを健康サービス課母子保健係へ。手帳が届くまで10日〜2週間）。郵送や電子申請だけではぴよママギフトは渡されないので、出産前に健康サポートセンターでぴよママ相談を受ける（令和8年度えどがわ子育てガイド・区のページ）。
     trigger_document_id: jp.heartbeat_confirmed
     produces_document_id: edogawa.hoken_bag
     channel: 住んでいる地域の健康サポートセンター（電子申請のあと来所）
@@ -88,6 +154,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
+    contact_id: edogawa.c_support_center
     source_url: https://www.city.edogawa.tokyo.jp/e052/kosodate/ninshin/boshitecho.html
     verified_at: 2026-09-20
 
@@ -104,6 +171,7 @@ steps:
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: edogawa.c_support_center
     source_url: https://www.city.edogawa.tokyo.jp/e052/kosodate/ninshin/kosodateouennjigyou.html
     verified_at: 2026-09-20
 
@@ -120,6 +188,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "区の妊婦面接・面談のあと"
+    contact_id: edogawa.c_kyufu_call
     source_url: https://www.city.edogawa.tokyo.jp/e052/kosodate/ninshin/kohukin/ninpunokyuhu.html
     verified_at: 2026-09-20
 
@@ -150,6 +219,7 @@ steps:
     apply_from_base: due_date
     apply_from_offset_days: -182
     apply_from_note: "出産予定日の6か月前から"
+    contact_id: edogawa.c_kokuho
     source_url: https://www.city.edogawa.tokyo.jp/e053/kurashi/iryohoken/kokuho/sanzensango.html
     verified_at: 2026-09-20
 
@@ -166,6 +236,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
+    contact_id: edogawa.c_boshi
     source_url: https://www.city.edogawa.tokyo.jp/e052/kenko/kenko/kodomo/shinseijichoukaku.html
     verified_at: 2026-09-20
 
@@ -173,7 +244,7 @@ steps:
     phase: postpartum
     sort_order: 75
     title: 新生児訪問を申し込む（出生連絡票）
-    detail: 出生届を出し、生後4か月を迎えるまでの赤ちゃんがいる家庭が対象。助産師や保健師が自宅を訪問する。申し込みは、子育て応援アプリ「ぴよナビえどがわ」か、電子申請サービスから。母子健康手帳の交付日・手帳の番号・お母さんの認証番号などが必要。申請から原則10日前後で、日程の連絡がある。この訪問のときに「妊婦のための支援給付金（2回目）」の案内がある。問い合わせ 健康サービス課母子保健係 03-5661-2466。
+    detail: 出生届を出し、生後4か月を迎えるまでの赤ちゃんがいる家庭が対象。助産師や保健師が自宅を訪問する。申し込みは、子育て応援アプリ「ぴよナビえどがわ」か、電子申請サービスから。母子健康手帳の交付日・手帳の番号・お母さんの認証番号などが必要。申請から原則10日前後で、日程の連絡がある。この訪問のときに「妊婦のための支援給付金（2回目）」の案内がある。問い合わせ 健康サービス課母子保健係 03-5661-2466。冊子では、対象は生後4か月未満の赤ちゃんがいる家庭で、申し込みは子育て応援アプリ「ぴよナビえどがわ」からの電子申請（令和8年度えどがわ子育てガイド）。
     trigger_document_id: edogawa.hoken_bag
     produces_document_id: edogawa.akachan_homon_annai
     channel: アプリ「ぴよナビえどがわ」/ 電子申請
@@ -182,6 +253,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から（なるべく早く）"
+    contact_id: edogawa.c_boshi
     source_url: https://www.city.edogawa.tokyo.jp/e052/kenko/kenko/kodomo/homon.html
     verified_at: 2026-09-20
 
@@ -198,6 +270,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産後、区の訪問のあと"
+    contact_id: edogawa.c_kyufu_call
     source_url: https://www.city.edogawa.tokyo.jp/e052/kosodate/ninshin/kohukin/ninpunokyuhu.html
     verified_at: 2026-09-20
 
@@ -214,6 +287,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    contact_id: edogawa.c_boshi
     source_url: https://www.city.edogawa.tokyo.jp/e052/kosodate/ninshin/sampukenkoshinsa.html
     verified_at: 2026-09-20
 
@@ -230,6 +304,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 28
     apply_from_note: "生後28日から"
+    contact_id: edogawa.c_boshi
     source_url: https://www.city.edogawa.tokyo.jp/e052/kenko/kenko/kodomo/kenshin/1kagetsujikenkoshinsa.html
     verified_at: 2026-09-20
 

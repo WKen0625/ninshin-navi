@@ -71,13 +71,81 @@ documents:
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1024614.html
     verified_at: 2026-09-20
 
+contacts:
+  # 出典: 葛飾区「育児支援ガイドブック」（2026年版）は区の公式PDF（https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1002084.html）が画像のみで文字を取り出せなかったため、区の公式ページ（妊娠届・ゆりかご葛飾・戸籍の届出・子ども医療費・国保年金課・こんにちは赤ちゃん訪問・保健所の問い合わせ先）から転記した。
+  - id: katsushika.c_boshi
+    name: 子ども総合センター 母子保健係（青戸保健センター内。健康プラザかつしか）
+    topics: 妊娠届・親子健康手帳（母子健康手帳）の交付と再交付・妊婦健康診査／新生児聴覚検査の受診票・こんにちは赤ちゃん訪問の申し込み（低体重児届を兼ねる）・里帰り中の訪問・妊婦支援給付金（2回目）の届出案内
+    phone: "03-3602-1387"
+    hours: 月〜金曜日 8:30〜17:00（祝日・年末年始を除く）
+    address: 葛飾区青戸4-15-14 健康プラザかつしか内
+    url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1002071.html
+    note: 妊娠届は保健センター（青戸・金町・新小岩・水元）、区役所4階401番 子育て支援窓口（03-5654-8293）、基幹型児童館（小菅・南新宿・白鳥・新水元）、子ども未来プラザ（鎌倉・西新小岩・東四つ木）、えきにこわ（平日 17:00〜19:30、オンラインで4日前までに予約）でも出せる。区役所1階の夜間・休日窓口での母子健康手帳の交付は令和6年9月30日で終了
+    source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1002071.html
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: katsushika.c_hoken_center
+    name: 保健センター（住んでいる地域を担当するセンター。青戸・金町・新小岩・水元）
+    topics: ゆりかご面接（妊婦面接）の予約・妊娠子育て応援券・産後ケアの申し込み・産婦健康診査・妊娠中や産後、子どもの成長や育児の相談（保健師）・妊娠高血圧症候群等医療費助成
+    phone: "03-3602-1284"
+    hours: 月〜金曜日 8:30〜17:00（祝日・年末年始を除く）
+    address: 青戸保健センター 葛飾区青戸4-15-14 健康プラザかつしか内 2階9番（担当区域は立石・東立石・四つ木・東四つ木・宝町・堀切・東堀切・小菅・お花茶屋・白鳥・亀有・西亀有・青戸・高砂1丁目）
+    url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1014924.html
+    note: 電話番号は青戸保健センター保健サービス係のもの。金町 03-3607-4141（金町4-18-19。奥戸9丁目・高砂2〜8丁目・鎌倉・細田1・3〜5丁目・柴又・新宿・金町・東金町1・3・4・6・7丁目）／新小岩 03-3696-3781（西新小岩4-33-2 にこわ新小岩1階。新小岩・東新小岩・西新小岩・奥戸1〜8丁目・細田2丁目）／水元 03-3627-1911（東水元1-7-3。東金町2・5・8丁目・水元・東水元・南水元・西水元）。ゆりかご面接は各施設の予約フォームからオンラインで予約する
+    source_url: https://www.city.katsushika.lg.jp/kurashi/1000061/1003788/1039088.html
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: katsushika.c_teate
+    name: 葛飾区役所 子育て応援課 児童手当係（4階401番 子育て支援窓口）
+    topics: 児童手当・子ども医療費助成（乳幼児・子ども・高校生等医療証）・かつしか出産応援給付金・医療費の返還申請
+    phone: "03-5654-8294"
+    hours: 平日 8:30〜17:00（毎週水曜日は 19:30 まで。祝日・年末年始を除く）。休日開庁窓口（毎月1回日曜日）は 9:00〜12:00
+    address: 葛飾区立石5-13-1 葛飾区役所4階
+    url: https://www.city.katsushika.lg.jp/kosodate/1000056/1002336/1002421.html
+    note: 出生届と一緒に、戸籍住民課（区役所2階217番窓口）や各区民事務所（金町・亀有・高砂・堀切・水元・新小岩）でも申請できる（区民事務所は水曜 19:00 まで、日曜開庁なし。新小岩区民事務所は土日祝も 8:30〜17:00）。郵送（児童手当係あて）とオンライン申請（ロゴフォーム・ぴったりサービス）もできる。児童手当・医療証・かつしか出産応援給付金は1枚の申請書で同時に申請できる。医療費の返還申請は子育て応援課のみ（区民事務所では受け付けない）
+    source_url: https://www.city.katsushika.lg.jp/kosodate/1000056/1002336/1002421.html
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: katsushika.c_koseki
+    name: 葛飾区役所 戸籍住民課 戸籍届出係（2階217番窓口）
+    topics: 出生届・戸籍の届出・出生届と同時のマイナンバーカード特急発行申請
+    phone: "03-5654-8190"
+    hours: 平日 8:30〜17:00（毎週水曜日は 19:30 まで延長）。休日開庁日（毎月1回日曜日、原則第4日曜日）9:00〜12:00
+    address: 葛飾区立石5-13-1 葛飾区役所2階
+    url: https://www.city.katsushika.lg.jp/kurashi/1000046/1001400/1001415.html
+    note: 出生届は各区民事務所でも出せる（水曜 19:00 まで延長。新小岩区民事務所〈JR新小岩南口ビル6階 えきにこわ内〉は平日夜間・土日祝も）。それ以外の時間は区役所1階の夜間・休日窓口で届書を預かるだけで、受理決定は翌営業日に審査してから（不備があれば連絡が来るので届書の余白に電話番号を書く）。水曜夜間や日曜開庁日に出した届書も、他の区市町村への確認が必要なものは預かりのみになることがある。持ち物は出生届（出生証明書欄に医師か助産師の証明があるもの）と母子健康手帳（持参できる場合）
+    source_url: https://www.city.katsushika.lg.jp/kurashi/1000046/1001400/1001415.html
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: katsushika.c_kokuho
+    name: 葛飾区役所 国保年金課 給付係（3階315番窓口）
+    topics: 出産育児一時金（直接支払制度を使わなかったとき・差額の申請・受取代理制度）・高額療養費・限度額適用認定証
+    phone: "03-5654-8212"
+    hours: 平日 8:30〜17:00。毎週水曜日は 8:30〜19:30、毎月1回日曜日 9:00〜12:00
+    address: 葛飾区立石5-13-1 葛飾区役所3階
+    url: https://www.city.katsushika.lg.jp/kurashi/1000049/1001690/1001740.html
+    note: 国民健康保険の加入（赤ちゃんの加入）と保険料の計算・減免（産前産後期間の免除）は資格係 03-5654-8210。出産育児一時金の申請に必要なものは、出産した人のマイナ保険証か資格確認書、母子手帳、直接支払制度に関する合意文書、医療機関の領収・明細書、出産当時の世帯主の振込口座がわかるもの（死産・流産は医師の証明書）。受取代理制度は出産予定日の2か月前から出産までに申請
+    source_url: https://www.city.katsushika.lg.jp/kurashi/1000049/1001696.html
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: katsushika.c_sodan
+    name: 健康ホットラインかつしか（葛飾区保健所）
+    topics: 健康に関して困ったとき・悩んだときの電話相談（医師・看護師などの専門職が答える）
+    phone: "03-3602-1244"
+    address: 葛飾区青戸4-15-14 健康プラザかつしか内
+    url: https://www.city.katsushika.lg.jp/kurashi/1000061/1003788/1039088.html
+    note: 育児の不安や家族関係など子育ての相談は子ども総合センター（健康プラザかつしか2階）03-3602-1386（8:30〜17:00。日曜日・祝日・年末年始を除く）。妊娠中や子どもの健康・育児の相談は住んでいる地域の保健センターへ。区の総合コールセンター「はなしょうぶコール」03-6758-2222（8:00〜20:00、年中無休）
+    source_url: https://www.city.katsushika.lg.jp/kurashi/1000061/1003788/1039088.html
+    verified_at: 2026-09-25
+    needs_review: true
+
 steps:
   - id: katsushika.s03
     overrides_step_id: jp.s03
     phase: notification
     sort_order: 30
     title: 妊娠届を出し、親子健康手帳（母子健康手帳）と受診票を受け取る
-    detail: 窓口は、保健センター（青戸・金町・新小岩・水元）、葛飾区役所の子育て支援窓口、基幹型児童館（小菅・南新宿・白鳥・新水元）、子ども未来プラザ（鎌倉・西新小岩・東四つ木）、えきにこわ。えきにこわはオンラインで4日前までの予約が必須。基幹型児童館と子ども未来プラザは、毎月第3土曜・第3日曜は予約した人だけ。ほかの窓口も事前の予約がすすめられている（ゆりかご面接の予約フォームから）。持ち物は、個人番号（マイナンバー）がわかる書類と、本人確認書類（顔写真つきの公的な書類なら1点、無ければ2点）。妊娠届そのもののオンライン提出は、区のページに記載なし。問い合わせ 母子保健係 03-3602-1387。
+    detail: 窓口は、保健センター（青戸・金町・新小岩・水元）、葛飾区役所の子育て支援窓口、基幹型児童館（小菅・南新宿・白鳥・新水元）、子ども未来プラザ（鎌倉・西新小岩・東四つ木）、えきにこわ。えきにこわはオンラインで4日前までの予約が必須。基幹型児童館と子ども未来プラザは、毎月第3土曜・第3日曜は予約した人だけ。ほかの窓口も事前の予約がすすめられている（ゆりかご面接の予約フォームから）。持ち物は、個人番号（マイナンバー）がわかる書類と、本人確認書類（顔写真つきの公的な書類なら1点、無ければ2点）。妊娠届そのもののオンライン提出は、区のページに記載なし。問い合わせ 母子保健係 03-3602-1387。区役所1階の夜間・休日窓口での親子健康手帳の交付は令和6年9月30日で終了している。手帳をなくしたときの再交付は母子保健係か各保健センターで（区のページ）。
     trigger_document_id: jp.heartbeat_confirmed
     produces_document_id: katsushika.hoken_bag
     channel: 保健センター / 区役所子育て支援窓口 / 基幹型児童館 / 子ども未来プラザ / えきにこわ
@@ -85,6 +153,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
+    contact_id: katsushika.c_boshi
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1002071.html
     verified_at: 2026-09-20
 
@@ -101,6 +170,7 @@ steps:
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: katsushika.c_hoken_center
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1014924.html
     verified_at: 2026-09-20
 
@@ -118,6 +188,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "心拍を確認した日から（区の面接・面談のあと）"
+    contact_id: katsushika.c_hoken_center
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1037742.html
     verified_at: 2026-09-20
 
@@ -147,6 +218,7 @@ steps:
     apply_from_base: due_date
     apply_from_offset_days: -182
     apply_from_note: "出産予定日の6か月前から"
+    contact_id: katsushika.c_kokuho
     source_url: https://www.city.katsushika.lg.jp/kurashi/1000049/1001690/1033959.html
     verified_at: 2026-09-20
 
@@ -163,6 +235,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
+    contact_id: katsushika.c_boshi
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1037959.html
     verified_at: 2026-09-20
 
@@ -180,6 +253,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    contact_id: katsushika.c_teate
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1031538.html
     verified_at: 2026-09-20
 
@@ -187,7 +261,7 @@ steps:
     phase: postpartum
     sort_order: 75
     title: こんにちは赤ちゃん訪問を申し込む
-    detail: 生後4か月になるまでの赤ちゃんがいる家庭が対象。赤ちゃんが生まれてから、区のオンラインフォームで申し込む（令和7年度までの白いハガキ「出生通知票」で申し込み済みの人は不要）。申し込みが生後3か月を過ぎたときは相談する。訪問や面談のあとに、妊婦支援給付金（2回目）の申請・届出の案内がある。問い合わせ 青戸保健センター母子保健係 03-3602-1387（月〜金の午前8時30分〜午後5時。祝日を除く）。
+    detail: 生後4か月になるまでの赤ちゃんがいる家庭が対象。赤ちゃんが生まれてから、区のオンラインフォームで申し込む（令和7年度までの白いハガキ「出生通知票」で申し込み済みの人は不要）。申し込みが生後3か月を過ぎたときは相談する。訪問や面談のあとに、妊婦支援給付金（2回目）の申請・届出の案内がある。問い合わせ 青戸保健センター母子保健係 03-3602-1387（月〜金の午前8時30分〜午後5時。祝日を除く）。申し込みから訪問までは最短でも3週間程度かかる。訪問ではなく窓口での相談を希望するときは母子保健係か保健センターに連絡する（産婦と赤ちゃんが一緒に行く。体重測定はしない）（区のページ）。
     trigger_document_id: katsushika.hoken_bag
     produces_document_id: katsushika.akachan_homon_annai
     channel: オンラインフォーム
@@ -196,6 +270,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から（なるべく早く）"
+    contact_id: katsushika.c_boshi
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1024614.html
     verified_at: 2026-09-20
 
@@ -213,6 +288,7 @@ steps:
     apply_from_base: due_date
     apply_from_offset_days: -56
     apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
+    contact_id: katsushika.c_boshi
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1037742.html
     verified_at: 2026-09-20
 
@@ -229,6 +305,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    contact_id: katsushika.c_hoken_center
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001803/1030308/1042839.html
     verified_at: 2026-09-20
 
@@ -245,6 +322,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 28
     apply_from_note: "生後28日から"
+    contact_id: katsushika.c_hoken_center
     source_url: https://www.city.katsushika.lg.jp/kenkou/1000050/1001804/1042840.html
     verified_at: 2026-09-20
 
