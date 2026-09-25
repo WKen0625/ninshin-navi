@@ -64,13 +64,82 @@ documents:
     source_url: https://www.city.ota.tokyo.jp/seikatsu/hoken/shussan/sukoyaka-akachan-houmon.html
     verified_at: 2026-09-20
 
+contacts:
+  # 出典: 大田区「子育てハンドブック」令和8年度版（区の公式デジタルブック ActiBook One の PDF。#page= はPDFのページ番号＝冊子のノンブル）。冊子の電話は市外局番なし（「5744-1661」）なので、区の公式ページで「03-」付きの番号を照合した。
+  - id: ota.c_kenko
+    name: 大田区 健康づくり課 健康づくり担当（管理）（区役所本庁舎6階）
+    topics: 妊娠届・母子健康手帳・母と子の保健バッグ（受診票セット）・妊婦健診／超音波／子宮頸がん検診の受診票・妊婦歯科健康診査・妊婦のための支援給付金（1回目・2回目）・里帰り等妊産婦健診／新生児聴覚検査の費用助成・産婦健診／1か月児健診の払い戻し・大田区子育て応援メール
+    phone: "03-5744-1661"
+    hours: 平日 8:30〜17:00
+    address: 大田区蒲田5-13-14 大田区役所本庁舎6階
+    url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninsin.html
+    note: 妊娠届は各地域健康課（大森・調布・蒲田・糀谷・羽田）と各特別出張所でも出せる。夜間（月曜・木曜 17:00〜19:00）と休日（日曜 9:00〜17:00）は本庁舎1階「母子健康手帳受付（夜間・休日）窓口」（祝日・年末年始は休み）。里帰り等の費用助成の申請は本庁舎6階の健康づくり課だけ
+    source_url: https://files.actibookone.com/contents/5421/550929-20260703122344/original.pdf#page=14
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: ota.c_chiiki_kenko
+    name: 大田区 各地域健康課 業務係（大森・調布・蒲田・糀谷・羽田）
+    topics: 妊婦面接（出産・育児支援事業）・妊産婦訪問指導・出産準備教室・出生通知書とすこやか赤ちゃん訪問・乳幼児健診・妊娠高血圧症候群等の医療費助成・妊娠届の受付
+    phone: "03-5764-0661"
+    hours: 平日 8:30〜17:00
+    address: 大森地域健康課 大田区大森西1-12-1 大森地域庁舎
+    url: https://www.city.ota.tokyo.jp/kuseijoho/soshiki/gyoumu/c_chiikikenkou.html
+    note: 住んでいる地域を受け持つ地域健康課へ。業務係の電話は 大森 03-5764-0661／調布 03-3726-4145（雪谷大塚町4-6）／蒲田 03-5713-1701（蒲田本町2-1-1）／糀谷・羽田 03-3743-4161（東糀谷1-21-15）。妊産婦訪問指導は健康事業係（大森 03-5764-0662／調布 03-3726-4147／蒲田 03-5713-1702／糀谷・羽田 03-3743-4163）。妊婦面接は「妊婦面接予約システム」で予約（電話予約もできる）
+    source_url: https://files.actibookone.com/contents/5421/550929-20260703122344/original.pdf#page=92
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: ota.c_teate
+    name: 大田区 子育ち支援課 子育ち支援担当（こども医療）（区役所本庁舎3階24番窓口）
+    topics: 児童手当・児童医療費助成（乳・子・青医療証）
+    phone: "03-5744-1275"
+    hours: 平日 8:30〜17:00（令和9年4月1日から窓口受付時間の変更が予告されている）
+    address: 大田区蒲田5-13-14 大田区役所本庁舎3階
+    url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/teate/jidouteate/jidou.html
+    note: 郵送（大田区子育ち支援課子育ち支援担当（こども医療）宛。担当への到着日が申請受付日）と電子申請（マイナンバーカードが必要）でも申請できる。特別出張所（蒲田東を除く区内17か所）では転入・出生に伴う申請のみ受け付ける。別世帯の代理人が窓口で申請するときは委任状が必要
+    source_url: https://files.actibookone.com/contents/5421/550929-20260703122344/original.pdf#page=19
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: ota.c_koseki
+    name: 大田区 戸籍住民課 戸籍住民担当（戸籍）（区役所本庁舎1階7番窓口）
+    topics: 出生届・戸籍の届出・母子健康手帳への出生届出済証明
+    phone: "03-5744-1183"
+    hours: 平日 8:30〜17:00（本庁舎1階7番窓口または各特別出張所）。夜間窓口 月曜・木曜 17:00〜19:00、休日窓口 日曜 9:00〜17:00（本庁舎1階戸籍住民課窓口。届書の預かりのみ）。それ以外の閉庁時と祝日・12月29日〜1月3日は本庁舎1階宿直室
+    address: 大田区蒲田5-13-14 大田区役所本庁舎1階
+    url: https://www.city.ota.tokyo.jp/seikatsu/koseki_j/koseki/todoke/shutshou.html
+    note: 夜間窓口・休日窓口・宿直室に出した場合は、母子健康手帳への届出済証明はその場では受けられず、後日、父母の住民登録の住所に届出済証明書が郵送される。住民票の発行も翌開庁日以降。届書は出産した病院で受け取れる（本庁舎1階戸籍住民窓口・各特別出張所にも用意）。蒲田東特別出張所は令和8年9月1日から窓口業務休止
+    source_url: https://files.actibookone.com/contents/5421/550929-20260703122344/original.pdf#page=17
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: ota.c_kokuho
+    name: 大田区 国保年金課（国保資格係・国保給付係）
+    topics: 産前産後期間の国民健康保険料の免除（国保資格係）・出産育児一時金（国保給付係。直接支払制度を使わないとき、受取代理制度、海外出産、出産育児一時金貸付金）
+    phone: "03-5744-1210"
+    hours: 平日 8:30〜17:00
+    address: 大田区蒲田5-13-14 大田区役所本庁舎
+    url: https://www.city.ota.tokyo.jp/seikatsu/kokunen/kokuho/ukerareru/ikuji.html
+    note: 電話は国保資格係（保険料の免除）03-5744-1210、国保給付係（出産育児一時金）03-5744-1211。産前産後期間の国民年金保険料の免除は国民年金係 03-5744-1214。受取代理制度は出産予定日の2か月前になったら国保給付係に申請。国民健康保険以外の人は加入している健康保険へ
+    source_url: https://files.actibookone.com/contents/5421/550929-20260703122344/original.pdf#page=16
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: ota.c_kodomo_katei
+    name: 大田区 こども家庭センター（大森・調布・蒲田・糀谷・羽田）
+    topics: 妊産婦や子どもとその家族に関するさまざまな相談（電話・来所）。妊娠中の体調や産後の準備の心配、出産・育児の悩み、子育て支援やサービスの案内
+    phone: "03-6423-0842"
+    hours: 月〜金曜日 8:30〜17:00（祝日・年末年始を除く。令和9年4月1日から受付時間の変更が予告されている）
+    address: 大森こども家庭センター 大田区大森西1-12-1 大森地域庁舎2階
+    url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shien/kateiCenter_kaisetsu.html
+    note: 調布こども家庭センター 03-6425-7566（雪谷大塚町4-6 調布地域庁舎1階）／蒲田こども家庭センター 03-6424-5522（蒲田本町2-1-1 蒲田地域庁舎3階）／糀谷・羽田こども家庭センター 03-6423-8866（東糀谷1-21-15 糀谷・羽田地域庁舎2階）。子どもと家庭に関するあらゆる相談は子ども家庭支援センター（キッズな大森 03-5753-7830 ほか。冊子では令和8年8月に名称変更と案内）
+    source_url: https://files.actibookone.com/contents/5421/550929-20260703122344/original.pdf#page=72
+    verified_at: 2026-09-25
+    needs_review: true
+
 steps:
   - id: ota.s03
     overrides_step_id: jp.s03
     phase: notification
     sort_order: 30
     title: 妊娠届を出し、母子健康手帳と「母と子の保健バッグ」を受け取る
-    detail: 窓口は、平日（8時30分〜17時）は大森・調布・蒲田・糀谷羽田の各地域健康課、健康づくり課、各特別出張所。夜間（月曜・木曜の17〜19時）と休日（日曜の9〜17時）は、大田区役所本庁舎1階の「母子健康手帳受付（夜間・休日）窓口」。持ち物は、マイナンバーがわかるもの、本人確認書類、妊娠の診断を受けた医療機関の診察券。本人が行けないときは家族が代理で届け出できる（委任状が必要）。オンラインでの届出は区のページに記載なし。
+    detail: 窓口は、平日（8時30分〜17時）は大森・調布・蒲田・糀谷羽田の各地域健康課、健康づくり課、各特別出張所。夜間（月曜・木曜の17〜19時）と休日（日曜の9〜17時）は、大田区役所本庁舎1階の「母子健康手帳受付（夜間・休日）窓口」。持ち物は、マイナンバーがわかるもの、本人確認書類、妊娠の診断を受けた医療機関の診察券。本人が行けないときは家族が代理で届け出できる（委任状が必要）。オンラインでの届出は区のページに記載なし。健康づくり課の窓口は区役所本庁舎6階。夜間・休日の受付は、月曜・木曜が祝日のときと年末年始は休み。冊子によると、母子保健・子育て支援アプリ「大田区おやこ手帳」も案内している。
     trigger_document_id: jp.heartbeat_confirmed
     produces_document_id: ota.hoken_bag
     channel: 各地域健康課・健康づくり課・各特別出張所（夜間・休日は本庁舎1階）
@@ -78,6 +147,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
+    contact_id: ota.c_kenko
     source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninsin.html
     verified_at: 2026-09-20
 
@@ -85,7 +155,7 @@ steps:
     phase: pregnancy
     sort_order: 35
     title: 妊婦面接を受ける
-    detail: 保健師または助産師との面接。対象は、面接の日に大田区に住民登録のある妊婦と、大田区へ転入した妊婦。場所は住んでいる地域を受け持つ地域健康課（大森・調布・蒲田・糀谷羽田）。「妊婦面接予約システム」で、希望日の60日前から前日12時までに予約する（電話予約もできる）。面接を受けると「大田区子育て応援ギフト1万円相当」と、妊婦のための支援給付（1回目）の申請案内を受け取る。
+    detail: 保健師または助産師との面接。対象は、面接の日に大田区に住民登録のある妊婦と、大田区へ転入した妊婦。場所は住んでいる地域を受け持つ地域健康課（大森・調布・蒲田・糀谷羽田）。「妊婦面接予約システム」で、希望日の60日前から前日12時までに予約する（電話予約もできる）。面接を受けると「大田区子育て応援ギフト1万円相当」と、妊婦のための支援給付（1回目）の申請案内を受け取る。面接は40分程度。平日に妊娠届と同時に面接を受けるときは、面接を予約したうえで予約時間の10分ほど前に行く。
     trigger_document_id: ota.hoken_bag
     produces_document_id: ota.shien_kyufu_annai_1
     channel: 住んでいる地域の地域健康課（予約制）
@@ -94,6 +164,7 @@ steps:
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: ota.c_chiiki_kenko
     source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/karugamo.html
     verified_at: 2026-09-20
 
@@ -109,6 +180,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "区の妊婦面接・面談のあと"
+    contact_id: ota.c_kenko
     source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninpunotamenosienkyuhu.html
     verified_at: 2026-09-20
 
@@ -123,6 +195,7 @@ steps:
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: ota.c_kenko
     source_url: https://www.city.ota.tokyo.jp/seikatsu/hoken/shussan/sika/ninpushikakenkoushinsa.html
     verified_at: 2026-09-20
 
@@ -130,13 +203,14 @@ steps:
     phase: pregnancy
     sort_order: 66
     title: （大田区の国民健康保険の人）産前産後期間の国民健康保険料の減免を届け出る
-    detail: 出産予定日（または出産日）の月の前月から4か月間（双子以上は3か月前から6か月間）の、所得割と均等割の保険料が減免される。大田区役所本庁舎の国民健康保険窓口、または郵送で届け出る。減免届出書、母子健康手帳、届け出る人の本人確認書類が必要。問い合わせは国保年金課 国保資格係 03-5744-1210。
+    detail: 出産予定日（または出産日）の月の前月から4か月間（双子以上は3か月前から6か月間）の、所得割と均等割の保険料が減免される。大田区役所本庁舎の国民健康保険窓口、または郵送で届け出る。減免届出書、母子健康手帳、届け出る人の本人確認書類が必要。問い合わせは国保年金課 国保資格係 03-5744-1210。産前産後期間の国民年金保険料の免除は、国保年金課 国民年金係（03-5744-1214）へ。
     trigger_document_id: ota.hoken_bag
     channel: 窓口（大田区役所本庁舎）/ 郵送
     deadline_note: 出産予定日の6か月前から届け出できる
     apply_from_base: due_date
     apply_from_offset_days: -182
     apply_from_note: "出産予定日の6か月前から"
+    contact_id: ota.c_kokuho
     source_url: https://www.city.ota.tokyo.jp/seikatsu/kokunen/kokuho/topics/kokuho_sanzensango_genmen.html
     verified_at: 2026-09-20
 
@@ -144,7 +218,7 @@ steps:
     phase: postpartum
     sort_order: 75
     title: 「出生通知書」を電子申請し、すこやか赤ちゃん訪問を受ける
-    detail: 生後120日までのすべての赤ちゃんの家庭を、助産師や保健師が訪問する。赤ちゃんが生まれたら、区のページのフォームから「出生通知書」（すこやか赤ちゃん訪問依頼書）を電子申請する。訪問を受けると、妊婦のための支援給付（2回目）の申請案内を受け取る。
+    detail: 生後120日までのすべての赤ちゃんの家庭を、助産師や保健師が訪問する。赤ちゃんが生まれたら、区のページのフォームから「出生通知書」（すこやか赤ちゃん訪問依頼書）を電子申請する。訪問を受けると、妊婦のための支援給付（2回目）の申請案内を受け取る。出生通知書（すこやか赤ちゃん訪問依頼書）の案内と二次元コードは「受診票セット」の中に入っている。訪問は無料。
     trigger_document_id: ota.hoken_bag
     produces_document_id: ota.akachan_homon_annai
     channel: オンライン（電子申請）のあと、自宅で訪問を受ける
@@ -153,6 +227,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から（なるべく早く）"
+    contact_id: ota.c_chiiki_kenko
     source_url: https://www.city.ota.tokyo.jp/seikatsu/hoken/shussan/sukoyaka-akachan-houmon.html
     verified_at: 2026-09-20
 
@@ -168,6 +243,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産後、区の訪問のあと"
+    contact_id: ota.c_kenko
     source_url: https://www.city.ota.tokyo.jp/seikatsu/kodomo/shussan/ninpunotamenosienkyuhu.html
     verified_at: 2026-09-20
 
@@ -182,6 +258,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
+    contact_id: ota.c_kenko
     source_url: https://www.city.ota.tokyo.jp/seikatsu/hoken/shussan/12154545.html
     verified_at: 2026-09-20
 
@@ -196,6 +273,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 28
     apply_from_note: "生後28日から"
+    contact_id: ota.c_kenko
     source_url: https://www.city.ota.tokyo.jp/seikatsu/hoken/shussan/1kensinhiyoujosei.html
     verified_at: 2026-09-20
 
@@ -211,6 +289,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
+    contact_id: ota.c_kenko
     source_url: https://www.city.ota.tokyo.jp/faq/bunya/kosodate/satogaeri_ninpukenshin.html
     verified_at: 2026-09-20
 

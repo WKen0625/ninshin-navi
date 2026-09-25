@@ -78,13 +78,92 @@ documents:
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/20230120091157.html
     verified_at: 2026-09-20
 
+contacts:
+  # 出典: 品川区「いきいきあんしん子育てガイド」令和8年度版（区の公式PDF、5分割・画像のみ。docs/research/handbook-13109.txt はOCR）。OCRで電話番号の先頭「03-」が欠けているため、番号は区の公式ページで照合した。
+  - id: shinagawa.c_kenko
+    name: 品川区保健所 健康課 保健衛生担当（保健衛生係）
+    topics: 妊娠届・親子健康手帳（母子健康手帳）・親と子の保健バッグ・妊婦健診／超音波／子宮頸がん／新生児聴覚／産婦健診／1か月児健診の受診票・里帰り等で受診票を使えなかったときの費用助成・妊婦歯科／産婦歯科健診の受診票・不妊治療の医療費助成
+    phone: "03-5742-6745"
+    hours: 平日 8:30〜17:00（妊娠届の受付。土日祝・年末年始は休み）
+    address: 品川区広町2-1-36 品川区役所（品川区保健所）
+    url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-service/hpg000000783.html
+    note: 妊娠届は各保健センターと地域センター（品川第一・大崎第一・大井第一・荏原第一・荏原第四・八潮）でも出せる。健康課では妊娠届出時に限り予約なしで面談できる（面談希望は午後4時までに来庁）。荏原第一地域センターは火曜延長窓口（17:00〜19:00）と第2・4日曜（8:30〜17:00）も受け付ける。地域センター・電子申請で届け出た人の面談は、あとで管轄の保健センターに予約する
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-kateisoudan/kosodateguide2026_h1-17.pdf#page=9
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: shinagawa.c_hoken_center
+    name: 保健センター（品川・大井・荏原）妊産婦ネウボラ相談員
+    topics: 妊婦相談（初回面談、予約制）・8か月面談・産後全戸電話相談・すくすく赤ちゃん訪問・産後ケア・乳幼児健診・マタニティクラス／両親学級・妊娠高血圧症候群等の医療費助成・健康の相談
+    phone: "03-3474-2903"
+    hours: 月〜金曜日 8:30〜17:00
+    address: 品川保健センター 品川区北品川3-11-22
+    url: https://www.city.shinagawa.tokyo.jp/PC/shisetsu/shisetsu-kenkouhukushi/shisetsu-kenkouhukushi-hokenn/hpg000000208.html
+    note: 住所地を管轄する保健センターに電話で予約する。大井保健センター 03-3772-2666（大井2-27-20）／荏原保健センター 03-3788-7016（荏原2-9-6。冊子では令和8年5月上旬に仮設から移転予定と案内）。保健センター内には地域子ども家庭支援センターもある。管轄地域は区の「保健センター管轄地域一覧表」で確認
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-kateisoudan/kosodateguide2026_h1-17.pdf#page=1
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: shinagawa.c_teate
+    name: 品川区役所 子育て応援課 手当医療助成担当
+    topics: 児童手当・子どもすこやか医療費助成（医療証）・出生届と同じ日にできる手当の手続き
+    phone: "03-5742-6721"
+    hours: 平日 8:30〜17:00
+    address: 品川区広町2-1-36 品川区役所本庁舎7階
+    url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-iryohizyosei/hpg000027168.html
+    note: 子ども医療費助成（医療証）の問い合わせは 03-5742-9174。地域センターの窓口では取り扱わない。郵送（〒140-8715 品川区広町2-1-36 子育て応援課手当医療助成担当）と電子申請（マイナンバーカードと電子署名が必要）でも申請できる。第2・4日曜の日曜開庁（本庁舎）でも児童手当・子どもの医療証交付の申請ができる
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-kateisoudan/kosodateguide2026_18-37.pdf#page=1
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: shinagawa.c_koseki
+    name: 品川区役所 戸籍住民課 戸籍住民担当（戸籍届出）
+    topics: 出生届・戸籍の届出・親子健康手帳への出生届出済証明
+    phone: "03-5742-6657"
+    hours: 平日 8:30〜17:00。火曜延長窓口 17:00〜19:00、第2・4日曜の日曜開庁 8:30〜17:00 でも届出できる（第1・3土曜の翌日曜は法務省のシステム保守のため日曜開庁での戸籍届出は休止）
+    address: 品川区広町2-1-36 品川区役所本庁舎
+    url: https://www.city.shinagawa.tokyo.jp/PC/procedure/procedure-koseki/procedure-koseki-todokede/hpg000001411.html
+    note: 出生など戸籍の届出は夜間休日受付（第2庁舎2階）で24時間・年中無休で受け付ける（業務時間外は預かり）。出生届と同じ日に、児童手当・子どもの医療費助成（子育て応援課）、子どもの国民健康保険の加入・出産育児一時金（国保医療年金課）の手続きができる。届書は病院に用意されていることが多い
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-kateisoudan/kosodateguide2026_18-37.pdf#page=1
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: shinagawa.c_kokuho
+    name: 品川区役所 国保医療年金課（資格係・給付係）
+    topics: 産前産後期間の国民健康保険料の軽減（資格係）・赤ちゃんの国民健康保険の加入（資格係）・出産育児一時金（給付係。直接支払制度を使わないとき、受取代理制度、海外出産）
+    phone: "03-5742-6676"
+    hours: 平日 8:30〜17:00。火曜延長窓口（17:00〜19:00）でも国民健康保険の加入と給付（出産育児一時金など）の手続きができる
+    address: 品川区広町2-1-36 品川区役所本庁舎4階（資格係は6番窓口）
+    url: https://www.city.shinagawa.tokyo.jp/PC/procedure/procedure-kenkouhoken/procedure-kenkouhoken-hokenkyuuhu/hpg000001524.html
+    note: 電話は資格係 03-5742-6676、給付係（出産育児一時金）03-5742-6677。産前産後期間の国民年金保険料の免除は国民年金係 03-5742-6682。受取代理制度は出産予定日の2か月前から給付係で手続き。社会保険（健康保険・厚生年金）の人は勤務先へ
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-kateisoudan/kosodateguide2026_18-37.pdf#page=1
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: shinagawa.c_kodomo_katei
+    name: 品川区子ども家庭支援センター（児童相談担当）
+    topics: 0〜18歳未満の子どもと家庭に関するあらゆる相談。子育てネウボラ相談員による子育て全般の相談・サービス情報の提供・サポートプラン作成
+    phone: "03-6421-5236"
+    hours: 月〜土曜日 8:30〜17:00（日曜祝日・年末年始を除く）
+    address: 品川区広町2-1-36 第三庁舎4階
+    url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-kateisoudan/20200715151457.html
+    note: 産前から就学前の相談は各保健センター内の地域子ども家庭支援センター（月〜金 8:30〜17:00）。品川 03-3471-5570／大井 03-3772-9090／荏原 03-3490-6070。オンライン相談もある。子育て相談・情報提供（子育て支援連携担当）は 03-6421-5237
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-kateisoudan/kosodateguide2026_h1-17.pdf#page=1
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: shinagawa.c_shien_call
+    name: 品川区妊婦のための支援給付事業コールセンター
+    topics: 妊婦支援給付金（妊娠時・出産後）の申請方法・申請状況の問い合わせ
+    phone: "03-6731-6732"
+    hours: 月〜金曜日 8:30〜17:15（祝日を除く）
+    url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/20230120091157.html
+    note: 給付金の申請は、妊婦相談（初回面談）とすくすく赤ちゃん訪問のときに案内される二次元コードから行う。冊子には給付金の案内（11頁）はあるがコールセンターの番号は無く、区の公式ページから転記
+    source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/20230120091157.html
+    verified_at: 2026-09-25
+    needs_review: true
+
 steps:
   - id: shinagawa.s03
     overrides_step_id: jp.s03
     phase: notification
     sort_order: 30
     title: 妊娠届を出し、親子健康手帳（母子健康手帳）と受診票を受け取る
-    detail: 届出先は、品川・大井・荏原の各保健センター、区役所健康課、地域センター（品川第一・大崎第一・大井第一・荏原第一・荏原第四・八潮）。持ち物は、妊婦の個人番号（マイナンバー）を確認できるものと、届け出る人の本人確認ができるもの（顔写真つきは1点、それ以外は2点）。代理人のときは委任状も。電子申請もでき、その場合は翌開庁日に区が確認して、親子健康手帳と受診票などをゆうメールで送る（郵便の事情で2〜3日以上かかることがある）。健康課・保健センターでは、妊娠届と一緒に面談（妊婦相談）を受けられる。問い合わせは健康課保健衛生担当 03-5742-6745。
+    detail: 届出先は、品川・大井・荏原の各保健センター、区役所健康課、地域センター（品川第一・大崎第一・大井第一・荏原第一・荏原第四・八潮）。持ち物は、妊婦の個人番号（マイナンバー）を確認できるものと、届け出る人の本人確認ができるもの（顔写真つきは1点、それ以外は2点）。代理人のときは委任状も。電子申請もでき、その場合は翌開庁日に区が確認して、親子健康手帳と受診票などをゆうメールで送る（郵便の事情で2〜3日以上かかることがある）。健康課・保健センターでは、妊娠届と一緒に面談（妊婦相談）を受けられる。問い合わせは健康課保健衛生担当 03-5742-6745。健康課で面談を希望する人は午後4時までに来庁する（混み具合によっては当日面談できないことがある）。荏原第一地域センターは火曜延長窓口と第2・4日曜の日曜開庁でも受け付ける。
     trigger_document_id: jp.heartbeat_confirmed
     produces_document_id: shinagawa.hoken_bag
     channel: 窓口（保健センター・健康課・地域センター）または オンライン（電子申請のあと郵送）
@@ -93,6 +172,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
+    contact_id: shinagawa.c_kenko
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-service/hpg000000783.html
     verified_at: 2026-09-20
 
@@ -100,7 +180,7 @@ steps:
     phase: pregnancy
     sort_order: 35
     title: 妊婦相談（初回面談）を受ける
-    detail: 妊産婦ネウボラ相談員（助産師）や保健師との面談。対象は、品川区に住民登録があり、妊娠届を出した妊娠中の人。保健センター（品川 03-3474-2903／大井 03-3772-2666／荏原 03-3788-7016）は予約制で、住所地を管轄するセンターに電話で予約する。初回面談のあと、お祝い品（育児用品カタログギフト）を受け取り、妊婦支援給付金（妊娠時）の申請の案内を受ける。来所がむずかしい人（22週以降の切迫早産で安静が必要、里帰り中など）はオンライン（ZOOM）の面談もある。
+    detail: 妊産婦ネウボラ相談員（助産師）や保健師との面談。対象は、品川区に住民登録があり、妊娠届を出した妊娠中の人。保健センター（品川 03-3474-2903／大井 03-3772-2666／荏原 03-3788-7016）は予約制で、住所地を管轄するセンターに電話で予約する。初回面談のあと、お祝い品（育児用品カタログギフト）を受け取り、妊婦支援給付金（妊娠時）の申請の案内を受ける。来所がむずかしい人（22週以降の切迫早産で安静が必要、里帰り中など）はオンライン（ZOOM）の面談もある。健康課では妊娠届出時に限り予約なしで面談できる。初回面談のあと、妊娠8か月頃にアンケートが届き、希望すれば出産準備の個別相談（8か月面談）も受けられる。
     trigger_document_id: shinagawa.hoken_bag
     produces_document_id: shinagawa.shien_kyufu_annai_1
     channel: 保健センター（予約制。オンライン面談もあり）
@@ -109,6 +189,7 @@ steps:
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: shinagawa.c_hoken_center
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-service/hpg000026799.html
     verified_at: 2026-09-20
 
@@ -126,6 +207,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "心拍を確認した日から"
+    contact_id: shinagawa.c_shien_call
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/20230120091157.html
     verified_at: 2026-09-20
 
@@ -141,6 +223,7 @@ steps:
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: shinagawa.c_kenko
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kenkou/kenkou-dukuri/kenkou-dukuri-hatokuchi/20221219162441.html
     verified_at: 2026-09-20
 
@@ -148,7 +231,7 @@ steps:
     phase: pregnancy
     sort_order: 66
     title: （品川区の国民健康保険の人）産前産後期間の国民健康保険料の軽減を届け出る
-    detail: 出産予定日（出産日）の月の前月から翌々月までの4か月分（双子など多胎は6か月分）の保険料が軽くなる。妊娠85日以降の出産が対象。窓口は品川区役所本庁舎4階6番窓口（国保医療年金課資格係）。郵送でも届け出できる。「産前産後期間に係る保険料軽減届出書」、マイナンバーカードか国民健康保険資格確認書、親子健康手帳（出産予定日か出産日の確認用）、出産する人のマイナンバーがわかるものが必要。問い合わせは国保医療年金課 03-5742-6676。
+    detail: 出産予定日（出産日）の月の前月から翌々月までの4か月分（双子など多胎は6か月分）の保険料が軽くなる。妊娠85日以降の出産が対象。窓口は品川区役所本庁舎4階6番窓口（国保医療年金課資格係）。郵送でも届け出できる。「産前産後期間に係る保険料軽減届出書」、マイナンバーカードか国民健康保険資格確認書、親子健康手帳（出産予定日か出産日の確認用）、出産する人のマイナンバーがわかるものが必要。問い合わせは国保医療年金課 03-5742-6676。届出は出産後もできる。産前産後期間の国民年金保険料の免除は別に国民年金係へ届け出る。社会保険の人は勤務先へ問い合わせる。
     trigger_document_id: shinagawa.hoken_bag
     channel: 窓口 / 郵送
     action_url: https://www.city.shinagawa.tokyo.jp/PC/procedure/procedure-kenkouhoken/procedure-kenkouhoken-hokenryo/20231122101648.html
@@ -156,6 +239,7 @@ steps:
     apply_from_base: due_date
     apply_from_offset_days: -182
     apply_from_note: "出産予定日の6か月前から"
+    contact_id: shinagawa.c_kokuho
     source_url: https://www.city.shinagawa.tokyo.jp/PC/procedure/procedure-kenkouhoken/procedure-kenkouhoken-hokenryo/20231122101648.html
     verified_at: 2026-09-20
 
@@ -170,6 +254,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
+    contact_id: shinagawa.c_kenko
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/hpg000029337.html
     verified_at: 2026-09-20
 
@@ -177,7 +262,7 @@ steps:
     phase: postpartum
     sort_order: 75
     title: 出生通知票を送り、「すくすく赤ちゃん訪問」を受ける
-    detail: 助産師・保健師・児童センター職員などが家に来る。対象は赤ちゃんと産後のお母さんで、生後4か月になる前まで。「親と子の保健バッグ」の中のハガキ（出生通知票）に切手を貼って健康課へ送る。この訪問のときに妊婦支援給付金（出産後）の案内があるので、赤ちゃんが生まれたら早めに申し込む。
+    detail: 助産師・保健師・児童センター職員などが家に来る。対象は赤ちゃんと産後のお母さんで、生後4か月になる前まで。「親と子の保健バッグ」の中のハガキ（出生通知票）に切手を貼って健康課へ送る。この訪問のときに妊婦支援給付金（出産後）の案内があるので、赤ちゃんが生まれたら早めに申し込む。出生通知票はハガキのほか電子申請でも出せる。
     trigger_document_id: shinagawa.shussei_tsuchihyo
     produces_document_id: shinagawa.akachan_homon_annai
     channel: 郵送（出生通知票）→ 自宅に訪問
@@ -186,6 +271,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から（なるべく早く）"
+    contact_id: shinagawa.c_hoken_center
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-umaretara/hpg000022461.html
     verified_at: 2026-09-20
 
@@ -203,6 +289,7 @@ steps:
     apply_from_base: due_date
     apply_from_offset_days: -56
     apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
+    contact_id: shinagawa.c_shien_call
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/20230120091157.html
     verified_at: 2026-09-20
 
@@ -217,6 +304,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
+    contact_id: shinagawa.c_kenko
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-umaretara/20260213150439.html
     verified_at: 2026-09-20
 
@@ -233,6 +321,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 28
     apply_from_note: "生後28日から"
+    contact_id: shinagawa.c_kenko
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-umaretara/20260213150439.html
     verified_at: 2026-09-20
 
@@ -250,6 +339,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
+    contact_id: shinagawa.c_kenko
     source_url: https://www.city.shinagawa.tokyo.jp/PC/kodomo/kodomo-ninnshinn/kodomo-ninnshinn-service/hpg000003975.html
     verified_at: 2026-09-20
 
