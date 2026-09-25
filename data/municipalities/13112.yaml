@@ -88,6 +88,35 @@ documents:
     source_url: https://www.city.setagaya.lg.jp/02244/1195.html
     verified_at: 2026-09-19
 
+contacts:
+  # 出典: 世田谷区「くらしのガイド 2026 子ども若者・教育」（区の公式PDF）。番号は市外局番 03
+  - id: setagaya.c_kenko
+    name: 総合支所 健康づくり課（お住まいの地域の総合支所）
+    topics: 妊娠届・母子健康手帳・ネウボラ面接・妊婦健診の受診票・赤ちゃん訪問・産後ケア。妊娠・出産・育児、子どもの発育や健康の相談
+    hours: 平日 8:30〜17:00（年末年始・祝日・休日を除く）
+    note: 世田谷 03-5432-2896／北沢 03-6804-9667／玉川 03-3702-1982／砧 03-3483-3166／烏山 03-3308-8246（お住まいの地域の総合支所健康づくり課）
+    url: https://www.city.setagaya.lg.jp/02244/1189.html
+    source_url: https://webbook-sample.com/setagaya_kosodate_2026/#page=14
+    verified_at: 2026-09-25
+  - id: setagaya.c_hokenjo
+    name: 世田谷保健所 健康推進課
+    topics: 妊活オンライン相談・せたがや子育て利用券・出産費助成
+    phone: "03-5432-2446"
+    source_url: https://www.city.setagaya.lg.jp/documents/7718/2026_12_kodomowakamono_kyouiku_.pdf
+    verified_at: 2026-09-25
+  - id: setagaya.c_kokuho
+    name: 国保・年金課 管理係
+    topics: 国民健康保険の出産育児一時金・出産費の貸付け
+    phone: "03-5432-2328"
+    source_url: https://www.city.setagaya.lg.jp/documents/7718/2026_12_kodomowakamono_kyouiku_.pdf
+    verified_at: 2026-09-25
+  - id: setagaya.c_yobou
+    name: 世田谷保健所 感染症対策課（予防接種コールセンター）
+    topics: 妊婦のRSウイルス予防接種・子どもの予防接種
+    phone: "03-5432-2437"
+    source_url: https://www.city.setagaya.lg.jp/documents/7718/2026_12_kodomowakamono_kyouiku_.pdf
+    verified_at: 2026-09-25
+
 steps:
   - id: setagaya.s03
     overrides_step_id: jp.s03

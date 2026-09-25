@@ -75,6 +75,8 @@ const stepSchema = z.strictObject({
   apply_from_note: z.string().nullish(),
   overrides_step_id: z.string().nullish(),
   survey_question_id: z.string().nullish(),
+  /** 困ったときの問い合わせ先（contacts の id）。無ければ、その区の代表の窓口を画面が出す */
+  contact_id: z.string().nullish(),
   ...sourced,
 });
 
@@ -136,10 +138,25 @@ const facilitySchema = z.strictObject({
   ...sourced,
 });
 
+/** 困ったときの問い合わせ先（窓口）。区のハンドブック・公式ページから。電話は「03-1234-5678」の形。 */
+const contactSchema = z.strictObject({
+  id: z.string().min(1),
+  name: z.string().min(1),
+  /** 何を聞ける窓口か（例: 妊娠届・母子手帳・ネウボラ面接） */
+  topics: z.string().nullish(),
+  phone: z.string().regex(/^[#0-9-]+$/, "電話は 03-1234-5678 か #8000 の形").nullish(),
+  hours: z.string().nullish(),
+  address: z.string().nullish(),
+  url: z.string().nullish(),
+  note: z.string().nullish(),
+  ...sourced,
+});
+
 const regionFileSchema = z.strictObject({
   region: regionSchema,
   notes: z.array(z.unknown()).optional(), // 人が読むメモ。投入しない
   documents: z.array(documentSchema).nullish(),
+  contacts: z.array(contactSchema).nullish(),
   steps: z.array(stepSchema).nullish(),
   subsidies: z.array(subsidySchema).nullish(),
 });
@@ -153,6 +170,7 @@ const surveyFileSchema = z.object({
 export type RegionRow = z.infer<typeof regionSchema>;
 export type DocumentRow = z.infer<typeof documentSchema> & { region_code: string };
 export type StepRow = z.infer<typeof stepSchema> & { region_code: string };
+export type ContactRow = z.infer<typeof contactSchema> & { region_code: string };
 export type SubsidyRow = z.infer<typeof subsidySchema> & { region_code: string };
 export type FacilityRow = Omit<z.infer<typeof facilitySchema>, "costs">;
 export type FacilityCostRow = z.infer<typeof facilityCostSchema> & { facility_id: string };
@@ -160,6 +178,7 @@ export type FacilityCostRow = z.infer<typeof facilityCostSchema> & { facility_id
 export type SeedData = {
   regions: RegionRow[];
   documents: DocumentRow[];
+  contacts: ContactRow[];
   steps: StepRow[];
   subsidies: SubsidyRow[];
   facilities: FacilityRow[];
@@ -202,7 +221,7 @@ function yamlFiles(dir: string): string[] {
 const LEVEL_ORDER = { national: 0, prefecture: 1, municipality: 2 } as const;
 
 export function loadSeedData(dataDir: string): LoadResult {
-  const data: SeedData = { regions: [], documents: [], steps: [], subsidies: [], facilities: [], facility_costs_public: [] };
+  const data: SeedData = { regions: [], documents: [], contacts: [], steps: [], subsidies: [], facilities: [], facility_costs_public: [] };
   const errors: SeedIssue[] = [];
   const warnings: SeedIssue[] = [];
   const rel = (p: string) => relative(dataDir, p);
@@ -236,6 +255,10 @@ export function loadSeedData(dataDir: string): LoadResult {
     for (const d of file.documents ?? []) {
       data.documents.push({ ...d, region_code: code });
       fileOf.set(`documents:${d.id}`, rel(path));
+    }
+    for (const c of file.contacts ?? []) {
+      data.contacts.push({ ...c, region_code: code });
+      fileOf.set(`contacts:${c.id}`, rel(path));
     }
     for (const s of file.steps ?? []) {
       data.steps.push({ ...s, region_code: code });
@@ -304,6 +327,15 @@ export function loadSeedData(dataDir: string): LoadResult {
   for (const s of data.steps) {
     const m = checkSource(s);
     if (m) err("steps", s.id, m);
+  }
+  const contactIds = new Set(data.contacts.map((c) => c.id));
+  for (const c of data.contacts) {
+    const m = checkSource(c);
+    if (m) err("contacts", c.id, m);
+    if (!c.phone && !c.url && !c.address) err("contacts", c.id, "電話・URL・住所のどれも無い（問い合わせ先にならない）");
+  }
+  for (const s of data.steps) {
+    if (s.contact_id && !contactIds.has(s.contact_id)) err("steps", s.id, `contact_id "${s.contact_id}" が contacts に無い`);
   }
   for (const s of data.subsidies) {
     const m = checkSource(s);

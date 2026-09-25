@@ -41,6 +41,17 @@ documents:
     phase: pre_notification
     description: 選択時は自由記述を document_suggestions に保存し、人がレビューしてマスタに追加する。
 
+contacts:
+  - id: jp.c_8000
+    name: 子ども医療電話相談（#8000）
+    topics: 夜間・休日に子どもの体調で迷ったとき。小児科医・看護師が受診の目安を教える
+    phone: "#8000"
+    hours: 東京都は 平日18時〜翌8時、土曜13時〜翌8時、日曜・祝日・年末年始 8時〜翌8時（都道府県で違う）
+    url: https://www.mhlw.go.jp/topics/2006/10/tp1010-3.html
+    source_url: https://www.mhlw.go.jp/topics/2006/10/tp1010-3.html
+    verified_at: 2026-09-25
+    needs_review: true
+
 steps:
   - id: jp.s01
     phase: pre_notification

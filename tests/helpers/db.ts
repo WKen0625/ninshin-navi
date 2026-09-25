@@ -7,7 +7,7 @@ import { PGlite } from "@electric-sql/pglite";
 import type { Db } from "../../lib/seed";
 import type { Facility } from "../../lib/facilities";
 import type { MoneyFacility, Subsidy } from "../../lib/money";
-import type { DocumentDef, Region, Step } from "../../lib/next-actions";
+import type { Contact, DocumentDef, Region, Step } from "../../lib/next-actions";
 
 export const ROOT = join(__dirname, "..", "..");
 
@@ -39,10 +39,11 @@ export async function readRules(db: Db) {
     await db.query(`
       select id, region_code, phase, sort_order, title, detail, trigger_document_id, produces_document_id, channel, action_url,
              deadline_base, deadline_offset_days, deadline_week, deadline_note, apply_from_base, apply_from_offset_days, apply_from_week, apply_from_note, overrides_step_id,
-             survey_question_id, source_url, verified_at::text as verified_at, needs_review
+             survey_question_id, contact_id, source_url, verified_at::text as verified_at, needs_review
       from steps`)
   ).rows as Step[];
-  return { regions, documents, steps };
+  const contacts = (await db.query("select id, region_code, name, topics, phone, hours, address, url, note, source_url, verified_at::text as verified_at, needs_review from contacts")).rows as Contact[];
+  return { regions, documents, steps, contacts };
 }
 
 /** 「お金」画面と同じく、DBの表から助成と施設（費用つき）を読む */

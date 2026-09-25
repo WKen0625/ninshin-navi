@@ -24,6 +24,22 @@ export type DocumentDef = {
   verified_at?: string | null;
 };
 
+/** 困ったときの問い合わせ先（区のハンドブック・公式ページから）。表示専用 */
+export type Contact = {
+  id: string;
+  region_code: string;
+  name: string;
+  topics: string | null;
+  phone: string | null;
+  hours: string | null;
+  address: string | null;
+  url: string | null;
+  note: string | null;
+  source_url: string;
+  verified_at: string;
+  needs_review: boolean;
+};
+
 export type DeadlineBase =
   | "confirmation_date"
   | "notification_date"
@@ -55,6 +71,8 @@ export type Step = {
   apply_from_note?: string | null;
   overrides_step_id: string | null;
   survey_question_id: string | null;
+  /** 困ったときの問い合わせ先（contacts.id）。無ければ画面がその区の代表の窓口を出す */
+  contact_id?: string | null;
   source_url: string;
   verified_at: string;
   needs_review: boolean;

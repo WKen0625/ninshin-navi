@@ -5,17 +5,18 @@
 import "server-only";
 import { join } from "node:path";
 import { createClient } from "@supabase/supabase-js";
-import { regionChain, type DocumentDef, type Region, type Step } from "./next-actions";
+import { regionChain, type Contact, type DocumentDef, type Region, type Step } from "./next-actions";
 import type { BookingStat, Facility } from "./facilities";
 import { latestCost, type MoneyFacility, type Subsidy } from "./money";
 import { loadSeedData } from "./seed/load";
 
-export type Rules = { regions: Region[]; documents: DocumentDef[]; steps: Step[] };
+export type Rules = { regions: Region[]; documents: DocumentDef[]; steps: Step[]; contacts: Contact[] };
 
 const STEP_COLUMNS =
   "id, region_code, phase, sort_order, title, detail, trigger_document_id, produces_document_id, channel, action_url, " +
-  "deadline_base, deadline_offset_days, deadline_week, deadline_note, apply_from_base, apply_from_offset_days, apply_from_week, apply_from_note, overrides_step_id, survey_question_id, " +
+  "deadline_base, deadline_offset_days, deadline_week, deadline_note, apply_from_base, apply_from_offset_days, apply_from_week, apply_from_note, overrides_step_id, survey_question_id, contact_id, " +
   "source_url, verified_at, needs_review";
+const CONTACT_COLUMNS = "id, region_code, name, topics, phone, hours, address, url, note, source_url, verified_at, needs_review";
 const DOCUMENT_COLUMNS = "id, region_code, name, aliases, includes, phase, description, source_url, verified_at";
 
 let yamlCache: Rules | null = null;
@@ -37,7 +38,13 @@ function rulesFromYaml(): Rules {
       channel: nn(s.channel), action_url: nn(s.action_url), deadline_base: nn(s.deadline_base),
       deadline_offset_days: nn(s.deadline_offset_days), deadline_week: nn(s.deadline_week), deadline_note: nn(s.deadline_note),
       overrides_step_id: nn(s.overrides_step_id), survey_question_id: nn(s.survey_question_id),
+      apply_from_base: nn(s.apply_from_base), apply_from_offset_days: nn(s.apply_from_offset_days), apply_from_week: nn(s.apply_from_week), apply_from_note: nn(s.apply_from_note),
+      contact_id: nn(s.contact_id),
       source_url: s.source_url!, verified_at: s.verified_at!, needs_review: s.needs_review,
+    })),
+    contacts: data.contacts.map((c) => ({
+      id: c.id, region_code: c.region_code, name: c.name, topics: nn(c.topics), phone: nn(c.phone), hours: nn(c.hours), address: nn(c.address),
+      url: nn(c.url), note: nn(c.note), source_url: c.source_url!, verified_at: c.verified_at!, needs_review: c.needs_review,
     })),
   };
   return yamlCache;
@@ -48,13 +55,15 @@ async function rulesFromSupabase(regionCode: string): Promise<Rules> {
   const regions = await db.from("regions").select("code, level, name, parent_code, status");
   if (regions.error) throw regions.error;
   const codes = regionChain(regionCode, regions.data as Region[]).map((r) => r.code);
-  const [d, s] = await Promise.all([
+  const [d, s, c] = await Promise.all([
     db.from("documents").select(DOCUMENT_COLUMNS).in("region_code", codes),
     db.from("steps").select(STEP_COLUMNS).in("region_code", codes),
+    db.from("contacts").select(CONTACT_COLUMNS).in("region_code", codes),
   ]);
   if (d.error) throw d.error;
   if (s.error) throw s.error;
-  return { regions: regions.data as Region[], documents: d.data as unknown as DocumentDef[], steps: s.data as unknown as Step[] };
+  if (c.error) throw c.error;
+  return { regions: regions.data as Region[], documents: d.data as unknown as DocumentDef[], steps: s.data as unknown as Step[], contacts: c.data as unknown as Contact[] };
 }
 
 const useSupabase = () => Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
@@ -68,6 +77,7 @@ export async function getRulesFor(regionCode: string): Promise<Rules> {
     regions: all.regions,
     documents: all.documents.filter((d) => codes.includes(d.region_code!)),
     steps: all.steps.filter((s) => codes.includes(s.region_code)),
+    contacts: all.contacts.filter((c) => codes.includes(c.region_code)),
   };
 }
 

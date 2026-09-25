@@ -10,6 +10,7 @@ import { expandHeldDocuments, resolveNextActions, type NextAction, type Step } f
 import type { Rules } from "@/lib/rules";
 import type { Survey } from "@/lib/surveys";
 import { ApplyToChips, ApplyWindowBox, isApplication } from "./ApplyWindow";
+import { ContactBox, ContactList } from "./ContactBox";
 import { FeedbackLink } from "./FeedbackLink";
 import { SourceLink } from "./SourceLink";
 import { SurveyCard } from "./SurveyCard";
@@ -139,6 +140,7 @@ function ActionCard({ action, today, emphasized, regionCode, state, week, rules,
           病院と締切を見る
         </Link>
       ) : null}
+      <ContactBox contact={step.contact_id ? rules.contacts.find((c) => c.id === step.contact_id) ?? null : null} fallback={emphasized ? rules.contacts.filter((c) => c.region_code === state.region_code).slice(0, 1) : []} />
       <SourceLink url={step.source_url} verifiedAt={step.verified_at} needsReview={action.needs_review} />
       {stuck ? (
         <p className="notice notice-info flex flex-wrap items-center justify-between gap-2">
@@ -301,6 +303,13 @@ export function TodoList() {
           </ul>
         </section>
       ) : null}
+      {rules.contacts.length > 0 ? (
+        <section className="space-y-3">
+          <h2 className="h-section">困ったら、ここに聞く</h2>
+          <ContactList contacts={rules.contacts} regionCode={state.region_code} regionName={state.region_name} />
+        </section>
+      ) : null}
+
       {result.upcoming.length > 0 ? (
         <section className="space-y-3">
           <h2 className="h-section">このあと</h2>
