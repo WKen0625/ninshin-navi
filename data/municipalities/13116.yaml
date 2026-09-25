@@ -71,6 +71,75 @@ documents:
     source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/2503251025.html
     verified_at: 2026-09-20
 
+contacts:
+  # 出典: 区の公式ページ（2026-09-25 取得。docs/research/handbook-13116.txt に本文を保存）。「豊島区子育て情報ハンドブック」（令和8年7月発行）のPDFは画像のみで文字が取れないため、冊子ではなく公式ページから転記した。
+  - id: toshima.c_hoken
+    name: 豊島区保健所 健康推進課 管理・事業グループ（2階 総合窓口）
+    topics: 妊娠届・母子健康手帳・母と子の保健バッグ・妊婦健康診査の受診票・新生児聴覚検査・里帰り出産などで都外で受けた健診の助成金・妊婦のための支援給付金・妊娠高血圧症候群等医療費助成・赤ちゃん訪問のはがき（出生通知票）
+    phone: "03-3987-4173"
+    hours: 平日 8:30〜17:00（祝日・年末年始を除く）
+    address: 豊島区南池袋2-1-1 豊島区保健所2階（課の所在地は3階）
+    url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/001311.html
+    note: 担当地域は駒込・巣鴨・西巣鴨・北大塚・南大塚・池袋・上池袋・東池袋・西池袋・南池袋・池袋本町・雑司ヶ谷・高田・目白（長崎・南長崎・千早・要町・高松・千川は長崎健康相談所）。ゆりかご面接・産後ケア・こんにちは赤ちゃん訪問などは母子継続支援グループ 03-6311-6842。妊娠中・産後の電話・来所相談（保健師・助産師）は保健指導グループ 03-3987-4174、栄養相談 03-3987-4361。妊娠届は東部区民事務所 03-3915-9961、西部区民事務所 03-4566-4021 でも出せる
+    source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/001311.html
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: toshima.c_nagasaki
+    name: 長崎健康相談所（管理・事業グループ／母子継続支援グループ）
+    topics: 妊娠届・母子健康手帳・保健バッグ・ゆりかご面接（オンライン面接の相談も）・妊婦のための支援給付金・産後ケア・こんにちは赤ちゃん訪問・里帰り出産などの健診助成金・妊娠中や産後の相談（長崎・南長崎・千早・要町・高松・千川に住む人）
+    phone: "03-3957-1191"
+    hours: 平日 8:30〜17:00（祝日・年末年始を除く）
+    address: 豊島区長崎3-6-24（1階）
+    url: https://www.city.toshima.lg.jp/225/kuse/soshiki/ikebukuro/006574.html
+    note: 保健・助産・栄養・歯科衛生の相談も同じ番号。切迫早産で入院中・自宅安静の人や里帰り中の人のゆりかごオンライン面接は、ここに電話で相談する
+    source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/yurikago/1507071003.html
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: toshima.c_teate
+    name: 豊島区役所 子育て支援課 児童給付グループ（区役所4階）
+    topics: 児童手当・子どもの医療費助成（医療証）・ひとり親家庭等の医療費助成
+    phone: "03-3981-1417"
+    hours: 平日 8:30〜17:00（祝日・年末年始を除く）
+    address: 豊島区南池袋2-45-1 豊島区役所4階
+    url: https://www.city.toshima.lg.jp/261/kosodate/kosodate/teate-jose/017993.html
+    note: 児童手当は窓口のほか郵送・電子申請でも手続きできる（郵送は届いた日が申請日）。出生届と一緒に、子どもの住民登録・乳幼児医療証・児童手当の手続きもできる。子育ての窓口案内は子育てインフォメーション 03-4566-2487（4階。第2・第4土曜も開庁）
+    source_url: https://www.city.toshima.lg.jp/261/kosodate/kosodate/teate-jose/017993.html
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: toshima.c_koseki
+    name: 豊島区役所 総合窓口課 戸籍グループ（区役所3階 4番窓口）
+    topics: 出生届・戸籍の届出・出生届と同時にする子どもの住民登録
+    phone: "03-3981-4737"
+    hours: 平日 8:30〜17:00、土曜 9:00〜17:00（日曜・祝日・年末年始は閉庁。祝日が土曜と重なる日は開庁。土曜は臨時閉庁の日がある）
+    address: 豊島区南池袋2-45-1 豊島区役所3階
+    url: https://www.city.toshima.lg.jp/094/tetsuzuki/todokede/todokede/000292.html
+    note: 窓口が閉まっている時間帯は本庁舎1階の宿直室で預かりだけをする。区民事務所では出生届を受け付けない。豊島区に住んでいる人は子どもの住民登録も必要なので、平日は15時まで、土曜は14時までに来庁する。土曜は他の自治体への照会が必要なときは預かりのみ。子の名の振り仮名に関することは 03-4566-2335。出生の手続きをした家庭には「応援ふくろう」（記念樹の引換券など）を3階総合窓口課か4階子育て支援課で渡す
+    source_url: https://www.city.toshima.lg.jp/094/tetsuzuki/todokede/todokede/000292.html
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: toshima.c_kokuho
+    name: 豊島区役所 国民健康保険課（区役所3階 9番窓口）
+    topics: 国民健康保険の加入・産前産後期間の保険料の減額（資格・保険料グループ）・出産育児一時金（給付グループ）
+    phone: "03-4566-2377"
+    hours: 平日 8:30〜17:00。毎月第2土曜 9:00〜17:00 も休日窓口（資格・保険料の届出のみ。出産育児一時金などの給付は扱わない）
+    address: 豊島区南池袋2-45-1 豊島区役所3階
+    url: https://www.city.toshima.lg.jp/109/tetsuzuki/nenkin/kenkohoken/hokenryo/018792.html
+    note: 出産育児一時金は給付グループ 03-3981-1296（申請は窓口のみで郵送不可）。産前産後の減額は郵送（〒171-8422 南池袋2-45-1 国民健康保険課資格・保険料グループ）や電子申請でもできる
+    source_url: https://www.city.toshima.lg.jp/112/tetsuzuki/nenkin/kenkohoken/kyufu/018182.html
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: toshima.c_kodomo_katei
+    name: 東部子ども家庭支援センター（こども家庭センター）
+    topics: 妊娠中から18歳までの子どもと家庭の相談全般（子育ての不安、夜泣き、発達の心配など）。電話・メール・来所・訪問での相談
+    phone: "03-5980-5275"
+    hours: 電話・面接相談は平日 9:00〜18:00、土日 9:00〜17:00。ひろば相談は毎日 10:00〜17:00
+    address: 豊島区上池袋2-35-22
+    url: https://www.city.toshima.lg.jp/265/kosodate/kosodate/shiencenter/001743/index.html
+    note: 西部子ども家庭支援センター（千早4-6-14）03-5966-3131。妊娠・出産の相談は健康推進課 03-3987-4174／03-6311-6842、長崎健康相談所 03-3957-1191。子どもの急な病気は #8000（子供の健康相談室）
+    source_url: https://www.city.toshima.lg.jp/528/kosodate/kosodate/kodomokateicenter.html
+    verified_at: 2026-09-25
+    needs_review: true
+
 steps:
   - id: toshima.s03
     overrides_step_id: jp.s03
@@ -86,6 +155,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
+    contact_id: toshima.c_hoken
     source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/001311.html
     verified_at: 2026-09-20
 
@@ -93,7 +163,7 @@ steps:
     phase: pregnancy
     sort_order: 35
     title: ゆりかご面接（妊婦面接）を受ける
-    detail: 助産師か保健師との面接で、30〜60分ほど。対象は、豊島区で妊娠届（転入した人は転入者用の妊娠届）を出し、面接の日に豊島区に住民登録がある妊婦。パートナーも同席できる。場所は豊島区保健所 健康推進課（2階の総合窓口、03-6311-6842）か長崎健康相談所（03-3957-1191）で、住んでいる地域で分かれる。平日9時〜16時。予約が優先で、予約フォームから申し込む。予約なしでも16時までに受付すれば受けられるが、待つことがある。持ち物は母子健康手帳（必須）と、ゆりかご面接券（なくても受けられる）。面接のあと、妊婦のための支援給付金（1回目）の案内があり、区から「ゆりかご応援ギフト」（電子クーポン1万円分。現金ではない）が渡される（ギフトと案内については「ゆりかご・としま事業」のページ https://www.city.toshima.lg.jp/219/kosodate/ninshin/yurikago/1508100918.html に書かれている）。切迫早産で入院中か自宅安静の人と、里帰り出産で来所がむずかしい人は、オンライン面接もできる（長崎健康相談所に電話で相談）。
+    detail: 助産師か保健師との面接で、30〜60分ほど。対象は、豊島区で妊娠届（転入した人は転入者用の妊娠届）を出し、面接の日に豊島区に住民登録がある妊婦。パートナーも同席できる。場所は豊島区保健所 健康推進課（2階の総合窓口、03-6311-6842）か長崎健康相談所（03-3957-1191）で、住んでいる地域で分かれる。平日9時〜16時。予約が優先で、予約フォームから申し込む。予約なしでも16時までに受付すれば受けられるが、待つことがある。持ち物は母子健康手帳（必須）と、ゆりかご面接券（なくても受けられる）。面接のあと、妊婦のための支援給付金（1回目）の案内があり、区から「ゆりかご応援ギフト」（電子クーポン1万円分。現金ではない）が渡される（ギフトと案内については「ゆりかご・としま事業」のページ https://www.city.toshima.lg.jp/219/kosodate/ninshin/yurikago/1508100918.html に書かれている）。切迫早産で入院中か自宅安静の人と、里帰り出産で来所がむずかしい人は、オンライン面接もできる（長崎健康相談所に電話で相談）。面接の担当は住所で分かれる（健康推進課＝駒込・巣鴨・西巣鴨・北大塚・南大塚・池袋・上池袋・東池袋・西池袋・南池袋・池袋本町・雑司ヶ谷・高田・目白、長崎健康相談所＝長崎・南長崎・千早・要町・高松・千川）。長崎・南長崎などの人は長崎健康相談所へ（区の公式ページ）。
     trigger_document_id: toshima.hoken_bag
     produces_document_id: toshima.shien_kyufu_annai_1
     channel: 豊島区保健所 健康推進課 / 長崎健康相談所（条件つきでオンラインも可）
@@ -104,6 +174,7 @@ steps:
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: toshima.c_hoken
     source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/yurikago/1507071003.html
     verified_at: 2026-09-20
 
@@ -119,6 +190,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "区の妊婦面接・面談のあと"
+    contact_id: toshima.c_hoken
     source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/2503251025.html
     verified_at: 2026-09-20
 
@@ -133,6 +205,7 @@ steps:
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: toshima.c_hoken
     source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/1503241448.html
     verified_at: 2026-09-20
 
@@ -148,6 +221,7 @@ steps:
     apply_from_base: due_date
     apply_from_offset_days: -182
     apply_from_note: "出産予定日の6か月前から"
+    contact_id: toshima.c_kokuho
     source_url: https://www.city.toshima.lg.jp/109/tetsuzuki/nenkin/kenkohoken/hokenryo/018792.html
     verified_at: 2026-09-20
 
@@ -161,6 +235,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
+    contact_id: toshima.c_hoken
     source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/1902121543.html
     verified_at: 2026-09-20
 
@@ -169,13 +244,14 @@ steps:
     phase: postpartum
     sort_order: 80
     title: 妊婦のための支援給付金（2回目・子どもの数×5万円）を申請する
-    detail: 対象は、令和7年4月1日以降に出産し、胎児の数の届出の日に豊島区に住民票がある産婦。こんにちは赤ちゃん訪問（保健師か助産師の訪問・無料）のときに案内される二次元コードから電子申請をする。現金かギフト（東京都のギフトカード）を選べる。訪問を受けるには、赤ちゃんが生まれたら出生通知票を申請フォームから出す（受理から連絡まで2週間ほど）。
+    detail: 対象は、令和7年4月1日以降に出産し、胎児の数の届出の日に豊島区に住民票がある産婦。こんにちは赤ちゃん訪問（保健師か助産師の訪問・無料）のときに案内される二次元コードから電子申請をする。現金かギフト（東京都のギフトカード）を選べる。訪問を受けるには、赤ちゃんが生まれたら出生通知票を申請フォームから出す（受理から連絡まで2週間ほど）。出生通知票（赤ちゃん訪問のご案内はがき）は母と子の保健バッグに入っている。見当たらないときは健康推進課か長崎健康相談所に電話する（区の公式ページ）。
     trigger_document_id: toshima.akachan_homon_annai
     channel: オンライン（訪問で案内される二次元コードから）
     deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産後、区の訪問のあと"
+    contact_id: toshima.c_hoken
     source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/2503251025.html
     verified_at: 2026-09-20
 
@@ -190,6 +266,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
+    contact_id: toshima.c_hoken
     source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/1508210843.html
     verified_at: 2026-09-20
 
@@ -206,6 +283,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 28
     apply_from_note: "生後28日から"
+    contact_id: toshima.c_hoken
     source_url: https://www.city.toshima.lg.jp/219/kosodate/kosodate/kenko/001439/2604281710.html
     verified_at: 2026-09-20
 
@@ -213,7 +291,7 @@ steps:
     phase: postpartum
     sort_order: 84
     title: （里帰りなど都外で健診を受けた人）妊婦健康診査・新生児聴覚検査などの助成金を申請する
-    detail: 都外の医療機関などで受診票が使えず、自費で受けた分の一部が助成される（海外での受診は対象外）。令和8年4月1日以降の受診の上限は、妊婦健康診査1回目11,670円、2〜14回目5,460円、超音波検査1〜4回目5,300円、子宮頸がん検診3,400円、新生児聴覚検査3,000円（子1人につき1回）。令和8年10月1日以降の受診は、産婦健康診査（1回目・2回目 各5,000円）と1か月児健康診査（6,000円）も対象。上限に満たないときは実費。窓口は健康推進課（豊島区保健所2階）か長崎健康相談所。持ち物は母子健康手帳、領収書の原本（明細書があれば一緒に）、未使用の受診票、印鑑（朱肉を使うもの）、振込口座がわかるもの。
+    detail: 都外の医療機関などで受診票が使えず、自費で受けた分の一部が助成される（海外での受診は対象外）。令和8年4月1日以降の受診の上限は、妊婦健康診査1回目11,670円、2〜14回目5,460円、超音波検査1〜4回目5,300円、子宮頸がん検診3,400円、新生児聴覚検査3,000円（子1人につき1回）。令和8年10月1日以降の受診は、産婦健康診査（1回目・2回目 各5,000円）と1か月児健康診査（6,000円）も対象。上限に満たないときは実費。窓口は健康推進課（豊島区保健所2階）か長崎健康相談所。持ち物は母子健康手帳、領収書の原本（明細書があれば一緒に）、未使用の受診票、印鑑（朱肉を使うもの）、振込口座がわかるもの。代理の人も申請できる。妊産婦本人以外の名義の口座に振り込みを希望するときは、本人の委任状が必要（区の公式ページ）。
     trigger_document_id: toshima.kenshin_ticket
     channel: 窓口（健康推進課 / 長崎健康相談所）
     action_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/013360.html
@@ -223,6 +301,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
+    contact_id: toshima.c_hoken
     source_url: https://www.city.toshima.lg.jp/219/kosodate/ninshin/shussanmade/013360.html
     verified_at: 2026-09-20
 

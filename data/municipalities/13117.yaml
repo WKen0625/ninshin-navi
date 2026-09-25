@@ -71,13 +71,82 @@ documents:
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002777/1002795.html
     verified_at: 2026-09-20
 
+contacts:
+  # 出典: 北区「北区子育てガイドブック 令和8年度版」（前半 r8gaidobukkuzennhann.pdf／後半 kouhann.pdf。#page= はそのPDFのページ番号）。冊子は画像PDFで本文はOCR（docs/research/handbook-13117.txt）のため、電話・時間は区の公式ページ（同txt末尾に保存）でも確認した。
+  - id: kita.c_hoken_service
+    name: 北区役所 保健サービス課 保健サービス係（第一庁舎1階6番）
+    topics: 妊娠届・母子健康手帳・母と子の保健バッグ・妊婦健康診査などの受診票・里帰り出産などの健診助成金・多胎妊婦の健診費用助成・妊婦のための支援給付（1回目・2回目）・産後ケア事業・低所得の人の初回産科受診料助成・養育医療
+    phone: "03-3908-7050"
+    hours: 平日 8:30〜17:00（祝日・年末年始を除く）
+    address: 北区王子本町1-15-22 北区役所第一庁舎1階6番
+    url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018244/1002779.html
+    note: 妊娠届・はぴママたまご面接・赤ちゃん訪問は住所を担当する健康支援センター（王子 03-3919-7588／赤羽 03-3903-6481／滝野川 03-3915-0184）が窓口。保健サービス係でも面接を受けられるが時間が限られるので先に電話で予約する
+    source_url: https://www.city.kita.lg.jp/_res/projects/default_project/_page_/001/002/838/kouhann.pdf#page=1
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: kita.c_oji_center
+    name: 保健サービス課 王子健康支援センター（北区保健所1階）
+    topics: 妊娠届・母子健康手帳・保健バッグ・はぴママたまご面接・赤ちゃん訪問（出生通知票）・乳幼児健診・出産育児講座（赤ちゃん学級）・成長や発達の相談（担当地域は王子・王子本町・豊島・堀船・上十条・中十条・東十条・岸町・十条台・十条仲原）
+    phone: "03-3919-7588"
+    hours: 平日 8:30〜17:00（その場でたまご面接を受ける場合は 9:00〜16:30。成長・発達相談は 9:00〜17:00）
+    address: 北区東十条2-7-3 北区保健所1階
+    url: https://www.city.kita.lg.jp/city-information/facilities/1015875/1019080.html
+    note: 赤羽健康支援センター 03-3903-6481（赤羽南1-13-1 赤羽会館6階。赤羽・西が丘・赤羽西・赤羽北・赤羽南・赤羽台・志茂・岩淵町・浮間・桐ケ丘・神谷）、滝野川健康支援センター 03-3915-0184（西ケ原1-19-12。滝野川・西ケ原・栄町・上中里・中里・昭和町・田端新町・東田端・田端）。里帰り先への赤ちゃん訪問を希望するときも担当の健康支援センターへ電話
+    source_url: https://www.city.kita.lg.jp/_res/projects/default_project/_page_/001/002/838/kouhann.pdf#page=1
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: kita.c_teate
+    name: 北区役所 子ども未来課 子育て給付係（第一庁舎2階6番）
+    topics: 児童手当・子ども医療費助成（マル乳・マル子・マル青の医療証）・ひとり親家庭の手当と助成
+    phone: "03-3908-9096"
+    hours: 平日 8:30〜17:00（比較的すいているのは 8:30〜10:00 ごろ。6月・8月は混む）
+    address: 北区王子本町1-15-22 北区役所第一庁舎2階6番
+    url: https://www.city.kita.lg.jp/children-edu/childcare/1002909/1002919/1019297.html
+    note: 児童手当・子ども医療証は窓口のほか郵送・電子申請（マイナポータル）でも申請できる（郵送は届いた日が申請日）。出生届と同じ日に手続きするなら時間に余裕をもって行く（地下巡視室での受付のときは同日にはできない）
+    source_url: https://www.city.kita.lg.jp/_res/projects/default_project/_page_/001/002/838/kouhann.pdf#page=5
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: kita.c_koseki
+    name: 北区役所 戸籍住民課 戸籍係（第二庁舎2階5番）
+    topics: 出生届・戸籍の届出・母子健康手帳の出生届出済証明
+    phone: "03-3908-8710"
+    hours: 平日 8:30〜17:00
+    address: 北区王子本町1-2-11 北区役所第二庁舎2階
+    url: https://www.city.kita.lg.jp/living/registration/1001523/1001558.html
+    note: 戸籍係の受付時間外と土日・祝日・年末年始（12月29日〜1月3日）は、第一庁舎の地下巡視室で届書を受け付ける。巡視室で出したときは、母子健康手帳の「出生届出済証明」は後日の発行になるので、受付時間内に母子健康手帳を戸籍係へ持っていく。電話番号は区の出生届ページの問い合わせ先（戸籍住民課）のもの。冊子の戸籍係の番号はOCRで読み取りが不確かなため入れていない
+    source_url: https://www.city.kita.lg.jp/_res/projects/default_project/_page_/001/002/838/kouhann.pdf#page=4
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: kita.c_kokuho
+    name: 北区役所 国保年金課 国保資格係（第一庁舎2階23番）
+    topics: 赤ちゃんの国民健康保険への加入・産前産後期間の国民健康保険料の軽減（免除）
+    phone: "03-3908-1131"
+    hours: 平日 8:30〜17:00
+    address: 北区王子本町1-15-22 北区役所第一庁舎2階23番
+    url: https://www.city.kita.lg.jp/living/insurance-pension/1001703/1001723/1001733/1001737.html
+    note: 出産育児一時金は国保給付係（第一庁舎2階22番）03-3908-1132。国民年金保険料の産前産後の免除は国民年金係（2階26番）。北区の国民健康保険以外の健康保険の人は、それぞれの健康保険へ
+    source_url: https://www.city.kita.lg.jp/_res/projects/default_project/_page_/001/002/838/kouhann.pdf#page=4
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: kita.c_kodomo_katei
+    name: 子ども家庭支援センター「子どもと家庭の総合相談」（電話相談）
+    topics: 妊娠中から18歳未満の子どもと子育てに関する相談全般（育児の悩み、親子関係、子どもへの接し方など）。はぴママひよこ面接・安心ママパパヘルパー・ショートステイの問い合わせも
+    phone: "03-3927-0874"
+    hours: 月〜日曜 9:30〜17:00（祝日・振替休日・祝日と祝日の間の休日・年末年始は休み）
+    address: 北区王子6-7-3
+    url: https://www.city.kita.lg.jp/children-edu/edu-counseling/1002953.html
+    note: はぴママひよこ面接・安心ママパパヘルパー・ショートステイは 03-6903-0511。代表は 03-3914-9565。子どもの急な病気の相談は #8000（小児救急電話相談）
+    source_url: https://www.city.kita.lg.jp/_res/projects/default_project/_page_/001/002/838/r8gaidobukkuzennhann.pdf#page=8
+    verified_at: 2026-09-25
+    needs_review: true
+
 steps:
   - id: kita.s03
     overrides_step_id: jp.s03
     phase: notification
     sort_order: 30
     title: 妊娠届を出し、母子健康手帳と「母と子の保健バッグ」を受け取る
-    detail: 医療機関で妊娠が確定したと診断を受けてから届け出る。窓口は、健康支援センター（王子 03-3919-7588／赤羽 03-3903-6481／滝野川 03-3915-0184。平日 午前8時30分〜午後5時）、保健サービス課保健サービス係（北区役所第一庁舎1階6番）、各区民事務所。健康支援センターに妊婦本人が届け出ると、原則その場で「はぴママたまご面接」も受けられる（その場合は午前9時〜午後4時30分）。区民事務所で届け出ると、面接は後日になる。持ち物は妊婦本人のマイナンバーカード。無いときは、マイナンバーが確認できる書類（通知カード、番号入りの住民票など）と本人確認書類（写真つきは1点、写真なしは2点）。代理人は代理人の本人確認書類も必要で、別世帯の人は委任状もいる。マイナポータルで電子申請もでき、その場合は母子健康手帳と受診票などの一式が郵送される（申請から2週間ほどかかることがある）。
+    detail: 医療機関で妊娠が確定したと診断を受けてから届け出る。窓口は、健康支援センター（王子 03-3919-7588／赤羽 03-3903-6481／滝野川 03-3915-0184。平日 午前8時30分〜午後5時）、保健サービス課保健サービス係（北区役所第一庁舎1階6番）、各区民事務所。健康支援センターに妊婦本人が届け出ると、原則その場で「はぴママたまご面接」も受けられる（その場合は午前9時〜午後4時30分）。区民事務所で届け出ると、面接は後日になる。持ち物は妊婦本人のマイナンバーカード。無いときは、マイナンバーが確認できる書類（通知カード、番号入りの住民票など）と本人確認書類（写真つきは1点、写真なしは2点）。代理人は代理人の本人確認書類も必要で、別世帯の人は委任状もいる。マイナポータルで電子申請もでき、その場合は母子健康手帳と受診票などの一式が郵送される（申請から2週間ほどかかることがある）。ほかの自治体で母子健康手帳をもらってから北区に転入した人も、「母と子の保健バッグ」（転入用）を渡すので必ず届け出る（北区子育てガイドブック）。
     trigger_document_id: jp.heartbeat_confirmed
     produces_document_id: kita.hoken_bag
     channel: 健康支援センター / 保健サービス課保健サービス係 / 区民事務所 / オンライン（マイナポータル。一式は郵送）
@@ -86,6 +155,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
+    contact_id: kita.c_hoken_service
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018244/1002779.html
     verified_at: 2026-09-20
 
@@ -93,7 +163,7 @@ steps:
     phase: pregnancy
     sort_order: 35
     title: はぴママたまご面接（妊婦面接）を受ける
-    detail: 妊婦全員が対象の面接。はぴママ相談員や地区担当の保健師などと話し、自分に合った「セルフプラン」を作る。対象は、北区に住民登録があり妊娠届を出した妊婦と、ほかの自治体で妊娠届を出したあと北区に転入した妊婦。場所は住所を担当する健康支援センター（王子・赤羽・滝野川。平日9時〜16時30分。先に電話で予約するとスムーズ）。保健サービス課保健サービス係（03-3908-7050）と子ども家庭支援センター（03-6903-0511）でも受けられるが、電話での予約が必要。健康支援センターに来るのがむずかしい人は、Zoom のオンライン面接（30分ほど）もできる（担当の健康支援センターに電話で申し込む）。面接のとき、妊婦のための支援給付（1回目）の電子申請用二次元コードを受け取る。出産前までに面接を終えた人には、「はぴママグッズ」（現金ではない）が後日送られる。
+    detail: 妊婦全員が対象の面接。はぴママ相談員や地区担当の保健師などと話し、自分に合った「セルフプラン」を作る。対象は、北区に住民登録があり妊娠届を出した妊婦と、ほかの自治体で妊娠届を出したあと北区に転入した妊婦。場所は住所を担当する健康支援センター（王子・赤羽・滝野川。平日9時〜16時30分。先に電話で予約するとスムーズ）。保健サービス課保健サービス係（03-3908-7050）と子ども家庭支援センター（03-6903-0511）でも受けられるが、電話での予約が必要。健康支援センターに来るのがむずかしい人は、Zoom のオンライン面接（30分ほど）もできる（担当の健康支援センターに電話で申し込む）。面接のとき、妊婦のための支援給付（1回目）の電子申請用二次元コードを受け取る。出産前までに面接を終えた人には、「はぴママグッズ」（現金ではない）が後日送られる。出産後には保育士などによる「はぴママひよこ面接」（子ども家庭支援センター）もある（北区子育てガイドブック）。
     trigger_document_id: kita.hoken_bag
     produces_document_id: kita.shien_kyufu_annai_1
     channel: 健康支援センター / 保健サービス課保健サービス係 / 子ども家庭支援センター（オンラインも可）
@@ -102,6 +172,7 @@ steps:
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: kita.c_oji_center
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018244/1002780.html
     verified_at: 2026-09-20
 
@@ -120,6 +191,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "心拍を確認した日から（区の面接・面談のあと）"
+    contact_id: kita.c_hoken_service
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002777/1002795.html
     verified_at: 2026-09-20
 
@@ -134,6 +206,7 @@ steps:
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: kita.c_hoken_service
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018245/1002782.html
     verified_at: 2026-09-20
 
@@ -141,7 +214,7 @@ steps:
     phase: pregnancy
     sort_order: 66
     title: （北区の国民健康保険の人）産前産後期間の国民健康保険料の軽減を届け出る
-    detail: 出産した人の保険料（所得割額と均等割額）が、出産（予定）月の前月から翌々月までの4か月分（多胎は3か月前からの6か月分）免除される。妊娠85日以上の分娩が対象で、死産・流産（人工妊娠中絶を含む）・早産を含む。届出は、電子申請（マイナンバーカードを持っている人）、窓口、郵送。届出先は国保資格係（北区役所第一庁舎2階23番、03-3908-1131）で、区民事務所ではできない。郵送のときは、先に国保資格係へ連絡して届出書を送ってもらう。窓口では、軽減届、母子健康手帳など、顔写真つきの身分証明書、資格確認書か資格情報のお知らせが必要。北区の国民健康保険の出産育児一時金を申請している人などは、届出がいらない場合がある。保険料が限度額に達している世帯は、金額が変わらないことがある。
+    detail: 出産した人の保険料（所得割額と均等割額）が、出産（予定）月の前月から翌々月までの4か月分（多胎は3か月前からの6か月分）免除される。妊娠85日以上の分娩が対象で、死産・流産（人工妊娠中絶を含む）・早産を含む。届出は、電子申請（マイナンバーカードを持っている人）、窓口、郵送。届出先は国保資格係（北区役所第一庁舎2階23番、03-3908-1131）で、区民事務所ではできない。郵送のときは、先に国保資格係へ連絡して届出書を送ってもらう。窓口では、軽減届、母子健康手帳など、顔写真つきの身分証明書、資格確認書か資格情報のお知らせが必要。北区の国民健康保険の出産育児一時金を申請している人などは、届出がいらない場合がある。保険料が限度額に達している世帯は、金額が変わらないことがある。赤ちゃんの国民健康保険への加入も、同じ国保資格係で手続きする（北区子育てガイドブック）。
     trigger_document_id: kita.hoken_bag
     channel: オンライン（マイナポータル） / 窓口 / 郵送
     action_url: https://www.city.kita.lg.jp/living/insurance-pension/1001703/1001723/1001733/1001737.html
@@ -149,6 +222,7 @@ steps:
     apply_from_base: due_date
     apply_from_offset_days: -182
     apply_from_note: "出産予定日の6か月前から"
+    contact_id: kita.c_kokuho
     source_url: https://www.city.kita.lg.jp/living/insurance-pension/1001703/1001723/1001733/1001737.html
     verified_at: 2026-09-20
 
@@ -162,6 +236,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
+    contact_id: kita.c_hoken_service
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018245/1002781.html
     verified_at: 2026-09-20
 
@@ -170,7 +245,7 @@ steps:
     phase: postpartum
     sort_order: 80
     title: 妊婦のための支援給付（2回目・子ども1人につき現金5万円）を申請する
-    detail: 出産後の「赤ちゃん訪問」（保健師や助産師が自宅に来る。対象は3〜4か月児健診の前までの赤ちゃん）のときに渡される二次元コードから電子申請をする。訪問を受けるには、「出生通知票」を電子申請か、保健バッグに入っているはがきで出す（戸籍の出生届とは別のもの）。産婦本人名義の口座に振り込まれる（旧姓の口座、パートナーの口座は不可）。申請から振込まで1か月〜1か月半ほど。北区以外で1回目を受けた人も、2回目は北区で受けられる。
+    detail: 出産後の「赤ちゃん訪問」（保健師や助産師が自宅に来る。対象は3〜4か月児健診の前までの赤ちゃん）のときに渡される二次元コードから電子申請をする。訪問を受けるには、「出生通知票」を電子申請か、保健バッグに入っているはがきで出す（戸籍の出生届とは別のもの）。産婦本人名義の口座に振り込まれる（旧姓の口座、パートナーの口座は不可）。申請から振込まで1か月〜1か月半ほど。北区以外で1回目を受けた人も、2回目は北区で受けられる。出生通知票を出すと、担当地区の健康支援センターから訪問の日程調整の電話が来る。里帰り先への訪問を希望するときは、担当の健康支援センターに電話で相談する（区の公式ページ）。
     trigger_document_id: kita.akachan_homon_annai
     channel: オンライン（訪問で渡される二次元コードから）
     action_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002777/1002795.html
@@ -180,6 +255,7 @@ steps:
     apply_from_base: due_date
     apply_from_offset_days: -56
     apply_from_note: "出産予定日の8週間前から（それより前に出産した場合はその日から）"
+    contact_id: kita.c_oji_center
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002777/1002795.html
     verified_at: 2026-09-20
 
@@ -193,6 +269,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
+    contact_id: kita.c_hoken_service
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018245/1002781.html
     verified_at: 2026-09-20
 
@@ -206,6 +283,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 28
     apply_from_note: "生後28日から"
+    contact_id: kita.c_hoken_service
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1018245/1002781.html
     verified_at: 2026-09-20
 
@@ -223,6 +301,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    contact_id: kita.c_hoken_service
     source_url: https://www.city.kita.lg.jp/children-edu/pregnancy/1002764/1002773.html
     verified_at: 2026-09-20
 

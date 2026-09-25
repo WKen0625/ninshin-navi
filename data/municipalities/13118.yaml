@@ -67,6 +67,75 @@ documents:
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/ninsampushien/homon.html
     verified_at: 2026-09-20
 
+contacts:
+  # 出典: 荒川区「あらかわ子育て応援ブック」（令和7年8月発行。章ごとのPDF https://www.city.arakawa.tokyo.jp/documents/1111/ 。#page= はその章PDF内のページ番号）。区役所の電話は代表 03-3802-3111＋内線で、内線は note に書いた。冊子に無い夜間・休日の受付は区の公式ページから（docs/research/handbook-13118.txt 末尾）。
+  - id: arakawa.c_hoken_suishin
+    name: 荒川区保健所 健康推進課 健康推進係（がん予防・健康づくりセンター2階）
+    topics: 妊娠届・母子健康手帳・母と子の保健バッグ・妊婦健康診査などの受診票・新生児聴覚検査・産婦健康診査・1か月児健康診査・都外（里帰り）で受けた健診の費用助成・妊娠高血圧症候群等医療費助成・保健指導票・出生通知票・妊婦のための支援給付・未熟児の養育医療・乳幼児健診
+    phone: "03-3802-3111"
+    hours: 平日 8:30〜17:15（祝日・年末年始を除く）
+    address: 荒川区荒川2-11-1 がん予防・健康づくりセンター2階
+    url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/shinsei/kenkotecho.html
+    note: 代表番号のあと内線433。妊婦歯科健康診査は歯科担当 内線423。妊娠届は区民事務所でも出せる（電子申請はマイナポータル）
+    source_url: https://www.city.arakawa.tokyo.jp/documents/1111/04umarerumae6-13.pdf#page=1
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: arakawa.c_hoken_sodan
+    name: 荒川区保健所 健康推進課 保健相談担当（がん予防・健康づくりセンター2階）
+    topics: ゆりかご面接（妊婦面接）・赤ちゃん訪問（新生児訪問）・妊娠中や産後のこころとからだの相談・育児相談・産前産後うつ病予防支援・ハローベビー学級・新米パパ講座・心理士の予約相談
+    phone: "03-3802-3111"
+    hours: 平日 8:30〜17:15（相談受付。祝日・年末年始を除く）
+    address: 荒川区荒川2-11-1 がん予防・健康づくりセンター2階
+    url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/ninsampushien/yurikago.html
+    note: 代表番号のあと内線447（ゆりかご面接・赤ちゃん訪問）または内線432（こころの相談・育児相談・学級）。ゆりかご面接は区のホームページの「ゆりかご面接予約サイト」から予約する。栄養・歯科の相談は内線423
+    source_url: https://www.city.arakawa.tokyo.jp/documents/1111/04umarerumae6-13.pdf#page=1
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: arakawa.c_teate
+    name: 荒川区役所 子育て支援課 子育て給付係（本庁舎2階16番窓口）
+    topics: 児童手当・乳幼児・子ども・高校生等医療費助成（乳・子・青の医療証）
+    phone: "03-3802-3111"
+    hours: 平日 8:30〜17:15（祝日・年末年始を除く）
+    address: 荒川区荒川2-2-3 荒川区役所本庁舎2階
+    url: https://www.city.arakawa.tokyo.jp/a035/kosodate/kosodateshien/index.html
+    note: 代表番号のあと内線3819（児童手当）または内線3817（医療証）。児童手当は出生などの翌日から数えて15日以内、医療証は3か月以内の申請なら出生日にさかのぼる（冊子 p.15〜16）
+    source_url: https://www.city.arakawa.tokyo.jp/documents/1111/05umaretara14-28.pdf#page=2
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: arakawa.c_koseki
+    name: 荒川区役所 戸籍住民課 戸籍係（本庁舎1階4番窓口）
+    topics: 出生届・戸籍の届出・母子健康手帳への出生届出済証明
+    phone: "03-3802-3111"
+    hours: 平日 8:30〜17:15。水曜は 19:00 まで延長（延長時間は相談と届書の記載漏れの事前確認のみ）。第2・第4日曜 9:00〜12:00 も開庁
+    address: 荒川区荒川2-2-3 荒川区役所本庁舎1階
+    url: https://www.city.arakawa.tokyo.jp/a010/todokede/koseki/syussan.html
+    note: 代表番号のあと内線2354。区民事務所では受け付けない。夜間・休日など閉庁中は区役所地下1階の夜間・休日受付窓口（巡視室・宿直室）で届書を預かる。母子健康手帳の出生届出済証明は平日 8:30〜17:15 に届け出たときだけ同日に発行され、水曜延長・日曜開庁・巡視室での受付では発行されない（後日、平日に母子健康手帳を持っていく）
+    source_url: https://www.city.arakawa.tokyo.jp/documents/1111/05umaretara14-28.pdf#page=1
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: arakawa.c_kokuho
+    name: 荒川区役所 国保年金課 国保資格係（本庁舎1階10番窓口）
+    topics: 赤ちゃんの国民健康保険への加入・産前産後期間の国民健康保険料の免除
+    phone: "03-3802-4066"
+    hours: 平日 8:30〜17:15（祝日・年末年始を除く）
+    address: 荒川区荒川2-2-3 荒川区役所本庁舎1階
+    url: https://www.city.arakawa.tokyo.jp/a031/kenkouhoken/sannzennsanngo.html
+    note: 出産育児一時金・高額療養費は保険給付係 03-3802-4067（本庁舎1階12番窓口）。国民年金保険料の産前産後免除は国民年金係 03-3802-4168。加入の持ち物は資格確認書など、母子健康手帳、届出人の本人確認書類とマイナンバーがわかるもの
+    source_url: https://www.city.arakawa.tokyo.jp/documents/1111/05umaretara14-28.pdf#page=1
+    verified_at: 2026-09-25
+    needs_review: true
+  - id: arakawa.c_kodomo_katei
+    name: 荒川区子ども家庭総合センター（子どもと子育ての総合相談）
+    topics: 妊娠中の人と18歳未満の子どもとその保護者の、子育ての心配ごとの相談全般
+    phone: "03-3802-3765"
+    hours: 平日 8:30〜17:15（年末年始を除く）
+    address: 荒川区荒川1-50-17
+    url: https://www.city.arakawa.tokyo.jp/a039/kosodate/sougou_center.html
+    note: 24時間・年中無休の電話相談「あらかわキッズ・ファミリーコール24」0120-536-883（通話料無料。妊娠・出産・育児の悩みを看護師などが受ける）。子どもの急な病気は #8000（子供の健康相談室。平日 18:00〜翌 8:00、休日 8:00〜翌 8:00）
+    source_url: https://www.city.arakawa.tokyo.jp/documents/1111/11mangaichi84-89.pdf#page=6
+    verified_at: 2026-09-25
+    needs_review: true
+
 steps:
   - id: arakawa.s03
     overrides_step_id: jp.s03
@@ -82,6 +151,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "心拍を確認した日から（医療機関で妊娠が確認されたら、なるべく早く）"
+    contact_id: arakawa.c_hoken_suishin
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/shinsei/kenkotecho.html
     verified_at: 2026-09-20
 
@@ -89,7 +159,7 @@ steps:
     phase: pregnancy
     sort_order: 35
     title: ゆりかご面接（妊婦面接）を予約して受ける
-    detail: 助産師または保健師との面接（40分程度。家族も同席できる）。対象は、医療機関で赤ちゃんの心拍の確認か出産予定日の診断を受けた区内在住の妊婦。場所は荒川区保健所健康推進課（がん予防・健康づくりセンター2階）。区民事務所ではやっていない。月〜金と、月1回の土曜または日曜の午前9時〜午後4時30分。予約は「ゆりかご面接予約サイト」から。持ち物は母子健康手帳。面接で配られる申請書から、妊婦のための支援給付（1回目・5万円）と、区独自のゆりかごギフト（1万円分のギフト）を申請できる。
+    detail: 助産師または保健師との面接（40分程度。家族も同席できる）。対象は、医療機関で赤ちゃんの心拍の確認か出産予定日の診断を受けた区内在住の妊婦。場所は荒川区保健所健康推進課（がん予防・健康づくりセンター2階）。区民事務所ではやっていない。月〜金と、月1回の土曜または日曜の午前9時〜午後4時30分。予約は「ゆりかご面接予約サイト」から。持ち物は母子健康手帳。面接で配られる申請書から、妊婦のための支援給付（1回目・5万円）と、区独自のゆりかごギフト（1万円分のギフト）を申請できる。面接では地区担当の保健師の紹介があり、妊娠・出産後の生活の困りごとを一緒に考えて支援プランを作る（あらかわ子育て応援ブック）。
     trigger_document_id: arakawa.hoken_bag
     produces_document_id: arakawa.shien_kyufu_shinsei_1
     channel: 荒川区保健所健康推進課（予約制）
@@ -98,6 +168,7 @@ steps:
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: arakawa.c_hoken_sodan
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/ninsampushien/yurikago.html
     verified_at: 2026-09-20
 
@@ -113,6 +184,7 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "区の妊婦面接・面談のあと"
+    contact_id: arakawa.c_hoken_suishin
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/ninpushien.html
     verified_at: 2026-09-20
 
@@ -130,6 +202,7 @@ steps:
     apply_from_base: notification_date
     apply_from_offset_days: 0
     apply_from_note: "母子健康手帳を受け取ってから（妊娠中）"
+    contact_id: arakawa.c_hoken_suishin
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/nimpukenshin/ninpushikakenshin.html
     verified_at: 2026-09-20
 
@@ -137,7 +210,7 @@ steps:
     phase: pregnancy
     sort_order: 66
     title: （荒川区の国民健康保険の人）産前産後期間の国民健康保険料の免除を届け出る
-    detail: 出産予定月（または出産月）と、その前1か月・後ろ2か月の計4か月分（多胎は前3か月・後ろ2か月の計6か月分）の保険料（所得割額と均等割額）が免除される。妊娠85日（4か月）以上の出産が対象（死産・流産・早産・人工妊娠中絶を含む）。必要なものは届出書、母子健康手帳など、届け出る人の顔写真つき本人確認書類。オンライン申請フォームでも手続きできる（本人か同じ世帯の人だけ）。問い合わせ 国保年金課国保資格係（本庁舎1階）03-3802-3111（内線2373〜2376）。
+    detail: 出産予定月（または出産月）と、その前1か月・後ろ2か月の計4か月分（多胎は前3か月・後ろ2か月の計6か月分）の保険料（所得割額と均等割額）が免除される。妊娠85日（4か月）以上の出産が対象（死産・流産・早産・人工妊娠中絶を含む）。必要なものは届出書、母子健康手帳など、届け出る人の顔写真つき本人確認書類。オンライン申請フォームでも手続きできる（本人か同じ世帯の人だけ）。問い合わせ 国保年金課国保資格係（本庁舎1階）03-3802-3111（内線2373〜2376）。赤ちゃんの国民健康保険への加入も国保資格係（本庁舎1階）で手続きする。持ち物は資格確認書など、母子健康手帳、届出人の本人確認書類とマイナンバーがわかるもの（あらかわ子育て応援ブック）。
     trigger_document_id: arakawa.hoken_bag
     channel: オンライン申請フォーム / 国保年金課国保資格係
     action_url: https://www.city.arakawa.tokyo.jp/a031/kenkouhoken/sanzensangogenmen2025.html
@@ -145,6 +218,7 @@ steps:
     apply_from_base: due_date
     apply_from_offset_days: -182
     apply_from_note: "出産予定日の6か月前から"
+    contact_id: arakawa.c_kokuho
     source_url: https://www.city.arakawa.tokyo.jp/a031/kenkouhoken/sannzennsanngo.html
     verified_at: 2026-09-20
 
@@ -161,6 +235,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "生まれた日から（原則は出産で入院しているあいだ）"
+    contact_id: arakawa.c_hoken_suishin
     source_url: https://www.city.arakawa.tokyo.jp/a033/kosodate/nyuuyouji/choukaku.html
     verified_at: 2026-09-20
 
@@ -169,13 +244,14 @@ steps:
     phase: postpartum
     sort_order: 80
     title: 妊婦のための支援給付（2回目・子どもの人数×5万円）を申請する
-    detail: 出生通知票（電子申請またはハガキ）を出すと、助産師または保健師が新生児訪問に来る。そのときに渡される申請フォームから申請する。現金（妊婦本人の口座）かカタログギフトを選ぶ。申請のときに荒川区に住民登録があることが条件。里帰り先で訪問を受けた人は別の申請が必要なので、訪問のあと健康推進課健康推進係 03-3802-3111（内線433）に連絡する。
+    detail: 出生通知票（電子申請またはハガキ）を出すと、助産師または保健師が新生児訪問に来る。そのときに渡される申請フォームから申請する。現金（妊婦本人の口座）かカタログギフトを選ぶ。申請のときに荒川区に住民登録があることが条件。里帰り先で訪問を受けた人は別の申請が必要なので、訪問のあと健康推進課健康推進係 03-3802-3111（内線433）に連絡する。里帰り先で訪問を受けたいときは、出生通知票のほかに「新生児訪問依頼書交付申請」（電子申請か郵送・窓口）が必要で、出生届を出したあとに申請する。訪問の調整まで時間がかかることがある（区の公式ページ）。
     trigger_document_id: arakawa.akachan_homon_annai
     channel: 新生児訪問で渡される申請フォーム
     deadline_note: 申請期限は区のページに記載なし（訪問のときに確認する）
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産後、区の訪問のあと"
+    contact_id: arakawa.c_hoken_sodan
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/ninpushien.html
     verified_at: 2026-09-20
 
@@ -190,6 +266,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から（1回目は産後2週間ごろ）"
+    contact_id: arakawa.c_hoken_suishin
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/sanpukensin_josei.html
     verified_at: 2026-09-20
 
@@ -206,6 +283,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    contact_id: arakawa.c_hoken_suishin
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/sanpukensin_josei.html
     verified_at: 2026-09-20
 
@@ -213,7 +291,7 @@ steps:
     phase: postpartum
     sort_order: 84
     title: （都外で健診を受けた人）里帰り出産等の健診費用の助成を申請する
-    detail: 都外の医療機関や助産所で、受診票を使えずに自費で受けた妊婦健康診査・超音波検査・子宮頸がん検診・新生児聴覚検査（令和8年4月1日以降の出産は産婦健康診査・1か月児健康診査も）の費用の一部が、あとから助成される。回数の上限は都内で受診票を使った回数を含み、助成には上限額がある。荒川区保健所健康推進課の窓口か郵送で、申請書、領収書（原本）と診療明細書、使わなかった受診票、母子健康手帳、振込先がわかるものを出す。申請はまとめて1回だけ。国外での健診、保険診療の分、母子手帳を受け取る前の健診は対象外。
+    detail: 都外の医療機関や助産所で、受診票を使えずに自費で受けた妊婦健康診査・超音波検査・子宮頸がん検診・新生児聴覚検査（令和8年4月1日以降の出産は産婦健康診査・1か月児健康診査も）の費用の一部が、あとから助成される。回数の上限は都内で受診票を使った回数を含み、助成には上限額がある。荒川区保健所健康推進課の窓口か郵送で、申請書、領収書（原本）と診療明細書、使わなかった受診票、母子健康手帳、振込先がわかるものを出す。申請はまとめて1回だけ。国外での健診、保険診療の分、母子手帳を受け取る前の健診は対象外。申請には印鑑（朱肉を使うもの）も必要。郵送で申請するときの注意点は区のページ「里帰り出産等妊産婦健康診査等の費用助成」で確認する（あらかわ子育て応援ブック）。
     trigger_document_id: arakawa.kenshin_ticket
     channel: 荒川区保健所健康推進課（窓口 / 郵送）
     action_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/satogaerishussan.html
@@ -223,6 +301,7 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    contact_id: arakawa.c_hoken_suishin
     source_url: https://www.city.arakawa.tokyo.jp/a033/ninshinshussan/joseikyuufu/satogaerishussan.html
     verified_at: 2026-09-20
 
