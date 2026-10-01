@@ -3,7 +3,8 @@
 // ここは純粋関数だけ。localStorage の読み書きは components/useFamilyState.ts。
 
 import type { Family, Step, StepFlag } from "./next-actions";
-import { isStuckReason, type StuckReason } from "./stuck";
+import { isDueDateBasis, type DueDateBasis } from "./due-date";
+import { isNaReason, isStuckReason, type NaReason, type StuckReason } from "./stuck";
 
 export const STORAGE_KEY = "ninshin-navi:v1";
 
@@ -27,12 +28,21 @@ export type FamilyState = {
   region_code: string;
   region_name: string;
   due_date: string;
+  /** 予定日の根拠。known = 病院で言われた日／lmp・test = 仮の予定日（受診後に直してもらう）。省略は known */
+  due_date_basis?: DueDateBasis;
+  /** 仮の予定日の元にした日（最後の生理が始まった日／検査薬で陽性になった日） */
+  due_date_input?: string | null;
   confirmation_date: string | null;
+  /** 出産した日。loss のときは「妊娠が終わった日」 */
   birth_date: string | null;
+  /** 流産・死産で妊娠を終えた。妊娠・出産の手続きは出さず、そのための手続きと相談先だけを出す */
+  loss?: boolean;
   preferences: Preferences;
   /** from_step = 完了チェックで手に入れた紙（チェックを外すと一緒に消す） */
   held_documents: { document_id: string; held_at: string; from_step?: string }[];
-  progress: { step_id: string; status: "done" | "not_applicable"; at: string }[];
+  progress: { step_id: string; status: "done" | "not_applicable"; at: string; /** 「該当しない」の理由（任意） */ reason?: NaReason }[];
+  /** 担当の付け替え（パートナーと分担するため）。無いステップは lib/who.ts の目安 */
+  assignments?: Record<string, "mother" | "partner">;
   /** 記録（アンケート）への同意。保存するのは同意した場合だけ */
   consent_survey: boolean;
   /** 分娩方法など任意項目への同意 */
@@ -52,7 +62,7 @@ export function toFamily(state: FamilyState): Family {
     held_documents: state.held_documents.map(({ document_id, held_at }) => ({ document_id, held_at })),
     completed_step_ids: state.progress.filter((p) => p.status === "done").map((p) => p.step_id),
     not_applicable_step_ids: state.progress.filter((p) => p.status === "not_applicable").map((p) => p.step_id),
-    flags: flagsOf(state.preferences),
+    flags: [...flagsOf(state.preferences), ...(state.loss && state.birth_date ? (["loss"] as StepFlag[]) : [])],
   };
 }
 
@@ -66,14 +76,22 @@ export function flagsOf(p: Preferences): StepFlag[] {
 }
 
 /** 完了／該当しない を付ける。完了なら、そのステップで手に入る紙（produces_document_id）を持っている紙に加える。 */
-export function markStep(state: FamilyState, step: Step, status: "done" | "not_applicable", today: string): FamilyState {
+export function markStep(state: FamilyState, step: Step, status: "done" | "not_applicable", today: string, reason?: NaReason): FamilyState {
   const cleared = clearStep(state, step.id);
   const held = [...cleared.held_documents];
   const produced = step.produces_document_id;
   if (status === "done" && produced && !held.some((h) => h.document_id === produced)) {
     held.push({ document_id: produced, held_at: today, from_step: step.id });
   }
-  return { ...cleared, held_documents: held, progress: [...cleared.progress, { step_id: step.id, status, at: today }] };
+  return { ...cleared, held_documents: held, progress: [...cleared.progress, { step_id: step.id, status, at: today, ...(status === "not_applicable" && reason ? { reason } : {}) }] };
+}
+
+/** 担当を付け替える（null で目安に戻す） */
+export function assignStep(state: FamilyState, stepId: string, who: "mother" | "partner" | null): FamilyState {
+  const next = { ...(state.assignments ?? {}) };
+  if (who) next[stepId] = who;
+  else delete next[stepId];
+  return { ...state, assignments: next };
 }
 
 /** チェックを外す。そのチェックで加えた紙も外す（入口で自分で選んだ紙は残す）。 */
@@ -114,8 +132,11 @@ export function parseState(raw: string | null): FamilyState | null {
       region_code: s.region_code,
       region_name: typeof s.region_name === "string" ? s.region_name : "",
       due_date: s.due_date,
+      due_date_basis: isDueDateBasis(s.due_date_basis) ? s.due_date_basis : "known",
+      due_date_input: isDate(s.due_date_input) ? s.due_date_input : null,
       confirmation_date: isDate(s.confirmation_date) ? s.confirmation_date : null,
       birth_date: isDate(s.birth_date) ? s.birth_date : null,
+      loss: s.loss === true,
       preferences: {
         epidural: s.preferences?.epidural ?? "undecided",
         distance: s.preferences?.distance ?? "any",
@@ -126,7 +147,8 @@ export function parseState(raw: string | null): FamilyState | null {
         foreign_parent: s.preferences?.foreign_parent === true,
       },
       held_documents: Array.isArray(s.held_documents) ? s.held_documents.filter((h) => typeof h?.document_id === "string" && isDate(h?.held_at)) : [],
-      progress: Array.isArray(s.progress) ? s.progress.filter((p) => typeof p?.step_id === "string") : [],
+      progress: Array.isArray(s.progress) ? s.progress.filter((p) => typeof p?.step_id === "string").map((p) => (isNaReason(p.reason) ? p : { step_id: p.step_id, status: p.status, at: p.at })) : [],
+      assignments: Object.fromEntries(Object.entries(s.assignments ?? {}).filter(([k, v]) => typeof k === "string" && (v === "mother" || v === "partner"))) as Record<string, "mother" | "partner">,
       consent_survey: s.consent_survey === true,
       consent_sensitive: s.consent_sensitive === true,
       surveys_closed: Array.isArray(s.surveys_closed) ? s.surveys_closed.filter((x) => typeof x === "string") : [],

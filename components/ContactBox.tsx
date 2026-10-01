@@ -34,15 +34,15 @@ export function ContactBox({ contact, fallback }: { contact: Contact | null; fal
 }
 
 /** 画面の「困ったら、ここに聞く」一覧。区の窓口 → 東京都 → 国（夜間・休日の電話相談）の順 */
-export function ContactList({ contacts, regionCode, regionName }: { contacts: Contact[]; regionCode: string; regionName: string }) {
-  const [open, setOpen] = useState(false);
+export function ContactList({ contacts, regionCode, regionName, showAll = false, intro }: { contacts: Contact[]; regionCode: string; regionName: string; /** 最初から全部見せる（流産・死産のときなど、件数が少なく全部大事なとき） */ showAll?: boolean; intro?: string }) {
+  const [open, setOpen] = useState(showAll);
   const own = contacts.filter((c) => c.region_code === regionCode);
   const upper = contacts.filter((c) => c.region_code !== regionCode);
   const shown = open ? [...own, ...upper] : [...own.slice(0, 3), ...upper.filter((c) => /#8000|#7119|ほっとライン/.test(`${c.phone}${c.name}`)).slice(0, 2)];
   return (
     <div className="space-y-3">
       <p className="text-base text-gray-700">
-        手続きのことは{regionName || "区"}の窓口へ。夜間・休日の体調のことは電話相談へ。番号を押すと電話がかかります。
+        {intro ?? `手続きのことは${regionName || "区"}の窓口へ。夜間・休日の体調のことは電話相談へ。番号を押すと電話がかかります。`}
       </p>
       <ul className="space-y-2">
         {shown.map((c) => (

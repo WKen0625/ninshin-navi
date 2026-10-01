@@ -164,6 +164,7 @@ export function MoneyView() {
 
   return (
     <div className="space-y-6">
+      {state.loss && state.birth_date ? <p className="notice notice-muted">妊娠を終えた設定になっています。出産費用の計算は表示していません。出産育児一時金（妊娠12週以後の流産・死産も対象）は「今週やること」に出ています。</p> : null}
       <header className="space-y-1">
         <SectionHeading as="h1" icon="money" tone="green" className="text-[2.2rem]">お金</SectionHeading>
         <p className="text-base text-gray-700">{state.region_name}・出産にかかる費用から、もらえるお金を引いた目安です。</p>
@@ -207,7 +208,7 @@ export function MoneyView() {
         {wantsEpidural ? <p className="text-base text-gray-700">無痛分娩の費用は施設ごとに違い、下の「出産にかかる費用」に上乗せになる場合があります。</p> : null}
       </section>
 
-      {results.map((r) => <SchemeResult key={r.scheme} result={r} facilityName={facility?.name ?? null} today={today} />)}
+      {(state.loss && state.birth_date ? [] : results).map((r) => <SchemeResult key={r.scheme} result={r} facilityName={facility?.name ?? null} today={today} />)}
       <FeedbackLink target="screen:money" regionCode={state.region_code} />
     </div>
   );

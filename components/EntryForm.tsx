@@ -2,11 +2,14 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
+import { BASIS_LABEL, estimateDueDate, type DueDateBasis } from "@/lib/due-date";
 import { setSelectedDocuments, type FamilyState, type Preferences } from "@/lib/family-state";
 import type { DocumentDef } from "@/lib/next-actions";
 import type { Rules } from "@/lib/rules";
 import { normalizePostal } from "@/lib/geo";
+import { DocumentGuide } from "./DocumentGuide";
 import { DocumentPicker } from "./DocumentPicker";
+import { LangHint } from "./LangHint";
 import { Disclosure } from "./Disclosure";
 import { SectionHeading } from "./Icon";
 import { SourceLink } from "./SourceLink";
@@ -16,6 +19,10 @@ type Area = { contact: string; label: string; municipalities: { code: string; na
 
 const PHASE_ORDER = ["pre_notification", "notification", "pregnancy", "birth", "postpartum"];
 const field = "field";
+const fmtDate = (d: string) => {
+  const [y, m, day] = d.split("-").map(Number);
+  return `${y}年${m}月${day}日`;
+};
 
 export function EntryForm({ area }: { area: Area }) {
   const router = useRouter();
@@ -23,6 +30,12 @@ export function EntryForm({ area }: { area: Area }) {
 
   const [region, setRegion] = useState("");
   const [dueDate, setDueDate] = useState("");
+  // 予定日がまだわからない人: 最後の生理が始まった日／検査薬で陽性になった日 から仮の予定日を出す
+  const [basis, setBasis] = useState<DueDateBasis>("known");
+  const [basisDate, setBasisDate] = useState("");
+  // 流産・死産で妊娠を終えた
+  const [loss, setLoss] = useState(false);
+  const [lossDate, setLossDate] = useState("");
   const [born, setBorn] = useState(false);
   const [birthDate, setBirthDate] = useState("");
   const [confirmationDate, setConfirmationDate] = useState("");
@@ -39,8 +52,12 @@ export function EntryForm({ area }: { area: Area }) {
     // 前に選んだ地域が、いまの対象地域に無ければ、選び直してもらう
     setRegion(area.municipalities.some((m) => m.code === state.region_code) ? state.region_code : "");
     setDueDate(state.due_date);
-    setBorn(state.birth_date != null);
-    setBirthDate(state.birth_date ?? "");
+    setBasis(state.due_date_basis ?? "known");
+    setBasisDate(state.due_date_input ?? "");
+    setLoss(state.loss === true);
+    setLossDate(state.loss ? (state.birth_date ?? "") : "");
+    setBorn(!state.loss && state.birth_date != null);
+    setBirthDate(state.loss ? "" : (state.birth_date ?? ""));
     setConfirmationDate(state.confirmation_date ?? "");
     setPreferences(state.preferences);
     setPostal(state.preferences.postal_code ?? "");
@@ -84,8 +101,10 @@ export function EntryForm({ area }: { area: Area }) {
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!chosen) return setError("お住まいの区を選んでください。");
-    if (!dueDate) return setError("出産予定日を入れてください。");
-    if (born && !birthDate) return setError("出産した日を入れてください。");
+    const effectiveDue = basis === "known" ? dueDate : basisDate ? estimateDueDate(basis, basisDate) : "";
+    if (!effectiveDue) return setError(basis === "known" ? "出産予定日を入れてください。" : "日付を入れてください（仮の予定日を計算します）。");
+    if (loss && !lossDate) return setError("妊娠が終わった日を入れてください。");
+    if (!loss && born && !birthDate) return setError("出産した日を入れてください。");
     const postalCode = postal.trim() ? normalizePostal(postal) : null;
     if (postal.trim() && !postalCode) return setError("郵便番号は7桁の数字で入れてください（例: 1070052）。");
     if (preferences.distance !== "any" && !postalCode) return setError("「自宅から病院までの時間」を選ぶには、郵便番号が要ります。郵便番号を入れるか、「こだわらない」を選んでください。");
@@ -96,9 +115,12 @@ export function EntryForm({ area }: { area: Area }) {
     const base: FamilyState = {
       region_code: region,
       region_name: regionName,
-      due_date: dueDate,
+      due_date: effectiveDue,
+      due_date_basis: basis,
+      due_date_input: basis === "known" ? null : basisDate,
       confirmation_date: confirmationDate || null,
-      birth_date: born ? birthDate : null,
+      birth_date: loss ? lossDate : born ? birthDate : null,
+      loss,
       preferences: { ...preferences, postal_code: postalCode },
       // 市区町村を変えたら、前の地域の進み具合は引き継がない
       held_documents: state?.region_code === region ? state.held_documents : [],
@@ -107,6 +129,7 @@ export function EntryForm({ area }: { area: Area }) {
       consent_sensitive: state?.consent_sensitive ?? false,
       surveys_closed: state?.region_code === region ? state.surveys_closed : [],
       stuck: state?.region_code === region ? state.stuck : [],
+      assignments: state?.region_code === region ? state.assignments : {},
     };
     const known = new Set(documents.map((d) => d.id));
     save(setSelectedDocuments(base, selected.filter((id) => known.has(id)), today));
@@ -126,6 +149,7 @@ export function EntryForm({ area }: { area: Area }) {
 
   return (
     <form onSubmit={submit} className="space-y-5">
+      <LangHint />
       <fieldset className="card space-y-1">
         <SectionHeading as="legend" icon="pin" tone="sky">1. お住まいの区（{area.label}）</SectionHeading>
         <div className="space-y-3">
@@ -153,18 +177,42 @@ export function EntryForm({ area }: { area: Area }) {
         <SectionHeading as="legend" icon="calendar" tone="violet">2. 出産予定日</SectionHeading>
         <div className="space-y-3">
           <label className="block text-base">
-            出産予定日
-            <input type="date" className={field} value={dueDate} onChange={(e) => setDueDate(e.target.value)} />
+            出産予定日は？
+            <select className={field} value={basis} onChange={(e) => setBasis(e.target.value as DueDateBasis)}>
+              <option value="known">病院で言われた（わかる）</option>
+              <option value="lmp">まだわからない。最後の生理が始まった日ならわかる</option>
+              <option value="test">まだわからない。検査薬で陽性になった日ならわかる</option>
+            </select>
           </label>
-          <p className="text-base text-gray-600">わからなければ、最後の生理が始まった日の280日後。</p>
+          {basis === "known" ? (
+            <label className="block text-base">
+              出産予定日
+              <input type="date" className={field} value={dueDate} onChange={(e) => setDueDate(e.target.value)} />
+            </label>
+          ) : (
+            <>
+              <label className="block text-base">
+                {basis === "lmp" ? "最後の生理が始まった日" : "検査薬で陽性になった日"}
+                <input type="date" className={field} value={basisDate} onChange={(e) => setBasisDate(e.target.value)} />
+              </label>
+              {basisDate ? (
+                <p className="notice notice-info">
+                  仮の予定日: <b>{fmtDate(estimateDueDate(basis, basisDate))}</b>（{BASIS_LABEL[basis]}）。
+                  まずはこの日付で「次にやること」を出します。病院で予定日がわかったら、ここで「病院で言われた」に直してください。
+                </p>
+              ) : null}
+            </>
+          )}
           <label className="block text-base">
             病院で赤ちゃんの心拍を確認した日（わかれば）
             <input type="date" className={field} value={confirmationDate} onChange={(e) => setConfirmationDate(e.target.value)} />
           </label>
-          <label className="flex min-h-11 items-center gap-3 text-base">
-            <input type="checkbox" className="check" checked={born} onChange={(e) => setBorn(e.target.checked)} />
-            もう出産した
-          </label>
+          {!loss ? (
+            <label className="flex min-h-11 items-center gap-3 text-base">
+              <input type="checkbox" className="check" checked={born} onChange={(e) => setBorn(e.target.checked)} />
+              もう出産した
+            </label>
+          ) : null}
           {born ? (
             <label className="block text-base">
               出産した日
@@ -233,18 +281,38 @@ export function EntryForm({ area }: { area: Area }) {
         {!rules ? (
           <p className="text-base text-gray-600">市区町村を選ぶと、選べる紙が出ます。</p>
         ) : (
-          <DocumentPicker
-            documents={documents}
-            regionCode={region}
-            selected={selected}
-            includedBy={includedBy}
-            otherId={otherId}
-            otherText={otherText}
-            onToggle={toggle}
-            onOtherText={setOtherText}
-          />
+          <>
+            <Disclosure summary="どれが何の紙？（病院や区でもらった紙の見分け方）">
+              <DocumentGuide documents={rules.documents} steps={rules.steps} regionCode={region} />
+            </Disclosure>
+            <DocumentPicker
+              documents={documents}
+              regionCode={region}
+              selected={selected}
+              includedBy={includedBy}
+              otherId={otherId}
+              otherText={otherText}
+              onToggle={toggle}
+              onOtherText={setOtherText}
+            />
+          </>
         )}
       </fieldset>
+
+      {/* 妊娠を終えたとき。静かな導線: 開閉の中にだけ置く */}
+      <Disclosure summary="妊娠を終えたとき（流産・死産）" open={loss} className="border-slate-200 bg-slate-50">
+        <p className="text-base text-slate-700">つらいときに、手続きのことまで考えなくて大丈夫です。必要になったら、ここに印を付けると、妊娠中・出産後の手続きは出さず、死産届や休業など「いま関係する手続き」と相談先だけを出します。</p>
+        <label className="flex min-h-11 items-center gap-3 text-base">
+          <input type="checkbox" className="check" checked={loss} onChange={(e) => setLoss(e.target.checked)} />
+          妊娠を終えた（流産・死産）
+        </label>
+        {loss ? (
+          <label className="block text-base">
+            妊娠が終わった日（だいたいで大丈夫）
+            <input type="date" className={field} value={lossDate} onChange={(e) => setLossDate(e.target.value)} />
+          </label>
+        ) : null}
+      </Disclosure>
 
       {error ? <p role="alert" className="notice notice-warn">{error}</p> : null}
 

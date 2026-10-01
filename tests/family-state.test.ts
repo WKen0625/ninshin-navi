@@ -79,7 +79,8 @@ describe("入口で選んだ紙の入れ替え", () => {
 
 describe("保存した状態の読み込み", () => {
   it("正しい値はそのまま戻る", () => {
-    expect(parseState(JSON.stringify(start))).toEqual(start);
+    // 新しい項目（予定日の根拠・流産死産・担当）は省略時の値で埋まる
+    expect(parseState(JSON.stringify(start))).toEqual({ ...start, due_date_basis: "known", due_date_input: null, loss: false, assignments: {} });
   });
   it("壊れた値・市区町村や予定日が無い値は null（入口からやり直し）", () => {
     expect(parseState(null)).toBeNull();

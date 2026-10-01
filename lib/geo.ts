@@ -55,3 +55,18 @@ export function travelTo(home: LatLng | null, facility: { lat: number | null; ln
   const within = preference === "any" ? null : minutes <= PREFERENCE_MINUTES[preference];
   return { km, minutes, within };
 }
+
+/** 駅の表（/api/stations の返り）。[駅名, 路線名, 緯度, 経度] */
+export type StationRow = readonly [string, string, number, number];
+export type NearestStation = { name: string; km: number };
+
+/** 施設から直線で最も近い駅（目安。徒歩の経路は見ていない）。位置が無ければ null */
+export function nearestStation(facility: { lat: number | null; lng: number | null }, stations: readonly StationRow[] | null): NearestStation | null {
+  if (!stations || facility.lat == null || facility.lng == null) return null;
+  let best: NearestStation | null = null;
+  for (const [name, , lat, lng] of stations) {
+    const km = distanceKm({ lat: facility.lat, lng: facility.lng }, { lat, lng });
+    if (!best || km < best.km) best = { name, km };
+  }
+  return best ? { name: best.name, km: Math.round(best.km * 10) / 10 } : null;
+}

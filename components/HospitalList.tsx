@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { addBooking, bookingsFor, countBookings, removeBooking, type BookingRecord } from "@/lib/archive";
 import { toFamily } from "@/lib/family-state";
 import { listFacilities, type FacilityItem } from "@/lib/facilities";
-import { lookupPostal, PREFERENCE_MINUTES, travelTo, type PostalTable, type Travel } from "@/lib/geo";
+import { lookupPostal, nearestStation, PREFERENCE_MINUTES, travelTo, type NearestStation, type PostalTable, type StationRow, type Travel } from "@/lib/geo";
 import { gestationalWeek } from "@/lib/next-actions";
 import type { HospitalData } from "@/lib/rules";
 import type { Survey } from "@/lib/surveys";
@@ -45,7 +45,7 @@ function DeadlineBox({ item }: { item: FacilityItem }) {
   );
 }
 
-function FacilityCard({ item, travel, mine, chosen, regionCode, onChoose, onRecord }: { item: FacilityItem; travel: Travel | null; /** この施設への、あなた自身の記録（この端末） */ mine: BookingRecord[]; chosen: boolean; regionCode: string; onChoose: () => void; onRecord: (() => void) | null }) {
+function FacilityCard({ item, travel, station, mine, chosen, regionCode, onChoose, onRecord }: { item: FacilityItem; travel: Travel | null; station: NearestStation | null; /** この施設への、あなた自身の記録（この端末） */ mine: BookingRecord[]; chosen: boolean; regionCode: string; onChoose: () => void; onRecord: (() => void) | null }) {
   const f = item.facility;
   const map = f.lat != null && f.lng != null ? `https://www.google.com/maps/search/?api=1&query=${f.lat},${f.lng}` : null;
   return (
@@ -56,6 +56,7 @@ function FacilityCard({ item, travel, mine, chosen, regionCode, onChoose, onReco
           {f.facility_type ?? "種別は未確認"}
           {f.address ? `・${f.address}` : ""}
         </p>
+        {station ? <p className="text-base text-gray-700">最寄り駅の目安: {station.name}駅から直線で約{station.km}km</p> : null}
       </header>
 
       <DeadlineBox item={item} />
@@ -153,6 +154,7 @@ export function HospitalList() {
   const [onlyEpidural, setOnlyEpidural] = useState<boolean | null>(null);
   const [onlyNear, setOnlyNear] = useState<boolean | null>(null);
   const [postalTable, setPostalTable] = useState<PostalTable | null>(null);
+  const [stations, setStations] = useState<StationRow[] | null>(null);
   const [survey, setSurvey] = useState<Survey | null>(null);
   const [recording, setRecording] = useState<string | null>(null);
   const [reload, setReload] = useState(0);
@@ -193,6 +195,22 @@ export function HospitalList() {
     };
   }, [region, postal]);
   const home = useMemo(() => lookupPostal(postalTable, postal), [postalTable, postal]);
+  // 駅の表（国土数値情報）。施設ごとの最寄り駅は端末の中で直線距離から出す
+  useEffect(() => {
+    let stale = false;
+    fetch("/api/stations")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((t: { stations: StationRow[] } | null) => !stale && t && setStations(t.stations))
+      .catch(() => {});
+    return () => {
+      stale = true;
+    };
+  }, []);
+  const stationOf = useMemo(() => {
+    const m = new Map<string, NearestStation | null>();
+    for (const f of data?.facilities ?? []) m.set(f.id, nearestStation(f, stations));
+    return m;
+  }, [data, stations]);
   const distancePref = state?.preferences.distance ?? "any";
 
   // 入口で「無痛分娩を希望する」と答えた人は、最初から絞り込んでおく（外せる）
@@ -208,7 +226,7 @@ export function HospitalList() {
   }, [data, home, distancePref]);
   const items = useMemo(
     () =>
-      state && data
+      state && data && !(state.loss && state.birth_date)
         ? listFacilities({ ...data, family: toFamily(state), today, onlyEpidural: filter })
             .filter((i) => !only24h || i.facility.epidural_24h === true)
             .filter((i) => !nearFilter || travels.get(i.facility.id)?.within !== false)
@@ -230,6 +248,7 @@ export function HospitalList() {
 
   return (
     <div className="space-y-6">
+      {state.loss && state.birth_date ? <p className="notice notice-muted">妊娠を終えた設定になっています。病院の締切は表示していません。設定は<Link href="/navi" className="link-inline">入力を直す</Link>で変えられます。</p> : null}
       <header className="space-y-1">
         <SectionHeading as="h1" icon="hospital" tone="sky" className="text-[2.2rem]">病院と締切</SectionHeading>
         <p className="text-base text-gray-700">
@@ -278,6 +297,7 @@ export function HospitalList() {
                 key={item.facility.id}
                 item={item}
                 travel={travels.get(item.facility.id) ?? null}
+                station={stationOf.get(item.facility.id) ?? null}
                 mine={bookingsFor(archive, state.due_date, item.facility.id)}
                 onRecord={survey ? () => setRecording(item.facility.id) : null} // 出産後の人も、記憶で記録できる
                 chosen={state.preferences.facility_id === item.facility.id}

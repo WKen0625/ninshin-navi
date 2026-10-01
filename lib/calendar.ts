@@ -119,6 +119,24 @@ export function eventOfStep(
   return null;
 }
 
+/**
+ * 「入力を直す」時期の予定（使い続ける動機）。出産予定日に「出産したら出産日を入れる」、出産後30日に「届いた紙を足す」。
+ * 妊娠を終えた（loss）ときは出さない。
+ */
+export function reentryEvents(state: { due_date: string; birth_date: string | null; loss?: boolean }, origin = "https://www.tsugiraku.jp"): CalendarEvent[] {
+  if (state.loss) return [];
+  const url = `${origin}/navi`;
+  if (!state.birth_date) {
+    return [{ uid: "tsugiraku.reentry.birth", title: "【Tsugiraku】出産したら「入力を直す」で出産日を入れる", date: state.due_date, details: "出産日を入れると、出生届・児童手当・医療証など産後の手続きと期限が出ます。予定日より早く生まれたら、そのときに。", url, remindDaysBefore: 0 }];
+  }
+  return [{ uid: "tsugiraku.reentry.papers", title: "【Tsugiraku】届いた紙を「入力を直す」で足す", date: nextDays(state.birth_date, 30), details: "出生届のあとに届く紙（医療証・児童手当の通知など）を足すと、次の手続きが出ます。", url, remindDaysBefore: 0 }];
+}
+
+function nextDays(d: string, n: number): string {
+  const [y, m, day] = d.split("-").map(Number);
+  return new Date(Date.UTC(y, m - 1, day + n)).toISOString().slice(0, 10);
+}
+
 /** ブラウザで .ics を保存させる（端末の中だけで完結） */
 export function downloadIcs(ics: string, filename = "tsugiraku-navi.ics") {
   const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });

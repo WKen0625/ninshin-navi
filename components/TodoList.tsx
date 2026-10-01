@@ -3,10 +3,12 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { applyWindowOf } from "@/lib/apply-window";
-import { downloadIcs, eventOfStep, googleCalendarUrl, icsOf } from "@/lib/calendar";
+import { downloadIcs, eventOfStep, googleCalendarUrl, icsOf, reentryEvents } from "@/lib/calendar";
 import { APPLY_TO_LABEL, classifyApplyTo, type ApplyTo } from "@/lib/apply-to";
-import { clearStep, markStep, markStuck, toFamily, type FamilyState } from "@/lib/family-state";
-import { STUCK_REASONS, stuckLabel, type StuckReason } from "@/lib/stuck";
+import { assignStep, clearStep, markStep, markStuck, toFamily, type FamilyState } from "@/lib/family-state";
+import { BASIS_LABEL } from "@/lib/due-date";
+import { WHO_LABEL, whoOf } from "@/lib/who";
+import { NA_REASONS, naLabel, STUCK_REASONS, stuckLabel, type NaReason, type StuckReason } from "@/lib/stuck";
 import { expandHeldDocuments, resolveNextActions, type NextAction, type Step } from "@/lib/next-actions";
 import type { Rules } from "@/lib/rules";
 import type { Survey } from "@/lib/surveys";
@@ -16,6 +18,7 @@ import { Disclosure } from "./Disclosure";
 import { Icon, IconTile, SectionHeading, type IconName, type Tone } from "./Icon";
 import { DocumentGuide } from "./DocumentGuide";
 import { FeedbackLink } from "./FeedbackLink";
+import { LangHint } from "./LangHint";
 import { SourceLink } from "./SourceLink";
 import { SurveyCard } from "./SurveyCard";
 import { getDeviceId, todayLocal, useFamilyState, useNotifyAvailable } from "./useFamilyState";
@@ -25,7 +28,7 @@ const fmt = (d: string) => {
   return `${y}年${m}月${day}日`;
 };
 
-type StuckStat = { reason: StuckReason; reports: number };
+type StuckStat = { reason: StuckReason | NaReason; reports: number };
 
 /** 窓口の種類を絵で見せる: 区役所＝建物（青）／東京都＝塔（紫）／国＝日の丸（灰）／勤務先・健康保険＝かばん（緑）／医療機関＝病院（空色） */
 const TARGET_ICON: Record<ApplyTo, { icon: IconName; tone: Tone }> = {
@@ -40,8 +43,11 @@ const TARGET_ICON: Record<ApplyTo, { icon: IconName; tone: Tone }> = {
  * 「わからない」。理由を1つ選んでもらい、同意があればサーバーに送る（どこでつまずくかの集計のため）。
  * 送るのは ステップid・区・理由・妊娠週数 と、端末を区別する記号だけ。送らなくても、この端末には「わからない」の印が残る。
  */
-function StuckBox({ step, state, week, onSave, onClose }: { step: Step; state: FamilyState; week: number | null; onSave: (next: FamilyState) => void; onClose: () => void }) {
-  const [reason, setReason] = useState<StuckReason | "">("");
+function StuckBox({ step, state, week, mode, onSave, onClose }: { step: Step; state: FamilyState; week: number | null; /** stuck = わからない ／ na = 自分は該当しない（理由を1つ） */ mode: "stuck" | "na"; onSave: (next: FamilyState) => void; onClose: () => void }) {
+  const [reason, setReason] = useState<StuckReason | NaReason | "">("");
+  const na = mode === "na";
+  const reasons: readonly { value: StuckReason | NaReason; label: string }[] = na ? NA_REASONS : STUCK_REASONS;
+  const label = (v: StuckReason | NaReason) => (na ? naLabel(v as NaReason) : stuckLabel(v as StuckReason));
   const [agree, setAgree] = useState(state.consent_survey);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
@@ -50,9 +56,10 @@ function StuckBox({ step, state, week, onSave, onClose }: { step: Step; state: F
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
-    if (!reason) return setError("どこがわからないかを1つ選んでください。");
+    if (!reason) return setError(na ? "いちばん近い理由を1つ選んでください。" : "どこがわからないかを1つ選んでください。");
     setError("");
-    const next = markStuck({ ...state, consent_survey: state.consent_survey || agree }, step.id, reason, today);
+    const withConsent = { ...state, consent_survey: state.consent_survey || agree };
+    const next = na ? markStep(withConsent, step, "not_applicable", today, reason as NaReason) : markStuck(withConsent, step.id, reason as StuckReason, today);
     if (!agree) {
       onSave(next);
       return onClose();
@@ -81,9 +88,9 @@ function StuckBox({ step, state, week, onSave, onClose }: { step: Step; state: F
       <div className="card card-ai space-y-2">
         <p className="text-base font-bold">ありがとうございます。記録しました。</p>
         <p className="text-base">
-          同じ区でこの手続きに「わからない」を付けた人は、あなたを含めて{total}人です。
-          {total > 1 ? `いちばん多い理由は「${stuckLabel([...stats].sort((a, b) => Number(b.reports) - Number(a.reports))[0].reason)}」。` : ""}
-          運営が案内の書き方を直す材料にします。窓口に聞くときは、母子手帳と身分証を持っていくと早いです。
+          同じ区でこの手続きに「{na ? "該当しない" : "わからない"}」を付けた人は、あなたを含めて{total}人です。
+          {total > 1 ? `いちばん多い理由は「${label([...stats].sort((a, b) => Number(b.reports) - Number(a.reports))[0].reason as StuckReason)}」。` : ""}
+          {na ? "本当に対象外か不安なときは、窓口に一度聞くと安心です。" : "運営が案内の書き方を直す材料にします。窓口に聞くときは、母子手帳と身分証を持っていくと早いです。"}
         </p>
         <button type="button" onClick={onClose} className="btn btn-ghost">閉じる</button>
       </div>
@@ -91,9 +98,10 @@ function StuckBox({ step, state, week, onSave, onClose }: { step: Step; state: F
   }
   return (
     <form onSubmit={submit} className="card card-ai space-y-3">
-      <p className="text-base font-bold">どこがわからないですか（1つ）</p>
+      <p className="text-base font-bold">{na ? "該当しない理由にいちばん近いもの（1つ）" : "どこがわからないですか（1つ）"}</p>
+      {na ? <p className="text-base text-slate-600">理由を選ぶと「終わったもの」に入ります。あとから元に戻せます。</p> : null}
       <div className="space-y-1">
-        {STUCK_REASONS.map((r) => (
+        {reasons.map((r) => (
           <label key={r.value} className="flex min-h-11 items-center gap-3 text-base">
             <input type="radio" name={`stuck-${step.id}`} className="check" checked={reason === r.value} onChange={() => setReason(r.value)} />
             {r.label}
@@ -109,7 +117,7 @@ function StuckBox({ step, state, week, onSave, onClose }: { step: Step; state: F
       </label>
       {error ? <p role="alert" className="notice notice-warn">{error}</p> : null}
       <div className="flex flex-wrap gap-3">
-        <button type="submit" disabled={sending} className="btn btn-primary">{sending ? "送っています…" : "記録する"}</button>
+        <button type="submit" disabled={sending} className="btn btn-primary">{sending ? "送っています…" : na ? "該当しないにする" : "記録する"}</button>
         <button type="button" onClick={onClose} className="btn btn-ghost">やめる</button>
       </div>
     </form>
@@ -121,9 +129,10 @@ function ActionCard({ action, today, emphasized, regionCode, state, week, rules,
   const family = toFamily(state);
   const window = applyWindowOf(step, { ...family, held_documents: expandHeldDocuments(family.held_documents, rules.documents) }, rules.documents);
   const targets = classifyApplyTo(step.channel, step.region_code);
-  const [asking, setAsking] = useState(false);
+  const [asking, setAsking] = useState<"stuck" | "na" | null>(null);
   const stuck = state.stuck.find((x) => x.step_id === step.id);
   const mark = TARGET_ICON[targets[0] ?? "ward"];
+  const who = whoOf(step, state.assignments);
   const event = eventOfStep(step, window, state.region_name);
   return (
     <article className={emphasized ? "card card-hero space-y-3" : "card card-quiet space-y-2"}>
@@ -151,7 +160,7 @@ function ActionCard({ action, today, emphasized, regionCode, state, week, rules,
           <Icon name={window.until.date < today ? "alert" : "clock"} className="mt-1 size-6 shrink-0 text-amber-800" />
           <span>
             <span className="font-bold text-amber-900">{isApplication(step.title) ? "申請期限" : "期限"}: {fmt(window.until.date)}まで{window.until.estimated ? "（推定）" : ""}</span>
-            {window.until.date < today ? <span className="block font-bold text-amber-900">期限を過ぎています。早めに窓口へ。</span> : null}
+            {window.until.date < today ? <span className="block font-normal text-slate-700">期限は過ぎていますが、過ぎても受け付けてもらえる手続きが多いです。体調のよいときに窓口へ相談してください。</span> : null}
           </span>
         </p>
       ) : window.from?.text ? (
@@ -160,6 +169,15 @@ function ActionCard({ action, today, emphasized, regionCode, state, week, rules,
           <span>{isApplication(step.title) ? "申請可能な時期" : "できる時期"}: {window.from.text}</span>
         </p>
       ) : null}
+      {/* 担当: パートナーと分担するための目安。押して付け替えられる */}
+      <p className="flex flex-wrap items-center gap-2 text-base">
+        <span className={`rounded-md border px-2 py-0.5 font-bold ${who.who === "partner" ? "border-emerald-200 bg-emerald-50 text-emerald-800" : who.who === "mother" ? "border-amber-200 bg-amber-50 text-amber-800" : "border-slate-300 bg-slate-50 text-slate-700"}`}>
+          {WHO_LABEL[who.who]}{who.assigned ? "" : "（目安）"}
+        </span>
+        <button type="button" onClick={() => onSave(assignStep(state, step.id, who.who === "partner" ? "mother" : "partner"))} className="link min-h-9">
+          {who.who === "partner" ? "本人がやるにする" : "パートナーがやるにする"}
+        </button>
+      </p>
       {event ? (
         <a href={googleCalendarUrl(event)} target="_blank" rel="noopener noreferrer" className="link">
           <Icon name="calendar" className="mr-1.5 size-5" />
@@ -190,18 +208,18 @@ function ActionCard({ action, today, emphasized, regionCode, state, week, rules,
         </p>
       ) : null}
       {asking ? (
-        <StuckBox step={step} state={state} week={week} onSave={onSave} onClose={() => setAsking(false)} />
+        <StuckBox step={step} state={state} week={week} mode={asking} onSave={onSave} onClose={() => setAsking(null)} />
       ) : (
         <div className="grid grid-cols-2 gap-3">
           <button type="button" onClick={() => onMark(step, "done")} className="btn btn-done col-span-2">
             <Icon name="check" className="size-5" />
             完了した
           </button>
-          <button type="button" onClick={() => onMark(step, "not_applicable")} className={`btn btn-ghost ${stuck ? "col-span-2" : ""}`}>
+          <button type="button" onClick={() => setAsking("na")} className={`btn btn-ghost ${stuck ? "col-span-2" : ""}`}>
             該当しない
           </button>
           {!stuck ? (
-            <button type="button" onClick={() => setAsking(true)} className="btn btn-ghost">
+            <button type="button" onClick={() => setAsking("stuck")} className="btn btn-ghost">
               わからない
             </button>
           ) : null}
@@ -218,6 +236,7 @@ export function TodoList() {
   const [failed, setFailed] = useState(false);
   const [surveys, setSurveys] = useState<Survey[]>([]);
   const [applyTo, setApplyTo] = useState<ApplyTo | "all">("all");
+  const [whoFilter, setWhoFilter] = useState<"all" | "partner" | "mother">("all");
   const notifyAvailable = useNotifyAvailable();
   const today = todayLocal();
 
@@ -262,7 +281,12 @@ export function TodoList() {
   // カレンダー: 日付のある手続きをまとめて .ics に（期限の7日前に通知の印）
   const familyNow = toFamily(state);
   const held = expandHeldDocuments(familyNow.held_documents, rules.documents);
-  const events = result.actions.map((a) => eventOfStep(a.step, applyWindowOf(a.step, { ...familyNow, held_documents: held }, rules.documents), state.region_name)).filter((e) => e != null);
+  const events = [
+    ...result.actions.map((a) => eventOfStep(a.step, applyWindowOf(a.step, { ...familyNow, held_documents: held }, rules.documents), state.region_name)).filter((e) => e != null),
+    ...reentryEvents(state, typeof window === "undefined" ? undefined : window.location.origin),
+  ];
+  const loss = state.loss === true && state.birth_date != null;
+  const provisional = state.due_date_basis != null && state.due_date_basis !== "known";
   const finished = state.progress.filter((p) => stepById.has(p.step_id));
   const mark = (step: Step, status: "done" | "not_applicable") => save(markStep(state, step, status, today));
 
@@ -274,17 +298,46 @@ export function TodoList() {
 
   return (
     <div className="space-y-6">
-      <header className="space-y-1">
-        <SectionHeading as="h1" icon="flag" tone="hero" className="text-[2.2rem]">今週やること</SectionHeading>
-        <p className="text-base text-gray-700">
-          {state.region_name}
-          {state.birth_date ? `・出産日 ${fmt(state.birth_date)}` : `・いま妊娠${result.gestational_week}週・予定日 ${fmt(state.due_date)}`}
-        </p>
+      <header className="space-y-2">
+        {loss ? (
+          <>
+            <SectionHeading as="h1" icon="heart" tone="slate" className="text-[2.2rem]">これからの手続き</SectionHeading>
+            <p className="text-base text-gray-700">{state.region_name}・妊娠が終わった日 {fmt(state.birth_date!)}。ゆっくりで大丈夫です。必要なときに見てください。</p>
+          </>
+        ) : (
+          <>
+            <SectionHeading as="h1" icon="flag" tone="hero" className="text-[2.2rem]">今週やること</SectionHeading>
+            <p className="text-base text-gray-700">
+              {state.region_name}
+              {state.birth_date ? `・出産日 ${fmt(state.birth_date)}` : `・いま妊娠${result.gestational_week}週・予定日 ${fmt(state.due_date)}${provisional ? "（仮）" : ""}`}
+            </p>
+            {provisional && !state.birth_date ? (
+              <p className="notice notice-info">
+                予定日は仮です（{BASIS_LABEL[state.due_date_basis!]}）。期限もその前提の目安です。病院で予定日がわかったら、<Link href="/navi" className="link-inline">入力を直す</Link>で直してください。
+              </p>
+            ) : null}
+          </>
+        )}
         <div className="flex flex-wrap gap-x-4">
           <Link href="/navi" className="link">入力を直す（紙が増えたとき・出産したとき）</Link>
-          {notifyAvailable ? <Link href="/notify" className="link">期限が近づいたらメールで知らせる</Link> : null}
+          <Link href="/share" className="link">パートナーの端末にも出す（QR）</Link>
+          {notifyAvailable && !loss ? <Link href="/notify" className="link">期限が近づいたらメールで知らせる</Link> : null}
         </div>
+        <LangHint />
       </header>
+
+      {loss && rules.contacts.length > 0 ? (
+        <section className="space-y-3">
+          <SectionHeading icon="phone" tone="blue">話せるところ</SectionHeading>
+          <ContactList
+            contacts={rules.contacts.filter((c) => /流産|死産|亡くされた|妊娠相談/.test(`${c.name}${c.topics ?? ""}`))}
+            regionCode={state.region_code}
+            regionName={state.region_name}
+            showAll
+            intro="気持ちのことも、手続きのことも、話せるところです。番号を押すと電話がかかります。急がなくて大丈夫です。"
+          />
+        </section>
+      ) : null}
 
       {(() => {
         const done = finished.length;
@@ -308,7 +361,7 @@ export function TodoList() {
             <IconTile name="calendar" tone="violet" size="size-12" />
             <div>
               <h2 id="cal" className="text-xl font-bold text-ink">期限をカレンダーに入れる</h2>
-              <p className="text-base text-slate-600">{events.length}件の期限。7日前にお知らせが鳴ります。</p>
+              <p className="text-base text-slate-600">{events.length}件。期限は7日前にお知らせ。{loss ? "" : state.birth_date ? "出産後30日に「届いた紙を足す」の予定も入れます。" : "出産予定日に「出産日を入れる」の予定も入れます。"}</p>
             </div>
           </div>
           <button type="button" onClick={() => downloadIcs(icsOf(events))} className="btn btn-primary btn-wide">
@@ -334,7 +387,7 @@ export function TodoList() {
         </p>
       ) : null}
 
-      {asking?.survey ? (
+      {asking?.survey && !loss ? (
         <SurveyCard
           key={asking.stepId}
           survey={asking.survey}
@@ -344,12 +397,14 @@ export function TodoList() {
         />
       ) : null}
 
+      {!loss ? (
       <section className="space-y-3">
         <SectionHeading icon="document">もらった紙はどれ？</SectionHeading>
         <Disclosure summary="病院や区でもらった紙を調べる">
           <DocumentGuide documents={rules.documents} steps={rules.steps} regionCode={state.region_code} />
         </Disclosure>
       </section>
+      ) : null}
 
       <section className="space-y-3">
         <SectionHeading icon="next" tone="hero">次にやること</SectionHeading>
@@ -357,7 +412,7 @@ export function TodoList() {
           <ActionCard action={result.current} today={today} emphasized regionCode={state.region_code} state={state} week={state.birth_date ? null : result.gestational_week} rules={rules} onMark={mark} onSave={save} />
         ) : (
           <p className="notice notice-done">
-            いま出せる手続きは、すべて終わっています。新しい紙を受け取ったら「入力を直す」から追加してください。
+            {loss ? "いま出せる手続きは、すべて終わっています。" : "いま出せる手続きは、すべて終わっています。新しい紙を受け取ったら「入力を直す」から追加してください。"}
           </p>
         )}
       </section>
@@ -371,7 +426,7 @@ export function TodoList() {
                 <span className="flex items-center gap-2">
                   <Icon name={p.status === "done" ? "checkCircle" : "next"} className={`size-6 shrink-0 ${p.status === "done" ? "text-done" : "text-slate-400"}`} />
                   <span className={p.status === "done" ? "font-bold text-done" : "text-gray-600"}>{p.status === "done" ? "完了" : "該当しない"}</span>
-                  ：{stepById.get(p.step_id)!.title}
+                  ：{stepById.get(p.step_id)!.title}{p.reason ? <span className="block text-gray-600">理由: {naLabel(p.reason)}</span> : null}
                 </span>
                 <button type="button" onClick={() => save(clearStep(state, p.step_id))} className="btn btn-ghost">
                   元に戻す
@@ -381,7 +436,7 @@ export function TodoList() {
           </ul>
         </section>
       ) : null}
-      {rules.contacts.length > 0 ? (
+      {rules.contacts.length > 0 && !loss ? (
         <section className="space-y-3">
           <SectionHeading icon="phone" tone="blue">困ったら、ここに聞く</SectionHeading>
           <Disclosure summary="窓口と電話相談を見る">
@@ -394,6 +449,13 @@ export function TodoList() {
         <section className="space-y-3">
           <SectionHeading icon="calendar" tone="violet">このあと</SectionHeading>
           <p className="text-base text-gray-600">期限が近い順。先に終わったものはここでチェックできます。</p>
+          <div role="group" aria-label="担当で絞る" className="flex flex-wrap gap-1 rounded-2xl border border-white/70 bg-white/70 p-1">
+            {(["all", "partner", "mother"] as const).map((w) => (
+              <button key={w} type="button" aria-pressed={whoFilter === w} onClick={() => setWhoFilter(w)} className={`min-h-11 rounded-xl px-3 text-sm font-bold ${whoFilter === w ? "bg-gradient-to-br from-emerald-600 to-teal-600 text-white" : "text-slate-700 hover:bg-white"}`}>
+                {w === "all" ? "本人もパートナーも" : w === "partner" ? "パートナーの分" : "本人の分"}
+              </button>
+            ))}
+          </div>
           {(() => {
             const present = new Set(result.upcoming.flatMap((a) => classifyApplyTo(a.step.channel, a.step.region_code)));
             if (present.size < 2) return null;
@@ -408,7 +470,7 @@ export function TodoList() {
               </div>
             );
           })()}
-          {result.upcoming.filter((a) => applyTo === "all" || classifyApplyTo(a.step.channel, a.step.region_code).includes(applyTo)).map((a) => <ActionCard key={a.step.id} action={a} today={today} emphasized={false} regionCode={state.region_code} state={state} week={state.birth_date ? null : result.gestational_week} rules={rules} onMark={mark} onSave={save} />)}
+          {result.upcoming.filter((a) => applyTo === "all" || classifyApplyTo(a.step.channel, a.step.region_code).includes(applyTo)).filter((a) => whoFilter === "all" || whoOf(a.step, state.assignments).who === whoFilter || (whoFilter === "partner" && whoOf(a.step, state.assignments).who === "either")).map((a) => <ActionCard key={a.step.id} action={a} today={today} emphasized={false} regionCode={state.region_code} state={state} week={state.birth_date ? null : result.gestational_week} rules={rules} onMark={mark} onSave={save} />)}
         </section>
       ) : null}
 

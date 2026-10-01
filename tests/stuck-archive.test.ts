@@ -124,3 +124,28 @@ describe("家族の状況で出し分ける手続き（requires）", () => {
     expect(flagsOf({ epidural: "undecided", distance: "any" })).toEqual([]);
   });
 });
+
+describe("流産・死産で妊娠を終えた家族", () => {
+  it("requires: loss の手続きだけが出て、妊娠中・出産後の手続きは出ない。印が無ければ loss の手続きは出ない", async () => {
+    const { resolveNextActions } = await import("../lib/next-actions");
+    const { seed } = await import("../lib/seed");
+    const { createTestDb, readRules, ROOT } = await import("./helpers/db");
+    const { join } = await import("node:path");
+    const { db } = await createTestDb();
+    await seed(db, join(ROOT, "data"));
+    const rules = await readRules(db);
+    const family = {
+      region_code: "13103", due_date: "2027-04-26", confirmation_date: "2026-08-20", birth_date: "2026-09-28",
+      held_documents: [{ document_id: "jp.heartbeat_confirmed", held_at: "2026-08-20" }, { document_id: "minato.hoken_bag", held_at: "2026-09-01" }],
+      completed_step_ids: [], not_applicable_step_ids: [], flags: ["loss" as const],
+    };
+    const r = resolveNextActions({ family, today: "2026-10-01", ...rules });
+    expect(r.actions.length).toBeGreaterThanOrEqual(4);
+    expect(r.actions.every((a) => a.step.requires === "loss")).toBe(true);
+    // 死産届は7日以内 → 期限が近いので先頭
+    expect(r.current?.step.id).toBe("jp.l01");
+    expect(r.current?.deadline).toBe("2026-10-05");
+    const plain = resolveNextActions({ family: { ...family, flags: [] }, today: "2026-10-01", ...rules });
+    expect(plain.actions.some((a) => a.step.requires === "loss")).toBe(false);
+  });
+});

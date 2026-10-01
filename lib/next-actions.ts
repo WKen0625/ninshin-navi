@@ -84,8 +84,8 @@ export type Step = {
   needs_review: boolean;
 };
 
-/** 家族の状況。multiple = 双子以上／satogaeri = 里帰り出産の予定／foreign_parent = 子が日本国籍にならない（両親とも外国籍など） */
-export type StepFlag = "multiple" | "satogaeri" | "foreign_parent";
+/** 家族の状況。multiple = 双子以上／satogaeri = 里帰り出産の予定／foreign_parent = 子が日本国籍にならない（両親とも外国籍など）／loss = 流産・死産で妊娠を終えた */
+export type StepFlag = "multiple" | "satogaeri" | "foreign_parent" | "loss";
 
 /** 日付はすべて 'YYYY-MM-DD'（時刻・タイムゾーンを持ち込まない） */
 export type Family = {
@@ -241,14 +241,17 @@ export function resolveNextActions(input: {
   //    4. 出産前は出産後の段階を、出産後は妊娠中にしかできないものを隠す  5. 完了済み・該当しないを除外
   const held = new Set(family.held_documents.map((h) => h.document_id));
   const flags = new Set(family.flags ?? []);
+  // 妊娠を終えた（流産・死産）家族には、そのための手続き（requires: loss）だけを出す。妊娠中・出産後の手続きは出さない
+  const loss = flags.has("loss");
   // 完了と「該当しない」は、どちらも一覧から外す
   const completed = new Set([...family.completed_step_ids, ...family.not_applicable_step_ids]);
   const candidates = inScope.filter(
     (s) =>
       !overridden.has(s.id) &&
+      (loss ? s.requires === "loss" : s.requires !== "loss") &&
       (s.trigger_document_id == null || held.has(s.trigger_document_id)) &&
       (s.requires == null || flags.has(s.requires)) &&
-      (family.birth_date != null ? !onlyDuringPregnancy(s) : !AFTER_BIRTH_PHASES.has(s.phase)) &&
+      (loss || (family.birth_date != null ? !onlyDuringPregnancy(s) : !AFTER_BIRTH_PHASES.has(s.phase))) &&
       !completed.has(s.id),
   );
 

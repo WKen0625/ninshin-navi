@@ -19,6 +19,14 @@ contacts:
     url: https://www.tfd.metro.tokyo.lg.jp/lfe/kyuu-adv/soudan-center.htm
     source_url: https://www.tfd.metro.tokyo.lg.jp/lfe/kyuu-adv/soudan-center.htm
     verified_at: 2026-09-25
+  - id: tokyo.c_loss
+    name: 赤ちゃんを亡くされたご家族のための電話相談（東京都）
+    topics: 流産・死産・病気・事故などで赤ちゃんを亡くした家族の相談。保健師・助産師か、同じ体験をした家族（ビフレンダー）が聞く
+    phone: "03-5320-4388"
+    hours: 毎週金曜 10時〜16時（休日・年末年始を除く）
+    url: https://www.fukushi.metro.tokyo.lg.jp/kodomo/sodan/sids
+    source_url: https://www.fukushi.metro.tokyo.lg.jp/kodomo/sodan/sids
+    verified_at: 2026-10-01
   - id: tokyo.c_hotline
     name: 東京都妊娠相談ほっとライン
     topics: 妊娠・出産の悩みを、看護師・助産師に匿名で相談（電話・メール）
