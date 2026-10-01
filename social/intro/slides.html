@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<style>
+  :root { --ink:#1e1b4b; --indigo:#4f46e5; --violet:#7c3aed; --sky:#0ea5e9; --amber:#92400e; }
+  * { box-sizing:border-box; margin:0; }
+  html,body { width:1080px; height:1350px; font-family:"Hiragino Sans","Noto Sans JP",sans-serif; color:#1f2340; font-feature-settings:"palt"; }
+  body { background:#f7f7fc;
+    background-image: radial-gradient(60rem 32rem at 110% -10%, rgb(167 139 250 / .28), transparent 60%),
+      radial-gradient(48rem 28rem at -20% 8%, rgb(125 211 252 / .3), transparent 60%),
+      radial-gradient(40rem 30rem at 50% 120%, rgb(199 210 254 / .4), transparent 60%); }
+  .slide { width:1080px; height:1350px; overflow:hidden; padding:96px 88px 190px; display:flex; flex-direction:column; gap:40px; position:relative; }
+  .brand { display:flex; align-items:center; gap:18px; }
+  .mark { width:72px; height:72px; border-radius:22px; background:linear-gradient(135deg,#4f46e5,#7c3aed 60%,#0ea5e9); display:grid; place-items:center; box-shadow:0 18px 40px -16px rgb(99 102 241 / .6); }
+  .mark svg { width:44px; height:44px; stroke:#fff; stroke-width:2.6; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+  .brand b { font-size:40px; color:var(--ink); }
+  .brand span { font-size:26px; color:#64748b; display:block; }
+  .chip { align-self:flex-start; background:linear-gradient(90deg,#4f46e5,#7c3aed); color:#fff; font-weight:700; font-size:30px; padding:12px 28px; border-radius:999px; }
+  h1 { font-size:88px; line-height:1.18; font-weight:800; color:var(--ink); letter-spacing:-.01em; }
+  h1 .g { background:linear-gradient(90deg,#4f46e5,#7c3aed,#0ea5e9); -webkit-background-clip:text; color:transparent; }
+  h2 { font-size:64px; line-height:1.25; font-weight:800; color:var(--ink); }
+  p.lead { font-size:38px; line-height:1.6; color:#334155; }
+  .card { background:#fff; border:4px solid #e2e8f0; border-radius:40px; padding:44px 48px; box-shadow:0 8px 24px -12px rgb(30 27 75 / .15); }
+  .hero { border:4px solid transparent; background:linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#6366f1,#a855f7 55%,#38bdf8) border-box; box-shadow:0 30px 60px -24px rgb(99 102 241 / .5); }
+  .row { display:flex; align-items:center; gap:28px; }
+  .tile { width:96px; height:96px; border-radius:28px; display:grid; place-items:center; flex:none; }
+  .tile svg { width:56px; height:56px; stroke:currentColor; stroke-width:2.2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+  .t-indigo{background:#e0e7ff;color:#4338ca} .t-blue{background:#dbeafe;color:#1d4ed8} .t-green{background:#d1fae5;color:#047857} .t-amber{background:#fef3c7;color:#92400e} .t-sky{background:#e0f2fe;color:#0369a1} .t-hero{background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff}
+  .big { font-size:44px; font-weight:800; color:var(--ink); line-height:1.3; }
+  .sub { font-size:32px; color:#475569; line-height:1.5; }
+  .foot { position:absolute; left:88px; right:88px; bottom:72px; display:flex; justify-content:space-between; align-items:center; font-size:30px; color:#64748b; }
+  .foot b { color:var(--indigo); }
+  .dots { display:flex; gap:10px; } .dots i { width:14px; height:14px; border-radius:50%; background:#c7d2fe; } .dots i.on { background:var(--indigo); width:36px; border-radius:7px; }
+  .q { font-size:56px; font-weight:800; color:var(--ink); line-height:1.3; }
+  .muted { color:#94a3b8; }
+  .deadline { color:var(--amber); font-weight:800; font-size:40px; display:flex; align-items:center; gap:14px; }
+  .btn { background:linear-gradient(90deg,#4f46e5,#7c3aed); color:#fff; font-weight:800; font-size:40px; padding:28px; border-radius:28px; text-align:center; box-shadow:0 18px 40px -16px rgb(99 102 241 / .6); }
+  .btn-done { background:#059669; color:#fff; font-weight:800; font-size:36px; padding:22px; border-radius:24px; text-align:center; }
+  .url { font-size:64px; font-weight:800; color:var(--ink); letter-spacing:.01em; }
+  .qr { width:320px; height:320px; border-radius:28px; background:#fff; padding:16px; border:4px solid #e2e8f0; }
+  #s2 .card.row, #s4 .card.row { padding:28px 40px; gap:24px; } #s2 .big, #s4 .big { font-size:40px; } #s2 .sub, #s4 .sub { font-size:29px; } #s2, #s4 { gap:28px; } #s2 .tile, #s4 .tile { width:84px; height:84px; }
+  .cross { font-size:34px; color:#64748b; line-height:1.6; }
+</style>
+</head>
+<body>
+<!-- 1 表紙 -->
+<section class="slide" id="s1">
+  <div class="brand"><div class="mark"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><div><b>Tsugiraku</b><span>次にやることが、すぐわかる</span></div></div>
+  <div class="chip">✦ 東京23区に住む妊婦さんとご家族へ</div>
+  <h1>妊娠後の手続きで<br><span class="g">「次に何をするか」</span><br>がすぐわかる</h1>
+  <p class="lead">役所の手続き、分娩予約の締切、もらえるお金。ばらばらに調べなくても、いまのあなたに必要な「次にやること」を、出典つきで1件ずつ出します。</p>
+  <div class="row" style="margin-top:24px; gap:20px">
+    <div class="card" style="padding:22px 34px; font-size:34px; font-weight:800; color:#047857">無料</div>
+    <div class="card" style="padding:22px 34px; font-size:34px; font-weight:800; color:#1d4ed8">ログインなし</div>
+    <div class="card" style="padding:22px 34px; font-size:34px; font-weight:800; color:#4338ca">広告なし</div>
+  </div>
+  <div class="foot"><span><b>tsugiraku.jp</b></span><div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i></div></div>
+</section>
+
+<!-- 2 困りごと -->
+<section class="slide" id="s2">
+  <div class="chip">✦ こんなこと、ありませんか</div>
+  <h2>妊娠がわかった。<br>でも、何から？いつまで？</h2>
+  <div class="card row"><div class="tile t-blue"><svg viewBox="0 0 24 24"><path d="M4 21V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v16M4 21h16M9 8h2M13 8h2M9 12h2M13 12h2M9 16h2M13 16h2"/></svg></div><div><div class="big">妊娠届は、いつ・どこに？</div><div class="sub">区役所？保健所？心拍の確認は先？</div></div></div>
+  <div class="card row"><div class="tile t-sky"><svg viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14M9 21v-5h6v5M12 8v4M10 10h4"/></svg></div><div><div class="big">分娩予約、もう締切？</div><div class="sub">人気の病院は妊娠10週前後で埋まることも</div></div></div>
+  <div class="card row"><div class="tile t-green"><svg viewBox="0 0 24 24"><path d="M3 7h18v10H3zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM6 10h.01M18 14h.01"/></svg></div><div><div class="big">結局、いくら払うの？</div><div class="sub">一時金・区の助成・無痛分娩の費用…</div></div></div>
+  <div class="card row"><div class="tile t-amber"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v5h5M9 13h6M9 17h6"/></svg></div><div><div class="big">病院でもらった紙、どれが何？</div><div class="sub">初診のあと、袋いっぱいの書類</div></div></div>
+  <div class="foot"><span><b>tsugiraku.jp</b></span><div class="dots"><i></i><i class="on"></i><i></i><i></i><i></i></div></div>
+</section>
+
+<!-- 3 仕組み -->
+<section class="slide" id="s3">
+  <div class="chip">✦ 使い方は4つ入れるだけ（約1分）</div>
+  <h2 style="font-size:54px">区・予定日・希望・手元の紙を入れると<br>「次にやること」が1件出ます</h2>
+  <div class="card hero" style="display:flex; flex-direction:column; gap:22px; padding:36px 44px">
+    <div class="chip">✦ Next Action</div>
+    <div class="row"><div class="tile t-blue"><svg viewBox="0 0 24 24"><path d="M4 21V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v16M4 21h16M9 8h2M13 8h2M9 12h2M13 12h2M9 16h2M13 16h2"/></svg></div><div class="big" style="font-size:44px">妊娠届を出し、母子健康手帳を受け取る</div></div>
+    <div class="deadline" style="font-size:36px">⏰ 申請可能な時期: 心拍を確認した日から</div>
+    <div class="sub">出典・港区のページへ飛ぶ ・ 確認日 2026/09/25</div>
+    <div class="btn-done">✓ 完了した</div>
+  </div>
+  <p class="lead" style="font-size:34px">「完了した」を押すと次の1件。期限が近いものは自動でいちばん上に。</p>
+  <div class="foot"><span><b>tsugiraku.jp</b></span><div class="dots"><i></i><i></i><i class="on"></i><i></i><i></i></div></div>
+</section>
+
+<!-- 4 約束 -->
+<section class="slide" id="s4">
+  <div class="chip">✦ 安心して使えるように、守っていること</div>
+  <h2>すべての数字に、<br>出典と確認日</h2>
+  <div class="card row"><div class="tile t-indigo"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v5h5M9 13h6M9 17h6"/></svg></div><div><div class="big">区・都・国の公式ページへのリンク</div><div class="sub">出典のない情報は、仕組みのうえで表示できません</div></div></div>
+  <div class="card row"><div class="tile t-green"><svg viewBox="0 0 24 24"><path d="M6 11h12v10H6zM8 11V7a4 4 0 0 1 8 0v4"/></svg></div><div><div class="big">名前もログインも、要りません</div><div class="sub">入力はあなたの端末の中にだけ保存</div></div></div>
+  <div class="card row"><div class="tile t-sky"><svg viewBox="0 0 24 24"><path d="M6 3v6a5 5 0 0 0 10 0V3M11 14v3a4 4 0 0 0 8 0v-2M19 13a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><div class="big">医療の判断はしません</div><div class="sub">手続き・締切・お金の案内だけ。体のことは医療機関へ</div></div></div>
+  <div class="card row"><div class="tile t-amber"><svg viewBox="0 0 24 24"><path d="M7 3v3M17 3v3M4 8h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zM8 13h3M8 17h5"/></svg></div><div><div class="big">期限はカレンダーに入れられる</div><div class="sub">パートナーのスマホにもQRで写せます</div></div></div>
+  <div class="foot"><span><b>tsugiraku.jp</b></span><div class="dots"><i></i><i></i><i></i><i class="on"></i><i></i></div></div>
+</section>
+
+<!-- 5 CTA -->
+<section class="slide" id="s5" style="align-items:center; text-align:center; justify-content:flex-start; gap:36px; padding-top:80px">
+  <div class="brand"><div class="mark"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><div><b>Tsugiraku Navi</b></div></div>
+  <h2 style="font-size:60px">まず、4つ入れてみてください。<br><span style="color:#4f46e5">約1分です。</span></h2>
+  <img class="qr" id="qr" alt="">
+  <div class="url">tsugiraku.jp</div>
+  <div class="btn" style="width:100%; font-size:36px; padding:22px">→ プロフィールのリンクから</div>
+  <p class="cross" style="font-size:30px">日本語のほか English・中文・한국어・Русский の案内あり<br>東京23区に対応（ほかの市区町村は準備中）</p>
+  <div class="foot"><span><b>tsugiraku.jp</b></span><div class="dots"><i></i><i></i><i></i><i></i><i class="on"></i></div></div>
+</section>
+</body>
+</html>
