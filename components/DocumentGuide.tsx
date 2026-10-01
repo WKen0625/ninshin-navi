@@ -14,7 +14,9 @@ const ORDER = ["hospital", "ward", "employer", "insurer", "tokyo", "national", "
 export function DocumentGuide({ documents, steps, regionCode }: { documents: DocumentDef[]; steps: Step[]; regionCode: string }) {
   const nameOf = new Map(documents.map((d) => [d.id, d.name ?? d.id]));
   const list = documents.filter((d) => d.issued_by || d.description || d.includes.length > 0).filter((d) => !/\.(none_yet|other)$/.test(d.id));
-  const groups = ORDER.map((k) => ({ key: k, label: ISSUER[k], docs: list.filter((d) => (d.issued_by ?? "other") === k) })).filter((g) => g.docs.length > 0);
+  // 区のファイルにある紙で issued_by が無いものは、区役所・保健センターの紙とみなす
+  const issuer = (d: DocumentDef) => d.issued_by ?? (/^\d{5}$/.test(d.region_code ?? "") ? "ward" : "other");
+  const groups = ORDER.map((k) => ({ key: k, label: ISSUER[k], docs: list.filter((d) => issuer(d) === k) })).filter((g) => g.docs.length > 0);
   // 区の紙は自分の区のものを先に
   for (const g of groups) g.docs.sort((a, b) => Number(b.region_code === regionCode) - Number(a.region_code === regionCode));
   return (
