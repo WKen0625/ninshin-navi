@@ -21,7 +21,7 @@ export function DocumentGuide({ documents, steps, regionCode }: { documents: Doc
   for (const g of groups) g.docs.sort((a, b) => Number(b.region_code === regionCode) - Number(a.region_code === regionCode));
   return (
     <div className="space-y-3">
-      <p className="text-base text-gray-700">病院や区でまとめて渡される紙を、名前から探せます。押すと「何の紙か」「どうするか」が出ます。</p>
+      <p className="text-base text-gray-700">紙の名前を押すと「何の紙か」「どうするか」が出ます。</p>
       {groups.map((g) => (
         <Disclosure key={g.key} summary={`${g.label}（${g.docs.length}）`}>
           <ul className="space-y-2">

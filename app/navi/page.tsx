@@ -15,7 +15,7 @@ export default function NaviPage() {
           <span className="bg-gradient-to-r from-indigo-600 via-violet-600 to-sky-500 bg-clip-text text-transparent">次にやること</span>
           を出します
         </h1>
-        <p className="text-base text-slate-600">住んでいる区・出産予定日・手元にある紙から、手続きの順番、分娩予約の締切、お金の目安がわかります。名前やメールアドレスは要りません。</p>
+        <p className="text-base text-slate-600">名前やメールアドレスは要りません。約1分です。</p>
       </header>
       <EntryForm area={area} />
     </div>

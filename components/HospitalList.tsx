@@ -235,7 +235,7 @@ export function HospitalList() {
           {state.region_name}でお産ができる施設
           {state.birth_date ? "" : `・いま妊娠${gestationalWeek(state.due_date, today)}週`}
         </p>
-        <p className="text-base text-gray-700">並びは、施設が公表している予約の目安の週が早い順です。おすすめ順ではありません。</p>
+        <p className="text-base text-gray-700">並びは予約の締切が早い順（おすすめ順ではありません）。</p>
       </header>
 
       {data.facilities.length === 0 ? (
@@ -286,9 +286,9 @@ export function HospitalList() {
               ),
             )}
           </section>
-          <p className="text-base text-gray-600">
-            施設の基本情報と費用の出所: 厚生労働省「出産なび」。無痛分娩の欄は施設の自己申告で、実際に受けられるかは施設の判断によります。
-          </p>
+          <Disclosure summary="この一覧の出どころ">
+            <p>施設の基本情報と費用: 厚生労働省「出産なび」。無痛分娩は施設の自己申告で、実際に受けられるかは施設の判断です。</p>
+          </Disclosure>
         </>
       )}
 

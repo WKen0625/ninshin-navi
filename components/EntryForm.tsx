@@ -7,6 +7,7 @@ import type { DocumentDef } from "@/lib/next-actions";
 import type { Rules } from "@/lib/rules";
 import { normalizePostal } from "@/lib/geo";
 import { DocumentPicker } from "./DocumentPicker";
+import { Disclosure } from "./Disclosure";
 import { SourceLink } from "./SourceLink";
 import { todayLocal, useFamilyState } from "./useFamilyState";
 
@@ -135,11 +136,11 @@ export function EntryForm({ area }: { area: Area }) {
               {area.municipalities.map((m) => <option key={m.code} value={m.code}>{m.name}</option>)}
             </select>
           </label>
-          <p className="text-base text-gray-600">
-            いまは{area.label}だけです。ほかの市区町村は準備中です。リクエストがあれば、
+          <Disclosure summary="ほかの市区町村は？">
+            <p>いまは{area.label}だけです。ほかの市区町村は準備中です。リクエストは
             <a href={`mailto:${area.contact}?subject=${encodeURIComponent("対象地域のリクエスト")}`} className="link-inline">{area.contact}</a>
-            あてにご連絡ください。
-          </p>
+            へ。</p>
+          </Disclosure>
           {rules && ownRegion?.status !== "verified" ? (
             <p className="notice notice-info">
               {ownRegion ? "この市区町村の情報は確認中です。" : "この市区町村の情報はまだありません。国と都道府県の共通の手続きを表示します。"}
@@ -155,7 +156,7 @@ export function EntryForm({ area }: { area: Area }) {
             出産予定日
             <input type="date" className={field} value={dueDate} onChange={(e) => setDueDate(e.target.value)} />
           </label>
-          <p className="text-base text-gray-600">まだ病院で言われていなければ、最後の生理が始まった日の280日後を入れてください。</p>
+          <p className="text-base text-gray-600">わからなければ、最後の生理が始まった日の280日後。</p>
           <label className="block text-base">
             病院で赤ちゃんの心拍を確認した日（わかれば）
             <input type="date" className={field} value={confirmationDate} onChange={(e) => setConfirmationDate(e.target.value)} />
@@ -192,7 +193,7 @@ export function EntryForm({ area }: { area: Area }) {
               <option value={2}>2人（双子）</option>
               <option value={3}>3人以上</option>
             </select>
-            <span className="block text-gray-600">双子以上のときは、健診の追加助成や産休の日数など、多胎の手続きを出します。</span>
+
           </label>
           <label className="flex min-h-11 items-center gap-3 text-base">
             <input type="checkbox" className="check" checked={preferences.satogaeri === true} onChange={(e) => setPreferences({ ...preferences, satogaeri: e.target.checked })} />
@@ -200,10 +201,10 @@ export function EntryForm({ area }: { area: Area }) {
           </label>
           <label className="flex min-h-11 items-start gap-3 text-base">
             <input type="checkbox" className="check mt-1" checked={preferences.foreign_parent === true} onChange={(e) => setPreferences({ ...preferences, foreign_parent: e.target.checked })} />
-            <span>生まれる子が日本国籍にならない（両親とも外国籍など）<span className="block text-gray-600">在留資格の取得など、外国籍の家族の手続きを出します。</span></span>
+            <span>生まれる子が日本国籍にならない（両親とも外国籍など）</span>
           </label>
           <label className="block text-base">
-            自宅の郵便番号（7桁。病院までの時間の目安を出すためだけに使います）
+            自宅の郵便番号（任意・7桁）
             <input
               type="text"
               inputMode="numeric"
@@ -214,10 +215,10 @@ export function EntryForm({ area }: { area: Area }) {
               value={postal}
               onChange={(e) => setPostal(e.target.value)}
             />
-            <span className="block text-gray-600">番地や住所は要りません。郵便番号はこの端末の中にだけ保存します。</span>
+            <span className="block text-gray-600">病院までの時間の目安に使います。この端末の中にだけ保存。</span>
           </label>
           <label className="block text-base">
-            自宅から病院までの時間（郵便番号からの直線距離で出す目安です）
+            自宅から病院までの時間
             <select className={field} value={preferences.distance} onChange={(e) => setPreferences({ ...preferences, distance: e.target.value as Preferences["distance"] })}>
               <option value="any">こだわらない</option>
               <option value="30min">30分以内</option>
@@ -250,7 +251,7 @@ export function EntryForm({ area }: { area: Area }) {
       <button type="submit" className="btn btn-primary w-full text-lg">
         今週やることを見る
       </button>
-      <p className="text-base text-gray-600">入力した内容は、この端末の中にだけ保存します。名前やメールアドレスは要りません。</p>
+      <p className="text-base text-gray-600">入力はこの端末の中にだけ保存します。</p>
     </form>
   );
 }
