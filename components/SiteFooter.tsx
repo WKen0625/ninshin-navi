@@ -18,7 +18,7 @@ export function SiteFooter() {
   }, [lang]);
 
   return (
-    <footer className="mx-auto max-w-xl space-y-1 px-4 pb-32 pt-6 text-base text-slate-600" lang={lang}>
+    <footer className="mx-auto max-w-2xl space-y-1 px-4 pb-32 pt-6 text-base text-slate-600" lang={lang}>
       {/* 設計原則10: 医療的判断を返さない。全画面に添える。 */}
       <p className="notice notice-muted">{t.disclaimer}</p>
       <nav aria-label={t.about} className="flex flex-wrap gap-x-4">

@@ -10,6 +10,7 @@ import { gestationalWeek } from "@/lib/next-actions";
 import type { HospitalData } from "@/lib/rules";
 import type { Survey } from "@/lib/surveys";
 import { Disclosure } from "./Disclosure";
+import { SectionHeading } from "./Icon";
 import { FeedbackLink } from "./FeedbackLink";
 import { SurveyCard } from "./SurveyCard";
 import { SourceLink } from "./SourceLink";
@@ -230,7 +231,7 @@ export function HospitalList() {
   return (
     <div className="space-y-6">
       <header className="space-y-1">
-        <h1 className="h-page">病院と締切</h1>
+        <SectionHeading as="h1" icon="hospital" tone="sky" className="text-[2.2rem]">病院と締切</SectionHeading>
         <p className="text-base text-gray-700">
           {state.region_name}でお産ができる施設
           {state.birth_date ? "" : `・いま妊娠${gestationalWeek(state.due_date, today)}週`}
@@ -294,7 +295,7 @@ export function HospitalList() {
 
       {countBookings(archive) > 0 ? (
         <section className="space-y-3">
-          <h2 className="h-section">記録した施設（この端末のアーカイブ）</h2>
+          <SectionHeading icon="pin" tone="slate">記録した施設（この端末のアーカイブ）</SectionHeading>
           <p className="text-base text-gray-700">予約を試した施設の記録です。妊娠ごと（予定日ごと）にまとめて、この端末にずっと残ります。次の妊娠のときも、ここで読み返せます。</p>
           {archive.pregnancies.map((p) => (
             <div key={p.due_date} className="card card-quiet space-y-2">

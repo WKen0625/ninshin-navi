@@ -16,7 +16,7 @@ export function SiteHeader() {
   const lang = langOf(path, useSearchParams().get("lang"));
   const t = HEADER[lang];
   return (
-    <header className="mx-auto max-w-xl space-y-3 px-4 pt-5">
+    <header className="mx-auto max-w-2xl space-y-3 px-4 pt-5">
       <div className="flex items-center justify-between gap-3">
         <Link href={homeOf(lang)} className="flex items-center gap-2.5" aria-label="Tsugiraku">
           <span className="grid size-10 place-items-center rounded-2xl bg-gradient-to-br from-indigo-600 via-violet-600 to-sky-500 text-white shadow-hero">
@@ -47,7 +47,7 @@ export function SiteHeader() {
               key={tab.key}
               href={href}
               aria-current={active ? "page" : undefined}
-              className={`flex min-h-11 flex-1 items-center justify-center rounded-xl px-2 text-center text-sm font-bold leading-tight transition sm:text-base ${
+              className={`flex min-h-12 flex-1 items-center justify-center rounded-xl px-2 text-center text-base font-bold leading-tight transition sm:text-lg ${
                 active ? "bg-gradient-to-br from-indigo-600 to-violet-600 text-white shadow-sm" : "text-slate-700 hover:bg-white"
               }`}
             >

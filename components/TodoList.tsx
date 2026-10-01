@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { applyWindowOf } from "@/lib/apply-window";
+import { downloadIcs, eventOfStep, googleCalendarUrl, icsOf } from "@/lib/calendar";
 import { APPLY_TO_LABEL, classifyApplyTo, type ApplyTo } from "@/lib/apply-to";
 import { clearStep, markStep, markStuck, toFamily, type FamilyState } from "@/lib/family-state";
 import { STUCK_REASONS, stuckLabel, type StuckReason } from "@/lib/stuck";
@@ -12,6 +13,7 @@ import type { Survey } from "@/lib/surveys";
 import { ApplyToChips, ApplyWindowBox, isApplication } from "./ApplyWindow";
 import { ContactBox, ContactList } from "./ContactBox";
 import { Disclosure } from "./Disclosure";
+import { Icon, IconTile, SectionHeading, type IconName, type Tone } from "./Icon";
 import { DocumentGuide } from "./DocumentGuide";
 import { FeedbackLink } from "./FeedbackLink";
 import { SourceLink } from "./SourceLink";
@@ -24,6 +26,15 @@ const fmt = (d: string) => {
 };
 
 type StuckStat = { reason: StuckReason; reports: number };
+
+/** 窓口の種類を絵で見せる: 区役所＝建物（青）／東京都＝塔（紫）／国＝日の丸（灰）／勤務先・健康保険＝かばん（緑）／医療機関＝病院（空色） */
+const TARGET_ICON: Record<ApplyTo, { icon: IconName; tone: Tone }> = {
+  ward: { icon: "building", tone: "blue" },
+  tokyo: { icon: "tower", tone: "violet" },
+  national: { icon: "japan", tone: "slate" },
+  employer: { icon: "briefcase", tone: "green" },
+  facility: { icon: "hospital", tone: "sky" },
+};
 
 /**
  * 「わからない」。理由を1つ選んでもらい、同意があればサーバーに送る（どこでつまずくかの集計のため）。
@@ -112,6 +123,8 @@ function ActionCard({ action, today, emphasized, regionCode, state, week, rules,
   const targets = classifyApplyTo(step.channel, step.region_code);
   const [asking, setAsking] = useState(false);
   const stuck = state.stuck.find((x) => x.step_id === step.id);
+  const mark = TARGET_ICON[targets[0] ?? "ward"];
+  const event = eventOfStep(step, window, state.region_name);
   return (
     <article className={emphasized ? "card card-hero space-y-3" : "card card-quiet space-y-2"}>
       {emphasized ? (
@@ -128,15 +141,30 @@ function ActionCard({ action, today, emphasized, regionCode, state, week, rules,
       ) : action.reason !== "flow" ? (
         <p className="text-base font-bold text-amber-800">{action.reason === "overdue" ? "期限を過ぎています" : "期限が30日以内"}</p>
       ) : null}
-      <h3 className={emphasized ? "text-xl font-bold" : "text-base font-bold"}>{step.title}</h3>
+      <h3 className={`flex items-center gap-3 font-bold leading-snug ${emphasized ? "text-2xl" : "text-lg"}`}>
+        <IconTile name={mark.icon} tone={mark.tone} size={emphasized ? "size-14" : "size-11"} />
+        <span>{step.title}</span>
+      </h3>
       {/* 文字を減らす: 期限の1行だけ常に見せ、やり方・窓口・根拠は押すと開く */}
       {window.until?.date ? (
-        <p className="text-base">
-          <span className="font-bold text-amber-900">{isApplication(step.title) ? "申請期限" : "期限"}: {fmt(window.until.date)}まで{window.until.estimated ? "（推定）" : ""}</span>
-          {window.until.date < today ? <span className="block font-bold text-amber-900">期限を過ぎています。早めに窓口へ。</span> : null}
+        <p className="flex items-start gap-2 text-lg">
+          <Icon name={window.until.date < today ? "alert" : "clock"} className="mt-1 size-6 shrink-0 text-amber-800" />
+          <span>
+            <span className="font-bold text-amber-900">{isApplication(step.title) ? "申請期限" : "期限"}: {fmt(window.until.date)}まで{window.until.estimated ? "（推定）" : ""}</span>
+            {window.until.date < today ? <span className="block font-bold text-amber-900">期限を過ぎています。早めに窓口へ。</span> : null}
+          </span>
         </p>
       ) : window.from?.text ? (
-        <p className="text-base text-gray-700">{isApplication(step.title) ? "申請可能な時期" : "できる時期"}: {window.from.text}</p>
+        <p className="flex items-start gap-2 text-base text-gray-700">
+          <Icon name="calendar" className="mt-1 size-6 shrink-0 text-slate-500" />
+          <span>{isApplication(step.title) ? "申請可能な時期" : "できる時期"}: {window.from.text}</span>
+        </p>
+      ) : null}
+      {event ? (
+        <a href={googleCalendarUrl(event)} target="_blank" rel="noopener noreferrer" className="link">
+          <Icon name="calendar" className="mr-1.5 size-5" />
+          Googleカレンダーに入れる（{fmt(event.date)}）
+        </a>
       ) : null}
       <Disclosure summary="くわしく（やり方・窓口・期限の根拠）" open={false}>
         {step.detail ? <p className="text-base">{step.detail}</p> : null}
@@ -164,12 +192,13 @@ function ActionCard({ action, today, emphasized, regionCode, state, week, rules,
       {asking ? (
         <StuckBox step={step} state={state} week={week} onSave={onSave} onClose={() => setAsking(false)} />
       ) : (
-        <div className="flex flex-wrap gap-3">
-          <button type="button" onClick={() => onMark(step, "done")} className="btn btn-done">
+        <div className="grid grid-cols-2 gap-3">
+          <button type="button" onClick={() => onMark(step, "done")} className="btn btn-done col-span-2">
+            <Icon name="check" className="size-5" />
             完了した
           </button>
-          <button type="button" onClick={() => onMark(step, "not_applicable")} className="btn btn-ghost">
-            自分は該当しない
+          <button type="button" onClick={() => onMark(step, "not_applicable")} className={`btn btn-ghost ${stuck ? "col-span-2" : ""}`}>
+            該当しない
           </button>
           {!stuck ? (
             <button type="button" onClick={() => setAsking(true)} className="btn btn-ghost">
@@ -230,6 +259,10 @@ export function TodoList() {
   if (!result || !rules) return <p className="text-base">読み込み中…</p>;
 
   const stepById = new Map(rules.steps.map((s) => [s.id, s]));
+  // カレンダー: 日付のある手続きをまとめて .ics に（期限の7日前に通知の印）
+  const familyNow = toFamily(state);
+  const held = expandHeldDocuments(familyNow.held_documents, rules.documents);
+  const events = result.actions.map((a) => eventOfStep(a.step, applyWindowOf(a.step, { ...familyNow, held_documents: held }, rules.documents), state.region_name)).filter((e) => e != null);
   const finished = state.progress.filter((p) => stepById.has(p.step_id));
   const mark = (step: Step, status: "done" | "not_applicable") => save(markStep(state, step, status, today));
 
@@ -242,7 +275,7 @@ export function TodoList() {
   return (
     <div className="space-y-6">
       <header className="space-y-1">
-        <h1 className="h-page">今週やること</h1>
+        <SectionHeading as="h1" icon="flag" tone="hero" className="text-[2.2rem]">今週やること</SectionHeading>
         <p className="text-base text-gray-700">
           {state.region_name}
           {state.birth_date ? `・出産日 ${fmt(state.birth_date)}` : `・いま妊娠${result.gestational_week}週・予定日 ${fmt(state.due_date)}`}
@@ -258,8 +291,8 @@ export function TodoList() {
         const total = done + result.actions.length;
         return total > 0 ? (
           <div className="card card-quiet space-y-2" aria-label={`進み具合 ${done}/${total}`}>
-            <p className="flex items-baseline justify-between text-base text-slate-600">
-              <span>いま出ている手続きの進み具合</span>
+            <p className="flex items-baseline justify-between gap-3 text-base text-slate-600">
+              <span>進み具合</span>
               <span className="font-bold text-ink">{done} / {total}</span>
             </p>
             <div className="h-2 overflow-hidden rounded-full bg-slate-200/80">
@@ -268,6 +301,30 @@ export function TodoList() {
           </div>
         ) : null;
       })()}
+
+      {events.length > 0 ? (
+        <section className="card card-ai space-y-3" aria-labelledby="cal">
+          <div className="flex items-center gap-3">
+            <IconTile name="calendar" tone="violet" size="size-12" />
+            <div>
+              <h2 id="cal" className="text-xl font-bold text-ink">期限をカレンダーに入れる</h2>
+              <p className="text-base text-slate-600">{events.length}件の期限。7日前にお知らせが鳴ります。</p>
+            </div>
+          </div>
+          <button type="button" onClick={() => downloadIcs(icsOf(events))} className="btn btn-primary btn-wide">
+            <Icon name="download" className="size-6" />
+            まとめてカレンダーに入れる
+          </button>
+          <Disclosure summary="入れ方（Google・iPhone・Outlook）">
+            <ul className="list-disc space-y-1 pl-5">
+              <li><b>iPhone</b>: 保存したファイルを開き「すべて追加」。Googleカレンダーを使っている人は、追加先にGoogleを選べます。</li>
+              <li><b>Android・パソコンのGoogleカレンダー</b>: calendar.google.com → 設定 → 「インポート／エクスポート」でファイルを選びます。</li>
+              <li><b>1件ずつ</b>: 各手続きの「Googleカレンダーに入れる」を押すと、その予定だけがGoogleカレンダーに開きます。</li>
+            </ul>
+            <p className="text-base text-slate-600">カレンダーへはあなたの端末から直接渡します。Tsugirakuのサーバーには送りません。期限が変わったら、もう一度入れ直してください（同じ予定は上書きされます）。</p>
+          </Disclosure>
+        </section>
+      ) : null}
 
       {result.region_unverified ? (
         <p className="notice notice-info">
@@ -288,14 +345,14 @@ export function TodoList() {
       ) : null}
 
       <section className="space-y-3">
-        <h2 className="h-section">もらった紙はどれ？</h2>
+        <SectionHeading icon="document">もらった紙はどれ？</SectionHeading>
         <Disclosure summary="病院や区でもらった紙を調べる">
           <DocumentGuide documents={rules.documents} steps={rules.steps} regionCode={state.region_code} />
         </Disclosure>
       </section>
 
       <section className="space-y-3">
-        <h2 className="h-section">次にやること</h2>
+        <SectionHeading icon="next" tone="hero">次にやること</SectionHeading>
         {result.current ? (
           <ActionCard action={result.current} today={today} emphasized regionCode={state.region_code} state={state} week={state.birth_date ? null : result.gestational_week} rules={rules} onMark={mark} onSave={save} />
         ) : (
@@ -307,11 +364,12 @@ export function TodoList() {
 
       {finished.length > 0 ? (
         <section className="space-y-2">
-          <h2 className="h-section">終わったもの</h2>
+          <SectionHeading icon="checkCircle" tone="green">終わったもの</SectionHeading>
           <ul className="space-y-2">
             {finished.map((p) => (
               <li key={p.step_id} className="card card-quiet flex flex-wrap items-center justify-between gap-2 text-base">
-                <span>
+                <span className="flex items-center gap-2">
+                  <Icon name={p.status === "done" ? "checkCircle" : "next"} className={`size-6 shrink-0 ${p.status === "done" ? "text-done" : "text-slate-400"}`} />
                   <span className={p.status === "done" ? "font-bold text-done" : "text-gray-600"}>{p.status === "done" ? "完了" : "該当しない"}</span>
                   ：{stepById.get(p.step_id)!.title}
                 </span>
@@ -325,7 +383,7 @@ export function TodoList() {
       ) : null}
       {rules.contacts.length > 0 ? (
         <section className="space-y-3">
-          <h2 className="h-section">困ったら、ここに聞く</h2>
+          <SectionHeading icon="phone" tone="blue">困ったら、ここに聞く</SectionHeading>
           <Disclosure summary="窓口と電話相談を見る">
             <ContactList contacts={rules.contacts} regionCode={state.region_code} regionName={state.region_name} />
           </Disclosure>
@@ -334,7 +392,7 @@ export function TodoList() {
 
       {result.upcoming.length > 0 ? (
         <section className="space-y-3">
-          <h2 className="h-section">このあと</h2>
+          <SectionHeading icon="calendar" tone="violet">このあと</SectionHeading>
           <p className="text-base text-gray-600">期限が近い順。先に終わったものはここでチェックできます。</p>
           {(() => {
             const present = new Set(result.upcoming.flatMap((a) => classifyApplyTo(a.step.channel, a.step.region_code)));

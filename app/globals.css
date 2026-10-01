@@ -13,13 +13,21 @@
 }
 
 html {
-  /* 「小さな文字を読ませない」: 本文は17px。画面の中の text-sm / text-xs も本文と同じ大きさにそろえる（下の main 〜 の規則） */
-  font-size: 17px;
+  /* 「小さな文字を読ませない」: 本文は18px。画面の中の text-sm / text-xs も本文と同じ大きさにそろえる（下の main 〜 の規則） */
+  font-size: 18px;
   scroll-behavior: smooth;
 }
 
 body {
+  /* 常に明るい配色（端末がダークモードでも白地のカードと濃い線で読む） */
+  color-scheme: light;
   color: #1f2340;
+  background-color: #f7f7fc;
+  background-image:
+    radial-gradient(60rem 32rem at 110% -10%, rgb(167 139 250 / 0.22), transparent 60%),
+    radial-gradient(48rem 28rem at -20% 8%, rgb(125 211 252 / 0.24), transparent 60%),
+    radial-gradient(40rem 30rem at 50% 120%, rgb(199 210 254 / 0.35), transparent 60%);
+  background-attachment: fixed;
   font-family: var(--font-sans);
   font-feature-settings: "palt";
   letter-spacing: 0.01em;
@@ -47,12 +55,6 @@ html[data-lang="ko"] body {
   letter-spacing: -0.01em;
   line-height: 1.7;
   word-break: keep-all;
-  background-color: #f7f7fc;
-  background-image:
-    radial-gradient(60rem 32rem at 110% -10%, rgb(167 139 250 / 0.22), transparent 60%),
-    radial-gradient(48rem 28rem at -20% 8%, rgb(125 211 252 / 0.24), transparent 60%),
-    radial-gradient(40rem 30rem at 50% 120%, rgb(199 210 254 / 0.35), transparent 60%);
-  background-attachment: fixed;
 }
 
 :focus-visible {
@@ -70,10 +72,10 @@ main .text-xs {
 
 @layer components {
   .h-page {
-    @apply text-[1.9rem] leading-tight font-bold tracking-tight text-ink;
+    @apply text-[2.2rem] leading-tight font-bold tracking-tight text-ink;
   }
   .h-section {
-    @apply flex items-center gap-2 text-xl font-bold text-ink;
+    @apply flex items-center gap-2 text-2xl font-bold text-ink;
   }
   .h-section::before {
     content: "";
@@ -118,13 +120,17 @@ main .text-xs {
   }
 
   .btn {
-    @apply inline-flex min-h-12 items-center justify-center rounded-xl px-5 py-2 text-base font-bold transition duration-150 active:scale-[0.98] disabled:opacity-60;
+    @apply inline-flex min-h-14 items-center justify-center gap-2 rounded-xl px-5 py-2 text-lg font-bold transition duration-150 active:scale-[0.98] disabled:opacity-60;
   }
   .btn-primary {
     @apply min-h-12 bg-gradient-to-r from-indigo-600 to-violet-600 font-bold text-white shadow-hero hover:from-indigo-500 hover:to-violet-500;
   }
   .btn-done {
     @apply bg-emerald-600 font-bold text-white shadow-sm hover:bg-emerald-500;
+  }
+  /* 1行の大きなボタン: 幅いっぱい・折り返さない・画面幅に合わせて文字を少し伸び縮み */
+  .btn-wide {
+    @apply w-full px-4 whitespace-nowrap text-[clamp(1.05rem,5.2vw,1.35rem)];
   }
   .btn-ghost {
     @apply border border-slate-300 bg-white/80 text-slate-700 hover:bg-white;

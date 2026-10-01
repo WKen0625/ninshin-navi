@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Icon, IconTile, SectionHeading, type IconName } from "@/components/Icon";
 import { listArticles } from "@/lib/articles";
 import { loadServiceArea } from "@/lib/service-area";
 
@@ -28,10 +29,10 @@ const PROMISES = [
   },
 ];
 
-const STEPS = [
-  { n: "1", title: "4つ入れる", body: "住んでいる区、出産予定日、無痛分娩や距離の希望、いま手元にある紙。約1分。" },
-  { n: "2", title: "次にやることが1つ出る", body: "妊娠届、母子手帳、分娩予約、助成の申請…。いま何をすればよいかを1件だけ強調し、期限と出典を添えます。" },
-  { n: "3", title: "病院と締切、お金も", body: "区でお産ができる施設の予約締切の目安と、費用 − 一時金 − 助成 = 実負担の目安。" },
+const STEPS: { n: string; icon: IconName; title: string; body: string }[] = [
+  { n: "1", icon: "pen", title: "4つ入れる", body: "住んでいる区、出産予定日、無痛分娩や距離の希望、いま手元にある紙。約1分。" },
+  { n: "2", icon: "next", title: "次にやることが1つ出る", body: "妊娠届、母子手帳、分娩予約、助成の申請…。いま何をすればよいかを1件だけ強調し、期限と出典を添えます。" },
+  { n: "3", icon: "money", title: "病院と締切、お金も", body: "区でお産ができる施設の予約締切の目安と、費用 − 一時金 − 助成 = 実負担の目安。" },
 ];
 
 export default function Home() {
@@ -41,27 +42,27 @@ export default function Home() {
     <div className="space-y-10">
       <section className="space-y-5">
         <p className="chip-ai">東京都23区に住む妊婦さんとご家族へ</p>
-        <h1 className="text-[2.4rem] leading-[1.15] font-bold tracking-tight text-ink sm:text-[2.8rem]">
+        <h1 className="text-[2.1rem] leading-[1.15] font-bold tracking-tight text-ink sm:text-[2.8rem]">
           妊娠後の手続きで
-          <span className="block bg-gradient-to-r from-indigo-600 via-violet-600 to-sky-500 bg-clip-text text-transparent">「次に何をするか」が</span>
-          すぐわかる
+          <span className="block bg-gradient-to-r from-indigo-600 via-violet-600 to-sky-500 bg-clip-text text-transparent">「次に何をするか」</span>
+          がすぐわかる
         </h1>
         <p className="text-lg leading-relaxed text-slate-700">
           役所の手続き、分娩予約の締切、もらえるお金。ばらばらに調べなくても、いまのあなたに必要な「次にやること」を、出典つきで1件ずつ出します。
         </p>
-        <div className="flex flex-col gap-3 sm:flex-row">
-          <Link href="/navi" className="btn btn-primary text-lg sm:flex-1">Tsugiraku Naviをはじめる</Link>
-          <Link href="/articles" className="btn btn-ghost text-lg sm:flex-1">負担軽減コラムを読む</Link>
+        <div className="space-y-3">
+          <Link href="/navi" className="btn btn-primary btn-wide"><Icon name="next" className="size-6" />Tsugiraku Naviをはじめる</Link>
+          <Link href="/articles" className="btn btn-ghost btn-wide"><Icon name="book" className="size-6" />負担軽減コラムを読む</Link>
         </div>
       </section>
 
       <section aria-labelledby="promises" className="space-y-4">
-        <h2 id="promises" className="h-section">安心して使えるように、守っていること</h2>
+        <SectionHeading id="promises" icon="shield" tone="green">安心して使えるように、守っていること</SectionHeading>
         <ul className="grid gap-3 sm:grid-cols-2">
           {PROMISES.map((p) => (
             <li key={p.title} className="card space-y-2">
-              <span className="grid size-10 place-items-center rounded-xl bg-indigo-50 text-indigo-700">
-                <svg viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <span className="grid size-12 place-items-center rounded-xl bg-indigo-100 text-indigo-700">
+                <svg viewBox="0 0 24 24" className="size-7" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d={p.icon} />
                 </svg>
               </span>
@@ -73,13 +74,13 @@ export default function Home() {
       </section>
 
       <section aria-labelledby="how" className="space-y-4">
-        <h2 id="how" className="h-section">使い方</h2>
+        <SectionHeading id="how" icon="flag">使い方</SectionHeading>
         <ol className="space-y-3">
           {STEPS.map((s) => (
             <li key={s.n} className="card flex gap-4">
-              <span className="grid size-10 shrink-0 place-items-center rounded-full bg-gradient-to-br from-indigo-600 to-violet-600 text-lg font-bold text-white">{s.n}</span>
+              <IconTile name={s.icon} tone="hero" size="size-14" />
               <div>
-                <h3 className="text-lg font-bold text-ink">{s.title}</h3>
+                <h3 className="text-xl font-bold text-ink"><span className="mr-2 text-indigo-600">{s.n}.</span>{s.title}</h3>
                 <p className="text-base text-slate-700">{s.body}</p>
               </div>
             </li>
@@ -88,7 +89,7 @@ export default function Home() {
       </section>
 
       <section aria-labelledby="scope" className="card card-ai space-y-2">
-        <h2 id="scope" className="h-section">いま対応している地域</h2>
+        <SectionHeading id="scope" icon="pin" tone="sky">いま対応している地域</SectionHeading>
         <p className="text-base text-slate-700">
           {area.label}（{area.municipalities.length}区）。国・東京都・各区の手続きと、区内でお産ができる施設を載せています。
           ほかの市区町村は準備中です。リクエストは <a href={`mailto:${area.contact}`} className="link-inline">{area.contact}</a> へ。
@@ -101,7 +102,7 @@ export default function Home() {
       {articles.length > 0 ? (
         <section aria-labelledby="articles" className="space-y-4">
           <div className="flex items-baseline justify-between">
-            <h2 id="articles" className="h-section">負担軽減コラム</h2>
+            <SectionHeading id="articles" icon="book" tone="violet">負担軽減コラム</SectionHeading>
             <Link href="/articles" className="link">すべて見る</Link>
           </div>
           <ul className="space-y-3">
@@ -123,7 +124,7 @@ export default function Home() {
       ) : null}
 
       <section aria-labelledby="operator" className="space-y-2 text-base text-slate-700">
-        <h2 id="operator" className="h-section">運営</h2>
+        <SectionHeading id="operator" icon="mail" tone="slate">運営</SectionHeading>
         <p>
           Tsugiraku事務局（個人による運営）。制度の情報は、公式ページの変更を週1回自動で見張り、変わっていれば人が確かめてから更新します。
           まちがいを見つけたら、各画面の「まちがいを知らせる」か <a href={`mailto:${area.contact}`} className="link-inline">{area.contact}</a> へ。

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Icon, IconTile, SectionHeading, type IconName } from "@/components/Icon";
 import { listArticles } from "@/lib/articles";
 import { articleOf, columnsOf, ENGLISH_HINT, FOREIGN_LANGS, HOME, isLang, type Lang } from "@/lib/i18n";
 import { loadServiceArea } from "@/lib/service-area";
@@ -12,6 +13,9 @@ export function generateStaticParams() {
   return FOREIGN_LANGS.map((lang) => ({ lang }));
 }
 export const dynamicParams = false;
+
+const STEP_ICONS: IconName[] = ["pen", "next", "money"];
+const PROMISE_ICONS: IconName[] = ["document", "lock", "stethoscope"];
 
 const TITLE: Record<Exclude<Lang, "ja">, { title: string; description: string }> = {
   en: { title: "Tsugiraku｜Know your next step in pregnancy paperwork in Tokyo", description: "Enter your ward, due date and the papers you hold; get your next step, hospital booking deadlines and your estimated out-of-pocket cost. Every figure with its official source and check date." },
@@ -41,9 +45,9 @@ export default async function HomeIntl({ params }: Params) {
           <span className="block bg-gradient-to-r from-indigo-600 via-violet-600 to-sky-500 bg-clip-text text-transparent">{t.h1b}</span>
         </h1>
         <p className="text-lg leading-relaxed text-slate-700">{t.lead}</p>
-        <div className="flex flex-col gap-3 sm:flex-row">
-          <Link href="/navi" className="btn btn-primary text-lg sm:flex-1">{t.navi}</Link>
-          <Link href={columnsOf(lang)} className="btn btn-ghost text-lg sm:flex-1">{t.columns}</Link>
+        <div className="space-y-3">
+          <Link href="/navi" className="btn btn-primary btn-wide"><Icon name="next" className="size-6" />{t.navi}</Link>
+          <Link href={columnsOf(lang)} className="btn btn-ghost btn-wide"><Icon name="book" className="size-6" />{t.columns}</Link>
         </div>
         <p className="notice notice-info">{t.naviNote}</p>
         {ENGLISH_HINT[lang] ? (
@@ -54,10 +58,11 @@ export default async function HomeIntl({ params }: Params) {
       </section>
 
       <section aria-labelledby="promises" className="space-y-4">
-        <h2 id="promises" className="h-section">{t.promises}</h2>
+        <SectionHeading id="promises" icon="shield" tone="green">{t.promises}</SectionHeading>
         <ul className="grid gap-3 sm:grid-cols-2">
-          {t.promise.map((p) => (
+          {t.promise.map((p, i) => (
             <li key={p.title} className="card space-y-2">
+              <IconTile name={PROMISE_ICONS[i] ?? "check"} size="size-12" />
               <h3 className="text-lg leading-snug font-bold text-ink">{p.title}</h3>
               <p className="text-base text-slate-700">{p.body}</p>
             </li>
@@ -66,13 +71,13 @@ export default async function HomeIntl({ params }: Params) {
       </section>
 
       <section aria-labelledby="how" className="space-y-4">
-        <h2 id="how" className="h-section">{t.how}</h2>
+        <SectionHeading id="how" icon="flag">{t.how}</SectionHeading>
         <ol className="space-y-3">
           {t.steps.map((s, i) => (
             <li key={s.title} className="card flex gap-4">
-              <span className="grid size-10 shrink-0 place-items-center rounded-full bg-gradient-to-br from-indigo-600 to-violet-600 text-lg font-bold text-white">{i + 1}</span>
+              <IconTile name={STEP_ICONS[i] ?? "check"} tone="hero" size="size-14" />
               <div>
-                <h3 className="text-lg font-bold text-ink">{s.title}</h3>
+                <h3 className="text-xl font-bold text-ink"><span className="mr-2 text-indigo-600">{i + 1}.</span>{s.title}</h3>
                 <p className="text-base text-slate-700">{s.body}</p>
               </div>
             </li>
@@ -81,14 +86,14 @@ export default async function HomeIntl({ params }: Params) {
       </section>
 
       <section aria-labelledby="scope" className="card card-ai space-y-2">
-        <h2 id="scope" className="h-section">{t.coverage}</h2>
+        <SectionHeading id="scope" icon="pin" tone="sky">{t.coverage}</SectionHeading>
         <p className="text-base text-slate-700">{t.coverageBody(area.municipalities.length, area.contact)}</p>
       </section>
 
       {articles.length > 0 ? (
         <section aria-labelledby="columns" className="space-y-4">
           <div className="flex items-baseline justify-between">
-            <h2 id="columns" className="h-section">{t.columnsTitle}</h2>
+            <SectionHeading id="columns" icon="book" tone="violet">{t.columnsTitle}</SectionHeading>
             <Link href={columnsOf(lang)} className="link">{t.allColumns}</Link>
           </div>
           <ul className="space-y-3">
@@ -109,7 +114,7 @@ export default async function HomeIntl({ params }: Params) {
       ) : null}
 
       <section aria-labelledby="operator" className="space-y-2 text-base text-slate-700">
-        <h2 id="operator" className="h-section">{t.operator}</h2>
+        <SectionHeading id="operator" icon="mail" tone="slate">{t.operator}</SectionHeading>
         <p>{t.operatorBody(area.contact)}</p>
         <p className="flex flex-wrap gap-x-4">
           <Link href="/terms" className="link">{t.terms}</Link>

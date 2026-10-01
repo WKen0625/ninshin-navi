@@ -24,10 +24,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet" />
       </head>
       <body className="min-h-dvh antialiased">
-        <Suspense fallback={<div className="mx-auto max-w-xl px-4 pt-5" />}>
+        <Suspense fallback={<div className="mx-auto max-w-2xl px-4 pt-5" />}>
           <SiteHeader />
         </Suspense>
-        <main className="mx-auto max-w-xl px-4 py-6">{children}</main>
+        <main className="mx-auto max-w-2xl px-4 py-6">{children}</main>
         <Suspense fallback={<div className="pb-32" />}>
           <SiteFooter />
         </Suspense>

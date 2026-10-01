@@ -32,7 +32,7 @@ export function ApplyWindowBox({ window, today, label = "申請" }: { window: Ap
           <dt className="font-bold text-amber-900">{label}期限</dt>
           <dd>
             {until.date ? (
-              <span className="text-lg font-bold text-amber-900">
+              <span className="text-xl font-bold text-amber-900">
                 {fmt(until.date)}まで{until.estimated ? "（推定）" : ""}
               </span>
             ) : (

@@ -8,6 +8,7 @@ import type { Rules } from "@/lib/rules";
 import { normalizePostal } from "@/lib/geo";
 import { DocumentPicker } from "./DocumentPicker";
 import { Disclosure } from "./Disclosure";
+import { SectionHeading } from "./Icon";
 import { SourceLink } from "./SourceLink";
 import { todayLocal, useFamilyState } from "./useFamilyState";
 
@@ -15,7 +16,6 @@ type Area = { contact: string; label: string; municipalities: { code: string; na
 
 const PHASE_ORDER = ["pre_notification", "notification", "pregnancy", "birth", "postpartum"];
 const field = "field";
-const legend = "h-section";
 
 export function EntryForm({ area }: { area: Area }) {
   const router = useRouter();
@@ -127,7 +127,7 @@ export function EntryForm({ area }: { area: Area }) {
   return (
     <form onSubmit={submit} className="space-y-5">
       <fieldset className="card space-y-1">
-        <legend className={legend}>1. お住まいの区（{area.label}）</legend>
+        <SectionHeading as="legend" icon="pin" tone="sky">1. お住まいの区（{area.label}）</SectionHeading>
         <div className="space-y-3">
           <label className="block text-base">
             区
@@ -150,7 +150,7 @@ export function EntryForm({ area }: { area: Area }) {
       </fieldset>
 
       <fieldset className="card space-y-1">
-        <legend className={legend}>2. 出産予定日</legend>
+        <SectionHeading as="legend" icon="calendar" tone="violet">2. 出産予定日</SectionHeading>
         <div className="space-y-3">
           <label className="block text-base">
             出産予定日
@@ -175,7 +175,7 @@ export function EntryForm({ area }: { area: Area }) {
       </fieldset>
 
       <fieldset className="card space-y-1">
-        <legend className={legend}>3. 希望</legend>
+        <SectionHeading as="legend" icon="heart" tone="amber">3. 希望</SectionHeading>
         <div className="space-y-3">
           <label className="block text-base">
             無痛分娩（麻酔で痛みをやわらげるお産）
@@ -229,7 +229,7 @@ export function EntryForm({ area }: { area: Area }) {
       </fieldset>
 
       <fieldset className="card space-y-1">
-        <legend className={legend}>4. いま手元にある紙</legend>
+        <SectionHeading as="legend" icon="document">4. いま手元にある紙</SectionHeading>
         {!rules ? (
           <p className="text-base text-gray-600">市区町村を選ぶと、選べる紙が出ます。</p>
         ) : (

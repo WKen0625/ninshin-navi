@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const icon = (d: string) => (
-  <svg viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg viewBox="0 0 24 24" className="size-7" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d={d} />
   </svg>
 );
@@ -33,7 +33,7 @@ export function Nav() {
               key={i.href}
               href={i.href}
               aria-current={active ? "page" : undefined}
-              className={`flex min-h-14 flex-1 flex-col items-center justify-center gap-0.5 rounded-2xl text-sm font-medium transition ${
+              className={`flex min-h-14 flex-1 flex-col items-center justify-center gap-0.5 rounded-2xl text-base font-bold transition ${
                 active ? "bg-gradient-to-br from-indigo-600 to-violet-600 text-white shadow-sm" : "text-slate-600 hover:bg-white"
               }`}
             >

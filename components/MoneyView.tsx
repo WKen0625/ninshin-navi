@@ -9,6 +9,7 @@ import type { MoneyData, Rules } from "@/lib/rules";
 import { classifyApplyTo } from "@/lib/apply-to";
 import { ApplyToChips, ApplyWindowBox } from "./ApplyWindow";
 import { FeedbackLink } from "./FeedbackLink";
+import { SectionHeading } from "./Icon";
 import { SourceLink } from "./SourceLink";
 import { todayLocal, useFamilyState } from "./useFamilyState";
 
@@ -164,7 +165,7 @@ export function MoneyView() {
   return (
     <div className="space-y-6">
       <header className="space-y-1">
-        <h1 className="h-page">お金</h1>
+        <SectionHeading as="h1" icon="money" tone="green" className="text-[2.2rem]">お金</SectionHeading>
         <p className="text-base text-gray-700">{state.region_name}・出産にかかる費用から、もらえるお金を引いた目安です。</p>
       </header>
 
