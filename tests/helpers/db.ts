@@ -34,7 +34,7 @@ export async function createTestDb(): Promise<{ pg: PGlite; db: Db }> {
 /** 画面と同じく、DBの表から制度データを読む（日付は文字列で） */
 export async function readRules(db: Db) {
   const regions = (await db.query("select code, level, name, parent_code, status from regions")).rows as Region[];
-  const documents = (await db.query("select id, phase, includes, region_code, name, aliases, description, source_url, verified_at::text as verified_at from documents")).rows as DocumentDef[];
+  const documents = (await db.query("select id, phase, includes, region_code, name, aliases, description, issued_by, what_to_do, source_url, verified_at::text as verified_at from documents")).rows as DocumentDef[];
   const steps = (
     await db.query(`
       select id, region_code, phase, sort_order, title, detail, trigger_document_id, produces_document_id, channel, action_url,

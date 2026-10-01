@@ -17,7 +17,7 @@ const STEP_COLUMNS =
   "deadline_base, deadline_offset_days, deadline_week, deadline_note, apply_from_base, apply_from_offset_days, apply_from_week, apply_from_note, overrides_step_id, survey_question_id, contact_id, requires, " +
   "source_url, verified_at, needs_review";
 const CONTACT_COLUMNS = "id, region_code, name, topics, phone, hours, address, url, note, source_url, verified_at, needs_review";
-const DOCUMENT_COLUMNS = "id, region_code, name, aliases, includes, phase, description, source_url, verified_at";
+const DOCUMENT_COLUMNS = "id, region_code, name, aliases, includes, phase, description, issued_by, what_to_do, source_url, verified_at";
 
 let yamlCache: Rules | null = null;
 
@@ -30,7 +30,7 @@ function rulesFromYaml(): Rules {
     regions: data.regions.map((r) => ({ code: r.code, level: r.level, name: r.name, parent_code: nn(r.parent_code), status: r.status })),
     documents: data.documents.map((d) => ({
       id: d.id, region_code: d.region_code, name: d.name, aliases: d.aliases, includes: d.includes, phase: d.phase,
-      description: nn(d.description), source_url: nn(d.source_url), verified_at: nn(d.verified_at),
+      description: nn(d.description), issued_by: nn(d.issued_by), what_to_do: nn(d.what_to_do), source_url: nn(d.source_url), verified_at: nn(d.verified_at),
     })),
     steps: data.steps.map((s) => ({
       id: s.id, region_code: s.region_code, phase: s.phase, sort_order: s.sort_order, title: s.title, detail: nn(s.detail),

@@ -43,6 +43,10 @@ const documentSchema = z.strictObject({
   includes: z.array(z.string()).default([]),
   phase: z.enum(PHASES),
   description: z.string().nullish(),
+  /** 誰が渡す紙か（区役所／医療機関／勤務先／健康保険／東京都／国） */
+  issued_by: z.enum(["ward", "hospital", "employer", "insurer", "tokyo", "national", "other"]).nullish(),
+  /** この紙を受け取ったらどうするか（保管・提出・次の手続き） */
+  what_to_do: z.string().nullish(),
   source_url: z.string().nullish(),
   verified_at: dateStr.nullish(),
   needs_review: z.boolean().optional(), // documents 表に列は無い。YAML上のメモとして許可するだけ

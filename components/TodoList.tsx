@@ -11,6 +11,8 @@ import type { Rules } from "@/lib/rules";
 import type { Survey } from "@/lib/surveys";
 import { ApplyToChips, ApplyWindowBox, isApplication } from "./ApplyWindow";
 import { ContactBox, ContactList } from "./ContactBox";
+import { Disclosure } from "./Disclosure";
+import { DocumentGuide } from "./DocumentGuide";
 import { FeedbackLink } from "./FeedbackLink";
 import { SourceLink } from "./SourceLink";
 import { SurveyCard } from "./SurveyCard";
@@ -127,21 +129,32 @@ function ActionCard({ action, today, emphasized, regionCode, state, week, rules,
         <p className="text-base font-bold text-amber-800">{action.reason === "overdue" ? "期限を過ぎています" : "期限が30日以内"}</p>
       ) : null}
       <h3 className={emphasized ? "text-xl font-bold" : "text-base font-bold"}>{step.title}</h3>
-      {emphasized && step.detail ? <p className="text-base">{step.detail}</p> : null}
-      <ApplyToChips targets={targets} detail={step.channel} />
-      <ApplyWindowBox window={window} today={today} label={isApplication(step.title) ? "申請" : ""} />
-      {emphasized && step.action_url ? (
-        <a href={step.action_url} target="_blank" rel="noopener noreferrer" className="link">
-          手続きのページを開く
-        </a>
+      {/* 文字を減らす: 期限の1行だけ常に見せ、やり方・窓口・根拠は押すと開く */}
+      {window.until?.date ? (
+        <p className="text-base">
+          <span className="font-bold text-amber-900">{isApplication(step.title) ? "申請期限" : "期限"}: {fmt(window.until.date)}まで{window.until.estimated ? "（推定）" : ""}</span>
+          {window.until.date < today ? <span className="block font-bold text-amber-900">期限を過ぎています。早めに窓口へ。</span> : null}
+        </p>
+      ) : window.from?.text ? (
+        <p className="text-base text-gray-700">{isApplication(step.title) ? "申請可能な時期" : "できる時期"}: {window.from.text}</p>
       ) : null}
-      {step.deadline_base === "facility" ? (
-        <Link href="/hospitals" className="link">
-          病院と締切を見る
-        </Link>
-      ) : null}
-      <ContactBox contact={step.contact_id ? rules.contacts.find((c) => c.id === step.contact_id) ?? null : null} fallback={emphasized ? rules.contacts.filter((c) => c.region_code === state.region_code).slice(0, 1) : []} />
-      <SourceLink url={step.source_url} verifiedAt={step.verified_at} needsReview={action.needs_review} />
+      <Disclosure summary="くわしく（やり方・窓口・期限の根拠）" open={false}>
+        {step.detail ? <p className="text-base">{step.detail}</p> : null}
+        <ApplyToChips targets={targets} detail={step.channel} />
+        <ApplyWindowBox window={window} today={today} label={isApplication(step.title) ? "申請" : ""} />
+        {step.action_url ? (
+          <a href={step.action_url} target="_blank" rel="noopener noreferrer" className="link">
+            手続きのページを開く
+          </a>
+        ) : null}
+        {step.deadline_base === "facility" ? (
+          <Link href="/hospitals" className="link">
+            病院と締切を見る
+          </Link>
+        ) : null}
+        <ContactBox contact={step.contact_id ? rules.contacts.find((c) => c.id === step.contact_id) ?? null : null} fallback={rules.contacts.filter((c) => c.region_code === state.region_code).slice(0, 1)} />
+        <SourceLink url={step.source_url} verifiedAt={step.verified_at} needsReview={action.needs_review} />
+      </Disclosure>
       {stuck ? (
         <p className="notice notice-info flex flex-wrap items-center justify-between gap-2">
           <span>「わからない」を付けています（{stuckLabel(stuck.reason)}）。窓口に聞くか、下の「まちがいを知らせる」から質問できます。</span>
@@ -275,6 +288,13 @@ export function TodoList() {
       ) : null}
 
       <section className="space-y-3">
+        <h2 className="h-section">もらった紙はどれ？</h2>
+        <Disclosure summary="病院や区でもらった紙を調べる">
+          <DocumentGuide documents={rules.documents} steps={rules.steps} regionCode={state.region_code} />
+        </Disclosure>
+      </section>
+
+      <section className="space-y-3">
         <h2 className="h-section">次にやること</h2>
         {result.current ? (
           <ActionCard action={result.current} today={today} emphasized regionCode={state.region_code} state={state} week={state.birth_date ? null : result.gestational_week} rules={rules} onMark={mark} onSave={save} />
@@ -306,14 +326,16 @@ export function TodoList() {
       {rules.contacts.length > 0 ? (
         <section className="space-y-3">
           <h2 className="h-section">困ったら、ここに聞く</h2>
-          <ContactList contacts={rules.contacts} regionCode={state.region_code} regionName={state.region_name} />
+          <Disclosure summary="窓口と電話相談を見る">
+            <ContactList contacts={rules.contacts} regionCode={state.region_code} regionName={state.region_name} />
+          </Disclosure>
         </section>
       ) : null}
 
       {result.upcoming.length > 0 ? (
         <section className="space-y-3">
           <h2 className="h-section">このあと</h2>
-          <p className="text-base text-gray-600">期限が近いものが上、そのあとは手続きの順番です。先に終わったものがあれば、ここからチェックしてもかまいません。</p>
+          <p className="text-base text-gray-600">期限が近い順。先に終わったものはここでチェックできます。</p>
           {(() => {
             const present = new Set(result.upcoming.flatMap((a) => classifyApplyTo(a.step.channel, a.step.region_code)));
             if (present.size < 2) return null;

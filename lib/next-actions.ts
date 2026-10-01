@@ -20,6 +20,10 @@ export type DocumentDef = {
   name?: string;
   aliases?: string[];
   description?: string | null;
+  /** 誰が渡す紙か */
+  issued_by?: "ward" | "hospital" | "employer" | "insurer" | "tokyo" | "national" | "other" | null;
+  /** 受け取ったらどうするか */
+  what_to_do?: string | null;
   source_url?: string | null;
   verified_at?: string | null;
 };

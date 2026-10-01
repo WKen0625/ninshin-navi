@@ -16,7 +16,7 @@ const TABLES: TableSpec[] = [
   {
     table: "documents",
     key: ["id"],
-    columns: ["id", "region_code", "name", "aliases", "includes", "phase", "description", "source_url", "verified_at"],
+    columns: ["id", "region_code", "name", "aliases", "includes", "phase", "description", "issued_by", "what_to_do", "source_url", "verified_at"],
   },
   {
     table: "contacts",

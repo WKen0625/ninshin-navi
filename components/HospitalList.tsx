@@ -9,6 +9,7 @@ import { lookupPostal, PREFERENCE_MINUTES, travelTo, type PostalTable, type Trav
 import { gestationalWeek } from "@/lib/next-actions";
 import type { HospitalData } from "@/lib/rules";
 import type { Survey } from "@/lib/surveys";
+import { Disclosure } from "./Disclosure";
 import { FeedbackLink } from "./FeedbackLink";
 import { SurveyCard } from "./SurveyCard";
 import { SourceLink } from "./SourceLink";
@@ -58,6 +59,13 @@ function FacilityCard({ item, travel, mine, chosen, regionCode, onChoose, onReco
 
       <DeadlineBox item={item} />
 
+      <p className="flex flex-wrap gap-x-4 gap-y-1 text-base">
+        <span>無痛: {yesNo(f.has_epidural, f.epidural_24h ? "できる（24時間）" : "できる", "なし")}</span>
+        {travel ? <span>自宅から約{travel.km}km</span> : null}
+        {f.cost ? <span>費用の目安 {yen(f.cost.yen)}</span> : null}
+      </p>
+
+      <Disclosure summary="くわしく（予約のルール・費用・みんなの記録）">
       {f.booking_policy ? (
         <div>
           <p className="text-base"><span className="font-bold">予約のルール: </span>{f.booking_policy}</p>
@@ -109,6 +117,7 @@ function FacilityCard({ item, travel, mine, chosen, regionCode, onChoose, onReco
         {map ? <a href={map} target="_blank" rel="noopener noreferrer" className="link">地図で見る</a> : null}
       </div>
       <SourceLink url={f.source_url} verifiedAt={f.verified_at} needsReview={f.needs_review} fallback="施設" />
+      </Disclosure>
 
       {mine.length > 0 ? (
         <div className="notice notice-done space-y-1">

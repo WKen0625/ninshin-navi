@@ -29,13 +29,81 @@ documents:
     name: 母子健康手帳
     aliases: [親子健康手帳, 母子手帳]
     phase: notification
+    issued_by: ward
+    what_to_do: 健診・出産・予防接種のたびに持っていく。出生届にも必要（出生届済証明の欄に区が記入する）。
   - id: jp.kenshin_ticket
     name: 妊婦健康診査の受診票（補助券）
     aliases: [受診票, 補助券, 健診券, 健診券綴り]
     phase: notification
+    issued_by: ward
+    what_to_do: 健診のたびに1枚ずつ病院の受付に出す（出さないと自費）。東京都外や助産所では使えないことが多く、その分はあとで区に払い戻しを申請する。
+  - id: jp.sanka_hosho
+    name: 産科医療補償制度の登録証
+    aliases: [産科医療補償制度, 登録証]
+    phase: pregnancy
+    issued_by: hospital
+    description: 分娩時の事故で赤ちゃんに重い脳性まひが残った場合に補償する制度。分娩施設が妊婦ごとに登録し、登録証（またはシール）を渡す。
+    what_to_do: 母子健康手帳に貼る（または一緒に保管）。出産後に万一のことがあったときの申請に必要。登録証をもらっていなければ、施設に「産科医療補償制度に登録しているか」を聞く。
+    source_url: https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/i-anzen/sanka-iryou/index.html
+    verified_at: 2026-10-01
+  - id: jp.direct_payment_agreement
+    name: 出産育児一時金「直接支払制度」の合意書（控え）
+    aliases: [直接支払制度の合意文書, 直接支払制度 合意書]
+    phase: pregnancy
+    issued_by: hospital
+    description: 出産育児一時金（原則50万円）を、健康保険から分娩施設に直接払ってもらうための書類。施設が用意し、本人が署名する。
+    what_to_do: 署名して施設に出し、控えを保管する。退院時の請求から一時金が引かれる。費用が50万円より少なかったときは、控えを使って差額を健康保険に申請する。
+    source_url: https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/shussan/index.html
+    verified_at: 2026-10-01
+  - id: jp.booking_form
+    name: 分娩予約の申込書・予約金の案内
+    aliases: [分娩予約申込書, 分娩予約金, 予約金の振込用紙]
+    phase: pregnancy
+    issued_by: hospital
+    description: 分娩予約を確定させるための書類。予約金（施設により数万〜数十万円）の払い方と期限が書いてある。
+    what_to_do: 期限までに出して、予約金を払う。領収書は退院まで保管する（退院時の精算で充当され、区の助成の申請で使う場合もある）。期限と金額は施設ごとに違うので、Naviの「病院と締切」で記録しておくと、同じ区の人の目安になる。
+  - id: jp.admission_guide
+    name: 入院のご案内（持ち物リスト・入院の決まり）
+    aliases: [入院案内, 入院の手引き, 持ち物リスト]
+    phase: pregnancy
+    issued_by: hospital
+    description: 入院中の持ち物、面会のルール、入院費の払い方、陣痛が来たときの連絡先が書いてある。
+    what_to_do: 入院バッグはこのリストから作る（施設が用意する物は買わない）。陣痛時の連絡先は、家族にも共有しておく。
+  - id: jp.consent_forms
+    name: 同意書・問診票（検査・分娩・無痛分娩など）
+    aliases: [同意書, 問診票, 説明書]
+    phase: pregnancy
+    issued_by: hospital
+    description: 血液検査、超音波、分娩の方法、無痛分娩などについての説明と同意の書類。初回の受診でまとめて渡されることが多い。
+    what_to_do: 家で読んで、署名して次の受診で出す。内容の疑問は医師・助産師に聞く（医療の内容はこのサイトでは扱わない）。控えをもらえる場合は保管する。
+  - id: jp.kenshin_schedule
+    name: 妊婦健診のスケジュール表
+    aliases: [健診スケジュール, 受診予定表]
+    phase: pregnancy
+    issued_by: hospital
+    description: 何週に何の検査をするかの予定表。区の受診票（1回目・2回目…）をどの回で使うかが書いてある施設もある。
+    what_to_do: 受診票の綴りと一緒に保管し、毎回の受診で受診票を1枚出す。里帰りや転院の予定があれば、早めに施設に伝える。
+  - id: jp.referral_letter
+    name: 紹介状（診療情報提供書）
+    aliases: [紹介状, 診療情報提供書]
+    phase: pregnancy
+    issued_by: hospital
+    description: 里帰り出産や転院のときに、いまの施設が次の施設あてに書く書類。
+    what_to_do: 封を開けずに、次の施設の初診で出す。里帰り先の施設には、紹介状を持って何週までに受診するかを先に電話で確かめる。
+  - id: jp.birth_certificate
+    name: 出生証明書（出生届の右半分。分娩施設が書く）
+    aliases: [出生証明書]
+    phase: birth
+    issued_by: hospital
+    description: 出生届の用紙の右側。出産に立ち会った医師か助産師が書く。左側（出生届）は親が書く。
+    what_to_do: 退院までに施設から受け取り、親が左側を書いて、出生の日から14日以内に区役所の戸籍の窓口に出す（母子健康手帳と届出人の本人確認書類も持参）。
+    source_url: https://laws.e-gov.go.jp/law/322AC0000000224
+    verified_at: 2026-10-01
   - id: jp.hospital_receipt
     name: 分娩施設の領収書・明細書
     phase: birth
+    issued_by: hospital
+    what_to_do: 区・都の出産費用の助成、無痛分娩の助成、健康保険への差額請求、医療費控除に使う。原本を求める申請があるので、コピーも取って1年は保管する。
   - id: jp.other
     name: その他（一覧にない紙）
     phase: pre_notification
