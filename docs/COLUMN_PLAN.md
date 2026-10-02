@@ -156,3 +156,13 @@
 - 各コラムの最後に Navi への導線（`/navi`）を置く。手続きの答えはコラムに書かず、Navi に任せる（データが更新されてもコラムが古くならない）。
 - 英語版は、日本語版が固まってから（同じ数字・同じ出典）。
 - 製品の選び方の基準はコラムの中に書く（例: 産院のリストにある品目・価格帯）。「効果」は書かない。
+
+---
+
+## 公開済み（2026-10-02 時点、22本）
+
+第1弾（2026-09-22〜23）: how-tsugiraku-works, hospital-bag, first-two-weeks（候補1）, postpartum-paperwork-split（12）, postpartum-cash-calendar（20）, maternity-leave-dates（7）
+
+第2弾（2026-10-02、PR なし・出典つき）: booking-call-checklist（2）, morning-sickness-paperwork（3）, telling-work-renraku-card（4）, satogaeri-plan（6）, paternity-leave-patterns（8）, reading-birth-cost-estimates（9）, c-section-costs-limit-certificate（15）, medical-expense-deduction-receipts（17）, labor-taxi-and-older-child（14）, birth-registration-items-night（18）, discharge-day-payment（19）, baby-name-kanji（新）, nursery-application-timing（21）, tokyo-subsidies-after-birth（22・都の分）, foreign-parent-overview（外国籍・日本語版）, partner-checklist-two-weeks（24）
+
+残りの候補: 5・10・11・13・16・23（PR あり。アフィリエイトのタグが来てから）、外国籍の英語版、ひとり親。

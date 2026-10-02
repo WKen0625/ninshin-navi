@@ -86,6 +86,9 @@ describe("記事", () => {
     expect(late.every((a) => a.stage === "late" || a.stage === "all")).toBe(true);
     expect(late.map((a) => a.slug)).toContain("hospital-bag");
     expect(late.map((a) => a.slug)).toContain("how-tsugiraku-works");
-    expect(listArticles("ja", "early").map((a) => a.slug)).toEqual(["how-tsugiraku-works", "first-two-weeks"]);
+    const early = listArticles("ja", "early");
+    expect(early.every((a) => a.stage === "early" || a.stage === "all")).toBe(true);
+    expect(early.map((a) => a.slug)).toContain("how-tsugiraku-works");
+    expect(early.map((a) => a.slug)).toContain("first-two-weeks");
   });
 });
