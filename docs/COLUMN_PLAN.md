@@ -165,4 +165,6 @@
 
 第2弾（2026-10-02、PR なし・出典つき）: booking-call-checklist（2）, morning-sickness-paperwork（3）, telling-work-renraku-card（4）, satogaeri-plan（6）, paternity-leave-patterns（8）, reading-birth-cost-estimates（9）, c-section-costs-limit-certificate（15）, medical-expense-deduction-receipts（17）, labor-taxi-and-older-child（14）, birth-registration-items-night（18）, discharge-day-payment（19）, baby-name-kanji（新）, nursery-application-timing（21）, tokyo-subsidies-after-birth（22・都の分）, foreign-parent-overview（外国籍・日本語版）, partner-checklist-two-weeks（24）
 
-残りの候補: 5・10・11・13・16・23（PR あり。アフィリエイトのタグが来てから）、外国籍の英語版、ひとり親。
+第3弾（2026-10-02、製品の回。いまは製品名・リンク無しで `pr: false`。タグが来たらリンクを足し `pr: true` と `programs` を付ける）: early-dont-buy-yet（5）, baby-goods-before-after（10）, child-seat-basics（11）, newborn-sleep-space（16）, postpartum-month-restock（23）。hospital-bag（13）はリンクを足すだけ。
+
+残りの候補: 外国籍の英語版、ひとり親。
