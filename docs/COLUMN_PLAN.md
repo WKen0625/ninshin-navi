@@ -167,4 +167,4 @@
 
 第3弾（2026-10-02、製品の回。いまは製品名・リンク無しで `pr: false`。タグが来たらリンクを足し `pr: true` と `programs` を付ける）: early-dont-buy-yet（5）, baby-goods-before-after（10）, child-seat-basics（11）, newborn-sleep-space（16）, postpartum-month-restock（23）。hospital-bag（13）はリンクを足すだけ。
 
-残りの候補: 外国籍の英語版、ひとり親。
+同日: foreign-parent-overview/en.md（英語版）, single-parent-overview（ひとり親・都の制度）。計画の候補はすべて着手済み。
