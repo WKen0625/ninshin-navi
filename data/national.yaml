@@ -189,6 +189,18 @@ steps:
     apply_from_base: confirmation_date
     apply_from_offset_days: 0
     apply_from_note: "心拍を確認した日から（区の面接のあと）"
+    apply_guide:
+      submit_to: 区の母子保健の窓口（面談のときに案内される）
+      documents:
+        - name: 妊婦給付認定の申請書（面談のときに渡される）
+          from: ward
+        - name: 振込口座がわかるもの
+          from: self
+        - name: 本人確認書類
+          from: self
+      form:
+        from: window
+        note: 区によっては電子申請
     source_url: https://www.cfa.go.jp/assets/contents/node/basic_page/field_ref_resources/be80930d-51d1-4084-aa3e-b80930646538/42e36027/20250325_policies_shussan-kosodate_52.pdf
     verified_at: 2026-09-19
 
@@ -201,6 +213,16 @@ steps:
     channel: 医療機関
     deadline_base: facility
     apply_from_note: "分娩予約のあと、施設が案内する時期に"
+    apply_guide:
+      eligibility: [insurance_any]
+      submit_to: 分娩施設
+      documents:
+        - name: 直接支払制度の合意書（施設が用意）
+          from: hospital
+        - name: 健康保険証またはマイナ保険証
+          from: self
+      form:
+        from: hospital
     source_url: https://birth-navi.mhlw.go.jp/assets/leaflet-CWn72mWw.pdf
     verified_at: 2026-09-18
 
@@ -213,6 +235,15 @@ steps:
     channel: 勤務先
     deadline_note: 事業主が、産休中または産休終了後1か月以内に提出する
     apply_from_note: "産休に入ってから（勤務先が手続きする）"
+    apply_guide:
+      eligibility: [work_employee, insurance_employer]
+      submit_to: 勤務先（事業主が年金事務所に届け出る。本人が出す書類はない）
+      documents:
+        - name: 出産予定日と産休の期間を勤務先に伝える（書類は勤務先が作る）
+          from: employer
+      form:
+        from: employer
+      how_to: 産休に入る前に、勤務先の担当者に出産予定日を伝える。免除の届出は勤務先が行う
     source_url: https://www.nenkin.go.jp/service/kounen/hokenryo/menjo/sankyu-menjo/20140509-02.html
     verified_at: 2026-09-19
 
@@ -227,6 +258,21 @@ steps:
     apply_from_base: due_date
     apply_from_offset_days: -182
     apply_from_note: "出産予定日の6か月前から"
+    apply_guide:
+      eligibility: [pension_national]
+      submit_to: 区役所の国民年金の窓口（郵送も可）
+      by_mail: true
+      documents:
+        - name: 国民年金被保険者関係届書（申出書）
+          from: download
+          url: https://www.nenkin.go.jp/service/kokunen/menjo/20180810.html
+        - name: 母子健康手帳（出産予定日と単胎・多胎がわかるページ）か、医療機関の証明
+          from: self
+      form:
+        from: download
+        url: https://www.nenkin.go.jp/service/kokunen/menjo/20180810.html
+        note: 年金事務所・区の国民年金窓口にも用紙がある
+      how_to: 出産予定日の6か月前から届け出られる。出産後でも届け出られる
     source_url: https://www.nenkin.go.jp/service/kokunen/menjo/20180810.html
     verified_at: 2026-09-19
 
@@ -256,6 +302,16 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から（区の案内・訪問のあと）"
+    apply_guide:
+      submit_to: 区の母子保健の窓口（出産後の訪問・案内のときに申請）
+      documents:
+        - name: 2回目の申請書（訪問や通知で渡される）
+          from: ward
+        - name: 振込口座がわかるもの
+          from: self
+      form:
+        from: window
+        note: 区によっては電子申請・郵送
     source_url: https://www.cfa.go.jp/assets/contents/node/basic_page/field_ref_resources/be80930d-51d1-4084-aa3e-b80930646538/42e36027/20250325_policies_shussan-kosodate_52.pdf
     verified_at: 2026-09-19
 
@@ -272,6 +328,21 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    apply_guide:
+      submit_to: 区役所（公務員は勤務先）
+      documents:
+        - name: 児童手当の認定請求書
+          from: ward
+        - name: 請求者名義の振込口座がわかるもの
+          from: self
+        - name: 請求者と配偶者のマイナンバーがわかるもの
+          from: self
+        - name: 本人確認書類
+          from: self
+      form:
+        from: window
+        note: 出生届のときに窓口でもらえる。区によっては電子申請（マイナポータル）
+      how_to: 出生の翌日から15日以内に申請すると、申請月の分から支給される
     source_url: https://www.cfa.go.jp/policies/kokoseido/jidouteate/annai
     verified_at: 2026-09-19
 
@@ -284,6 +355,20 @@ steps:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    apply_guide:
+      eligibility: [insurance_any]
+      submit_to: 勤務先の健康保険の人は勤務先。国民健康保険の人は区役所の国保の窓口
+      documents:
+        - name: 被扶養者（異動）届（勤務先の健康保険の人。勤務先を通して出す）
+          from: employer
+        - name: 親と子のマイナンバーがわかるもの
+          from: self
+        - name: 国民健康保険の人は、出生届のあと区の国保の窓口で加入の手続き（本人確認書類）
+          from: self
+      form:
+        from: employer
+        note: 国民健康保険の人は区の窓口の用紙
+      how_to: 勤務先の健康保険は、事実発生（出生）から5日以内に勤務先へ
     source_url: "TODO: 一次資料を確認（協会けんぽ・市区町村の国保ページ）"
     verified_at: 2026-09-19
     needs_review: true
@@ -297,6 +382,14 @@ steps:
     channel: 勤務先
     deadline_note: 事業主が、育児休業中または終了後1か月以内に提出する
     apply_from_note: "育児休業に入ってから（勤務先が手続きする）"
+    apply_guide:
+      eligibility: [work_employee, insurance_employer]
+      submit_to: 勤務先（事業主が年金事務所に届け出る）
+      documents:
+        - name: 育児休業の期間を勤務先に伝える（書類は勤務先が作る）
+          from: employer
+      form:
+        from: employer
     source_url: https://www.nenkin.go.jp/service/kounen/hokenryo/menjo/ikuji-menjo/20140327-05.html
     verified_at: 2026-09-19
 
@@ -313,6 +406,64 @@ steps:
     deadline_note: 産前休業を始めたい日の前に、勤務先へ
     source_url: https://laws.e-gov.go.jp/law/322AC0000000049
     verified_at: 2026-09-25
+
+  - id: jp.s06f
+    phase: postpartum
+    sort_order: 93
+    title: （会社員など）出産手当金を請求する（産休中に給与が出ないとき）
+    detail: 勤務先の健康保険に入っている本人が、出産のため会社を休み、その間の給与が出なかったときに受け取れる。対象は「出産日（予定日より遅れたときは予定日）以前42日（多胎は98日）から出産の翌日以後56日目まで」の休んだ日。1日あたりの額は、標準報酬月額の平均を30で割った額の3分の2（協会けんぽの計算例）。申請書は本人・勤務先・医師または助産師がそれぞれ記入する。産前と産後で分けて申請することもできる。配偶者の扶養に入っている人と国民健康保険の人は対象にならない。
+    channel: 加入している健康保険（協会けんぽの支部・健康保険組合。勤務先を通して出すことが多い）
+    action_url: https://www.kyoukaikenpo.or.jp/benefit/childbirth/001/index.html
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産したあと（産前の分だけ先に申請することもできる）"
+    deadline_note: 期限があるので、産後の手続きが落ち着いたら早めに（期限の日数は加入している健康保険に確認）
+    apply_guide:
+      eligibility: [work_employee, insurance_employer]
+      submit_to: 加入している協会けんぽの支部（健康保険組合の人はその組合）。勤務先を通して出すことが多い
+      by_mail: true
+      documents:
+        - name: 健康保険出産手当金支給申請書（本人の欄・勤務先の証明・医師または助産師の証明）
+          from: download
+          url: https://www.kyoukaikenpo.or.jp/g2/cat230/r125/
+          note: 健康保険組合の人は、組合の用紙
+        - name: 振込口座がわかるもの（申請書に記入）
+          from: self
+      form:
+        from: download
+        url: https://www.kyoukaikenpo.or.jp/g2/cat230/r125/
+        note: 勤務先が用紙を用意してくれることも多い
+      how_to: 1. 申請書を用意する  2. 医師または助産師の欄を分娩施設に書いてもらう（入院中に頼むと早い）  3. 勤務先の証明欄を書いてもらう  4. 加入している健康保険に出す
+    source_url: https://www.kyoukaikenpo.or.jp/benefit/childbirth/001/index.html
+    verified_at: 2026-10-09
+
+  - id: jp.s09d
+    phase: postpartum
+    sort_order: 94
+    title: （会社員など）育児休業給付金を申請する（原則、勤務先を通じてハローワークへ）
+    detail: 雇用保険に入っている人が育児休業を取ると、育児休業給付金を受け取れる。申請先は事業所の所在地を管轄するハローワークで、原則として勤務先を通して出す。厚労省の案内（令和8年8月1日改訂版 https://www.mhlw.go.jp/content/11600000/001461102.pdf）では、休業開始から180日までは休業開始時賃金日額の67%、181日目からは50%。産後パパ育休の期間の「出生時育児休業給付金」と、夫婦ともに14日以上休んだときの「出生後休業支援給付金」（13%上乗せ・28日まで）も同じ窓口。制度の問い合わせは育児休業等給付コールセンター 0570-200-406（平日8時30分〜17時15分）。
+    channel: 勤務先を通じて、事業所の所在地を管轄するハローワーク
+    action_url: https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000135090_00001.html
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "育児休業に入ってから（初回の申請は勤務先が期限を管理する）"
+    apply_guide:
+      eligibility: [work_employee]
+      submit_to: 事業所の所在地を管轄するハローワーク（原則、勤務先を通して）
+      documents:
+        - name: 育児休業給付受給資格確認票・（初回）育児休業給付金支給申請書
+          from: employer
+          note: 勤務先が用意し、本人が記入する欄がある
+        - name: 母子健康手帳の写し（育児の事実と出産日の確認）
+          from: self
+        - name: 振込口座がわかるもの
+          from: self
+      form:
+        from: employer
+        note: 雇用保険に入っているかは勤務先に確認する（パート・派遣でも入っていれば対象）
+      how_to: 1. 育児休業の申出のときに、勤務先に給付金の手続きも頼む  2. 勤務先から申請書を受け取り、本人の欄を書く  3. 母子手帳の写しと口座を渡す  4. 2回目以降は勤務先が2か月ごとに申請する
+    source_url: https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000135090_00001.html
+    verified_at: 2026-10-09
 
   - id: jp.s10
     phase: postpartum
@@ -375,6 +526,19 @@ steps:
     apply_from_offset_days: 0
     apply_from_note: "妊娠が終わった日から"
     deadline_note: 請求できる日の翌日から2年以内（健康保険の時効）
+    apply_guide:
+      eligibility: [insurance_any]
+      submit_to: 加入している健康保険（勤務先の健保組合・協会けんぽ）。国民健康保険の人は区役所
+      by_mail: true
+      documents:
+        - name: 出産育児一時金の支給申請書（直接支払制度を使わないとき）
+          from: download
+          url: https://www.kyoukaikenpo.or.jp/g2/cat230/r127/
+        - name: 医師の証明または死産証書の写し（申請書の医師の欄）
+          from: hospital
+      form:
+        from: download
+        url: https://www.kyoukaikenpo.or.jp/g2/cat230/r127/
     source_url: https://www.kyoukaikenpo.or.jp/benefit/childbirth/002/index.html
     verified_at: 2026-10-01
 
@@ -430,8 +594,48 @@ subsidies:
     apply_via: 分娩施設（直接支払制度）または健康保険
     scheme_applicable: [lumpsum]
     apply_from_note: "出産のとき（直接支払制度なら分娩施設で手続き）"
+    apply_guide:
+      eligibility: [insurance_any]
+      submit_to: 分娩施設（直接支払制度）。使わないときは加入している健康保険
+      by_mail: true
+      documents:
+        - name: 直接支払制度の合意書（施設が用意し、本人が署名）
+          from: hospital
+        - name: 健康保険証またはマイナ保険証
+          from: self
+      form:
+        from: hospital
+        url: https://www.kyoukaikenpo.or.jp/g2/cat230/r127/
+        note: 直接支払制度を使わず自分で請求するときは、健康保険の申請書（協会けんぽはダウンロード。健保組合は組合の用紙）
+      how_to: 1. 分娩施設で合意書に署名する  2. 退院のとき、費用から一時金を引いた残りを払う  3. 費用が一時金より少なかったときは、差額を健康保険に申請する
     source_url: https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/shussan/index.html
     verified_at: 2026-09-19
+
+  - id: jp.jidou_fuyou
+    name: 児童扶養手当（ひとり親）
+    kind: recurring
+    requires: single_parent
+    amount_note: 月額。全部支給は48,050円、一部支給は48,040円〜11,340円（第1子・令和8年4月分から。第2子以降は加算）。所得によって全部・一部・支給なしが決まる。
+    conditions: 父母が婚姻していない・離婚したなどで、18歳になったあとの最初の3月31日までの子を育てているひとり親など。所得制限がある。
+    apply_via: 住んでいる区の窓口に認定請求書を出す（申請した月の翌月分から）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（出生届のあと）"
+    apply_guide:
+      eligibility: [single_parent, income_under_limit]
+      submit_to: 区役所（ひとり親・児童手当の窓口）
+      documents:
+        - name: 児童扶養手当の認定請求書
+          from: ward
+        - name: 戸籍謄本（請求者と子）
+          from: self
+        - name: 住民票・所得がわかる書類・振込口座（区の案内による）
+          from: self
+      form:
+        from: window
+      how_to: 出生届のあと、区の窓口で「ひとり親の手当の相談」と言う。児童手当とは別の制度なので両方申請する
+    source_url: https://www.single-ouen-navi.metro.tokyo.lg.jp/support-information/benefits-allowances/
+    verified_at: 2026-10-02
 
   - id: jp.new_scheme
     name: 新しい制度（分娩費用を保険から施設に直接支給＋定額の現金給付）

@@ -181,6 +181,8 @@ describe("家族C: 出産後2週・領収書あり・赤ちゃん訪問はまだ
       ["tokyo.s03", null, "flow"], // 都の赤ちゃんファースト＋018サポート
       ["jp.s09b", null, "flow"], // 子どもの健康保険
       ["jp.s09c", null, "flow"], // 育休中の社会保険料免除
+      ["jp.s06f", null, "flow"], // 出産手当金（会社員など）
+      ["jp.s09d", null, "flow"], // 育児休業給付金（会社員など）
     ]);
   });
 
@@ -246,7 +248,7 @@ describe("全家族に共通", () => {
 
   it("未登録の市区町村でも、出産後は国の出産後ステップが出る", () => {
     const r = resolve({ ...base, region_code: "13201", birth_date: "2026-09-04", completed_step_ids: ["jp.s01", "jp.s02", "tokyo.s01", "jp.s06b"] });
-    expect(r.actions.map((a) => a.step.id)).toEqual(["jp.s07", "jp.s09", "jp.s08", "tokyo.s03", "jp.s09b", "jp.s09c"]);
+    expect(r.actions.map((a) => a.step.id)).toEqual(["jp.s07", "jp.s09", "jp.s08", "tokyo.s03", "jp.s09b", "jp.s09c", "jp.s06f", "jp.s09d"]);
   });
 
   it("未登録の道府県（札幌市 01100）でも、国の骨格は出る", () => {

@@ -365,6 +365,8 @@ subsidies:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    apply_guide:
+      eligibility: [insurance_any]
     source_url: https://www.city.adachi.tokyo.jp/oyako/k-kyoiku/kosodate/syussanhi-josei.html
     verified_at: 2026-09-20
 

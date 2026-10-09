@@ -143,7 +143,7 @@ export function MoneyView() {
     const family = toFamily(state);
     const expanded = { ...family, held_documents: expandHeldDocuments(family.held_documents, data.rules.documents) };
     return schemesOf(facility).map((scheme) =>
-      calculateMoney({ scheme, facility, subsidies: data.money.subsidies, family: expanded, documents: data.rules.documents, children, wantsEpidural }),
+      calculateMoney({ scheme, facility, subsidies: data.money.subsidies, family: expanded, documents: data.rules.documents, children, wantsEpidural, singleParent: state.preferences.single_parent === true }),
     );
   }, [state, data, facility, children, wantsEpidural]);
 

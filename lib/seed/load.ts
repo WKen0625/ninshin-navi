@@ -53,6 +53,17 @@ const documentSchema = z.strictObject({
 });
 
 // source_url / verified_at は「無い行」を自前のメッセージで拒否したいので、ここでは任意にして後段で検査する
+/** 申請ガイド（助成金Navi）。lib/apply-guide.ts の ApplyGuide と同じ形 */
+const applyGuideSchema = z.strictObject({
+  eligibility: z.array(z.enum(["insurance_employer", "insurance_national", "insurance_any", "work_employee", "work_self_employed", "pension_national", "single_parent", "income_under_limit", "multiple", "epidural", "satogaeri", "foreign_parent"])).optional(),
+  submit_to: z.string().nullish(),
+  online_url: z.string().url().nullish(),
+  by_mail: z.boolean().nullish(),
+  documents: z.array(z.strictObject({ name: z.string().min(1), from: z.enum(["hospital", "ward", "employer", "insurer", "self", "download", "mailed"]), url: z.string().url().nullish(), note: z.string().nullish() })).optional(),
+  form: z.strictObject({ from: z.enum(["window", "download", "mailed", "hospital", "employer", "online", "none"]), url: z.string().url().nullish(), note: z.string().nullish() }).nullish(),
+  how_to: z.string().nullish(),
+});
+
 const sourced = {
   source_url: z.string().nullish(),
   verified_at: dateStr.nullish(),
@@ -83,6 +94,8 @@ const stepSchema = z.strictObject({
   contact_id: z.string().nullish(),
   /** 該当する家族にだけ出す: multiple（双子以上）／satogaeri（里帰り出産）／foreign_parent（子が日本国籍にならない）／loss（流産・死産で妊娠を終えた。これだけを出す） */
   requires: z.enum(["multiple", "satogaeri", "foreign_parent", "loss"]).nullish(),
+  /** 申請ガイド（助成金Navi） */
+  apply_guide: applyGuideSchema.nullish(),
   ...sourced,
 });
 
@@ -90,7 +103,7 @@ const subsidySchema = z.strictObject({
   id: z.string().min(1),
   name: z.string().min(1),
   kind: z.enum(["at_counter", "cash_later", "recurring", "conditional"]),
-  requires: z.enum(["epidural"]).nullish(),
+  requires: z.enum(["epidural", "single_parent"]).nullish(),
   amount_yen: z.number().int().nullish(),
   amount_is_upper_limit: z.boolean().default(false),
   amount_formula: z.string().nullish(),
@@ -105,6 +118,8 @@ const subsidySchema = z.strictObject({
   apply_from_note: z.string().nullish(),
   taxable: z.boolean().nullish(),
   scheme_applicable: z.array(z.enum(["lumpsum", "new_scheme"])).default(["lumpsum", "new_scheme"]),
+  /** 申請ガイド（助成金Navi） */
+  apply_guide: applyGuideSchema.nullish(),
   ...sourced,
 });
 

@@ -405,6 +405,8 @@ subsidies:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    apply_guide:
+      eligibility: [insurance_any]
     source_url: https://www.city.minato.tokyo.jp/kodomokyufu/kenko/ninshin/shussan/jose.html
     verified_at: 2026-09-19
 
@@ -430,5 +432,7 @@ subsidies:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    apply_guide:
+      eligibility: [multiple]
     source_url: https://www.city.minato.tokyo.jp/chiikihoken/tatai.html
     verified_at: 2026-09-20

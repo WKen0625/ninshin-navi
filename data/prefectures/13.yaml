@@ -98,6 +98,28 @@ subsidies:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から"
+    apply_guide:
+      eligibility: [epidural]
+      submit_to: 東京都（電子申請だけ。郵送は受け付けない）
+      online_url: https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/mutsubunben/subsidy
+      by_mail: false
+      documents:
+        - name: 住民票の写し（申請者本人と子の氏名が載ったもの。申請日から3か月以内に発行）
+          from: self
+        - name: 対象医療機関の領収書（「無痛分娩費用」の金額が明記されたもの）
+          from: hospital
+        - name: 診療明細書（無痛分娩の費用が載ったもの）
+          from: hospital
+        - name: 母子健康手帳の表紙と1ページ目
+          from: self
+        - name: 通帳のコピーなど（振込先の金融機関名・支店名・口座番号・名義）
+          from: self
+        - name: 戸籍全部事項証明書（母子手帳の交付時と氏名が違う場合だけ）
+          from: self
+      form:
+        from: online
+        url: https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/mutsubunben/subsidy
+      how_to: 1. 退院のとき、無痛分娩費用の金額が明記された領収書と明細書をもらう  2. 住民票の写しを取る  3. 都の申請フォームから出す（出産日の翌日から1年以内・厳守）。問い合わせはコールセンター 0120-620-620
     source_url: https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/mutsubunben/subsidy
     verified_at: 2026-09-18
 
@@ -111,6 +133,20 @@ subsidies:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から（子どもの住民登録のあと）"
+    apply_guide:
+      submit_to: 東京都（018サポートのサイト）
+      online_url: https://018support.metro.tokyo.lg.jp/
+      by_mail: true
+      documents:
+        - name: 親と子のマイナンバーカード（スマホで読み取る。どちらかが無い場合は「その他の方法」で申請）
+          from: self
+        - name: 公金受取口座（子または申請者の口座を登録しておく）
+          from: self
+      form:
+        from: online
+        url: https://018support.metro.tokyo.lg.jp/
+        note: 郵送で申請する用紙もある（送付の受付期限あり）
+      how_to: 子どもの住民登録が済んだら、018サポートのサイトから申請する。赤ちゃんファーストも同時に申請できる。問い合わせ 0120-056-018
     source_url: https://018support.metro.tokyo.lg.jp/
     verified_at: 2026-09-19
 
@@ -123,5 +159,69 @@ subsidies:
     apply_from_base: birth_date
     apply_from_offset_days: 0
     apply_from_note: "出産した日から（018サポートと同時に）"
+    apply_guide:
+      submit_to: 東京都（018サポートのサイトで同時申請）
+      online_url: https://018support.metro.tokyo.lg.jp/
+      by_mail: false
+      documents:
+        - name: 018サポートと同時に申請（別の書類は要らない）
+          from: self
+        - name: 届いたギフトカードに書かれたIDとパスワード（専用サイトの初回登録に使う）
+          from: mailed
+      form:
+        from: online
+        url: https://tokyobabyfirst.metro.tokyo.lg.jp/
+      how_to: 1. 018サポートの申請のときに同時申請する  2. ギフトカードが届いたら（申請からおおむね4か月）、カードの二次元コードから専用サイトに初回登録する  3. 商品の申込みは初回登録から6か月以内。問い合わせ 0120-001-047
     source_url: https://www.fukushi.metro.tokyo.lg.jp/kodomo/shussan/tokyo_shussankosodateouen
     verified_at: 2026-09-19
+
+  - id: tokyo.ikusei
+    name: 児童育成手当（東京都・ひとり親）
+    kind: recurring
+    requires: single_parent
+    amount_yen: 13500
+    amount_note: 子ども1人につき月額13,500円（東京都独自。児童扶養手当とは別）。所得制限がある。
+    conditions: 児童扶養手当と同様のひとり親家庭など。所得制限あり。
+    apply_via: 住んでいる区の窓口（児童扶養手当と一緒に申請できる）
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（出生届のあと）"
+    apply_guide:
+      eligibility: [single_parent, income_under_limit]
+      submit_to: 区役所（ひとり親・児童手当の窓口）
+      documents:
+        - name: 申請書（区の窓口）
+          from: ward
+        - name: 戸籍謄本・住民票・所得がわかる書類（区の案内による）
+          from: self
+      form:
+        from: window
+      how_to: 児童扶養手当の申請と同じときに、まとめて申請する
+    source_url: https://www.single-ouen-navi.metro.tokyo.lg.jp/support-information/benefits-allowances/
+    verified_at: 2026-10-02
+
+  - id: tokyo.maruoya
+    name: ひとり親家庭等医療費助成（マル親）
+    kind: conditional
+    requires: single_parent
+    amount_note: ひとり親と子の、保険診療の自己負担分を助成。住民税課税世帯は自己負担1割（通院は月18,000円、入院は月57,600円が上限）、非課税世帯は自己負担なし。
+    conditions: 都内に住所があり、児童を監護しているひとり親家庭の母または父など。所得が限度額以上の人、健康保険に入っていない人、生活保護を受けている人は対象外。
+    apply_via: 区市役所の窓口に申請し、マル親医療証の交付を受ける
+    apply_from_base: birth_date
+    apply_from_offset_days: 0
+    apply_from_note: "出産した日から（子の健康保険の加入のあと）"
+    apply_guide:
+      eligibility: [single_parent, insurance_any, income_under_limit]
+      submit_to: 区役所（医療費助成の窓口）
+      documents:
+        - name: 申請書（区の窓口）
+          from: ward
+        - name: 親と子の健康保険の情報（マイナ保険証・資格確認書）
+          from: self
+        - name: 戸籍謄本・所得がわかる書類（区の案内による）
+          from: self
+      form:
+        from: window
+      how_to: 子を健康保険に入れたあとに申請する。子の医療証（マル乳など）とは重複して発行されないので、どちらになるかは窓口で決まる
+    source_url: https://www.fukushi.metro.tokyo.lg.jp/seikatsu/josei/maruoya
+    verified_at: 2026-10-02

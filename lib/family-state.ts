@@ -22,6 +22,11 @@ export type Preferences = {
   satogaeri?: boolean;
   /** 子が日本国籍にならない（両親とも外国籍など。在留資格の取得などの手続きを出す） */
   foreign_parent?: boolean;
+  /** 助成金Navi の判定に使う答え（入口の5問）。所得の額は聞かない */
+  insurance?: "employer" | "national" | "none" | "unknown";
+  work?: "employee" | "self_employed" | "not_working" | "unknown";
+  single_parent?: boolean;
+  income_limit?: "under" | "over" | "unknown";
 };
 
 export type FamilyState = {
@@ -43,6 +48,8 @@ export type FamilyState = {
   progress: { step_id: string; status: "done" | "not_applicable"; at: string; /** 「該当しない」の理由（任意） */ reason?: NaReason }[];
   /** 担当の付け替え（パートナーと分担するため）。無いステップは lib/who.ts の目安 */
   assignments?: Record<string, "mother" | "partner">;
+  /** 助成金Navi で「申請した」を付けた助成（subsidies.id） */
+  claimed?: string[];
   /** 記録（アンケート）への同意。保存するのは同意した場合だけ */
   consent_survey: boolean;
   /** 分娩方法など任意項目への同意 */
@@ -145,9 +152,14 @@ export function parseState(raw: string | null): FamilyState | null {
         children: Number.isInteger(s.preferences?.children) && s.preferences!.children! >= 1 ? s.preferences!.children : 1,
         satogaeri: s.preferences?.satogaeri === true,
         foreign_parent: s.preferences?.foreign_parent === true,
+        insurance: (["employer", "national", "none"] as const).find((v) => v === s.preferences?.insurance) ?? "unknown",
+        work: (["employee", "self_employed", "not_working"] as const).find((v) => v === s.preferences?.work) ?? "unknown",
+        single_parent: s.preferences?.single_parent === true,
+        income_limit: (["under", "over"] as const).find((v) => v === s.preferences?.income_limit) ?? "unknown",
       },
       held_documents: Array.isArray(s.held_documents) ? s.held_documents.filter((h) => typeof h?.document_id === "string" && isDate(h?.held_at)) : [],
       progress: Array.isArray(s.progress) ? s.progress.filter((p) => typeof p?.step_id === "string").map((p) => (isNaReason(p.reason) ? p : { step_id: p.step_id, status: p.status, at: p.at })) : [],
+      claimed: Array.isArray(s.claimed) ? s.claimed.filter((x) => typeof x === "string") : [],
       assignments: Object.fromEntries(Object.entries(s.assignments ?? {}).filter(([k, v]) => typeof k === "string" && (v === "mother" || v === "partner"))) as Record<string, "mother" | "partner">,
       consent_survey: s.consent_survey === true,
       consent_sensitive: s.consent_sensitive === true,

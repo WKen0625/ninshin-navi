@@ -13,12 +13,13 @@ const ITEMS = [
   { href: "/todo", label: "やること", icon: icon("M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9") },
   { href: "/hospitals", label: "病院", icon: icon("M4 21V7l8-4 8 4v14M9 21v-5h6v5M12 8v4M10 10h4") },
   { href: "/money", label: "お金", icon: icon("M12 3v18M7 7l5 5 5-5M7 13h10M7 17h10") },
+  { href: "/subsidies", label: "助成", icon: icon("M3 7h18v10H3zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM6 10h.01M18 14h.01") },
   { href: "/navi", label: "入力", icon: icon("M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4") },
 ];
 
 /** 画面下に浮かぶタブ。親指の届く位置に置く（スマホ優先）。タップ領域は 44px 以上。 */
 /** アプリの画面（入力〜お金）だけに出す。トップ・記事・コンタクトでは出さない */
-const APP_PATHS = ["/navi", "/todo", "/hospitals", "/money", "/notify", "/privacy"];
+const APP_PATHS = ["/navi", "/todo", "/hospitals", "/money", "/subsidies", "/share", "/notify", "/privacy"];
 
 export function Nav() {
   const path = usePathname();
@@ -33,7 +34,7 @@ export function Nav() {
               key={i.href}
               href={i.href}
               aria-current={active ? "page" : undefined}
-              className={`flex min-h-14 flex-1 flex-col items-center justify-center gap-0.5 rounded-2xl text-base font-bold transition ${
+              className={`flex min-h-14 flex-1 flex-col items-center justify-center gap-0.5 rounded-2xl px-0.5 text-[0.8rem] font-bold whitespace-nowrap transition sm:text-base ${
                 active ? "bg-gradient-to-br from-indigo-600 to-violet-600 text-white shadow-sm" : "text-slate-600 hover:bg-white"
               }`}
             >

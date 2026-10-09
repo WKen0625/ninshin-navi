@@ -2,6 +2,8 @@
 // 設計原則2: 入力（データ表＋利用者の状態＋今日の日付）が同じなら、結果は必ず同じ。
 // 設計原則1: 地域名・ステップidをコードに書かない。違いはすべてデータが持つ。
 
+import type { ApplyGuide } from "./apply-guide";
+
 export type Region = {
   code: string;
   level: "national" | "prefecture" | "municipality";
@@ -79,6 +81,8 @@ export type Step = {
   contact_id?: string | null;
   /** 該当する家族にだけ出す（family.flags に同じ値があるとき） */
   requires?: StepFlag | null;
+  /** 申請ガイド（助成金Navi）。無ければ channel と出典で代用 */
+  apply_guide?: ApplyGuide | null;
   source_url: string;
   verified_at: string;
   needs_review: boolean;

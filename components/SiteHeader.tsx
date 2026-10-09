@@ -6,7 +6,7 @@ import { columnsOf, HEADER, homeOf, LANG_NAME, langOf, LANGS } from "@/lib/i18n"
 
 /** 上のタブ: Tsugiraku Navi（アプリ）／負担軽減コラム／コンタクト。どの画面にも出す。タップ領域は 44px 以上 */
 const TABS: { key: "navi" | "columns" | "contact"; href: string; match: string[] }[] = [
-  { key: "navi", href: "/navi", match: ["/navi", "/todo", "/hospitals", "/money", "/notify", "/privacy"] },
+  { key: "navi", href: "/navi", match: ["/navi", "/todo", "/hospitals", "/money", "/subsidies", "/share", "/notify", "/privacy"] },
   { key: "columns", href: "/articles", match: ["/articles"] },
   { key: "contact", href: "/contact", match: ["/contact"] },
 ];

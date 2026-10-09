@@ -277,7 +277,44 @@ export function EntryForm({ area }: { area: Area }) {
       </fieldset>
 
       <fieldset className="card space-y-1">
-        <SectionHeading as="legend" icon="document">4. いま手元にある紙</SectionHeading>
+        <SectionHeading as="legend" icon="money" tone="green">4. あなたのこと（助成の判定に使います）</SectionHeading>
+        <div className="space-y-3">
+          <p className="text-base text-gray-600">助成金Naviで「あなたは対象か」を出すために使います。所得の額は聞きません。わからなければ「わからない」のままで進めます。</p>
+          <label className="block text-base">
+            加入している健康保険
+            <select className={field} value={preferences.insurance ?? "unknown"} onChange={(e) => setPreferences({ ...preferences, insurance: e.target.value as Preferences["insurance"] })}>
+              <option value="unknown">わからない</option>
+              <option value="employer">勤務先の健康保険（健保組合・協会けんぽ・共済）。配偶者の扶養もここ</option>
+              <option value="national">国民健康保険（区役所で入るもの）</option>
+              <option value="none">日本の健康保険に入っていない</option>
+            </select>
+          </label>
+          <label className="block text-base">
+            あなたの働き方
+            <select className={field} value={preferences.work ?? "unknown"} onChange={(e) => setPreferences({ ...preferences, work: e.target.value as Preferences["work"] })}>
+              <option value="unknown">わからない・答えない</option>
+              <option value="employee">会社員・公務員（雇われて働いている。パート・派遣も）</option>
+              <option value="self_employed">自営業・フリーランス</option>
+              <option value="not_working">働いていない（配偶者の扶養など）</option>
+            </select>
+          </label>
+          <label className="flex min-h-11 items-center gap-3 text-base">
+            <input type="checkbox" className="check" checked={preferences.single_parent === true} onChange={(e) => setPreferences({ ...preferences, single_parent: e.target.checked })} />
+            ひとり親（結婚していない・離婚した・パートナーと別れた）
+          </label>
+          <label className="block text-base">
+            所得制限のある助成について
+            <select className={field} value={preferences.income_limit ?? "unknown"} onChange={(e) => setPreferences({ ...preferences, income_limit: e.target.value as Preferences["income_limit"] })}>
+              <option value="unknown">わからない（制度ごとに「要確認」と出します）</option>
+              <option value="under">たぶん制限の範囲内（世帯の所得は高くない）</option>
+              <option value="over">たぶん制限を超える（高所得の世帯）</option>
+            </select>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset className="card space-y-1">
+        <SectionHeading as="legend" icon="document">5. いま手元にある紙</SectionHeading>
         {!rules ? (
           <p className="text-base text-gray-600">市区町村を選ぶと、選べる紙が出ます。</p>
         ) : (

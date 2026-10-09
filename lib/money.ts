@@ -3,6 +3,7 @@
 // 設計原則2: データ表から決定的に計算する。設計原則9: 制度（scheme）を必ず区別する。
 // 設計原則1: どの助成をどこで引くかは subsidies.kind が決める。助成の名前やidをコードに書かない。
 
+import type { ApplyGuide } from "./apply-guide";
 import { evaluateFormula, formulaVariables, type FormulaVars } from "./formula";
 import { applyWindowOf, type ApplyWindow } from "./apply-window";
 import { type DeadlineBase, type DocumentDef, type Family } from "./next-actions";
@@ -14,7 +15,8 @@ export type Subsidy = {
   region_code: string;
   name: string;
   kind: "at_counter" | "cash_later" | "recurring" | "conditional";
-  requires: "epidural" | null;
+  /** この人にだけ出す: epidural = 無痛分娩を希望／single_parent = ひとり親 */
+  requires: "epidural" | "single_parent" | null;
   amount_yen: number | null;
   amount_is_upper_limit: boolean;
   amount_formula: string | null;
@@ -29,6 +31,8 @@ export type Subsidy = {
   apply_from_note?: string | null;
   taxable: boolean | null;
   scheme_applicable: Scheme[];
+  /** 申請ガイド（助成金Navi） */
+  apply_guide?: ApplyGuide | null;
   source_url: string;
   verified_at: string;
   needs_review: boolean;
@@ -109,15 +113,16 @@ export function calculateMoney(input: {
   documents: DocumentDef[];
   children: number;
   wantsEpidural: boolean;
+  singleParent?: boolean;
 }): MoneyResult {
-  const { scheme, facility, subsidies, family, documents, children, wantsEpidural } = input;
+  const { scheme, facility, subsidies, family, documents, children, wantsEpidural, singleParent = false } = input;
 
   // 新しい制度は金額がまだ決まっていないので、出産なびの費用（今の制度での請求額）から引き算をしない
   const cost = facility && scheme === "lumpsum" ? latestCost(facility) : null;
 
   const applicable = subsidies
     .filter((s) => s.scheme_applicable.includes(scheme))
-    .filter((s) => s.requires == null || (s.requires === "epidural" && wantsEpidural))
+    .filter((s) => s.requires == null || (s.requires === "epidural" && wantsEpidural) || (s.requires === "single_parent" && singleParent))
     // 無痛分娩の助成は、対象医療機関の一覧に載っていないとわかっている施設では数えない（未確認 null なら数える）
     .filter((s) => !(s.requires === "epidural" && facility?.tokyo_epidural_subsidy_target === false))
     .sort((a, b) => (a.id < b.id ? -1 : 1));
