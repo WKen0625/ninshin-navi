@@ -10,6 +10,7 @@ import { classifyApplyTo } from "@/lib/apply-to";
 import { ApplyToChips, ApplyWindowBox } from "./ApplyWindow";
 import { FeedbackLink } from "./FeedbackLink";
 import { SectionHeading } from "./Icon";
+import { MoneyChart } from "./MoneyChart";
 import { SourceLink } from "./SourceLink";
 import { todayLocal, useFamilyState } from "./useFamilyState";
 
@@ -75,6 +76,7 @@ function SchemeResult({ result, facilityName, today }: { result: MoneyResult; fa
               <p className="text-base text-gray-700">{facilityName ? "この施設の費用データはまだありません。" : "施設を選ぶと、出産なびの費用が入ります。"}</p>
             )}
           </div>
+          <MoneyChart result={result} />
           <ul className="space-y-2">{result.at_counter.map((l) => <Line key={l.subsidy.id} line={l} sign="−" today={today} />)}</ul>
           {result.pay_at_counter_yen != null ? (
             <p className="notice notice-muted flex items-baseline justify-between gap-3 font-bold">

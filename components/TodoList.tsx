@@ -7,6 +7,7 @@ import { downloadIcs, eventOfStep, googleCalendarUrl, icsOf, reentryEvents } fro
 import { APPLY_TO_LABEL, classifyApplyTo, type ApplyTo } from "@/lib/apply-to";
 import { assignStep, clearStep, markStep, markStuck, toFamily, type FamilyState } from "@/lib/family-state";
 import { BASIS_LABEL } from "@/lib/due-date";
+import { journeyOf } from "@/lib/journey";
 import { WHO_LABEL, whoOf } from "@/lib/who";
 import { NA_REASONS, naLabel, STUCK_REASONS, stuckLabel, type NaReason, type StuckReason } from "@/lib/stuck";
 import { expandHeldDocuments, resolveNextActions, type NextAction, type Step } from "@/lib/next-actions";
@@ -15,7 +16,9 @@ import type { Survey } from "@/lib/surveys";
 import { ApplyToChips, ApplyWindowBox, isApplication } from "./ApplyWindow";
 import { ContactBox, ContactList } from "./ContactBox";
 import { Disclosure } from "./Disclosure";
-import { Icon, IconTile, SectionHeading, type IconName, type Tone } from "./Icon";
+import { Icon, IconTile, SectionHeading } from "./Icon";
+import { JourneyMap } from "./JourneyMap";
+import { TARGET_ICON } from "./CounterGrid";
 import { DocumentGuide } from "./DocumentGuide";
 import { FeedbackLink } from "./FeedbackLink";
 import { LangHint } from "./LangHint";
@@ -30,14 +33,7 @@ const fmt = (d: string) => {
 
 type StuckStat = { reason: StuckReason | NaReason; reports: number };
 
-/** 窓口の種類を絵で見せる: 区役所＝建物（青）／東京都＝塔（紫）／国＝日の丸（灰）／勤務先・健康保険＝かばん（緑）／医療機関＝病院（空色） */
-const TARGET_ICON: Record<ApplyTo, { icon: IconName; tone: Tone }> = {
-  ward: { icon: "building", tone: "blue" },
-  tokyo: { icon: "tower", tone: "violet" },
-  national: { icon: "japan", tone: "slate" },
-  employer: { icon: "briefcase", tone: "green" },
-  facility: { icon: "hospital", tone: "sky" },
-};
+
 
 /**
  * 「わからない」。理由を1つ選んでもらい、同意があればサーバーに送る（どこでつまずくかの集計のため）。
@@ -287,6 +283,8 @@ export function TodoList() {
   ];
   const loss = state.loss === true && state.birth_date != null;
   const provisional = state.due_date_basis != null && state.due_date_basis !== "known";
+  const journey = journeyOf({ steps: rules.steps, regions: rules.regions, family: familyNow, progress: state.progress, actions: result.actions, current: result.current });
+  const weekLabel = state.birth_date ? (loss ? "妊娠を終えた" : "出産後") : `妊娠${result.gestational_week}週`;
   const finished = state.progress.filter((p) => stepById.has(p.step_id));
   const mark = (step: Step, status: "done" | "not_applicable") => save(markStep(state, step, status, today));
 
@@ -326,6 +324,8 @@ export function TodoList() {
         <LangHint />
       </header>
 
+      {!loss ? <JourneyMap journey={journey} weekLabel={weekLabel} /> : null}
+
       {loss && rules.contacts.length > 0 ? (
         <section className="space-y-3">
           <SectionHeading icon="phone" tone="blue">話せるところ</SectionHeading>
@@ -339,21 +339,6 @@ export function TodoList() {
         </section>
       ) : null}
 
-      {(() => {
-        const done = finished.length;
-        const total = done + result.actions.length;
-        return total > 0 ? (
-          <div className="card card-quiet space-y-2" aria-label={`進み具合 ${done}/${total}`}>
-            <p className="flex items-baseline justify-between gap-3 text-base text-slate-600">
-              <span>進み具合</span>
-              <span className="font-bold text-ink">{done} / {total}</span>
-            </p>
-            <div className="h-2 overflow-hidden rounded-full bg-slate-200/80">
-              <div className="h-full rounded-full bg-gradient-to-r from-indigo-500 via-violet-500 to-sky-400 transition-all" style={{ width: `${Math.round((done / total) * 100)}%` }} />
-            </div>
-          </div>
-        ) : null;
-      })()}
 
       {events.length > 0 ? (
         <section className="card card-ai space-y-3" aria-labelledby="cal">

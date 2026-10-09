@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { DOCUMENT_FROM_LABEL, FORM_FROM_LABEL, type ApplyGuide } from "@/lib/apply-guide";
 import { applyWindowOf } from "@/lib/apply-window";
-import { classifyApplyTo } from "@/lib/apply-to";
+import { classifyApplyTo, type ApplyTo } from "@/lib/apply-to";
 import { judgeItems, listBenefitSteps, type BenefitItem } from "@/lib/benefit";
 import { STATUS_LABEL, type Check, type EligibilityStatus } from "@/lib/eligibility";
 import { toFamily, type FamilyState } from "@/lib/family-state";
@@ -12,6 +12,7 @@ import { amountOf } from "@/lib/money";
 import { expandHeldDocuments } from "@/lib/next-actions";
 import type { MoneyData, Rules } from "@/lib/rules";
 import { ApplyToChips, ApplyWindowBox, isApplication } from "./ApplyWindow";
+import { CounterGrid } from "./CounterGrid";
 import { Disclosure } from "./Disclosure";
 import { Icon, IconTile, SectionHeading, type Tone } from "./Icon";
 import { SourceLink } from "./SourceLink";
@@ -166,6 +167,7 @@ export function SubsidyNavi() {
   const [data, setData] = useState<{ money: MoneyData; rules: Rules } | null>(null);
   const [failed, setFailed] = useState(false);
   const [showNot, setShowNot] = useState(false);
+  const [counter, setCounter] = useState<ApplyTo | null>(null);
   const region = state?.region_code;
 
   useEffect(() => {
@@ -200,8 +202,16 @@ export function SubsidyNavi() {
   if (!data) return <p className="text-base">読み込み中…</p>;
 
   const claimed = new Set(state.claimed ?? []);
+  const targetsOf = (item: BenefitItem) => {
+    const guide = item.kind === "subsidy" ? (item.subsidy.apply_guide ?? item.step?.apply_guide) : item.step.apply_guide;
+    const text = guide?.submit_to ?? (item.kind === "subsidy" ? (item.subsidy.apply_via ?? item.step?.channel) : item.step.channel);
+    return classifyApplyTo(text, item.kind === "subsidy" ? item.subsidy.region_code : item.step.region_code);
+  };
+  const counts: Record<ApplyTo, number> = { ward: 0, tokyo: 0, national: 0, employer: 0, facility: 0 };
+  for (const item of items) if (item.status !== "not_eligible") for (const t of new Set(targetsOf(item))) counts[t]++;
+  const visible = items.filter((i) => counter == null || targetsOf(i).includes(counter));
   const setClaimed = (id: string, v: boolean) => save({ ...state, claimed: v ? [...claimed, id] : [...claimed].filter((x) => x !== id) });
-  const groups: { status: EligibilityStatus; items: BenefitItem[] }[] = (["eligible", "check", "not_eligible"] as const).map((status) => ({ status, items: items.filter((i) => i.status === status) }));
+  const groups: { status: EligibilityStatus; items: BenefitItem[] }[] = (["eligible", "check", "not_eligible"] as const).map((status) => ({ status, items: visible.filter((i) => i.status === status) }));
   const answered = state.preferences.insurance && state.preferences.insurance !== "unknown";
 
   return (
@@ -220,6 +230,12 @@ export function SubsidyNavi() {
           <Link href="/navi" className="link-inline">入口で答えを直す</Link>
           {!answered ? <span className="block text-slate-600">健康保険と働き方を答えると、「要確認」が減ります。</span> : null}
         </p>
+      </section>
+
+      <section className="space-y-2">
+        <p className="text-base font-bold text-ink">どこに行く（押すと絞れます）</p>
+        <CounterGrid counts={counts} selected={counter} onSelect={setCounter} />
+        {counter ? <p className="text-base text-slate-600">{visible.length}件を表示中。もう一度押すと全部に戻ります。</p> : null}
       </section>
 
       {groups.map(({ status, items: list }) =>
