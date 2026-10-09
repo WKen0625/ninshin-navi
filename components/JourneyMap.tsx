@@ -14,9 +14,9 @@ export function JourneyMap({ journey, weekLabel }: { journey: Journey; /** 「�
           済 <span className="font-bold text-done">{journey.totalDone}</span>・まだ <span className="font-bold text-ink">{journey.totalRemaining}</span>件
         </p>
       </div>
-      <ol className="relative grid grid-cols-5 gap-1 pt-8">
+      <ol className="relative grid grid-cols-5 gap-1 pt-10">
         {/* 道の線 */}
-        <div aria-hidden="true" className="absolute top-[54px] right-[10%] left-[10%] h-1 rounded-full bg-slate-200" />
+        <div aria-hidden="true" className="absolute top-[62px] right-[10%] left-[10%] h-1 rounded-full bg-slate-200" />
         {journey.phases.map((p, i) => (
           <PhaseColumn key={p.phase} p={p} weekLabel={weekLabel} align={i === 0 ? "left" : i === journey.phases.length - 1 ? "right" : "center"} />
         ))}
@@ -38,7 +38,7 @@ function PhaseColumn({ p, weekLabel, align }: { p: PhaseSummary; weekLabel: stri
   return (
     <li className="relative flex flex-col items-center gap-1 text-center">
       {p.state === "current" ? (
-        <span className={`absolute -top-0.5 z-10 rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 px-2 py-0.5 text-sm font-bold whitespace-nowrap text-white shadow-sm ${align === "left" ? "left-0" : align === "right" ? "right-0" : "left-1/2 -translate-x-1/2"}`}>
+        <span className={`absolute top-0 z-10 rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 px-2 py-0.5 text-sm font-bold whitespace-nowrap text-white shadow-sm ${align === "left" ? "left-0" : align === "right" ? "right-0" : "left-1/2 -translate-x-1/2"}`}>
           いま・{weekLabel}
         </span>
       ) : null}
