@@ -38,7 +38,7 @@ function PhaseColumn({ p, weekLabel, align }: { p: PhaseSummary; weekLabel: stri
   return (
     <li className="relative flex flex-col items-center gap-1 text-center">
       {p.state === "current" ? (
-        <span className={`absolute -top-0.5 rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 px-2 py-0.5 text-sm font-bold whitespace-nowrap text-white shadow-sm ${align === "left" ? "left-0" : align === "right" ? "right-0" : "left-1/2 -translate-x-1/2"}`}>
+        <span className={`absolute -top-0.5 z-10 rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 px-2 py-0.5 text-sm font-bold whitespace-nowrap text-white shadow-sm ${align === "left" ? "left-0" : align === "right" ? "right-0" : "left-1/2 -translate-x-1/2"}`}>
           いま・{weekLabel}
         </span>
       ) : null}
