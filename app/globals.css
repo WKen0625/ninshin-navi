@@ -178,3 +178,33 @@ main .text-xs {
     }
   }
 }
+
+/* 印刷（/print の「あなたの全体マップ」）: 画面の飾りを外し、白地に黒で、A4に収める */
+@media print {
+  body {
+    background: #fff !important;
+    color: #000;
+    font-size: 11pt;
+    line-height: 1.4;
+  }
+  header, footer, nav, .print\:hidden {
+    display: none !important;
+  }
+  main {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+  .card, .notice {
+    box-shadow: none !important;
+    border-color: #999 !important;
+    break-inside: avoid;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+}

@@ -23,6 +23,7 @@ import { DocumentGuide } from "./DocumentGuide";
 import { FeedbackLink } from "./FeedbackLink";
 import { LangHint } from "./LangHint";
 import { SourceLink } from "./SourceLink";
+import { StatusBadge } from "./StatusBadge";
 import { SurveyCard } from "./SurveyCard";
 import { getDeviceId, todayLocal, useFamilyState, useNotifyAvailable } from "./useFamilyState";
 
@@ -144,7 +145,7 @@ function ActionCard({ action, today, emphasized, regionCode, state, week, rules,
           </span>
         </p>
       ) : action.reason !== "flow" ? (
-        <p className="text-base font-bold text-amber-800">{action.reason === "overdue" ? "期限を過ぎています" : "期限が30日以内"}</p>
+        <p><StatusBadge status={action.reason === "overdue" ? "overdue" : "soon"} /></p>
       ) : null}
       <h3 className={`flex items-center gap-3 font-bold leading-snug ${emphasized ? "text-2xl" : "text-lg"}`}>
         <IconTile name={mark.icon} tone={mark.tone} size={emphasized ? "size-14" : "size-11"} />
@@ -319,6 +320,7 @@ export function TodoList() {
         <div className="flex flex-wrap gap-x-4">
           <Link href="/navi" className="link">入力を直す（紙が増えたとき・出産したとき）</Link>
           <Link href="/share" className="link">パートナーの端末にも出す（QR）</Link>
+          <Link href="/print" className="link">1枚にして印刷する</Link>
           {notifyAvailable && !loss ? <Link href="/notify" className="link">期限が近づいたらメールで知らせる</Link> : null}
         </div>
         <LangHint />
@@ -408,10 +410,9 @@ export function TodoList() {
           <ul className="space-y-2">
             {finished.map((p) => (
               <li key={p.step_id} className="card card-quiet flex flex-wrap items-center justify-between gap-2 text-base">
-                <span className="flex items-center gap-2">
-                  <Icon name={p.status === "done" ? "checkCircle" : "next"} className={`size-6 shrink-0 ${p.status === "done" ? "text-done" : "text-slate-400"}`} />
-                  <span className={p.status === "done" ? "font-bold text-done" : "text-gray-600"}>{p.status === "done" ? "完了" : "該当しない"}</span>
-                  ：{stepById.get(p.step_id)!.title}{p.reason ? <span className="block text-gray-600">理由: {naLabel(p.reason)}</span> : null}
+                <span className="flex flex-wrap items-center gap-2">
+                  <StatusBadge status={p.status === "done" ? "done" : "na"} />
+                  <span>{stepById.get(p.step_id)!.title}</span>{p.reason ? <span className="block text-gray-600">理由: {naLabel(p.reason)}</span> : null}
                 </span>
                 <button type="button" onClick={() => save(clearStep(state, p.step_id))} className="btn btn-ghost">
                   元に戻す

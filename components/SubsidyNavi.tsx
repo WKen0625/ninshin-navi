@@ -6,7 +6,7 @@ import { DOCUMENT_FROM_LABEL, FORM_FROM_LABEL, type ApplyGuide } from "@/lib/app
 import { applyWindowOf } from "@/lib/apply-window";
 import { classifyApplyTo, type ApplyTo } from "@/lib/apply-to";
 import { judgeItems, listBenefitSteps, type BenefitItem } from "@/lib/benefit";
-import { STATUS_LABEL, type Check, type EligibilityStatus } from "@/lib/eligibility";
+import { type Check, type EligibilityStatus } from "@/lib/eligibility";
 import { toFamily, type FamilyState } from "@/lib/family-state";
 import { amountOf } from "@/lib/money";
 import { expandHeldDocuments } from "@/lib/next-actions";
@@ -16,6 +16,7 @@ import { CounterGrid } from "./CounterGrid";
 import { Disclosure } from "./Disclosure";
 import { Icon, IconTile, SectionHeading, type Tone } from "./Icon";
 import { SourceLink } from "./SourceLink";
+import { StatusBadge } from "./StatusBadge";
 import { todayLocal, useFamilyState } from "./useFamilyState";
 
 const yen = (n: number) => `${n.toLocaleString("ja-JP")}円`;
@@ -118,9 +119,7 @@ function ItemCard({ item, state, rules, today, claimed, onClaim }: { item: Benef
         <div className="min-w-0 flex-1">
           <h3 className="text-lg leading-snug font-bold text-ink">{title}</h3>
           <p className="mt-1 flex flex-wrap items-center gap-2 text-base">
-            <span className={`rounded-md border px-2 py-0.5 font-bold ${item.status === "eligible" ? "border-emerald-200 bg-emerald-50 text-emerald-800" : item.status === "check" ? "border-amber-200 bg-amber-50 text-amber-800" : "border-slate-300 bg-slate-100 text-slate-600"}`}>
-              {STATUS_LABEL[item.status]}
-            </span>
+            <StatusBadge status={item.status} />
             {amount != null ? <span className="font-bold text-ink">{item.kind === "subsidy" && item.subsidy.amount_is_upper_limit ? "最大" : ""}{yen(amount)}{item.kind === "subsidy" && item.subsidy.kind === "recurring" ? "／月" : ""}</span> : null}
           </p>
         </div>

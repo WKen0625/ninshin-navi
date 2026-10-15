@@ -14,6 +14,7 @@ import { SectionHeading } from "./Icon";
 import { FeedbackLink } from "./FeedbackLink";
 import { SurveyCard } from "./SurveyCard";
 import { SourceLink } from "./SourceLink";
+import { StatusBadge } from "./StatusBadge";
 import { todayLocal, useArchive, useFamilyState } from "./useFamilyState";
 
 const yen = (n: number) => `${n.toLocaleString("ja-JP")}円`;
@@ -27,11 +28,12 @@ function DeadlineBox({ item }: { item: FacilityItem }) {
   const week = item.facility.booking_deadline_week_official;
   if (item.status === "after_birth") return null;
   if (item.status === "unknown") {
-    return <p className="notice notice-muted">締切の週は公表されていません（または未確認です）。早めに施設へ電話で確認してください。</p>;
+    return <p className="notice notice-muted"><StatusBadge status="unknown" className="mr-2" />締切の週は公表されていません（または未確認です）。早めに施設へ電話で確認してください。</p>;
   }
   return (
     <p className="notice notice-warn">
-      <span className="font-bold">
+      <StatusBadge status={item.status === "passed" ? "overdue" : item.status === "this_week" ? "this_week" : "open"} label={item.status === "passed" ? "公表の目安を過ぎています" : item.status === "this_week" ? "今週が目安の週" : `あと${item.weeks_left}週`} className="mb-1" />
+      <span className="block font-bold">
         施設が公表している目安: 妊娠{week}週まで（{fmt(item.deadline!)}ごろ）
       </span>
       <span className="block">

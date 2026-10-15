@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Icon, IconTile, SectionHeading, type IconName } from "@/components/Icon";
+import { JourneyMap } from "@/components/JourneyMap";
 import { listArticles } from "@/lib/articles";
+import type { Journey } from "@/lib/journey";
 import { loadServiceArea } from "@/lib/service-area";
 
 export const metadata: Metadata = {
@@ -29,6 +31,20 @@ const PROMISES = [
   },
 ];
 
+/** トップに見せる全体マップの例（妊娠20週・港区の件数をもとにした見本。数字は見本） */
+const SAMPLE_JOURNEY: Journey = {
+  current: "pregnancy",
+  totalDone: 5,
+  totalRemaining: 24,
+  phases: [
+    { phase: "pre_notification", total: 3, done: 3, overdue: 0, soon: 0, remaining: 0, state: "past" },
+    { phase: "notification", total: 1, done: 1, overdue: 0, soon: 0, remaining: 0, state: "past" },
+    { phase: "pregnancy", total: 10, done: 1, overdue: 0, soon: 1, remaining: 9, state: "current" },
+    { phase: "birth", total: 2, done: 0, overdue: 0, soon: 0, remaining: 2, state: "future" },
+    { phase: "postpartum", total: 13, done: 0, overdue: 0, soon: 0, remaining: 13, state: "future" },
+  ],
+};
+
 const STEPS: { n: string; icon: IconName; title: string; body: string }[] = [
   { n: "1", icon: "pen", title: "4つ入れる", body: "住んでいる区、出産予定日、無痛分娩や距離の希望、いま手元にある紙。約1分。" },
   { n: "2", icon: "next", title: "次にやることが1つ出る", body: "妊娠届、母子手帳、分娩予約、助成の申請…。いま何をすればよいかを1件だけ強調し、期限と出典を添えます。" },
@@ -54,6 +70,12 @@ export default function Home() {
           <Link href="/navi" className="btn btn-primary btn-wide"><Icon name="next" className="size-6" />Tsugiraku Naviをはじめる</Link>
           <Link href="/articles" className="btn btn-ghost btn-wide"><Icon name="book" className="size-6" />負担軽減コラムを読む</Link>
         </div>
+      </section>
+
+      <section aria-labelledby="map" className="space-y-3">
+        <SectionHeading id="map" icon="flag">妊娠から産後まで、全部で何件あるかが先にわかる</SectionHeading>
+        <JourneyMap journey={SAMPLE_JOURNEY} weekLabel="妊娠20週（見本）" />
+        <p className="text-base text-slate-700">出産前でも産後の手続きまで数えるので、とりこぼしがありません。済んだものは✓、期限が近いものは時計の印で出ます。</p>
       </section>
 
       <section aria-labelledby="promises" className="space-y-4">

@@ -14,9 +14,9 @@ export function JourneyMap({ journey, weekLabel }: { journey: Journey; /** 「�
           済 <span className="font-bold text-done">{journey.totalDone}</span>・まだ <span className="font-bold text-ink">{journey.totalRemaining}</span>件
         </p>
       </div>
-      <ol className="relative grid grid-cols-5 gap-1 pt-10">
+      <ol className="relative grid grid-cols-5 gap-1 pt-12">
         {/* 道の線 */}
-        <div aria-hidden="true" className="absolute top-[62px] right-[10%] left-[10%] h-1 rounded-full bg-slate-200" />
+        <div aria-hidden="true" className="absolute top-[70px] right-[10%] left-[10%] h-1 rounded-full bg-slate-200" />
         {journey.phases.map((p, i) => (
           <PhaseColumn key={p.phase} p={p} weekLabel={weekLabel} align={i === 0 ? "left" : i === journey.phases.length - 1 ? "right" : "center"} />
         ))}
