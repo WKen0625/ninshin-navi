@@ -1,3 +1,4 @@
+import { withAffiliate } from "@/lib/affiliate";
 import { parseInline, type Block } from "@/lib/markdown";
 
 /** 行の中の 太字・リンク・【要確認】。リンクは外部なら新しいタブで開き、rel を付ける */
@@ -9,7 +10,7 @@ export function Inline({ text, sponsored = false }: { text: string; /** PR記事
         : p.type === "mark" ? <mark key={i} className="bg-amber-100 px-1 text-amber-800">{p.text}</mark>
         : p.type === "link" ? (
           p.href.startsWith("/") ? <a key={i} href={p.href} className="link-inline">{p.text}</a>
-          : <a key={i} href={p.href} target="_blank" rel={sponsored ? "sponsored nofollow noopener noreferrer" : "noopener noreferrer nofollow"} className="link-inline">{p.text}</a>
+          : <a key={i} href={withAffiliate(p.href)} target="_blank" rel={sponsored ? "sponsored nofollow noopener noreferrer" : "noopener noreferrer nofollow"} className="link-inline">{p.text}</a>
         )
         : <span key={i}>{p.text}</span>,
       )}

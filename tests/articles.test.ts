@@ -71,7 +71,7 @@ describe("記事", () => {
       const a = getArticle(slug, lang);
       if (!a) continue; // 下書き（draft: true）は公開前なので、公開の検査は通らない
       const links = a.blocks.flatMap((b) => ("text" in b ? [b.text] : b.items)).flatMap(parseInline).filter((p) => p.type === "link");
-      const amazon = links.some((l) => l.type === "link" && /amzn\.(to|asia)|amazon\.co\.jp.*tag=/.test(l.href));
+      const amazon = links.some((l) => l.type === "link" && /amzn\.(to|asia)|amazon\.co\.jp/.test(l.href));
       const rakuten = links.some((l) => l.type === "link" && /a\.r10\.to|hb\.afl\.rakuten|rakuten\.co\.jp.*afid/.test(l.href));
       const other = links.some((l) => l.type === "link" && /valuecommerce|a8\.net|moshimo|accesstrade|afi-b/.test(l.href));
       if (amazon) expect(a.programs).toContain("amazon");
