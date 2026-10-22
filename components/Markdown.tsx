@@ -6,7 +6,8 @@ export function Inline({ text, sponsored = false }: { text: string; /** PR記事
   return (
     <>
       {parseInline(text).map((p, i) =>
-        p.type === "strong" ? <strong key={i}>{p.text}</strong>
+        // 太字の中のリンク（例: **[品目](https://…)**）も解釈する
+        p.type === "strong" ? <strong key={i}><Inline text={p.text} sponsored={sponsored} /></strong>
         : p.type === "mark" ? <mark key={i} className="bg-amber-100 px-1 text-amber-800">{p.text}</mark>
         : p.type === "link" ? (
           p.href.startsWith("/") ? <a key={i} href={p.href} className="link-inline">{p.text}</a>
