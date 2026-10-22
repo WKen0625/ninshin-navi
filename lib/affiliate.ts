@@ -5,7 +5,7 @@
 
 export const AMAZON_TAG = "tsugiraku-22";
 /** 楽天アフィリエイトの ID。管理画面の「アフィリエイトID」（ドット区切りの英数字のことが多い）。違っていれば差し替える */
-export const RAKUTEN_ID = "tsugiraku";
+export const RAKUTEN_ID = "58b7cc83.e2d80e04.58b7cc84.58db58ca";
 
 /** 楽天市場の検索結果（品目で探す）へのリンク。表示側がアフィリエイトの形に包む */
 export function rakutenSearchUrl(keyword: string): string {
