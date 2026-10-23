@@ -73,6 +73,11 @@ describe("話題と URL（変わると検索の評価を失うので固定）", 
 });
 
 describe("ページの中身", () => {
+  it("題名: 区の手続きは「区名の話題」、23区共通は「話題（東京23区）」", async () => {
+    const { stepTitle } = await import("../lib/public-meta");
+    expect(stepTitle(m.byUrl.get("/tokyo/minato/ninshin-todoke")!)).toMatch(/^港区の妊娠届と母子手帳の受け取り｜/);
+    expect(stepTitle(m.byUrl.get("/tokyo/common/shussei-todoke")!)).toMatch(/^出生届（東京23区）｜/);
+  });
   it("予定日を使わない「いつから・いつまで」の文章", () => {
     const w = windowText(m.byUrl.get("/tokyo/common/shussei-todoke")!.step, m.data.documents);
     expect(w.until).toMatch(/14日以内/);

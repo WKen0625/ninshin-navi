@@ -6,7 +6,8 @@ export const clip = (s: string, n: number) => (s.length <= n ? s : `${s.slice(0,
 /** 手続き1件のページの題名に使う名前: 題名に区の名前があれば題名、なければ「区名の話題」 */
 export function stepHeadline(p: PublicStep): string {
   const base = p.topic?.label.replace(/^区の/, "") ?? clip(p.step.title, 28);
-  if (!p.ward) return base;
+  // 23区共通の手続きは「出生届（東京23区）」のように地域を添える（「出生届 東京」で探す人向け）
+  if (!p.ward) return `${base}（東京23区）`;
   return p.step.title.includes(p.ward.name) ? clip(p.step.title.replace(/を申請する$|を受ける$|を受け取る$/, ""), 30) : `${p.ward.name}の${base}`;
 }
 
