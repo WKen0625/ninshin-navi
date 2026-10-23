@@ -32,5 +32,9 @@ export function classifyApplyTo(text: string | null | undefined, regionCode?: st
     if (out.length === 0 || /または|\/|・/.test(t)) out.push("ward");
   }
   if (out.length === 0) out.push("ward");
+  // 「市区町村（公務員は勤務先）」のように区の言葉で始まるときは、区役所が主（括弧の中は例外）
+  if (/^(市区町村|区役所|区の|各総合支所|各地区総合支所|保健所|保健センター|出張所)/.test(t) && out[0] !== "ward") {
+    return ["ward", ...out.filter((x) => x !== "ward")];
+  }
   return out;
 }

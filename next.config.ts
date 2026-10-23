@@ -14,6 +14,9 @@ const nextConfig: NextConfig = {
     "/articles/[slug]": ["./content/articles/**"],
     "/terms": ["./content/legal/**"],
     "/policy": ["./content/legal/**"],
+    "/tokyo": ["./data/**"],
+    "/tokyo/**": ["./data/**"],
+    "/sitemap.xml": ["./data/**", "./content/articles/**"],
   },
 };
 

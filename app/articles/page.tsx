@@ -3,7 +3,16 @@ import Link from "next/link";
 import { isLang, isStage, listArticles, STAGE_LABEL, STAGES, type Lang, type Stage } from "@/lib/articles";
 import { articleOf, columnsOf, ENGLISH_HINT, LANG_NAME, LANGS, LIST } from "@/lib/i18n";
 
-export const metadata: Metadata = { title: "負担軽減コラム｜Tsugiraku" };
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ lang?: string; stage?: string }> }): Promise<Metadata> {
+  const { lang: raw } = await searchParams;
+  const lang: Lang = isLang(raw) ? raw : "ja";
+  // 周期で絞ったページは一覧と同じ中身なので、正規のURLは言語ごとの一覧
+  return {
+    title: `${LIST[lang].title}｜Tsugiraku`,
+    description: LIST[lang].lead,
+    alternates: { canonical: columnsOf(lang), languages: Object.fromEntries(LANGS.map((l) => [l, columnsOf(l)])) },
+  };
+}
 
 export default async function ArticlesPage({ searchParams }: { searchParams: Promise<{ lang?: string; stage?: string }> }) {
   const { lang: raw, stage: rawStage } = await searchParams;

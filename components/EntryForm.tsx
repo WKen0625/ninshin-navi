@@ -64,6 +64,13 @@ export function EntryForm({ area }: { area: Area }) {
     setSelected(state.held_documents.filter((h) => !h.from_step).map((h) => h.document_id));
   }, [state]);
 
+  // 公開ページ（/tokyo/<区>）から ?region=<コード> で来たら、まだ入力が無いときだけ区を選んでおく
+  useEffect(() => {
+    if (!loaded || state) return;
+    const q = new URLSearchParams(window.location.search).get("region");
+    if (q && area.municipalities.some((m) => m.code === q)) setRegion(q);
+  }, [loaded, state, area.municipalities]);
+
   useEffect(() => {
     if (!region) return setRules(null);
     let stale = false;

@@ -22,12 +22,12 @@ function ContactLine({ c }: { c: Contact }) {
 }
 
 /** ステップの「困ったらここへ」。指定が無ければ、区の代表の窓口（fallback）を出す */
-export function ContactBox({ contact, fallback }: { contact: Contact | null; fallback: Contact[] }) {
+export function ContactBox({ contact, fallback, heading = true }: { contact: Contact | null; fallback: Contact[]; /** 外側に見出しがあるときは false */ heading?: boolean }) {
   const list = contact ? [contact] : fallback;
   if (list.length === 0) return null;
   return (
     <div className="notice notice-info space-y-1">
-      <p className="font-bold">困ったら、ここに聞く</p>
+      {heading ? <p className="font-bold">困ったら、ここに聞く</p> : null}
       {list.map((c) => <ContactLine key={c.id} c={c} />)}
     </div>
   );

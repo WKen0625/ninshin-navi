@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { EntryForm } from "@/components/EntryForm";
 import { loadServiceArea } from "@/lib/service-area";
 
-export const metadata: Metadata = { title: "入力｜Tsugiraku Navi" };
+export const metadata: Metadata = {
+  title: "Tsugiraku Navi｜区と予定日から、妊娠・出産の手続きの期限を出す",
+  description: "東京23区の区・出産予定日・手元の紙を入れると、次にやる手続きを期限の日付つきで1件ずつ出します。名前もログインも要りません。",
+  alternates: { canonical: "/navi" },
+};
 
 export default function NaviPage() {
   const area = loadServiceArea();

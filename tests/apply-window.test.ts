@@ -83,6 +83,8 @@ describe("窓口の分別", () => {
     expect(classifyApplyTo("窓口 / 郵送 / オンライン（マイナポータル）", "13112")).toEqual(["ward"]);
     expect(classifyApplyTo("市区町村の国民年金担当窓口（郵送可）", "JP")).toEqual(["ward"]);
     expect(classifyApplyTo(null, "13112")).toEqual(["ward"]);
+    // 区の言葉で始まれば区役所が先（括弧の中は例外の窓口）
+    expect(classifyApplyTo("市区町村（公務員は勤務先）", "JP")).toEqual(["ward", "employer"]);
   });
   it("本物のデータで、東京都の行は東京都か医療機関、区の行に「東京都」は混ざらない", () => {
     for (const s of rules.steps) {

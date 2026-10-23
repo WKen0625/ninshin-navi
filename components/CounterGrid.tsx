@@ -1,16 +1,10 @@
 "use client";
 
 import { APPLY_TO_LABEL, type ApplyTo } from "@/lib/apply-to";
-import { Icon, type IconName, type Tone } from "./Icon";
+import { Icon, type Tone } from "./Icon";
+import { TARGET_ICON } from "./targetIcon";
 
-/** 窓口の種類を絵で見せる: 区役所＝建物（青）／東京都＝柱の建物（紫）／国＝日の丸（灰）／勤務先・健康保険＝かばん（緑）／医療機関＝病院（空色） */
-export const TARGET_ICON: Record<ApplyTo, { icon: IconName; tone: Tone }> = {
-  ward: { icon: "building", tone: "blue" },
-  tokyo: { icon: "tower", tone: "violet" },
-  national: { icon: "japan", tone: "slate" },
-  employer: { icon: "briefcase", tone: "green" },
-  facility: { icon: "hospital", tone: "sky" },
-};
+export { TARGET_ICON };
 
 const TILE: Record<Tone, string> = {
   indigo: "bg-indigo-100 text-indigo-700", amber: "bg-amber-100 text-amber-800", green: "bg-emerald-100 text-emerald-700", blue: "bg-blue-100 text-blue-700",

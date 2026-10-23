@@ -8,6 +8,7 @@ import { createClient } from "@supabase/supabase-js";
 import { regionChain, type Contact, type DocumentDef, type Region, type Step } from "./next-actions";
 import type { BookingStat, Facility } from "./facilities";
 import { latestCost, type MoneyFacility, type Subsidy } from "./money";
+import { buildPublicModel, type AllData, type PublicModel } from "./public-model";
 import { loadSeedData } from "./seed/load";
 
 export type Rules = { regions: Region[]; documents: DocumentDef[]; steps: Step[]; contacts: Contact[] };
@@ -83,6 +84,20 @@ export async function getRulesFor(regionCode: string): Promise<Rules> {
 
 export type MoneyData = { subsidies: Subsidy[]; facilities: MoneyFacility[] };
 
+/** YAML の助成の行を、画面の形にする */
+function subsidyFromSeed(s: ReturnType<typeof loadSeedData>["data"]["subsidies"][number]): Subsidy {
+  const nn = <T>(v: T | null | undefined) => v ?? null;
+  return {
+    id: s.id, region_code: s.region_code, name: s.name, kind: s.kind, requires: nn(s.requires),
+    amount_yen: nn(s.amount_yen), amount_is_upper_limit: s.amount_is_upper_limit, amount_formula: nn(s.amount_formula), amount_note: nn(s.amount_note),
+    conditions: nn(s.conditions), apply_via: nn(s.apply_via), deadline_base: nn(s.deadline_base),
+    deadline_offset_days: nn(s.deadline_offset_days), taxable: nn(s.taxable), scheme_applicable: s.scheme_applicable,
+    apply_from_base: nn(s.apply_from_base), apply_from_offset_days: nn(s.apply_from_offset_days), apply_from_week: nn(s.apply_from_week), apply_from_note: nn(s.apply_from_note),
+    apply_guide: nn(s.apply_guide),
+    source_url: s.source_url!, verified_at: s.verified_at!, needs_review: s.needs_review,
+  };
+}
+
 const SUBSIDY_COLUMNS =
   "id, region_code, name, kind, requires, amount_yen, amount_is_upper_limit, amount_formula, amount_note, conditions, apply_via, " +
   "deadline_base, deadline_offset_days, apply_from_base, apply_from_offset_days, apply_from_week, apply_from_note, taxable, scheme_applicable, apply_guide, source_url, verified_at, needs_review";
@@ -112,17 +127,7 @@ export async function getMoneyFor(regionCode: string): Promise<MoneyData> {
   const codes = regionChain(regionCode, regions).map((r) => r.code);
   const nn = <T>(v: T | null | undefined) => v ?? null;
   return {
-    subsidies: data.subsidies
-      .filter((s) => codes.includes(s.region_code))
-      .map((s) => ({
-        id: s.id, region_code: s.region_code, name: s.name, kind: s.kind, requires: nn(s.requires),
-        amount_yen: nn(s.amount_yen), amount_is_upper_limit: s.amount_is_upper_limit, amount_formula: nn(s.amount_formula), amount_note: nn(s.amount_note),
-        conditions: nn(s.conditions), apply_via: nn(s.apply_via), deadline_base: nn(s.deadline_base),
-        deadline_offset_days: nn(s.deadline_offset_days), taxable: nn(s.taxable), scheme_applicable: s.scheme_applicable,
-        apply_from_base: nn(s.apply_from_base), apply_from_offset_days: nn(s.apply_from_offset_days), apply_from_week: nn(s.apply_from_week), apply_from_note: nn(s.apply_from_note),
-        apply_guide: nn(s.apply_guide),
-        source_url: s.source_url!, verified_at: s.verified_at!, needs_review: s.needs_review,
-      })),
+    subsidies: data.subsidies.filter((s) => codes.includes(s.region_code)).map(subsidyFromSeed),
     facilities: data.facilities
       .filter((f) => f.region_code === regionCode)
       .sort((a, b) => a.name.localeCompare(b.name, "ja"))
@@ -188,4 +193,63 @@ export async function getHospitalsFor(regionCode: string): Promise<HospitalData>
         }),
       ),
   };
+}
+
+// ---- 公開ページ（/tokyo 以下）とサイトマップ用: すべての地域のデータ ----
+
+let allCache: { at: number; data: Promise<AllData> } | null = null;
+const ALL_TTL_MS = 10 * 60 * 1000;
+
+/**
+ * すべての地域（国・東京都・23区）の制度データ。公開ページは静的に作り、1日1回作り直す（ISR）ので、
+ * 同じ処理の中では10分だけ使い回す（ビルドで数百ページを作るときに、表を何度も読まないため）。
+ */
+export function getAllData(): Promise<AllData> {
+  if (allCache && Date.now() - allCache.at < ALL_TTL_MS) return allCache.data;
+  const data = useSupabase() ? allFromSupabase() : Promise.resolve(allFromYaml());
+  allCache = { at: Date.now(), data };
+  data.catch(() => {
+    allCache = null;
+  });
+  return data;
+}
+
+function allFromYaml(): AllData {
+  const rules = rulesFromYaml();
+  const { data } = loadSeedData(join(process.cwd(), "data"));
+  return {
+    ...rules,
+    subsidies: data.subsidies.map(subsidyFromSeed),
+    facilities: data.facilities.map((f) => ({ id: f.id, region_code: f.region_code, name: f.name, has_epidural: f.has_epidural ?? null })),
+  };
+}
+
+async function allFromSupabase(): Promise<AllData> {
+  const db = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+  const [r, d, s, c, sb, f] = await Promise.all([
+    db.from("regions").select("code, level, name, parent_code, status"),
+    db.from("documents").select(DOCUMENT_COLUMNS),
+    db.from("steps").select(STEP_COLUMNS),
+    db.from("contacts").select(CONTACT_COLUMNS),
+    db.from("subsidies").select(SUBSIDY_COLUMNS),
+    db.from("facilities").select("id, region_code, name, has_epidural"),
+  ]);
+  for (const x of [r, d, s, c, sb, f]) if (x.error) throw x.error;
+  return {
+    regions: r.data as Region[],
+    documents: d.data as unknown as DocumentDef[],
+    steps: s.data as unknown as Step[],
+    contacts: c.data as unknown as Contact[],
+    subsidies: sb.data as unknown as Subsidy[],
+    facilities: f.data as unknown as AllData["facilities"],
+  };
+}
+
+let modelCache: { data: AllData; model: PublicModel } | null = null;
+
+/** 公開ページの組み立て（getAllData を使い回す間は同じものを返す） */
+export async function getPublicModel(): Promise<PublicModel> {
+  const data = await getAllData();
+  if (modelCache?.data !== data) modelCache = { data, model: buildPublicModel(data) };
+  return modelCache.model;
 }

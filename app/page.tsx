@@ -4,6 +4,7 @@ import { Icon, IconTile, SectionHeading, type IconName } from "@/components/Icon
 import { JourneyMap } from "@/components/JourneyMap";
 import { listArticles } from "@/lib/articles";
 import type { Journey } from "@/lib/journey";
+import { WARDS } from "@/lib/wards";
 import { loadServiceArea } from "@/lib/service-area";
 
 export const metadata: Metadata = {
@@ -76,6 +77,17 @@ export default function Home() {
         <SectionHeading id="map" icon="flag">妊娠から産後まで、全部で何件あるかが先にわかる</SectionHeading>
         <JourneyMap journey={SAMPLE_JOURNEY} weekLabel="妊娠20週（見本）" />
         <p className="text-base text-slate-700">出産前でも産後の手続きまで数えるので、とりこぼしがありません。済んだものは✓、期限が近いものは時計の印で出ます。</p>
+      </section>
+
+      <section aria-labelledby="by-ward" className="space-y-3">
+        <SectionHeading id="by-ward" icon="pin" tone="sky">区ごとの手続き一覧</SectionHeading>
+        <p className="text-base text-slate-700">入力しなくても読めます。区を選ぶと、妊娠届から産後の助成までの窓口と期限が時期の順に出ます。</p>
+        <ul className="flex flex-wrap gap-2">
+          {WARDS.map((w) => (
+            <li key={w.code}><Link href={`/tokyo/${w.slug}`} className="inline-flex min-h-11 items-center rounded-xl border-2 border-slate-200 bg-white px-3 text-base font-bold text-ink hover:border-indigo-300">{w.name}</Link></li>
+          ))}
+        </ul>
+        <Link href="/tokyo" className="link">23区の違いを比べる（妊娠届・面談・給付金・区の助成）</Link>
       </section>
 
       <section aria-labelledby="promises" className="space-y-4">

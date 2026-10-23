@@ -11,7 +11,13 @@ export async function generateMetadata({ params, searchParams }: Params): Promis
   const { slug } = await params;
   const { lang: raw } = await searchParams;
   const a = getArticle(slug, isLang(raw) ? raw : "ja");
-  return a ? { title: `${a.title}｜Tsugiraku`, description: a.description } : { title: "Tsugiraku" };
+  if (!a) return { title: "Tsugiraku" };
+  return {
+    title: `${a.title}｜Tsugiraku`,
+    description: a.description,
+    alternates: { canonical: articleOf(a.slug, a.lang), languages: Object.fromEntries(a.langs.map((l) => [l, articleOf(a.slug, l)])) },
+    openGraph: { title: a.title, description: a.description, type: "article", url: articleOf(a.slug, a.lang), ...(a.updated ? { modifiedTime: a.updated } : {}), publishedTime: a.published },
+  };
 }
 
 export default async function ArticlePage({ params, searchParams }: Params) {
