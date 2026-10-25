@@ -1,5 +1,6 @@
 // アフィリエイトのタグは1か所（lib/affiliate.ts）。表示側が Amazon のリンクに付ける
 import { describe, expect, it } from "vitest";
+import { a8Href, a8Kind } from "../lib/a8";
 import { AMAZON_TAG, amazonSearchUrl, isAffiliateHref, RAKUTEN_ID, rakutenSearchUrl, withAffiliate } from "../lib/affiliate";
 
 describe("Amazon のリンク", () => {
@@ -27,5 +28,25 @@ describe("楽天のリンク", () => {
     expect(withAffiliate(wrapped)).toBe(wrapped);
     expect(withAffiliate("https://item.rakuten.co.jp/shop/item/")).toContain("hb.afl.rakuten.co.jp");
     expect(isAffiliateHref(s)).toBe(true);
+  });
+});
+
+describe("A8 の広告コード（改変せずにそのまま出す）", () => {
+  const banner = `<a href="https://px.a8.net/svt/ejp?a8mat=4BEOXU+7118VM+57YO+61C2P" rel="nofollow">
+<img border="0" width="300" height="250" alt="" src="https://www22.a8.net/svt/bgt?aid=261025986425&wid=001&eno=01&mid=s00000024360001014000&mc=1"></a>
+<img border="0" width="1" height="1" src="https://www15.a8.net/0.gif?a8mat=4BEOXU+7118VM+57YO+61C2P" alt="">`;
+  const text = `<a href="https://px.a8.net/svt/ejp?a8mat=4BEOXU+7118VM+57YO+61C2P" rel="nofollow">シェフの無添つくりおき</a>
+<img border="0" width="1" height="1" src="https://www15.a8.net/0.gif?a8mat=4BEOXU+7118VM+57YO+61C2P" alt="">`;
+  it("A8 が出すバナーとテキストの形だけを通す", () => {
+    expect(a8Kind(banner)).toBe("banner");
+    expect(a8Kind(text)).toBe("text");
+    expect(a8Href(banner)).toBe("https://px.a8.net/svt/ejp?a8mat=4BEOXU+7118VM+57YO+61C2P");
+  });
+  it("別のサイトへのリンク・スクリプト・属性の書き足しは止める", () => {
+    expect(a8Kind(banner.replace("px.a8.net", "px.a8.net.example.com"))).toBeNull();
+    expect(a8Kind(banner.replace('rel="nofollow"', 'rel="nofollow" onclick="x()"'))).toBeNull();
+    expect(a8Kind(text.replace("シェフの無添つくりおき", "<script>x</script>"))).toBeNull();
+    expect(a8Kind(banner + "<script>x</script>")).toBeNull();
+    expect(a8Kind(banner.replace(/<img border="0" width="1"[^>]*>/, ""))).toBeNull(); // 計測画像が無い
   });
 });

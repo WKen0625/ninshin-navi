@@ -118,6 +118,10 @@ groups:
         name: おむつのゴミ箱（蓋つき）
         why: おむつのゴミが増える。専用品の前に、蓋つきのゴミ箱で足りるか試す。
         product: diaper-bin
+      - id: meals
+        name: 産後1か月の夕食の段取り
+        why: 退院後の2週間は区役所の手続きが続く。誰が作るか・何を置いておくか・宅配を使うかを、退院前に決めておく。
+        article: /articles/postpartum-meal-delivery
   - id: postpartum
     title: 産後1か月の買い足し
     from_week: 41

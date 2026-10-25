@@ -235,3 +235,30 @@ html[data-lang="ru"] .prose-ja {
   line-height: 1.8;
   letter-spacing: 0;
 }
+
+/* A8 の広告コード（components/OfferCard.tsx）。コードは改変せず、見た目だけ整える */
+.a8-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.a8-banner img {
+  max-width: 100%;
+  height: auto;
+}
+.a8-text {
+  text-align: center;
+}
+.a8-text a {
+  display: flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  border: 2px solid var(--color-indigo-300);
+  background: var(--color-indigo-50);
+  padding: 0.5rem 0.75rem;
+  font-weight: 700;
+  color: var(--color-indigo-900);
+  text-decoration: none;
+}

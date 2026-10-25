@@ -83,9 +83,14 @@ describe("記事", () => {
       if (amazon || rakuten || other) expect(a.pr).toBe(true);
       // 商品ボックス（[[product:id]]）は Amazon と楽天のリンクを出すので、PR と programs が要る。商品は content/shop/products.yaml にあること
       const boxes = a.blocks.filter((b) => b.type === "product");
-      if (boxes.length > 0) {
+      if (boxes.some((b) => { const o = products.get((b as { id: string }).id); return o && (o.asin || o.rakuten_keyword || o.a8_html); })) {
         expect(a.pr, slug).toBe(true);
-        expect(a.programs, slug).toEqual(expect.arrayContaining(["amazon", "rakuten"]));
+      }
+      if (boxes.length > 0) {
+        const offers = boxes.map((b) => products.get((b as { id: string }).id)!).filter(Boolean);
+        if (offers.some((o) => o.asin)) expect(a.programs, slug).toContain("amazon");
+        if (offers.some((o) => o.rakuten_keyword)) expect(a.programs, slug).toContain("rakuten");
+        if (offers.some((o) => o.a8_html)) expect(a.programs, slug).toContain("other");
         for (const b of boxes) expect(products.has((b as { id: string }).id), `${slug} ${(b as { id: string }).id}`).toBe(true);
       }
       // 周期は決まった値
@@ -113,7 +118,7 @@ describe("商品ボックスと出産準備リスト", () => {
     ]);
   });
   it("商品はASINか楽天の検索語を持ち、出産準備リストの商品はすべて一覧にある", () => {
-    for (const p of products.values()) expect(p.asin || p.rakuten_keyword, p.id).toBeTruthy();
+    for (const p of products.values()) expect(p.asin || p.rakuten_keyword || p.a8_html || p.official_url, p.id).toBeTruthy();
     const groups = loadJunbi();
     expect(groups.length).toBeGreaterThanOrEqual(4);
     const ids = groups.flatMap((g) => g.items.map((i) => `${g.id}:${i.id}`));

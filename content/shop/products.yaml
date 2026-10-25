@@ -1,7 +1,8 @@
 # 商品の例（コラムの商品ボックスと出産準備リストで使う）。承認された候補だけを置く（docs/research/PRODUCT_CANDIDATES.md）。
 # 選び方: 評価の件数が多く、同じ品目の中で価格が中ほど。おすすめ順・効果の比較ではない。
 # 価格は書かない（Amazon の規約: 価格は公式の仕組みで取得したものしか表示できない）。
-# a8_url は A8 などで提携した案件のリンク（無ければ出さない）。
+# a8_html は A8 の管理画面でコピーした広告コードを、改変せずにそのまま入れる（A8 の規約）。形が違うと読み込みで止まる（lib/a8.ts）。
+# サービス（宅配食・求人など）は asin・rakuten_keyword を持たず、note に公式ページで確かめた事実を短く書く。
 checked_at: 2026-10-23
 products:
   - id: childseat
@@ -109,3 +110,41 @@ products:
     name: ムーニー テープ Sサイズ 70枚
     asin: B0BL3BG2RV
     rakuten_keyword: ムーニー テープ Sサイズ
+  # ここから下はサービス（A8）。事実は公式ページで 2026-10-25 に確認（出典は各記事の sources）
+  - id: tsukurioki
+    item: 冷蔵のおかずの宅配（週1回）
+    name: シェフの無添つくりおき
+    note: 毎週決めた曜日に冷蔵で届き、電子レンジで温めて食べる。消費期限は届いた日を含め4日間。支払いはクレジットカード。初回分はキャンセル・スキップ不可、2回目以降はいつでも解約できる。
+    a8_html: |-
+      <a href="https://px.a8.net/svt/ejp?a8mat=4BEOXU+7118VM+57YO+61C2P" rel="nofollow">
+      <img border="0" width="300" height="250" alt="" src="https://www22.a8.net/svt/bgt?aid=261025986425&wid=001&eno=01&mid=s00000024360001014000&mc=1"></a>
+      <img border="0" width="1" height="1" src="https://www15.a8.net/0.gif?a8mat=4BEOXU+7118VM+57YO+61C2P" alt="">
+  - id: mamaworks
+    item: 在宅・時短の求人サイト
+    name: ママワークス
+    note: 在宅・時短勤務などの求人を「働き方」「職種」「都道府県」で探せる。応募には無料の会員登録が要る。運営は株式会社アイドマ・ホールディングス。
+    a8_html: |-
+      <a href="https://px.a8.net/svt/ejp?a8mat=4BEOXU+5SZ642+3CLE+61C2P" rel="nofollow">
+      <img border="0" width="250" height="250" alt="" src="https://www20.a8.net/svt/bgt?aid=261025986351&wid=001&eno=01&mid=s00000015629001014000&mc=1"></a>
+      <img border="0" width="1" height="1" src="https://www18.a8.net/0.gif?a8mat=4BEOXU+5SZ642+3CLE+61C2P" alt="">
+  # 銀行（提携リンクなし。公式ページへの普通のリンク。PR の印は出ない）。事実は 2026-10-25 に公式ページで確認
+  - id: bank-yucho
+    item: 銀行口座（窓口・アプリ）
+    name: ゆうちょ銀行
+    note: 在留カードの満了日まで3か月を超えていれば申し込める。外国籍の人向けのアプリの申し込みは7言語。郵便局の窓口でも相談できる。
+    official_url: https://www.jp-bank.japanpost.jp/kaisetu/kat_gaikokujin.html
+  - id: bank-rakuten
+    item: 銀行口座（ネット）
+    name: 楽天銀行
+    note: 英語の申込ページと英語の電話窓口あり（平日9〜17時）。在留カード交付から6か月未満は、勤務先の健康保険の資格確認書などを足す。申し込み後のサポートは日本語。
+    official_url: https://www.rakuten-bank.co.jp/english/account/opening/
+  - id: bank-paypay
+    item: 銀行口座（ネット）
+    name: PayPay銀行
+    note: 在留カードのICチップをスマホで読み取って申し込める。満了日まで3か月未満は不可。2026年6月14日以降に発行の在留カードは郵送。
+    official_url: https://www.paypay-bank.co.jp/en/account.html
+  - id: bank-seven
+    item: 銀行口座（ネット・ATM）
+    name: セブン銀行
+    note: 外国籍の人専用のネット申し込みあり。ATMの画面は9言語。入国6か月未満は在職証明書か社員証を足す。2026年6月14日以降に発行の在留カードはネットでは使えない。
+    official_url: https://www.sevenbank.co.jp/personal/account/application/online-kaisetsu-foreignnational.html
