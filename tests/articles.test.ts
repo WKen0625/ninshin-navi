@@ -3,6 +3,9 @@
 import { describe, expect, it } from "vitest";
 import { getArticle, listArticles, validateArticles } from "../lib/articles";
 import { parseInline, parseMarkdown } from "../lib/markdown";
+import { loadJunbi, loadProducts } from "../lib/products";
+
+const products = loadProducts();
 
 describe("Markdown変換", () => {
   it("見出し・箇条書き・番号つき・引用・段落を分ける", () => {
@@ -71,13 +74,20 @@ describe("記事", () => {
       const a = getArticle(slug, lang);
       if (!a) continue; // 下書き（draft: true）は公開前なので、公開の検査は通らない
       // 太字の中のリンク（**[品目](url)**）も数える
-      const links = a.blocks.flatMap((b) => ("text" in b ? [b.text] : b.items)).flatMap(parseInline).flatMap((p) => (p.type === "strong" ? parseInline(p.text) : [p])).filter((p) => p.type === "link");
+      const links = a.blocks.flatMap((b) => ("text" in b ? [b.text] : "items" in b ? b.items : [])).flatMap(parseInline).flatMap((p) => (p.type === "strong" ? parseInline(p.text) : [p])).filter((p) => p.type === "link");
       const amazon = links.some((l) => l.type === "link" && /amzn\.(to|asia)|amazon\.co\.jp/.test(l.href));
       const rakuten = links.some((l) => l.type === "link" && /a\.r10\.to|rakuten\.co\.jp/.test(l.href));
       const other = links.some((l) => l.type === "link" && /valuecommerce|a8\.net|moshimo|accesstrade|afi-b/.test(l.href));
       if (amazon) expect(a.programs).toContain("amazon");
       if (rakuten) expect(a.programs).toContain("rakuten");
       if (amazon || rakuten || other) expect(a.pr).toBe(true);
+      // 商品ボックス（[[product:id]]）は Amazon と楽天のリンクを出すので、PR と programs が要る。商品は content/shop/products.yaml にあること
+      const boxes = a.blocks.filter((b) => b.type === "product");
+      if (boxes.length > 0) {
+        expect(a.pr, slug).toBe(true);
+        expect(a.programs, slug).toEqual(expect.arrayContaining(["amazon", "rakuten"]));
+        for (const b of boxes) expect(products.has((b as { id: string }).id), `${slug} ${(b as { id: string }).id}`).toBe(true);
+      }
       // 周期は決まった値
       expect(["all", "early", "mid", "late", "birth", "postpartum"]).toContain(a.stage);
     }
@@ -91,5 +101,22 @@ describe("記事", () => {
     expect(early.every((a) => a.stage === "early" || a.stage === "all")).toBe(true);
     expect(early.map((a) => a.slug)).toContain("how-tsugiraku-works");
     expect(early.map((a) => a.slug)).toContain("first-two-weeks");
+  });
+});
+
+describe("商品ボックスと出産準備リスト", () => {
+  it("[[product:id]] だけの行は商品ボックスになり、前後のリストを分ける", () => {
+    expect(parseMarkdown("- a\n\n[[product:cable]]\n\n- b")).toEqual([
+      { type: "ul", items: ["a"] },
+      { type: "product", id: "cable" },
+      { type: "ul", items: ["b"] },
+    ]);
+  });
+  it("商品はASINか楽天の検索語を持ち、出産準備リストの商品はすべて一覧にある", () => {
+    for (const p of products.values()) expect(p.asin || p.rakuten_keyword, p.id).toBeTruthy();
+    const groups = loadJunbi();
+    expect(groups.length).toBeGreaterThanOrEqual(4);
+    const ids = groups.flatMap((g) => g.items.map((i) => `${g.id}:${i.id}`));
+    expect(new Set(ids).size).toBe(ids.length);
   });
 });

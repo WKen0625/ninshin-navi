@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Blocks } from "@/components/Markdown";
 import { getArticle, isLang, STAGE_LABEL, type Lang } from "@/lib/articles";
 import { ARTICLE, articleOf, columnsOf, LANG_NAME, PROGRAM_TEXT } from "@/lib/i18n";
+import { loadProducts } from "@/lib/products";
 
 type Params = { params: Promise<{ slug: string }>; searchParams: Promise<{ lang?: string }> };
 
@@ -49,18 +50,24 @@ export default async function ArticlePage({ params, searchParams }: Params) {
         <h1 className="h-page">{a.title}</h1>
         <p className="text-lg text-slate-700">{a.description}</p>
         {a.pr ? (
-          // 設計原則8: PR表記必須。本文より前に、言語ごとに出す（ステマ規制）
-          <p className="notice notice-warn">
-            <span className="font-bold">{t.pr}</span>
-            <span className="block">{t.prBody}</span>
-            {a.programs.map((p) => <span key={p} className="block">{PROGRAM_TEXT[lang][p]}</span>)}
+          // 設計原則8: PR表記必須（ステマ規制）。本文より前に1行だけ。くわしい文言と規約の文言は記事の最後に出す
+          <p className="flex items-center gap-2 text-sm text-slate-500">
+            <span className="rounded border border-slate-300 px-1.5 text-xs font-bold tracking-wide text-slate-500">PR</span>
+            {t.pr}
           </p>
         ) : null}
       </header>
 
-      <div className="space-y-4">
-        <Blocks blocks={a.blocks} skipH1 sponsored={a.pr} />
+      <div className="prose-ja">
+        <Blocks blocks={a.blocks} skipH1 sponsored={a.pr} products={loadProducts()} />
       </div>
+
+      {a.pr ? (
+        <section className="space-y-1 border-t border-slate-200 pt-4 text-sm leading-relaxed text-slate-500">
+          <p>{t.prBody}</p>
+          {a.programs.map((p) => <p key={p}>{PROGRAM_TEXT[lang][p]}</p>)}
+        </section>
+      ) : null}
 
       {a.sources.length > 0 ? (
         <section className="card card-quiet space-y-2">

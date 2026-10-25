@@ -124,6 +124,12 @@ export default async function WardPage({ params }: Params) {
         </p>
       </section>
 
+      <section className="card card-ai space-y-2">
+        <p className="flex items-center gap-2 text-lg font-bold text-ink"><Icon name="bag" className="size-6 text-amber-700" />出産準備リスト</p>
+        <p className="text-base text-slate-700">手続きと並行して、入院バッグや家の準備も。{ward.name}で母子手帳と一緒にもらう袋や、産院が用意するものは買わない前提で、時期ごとにまとめました（商品の例はPRを含みます）。</p>
+        <Link href="/junbi" className="link">出産準備リストを開く</Link>
+      </section>
+
       {loss.length > 0 ? (
         <Disclosure summary="妊娠を終えたとき（流産・死産）の手続き">
           <ul className="space-y-2">{loss.map((p) => <StepLink key={p.url} p={p} documents={data.documents} />)}</ul>

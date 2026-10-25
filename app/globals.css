@@ -31,7 +31,7 @@ body {
   font-family: var(--font-sans);
   font-feature-settings: "palt";
   letter-spacing: 0.01em;
-  line-height: 1.75;
+  line-height: 1.85;
 }
 
 /* 言語ごとの書体（<html data-lang> は components/SiteFooter.tsx が合わせる）。
@@ -207,4 +207,31 @@ main .text-xs {
     size: A4 portrait;
     margin: 12mm;
   }
+}
+
+/* コラムの本文: 行間・字間・段落の間をゆったり（「文字が詰まって読みにくい」の声から） */
+.prose-ja {
+  line-height: 2;
+  letter-spacing: 0.03em;
+}
+.prose-ja > * + * {
+  margin-top: 1.5em;
+}
+.prose-ja > h2 {
+  margin-top: 2.6em;
+}
+.prose-ja > h3 {
+  margin-top: 2em;
+}
+.prose-ja li + li {
+  margin-top: 0.6em;
+}
+.prose-ja aside {
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+html[data-lang="en"] .prose-ja,
+html[data-lang="ru"] .prose-ja {
+  line-height: 1.8;
+  letter-spacing: 0;
 }

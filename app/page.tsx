@@ -79,6 +79,12 @@ export default function Home() {
         <p className="text-base text-slate-700">出産前でも産後の手続きまで数えるので、とりこぼしがありません。済んだものは✓、期限が近いものは時計の印で出ます。</p>
       </section>
 
+      <section aria-labelledby="junbi" className="card card-ai space-y-2">
+        <SectionHeading id="junbi" icon="bag" tone="amber">出産準備リスト</SectionHeading>
+        <p className="text-base text-slate-700">入院バッグ・退院の日・家に用意するもの・産後1か月の買い足しを、時期ごとにチェックできます。産院と区がくれるものは買わない前提です（商品の例はPRを含みます）。</p>
+        <Link href="/junbi" className="btn btn-primary btn-wide">出産準備リストを開く</Link>
+      </section>
+
       <section aria-labelledby="by-ward" className="space-y-3">
         <SectionHeading id="by-ward" icon="pin" tone="sky">区ごとの手続き一覧</SectionHeading>
         <p className="text-base text-slate-700">入力しなくても読めます。区を選ぶと、妊娠届から産後の助成までの窓口と期限が時期の順に出ます。</p>

@@ -1,0 +1,111 @@
+# 商品の例（コラムの商品ボックスと出産準備リストで使う）。承認された候補だけを置く（docs/research/PRODUCT_CANDIDATES.md）。
+# 選び方: 評価の件数が多く、同じ品目の中で価格が中ほど。おすすめ順・効果の比較ではない。
+# 価格は書かない（Amazon の規約: 価格は公式の仕組みで取得したものしか表示できない）。
+# a8_url は A8 などで提携した案件のリンク（無ければ出さない）。
+checked_at: 2026-10-23
+products:
+  - id: childseat
+    item: チャイルドシート（新生児から）
+    name: コンビ クルムーヴ ロング R129（ISOFIX・回転式・新生児〜10才頃）
+    asin: B0D4DHWDT7
+    rakuten_keyword: コンビ クルムーヴ ロング
+  - id: babyseat
+    item: ベビーシート（短い期間だけ使う型）
+    name: Nebio 新生児〜4歳頃 シートベルト固定
+    asin: B0GBWB1TKY
+    rakuten_keyword: ネビオ チャイルドシート 新生児
+  - id: boshi-case
+    item: 母子手帳ケース
+    name: Elegante 母子手帳ケース A6
+    asin: B0F313RC1M
+    rakuten_keyword: 母子手帳ケース A6
+  - id: straw
+    item: ストローつきボトル（寝たまま飲める）
+    name: スケーター ペットボトル ロングストロー 500ml用
+    asin: B08R82MH7T
+    rakuten_keyword: スケーター ペットボトル ロングストロー
+  - id: cable
+    item: 長い充電ケーブル
+    name: Anker PowerLine II ライトニングケーブル（iPhone用）
+    asin: B01N40PO2M
+    rakuten_keyword: Anker PowerLine II ライトニング
+  - id: diaper-nb
+    item: 新生児用おむつ
+    name: メリーズ テープ 新生児用 82枚
+    asin: B0CXDY6JZD
+    rakuten_keyword: メリーズ テープ 新生児
+  - id: wipes
+    item: おしりふき
+    name: グーン 水分たっぷりおしりふき 詰替 840枚
+    asin: B09MW53R4W
+    rakuten_keyword: グーン おしりふき 詰替
+  - id: hadagi
+    item: 新生児の肌着
+    name: 新生児肌着 6枚組 綿100%
+    asin: B086SSBGBJ
+    rakuten_keyword: 新生児 肌着 セット 綿100%
+  - id: gauze
+    item: ガーゼ
+    name: ガーゼハンカチ 12枚セット 30×30cm
+    asin: B08K8NC4TS
+    rakuten_keyword: ガーゼハンカチ ベビー 12枚
+  - id: bath
+    item: ベビーバス
+    name: リッチェル ふかふかベビーバスK
+    asin: B0BH4D3B4R
+    rakuten_keyword: リッチェル ふかふかベビーバス
+  - id: thermometer
+    item: 体温計
+    name: オムロン けんおんくん MC-688
+    asin: B076Q5WCPP
+    rakuten_keyword: オムロン けんおんくん MC-688
+  - id: nail
+    item: 赤ちゃん用の爪切り
+    name: ピジョン 新生児つめきりハサミ
+    asin: B01KO97N3S
+    rakuten_keyword: ピジョン 新生児つめきりハサミ
+  - id: okurumi
+    item: おくるみ
+    name: ケラッタ イブル 6重ガーゼ バスタオル 105×105cm
+    asin: B0BMTLJGR7
+    rakuten_keyword: ケラッタ イブル 6重ガーゼ
+  - id: pad
+    item: 産褥パッド（お産用パッド）
+    name: ムーニー お産用ケアパッド M 10枚
+    asin: B01CE0YSJM
+    rakuten_keyword: ムーニー お産用ケアパッド
+  - id: shorts
+    item: 産褥ショーツ
+    name: ローズマダム 産褥ショーツ
+    asin: B00DVXGAWU
+    rakuten_keyword: ローズマダム 産褥ショーツ
+  - id: diaper-bin
+    item: おむつのゴミ箱（蓋つき）
+    name: リス 運べる防臭ペール 10L ふた付き
+    asin: B07VNJJ57L
+    rakuten_keyword: リス 防臭ペール 10L
+  - id: futon
+    item: 硬めの敷き（ベビー敷布団）
+    name: ニトリ 洗える固わた ベビー敷布団 70×120cm
+    asin: B0D33FCT8F
+    rakuten_keyword: 固わた ベビー敷布団 70×120
+  - id: sheet
+    item: 敷きシーツ
+    name: un doudou フィッティングシーツ 2枚組 70×120cm
+    asin: B0819QGYXY
+    rakuten_keyword: un doudou フィッティングシーツ
+  - id: waterproof
+    item: 防水シーツ
+    name: ケラッタ 防水シーツ（綿100%・丸洗い）
+    asin: B0BP23G3KY
+    rakuten_keyword: ケラッタ 防水シーツ ベビー
+  - id: gauze-ket
+    item: 軽い掛け物（ガーゼケット）
+    name: regalo 6重ガーゼ ベビーケット
+    asin: B0DBPF9R5Y
+    rakuten_keyword: 6重ガーゼ ベビーケット
+  - id: diaper-s
+    item: おむつ Sサイズ
+    name: ムーニー テープ Sサイズ 70枚
+    asin: B0BL3BG2RV
+    rakuten_keyword: ムーニー テープ Sサイズ

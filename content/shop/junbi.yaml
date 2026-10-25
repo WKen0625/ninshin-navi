@@ -1,0 +1,135 @@
+# 出産準備リスト（/junbi）。時期ごとに「何を・なぜ・どれだけ」。product は content/shop/products.yaml の id。
+# 産院の持ち物リスト・区の保健バッグに入っているものは買わない、を最初に伝える。医療の判断はしない。
+groups:
+  - id: mid
+    title: 妊娠中期（16〜27週）に用意
+    from_week: 16
+    to_week: 27
+    items:
+      - id: boshi-case
+        name: 母子手帳ケース（またはA5が入るファスナー袋）
+        why: 母子手帳・受診票・診察券・保険証をまとめて持ち歩く。専用のケースでなくても足りる。
+        product: boshi-case
+      - id: childseat
+        name: チャイルドシート（車で退院する人）
+        why: 6歳未満の子を車に乗せるときは使用が義務。退院の日までに車に取り付けて練習しておく。短い期間だけならレンタルも。
+        product: childseat
+        article: /articles/child-seat-basics
+        source_url: https://www.npa.go.jp/bureau/traffic/anzen/childseat.html
+  - id: hospital
+    title: 入院バッグ（34週ごろまでに玄関の近くへ）
+    from_week: 28
+    to_week: 36
+    lead: 先に産院の「入院の持ち物」を見て、産院が用意するものは買わない。
+    items:
+      - id: hospital-list
+        name: 産院の持ち物リストを確認する
+        why: 産褥ショーツ・パッド・赤ちゃんのおむつなどを産院が用意することが多い。重ねて買わないための最初の一歩。
+        article: /articles/hospital-bag
+      - id: papers
+        name: 書類（母子手帳・保険証かマイナ保険証・診察券・直接支払制度の合意書の控え）
+        why: 入院の手続きと出生届に使う。
+      - id: cable
+        name: 長い充電ケーブル
+        why: ベッドからコンセントが遠いことが多い。
+        product: cable
+      - id: straw
+        name: ストローつきボトル
+        why: 陣痛中や産後に、横になったまま飲める。
+        product: straw
+      - id: pad
+        name: 産褥パッド（産院で出ないとき）
+        why: 退院後も家で使う。産院のリストで要るかを確かめてから。
+        product: pad
+      - id: shorts
+        name: 産褥ショーツ（産院で出ないとき）
+        why: 前が開く下着。2〜3枚あると替えが楽。
+        product: shorts
+  - id: discharge
+    title: 退院の日に要るもの
+    from_week: 34
+    to_week: 41
+    items:
+      - id: discharge-clothes
+        name: 赤ちゃんの退院時の服と肌着
+        why: 産院が用意するか持参かを確認。季節に合わせて1組。
+      - id: okurumi
+        name: おくるみ（またはバスタオル）
+        why: 抱いて移動するときの寒さ・日差しよけ。
+        product: okurumi
+      - id: childseat-install
+        name: チャイルドシートの取り付け（車で帰る人）
+        why: 取り付けの失敗は少なくない。前日までに車で確かめる。
+        product: babyseat
+        article: /articles/child-seat-basics
+  - id: home
+    title: 家に用意（28週〜退院まで）
+    from_week: 28
+    to_week: 41
+    lead: まとめ買いはしない。サイズや肌に合うかは、生まれてからしかわからない。
+    items:
+      - id: diaper-nb
+        name: 新生児用おむつ 1パック
+        why: すぐサイズが変わることがある。まずは1パック。
+        product: diaper-nb
+      - id: wipes
+        name: おしりふき
+        why: 使う量が多く、まとめて買っても困りにくい。
+        product: wipes
+      - id: hadagi
+        name: 肌着 数枚（短肌着・コンビ肌着）
+        why: 1日に何度も替える。素材は季節で選ぶ。
+        product: hadagi
+      - id: gauze
+        name: ガーゼ
+        why: 授乳・沐浴・よだれ。多めでも困らない。
+        product: gauze
+      - id: bath
+        name: ベビーバス（または代用品）
+        why: 使う期間は短い。産院の沐浴指導で家の道具を聞いてからでもよい。
+        product: bath
+      - id: thermometer
+        name: 体温計
+        why: 1か月健診までに使う機会がある。
+        product: thermometer
+      - id: nail
+        name: 赤ちゃん用の爪切り
+        why: 新生児の爪は伸びるのが早い。
+        product: nail
+      - id: futon
+        name: 硬めの敷き（ベビー布団かベビーベッドのマットレス）
+        why: 消費者庁は、硬めの寝具・1歳まではあお向け・顔の周りに物を置かないことを呼びかけている。
+        product: futon
+        article: /articles/newborn-sleep-space
+        source_url: https://www.caa.go.jp/policies/policy/consumer_safety/child/project_001/mail/20221028/
+      - id: sheet
+        name: 敷きシーツ 2〜3枚
+        why: 吐き戻しやおむつ漏れで替える。
+        product: sheet
+      - id: waterproof
+        name: 防水シーツ
+        why: 敷きを汚さないために上に敷く。
+        product: waterproof
+      - id: gauze-ket
+        name: 軽い掛け物
+        why: 払いのけられる軽さのもの。厚い掛布団は避ける。
+        product: gauze-ket
+      - id: diaper-bin
+        name: おむつのゴミ箱（蓋つき）
+        why: おむつのゴミが増える。専用品の前に、蓋つきのゴミ箱で足りるか試す。
+        product: diaper-bin
+  - id: postpartum
+    title: 産後1か月の買い足し
+    from_week: 41
+    to_week: 99
+    lead: 産後は買い物に行けない。届く日を指定して通販で。
+    items:
+      - id: diaper-s
+        name: おむつ Sサイズ
+        why: 新生児サイズが合わなくなったら。体重の表示を見て1パックずつ。
+        product: diaper-s
+        article: /articles/postpartum-month-restock
+      - id: wipes-more
+        name: おしりふきの追加
+        why: 想像より減る。
+        product: wipes

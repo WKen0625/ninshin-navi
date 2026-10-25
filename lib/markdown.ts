@@ -4,7 +4,9 @@
 
 export type Block =
   | { type: "h1" | "h2" | "h3" | "p" | "quote"; text: string }
-  | { type: "ul" | "ol"; items: string[] };
+  | { type: "ul" | "ol"; items: string[] }
+  /** [[product:<id>]] だけの行。content/shop/products.yaml の商品ボックス */
+  | { type: "product"; id: string };
 
 export function parseMarkdown(src: string): Block[] {
   const blocks: Block[] = [];
@@ -22,8 +24,12 @@ export function parseMarkdown(src: string): Block[] {
   };
   for (const line of src.split("\n")) {
     const h = line.match(/^(#{1,3}) (.+)$/);
+    const prod = line.trim().match(/^\[\[product:([a-z0-9-]+)\]\]$/);
     const ol = line.match(/^\d+\. (.+)$/);
-    if (h) {
+    if (prod) {
+      flush();
+      blocks.push({ type: "product", id: prod[1] });
+    } else if (h) {
       flush();
       blocks.push({ type: `h${h[1].length}` as "h1" | "h2" | "h3", text: h[2] });
     } else if (line.startsWith("- ")) {

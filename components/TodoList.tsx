@@ -328,6 +328,17 @@ export function TodoList() {
 
       {!loss ? <JourneyMap journey={journey} weekLabel={weekLabel} /> : null}
 
+      {!loss && (state.birth_date || result.gestational_week >= 16) ? (
+        <Link href="/junbi" className="card card-quiet flex items-center gap-3 hover:border-indigo-300">
+          <IconTile name="bag" tone="amber" size="size-11" />
+          <span className="min-w-0 flex-1">
+            <span className="block text-lg font-bold text-ink">出産準備リスト</span>
+            <span className="block text-base text-slate-600">入院バッグ・家の準備を時期ごとにチェック（商品の例はPRを含みます）</span>
+          </span>
+          <Icon name="next" className="size-5 text-indigo-500" />
+        </Link>
+      ) : null}
+
       {loss && rules.contacts.length > 0 ? (
         <section className="space-y-3">
           <SectionHeading icon="phone" tone="blue">話せるところ</SectionHeading>
