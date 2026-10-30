@@ -108,7 +108,6 @@ export default async function ArticlePage({ params, searchParams }: Params) {
               image: [absUrl("/opengraph-image.png")],
               author: ORGANIZATION,
               publisher: ORGANIZATION,
-              isAccessibleForFree: true,
               ...(a.tags.length > 0 ? { keywords: a.tags.join(",") } : {}),
               ...(a.sources.length > 0 ? { citation: a.sources.map((s) => s.url) } : {}),
             },
