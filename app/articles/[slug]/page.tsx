@@ -51,16 +51,13 @@ export default async function ArticlePage({ params, searchParams }: Params) {
             {others.map((l) => <Link key={l} href={articleOf(a.slug, l)} className="link-inline" hrefLang={l} lang={l}>{LANG_NAME[l]}</Link>)}
           </p>
         ) : null}
-        <p><span className="rounded-md border border-indigo-200 bg-indigo-50 px-1.5 text-sm text-indigo-800">{STAGE_LABEL[lang][a.stage]}</span></p>
+        <p className="flex flex-wrap items-center gap-2">
+          <span className="rounded-md border border-indigo-200 bg-indigo-50 px-1.5 text-sm text-indigo-800">{STAGE_LABEL[lang][a.stage]}</span>
+          {/* 設計原則8: PR表記必須（ステマ規制・各ASPの規約）。本文より前は「PR」の印だけ（文は出さない）。くわしい文言と規約の文言は記事の最後 */}
+          {a.pr ? <span className="rounded-md border border-amber-300 bg-amber-50 px-1.5 text-sm font-bold tracking-wide text-amber-800">PR</span> : null}
+        </p>
         <h1 className="h-page">{a.title}</h1>
         <p className="text-lg text-slate-700">{a.description}</p>
-        {a.pr ? (
-          // 設計原則8: PR表記必須（ステマ規制）。本文より前に1行だけ。くわしい文言と規約の文言は記事の最後に出す
-          <p className="flex items-center gap-2 text-sm text-slate-500">
-            <span className="rounded border border-slate-300 px-1.5 text-xs font-bold tracking-wide text-slate-500">PR</span>
-            {t.pr}
-          </p>
-        ) : null}
       </header>
 
       <div className="prose-ja">

@@ -118,6 +118,16 @@ groups:
         name: おむつのゴミ箱（蓋つき）
         why: おむつのゴミが増える。専用品の前に、蓋つきのゴミ箱で足りるか試す。
         product: diaper-bin
+      - id: carrier
+        name: 抱っこ紐
+        why: 1か月健診や区役所で両手が空く。製品の「生後○か月から」の表示で選び、産前に使う人が着けてみる。
+        product: carrier-ergo
+        article: /articles/baby-carrier-basics
+      - id: stock
+        name: 液体ミルク・おむつの備蓄（防災）
+        why: 東京都の目安はまず3日分。液体ミルクは常温で保存でき、温めずに使える。
+        product: milk-glico
+        article: /articles/baby-disaster-stock
       - id: meals
         name: 産後1か月の夕食の段取り
         why: 退院後の2週間は区役所の手続きが続く。誰が作るか・何を置いておくか・宅配を使うかを、退院前に決めておく。
@@ -137,3 +147,8 @@ groups:
         name: おしりふきの追加
         why: 想像より減る。
         product: wipes
+      - id: stroller
+        name: ベビーカー
+        why: 1か月健診や外出から。A型は生後1か月から（SG基準）。玄関とエレベーターに入る大きさを先に測る。
+        product: stroller-a
+        article: /articles/stroller-basics

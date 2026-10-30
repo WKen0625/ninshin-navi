@@ -168,3 +168,14 @@
 第3弾（2026-10-02、製品の回。いまは製品名・リンク無しで `pr: false`。タグが来たらリンクを足し `pr: true` と `programs` を付ける）: early-dont-buy-yet（5）, baby-goods-before-after（10）, child-seat-basics（11）, newborn-sleep-space（16）, postpartum-month-restock（23）。hospital-bag（13）はリンクを足すだけ。
 
 同日: foreign-parent-overview/en.md（英語版）, single-parent-overview（ひとり親・都の制度）。計画の候補はすべて着手済み。
+
+## 公開した PR 記事（2026-10-31 追記。商品は content/shop/products.yaml、出典は各記事の sources）
+
+- `baby-carrier-basics` 抱っこ紐の選び方（SG基準の月齢表示・3つの型・転落事故の注意）— late／PR（Amazon・楽天）
+- `stroller-basics` ベビーカーの選び方（A型・B型のSG基準・ベビーカーマーク・事故の注意）— late／PR
+- `baby-disaster-stock` 赤ちゃんの防災備蓄（東京都の日常備蓄の例・液体ミルク・母子手帳の写し）— mid／PR
+- `diaper-buying` おむつの買い方（サイズと枚数のメーカー目安・定期便の仕組み・ごみ）— late／PR
+- `nursery-prep-items` 0歳児の保育園入園準備（持ち物は園に聞く・記名・布団・おむつの定額制）— postpartum／PR
+- `gift-requests` 出産祝いはリクエストで決める（1か月以降に使う高いもの・バウンサーの安全）— late／PR
+- 2026-10-25: `postpartum-meal-delivery`（A8 シェフの無添つくりおき）、`job-search-and-nursery`（A8 ママワークス）
+- 次の候補（A8 の提携が承認されたら）: 写真（お宮参り・百日祝い）、出産内祝い、ミールキット（Oisix）、家事代行。外国籍の家族向けのスマホ・ネット（Sakura Mobile・楽天モバイル）

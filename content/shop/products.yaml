@@ -3,7 +3,7 @@
 # 価格は書かない（Amazon の規約: 価格は公式の仕組みで取得したものしか表示できない）。
 # a8_html は A8 の管理画面でコピーした広告コードを、改変せずにそのまま入れる（A8 の規約）。形が違うと読み込みで止まる（lib/a8.ts）。
 # サービス（宅配食・求人など）は asin・rakuten_keyword を持たず、note に公式ページで確かめた事実を短く書く。
-checked_at: 2026-10-23
+checked_at: 2026-10-31
 products:
   - id: childseat
     item: チャイルドシート（新生児から）
@@ -148,3 +148,106 @@ products:
     name: セブン銀行
     note: 外国籍の人専用のネット申し込みあり。ATMの画面は9言語。入国6か月未満は在職証明書か社員証を足す。2026年6月14日以降に発行の在留カードはネットでは使えない。
     official_url: https://www.sevenbank.co.jp/personal/account/application/online-kaisetsu-foreignnational.html
+  # ここから 2026-10-31 追加（抱っこ紐・ベビーカー・防災・おむつ・保育園・出産祝い）
+  - id: carrier-ergo
+    item: 抱っこ紐（腰ベルト型・新生児から）
+    name: エルゴベビー OMNI Breeze（対面・前向き・腰抱き・おんぶ）
+    note: 対象体重3.2〜20.4kg。前向き抱きは5か月から。メッシュ、洗濯機可。日本正規品は保証つき。
+    asin: B093L4XBV3
+    rakuten_keyword: エルゴベビー オムニブリーズ
+  - id: carrier-mini
+    item: 抱っこ紐（新生児向けの軽い前抱き）
+    name: ベビービョルン ベビーキャリア MINI Air
+    note: 新生児〜約12か月、体重3.2〜11kg。本体約500g、メッシュ。前向きは5か月から。
+    asin: B07D6QZPCS
+    rakuten_keyword: ベビービョルン ベビーキャリア MINI Air
+  - id: carrier-konny
+    item: 抱っこ紐（ラップ型・家の中や短い外出）
+    name: コニー 抱っこ紐 FLEX（サイズ調節式）
+    note: 本体約195g。対象体重は20kgまで（最小は公式の案内で確認）。洗濯機可。SGマークの製品ではない。
+    asin: B0B3R6BJBT
+    rakuten_keyword: コニー 抱っこ紐 フレックス
+  - id: stroller-a
+    item: ベビーカー（A型・両対面・生後1か月から）
+    name: アップリカ カルーンエアーメッシュ AD
+    note: 生後1か月〜36か月（15kg以下）。重さ3.9kg、片手で開閉、両対面。製品安全協会のSG（A形）合格品。シートは洗濯機可。
+    asin: B0HCZ6M7TD
+    rakuten_keyword: アップリカ カルーンエアーメッシュ AD
+  - id: stroller-b
+    item: ベビーカー（B型・生後7か月から）
+    name: コンビ Acbee plus AO
+    note: 生後7か月〜36か月ごろ（15kg以下）。重さ3.7kg。SG（B形）。シートは洗濯機可。
+    asin: B0CCNN1JH2
+    rakuten_keyword: コンビ Acbee plus AO
+  - id: milk-meiji
+    item: 乳児用液体ミルク（缶・240ml）
+    name: 明治 ほほえみ らくらくミルク 240ml×24缶
+    note: 0か月〜。常温で保存でき、調乳せずにそのまま使える。2026年1月からプルタブ式の缶。
+    asin: B0GGMT7ZTR
+    rakuten_keyword: 明治 ほほえみ らくらくミルク 240ml 24缶
+  - id: milk-glico
+    item: 乳児用液体ミルク（紙パック・125ml）
+    name: アイクレオ 赤ちゃんミルク 125ml×18本
+    note: 0か月〜。常温で保存。賞味期限は製造日から10か月（2025年11月製造分から）。紙パック用の乳首は別売り。
+    asin: B0CJFR912F
+    rakuten_keyword: アイクレオ 赤ちゃんミルク 125ml 18本
+  - id: milk-attachment
+    item: 液体ミルクの缶に付ける乳首のアタッチメント
+    name: 明治 らくらくミルク アタッチメント（2026年の240ml缶用）
+    note: 240ml缶専用。ピジョン「母乳実感」の乳首（別売り）を缶に直接付けて飲ませる。古い120ml・200ml缶用の「アタッチメントⅡ」とは別物。
+    asin: B0GVYPLS8Y
+    rakuten_keyword: 明治 らくらくミルク アタッチメント
+  - id: bottle-disposable
+    item: 使い捨ての哺乳瓶
+    name: チューボ おでかけ用ほ乳ボトル（使いきり・4個入）
+    note: 消毒済みで、洗わずに使い捨てる。じゃばらで角度を変えられる。
+    asin: B00DQIMUG0
+    rakuten_keyword: チューボ 使い捨て哺乳瓶
+  - id: powerbank
+    item: モバイルバッテリー（大容量）
+    name: Anker Zolo Power Bank（20000mAh・30W・ケーブル一体型）
+    note: 約270g。USB-Cケーブルが本体についている。スマホを数回充電できる容量。
+    asin: B0DRFQNPDQ
+    rakuten_keyword: Anker Zolo Power Bank 20000mAh 30W
+  - id: diaper-bag-bos
+    item: おむつ用の防臭袋（SSサイズ）
+    name: BOS おむつが臭わない袋 ベビー用 SSサイズ 200枚
+    note: SSは17×27cm。新生児用おむつ1枚ぶん。無香料。
+    asin: B073CHGBGF
+    rakuten_keyword: BOS おむつが臭わない袋 SSサイズ 200枚
+  - id: name-stamp
+    item: お名前スタンプ（保育園用）
+    name: シャチハタ おなまえスタンプ 入学準備BOX（メールオーダー式）
+    note: 買ったあとに名前を申し込んで印面が届く。大きさ8種類、スタンプ台とインクつき。
+    asin: B07XG4RK2X
+    rakuten_keyword: シャチハタ おなまえスタンプ 入学準備BOX
+  - id: futon-nap
+    item: お昼寝布団セット（保育園用）
+    name: タンスのゲン お昼寝布団 7点セット（70×120cm・ネームタグつき）
+    note: 掛け・敷き・枕・各カバー・収納バッグ。すべて洗える。園の指定の大きさと合うかを先に確かめる。
+    asin: B0CVRPVHYV
+    rakuten_keyword: タンスのゲン お昼寝布団セット 7点
+  - id: name-seal
+    item: 布用の名前シール（アイロン不要）
+    name: ジール お名前シール 布用 ノンアイロン（名入れ印刷・186枚）
+    note: 注文時に名前を入れる。貼ってから48時間後に洗濯できる。洗濯機・乾燥機可。
+    asin: B0D5CL3GH3
+    rakuten_keyword: お名前シール 布用 ノンアイロン 名入れ
+  - id: bouncer
+    item: バウンサー
+    name: ベビービョルン バウンサー Bliss Air
+    note: 生後約1か月〜。バウンサーとしては体重9kgまで（公式）。電源不要、本体2.1kg、折りたためる。カバーは洗濯機可。
+    asin: B09DC26NL5
+    rakuten_keyword: ベビービョルン バウンサー Bliss Air
+  - id: baby-monitor
+    item: ベビーモニター（Wi-Fi不要）
+    name: パナソニック ベビーモニター KX-HC705
+    note: カメラとモニター機のセット。Wi-Fiもアプリも要らない。暗い部屋でも映る。音・動き・温度のお知らせ。
+    asin: B07QR8RZJH
+    rakuten_keyword: パナソニック ベビーモニター KX-HC705
+  - id: highlow-chair
+    item: 電動ハイローチェア
+    name: コンビ ネムリラ Auto DR
+    note: 新生児（2.5kg以上）〜4才ごろ（18kg以下）。電動の揺れは15分、揺らせるのは体重8kgまで。重さ11.4kg。
+    asin: B0F32NGZWG
+    rakuten_keyword: コンビ ネムリラ Auto DR

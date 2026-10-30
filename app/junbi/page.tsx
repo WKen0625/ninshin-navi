@@ -24,10 +24,8 @@ export default function JunbiPage() {
     <div className="space-y-7">
       <Breadcrumbs items={[{ name: "トップ", href: "/" }, { name: "出産準備リスト", href: "/junbi" }]} />
       <header className="space-y-3">
-        <p className="flex items-center gap-2 text-sm text-slate-500">
-          <span className="rounded border border-slate-300 px-1.5 text-xs font-bold tracking-wide text-slate-500">PR</span>
-          このページはプロモーションを含みます
-        </p>
+        {/* 設計原則8: PR表記必須。本文より前は「PR」の印だけ（文は出さない。2026-10-31 運営者の指示）。説明と規約の文言はページの最後 */}
+        <p><span className="rounded-md border border-amber-300 bg-amber-50 px-1.5 text-sm font-bold tracking-wide text-amber-800">PR</span></p>
         <h1 className="h-page">出産準備リスト</h1>
         <p className="text-lg leading-loose text-slate-700">
           いつ・何を・どれだけ、を1枚に。産院の持ち物リストと、区で母子手帳と一緒にもらう袋に入っているものは買わない前提で、時期ごとに分けました。チェックはこの端末にだけ保存します。
