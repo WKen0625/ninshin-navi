@@ -24,6 +24,7 @@ export function SiteFooter() {
       <nav aria-label={t.about} className="flex flex-wrap gap-x-4">
         <Link href="/tokyo" className="link">{t.wards}</Link>
         {lang === "ja" ? <Link href="/junbi" className="link">出産準備リスト</Link> : null}
+        <Link href="/about" className="link">{t.about}</Link>
         <Link href="/contact" className="link">{t.contact}</Link>
         <Link href="/privacy" className="link">{t.privacy}</Link>
         <Link href="/terms" className="link">{t.terms}{t.draft}</Link>

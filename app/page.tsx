@@ -2,15 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Icon, IconTile, SectionHeading, type IconName } from "@/components/Icon";
 import { JourneyMap } from "@/components/JourneyMap";
+import { SiteJsonLd } from "@/components/public/SiteJsonLd";
 import { listArticles } from "@/lib/articles";
 import type { Journey } from "@/lib/journey";
 import { WARDS } from "@/lib/wards";
 import { loadServiceArea } from "@/lib/service-area";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "/", languages: { ja: "/", en: "/en", zh: "/zh", ko: "/ko", ru: "/ru" } },
-  title: "Tsugiraku｜妊娠後の手続きで「次に何をするか」がすぐわかる",
-  description: "住んでいる区・出産予定日・手元にある紙から、次にやること・分娩予約の締切・実際の負担額がわかります。すべての金額と期限に出典と確認日。ログインなし。製品の紹介はコラムにだけ、PRと明記して載せます。",
+  alternates: { canonical: "/", languages: { ja: "/", en: "/en", zh: "/zh", ko: "/ko", ru: "/ru", "x-default": "/" } },
+  // 検索結果の題名は、探す言葉（東京23区・妊娠・出産・手続き）を先に。サイト名は最後
+  title: "東京23区の妊娠・出産の手続きナビ｜「次に何をするか」がすぐわかる｜Tsugiraku",
+  description: "東京23区の妊娠・出産の手続きを、住んでいる区・出産予定日・手元にある紙から「次にやること」の順に案内。分娩予約の締切、もらえるお金と実際の負担額も。すべての金額と期限に出典と確認日。ログインなし。製品の紹介はコラムにだけ、PRと明記して載せます。",
 };
 
 /** トップページで約束すること。飾りではなく、すべて実装されている事実だけを書く */
@@ -57,6 +59,7 @@ export default function Home() {
   const articles = listArticles("ja").slice(0, 3);
   return (
     <div className="space-y-10">
+      <SiteJsonLd />
       <section className="space-y-5">
         <p className="chip-ai">東京都23区に住む妊婦さんとご家族へ</p>
         <h1 className="text-[2.1rem] leading-[1.15] font-bold tracking-tight text-ink sm:text-[2.8rem]">
@@ -170,6 +173,7 @@ export default function Home() {
           まちがいを見つけたら、各画面の「まちがいを知らせる」か <a href={`mailto:${area.contact}`} className="link-inline">{area.contact}</a> へ。
         </p>
         <p className="flex flex-wrap gap-x-4">
+          <Link href="/about" className="link">このサイトについて</Link>
           <Link href="/terms" className="link">利用規約</Link>
           <Link href="/policy" className="link">プライバシーポリシー</Link>
           <Link href="/privacy" className="link">保存するものと取り消し</Link>

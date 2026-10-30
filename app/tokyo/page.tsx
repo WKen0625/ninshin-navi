@@ -8,7 +8,7 @@ import { NaviCta } from "@/components/public/NaviCta";
 import { StepLink } from "@/components/public/StepLink";
 import { latestVerified, ym } from "@/lib/public-model";
 import { getPublicModel } from "@/lib/rules";
-import { absUrl } from "@/lib/site";
+import { absUrl, OG_IMAGE } from "@/lib/site";
 
 // 東京23区の手続きの入口: 区を選ぶ・区どうしを比べる・23区共通の手続き
 export const revalidate = 86400;
@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const n = [...m.wardSteps.values()].reduce((k, l) => k + l.length, 0);
   const title = "東京23区の妊娠・出産の手続き一覧｜区ごとの違いを比較｜Tsugiraku";
   const description = `東京23区の妊娠・出産の手続きを、区ごとに時期の順で並べました（区独自の手続き${n}件と23区共通の手続き）。妊娠届・妊婦面談・給付金・区の出産助成の違いも比べられます。すべて公式ページを出典に確認しています。`;
-  return { title, description, alternates: { canonical: "/tokyo" }, openGraph: { title, description, url: "/tokyo" } };
+  return { title, description, alternates: { canonical: "/tokyo" }, openGraph: { images: [OG_IMAGE], title, description, url: "/tokyo" } };
 }
 
 export default async function TokyoIndex() {

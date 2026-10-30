@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { OG_IMAGE } from "@/lib/site";
 import { notFound } from "next/navigation";
 import { PublicStepView } from "@/components/public/PublicStepView";
 import { stepDescription, stepTitle } from "@/lib/public-meta";
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const m = await getPublicModel();
   const p = m.byUrl.get(`/tokyo/${ward}/${slug}`);
   if (!p) return {};
-  return { title: stepTitle(p), description: stepDescription(p, m), alternates: { canonical: p.url }, openGraph: { title: stepTitle(p), description: stepDescription(p, m), url: p.url, type: "article" } };
+  return { title: stepTitle(p), description: stepDescription(p, m), alternates: { canonical: p.url }, openGraph: { images: [OG_IMAGE], title: stepTitle(p), description: stepDescription(p, m), url: p.url, type: "article" } };
 }
 
 export default async function WardStepPage({ params }: Params) {

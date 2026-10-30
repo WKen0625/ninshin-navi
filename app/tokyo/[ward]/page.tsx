@@ -15,7 +15,7 @@ import { PHASE_INFO, PHASES, type Phase } from "@/lib/journey";
 import { regionChain } from "@/lib/next-actions";
 import { amountText, latestVerified, ym } from "@/lib/public-model";
 import { getPublicModel } from "@/lib/rules";
-import { absUrl } from "@/lib/site";
+import { absUrl, OG_IMAGE } from "@/lib/site";
 import { wardBySlug, WARDS } from "@/lib/wards";
 
 // 区の手続き一覧（時期の順）。検索で「◯◯区 妊娠 手続き」から来る人の入口
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const n = m.chainOf(ward.code).filter((p) => p.step.requires !== "loss").length;
   const title = `${ward.name}の妊娠・出産の手続き一覧（${n}件）｜妊娠届から産後の助成まで｜Tsugiraku`;
   const description = `東京都${ward.name}で、妊娠がわかってから産後までに必要な手続き${n}件を時期の順に並べました。妊娠届・妊婦面談・給付金・健診・出生届・児童手当・区の助成の窓口と期限を、公式ページをもとに確認しています。`;
-  return { title, description, alternates: { canonical: `/tokyo/${ward.slug}` }, openGraph: { title, description, url: `/tokyo/${ward.slug}` } };
+  return { title, description, alternates: { canonical: `/tokyo/${ward.slug}` }, openGraph: { images: [OG_IMAGE], title, description, url: `/tokyo/${ward.slug}` } };
 }
 
 export default async function WardPage({ params }: Params) {

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Icon, IconTile, SectionHeading, type IconName } from "@/components/Icon";
+import { LangFonts } from "@/components/LangFonts";
+import { SiteJsonLd } from "@/components/public/SiteJsonLd";
 import { listArticles } from "@/lib/articles";
 import { articleOf, columnsOf, ENGLISH_HINT, FOREIGN_LANGS, HOME, isLang, type Lang } from "@/lib/i18n";
 import { loadServiceArea } from "@/lib/service-area";
@@ -38,6 +40,8 @@ export default async function HomeIntl({ params }: Params) {
   const articles = listArticles(lang).slice(0, 3);
   return (
     <div className="space-y-10" lang={lang}>
+      <LangFonts lang={lang} />
+      <SiteJsonLd lang={lang} />
       <section className="space-y-5">
         <p className="chip-ai">{t.chip}</p>
         <h1 className="text-[2.2rem] leading-[1.15] font-bold tracking-tight text-ink sm:text-[2.6rem]">

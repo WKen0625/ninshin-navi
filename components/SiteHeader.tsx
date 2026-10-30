@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { columnsOf, HEADER, homeOf, LANG_NAME, langOf, LANGS } from "@/lib/i18n";
+import { columnsOf, HEADER, homeOf, LANG_NAME, langOf, LANGS, type Lang } from "@/lib/i18n";
 
 /** 上のタブ: Tsugiraku Navi（アプリ）／負担軽減コラム／コンタクト。どの画面にも出す。タップ領域は 44px 以上 */
 const TABS: { key: "navi" | "columns" | "contact"; href: string; match: string[] }[] = [
@@ -11,14 +11,17 @@ const TABS: { key: "navi" | "columns" | "contact"; href: string; match: string[]
   { key: "contact", href: "/contact", match: ["/contact"] },
 ];
 
-export function SiteHeader() {
-  const path = usePathname();
-  const lang = langOf(path, useSearchParams().get("lang"));
+/**
+ * 上の部分の見た目。言語と現在のパスを受け取るだけで、フック（useSearchParams）を使わない。
+ * layout.tsx の Suspense の fallback にも同じものを日本語で出し、サーバーの HTML の時点で高さを確保する
+ * （fallback が空だと、読み込み後に本文が 140px ほど下にずれ、CLS が悪くなる）
+ */
+export function HeaderView({ lang, path }: { lang: Lang; path: string }) {
   const t = HEADER[lang];
   return (
     <header className="mx-auto max-w-2xl space-y-3 px-4 pt-5">
       <div className="flex items-center justify-between gap-3">
-        <Link href={homeOf(lang)} className="flex items-center gap-2.5" aria-label="Tsugiraku">
+        <Link href={homeOf(lang)} className="flex items-center gap-2.5">
           <span className="grid size-10 place-items-center rounded-2xl bg-gradient-to-br from-indigo-600 via-violet-600 to-sky-500 text-white shadow-hero">
             <svg viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M5 12.5l4.5 4.5L19 7.5" />
@@ -58,4 +61,11 @@ export function SiteHeader() {
       </nav>
     </header>
   );
+}
+
+/** 上の部分。言語は URL（/en など）と、コラムの ?lang= から決める */
+export function SiteHeader() {
+  const path = usePathname();
+  const lang = langOf(path, useSearchParams().get("lang"));
+  return <HeaderView lang={lang} path={path} />;
 }

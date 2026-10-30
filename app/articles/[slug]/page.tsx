@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { LangFonts } from "@/components/LangFonts";
 import { Blocks } from "@/components/Markdown";
+import { JsonLd } from "@/components/public/JsonLd";
+import { ORGANIZATION } from "@/components/public/SiteJsonLd";
 import { getArticle, isLang, STAGE_LABEL, type Lang } from "@/lib/articles";
-import { ARTICLE, articleOf, columnsOf, LANG_NAME, PROGRAM_TEXT } from "@/lib/i18n";
+import { ARTICLE, articleOf, columnsOf, homeOf, LANG_NAME, LIST, PROGRAM_TEXT } from "@/lib/i18n";
 import { loadProducts } from "@/lib/products";
+import { absUrl, OG_IMAGE } from "@/lib/site";
 
 type Params = { params: Promise<{ slug: string }>; searchParams: Promise<{ lang?: string }> };
 
@@ -17,7 +21,7 @@ export async function generateMetadata({ params, searchParams }: Params): Promis
     title: `${a.title}｜Tsugiraku`,
     description: a.description,
     alternates: { canonical: articleOf(a.slug, a.lang), languages: Object.fromEntries(a.langs.map((l) => [l, articleOf(a.slug, l)])) },
-    openGraph: { title: a.title, description: a.description, type: "article", url: articleOf(a.slug, a.lang), ...(a.updated ? { modifiedTime: a.updated } : {}), publishedTime: a.published },
+    openGraph: { images: [OG_IMAGE], title: a.title, description: a.description, type: "article", url: articleOf(a.slug, a.lang), ...(a.updated ? { modifiedTime: a.updated } : {}), publishedTime: a.published },
   };
 }
 
@@ -32,6 +36,7 @@ export default async function ArticlePage({ params, searchParams }: Params) {
   const others = a.langs.filter((l) => l !== lang);
   return (
     <article className="space-y-6 text-base" lang={lang}>
+      <LangFonts lang={lang} />
       <header className="space-y-3">
         <p className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-slate-500">
           <Link href={columnsOf(lang)} className="link-inline">{t.back}</Link>
@@ -85,6 +90,39 @@ export default async function ArticlePage({ params, searchParams }: Params) {
 
       <p className="notice notice-muted">{t.disclaimer}</p>
       <Link href="/navi" className="btn btn-primary w-full">{t.navi}</Link>
+
+      {/* 検索エンジン向け: 記事の構造化データ（題名・公開日・更新日・言語・出典）とパンくず */}
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Article",
+              headline: a.title.slice(0, 110),
+              description: a.description,
+              url: absUrl(articleOf(a.slug, lang)),
+              mainEntityOfPage: absUrl(articleOf(a.slug, lang)),
+              inLanguage: lang,
+              datePublished: `${a.published}T00:00:00+09:00`,
+              dateModified: `${a.updated ?? a.published}T00:00:00+09:00`,
+              image: [absUrl("/opengraph-image.png")],
+              author: ORGANIZATION,
+              publisher: ORGANIZATION,
+              isAccessibleForFree: true,
+              ...(a.tags.length > 0 ? { keywords: a.tags.join(",") } : {}),
+              ...(a.sources.length > 0 ? { citation: a.sources.map((s) => s.url) } : {}),
+            },
+            {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Tsugiraku", item: absUrl(homeOf(lang)) },
+                { "@type": "ListItem", position: 2, name: LIST[lang].title, item: absUrl(columnsOf(lang)) },
+                { "@type": "ListItem", position: 3, name: a.title, item: absUrl(articleOf(a.slug, lang)) },
+              ],
+            },
+          ],
+        }}
+      />
     </article>
   );
 }

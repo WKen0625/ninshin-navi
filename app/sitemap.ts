@@ -27,6 +27,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...LANGS.map((l) => ({ url: absUrl(homeOf(l)), lastModified: toDate(latestSite), changeFrequency: "weekly" as const, priority: l === "ja" ? 1 : 0.6, alternates: homeAlternates })),
     { url: absUrl("/navi"), changeFrequency: "monthly", priority: 0.8 },
     { url: absUrl("/junbi"), changeFrequency: "monthly", priority: 0.9 },
+    { url: absUrl("/about"), changeFrequency: "yearly", priority: 0.4 },
     { url: absUrl("/contact"), changeFrequency: "yearly", priority: 0.3 },
     { url: absUrl("/terms"), changeFrequency: "yearly", priority: 0.2 },
     { url: absUrl("/policy"), changeFrequency: "yearly", priority: 0.2 },

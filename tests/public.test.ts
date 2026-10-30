@@ -73,10 +73,11 @@ describe("話題と URL（変わると検索の評価を失うので固定）", 
 });
 
 describe("ページの中身", () => {
-  it("題名: 区の手続きは「区名の話題」、23区共通は「話題（東京23区）」", async () => {
-    const { stepTitle } = await import("../lib/public-meta");
-    expect(stepTitle(m.byUrl.get("/tokyo/minato/ninshin-todoke")!)).toMatch(/^港区の妊娠届と母子手帳の受け取り｜/);
-    expect(stepTitle(m.byUrl.get("/tokyo/common/shussei-todoke")!)).toMatch(/^出生届（東京23区）｜/);
+  it("題名: 区の手続きは「区名の話題」、23区共通は「東京23区の話題」。やり方・期限・窓口・持ち物と確認月を含む", async () => {
+    const { stepTitle, stepDescription } = await import("../lib/public-meta");
+    expect(stepTitle(m.byUrl.get("/tokyo/minato/ninshin-todoke")!)).toMatch(/^港区の妊娠届と母子手帳の受け取り｜やり方・期限・窓口・持ち物【\d{4}年\d{1,2}月確認】｜Tsugiraku$/);
+    expect(stepTitle(m.byUrl.get("/tokyo/common/shussei-todoke")!)).toMatch(/^東京23区の出生届｜/);
+    expect(stepDescription(m.byUrl.get("/tokyo/minato/ninshin-todoke")!, m)).toMatch(/^東京都港区の「.+」のやり方・期限・窓口・持ち物。/);
   });
   it("予定日を使わない「いつから・いつまで」の文章", () => {
     const w = windowText(m.byUrl.get("/tokyo/common/shussei-todoke")!.step, m.data.documents);

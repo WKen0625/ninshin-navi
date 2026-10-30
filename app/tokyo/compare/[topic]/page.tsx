@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/public/JsonLd";
 import { NaviCta } from "@/components/public/NaviCta";
 import { amountText, latestVerified, subsidyForStep, windowText, ym } from "@/lib/public-model";
 import { getPublicModel } from "@/lib/rules";
-import { absUrl } from "@/lib/site";
+import { absUrl, OG_IMAGE } from "@/lib/site";
 
 // 区どうしの比較（同じ話題の手続きを23区で並べる）。区の公式ページには無い切り口
 export const revalidate = 86400;
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const n = new Set(c.items.map((p) => p.ward!.code)).size;
   const title = `${c.topic.label}｜東京23区の区ごとの違い（窓口・時期・金額）｜Tsugiraku`;
   const description = `${c.topic.lead ?? ""}${n}区を並べて比べられます。各区の公式ページをもとに確認しています。`;
-  return { title, description, alternates: { canonical: `/tokyo/compare/${c.topic.slug}` }, openGraph: { title, description, url: `/tokyo/compare/${c.topic.slug}` } };
+  return { title, description, alternates: { canonical: `/tokyo/compare/${c.topic.slug}` }, openGraph: { images: [OG_IMAGE], title, description, url: `/tokyo/compare/${c.topic.slug}` } };
 }
 
 export default async function ComparePage({ params }: Params) {

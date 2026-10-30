@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { LangFonts } from "@/components/LangFonts";
 import { isLang, isStage, listArticles, STAGE_LABEL, STAGES, type Lang, type Stage } from "@/lib/articles";
 import { articleOf, columnsOf, ENGLISH_HINT, LANG_NAME, LANGS, LIST } from "@/lib/i18n";
 
@@ -22,6 +23,7 @@ export default async function ArticlesPage({ searchParams }: { searchParams: Pro
   const articles = listArticles(lang, stage);
   return (
     <div className="space-y-6" lang={lang}>
+      <LangFonts lang={lang} />
       <header className="space-y-2">
         <h1 className="h-page">{t.title}</h1>
         <p className="text-base text-slate-700">{t.lead}</p>
