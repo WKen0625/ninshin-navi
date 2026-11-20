@@ -81,6 +81,8 @@ export function Toc({ items }: { items: { id: string; text: string }[] }) {
 
 /** | a | b | の表。横に長いときはスクロール */
 export function ArticleTable({ head, rows, render }: { head: string[]; rows: string[][]; render: (text: string) => React.ReactNode }) {
+  // 中身が短い列（6文字まで。例: 「腰ベルト型」）は折り返さない。答えの列が細く折れて読みにくくなるのを防ぐ
+  const short = head.map((_, j) => j > 0 && rows.every((r) => (r[j] ?? "").length <= 6));
   return (
     <div className="article-table -mx-4 overflow-x-auto px-4">
       {/* 3列までは画面の幅に収め（折り返す）、4列以上は横に動かす */}
@@ -91,7 +93,7 @@ export function ArticleTable({ head, rows, render }: { head: string[]; rows: str
         <tbody>
           {rows.map((r, i) => (
             <tr key={i} className="even:bg-slate-50/70">
-              {r.map((c, j) => (j === 0 ? <th key={j} scope="row" className="border-b border-slate-200 px-3 py-2 text-left align-top font-bold text-slate-700">{render(c)}</th> : <td key={j} className="border-b border-slate-200 px-3 py-2 align-top">{render(c)}</td>))}
+              {r.map((c, j) => (j === 0 ? <th key={j} scope="row" className="border-b border-slate-200 px-3 py-2 text-left align-top font-bold text-slate-700">{render(c)}</th> : <td key={j} className={`border-b border-slate-200 px-3 py-2 align-top ${short[j] ? "font-bold whitespace-nowrap text-ink" : ""}`}>{render(c)}</td>))}
             </tr>
           ))}
         </tbody>
