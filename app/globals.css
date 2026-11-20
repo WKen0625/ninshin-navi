@@ -262,3 +262,58 @@ html[data-lang="ru"] .prose-ja {
   color: var(--color-indigo-900);
   text-decoration: none;
 }
+
+/* 記事の部品（components/ArticleParts.tsx）。ママさんブログの見せ方に合わせた囲み・吹き出し・表 */
+.article-box-check ul {
+  list-style: none;
+  padding-left: 0;
+}
+.article-box-check ul > li {
+  position: relative;
+  padding-left: 2rem;
+}
+.article-box-check ul > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.35em;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 0.4rem;
+  border: 2px solid var(--color-emerald-600);
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23059669' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 85% no-repeat,
+    #fff;
+}
+.prose-ja .article-box,
+.prose-ja .talk-bubble {
+  line-height: 1.85;
+}
+.prose-ja .article-box > div > * + * {
+  margin-top: 0.9em;
+}
+/* 吹き出しのしっぽ */
+.talk-bubble::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg);
+  border: inherit;
+  background: inherit;
+}
+.talk-q::before {
+  left: -8px;
+  border-top-color: transparent;
+  border-right-color: transparent;
+}
+.talk-a::before {
+  right: -8px;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+}
+.prose-ja table th,
+.prose-ja table td {
+  line-height: 1.6;
+}

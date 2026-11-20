@@ -2,7 +2,7 @@
 
 import { describe, expect, it } from "vitest";
 import { getArticle, listArticles, validateArticles } from "../lib/articles";
-import { parseInline, parseMarkdown } from "../lib/markdown";
+import { blockTexts, parseInline, parseMarkdown, productIdsIn, relatedSlugsIn, tocOf } from "../lib/markdown";
 import { loadJunbi, loadProducts } from "../lib/products";
 
 const products = loadProducts();
@@ -74,25 +74,26 @@ describe("記事", () => {
       const a = getArticle(slug, lang);
       if (!a) continue; // 下書き（draft: true）は公開前なので、公開の検査は通らない
       // 太字の中のリンク（**[品目](url)**）も数える
-      const links = a.blocks.flatMap((b) => ("text" in b ? [b.text] : "items" in b ? b.items : [])).flatMap(parseInline).flatMap((p) => (p.type === "strong" ? parseInline(p.text) : [p])).filter((p) => p.type === "link");
+      const links = a.blocks.flatMap(blockTexts).flatMap(parseInline).flatMap((p) => (p.type === "strong" ? parseInline(p.text) : [p])).filter((p) => p.type === "link");
       const amazon = links.some((l) => l.type === "link" && /amzn\.(to|asia)|amazon\.co\.jp/.test(l.href));
       const rakuten = links.some((l) => l.type === "link" && /a\.r10\.to|rakuten\.co\.jp/.test(l.href));
       const other = links.some((l) => l.type === "link" && /valuecommerce|a8\.net|moshimo|accesstrade|afi-b/.test(l.href));
       if (amazon) expect(a.programs).toContain("amazon");
       if (rakuten) expect(a.programs).toContain("rakuten");
       if (amazon || rakuten || other) expect(a.pr).toBe(true);
-      // 商品ボックス（[[product:id]]）は Amazon と楽天のリンクを出すので、PR と programs が要る。商品は content/shop/products.yaml にあること
-      const boxes = a.blocks.filter((b) => b.type === "product");
-      if (boxes.some((b) => { const o = products.get((b as { id: string }).id); return o && (o.asin || o.rakuten_keyword || o.a8_html); })) {
-        expect(a.pr, slug).toBe(true);
-      }
-      if (boxes.length > 0) {
-        const offers = boxes.map((b) => products.get((b as { id: string }).id)!).filter(Boolean);
-        if (offers.some((o) => o.asin)) expect(a.programs, slug).toContain("amazon");
-        if (offers.some((o) => o.rakuten_keyword)) expect(a.programs, slug).toContain("rakuten");
-        if (offers.some((o) => o.a8_html)) expect(a.programs, slug).toContain("other");
-        for (const b of boxes) expect(products.has((b as { id: string }).id), `${slug} ${(b as { id: string }).id}`).toBe(true);
-      }
+      // 商品ボックス（[[product:id]]）と比較表（[[compare:...]]）は Amazon と楽天のリンクを出すので、PR と programs が要る。囲みの中も数える。商品は content/shop/products.yaml にあること
+      const ids = productIdsIn(a.blocks);
+      for (const id of ids) expect(products.has(id), `${slug} ${id}`).toBe(true);
+      const offers = ids.map((id) => products.get(id)!).filter(Boolean);
+      if (offers.some((o) => o.asin || o.rakuten_keyword || o.a8_html)) expect(a.pr, slug).toBe(true);
+      if (offers.some((o) => o.asin)) expect(a.programs, slug).toContain("amazon");
+      if (offers.some((o) => o.rakuten_keyword)) expect(a.programs, slug).toContain("rakuten");
+      if (offers.some((o) => o.a8_html)) expect(a.programs, slug).toContain("other");
+      // 関連記事のカード（[[related:...]]）は、公開中の記事だけ
+      for (const r of relatedSlugsIn(a.blocks)) expect(getArticle(r, "ja"), `${slug} → ${r}`).not.toBeNull();
+      // 吹き出しは「よくある疑問」と Tsugiraku の答えだけ（Q: / A:）。体験談の話し手は作らない
+      const walk = (bs: typeof a.blocks): typeof a.blocks => bs.flatMap((b) => (b.type === "box" ? [b, ...walk(b.blocks)] : [b]));
+      for (const b of walk(a.blocks)) if (b.type === "talk") { expect(b.lines.length, slug).toBeGreaterThan(0); for (const l of b.lines) expect(["q", "a"]).toContain(l.who); }
       // 周期は決まった値
       expect(["all", "early", "mid", "late", "birth", "postpartum"]).toContain(a.stage);
     }
@@ -109,7 +110,39 @@ describe("記事", () => {
   });
 });
 
+describe("記事の部品（目次・囲み・吹き出し・表・比較）", () => {
+  it("囲みは中身を同じ書き方で読み、::: で閉じる。題を省くと null", () => {
+    expect(parseMarkdown(":::summary この記事でわかること\n- a\n- **b**\n:::\n\n本文")).toEqual([
+      { type: "box", kind: "summary", title: "この記事でわかること", blocks: [{ type: "ul", items: ["a", "**b**"] }] },
+      { type: "p", text: "本文" },
+    ]);
+    expect(parseMarkdown(":::check\n- x\n:::")).toEqual([{ type: "box", kind: "check", title: null, blocks: [{ type: "ul", items: ["x"] }] }]);
+  });
+  it("吹き出しは Q: と A:（全角のコロンも）。続きの行は前の吹き出しにつなぐ", () => {
+    expect(parseMarkdown(":::talk\nQ: 2本いるの？\nA：1本目は\n腰ベルト型\n:::")).toEqual([
+      { type: "talk", lines: [{ who: "q", text: "2本いるの？" }, { who: "a", text: "1本目は\n腰ベルト型" }] },
+    ]);
+  });
+  it("表は2行目が |---| のときだけ表にする", () => {
+    expect(parseMarkdown("| 項目 | A |\n|---|---|\n| 重さ | 3.9kg |")).toEqual([{ type: "table", head: ["項目", "A"], rows: [["重さ", "3.9kg"]] }]);
+    expect(parseMarkdown("| ただの | 線 |")).toEqual([{ type: "p", text: "| ただの | 線 |" }]);
+  });
+  it("目次・比較・商品の id。比較の id は囲みの中も数える", () => {
+    const bs = parseMarkdown("[[toc]]\n\n## 一\n\n:::point\n[[compare:stroller-a,stroller-b]]\n:::\n\n## 二\n\n[[product:cable]]");
+    expect(bs[0]).toEqual({ type: "toc" });
+    expect(tocOf(bs)).toEqual([{ id: "sec-1", text: "一" }, { id: "sec-2", text: "二" }]);
+    expect(productIdsIn(bs)).toEqual(["stroller-a", "stroller-b", "cable"]);
+    expect(bs.flatMap(blockTexts)).toContain("一");
+  });
+});
+
 describe("商品ボックスと出産準備リスト", () => {
+  it("すべての商品に絵の種類があり、比較表の項目は空でない", () => {
+    for (const p of products.values()) {
+      expect(p.illust, p.id).toBeTruthy();
+      for (const [k, v] of Object.entries(p.specs ?? {})) expect(k.length && v.length, `${p.id} ${k}`).toBeTruthy();
+    }
+  });
   it("[[product:id]] だけの行は商品ボックスになり、前後のリストを分ける", () => {
     expect(parseMarkdown("- a\n\n[[product:cable]]\n\n- b")).toEqual([
       { type: "ul", items: ["a"] },

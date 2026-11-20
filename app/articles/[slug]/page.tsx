@@ -6,6 +6,7 @@ import { Blocks } from "@/components/Markdown";
 import { JsonLd } from "@/components/public/JsonLd";
 import { ORGANIZATION } from "@/components/public/SiteJsonLd";
 import { getArticle, isLang, STAGE_LABEL, type Lang } from "@/lib/articles";
+import { relatedSlugsIn } from "@/lib/markdown";
 import { ARTICLE, articleOf, columnsOf, homeOf, LANG_NAME, LIST, PROGRAM_TEXT } from "@/lib/i18n";
 import { loadProducts } from "@/lib/products";
 import { absUrl, OG_IMAGE } from "@/lib/site";
@@ -61,7 +62,13 @@ export default async function ArticlePage({ params, searchParams }: Params) {
       </header>
 
       <div className="prose-ja">
-        <Blocks blocks={a.blocks} skipH1 sponsored={a.pr} products={loadProducts()} />
+        <Blocks
+          blocks={a.blocks}
+          skipH1
+          sponsored={a.pr}
+          products={loadProducts()}
+          related={new Map(relatedSlugsIn(a.blocks).flatMap((s) => { const r = getArticle(s, lang) ?? getArticle(s, "ja"); return r ? [[s, { slug: s, title: r.title, description: r.description, href: articleOf(s, r.lang) }] as const] : []; }))}
+        />
       </div>
 
       {a.pr ? (
